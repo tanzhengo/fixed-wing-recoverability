@@ -81,17 +81,33 @@ public:
         bool verified = false;
         rollout_t backup;
         pr_t command;
-        int checked = 0;
+        int checked = 0, integration_steps = 0;
+    };
+
+    // Scheduling uses only terminal heading/height and finite primary cost.
+    // Collision, known-space, and envelope checks precede scheduling online.
+    struct recovery_candidate_t {
+        s_t terminal;
+        float cost = std::numeric_limits<float>::infinity();
     };
 
     struct selection_t {
         pr_t command, backup_command;
         rollout_t rollout, backup_rollout;
+        std::vector<pr_t> execution_plan;
         float cost = std::numeric_limits<float>::infinity();
         bool primary_feasible = false, recovery_verified = false;
+        bool reused_verified_plan = false;
+        float plan_remaining_time = 0.0f;
         bool budget_exhausted = false;
         int primary_evaluated = 0, primary_feasible_count = 0;
         int recovery_checked = 0, backup_evaluated = 0;
+        int primary_integration_steps = 0, backup_integration_steps = 0;
+        int cached_integration_steps = 0, cached_segments_checked = 0;
+        // Rank is one-based among feasible primaries sorted by original cost.
+        // scheduled_count is the planned budget; recovery_checked is actual work.
+        int selected_cost_rank = -1, scheduled_count = 0;
+        std::string candidate_order = "cost";
         std::string status = "NO_FEASIBLE_PRIMARY";
     };
 
@@ -137,8 +153,16 @@ public:
         max_descent_angle = constraint(max_descent_angle, 0.0f, 45.0f * Rad2Deg);
         mp_d = horizon_time * mp_V;
         nh.param<bool>("recovery/enabled", recovery_enabled, false);
+        nh.param<bool>("recovery/reuse_verified_plan", reuse_verified_plan, false);
+        nh.param<float>("recovery/min_execution_time", min_execution_time, 0.1f);
+        if (!std::isfinite(min_execution_time) || min_execution_time <= 0) min_execution_time = 0.1f;
         nh.param<float>("recovery/horizon_time", recovery_horizon, 3.0f);
         nh.param<int>("recovery/max_candidates", recovery_max_candidates, 12);
+        nh.param<std::string>("recovery/candidate_order", recovery_order_mode, "cost");
+        if (recovery_order_mode != "cost" && recovery_order_mode != "diverse") {
+            ROS_WARN("Unknown recovery/candidate_order '%s'; using cost", recovery_order_mode.c_str());
+            recovery_order_mode = "cost";
+        }
         nh.param<float>("recovery/known_space_radius", known_space_radius, 0.0f);
         if (!std::isfinite(recovery_horizon)) recovery_horizon = 3.0f;
         recovery_horizon = constraint(recovery_horizon, 0.1f, 10.0f);
@@ -309,6 +333,7 @@ public:
         for (const auto& command : generate_recovery_library(terminal)) {
             ++result.checked;
             const auto backup = rollout_motion_primitive(terminal, command, start_time);
+            result.integration_steps += backup.states.empty() ? 0 : static_cast<int>(backup.states.size()) - 1;
             if (backup.valid && !backup.collision && within_recovery_envelope(backup) &&
                 within_known_space(observed_start, backup)) {
                 result.verified = true;
@@ -320,13 +345,78 @@ public:
         return result;
     }
 
+    // Return original input indices under the configured validation budget.
+    // Deterministic farthest-point coverage supplements, but cannot establish,
+    // recoverability: every scheduled primary still needs explicit validation.
+    std::vector<size_t> recovery_candidate_order(const s_t& initial,
+            const std::vector<recovery_candidate_t>& candidates) const {
+        std::vector<size_t> cost_order;
+        if (!finite_state(initial) || initial.V <= 0) return cost_order;
+        for (size_t i = 0; i < candidates.size(); ++i) {
+            const auto& candidate = candidates[i];
+            if (std::isfinite(candidate.cost) && std::isfinite(candidate.terminal.sigma) &&
+                std::isfinite(candidate.terminal.h)) cost_order.push_back(i);
+        }
+        std::stable_sort(cost_order.begin(), cost_order.end(),
+            [&](size_t a, size_t b) { return candidates[a].cost < candidates[b].cost; });
+        const size_t limit = std::min(cost_order.size(), static_cast<size_t>(recovery_max_candidates));
+        if (recovery_order_mode == "cost" || limit < 2) {
+            cost_order.resize(limit);
+            return cost_order;
+        }
+        // Normalize by the nominal physical maneuver span, NOT the observed
+        // candidate spread. In a narrow altitude band, millimeter differences
+        // consequently remain small instead of becoming a full extra dimension.
+        const float speed = std::max(min_speed, initial.V);
+        const float heading_span = std::min(static_cast<float>(M_PI),
+            gravity * std::abs(std::tan(mp_max_roll)) * horizon_time / speed);
+        const float height_span = speed * horizon_time *
+            std::max(std::tan(max_climb_angle), std::tan(max_descent_angle));
+        const auto distance_squared = [&](size_t a, size_t b) {
+            const auto& first = candidates[a].terminal;
+            const auto& second = candidates[b].terminal;
+            // Circular difference prevents a false split at heading +/-pi.
+            const float heading = heading_span > 1e-5f
+                ? abs_err_angle(first.sigma, second.sigma) / heading_span : 0.0f;
+            const float height = height_span > 1e-5f
+                ? (first.h - second.h) / height_span : 0.0f;
+            return heading * heading + height * height;
+        };
+        std::vector<size_t> selected;
+        selected.reserve(limit);
+        std::vector<bool> used(candidates.size(), false);
+        std::vector<float> closest(candidates.size(), std::numeric_limits<float>::infinity());
+        selected.push_back(cost_order.front());
+        used[selected.back()] = true;
+        while (selected.size() < limit) {
+            size_t next = candidates.size();
+            float farthest = -1.0f;
+            for (size_t i : cost_order) {
+                if (used[i]) continue;
+                closest[i] = std::min(closest[i], distance_squared(i, selected.back()));
+                // Iteration follows stable cost order, resolving equal-distance
+                // ties by cost and then the original input index.
+                if (closest[i] > farthest + 1e-7f) {
+                    farthest = closest[i];
+                    next = i;
+                }
+            }
+            if (next == candidates.size()) break;
+            selected.push_back(next);
+            used[next] = true;
+        }
+        return selected;
+    }
+
     // The optional predictions output avoids recomputing primary rollouts for
     // visualization. Calling this method alone does not publish or execute.
     selection_t select_motion_primitive(const s_t& initial,
                                          std::vector<rollout_t>* predictions = nullptr) {
         selection_t result;
+        result.candidate_order = recovery_order_mode;
         if (predictions) predictions->clear();
         if (!valid_flight_state(initial)) {
+            cached_execution_plan.clear();
             result.status = "INVALID_STATE";
             result.rollout.valid = false;
             return result;
@@ -337,6 +427,7 @@ public:
         for (const auto& command : library) {
             const auto prediction = rollout_motion_primitive(initial, command);
             ++result.primary_evaluated;
+            result.primary_integration_steps += prediction.states.empty() ? 0 : static_cast<int>(prediction.states.size()) - 1;
             if (predictions) predictions->push_back(prediction);
             const float cost = evaluate_motion_primitive(initial, command, prediction);
             const bool is_feasible = prediction.valid && !prediction.collision &&
@@ -357,17 +448,23 @@ public:
         // As in the baseline, only try the previous control after the sampled
         // library has no usable primary. It must pass the same hard filters.
         if (last_pr_ptr && (recovery_enabled ? feasible.empty() : result.cost >= collision_cost)) {
-            const auto prediction = rollout_motion_primitive(initial, *last_pr_ptr);
+            // A reused witness may have a very short remaining front segment.
+            // Reusing its control as a NEW primary must still cover the full
+            // configured horizon; only the cache path may execute a short tail.
+            pr_t previous = *last_pr_ptr;
+            previous.t_way = horizon_time;
+            const auto prediction = rollout_motion_primitive(initial, previous);
             ++result.primary_evaluated;
-            const float cost = evaluate_motion_primitive(initial, *last_pr_ptr, prediction);
+            result.primary_integration_steps += prediction.states.empty() ? 0 : static_cast<int>(prediction.states.size()) - 1;
+            const float cost = evaluate_motion_primitive(initial, previous, prediction);
             if (prediction.valid && !prediction.collision && std::isfinite(cost) &&
                 (!recovery_enabled ||
                     (within_recovery_envelope(prediction) && within_known_space(initial, prediction)))) {
                 ++result.primary_feasible_count;
-                feasible.push_back({*last_pr_ptr, prediction, cost});
+                feasible.push_back({previous, prediction, cost});
             }
             if (!recovery_enabled && cost < result.cost) {
-                result.command = *last_pr_ptr;
+                result.command = previous;
                 result.rollout = prediction;
                 result.cost = cost;
             }
@@ -379,31 +476,56 @@ public:
             result.rollout = feasible.front().rollout;
             result.cost = feasible.front().cost;
             result.primary_feasible = true;
-            const size_t limit = std::min(feasible.size(), static_cast<size_t>(recovery_max_candidates));
-            for (size_t i = 0; i < limit; ++i) {
+            result.selected_cost_rank = 1;
+            std::vector<recovery_candidate_t> summaries;
+            summaries.reserve(feasible.size());
+            for (const auto& candidate : feasible) {
+                recovery_candidate_t summary;
+                summary.terminal = candidate.rollout.states.back();
+                summary.cost = candidate.cost;
+                summaries.push_back(summary);
+            }
+            const auto schedule = recovery_candidate_order(initial, summaries);
+            result.scheduled_count = static_cast<int>(schedule.size());
+            for (size_t i : schedule) {
                 const auto& candidate = feasible[i];
                 ++result.recovery_checked;
                 const auto recovery = check_terminal_recovery(initial, candidate.rollout, candidate.command.t_way);
                 result.backup_evaluated += recovery.checked;
+                result.backup_integration_steps += recovery.integration_steps;
                 if (!recovery.verified) continue;
-                result.command = candidate.command;
-                result.rollout = candidate.rollout;
-                result.cost = candidate.cost;
-                result.backup_command = recovery.command;
-                result.backup_rollout = recovery.backup;
-                result.recovery_verified = true;
-                result.status = "RECOVERY_VERIFIED";
-                return result;
+                // A coverage schedule is not cost-ordered. Keep the cheapest
+                // verified member instead of committing to its first success.
+                if (!result.recovery_verified || candidate.cost < result.cost ||
+                    (candidate.cost == result.cost && static_cast<int>(i) + 1 < result.selected_cost_rank)) {
+                    result.command = candidate.command;
+                    result.rollout = candidate.rollout;
+                    result.cost = candidate.cost;
+                    result.backup_command = recovery.command;
+                    result.backup_rollout = recovery.backup;
+                    result.execution_plan = {candidate.command, recovery.command};
+                    result.plan_remaining_time = candidate.command.t_way + recovery.command.t_way;
+                    result.selected_cost_rank = static_cast<int>(i) + 1;
+                    result.recovery_verified = true;
+                    result.status = "RECOVERY_VERIFIED";
+                }
+                // Cost mode retains its previous first-success behavior. Both
+                // modes may stop if the globally lowest-cost primary passes.
+                if (recovery_order_mode == "cost" || i == 0) return result;
             }
-            result.budget_exhausted = limit < feasible.size();
+            if (result.recovery_verified) return result;
+            result.budget_exhausted = schedule.size() < feasible.size();
             result.status = result.budget_exhausted ? "BUDGET_EXHAUSTED" : "DEGRADED_NO_CONTINUATION";
+            try_reuse_cached_plan(initial, result);
             return result;
         }
         if (!recovery_enabled && std::isfinite(result.cost)) {
             result.primary_feasible = result.rollout.valid && !result.rollout.collision;
+            result.selected_cost_rank = result.primary_feasible ? 1 : -1;
             result.status = result.primary_feasible ? "BASELINE_FEASIBLE" : "BASELINE_UNSAFE";
             return result;
         }
+        if (recovery_enabled && try_reuse_cached_plan(initial, result)) return result;
         // Fixed-wing aircraft cannot stop in place. Retain the existing bounded
         // climb command as an UNSAFE best-effort fallback, and expose the failure.
         // This is not a verified recovery and must be counted as an intervention.
@@ -413,19 +535,128 @@ public:
         emergency.h = constraint(initial.h + 5.0f, min_altitude, max_altitude);
         result.command = generate_unlimited_agility_cmd(emergency, initial);
         result.rollout = rollout_motion_primitive(initial, result.command);
+        result.primary_integration_steps += result.rollout.states.empty() ? 0 : static_cast<int>(result.rollout.states.size()) - 1;
         result.status = recovery_enabled ? "NO_FEASIBLE_PRIMARY" : "BASELINE_UNSAFE";
         return result;
     }
 
-    // Call only when the control is actually accepted for execution. Offline
-    // experiments use this to match the online command-smoothness cost.
+    // Explicit external control history invalidates any cached execution
+    // witness. Existing baselines and matched-state experiments use this API.
     void remember_command(const pr_t& command) {
+        cached_execution_plan.clear();
         if (!last_pr_ptr) last_pr_ptr = new pr_t;
         *last_pr_ptr = command;
     }
 
+    // Record a selection only when its first control is accepted for execution.
+    // This stores an earlier witness; it does NOT verify it in the current map.
+    // Every reuse starts from the then-current measured state and revalidates.
+    void accept_selection(const selection_t& selection) {
+        remember_command(selection.command);
+        if (!recovery_enabled || !reuse_verified_plan || !selection.primary_feasible ||
+            selection.execution_plan.empty()) return;
+        const bool fresh = selection.status == "RECOVERY_VERIFIED" && selection.recovery_verified;
+        const bool reused = selection.status == "REVALIDATED_PLAN" && selection.reused_verified_plan &&
+            !selection.recovery_verified;
+        if (!fresh && !reused) return;
+        if (fresh && selection.execution_plan.size() < 2) return;
+        const auto& first = selection.execution_plan.front();
+        if (!same_control(first, selection.command)) return;
+        for (const auto& command : selection.execution_plan)
+            if (!valid_cached_command(command)) return;
+        cached_execution_plan = selection.execution_plan;
+    }
+
+    // Account for actual elapsed execution time, never the nominal timer period.
+    // A nonfinite/negative duration invalidates the witness; zero is a no-op.
+    void advance_execution(float elapsed) {
+        if (!std::isfinite(elapsed) || elapsed < 0) {
+            cached_execution_plan.clear();
+            return;
+        }
+        while (!cached_execution_plan.empty() && elapsed > 0) {
+            auto& first = cached_execution_plan.front();
+            if (!valid_cached_command(first)) {
+                cached_execution_plan.clear();
+                return;
+            }
+            if (elapsed + 1e-6f >= first.t_way) {
+                elapsed = std::max(0.0f, elapsed - first.t_way);
+                cached_execution_plan.erase(cached_execution_plan.begin());
+            } else {
+                first.t_way -= elapsed;
+                elapsed = 0;
+            }
+        }
+    }
+
+    float remaining_execution_time() const {
+        float total = 0.0f;
+        for (const auto& command : cached_execution_plan) total += command.t_way;
+        return total;
+    }
+
+    std::vector<pr_t> remaining_execution_plan() const { return cached_execution_plan; }
+
+    // Independently callable for diagnostics/tests. REVALIDATED_PLAN reports
+    // only a shrinking, rechecked remainder; it is not a fresh terminal witness
+    // and cannot support an invariant-set or indefinite-flight claim.
+    selection_t revalidate_cached_plan(const s_t& actual) {
+        selection_t result;
+        result.candidate_order = recovery_order_mode;
+        result.status = "NO_CACHED_PLAN";
+        if (!recovery_enabled || !reuse_verified_plan || cached_execution_plan.empty()) return result;
+        result.status = "CACHED_PLAN_REJECTED";
+        // Do not publish a front control beyond the segment that was checked.
+        // This guard assumes the next update occurs within min_execution_time;
+        // unbounded control-update delay is outside this prototype's guarantees.
+        if (!valid_flight_state(actual) ||
+            cached_execution_plan.front().t_way + 1e-5f < min_execution_time) {
+            cached_execution_plan.clear();
+            return result;
+        }
+        s_t state = actual;
+        float start_time = 0.0f;
+        std::vector<rollout_t> predictions;
+        for (const auto& command : cached_execution_plan) {
+            if (!valid_cached_command(command)) {
+                cached_execution_plan.clear();
+                return result;
+            }
+            ++result.cached_segments_checked;
+            const auto predicted = rollout_motion_primitive(state, command, start_time);
+            result.cached_integration_steps += predicted.states.empty() ? 0 :
+                static_cast<int>(predicted.states.size()) - 1;
+            if (!predicted.valid || predicted.collision || !within_recovery_envelope(predicted) ||
+                !within_known_space(actual, predicted)) {
+                cached_execution_plan.clear();
+                return result;
+            }
+            predictions.push_back(predicted);
+            state = predicted.states.back();
+            start_time += command.t_way;
+        }
+        result.command = cached_execution_plan.front();
+        result.rollout = predictions.front();
+        for (size_t i = 1; i < predictions.size(); ++i) {
+            const auto& states = predictions[i].states;
+            const size_t skip = result.backup_rollout.states.empty() ? 0 : 1;
+            result.backup_rollout.states.insert(result.backup_rollout.states.end(), states.begin() + skip, states.end());
+        }
+        if (cached_execution_plan.size() > 1) result.backup_command = cached_execution_plan[1];
+        result.cost = evaluate_motion_primitive(actual, result.command, result.rollout);
+        result.primary_feasible = true;
+        result.reused_verified_plan = true;
+        result.execution_plan = cached_execution_plan;
+        result.plan_remaining_time = start_time;
+        result.status = "REVALIDATED_PLAN";
+        return result;
+    }
+
     void planningCallback(const ros::TimerEvent&) {
         if (!state_ptr) return;
+        const ros::Time planning_time = ros::Time::now();
+        if (have_command_time) advance_execution((planning_time - last_command_time).toSec());
         updateDynamicObstacles();
         check_target(*state_ptr);
         std::vector<rollout_t> predictions;
@@ -440,7 +671,7 @@ public:
         }
         if (!selected.primary_feasible)
             ROS_WARN_THROTTLE(2.0, "No feasible 3D primitive; publishing best-effort emergency only if state is valid");
-        else if (recovery_enabled && !selected.recovery_verified)
+        else if (recovery_enabled && !selected.recovery_verified && !selected.reused_verified_plan)
             ROS_WARN_THROTTLE(2.0, "Primary trajectory is feasible but finite continuation is not verified: %s", selected.status.c_str());
         auto optimal = visual_motion_primitive(selected.rollout);
         optimal.ns = "traj_optimal";
@@ -458,7 +689,8 @@ public:
         backup.color.g = backup.color.b = 1.0f;
         backup.color.a = 1.0f;
         backup.scale.x = 0.35f;
-        if (!selected.recovery_verified) backup.action = visualization_msgs::Marker::DELETE;
+        if ((!selected.recovery_verified && !selected.reused_verified_plan) ||
+            selected.backup_rollout.states.empty()) backup.action = visualization_msgs::Marker::DELETE;
         markers.markers.push_back(backup);
         for (int old_id = id; old_id <= previous_marker_count; ++old_id) {
             visualization_msgs::Marker removed;
@@ -475,21 +707,37 @@ public:
         json << "{\"status\":\"" << selected.status << "\",\"primary_feasible\":"
              << (selected.primary_feasible ? "true" : "false")
              << ",\"recovery_verified\":" << (selected.recovery_verified ? "true" : "false")
+             << ",\"reused_verified_plan\":" << (selected.reused_verified_plan ? "true" : "false")
+             << ",\"plan_remaining_time\":" << selected.plan_remaining_time
+             << ",\"cached_integration_steps\":" << selected.cached_integration_steps
+             << ",\"cached_segments_checked\":" << selected.cached_segments_checked
              << ",\"budget_exhausted\":" << (selected.budget_exhausted ? "true" : "false")
              << ",\"primary_evaluated\":" << selected.primary_evaluated
              << ",\"primary_feasible_count\":" << selected.primary_feasible_count
              << ",\"recovery_checked\":" << selected.recovery_checked
-             << ",\"backup_evaluated\":" << selected.backup_evaluated << "}";
+             << ",\"backup_evaluated\":" << selected.backup_evaluated
+             << ",\"primary_integration_steps\":" << selected.primary_integration_steps
+             << ",\"backup_integration_steps\":" << selected.backup_integration_steps
+             << ",\"selected_cost_rank\":" << selected.selected_cost_rank
+             << ",\"scheduled_count\":" << selected.scheduled_count
+             << ",\"candidate_order\":\"" << selected.candidate_order << "\"}";
         std_msgs::String status;
         status.data = json.str();
         planning_status_pub.publish(status);
         if (selected.status == "INVALID_STATE") return;
-        remember_command(selected.command);
+        accept_selection(selected);
         geometry_msgs::Twist command;
         command.linear.x = selected.command.w_roll_c;
         command.linear.y = selected.command.attack_c;
         command.linear.z = selected.command.T_c;
         cmd_pub.publish(command);
+        // A reused remainder was consumed only up to planning_time. Keep that
+        // accounting origin so this callback's computation time is charged on
+        // the next cycle instead of repeatedly extending the old witness.
+        // A fresh plan starts at publication. Neither branch compensates for
+        // stale sensing, planning latency, or a delayed control update.
+        last_command_time = selected.reused_verified_plan ? planning_time : ros::Time::now();
+        have_command_time = true;
     }
 
     void updateDynamicObstacles() {
@@ -768,6 +1016,37 @@ public:
     }
 
 private:
+    static bool same_control(const pr_t& a, const pr_t& b) {
+        return a.w_roll_c == b.w_roll_c && a.attack_c == b.attack_c &&
+            a.T_c == b.T_c && a.t_way == b.t_way;
+    }
+    bool valid_cached_command(const pr_t& command) const {
+        return std::isfinite(command.t_way) && command.t_way > 0 && command.t_way <= 10.0f + 1e-5f &&
+            std::isfinite(command.w_roll_c) && std::abs(command.w_roll_c) <= mp_max_roll + 1e-5f &&
+            std::isfinite(command.attack_c) && command.attack_c >= mp_min_attack - 1e-5f &&
+            command.attack_c <= mp_max_attack + 1e-5f && std::isfinite(command.T_c) &&
+            command.T_c >= 0 && command.T_c <= max_thrust + 1e-5f;
+    }
+    bool try_reuse_cached_plan(const s_t& actual, selection_t& result) {
+        if (!recovery_enabled || !reuse_verified_plan) return false;
+        const auto reused = revalidate_cached_plan(actual);
+        result.cached_integration_steps += reused.cached_integration_steps;
+        result.cached_segments_checked += reused.cached_segments_checked;
+        if (!reused.reused_verified_plan) return false;
+        result.command = reused.command;
+        result.backup_command = reused.backup_command;
+        result.rollout = reused.rollout;
+        result.backup_rollout = reused.backup_rollout;
+        result.cost = reused.cost;
+        result.primary_feasible = true;
+        result.recovery_verified = false;
+        result.reused_verified_plan = true;
+        result.execution_plan = reused.execution_plan;
+        result.plan_remaining_time = reused.plan_remaining_time;
+        result.selected_cost_rank = -1;  // Not a member of this cycle's sampled library.
+        result.status = "REVALIDATED_PLAN";
+        return true;
+    }
     void load_angle(const std::string& name, float& value, float degrees) {
         nh.param<float>("motion_primitive/" + name, value, degrees);
         value *= Rad2Deg;
@@ -834,9 +1113,13 @@ private:
     float integration_dt, min_speed, max_speed, max_thrust, vertical_clearance;
     float altitude_weight, distance_weight, heading_weight, altitude_tolerance;
     float CL_k1, CL_k2, CD_k1, CD_k2, tau_a;
-    bool recovery_enabled;
-    float recovery_horizon, known_space_radius;
+    bool recovery_enabled, reuse_verified_plan;
+    float recovery_horizon, known_space_radius, min_execution_time;
+    std::vector<pr_t> cached_execution_plan;
+    ros::Time last_command_time;
+    bool have_command_time = false;
     int recovery_max_candidates;
+    std::string recovery_order_mode;
     int mp_num, vertical_num, wp_i = 0, wp_n, previous_marker_count = 0;
     s_t* state_ptr = nullptr;
     pr_t* last_pr_ptr = nullptr;

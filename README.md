@@ -10,13 +10,21 @@ library from their complete terminal states. It exposes verified, degraded,
 budget-exhausted, and infeasible outcomes separately. A finite sampled rollout
 is not a recursively feasible or invariant safety guarantee.
 
-See [the research implementation and experiment guide](docs/recovery/README.md)
-for the method, limitations, commands, and recorded results. The original demo
-configuration leaves this filter disabled. To enable it in the bundled Gazebo
+The second development stage adds a physically scaled candidate-coverage
+schedule and revalidation of a previously accepted plan's remaining controls.
+The default v2 entry point checks up to 12 primary candidates, uses a 6-second
+continuation, and distinguishes a newly verified continuation from a shrinking
+revalidated remainder.
+Cache reuse remains opt-in because the additional speed/range cases exposed
+regressions alongside the gains in the main diagnostic set.
+
+See the [v2 method and experiment guide](docs/recovery/V2.md), or the
+[preserved first-stage guide](docs/recovery/README.md). The original demo
+configuration leaves this filter disabled. To run v2 in the bundled Gazebo
 scene after building and sourcing the workspace:
 
 ```bash
-roslaunch motion_primitives_planning terminal_recovery.launch paused:=false
+roslaunch motion_primitives_planning terminal_recovery_v2.launch paused:=false
 ```
 
 The upstream demo documentation and attribution are preserved below.

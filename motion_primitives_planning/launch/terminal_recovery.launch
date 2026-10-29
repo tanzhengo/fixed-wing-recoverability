@@ -7,6 +7,9 @@
   <arg name="known_space_radius" default="0.0"/>
   <!-- Full primary coverage for the first prototype; 12 is the budget ablation. -->
   <arg name="max_candidates" default="203"/>
+  <arg name="candidate_order" default="cost"/>
+  <arg name="backup_horizon" default="3.0"/>
+  <arg name="reuse_verified_plan" default="false"/>
   <include file="$(find simple_airplane_gazebo)/launch/simple_airplane_empty_world.launch">
     <arg name="world_name" value="$(find simple_airplane_gazebo)/worlds/vertical_avoidance.world"/>
     <arg name="gui" value="$(arg gui)"/>
@@ -20,4 +23,7 @@
   <param name="/suav1/recovery/enabled" value="$(arg enabled)" type="bool"/>
   <param name="/suav1/recovery/known_space_radius" value="$(arg known_space_radius)" type="double"/>
   <param name="/suav1/recovery/max_candidates" value="$(arg max_candidates)" type="int"/>
+  <param name="/suav1/recovery/candidate_order" value="$(arg candidate_order)" type="str"/>
+  <param name="/suav1/recovery/horizon_time" value="$(arg backup_horizon)" type="double"/>
+  <param name="/suav1/recovery/reuse_verified_plan" value="$(arg reuse_verified_plan)" type="bool"/>
 </launch>

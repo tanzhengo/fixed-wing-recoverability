@@ -1,0 +1,35 @@
+{
+  "recorded_at": "2026-10-30T01:41:57.223181+08:00",
+  "previous_version": "80acf593ae376b008a7499634e82ec0df9905bee",
+  "main_episodes": 162,
+  "additional_setting_episodes": 32,
+  "matched_input_configurations": 108,
+  "matched_repeats": 3,
+  "matched_methods": 3,
+  "original_tests": 19,
+  "recovery_tests": 21,
+  "nominal_primary_horizon_s": 3,
+  "backup_horizons_s": [
+    3,
+    6
+  ],
+  "control_dt_s": 0.2,
+  "integration_dt_s": 0.02,
+  "noncache_168_episode_outcomes_and_steps_match_before_cache": true,
+  "timing_environment": "No task-owned Gazebo during measurements; no CPU affinity/real-time scheduling",
+  "source_sha256": {
+    "motion_primitives_planning/src/motion_primitives.h": "c21c64e41813424645ef3ba620f2e5a562966d5981c7320326e4ac457048d128",
+    "motion_primitives_planning/src/recovery_benchmark_v2.cpp": "ee89fef96da7c666574417829f3959c421eba38c28711699bbe32e053a531e20",
+    "motion_primitives_planning/test/test_terminal_recovery.cpp": "2b4a264392d2d631118f1966c01eb2e4d82dce3352b8421342c673c3b1971900",
+    "motion_primitives_planning/scripts/analyze_recovery_v2.py": "baaea08a9914c602f0a8c45fea44b69a081ff67e898ee603c557079e9b920394",
+    "motion_primitives_planning/scripts/plot_recovery_v2.py": "a0896bf82b1d4bd179d9db3e09212b2c5fec7a6ae6a427f87ccd74c93f8a8d78",
+    "motion_primitives_planning/launch/terminal_recovery_v2.launch": "fb6e59284afc29411ad1ed0a90896737d0baa47f4f2424ed8c4f477d6ad7ee29"
+  },
+  "data_sha256": {
+    "recovery_v2_plans.csv": "d74297812be45044bbd02dcecb6cbc4cb692818d2bac8291b2c99a6f992196c3",
+    "recovery_v2_paths.csv": "912f6f00e8b59c968cc40ec92429ef7b9c6a1b7dd110e846399d889ef6cd42d0",
+    "recovery_v2_matched.csv": "ce6f31c7390db6f7eb0a454973a86e023fb4ec3ce3dc757ffc63d874fe7e12ae",
+    "recovery_v2_scenarios.csv": "7b43757276512d6fe4a505895d3631f9d3040f1e0962d60497b0bbf60942ca54",
+    "recovery_v2_episodes.csv": "b6be77e2023442ae3ffc06f80ea3e774e0823eeba25cbcd8c5dacfd1eb0fb957"
+  }
+}

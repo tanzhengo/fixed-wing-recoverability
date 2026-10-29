@@ -37,8 +37,19 @@ motion_primitive:
 recovery:
   enabled: false
   horizon_time: 3.0
-  # Check candidates in baseline-cost order, with at most 15 backups per primary.
+  # At most this many feasible primaries, with <=15 backups per primary.
   max_candidates: 12
+  # cost: original cheapest-first / first verified candidate (compatibility).
+  # diverse: retain the cheapest, then cover distinct terminal heading/height
+  # maneuvers; choose the cheapest verified member of that finite schedule.
+  # Physical maneuver scales avoid exaggerating tiny height-band differences.
+  candidate_order: cost
+  # Optional shrinking execution witness. Only used after full revalidation from
+  # the current state when the new library has no verified continuation.
+  reuse_verified_plan: false
+  # Reject cached front segments shorter than this actual control hold interval.
+  # An update arriving later than this interval is not covered by this guard.
+  min_execution_time: 0.1
   # 0 uses the configured map. Positive values freeze an idealized known-space
   # sphere at the current position for BOTH primary and continuation trajectories.
   # This does not model real camera FOV, visibility occlusions, or aircraft volume.

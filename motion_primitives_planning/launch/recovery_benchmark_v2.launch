@@ -1,0 +1,10 @@
+<launch>
+  <arg name="output_prefix"/>
+  <arg name="phase" default="all"/>
+  <param name="use_sim_time" value="false"/>
+  <node pkg="motion_primitives_planning" type="recovery_benchmark_v2"
+        name="recovery_benchmark_v2" output="screen" required="true">
+    <param name="output_prefix" value="$(arg output_prefix)"/>
+    <param name="phase" value="$(arg phase)"/>
+  </node>
+</launch>

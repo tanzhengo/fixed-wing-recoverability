@@ -161,6 +161,10 @@ target_link_libraries(nav2tf
 add_executable(recovery_benchmark src/recovery_benchmark.cpp)
 target_link_libraries(recovery_benchmark ${catkin_LIBRARIES})
 add_dependencies(recovery_benchmark ${catkin_EXPORTED_TARGETS})
+
+add_executable(recovery_benchmark_v2 src/recovery_benchmark_v2.cpp)
+target_link_libraries(recovery_benchmark_v2 ${catkin_LIBRARIES})
+add_dependencies(recovery_benchmark_v2 ${catkin_EXPORTED_TARGETS})
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -196,6 +200,8 @@ catkin_install_python(PROGRAMS
   scripts/verify_horizontal_avoidance.py
   scripts/summarize_recovery_benchmark.py
   scripts/plot_recovery_benchmark.py
+  scripts/analyze_recovery_v2.py
+  scripts/plot_recovery_v2.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

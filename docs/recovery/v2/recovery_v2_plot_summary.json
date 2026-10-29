@@ -1,0 +1,355 @@
+{
+  "draft": false,
+  "scope": "Deterministic same-model experiments. Main-set plots exclude robustness; timing repeats are not independent inputs.",
+  "paths": {
+    "open": {
+      "baseline": {
+        "case_id": "episode_1",
+        "outcome": "goal"
+      },
+      "cost12_h3": {
+        "case_id": "episode_7",
+        "outcome": "goal"
+      },
+      "diverse12_h3": {
+        "case_id": "episode_13",
+        "outcome": "goal"
+      },
+      "cost203_h6": {
+        "case_id": "episode_19",
+        "outcome": "goal"
+      },
+      "diverse12_h6": {
+        "case_id": "episode_22",
+        "outcome": "goal"
+      },
+      "diverse12_h6_cache": {
+        "case_id": "episode_25",
+        "outcome": "goal"
+      }
+    },
+    "offset_pillars": {
+      "baseline": {
+        "case_id": "episode_28",
+        "outcome": "goal"
+      },
+      "cost12_h3": {
+        "case_id": "episode_34",
+        "outcome": "goal"
+      },
+      "diverse12_h3": {
+        "case_id": "episode_40",
+        "outcome": "goal"
+      },
+      "cost203_h6": {
+        "case_id": "episode_46",
+        "outcome": "goal"
+      },
+      "diverse12_h6": {
+        "case_id": "episode_49",
+        "outcome": "goal"
+      },
+      "diverse12_h6_cache": {
+        "case_id": "episode_52",
+        "outcome": "goal"
+      }
+    },
+    "late_wall": {
+      "baseline": {
+        "case_id": "episode_55",
+        "outcome": "no_feasible_primary"
+      },
+      "cost12_h3": {
+        "case_id": "episode_61",
+        "outcome": "no_feasible_primary"
+      },
+      "diverse12_h3": {
+        "case_id": "episode_67",
+        "outcome": "goal"
+      },
+      "cost203_h6": {
+        "case_id": "episode_73",
+        "outcome": "goal"
+      },
+      "diverse12_h6": {
+        "case_id": "episode_76",
+        "outcome": "goal"
+      },
+      "diverse12_h6_cache": {
+        "case_id": "episode_79",
+        "outcome": "goal"
+      }
+    },
+    "cul_de_sac": {
+      "baseline": {
+        "case_id": "episode_82",
+        "outcome": "no_feasible_primary"
+      },
+      "cost12_h3": {
+        "case_id": "episode_88",
+        "outcome": "no_feasible_primary"
+      },
+      "diverse12_h3": {
+        "case_id": "episode_94",
+        "outcome": "no_feasible_primary"
+      },
+      "cost203_h6": {
+        "case_id": "episode_100",
+        "outcome": "no_feasible_primary"
+      },
+      "diverse12_h6": {
+        "case_id": "episode_103",
+        "outcome": "no_feasible_primary"
+      },
+      "diverse12_h6_cache": {
+        "case_id": "episode_106",
+        "outcome": "no_feasible_primary"
+      }
+    },
+    "wide_entry_cul_de_sac": {
+      "baseline": {
+        "case_id": "episode_109",
+        "outcome": "no_feasible_primary"
+      },
+      "cost12_h3": {
+        "case_id": "episode_115",
+        "outcome": "no_feasible_primary"
+      },
+      "diverse12_h3": {
+        "case_id": "episode_121",
+        "outcome": "no_feasible_primary"
+      },
+      "cost203_h6": {
+        "case_id": "episode_127",
+        "outcome": "goal"
+      },
+      "diverse12_h6": {
+        "case_id": "episode_130",
+        "outcome": "no_feasible_primary"
+      },
+      "diverse12_h6_cache": {
+        "case_id": "episode_133",
+        "outcome": "goal"
+      }
+    },
+    "mirrored_pillars": {
+      "baseline": {
+        "case_id": "episode_136",
+        "outcome": "goal"
+      },
+      "cost12_h3": {
+        "case_id": "episode_142",
+        "outcome": "goal"
+      },
+      "diverse12_h3": {
+        "case_id": "episode_148",
+        "outcome": "goal"
+      },
+      "cost203_h6": {
+        "case_id": "episode_154",
+        "outcome": "goal"
+      },
+      "diverse12_h6": {
+        "case_id": "episode_157",
+        "outcome": "goal"
+      },
+      "diverse12_h6_cache": {
+        "case_id": "episode_160",
+        "outcome": "goal"
+      }
+    }
+  },
+  "comparison": {
+    "main_outcomes": {
+      "baseline": {
+        "goal": 9,
+        "no_feasible_primary": 9
+      },
+      "long6": {
+        "goal": 11,
+        "timeout": 1,
+        "no_feasible_primary": 6
+      },
+      "cost12_h3": {
+        "goal": 9,
+        "no_feasible_primary": 9
+      },
+      "cost203_h3": {
+        "goal": 12,
+        "no_feasible_primary": 6
+      },
+      "diverse12_h3": {
+        "goal": 12,
+        "no_feasible_primary": 6
+      },
+      "cost12_h6": {
+        "goal": 9,
+        "no_feasible_primary": 9
+      },
+      "cost203_h6": {
+        "goal": 15,
+        "no_feasible_primary": 3
+      },
+      "diverse12_h6": {
+        "goal": 13,
+        "no_feasible_primary": 5
+      },
+      "diverse12_h6_cache": {
+        "goal": 15,
+        "no_feasible_primary": 3
+      }
+    },
+    "cache_robustness": {
+      "diverse12_h6": {
+        "episodes": 8,
+        "outcomes": {
+          "goal": 7,
+          "no_feasible_primary": 1
+        }
+      },
+      "diverse12_h6_cache": {
+        "episodes": 8,
+        "outcomes": {
+          "goal": 6,
+          "no_feasible_primary": 1,
+          "timeout": 1
+        }
+      }
+    },
+    "matched": {
+      "3.0": {
+        "unique_inputs": 54,
+        "reference_positive_inputs": 46,
+        "evidence_hits": {
+          "cost203": 46,
+          "diverse12": 46,
+          "cost12": 40
+        }
+      },
+      "6.0": {
+        "unique_inputs": 54,
+        "reference_positive_inputs": 37,
+        "evidence_hits": {
+          "cost203": 37,
+          "diverse12": 34,
+          "cost12": 27
+        }
+      }
+    }
+  },
+  "cache": {
+    "available": true,
+    "by_split_variant": {
+      "development / baseline": {
+        "planning_cycles": 569,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "development / long6": {
+        "planning_cycles": 845,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "development / cost12_h3": {
+        "planning_cycles": 561,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "development / cost203_h3": {
+        "planning_cycles": 789,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "development / diverse12_h3": {
+        "planning_cycles": 781,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "development / cost12_h6": {
+        "planning_cycles": 561,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "development / cost203_h6": {
+        "planning_cycles": 784,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "development / diverse12_h6": {
+        "planning_cycles": 791,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "development / diverse12_h6_cache": {
+        "planning_cycles": 791,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "validation / baseline": {
+        "planning_cycles": 327,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "validation / long6": {
+        "planning_cycles": 281,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "validation / cost12_h3": {
+        "planning_cycles": 327,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "validation / cost203_h3": {
+        "planning_cycles": 327,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "validation / diverse12_h3": {
+        "planning_cycles": 327,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "validation / cost12_h6": {
+        "planning_cycles": 328,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "validation / cost203_h6": {
+        "planning_cycles": 493,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "validation / diverse12_h6": {
+        "planning_cycles": 383,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "validation / diverse12_h6_cache": {
+        "planning_cycles": 497,
+        "reused_verified_plan_cycles": 6,
+        "cached_integration_steps": 2632
+      },
+      "robustness / cost12_h6": {
+        "planning_cycles": 443,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "robustness / cost203_h6": {
+        "planning_cycles": 669,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "robustness / diverse12_h6": {
+        "planning_cycles": 611,
+        "reused_verified_plan_cycles": 0,
+        "cached_integration_steps": 0
+      },
+      "robustness / diverse12_h6_cache": {
+        "planning_cycles": 691,
+        "reused_verified_plan_cycles": 60,
+        "cached_integration_steps": 23894
+      }
+    }
+  }
+}

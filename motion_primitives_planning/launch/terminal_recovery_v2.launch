@@ -1,0 +1,21 @@
+<launch>
+  <arg name="gui" default="true"/>
+  <arg name="rviz" default="true"/>
+  <arg name="paused" default="true"/>
+  <arg name="known_space_radius" default="0.0"/>
+  <arg name="max_candidates" default="12"/>
+  <arg name="candidate_order" default="diverse"/>
+  <arg name="backup_horizon" default="6.0"/>
+  <!-- Opt in for the cache ablation: it helps some cases but also has regressions. -->
+  <arg name="reuse_verified_plan" default="false"/>
+  <include file="$(find motion_primitives_planning)/launch/terminal_recovery.launch">
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="rviz" value="$(arg rviz)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="known_space_radius" value="$(arg known_space_radius)"/>
+    <arg name="max_candidates" value="$(arg max_candidates)"/>
+    <arg name="candidate_order" value="$(arg candidate_order)"/>
+    <arg name="backup_horizon" value="$(arg backup_horizon)"/>
+    <arg name="reuse_verified_plan" value="$(arg reuse_verified_plan)"/>
+  </include>
+</launch>
