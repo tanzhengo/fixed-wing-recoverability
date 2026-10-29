@@ -1,0 +1,8 @@
+<launch>
+  <arg name="output_prefix"/>
+  <param name="use_sim_time" value="false"/>
+  <node pkg="motion_primitives_planning" type="recovery_benchmark"
+        name="recovery_benchmark" output="screen" required="true">
+    <param name="output_prefix" value="$(arg output_prefix)"/>
+  </node>
+</launch>

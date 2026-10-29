@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-10-30T01:07:44.247750+08:00",
+  "baseline_commit": "ccb6005c73992214a86cc0cff4fe648f1443a119",
+  "scope": "model-in-the-loop diagnostic; all episodes retained",
+  "integration_dt_s": 0.02,
+  "control_update_s": 0.2,
+  "max_episode_s": 30,
+  "known_space_radius_m": 0,
+  "static_full_known_geometry": true,
+  "tested_original_cases": 19,
+  "tested_recovery_cases": 9,
+  "files_sha256": {
+    "motion_primitives_planning/src/motion_primitives.h": "b897327e4d963087a4344d30b9d7ab8561dd561ec0a96a75c530e6607cf14094",
+    "motion_primitives_planning/src/recovery_benchmark.cpp": "d1b0d4371ee0cc6a6d1e25a276bca7c739de6b6e0490a19c767785ddafd622e3",
+    "motion_primitives_planning/scripts/summarize_recovery_benchmark.py": "fc7545b9219357bad41e15db66c6c43199f6746c96169b7fe78e5386489babae"
+  }
+}

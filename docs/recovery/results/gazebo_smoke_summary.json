@@ -1,0 +1,21 @@
+{
+  "scope": "8-second wall-time ROS/Gazebo integration smoke check, not route completion or collision audit",
+  "recovery_enabled": true,
+  "max_candidates": 203,
+  "wall_observation_seconds": 8,
+  "status_counts": {
+    "RECOVERY_VERIFIED": 80
+  },
+  "odom_messages": 400,
+  "first_position": [
+    69.80879280837632,
+    -13.435931555106528,
+    8.440927907121495
+  ],
+  "last_position": [
+    103.77103598272244,
+    -125.72560473605608,
+    8.146101959889572
+  ],
+  "planning_status_wall_hz": 9.971307926215536
+}

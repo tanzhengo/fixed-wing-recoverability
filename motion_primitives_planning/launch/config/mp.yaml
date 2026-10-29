@@ -31,3 +31,15 @@ motion_primitive:
   min_attack_angle: -20.0
   compensate_tau: 0.8
   K_T: 2.2
+
+# Experimental finite-horizon continuation filter. Off preserves baseline mode.
+# A passed sampled rollout is NOT an invariant safe set or a safety guarantee.
+recovery:
+  enabled: false
+  horizon_time: 3.0
+  # Check candidates in baseline-cost order, with at most 15 backups per primary.
+  max_candidates: 12
+  # 0 uses the configured map. Positive values freeze an idealized known-space
+  # sphere at the current position for BOTH primary and continuation trajectories.
+  # This does not model real camera FOV, visibility occlusions, or aircraft volume.
+  known_space_radius: 0.0

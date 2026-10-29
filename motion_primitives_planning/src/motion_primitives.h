@@ -3,6 +3,7 @@
 
 #include <geometry_msgs/Twist.h>
 #include <nav_msgs/Odometry.h>
+#include <std_msgs/String.h>
 #include <visualization_msgs/MarkerArray.h>
 #include <ros/ros.h>
 #include <tf/transform_datatypes.h>
@@ -10,6 +11,7 @@
 #include <cmath>
 #include <limits>
 #include <string>
+#include <sstream>
 #include <vector>
 
 #define Rad2Deg 0.017453292519943295f
@@ -73,6 +75,26 @@ public:
         bool collision = false;
     };
 
+    // A verified continuation is only a finite, sampled model rollout. It is
+    // neither an invariant safe set nor a guarantee about later replanning.
+    struct recovery_result_t {
+        bool verified = false;
+        rollout_t backup;
+        pr_t command;
+        int checked = 0;
+    };
+
+    struct selection_t {
+        pr_t command, backup_command;
+        rollout_t rollout, backup_rollout;
+        float cost = std::numeric_limits<float>::infinity();
+        bool primary_feasible = false, recovery_verified = false;
+        bool budget_exhausted = false;
+        int primary_evaluated = 0, primary_feasible_count = 0;
+        int recovery_checked = 0, backup_evaluated = 0;
+        std::string status = "NO_FEASIBLE_PRIMARY";
+    };
+
     explicit MotionPrimitives(ros::NodeHandle node) : nh(node) {
         nh.param<float>("model/CL/k1", CL_k1, 0.03f);
         nh.param<float>("model/CL/k2", CL_k2, 0.028f);
@@ -114,6 +136,15 @@ public:
         max_climb_angle = constraint(max_climb_angle, 0.0f, 45.0f * Rad2Deg);
         max_descent_angle = constraint(max_descent_angle, 0.0f, 45.0f * Rad2Deg);
         mp_d = horizon_time * mp_V;
+        nh.param<bool>("recovery/enabled", recovery_enabled, false);
+        nh.param<float>("recovery/horizon_time", recovery_horizon, 3.0f);
+        nh.param<int>("recovery/max_candidates", recovery_max_candidates, 12);
+        nh.param<float>("recovery/known_space_radius", known_space_radius, 0.0f);
+        if (!std::isfinite(recovery_horizon)) recovery_horizon = 3.0f;
+        recovery_horizon = constraint(recovery_horizon, 0.1f, 10.0f);
+        recovery_max_candidates = std::max(1, recovery_max_candidates);
+        if (!std::isfinite(known_space_radius)) known_space_radius = 0.0f;
+        known_space_radius = std::max(0.0f, known_space_radius);
 
         nh.param<int>("waypoints/num", wp_n, 1);
         wp_n = std::max(1, wp_n);
@@ -194,6 +225,7 @@ public:
         traj_visual_pub = nh.advertise<visualization_msgs::MarkerArray>("traj", 1);
         obs_visual_pub = nh.advertise<visualization_msgs::MarkerArray>("obs", 1);
         goal_visual_pub = nh.advertise<visualization_msgs::Marker>("goal", 1);
+        planning_status_pub = nh.advertise<std_msgs::String>("planning_status", 1);
         planning_timer = nh.createTimer(ros::Duration(0.1), &MotionPrimitives::planningCallback, this);
     }
 
@@ -235,59 +267,199 @@ public:
         return library;
     }
 
+    // Goal-independent continuation controls. This small library deliberately
+    // makes no claim to exhaust all possible recovery maneuvers.
+    std::vector<pr_t> generate_recovery_library(const s_t& terminal) {
+        std::vector<pr_t> library;
+        const float distance = recovery_horizon * std::max(min_speed, terminal.V);
+        const float heights[] = {
+            constraint(terminal.h, min_altitude, max_altitude),
+            constraint(terminal.h + distance * std::tan(max_climb_angle), min_altitude, max_altitude),
+            constraint(terminal.h - distance * std::tan(max_descent_angle), min_altitude, max_altitude)
+        };
+        const float headings[] = {0.0f, -0.5f, 0.5f, -1.0f, 1.0f};
+        for (float height : heights) {
+            for (float heading : headings) {
+                wp_t wp;
+                wp.d = distance;
+                wp.theata = heading * mp_theata;
+                wp.h = height;
+                wp.V = mp_V;
+                pr_t pr = generate_unlimited_agility_cmd(wp, terminal);
+                pr.t_way = recovery_horizon;
+                if (tau_a > 0.1f) pr = compensate_cmd(pr, terminal);
+                library.push_back(pr);
+            }
+        }
+        return library;
+    }
+
+    // start_time is the continuation start relative to the current obstacle
+    // snapshot, normally primary_command.t_way. Never restart moving obstacles
+    // at t=0 at the primary terminal state.
+    recovery_result_t check_terminal_recovery(const s_t& observed_start,
+                                               const rollout_t& primary,
+                                               float start_time) {
+        recovery_result_t result;
+        if (!primary.valid || primary.collision || primary.states.size() < 2 ||
+            !valid_flight_state(observed_start) || !std::isfinite(start_time) || start_time < 0 ||
+            !within_recovery_envelope(primary) || !within_known_space(observed_start, primary)) return result;
+        const s_t& terminal = primary.states.back();
+        if (!valid_flight_state(terminal)) return result;
+        for (const auto& command : generate_recovery_library(terminal)) {
+            ++result.checked;
+            const auto backup = rollout_motion_primitive(terminal, command, start_time);
+            if (backup.valid && !backup.collision && within_recovery_envelope(backup) &&
+                within_known_space(observed_start, backup)) {
+                result.verified = true;
+                result.command = command;
+                result.backup = backup;
+                break;
+            }
+        }
+        return result;
+    }
+
+    // The optional predictions output avoids recomputing primary rollouts for
+    // visualization. Calling this method alone does not publish or execute.
+    selection_t select_motion_primitive(const s_t& initial,
+                                         std::vector<rollout_t>* predictions = nullptr) {
+        selection_t result;
+        if (predictions) predictions->clear();
+        if (!valid_flight_state(initial)) {
+            result.status = "INVALID_STATE";
+            result.rollout.valid = false;
+            return result;
+        }
+        struct candidate_t { pr_t command; rollout_t rollout; float cost; };
+        std::vector<candidate_t> feasible;
+        const auto library = generate_library(initial);
+        for (const auto& command : library) {
+            const auto prediction = rollout_motion_primitive(initial, command);
+            ++result.primary_evaluated;
+            if (predictions) predictions->push_back(prediction);
+            const float cost = evaluate_motion_primitive(initial, command, prediction);
+            const bool is_feasible = prediction.valid && !prediction.collision &&
+                std::isfinite(cost) && (!recovery_enabled ||
+                    (within_recovery_envelope(prediction) && within_known_space(initial, prediction)));
+            if (is_feasible) {
+                ++result.primary_feasible_count;
+                feasible.push_back({command, prediction, cost});
+            }
+            // Preserve the original baseline's soft collision penalty when the
+            // experiment switch is off, including its explicitly unsafe fallback.
+            if (!recovery_enabled && cost < result.cost) {
+                result.command = command;
+                result.rollout = prediction;
+                result.cost = cost;
+            }
+        }
+        // As in the baseline, only try the previous control after the sampled
+        // library has no usable primary. It must pass the same hard filters.
+        if (last_pr_ptr && (recovery_enabled ? feasible.empty() : result.cost >= collision_cost)) {
+            const auto prediction = rollout_motion_primitive(initial, *last_pr_ptr);
+            ++result.primary_evaluated;
+            const float cost = evaluate_motion_primitive(initial, *last_pr_ptr, prediction);
+            if (prediction.valid && !prediction.collision && std::isfinite(cost) &&
+                (!recovery_enabled ||
+                    (within_recovery_envelope(prediction) && within_known_space(initial, prediction)))) {
+                ++result.primary_feasible_count;
+                feasible.push_back({*last_pr_ptr, prediction, cost});
+            }
+            if (!recovery_enabled && cost < result.cost) {
+                result.command = *last_pr_ptr;
+                result.rollout = prediction;
+                result.cost = cost;
+            }
+        }
+        if (recovery_enabled && !feasible.empty()) {
+            std::stable_sort(feasible.begin(), feasible.end(),
+                [](const candidate_t& a, const candidate_t& b) { return a.cost < b.cost; });
+            result.command = feasible.front().command;
+            result.rollout = feasible.front().rollout;
+            result.cost = feasible.front().cost;
+            result.primary_feasible = true;
+            const size_t limit = std::min(feasible.size(), static_cast<size_t>(recovery_max_candidates));
+            for (size_t i = 0; i < limit; ++i) {
+                const auto& candidate = feasible[i];
+                ++result.recovery_checked;
+                const auto recovery = check_terminal_recovery(initial, candidate.rollout, candidate.command.t_way);
+                result.backup_evaluated += recovery.checked;
+                if (!recovery.verified) continue;
+                result.command = candidate.command;
+                result.rollout = candidate.rollout;
+                result.cost = candidate.cost;
+                result.backup_command = recovery.command;
+                result.backup_rollout = recovery.backup;
+                result.recovery_verified = true;
+                result.status = "RECOVERY_VERIFIED";
+                return result;
+            }
+            result.budget_exhausted = limit < feasible.size();
+            result.status = result.budget_exhausted ? "BUDGET_EXHAUSTED" : "DEGRADED_NO_CONTINUATION";
+            return result;
+        }
+        if (!recovery_enabled && std::isfinite(result.cost)) {
+            result.primary_feasible = result.rollout.valid && !result.rollout.collision;
+            result.status = result.primary_feasible ? "BASELINE_FEASIBLE" : "BASELINE_UNSAFE";
+            return result;
+        }
+        // Fixed-wing aircraft cannot stop in place. Retain the existing bounded
+        // climb command as an UNSAFE best-effort fallback, and expose the failure.
+        // This is not a verified recovery and must be counted as an intervention.
+        wp_t emergency;
+        emergency.d = mp_d;
+        emergency.V = mp_V;
+        emergency.h = constraint(initial.h + 5.0f, min_altitude, max_altitude);
+        result.command = generate_unlimited_agility_cmd(emergency, initial);
+        result.rollout = rollout_motion_primitive(initial, result.command);
+        result.status = recovery_enabled ? "NO_FEASIBLE_PRIMARY" : "BASELINE_UNSAFE";
+        return result;
+    }
+
+    // Call only when the control is actually accepted for execution. Offline
+    // experiments use this to match the online command-smoothness cost.
+    void remember_command(const pr_t& command) {
+        if (!last_pr_ptr) last_pr_ptr = new pr_t;
+        *last_pr_ptr = command;
+    }
+
     void planningCallback(const ros::TimerEvent&) {
         if (!state_ptr) return;
         updateDynamicObstacles();
         check_target(*state_ptr);
-        const std::vector<pr_t> library = generate_library(*state_ptr);
+        std::vector<rollout_t> predictions;
+        const selection_t selected = select_motion_primitive(*state_ptr, &predictions);
         visualization_msgs::MarkerArray markers;
-        float best_cost = std::numeric_limits<float>::infinity();
-        pr_t selected;
-        rollout_t selected_rollout;
         int id = 1;
-        for (const pr_t& pr : library) {
-            // Score and display the exact command that will be sent, once.
-            const rollout_t prediction = rollout_motion_primitive(*state_ptr, pr);
-            const float cost = evaluate_motion_primitive(*state_ptr, pr, prediction);
-            if (cost < best_cost) {
-                selected = pr;
-                selected_rollout = prediction;
-                best_cost = cost;
-            }
+        for (const auto& prediction : predictions) {
             auto marker = visual_motion_primitive(prediction);
             marker.ns = "traj" + std::to_string(id);
             marker.id = id++;
             markers.markers.push_back(marker);
         }
-        if (best_cost >= collision_cost && last_pr_ptr) {
-            const rollout_t prediction = rollout_motion_primitive(*state_ptr, *last_pr_ptr);
-            const float cost = evaluate_motion_primitive(*state_ptr, *last_pr_ptr, prediction);
-            if (cost < best_cost) {
-                selected = *last_pr_ptr;
-                selected_rollout = prediction;
-                best_cost = cost;
-            }
-        }
-        if (!std::isfinite(best_cost)) {
-            wp_t recovery;
-            recovery.d = mp_d;
-            recovery.V = mp_V;
-            recovery.h = constraint(state_ptr->h + 5.0f, min_altitude, max_altitude);
-            selected = generate_unlimited_agility_cmd(recovery, *state_ptr);
-            selected_rollout = rollout_motion_primitive(*state_ptr, selected);
-        }
-        if (best_cost >= collision_cost)
-            ROS_WARN_THROTTLE(2.0, "No collision-free 3D primitive in the current local horizon");
-        auto optimal = visual_motion_primitive(selected_rollout);
+        if (!selected.primary_feasible)
+            ROS_WARN_THROTTLE(2.0, "No feasible 3D primitive; publishing best-effort emergency only if state is valid");
+        else if (recovery_enabled && !selected.recovery_verified)
+            ROS_WARN_THROTTLE(2.0, "Primary trajectory is feasible but finite continuation is not verified: %s", selected.status.c_str());
+        auto optimal = visual_motion_primitive(selected.rollout);
         optimal.ns = "traj_optimal";
         optimal.id = 1;
         optimal.color.r = 1.0f;
         optimal.color.g = 0.0f;
-        optimal.color.b = best_cost >= collision_cost ? 1.0f : 0.0f;
+        optimal.color.b = !selected.primary_feasible ? 1.0f : 0.0f;
         optimal.color.a = 1.0f;
         optimal.scale.x = 0.45f;
         markers.markers.push_back(optimal);
-        // Remove old candidate markers if clipping/deduplication shrinks a library.
+        auto backup = visual_motion_primitive(selected.backup_rollout);
+        backup.ns = "traj_continuation";
+        backup.id = 1;
+        backup.color.r = 0.0f;
+        backup.color.g = backup.color.b = 1.0f;
+        backup.color.a = 1.0f;
+        backup.scale.x = 0.35f;
+        if (!selected.recovery_verified) backup.action = visualization_msgs::Marker::DELETE;
+        markers.markers.push_back(backup);
         for (int old_id = id; old_id <= previous_marker_count; ++old_id) {
             visualization_msgs::Marker removed;
             removed.ns = "traj" + std::to_string(old_id);
@@ -299,12 +471,24 @@ public:
         traj_visual_pub.publish(markers);
         obs_visual_pub.publish(collision_visual());
         goal_visual_pub.publish(goal_visual());
-        if (!last_pr_ptr) last_pr_ptr = new pr_t;
-        *last_pr_ptr = selected;
+        std::ostringstream json;
+        json << "{\"status\":\"" << selected.status << "\",\"primary_feasible\":"
+             << (selected.primary_feasible ? "true" : "false")
+             << ",\"recovery_verified\":" << (selected.recovery_verified ? "true" : "false")
+             << ",\"budget_exhausted\":" << (selected.budget_exhausted ? "true" : "false")
+             << ",\"primary_evaluated\":" << selected.primary_evaluated
+             << ",\"primary_feasible_count\":" << selected.primary_feasible_count
+             << ",\"recovery_checked\":" << selected.recovery_checked
+             << ",\"backup_evaluated\":" << selected.backup_evaluated << "}";
+        std_msgs::String status;
+        status.data = json.str();
+        planning_status_pub.publish(status);
+        if (selected.status == "INVALID_STATE") return;
+        remember_command(selected.command);
         geometry_msgs::Twist command;
-        command.linear.x = selected.w_roll_c;
-        command.linear.y = selected.attack_c;
-        command.linear.z = selected.T_c;
+        command.linear.x = selected.command.w_roll_c;
+        command.linear.y = selected.command.attack_c;
+        command.linear.z = selected.command.T_c;
         cmd_pub.publish(command);
     }
 
@@ -446,16 +630,19 @@ public:
         return false;
     }
 
-    rollout_t rollout_motion_primitive(const s_t& initial, const pr_t& pr) const {
+    rollout_t rollout_motion_primitive(const s_t& initial, const pr_t& pr, float start_time = 0.0f) const {
         rollout_t result;
         result.states.push_back(initial);
         s_t s = initial;
-        if (!finite_state(s) || !std::isfinite(pr.T_c) || !std::isfinite(pr.attack_c) ||
-            !std::isfinite(pr.w_roll_c) || !std::isfinite(pr.t_way) || pr.t_way <= 0) {
+        if (!valid_flight_state(s) || !std::isfinite(pr.T_c) || !std::isfinite(pr.attack_c) ||
+            !std::isfinite(pr.w_roll_c) || !std::isfinite(pr.t_way) || pr.t_way <= 0 ||
+            !std::isfinite(start_time) || start_time < 0 ||
+            pr.T_c < 0 || pr.T_c > max_thrust || std::abs(pr.w_roll_c) > mp_max_roll + 1e-5f ||
+            pr.attack_c < mp_min_attack - 1e-5f || pr.attack_c > mp_max_attack + 1e-5f) {
             result.valid = false;
             return result;
         }
-        result.collision = collision_check(s.pos[0], s.pos[1], s.h);
+        result.collision = collision_check(s.pos[0], s.pos[1], s.h, start_time);
         for (float t = 0; t < pr.t_way - 1e-6f;) {
             const float dt = std::min(integration_dt, pr.t_way - t);
             const float speed = std::max(1.0f, s.V);
@@ -480,7 +667,7 @@ public:
                 result.valid = false;
                 break;
             }
-            if (collision_check(s.pos[0], s.pos[1], s.h, t)) result.collision = true;
+            if (collision_check(s.pos[0], s.pos[1], s.h, start_time + t)) result.collision = true;
         }
         return result;
     }
@@ -590,6 +777,37 @@ private:
             std::isfinite(s.T) && std::isfinite(s.h) && std::isfinite(s.pos[0]) &&
             std::isfinite(s.pos[1]) && std::isfinite(s.roll) && std::isfinite(s.attack) && std::isfinite(s.d_sigma);
     }
+    bool valid_flight_state(const s_t& s) const {
+        return finite_state(s) && s.V >= min_speed && s.V <= max_speed &&
+            s.h >= min_altitude && s.h <= max_altitude && std::abs(s.gamma) <= 80.0f * Rad2Deg &&
+            std::abs(s.roll) <= mp_max_roll + 1e-5f &&
+            s.attack >= mp_min_attack - 1e-5f && s.attack <= mp_max_attack + 1e-5f &&
+            s.T >= 0 && s.T <= max_thrust + 1e-5f;
+    }
+    bool within_recovery_envelope(const rollout_t& rollout) const {
+        // The baseline uses climb/descent angles to sample waypoint heights.
+        // Continuation verification additionally enforces those limits on every
+        // predicted state, including the current and primary terminal states.
+        // Recheck states rather than trusting a caller-supplied valid flag.
+        for (const auto& s : rollout.states) {
+            if (!valid_flight_state(s) || s.gamma > max_climb_angle + 1e-5f ||
+                s.gamma < -max_descent_angle - 1e-5f) return false;
+        }
+        return !rollout.states.empty();
+    }
+    bool within_known_space(const s_t& observed_start, const rollout_t& rollout) const {
+        // Idealized spherical observation footprint, frozen at planning start.
+        // It is not a camera FOV, occlusion model, or measured free-space map.
+        for (const auto& s : rollout.states) {
+            if (!finite_state(s)) return false;
+            if (known_space_radius <= 0) continue;
+            const float dx = s.pos[0] - observed_start.pos[0];
+            const float dy = s.pos[1] - observed_start.pos[1];
+            const float dz = s.h - observed_start.h;
+            if (dx*dx + dy*dy + dz*dz > known_space_radius * known_space_radius) return false;
+        }
+        return !rollout.states.empty();
+    }
     bool inside_cylinder(float x, float y, float z, float ox, float oy, float center_z, float radius, float height) const {
         return std::abs(z - center_z) <= height / 2.0f + vertical_clearance &&
             std::hypot(x - ox, y - oy) <= radius * 1.2f;
@@ -616,12 +834,15 @@ private:
     float integration_dt, min_speed, max_speed, max_thrust, vertical_clearance;
     float altitude_weight, distance_weight, heading_weight, altitude_tolerance;
     float CL_k1, CL_k2, CD_k1, CD_k2, tau_a;
+    bool recovery_enabled;
+    float recovery_horizon, known_space_radius;
+    int recovery_max_candidates;
     int mp_num, vertical_num, wp_i = 0, wp_n, previous_marker_count = 0;
     s_t* state_ptr = nullptr;
     pr_t* last_pr_ptr = nullptr;
     ros::NodeHandle nh;
     ros::Subscriber odom_sub;
-    ros::Publisher cmd_pub, traj_visual_pub, obs_visual_pub, goal_visual_pub;
+    ros::Publisher cmd_pub, traj_visual_pub, obs_visual_pub, goal_visual_pub, planning_status_pub;
     ros::Timer planning_timer;
     target_t global_target;
     std::vector<target_t> wp_vec;

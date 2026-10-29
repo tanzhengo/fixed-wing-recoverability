@@ -1,0 +1,7 @@
+<launch>
+  <param name="use_sim_time" value="false" />
+  <test test-name="terminal_recovery_test"
+        pkg="motion_primitives_planning"
+        type="terminal_recovery_test"
+        time-limit="60.0" />
+</launch>

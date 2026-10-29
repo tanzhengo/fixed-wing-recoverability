@@ -1,4 +1,27 @@
-# Two-Phase Motion Planning for Fixed-Wing UAVs
+# fixed-wing-recoverability
+
+Private research development based on
+[HKPolyU-UAV/Two-phase-motion-planning](https://github.com/HKPolyU-UAV/Two-phase-motion-planning),
+baseline commit `ccb6005c73992214a86cc0cff4fe648f1443a119`.
+
+This version adds an optional **finite-horizon continuation filter**: rank
+collision-free primary primitives, then verify a small goal-independent backup
+library from their complete terminal states. It exposes verified, degraded,
+budget-exhausted, and infeasible outcomes separately. A finite sampled rollout
+is not a recursively feasible or invariant safety guarantee.
+
+See [the research implementation and experiment guide](docs/recovery/README.md)
+for the method, limitations, commands, and recorded results. The original demo
+configuration leaves this filter disabled. To enable it in the bundled Gazebo
+scene after building and sourcing the workspace:
+
+```bash
+roslaunch motion_primitives_planning terminal_recovery.launch paused:=false
+```
+
+The upstream demo documentation and attribution are preserved below.
+
+## Two-Phase Motion Planning for Fixed-Wing UAVs — upstream demo
 
 A ROS 1 research workspace for fixed-wing UAV motion planning in cluttered environments. The current simulation demo uses a receding-horizon library of **3D motion primitives** to select collision-checked flight commands, with matching obstacle geometry in **Gazebo Classic** and **RViz**.
 

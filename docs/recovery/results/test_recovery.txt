@@ -1,0 +1,20 @@
+[Testcase: testterminal_recovery_test] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[motion_primitives_planning.rosunit-terminal_recovery_test/OpenSpaceHasVerifiedContinuationWithFullStateContinuity][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/SafePrimaryCanHaveNoVerifiedContinuation][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/SelectionRejectsShortSightedWinnerForVerifiedTurn][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/InvalidStatesAndCommandsCannotBecomeEvidence][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/RecoveryRejectsInteriorFlightPathAngleViolations][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/KnownSpaceRemainsCenteredAtObservationState][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/DynamicObstacleUsesAbsoluteContinuationStartTime][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/BudgetExhaustionIsDifferentFromNoFeasiblePrimary][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/DisabledModeMatchesOriginalGreedySelection][passed]
+
+SUMMARY
+ * RESULT: SUCCESS
+ * TESTS: 9
+ * ERRORS: 0
+ * FAILURES: 0
+

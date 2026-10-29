@@ -1,0 +1,104 @@
+{
+  "scope": "Deterministic model-in-the-loop, same plant and prediction model; full known static geometry. Not independent Gazebo validation or a safety proof.",
+  "variants": {
+    "baseline_3s": {
+      "episodes": 12,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 6
+      },
+      "planning_cycles": 569,
+      "mean_ms": 3.115987996485061,
+      "p95_ms": 19.24028000000001,
+      "p99_ms": 19.806256000000005,
+      "max_ms": 21.8642,
+      "cycles_over_100ms_reference": 0,
+      "status_counts": {
+        "BASELINE_FEASIBLE": 563,
+        "BASELINE_UNSAFE": 6
+      },
+      "verified_cycles": 0,
+      "budget_exhausted_cycles": 0
+    },
+    "dense_3s": {
+      "episodes": 12,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 6
+      },
+      "planning_cycles": 574,
+      "mean_ms": 8.244303292682929,
+      "p95_ms": 49.71566,
+      "p99_ms": 50.263568,
+      "max_ms": 50.3933,
+      "cycles_over_100ms_reference": 0,
+      "status_counts": {
+        "BASELINE_FEASIBLE": 568,
+        "BASELINE_UNSAFE": 6
+      },
+      "verified_cycles": 0,
+      "budget_exhausted_cycles": 0
+    },
+    "long_6s": {
+      "episodes": 12,
+      "outcomes": {
+        "goal": 8,
+        "timeout": 1,
+        "no_feasible_primary": 3
+      },
+      "planning_cycles": 845,
+      "mean_ms": 5.577598781065091,
+      "p95_ms": 7.037618,
+      "p99_ms": 39.431363999999995,
+      "max_ms": 39.5992,
+      "cycles_over_100ms_reference": 0,
+      "status_counts": {
+        "BASELINE_FEASIBLE": 842,
+        "BASELINE_UNSAFE": 3
+      },
+      "verified_cycles": 0,
+      "budget_exhausted_cycles": 0
+    },
+    "recovery_3plus3s": {
+      "episodes": 12,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 6
+      },
+      "planning_cycles": 561,
+      "mean_ms": 3.417777771836007,
+      "p95_ms": 5.84402,
+      "p99_ms": 37.38144,
+      "max_ms": 38.6643,
+      "cycles_over_100ms_reference": 0,
+      "status_counts": {
+        "RECOVERY_VERIFIED": 480,
+        "BUDGET_EXHAUSTED": 72,
+        "NO_FEASIBLE_PRIMARY": 6,
+        "DEGRADED_NO_CONTINUATION": 3
+      },
+      "verified_cycles": 480,
+      "budget_exhausted_cycles": 72
+    },
+    "recovery_full": {
+      "episodes": 12,
+      "outcomes": {
+        "goal": 9,
+        "no_feasible_primary": 3
+      },
+      "planning_cycles": 789,
+      "mean_ms": 2.9497272370088696,
+      "p95_ms": 7.214813999999997,
+      "p99_ms": 19.413056,
+      "max_ms": 30.6027,
+      "cycles_over_100ms_reference": 0,
+      "status_counts": {
+        "RECOVERY_VERIFIED": 742,
+        "DEGRADED_NO_CONTINUATION": 44,
+        "NO_FEASIBLE_PRIMARY": 3
+      },
+      "verified_cycles": 742,
+      "budget_exhausted_cycles": 0
+    }
+  }
+}

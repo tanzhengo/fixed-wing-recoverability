@@ -1,0 +1,23 @@
+<launch>
+  <!-- Existing independent Gazebo demo, with finite continuation checking. -->
+  <arg name="gui" default="true"/>
+  <arg name="rviz" default="true"/>
+  <arg name="paused" default="true"/>
+  <arg name="enabled" default="true"/>
+  <arg name="known_space_radius" default="0.0"/>
+  <!-- Full primary coverage for the first prototype; 12 is the budget ablation. -->
+  <arg name="max_candidates" default="203"/>
+  <include file="$(find simple_airplane_gazebo)/launch/simple_airplane_empty_world.launch">
+    <arg name="world_name" value="$(find simple_airplane_gazebo)/worlds/vertical_avoidance.world"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="paused" value="$(arg paused)"/>
+  </include>
+  <include file="$(find motion_primitives_planning)/launch/motion_primitives_test.launch">
+    <arg name="task_config" value="$(find motion_primitives_planning)/launch/config/task_3d_validation.yaml"/>
+    <arg name="gazebo_dynamic_obstacles" value="false"/>
+    <arg name="rviz" value="$(arg rviz)"/>
+  </include>
+  <param name="/suav1/recovery/enabled" value="$(arg enabled)" type="bool"/>
+  <param name="/suav1/recovery/known_space_radius" value="$(arg known_space_radius)" type="double"/>
+  <param name="/suav1/recovery/max_candidates" value="$(arg max_candidates)" type="int"/>
+</launch>
