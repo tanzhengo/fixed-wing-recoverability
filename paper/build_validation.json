@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-30",
+  "engine": "Tectonic 0.17.0",
+  "pages": 10,
+  "figures": 6,
+  "references": 11,
+  "author_format": "anonymous review manuscript",
+  "pdf_sha256": "e82e31d4df05f4cb6a8e447bf195071d5c67de8229d70add7ad0f7c6cdf34cae",
+  "unresolved_references": 0,
+  "overfull_boxes": 0,
+  "render_check": "All pages reviewed as PNG; compact vector figures use 8–9 pt labels.",
+  "sources": {
+    "abstract.tex": "8e1e398194780e8a6129c420194a3e92317ace995cc976d4a32a687272b04819",
+    "conclusion.tex": "63506826d406f4dfa5cd4e7b590e3d62cb67c65e0c33aa9934dabf1d4e5c324e",
+    "experiments.tex": "53c17ffb8198ec5bf38f761efc9e7c3d0faa848f0764ea87fef9ac5ddcd389c6",
+    "implementation.tex": "c4a568bfcb67a81f66a7ebc29c2e39b234356deb01c15b1b69becd5c3fcb2c35",
+    "incremental_results.tex": "8f8aaf87b41ba0cb35efec9374d2e1c362401d178ca07ab6a4f422e7c7e9ae12",
+    "introduction.tex": "6495136697d2c207cb02ef22abf254c1c664c7bc3a85f9c6f251f3c21a09470a",
+    "main.tex": "f29862071a0b5c2871a520304fef6fc75e360d1d432abe5457ebaa1cc7be18e6",
+    "method.tex": "964ce722fa65e9219eb8160c04de526b179d723d9d851712cde353fb572e5025",
+    "results.tex": "d8c93476cc7660712b3d92ed346722e1bf367ff59971eec0abc4d64fbb8d4d11"
+  }
+}

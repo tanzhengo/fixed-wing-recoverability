@@ -7,6 +7,7 @@
 #include <memory>
 #include <cstdint>
 using MP=MotionPrimitives;
+bool stop_on_rejection=false;
 struct Obstacle {std::string type;double x,y,z,r,height;};
 struct Scene {std::string name,family;double low=16,high=24;std::vector<Obstacle> obstacles;};
 struct Method {std::string name,order;int candidates=12,work=0;double horizon=3;bool terminal=true,cache=false;};
@@ -34,6 +35,7 @@ void configure(ros::NodeHandle& nh,const Scene& scene,const Method& method,doubl
     nh.setParam("motion_primitive/horizon_time",method.horizon);nh.setParam("motion_primitive/V",speed);
     nh.setParam("motion_primitive/num",29);nh.setParam("motion_primitive/vertical_num",7);
     nh.setParam("motion_primitive/min_altitude",scene.low);nh.setParam("motion_primitive/max_altitude",scene.high);
+    nh.setParam("recovery/stop_on_rejection",stop_on_rejection);
     nh.setParam("recovery/enabled",true);nh.setParam("recovery/require_terminal",method.terminal);
     nh.setParam("recovery/horizon_time",6.);nh.setParam("recovery/max_candidates",method.candidates);
     nh.setParam("recovery/candidate_order",method.order);nh.setParam("recovery/max_backup_integration_steps",method.work);
@@ -63,6 +65,7 @@ void decision_record(std::ostream& o,const MP::selection_t& d,double ms){o<<ms<<
 MP::selection_t select(MP& p,const MP::s_t& s,double& ms){const auto t=std::chrono::steady_clock::now();auto d=p.select_motion_primitive(s);ms=std::chrono::duration<double,std::milli>(std::chrono::steady_clock::now()-t).count();return d;}
 int main(int argc,char** argv){
     ros::init(argc,argv,"recovery_benchmark_v3");ros::NodeHandle args("~");std::string prefix,phase;
+    args.param<bool>("stop_on_rejection",stop_on_rejection,false);
     args.param<std::string>("output_prefix",prefix,"/tmp/recovery_v3");args.param<std::string>("phase",phase,"all");
     if(phase!="all"&&phase!="episodes"&&phase!="matched"&&phase!="diagnostic")return 2;
     auto maps=scenes();std::ofstream geometry(prefix+"_scenarios.csv");geometry<<std::setprecision(10)<<"scene,family,low,high,type,x,y,z,r,height\n";

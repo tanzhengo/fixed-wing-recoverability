@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-30",
+  "source_parent_commit": "4b3b0f61d216cb609e6c067d1594a568efe84eb2",
+  "source_sha256": {
+    "motion_primitives_planning/src/motion_primitives.h": "09d8f64109785f2734d53c1e216e7c4aef3eb82000765571886fb8bb4b07af28",
+    "motion_primitives_planning/src/recovery_benchmark_v3.cpp": "2e5f8a054318c418b3d404d82f6e0ede00e931bda7e1cf6b0c748bb3993ddc62",
+    "motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+    "motion_primitives_planning/scripts/analyze_recovery_v4.py": "b10d9c67db52907760b961c9778d3c1ebb00cc4c53a26e86ac97cc9442cfb956",
+    "docs/recovery/V4_PROTOCOL.md": "92171ed82b69272d72d4b4f1730ffaf9870674d1b8f6337296157d101b076306"
+  },
+  "data_sha256": {
+    "recovery_v4_paths.csv": "502f802eb6712d80fb3757bfd4ca4ae1f115fe04674c16c05283f30fe89b1cdb",
+    "recovery_v4_episodes.csv": "b2280b2783e0c79cc2db9a0e6425f084c9e5c5a534968e7d717678690a56fd9a",
+    "recovery_v4_scenarios.csv": "fb8914c1b559a9fbeddb709b2b443c8fffefc0691e53d13bc59f787953439897",
+    "recovery_v4_matched.csv": "fd66d2295e81e1c265ae3eed5ce4b96af0649cd57c27c6b82043d284e179f9a7",
+    "recovery_v4_plans.csv": "d72d4a98030602c92edb563600929535e1612029ff287078a18a187749f76d67"
+  },
+  "validation_mode": "incremental rejection at first sampled constraint violation",
+  "matched_inputs": 432,
+  "methods": 7,
+  "timing_repeats": 2,
+  "closed_loop_replay_episodes": 480,
+  "unique_maps": 24,
+  "closed_loop_paths_and_decisions": "identical to complete-rollout run; see analysis JSON",
+  "tests": 55,
+  "cpu_affinity": 2,
+  "run_args": "_phase:=matched (then episodes) _stop_on_rejection:=true",
+  "smoke": "8-second Gazebo integration observation, separate from timed benchmarks"
+}

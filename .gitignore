@@ -24,3 +24,10 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# LaTeX compilation intermediates
+paper/*.aux
+paper/*.log
+paper/*.blg
+paper/*.out
+paper/*.xdv

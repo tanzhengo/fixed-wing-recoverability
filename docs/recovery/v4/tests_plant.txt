@@ -1,0 +1,15 @@
+[Testcase: testevaluation_plant_test] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[motion_primitives_planning.rosunit-evaluation_plant_test/LevelTrimPreservesSpeedAndAltitude][passed]
+[motion_primitives_planning.rosunit-evaluation_plant_test/FourthOrderActuatorConvergence][passed]
+[motion_primitives_planning.rosunit-evaluation_plant_test/WindChangesGroundTrackWithoutChangingAirspeed][passed]
+[motion_primitives_planning.rosunit-evaluation_plant_test/ModelPerturbationChangesFlightResponse][passed]
+[motion_primitives_planning.rosunit-evaluation_plant_test/RejectsInvalidStateAndParameters][passed]
+
+SUMMARY
+ * RESULT: SUCCESS
+ * TESTS: 5
+ * ERRORS: 0
+ * FAILURES: 0

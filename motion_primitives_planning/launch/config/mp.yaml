@@ -35,6 +35,10 @@ motion_primitive:
 # Experimental finite-horizon continuation filter. Off preserves baseline mode.
 # A passed sampled rollout is NOT an invariant safe set or a safety guarantee.
 recovery:
+  require_terminal: true
+  stop_on_rejection: false
+  # Zero leaves work bounded by the candidate-count limit.
+  max_backup_integration_steps: 0
   enabled: false
   horizon_time: 3.0
   # At most this many feasible primaries, with <=15 backups per primary.

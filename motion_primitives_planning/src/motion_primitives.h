@@ -69,11 +69,15 @@ public:
     };
     typedef dynamic_obstacle dyn_obs_t;
 
+    enum class rejection_reason_t { NONE, ENVELOPE, COLLISION, KNOWN_SPACE };
+
     struct rollout_t {
         std::vector<s_t> states;
         bool valid = true;
         bool collision = false;
         bool work_exhausted = false;
+        bool early_rejected = false;
+        rejection_reason_t early_rejection_reason = rejection_reason_t::NONE;
     };
 
     // A verified continuation is only a finite, sampled model rollout. It is
@@ -86,6 +90,7 @@ public:
         int rejected_collision = 0, rejected_envelope = 0;
         int rejected_known_space = 0, rejected_invalid = 0, truncated = 0;
         bool work_budget_exhausted = false;
+        int early_terminated = 0;
     };
 
     // Scheduling uses only terminal heading/height and finite primary cost.
@@ -106,6 +111,7 @@ public:
         bool budget_exhausted = false, backup_work_budget_exhausted = false;
         int backup_rejected_collision = 0, backup_rejected_envelope = 0;
         int backup_rejected_known_space = 0, backup_rejected_invalid = 0, backup_truncated = 0;
+        int backup_early_terminated = 0;
         int primary_evaluated = 0, primary_feasible_count = 0;
         int recovery_checked = 0, backup_evaluated = 0;
         int primary_integration_steps = 0, backup_integration_steps = 0;
@@ -162,6 +168,8 @@ public:
         // The primary-only ablation uses IDENTICAL hard primary checks while
         // omitting terminal validation; disabled preserves the legacy baseline.
         nh.param<bool>("recovery/require_terminal", require_terminal, true);
+        // Supplemental fail-fast validation; false preserves V3 full rollouts.
+        nh.param<bool>("recovery/stop_on_rejection", stop_on_rejection, false);
         nh.param<int>("recovery/max_backup_integration_steps", max_backup_integration_steps, 0);
         max_backup_integration_steps = std::max(0, max_backup_integration_steps);
         nh.param<bool>("recovery/reuse_verified_plan", reuse_verified_plan, false);
@@ -360,7 +368,8 @@ public:
                 break;
             }
             ++result.checked;
-            const auto backup = rollout_motion_primitive(terminal, command, start_time, remaining);
+            const auto backup = rollout_motion_primitive(terminal, command, start_time, remaining,
+                stop_on_rejection ? &observed_start : nullptr);
             result.integration_steps += backup.states.empty() ? 0 : static_cast<int>(backup.states.size()) - 1;
             if (backup.work_exhausted) {
                 ++result.truncated;
@@ -371,7 +380,15 @@ public:
             // while envelope means its stricter recovery flight limits failed.
             // A truncated path may reveal a definite failure; otherwise only its
             // truncation is counted. It can NEVER provide verification evidence.
-            if (!backup.valid && !backup.work_exhausted) ++result.rejected_invalid;
+            if (backup.early_rejected) {
+                ++result.early_terminated;
+                // In fail-fast mode classify the FIRST violating sample. A tie
+                // at that sample is resolved envelope, collision, known-space.
+                if (backup.early_rejection_reason == rejection_reason_t::ENVELOPE) ++result.rejected_envelope;
+                else if (backup.early_rejection_reason == rejection_reason_t::COLLISION) ++result.rejected_collision;
+                else if (backup.early_rejection_reason == rejection_reason_t::KNOWN_SPACE) ++result.rejected_known_space;
+            }
+            else if (!backup.valid && !backup.work_exhausted) ++result.rejected_invalid;
             else if (backup.collision) ++result.rejected_collision;
             else if (!within_recovery_envelope(backup)) ++result.rejected_envelope;
             else if (!within_known_space(observed_start, backup)) ++result.rejected_known_space;
@@ -549,6 +566,7 @@ public:
                 result.backup_rejected_known_space += recovery.rejected_known_space;
                 result.backup_rejected_invalid += recovery.rejected_invalid;
                 result.backup_truncated += recovery.truncated;
+                result.backup_early_terminated += recovery.early_terminated;
                 result.backup_work_budget_exhausted = recovery.work_budget_exhausted;
                 if (!recovery.verified) {
                     if (recovery.work_budget_exhausted) break;
@@ -788,6 +806,7 @@ public:
              << ",\"backup_rejected_known_space\":" << selected.backup_rejected_known_space
              << ",\"backup_rejected_invalid\":" << selected.backup_rejected_invalid
              << ",\"backup_truncated\":" << selected.backup_truncated
+             << ",\"backup_early_terminated\":" << selected.backup_early_terminated
              << ",\"selected_cost_rank\":" << selected.selected_cost_rank
              << ",\"scheduled_count\":" << selected.scheduled_count
              << ",\"candidate_order\":\"" << selected.candidate_order << "\"}";
@@ -948,8 +967,12 @@ public:
         return false;
     }
 
+    // A non-null validation_center enables fail-fast backup checks at each
+    // existing integration sample. Primaries pass nullptr and remain unchanged.
+    // Early-rejected prefixes are invalid, not complete witnesses or budget cuts.
     rollout_t rollout_motion_primitive(const s_t& initial, const pr_t& pr, float start_time = 0.0f,
-                                       int max_integration_steps = -1) const {
+                                       int max_integration_steps = -1,
+                                       const s_t* validation_center = nullptr) const {
         rollout_t result;
         result.states.push_back(initial);
         s_t s = initial;
@@ -961,7 +984,18 @@ public:
             result.valid = false;
             return result;
         }
+        const auto reject_sample = [&]() {
+            if (!validation_center) return false;
+            if (!state_within_recovery_envelope(s)) result.early_rejection_reason = rejection_reason_t::ENVELOPE;
+            else if (result.collision) result.early_rejection_reason = rejection_reason_t::COLLISION;
+            else if (!state_within_known_space(*validation_center, s)) result.early_rejection_reason = rejection_reason_t::KNOWN_SPACE;
+            else return false;
+            result.valid = false;
+            result.early_rejected = true;
+            return true;
+        };
         result.collision = collision_check(s.pos[0], s.pos[1], s.h, start_time);
+        if (reject_sample()) return result;
         for (float t = 0; t < pr.t_way - 1e-6f;) {
             if (max_integration_steps >= 0 &&
                 static_cast<int>(result.states.size()) - 1 >= max_integration_steps) {
@@ -993,6 +1027,7 @@ public:
                 break;
             }
             if (collision_check(s.pos[0], s.pos[1], s.h, start_time + t)) result.collision = true;
+            if (reject_sample()) break;
         }
         return result;
     }
@@ -1150,17 +1185,19 @@ private:
         }
         return !rollout.states.empty();
     }
+    bool state_within_known_space(const s_t& observed_start, const s_t& state) const {
+        if (!finite_state(state)) return false;
+        if (known_space_radius <= 0) return true;
+        const float dx = state.pos[0] - observed_start.pos[0];
+        const float dy = state.pos[1] - observed_start.pos[1];
+        const float dz = state.h - observed_start.h;
+        return dx*dx + dy*dy + dz*dz <= known_space_radius * known_space_radius;
+    }
     bool within_known_space(const s_t& observed_start, const rollout_t& rollout) const {
         // Idealized spherical observation footprint, frozen at planning start.
         // It is not a camera FOV, occlusion model, or measured free-space map.
-        for (const auto& s : rollout.states) {
-            if (!finite_state(s)) return false;
-            if (known_space_radius <= 0) continue;
-            const float dx = s.pos[0] - observed_start.pos[0];
-            const float dy = s.pos[1] - observed_start.pos[1];
-            const float dz = s.h - observed_start.h;
-            if (dx*dx + dy*dy + dz*dz > known_space_radius * known_space_radius) return false;
-        }
+        for (const auto& state : rollout.states)
+            if (!state_within_known_space(observed_start, state)) return false;
         return !rollout.states.empty();
     }
     bool inside_cylinder(float x, float y, float z, float ox, float oy, float center_z, float radius, float height) const {
@@ -1189,7 +1226,7 @@ private:
     float integration_dt, min_speed, max_speed, max_thrust, vertical_clearance;
     float altitude_weight, distance_weight, heading_weight, altitude_tolerance;
     float CL_k1, CL_k2, CD_k1, CD_k2, tau_a;
-    bool recovery_enabled, reuse_verified_plan, require_terminal;
+    bool recovery_enabled, reuse_verified_plan, require_terminal, stop_on_rejection;
     int max_backup_integration_steps;
     float recovery_horizon, known_space_radius, min_execution_time;
     std::vector<pr_t> cached_execution_plan;

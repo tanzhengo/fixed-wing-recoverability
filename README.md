@@ -1,33 +1,43 @@
 # fixed-wing-recoverability
 
-Private research development based on
-[HKPolyU-UAV/Two-phase-motion-planning](https://github.com/HKPolyU-UAV/Two-phase-motion-planning),
-baseline commit `ccb6005c73992214a86cc0cff4fe648f1443a119`.
+面向固定翼局部规划的**机动多样性终端续飞搜索**。在相同候选预算下，通过覆盖不同机动方向提高后续可行控制的发现率，再用逐采样拒绝减少无效轨迹的计算。
 
-This version adds an optional **finite-horizon continuation filter**: rank
-collision-free primary primitives, then verify a small goal-independent backup
-library from their complete terminal states. It exposes verified, degraded,
-budget-exhausted, and infeasible outcomes separately. A finite sampled rollout
-is not a recursively feasible or invariant safety guarantee.
+**英文论文稿：** [Maneuver-Diverse Terminal Continuation Search for Fixed-Wing Local Motion Planning](paper/main.pdf) · [LaTeX 源码](paper/main.tex)
 
-The second development stage adds a physically scaled candidate-coverage
-schedule and revalidation of a previously accepted plan's remaining controls.
-The default v2 entry point checks up to 12 primary candidates, uses a 6-second
-continuation, and distinguishes a newly verified continuation from a shrinking
-revalidated remainder.
-Cache reuse remains opt-in because the additional speed/range cases exposed
-regressions alongside the gains in the main diagnostic set.
+**方法、结果与复现：** [最终实验说明](docs/recovery/FINAL_RESULTS.md)
 
-See the [v2 method and experiment guide](docs/recovery/V2.md), or the
-[preserved first-stage guide](docs/recovery/README.md). The original demo
-configuration leaves this filter disabled. To run v2 in the bundled Gazebo
-scene after building and sourcing the workspace:
+## 已完成的方法与结果
+
+规划器保留 203 个主运动基元、原控制模型和轨迹代价。新调度先保留最低代价候选，再按物理机动尺度归一化的终态航向和高度选择互补候选；每个终态最多检查 15 个后续控制。验证器在首次采样违规时结束该条后续轨迹的积分，把剩余预算用于其他候选。当前推荐配置为 3 s 主时域、6 s 后续时域、K=12，并启用逐采样拒绝。
+
+| 指标 | 代价顺序 | 机动多样性顺序 |
+| --- | ---: | ---: |
+| K=12 的续飞发现率 | 239/335，71.34% | 317/335，94.63% |
+| 10,800 后续积分步上限，启用逐采样拒绝 | 227/335，67.76% | 317/335，94.63% |
+| 闭环任务完成数，每方法 96 项 | 37 | 56 |
+
+多样性 K=12 的平均后续积分工作量比完整积分验证减少 **87.39%**，其选择和完整见证保持一致。闭环完整库对照完成 67/96 项；多样性方法另有 5 次膨胀障碍边界侵入，代价顺序为 0 次。这 5 次在首次违规检测时记录的原始障碍净空仍为正，事件定义是规划裕量侵入。完整结果包含所有失败类别及原 V3 固定工作预算下未改善的结果。
+
+实验覆盖 **480 个不同的闭环配置**，以及每种验证器 **432 状态 × 7 方法 × 2 次计时重复**。逐采样验证器重放同一组 480 项任务，任务结果、记录路径与决策均与原验证器一致；重放不增加独立任务数。当前 **55 项测试通过**。
+
+## 在 Ubuntu 上运行
+
+在包含本仓库的 catkin 工作区根目录执行：
 
 ```bash
-roslaunch motion_primitives_planning terminal_recovery_v2.launch paused:=false
+source /opt/ros/noetic/setup.bash
+catkin_make -j2 -DCATKIN_WHITELIST_PACKAGES="motion_primitives_planning;simple_airplane_plugins;simple_airplane_gazebo;simple_airplane_description"
+source devel/setup.bash
+roslaunch motion_primitives_planning terminal_recovery_v3.launch paused:=false
 ```
 
-The upstream demo documentation and attribution are preserved below.
+推荐入口默认使用 `candidate_order:=diverse`、`stop_on_rejection:=true`、`max_candidates:=12`。缓存余段复用仍通过 `reuse_verified_plan:=true` 单独启用，默认关闭。基准实验与分析命令见[复现说明](docs/recovery/FINAL_RESULTS.md#复现命令)。
+
+## 来源与版本
+
+代码基于 [HKPolyU-UAV/Two-phase-motion-planning](https://github.com/HKPolyU-UAV/Two-phase-motion-planning) 的 `ccb6005c73992214a86cc0cff4fe648f1443a119`。该版本的可执行演示采用三维运动基元滚动规划。论文实验使用同一局部实现内的同约束消融与完整基元库对照，并分别引用相关的两阶段规划论文与这份实现。
+
+开发过程和原始结果继续保留：[V1](docs/recovery/README.md)、[V2](docs/recovery/V2.md)、[V3 协议](docs/recovery/V3_PROTOCOL.md)、[V4 补充协议](docs/recovery/V4_PROTOCOL.md)。以下为原仓库的演示说明和署名。
 
 ## Two-Phase Motion Planning for Fixed-Wing UAVs — upstream demo
 

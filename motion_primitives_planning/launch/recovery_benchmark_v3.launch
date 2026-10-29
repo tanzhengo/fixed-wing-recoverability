@@ -1,8 +1,10 @@
 <launch>
   <arg name="output_prefix" default="/tmp/recovery_v3"/>
   <arg name="phase" default="all"/>
+  <arg name="stop_on_rejection" default="false"/>
   <node pkg="motion_primitives_planning" type="recovery_benchmark_v3" name="recovery_benchmark_v3" output="screen">
     <param name="output_prefix" value="$(arg output_prefix)"/>
     <param name="phase" value="$(arg phase)"/>
+    <param name="stop_on_rejection" value="$(arg stop_on_rejection)"/>
   </node>
 </launch>

@@ -1,0 +1,29 @@
+{
+  "scope": "8-second wall-time integration smoke; no full-route completion or collision audit",
+  "parameters": {
+    "enabled": true,
+    "candidate_order": "diverse",
+    "max_candidates": 12,
+    "horizon_time": 6.0,
+    "reuse_verified_plan": false,
+    "stop_on_rejection": true,
+    "max_backup_integration_steps": 0
+  },
+  "status_counts": {
+    "RECOVERY_VERIFIED": 68,
+    "BUDGET_EXHAUSTED": 12
+  },
+  "odom_messages": 400,
+  "first_position": [
+    5.486042753366897,
+    -0.0017953434396968334,
+    7.964618991944797
+  ],
+  "last_position": [
+    122.82771856870521,
+    7.766121212613592,
+    13.5314949547715
+  ],
+  "planning_status_wall_hz": 9.997914884859195,
+  "max_scheduled_count": 12
+}

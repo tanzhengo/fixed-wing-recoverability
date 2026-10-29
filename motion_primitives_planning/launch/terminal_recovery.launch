@@ -10,6 +10,9 @@
   <arg name="candidate_order" default="cost"/>
   <arg name="backup_horizon" default="3.0"/>
   <arg name="reuse_verified_plan" default="false"/>
+  <arg name="require_terminal" default="true"/>
+  <arg name="stop_on_rejection" default="false"/>
+  <arg name="max_backup_integration_steps" default="0"/>
   <include file="$(find simple_airplane_gazebo)/launch/simple_airplane_empty_world.launch">
     <arg name="world_name" value="$(find simple_airplane_gazebo)/worlds/vertical_avoidance.world"/>
     <arg name="gui" value="$(arg gui)"/>
@@ -26,4 +29,7 @@
   <param name="/suav1/recovery/candidate_order" value="$(arg candidate_order)" type="str"/>
   <param name="/suav1/recovery/horizon_time" value="$(arg backup_horizon)" type="double"/>
   <param name="/suav1/recovery/reuse_verified_plan" value="$(arg reuse_verified_plan)" type="bool"/>
+  <param name="/suav1/recovery/require_terminal" value="$(arg require_terminal)" type="bool"/>
+  <param name="/suav1/recovery/stop_on_rejection" value="$(arg stop_on_rejection)" type="bool"/>
+  <param name="/suav1/recovery/max_backup_integration_steps" value="$(arg max_backup_integration_steps)" type="int"/>
 </launch>

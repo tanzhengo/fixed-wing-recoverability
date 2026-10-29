@@ -860,6 +860,137 @@ TEST_F(TerminalRecovery, BackupCountersDistinguishModelInvalidityAndRecoveryEnve
   EXPECT_EQ(0, invalid.truncated);
 }
 
+TEST_F(TerminalRecovery, FailFastPreservesCompleteAcceptedWitnessExactly) {
+  auto full = planner();
+  const auto initial = state();
+  const auto command = straight(*full, initial);
+  const auto primary = full->rollout_motion_primitive(initial, command);
+  const auto original = full->check_terminal_recovery(initial, primary, command.t_way);
+  ASSERT_TRUE(original.verified);
+  nh_->setParam("recovery/stop_on_rejection", true);
+  auto fast = planner();
+  const auto updated = fast->check_terminal_recovery(initial, primary, command.t_way);
+  ASSERT_TRUE(updated.verified);
+  EXPECT_FLOAT_EQ(original.command.w_roll_c, updated.command.w_roll_c);
+  EXPECT_FLOAT_EQ(original.command.attack_c, updated.command.attack_c);
+  EXPECT_FLOAT_EQ(original.command.T_c, updated.command.T_c);
+  EXPECT_EQ(original.checked, updated.checked);
+  ASSERT_EQ(original.backup.states.size(), updated.backup.states.size());
+  for (size_t i = 0; i < original.backup.states.size(); ++i)
+    expectSameState(original.backup.states[i], updated.backup.states[i]);
+  EXPECT_FALSE(updated.backup.early_rejected);
+  EXPECT_FALSE(updated.backup.work_exhausted);
+}
+
+TEST_F(TerminalRecovery, FailFastReducesCollisionEnvelopeAndKnownSpaceWork) {
+  blockingCylinder(25.0, 2.0);
+  auto blocked = planner();
+  auto initial = state();
+  auto command = straight(*blocked, initial);
+  const auto full_collision = blocked->rollout_motion_primitive(initial, command);
+  const auto early_collision = blocked->rollout_motion_primitive(initial, command, 0, -1, &initial);
+  ASSERT_TRUE(full_collision.collision);
+  EXPECT_TRUE(early_collision.early_rejected);
+  EXPECT_FALSE(early_collision.valid);
+  EXPECT_FALSE(early_collision.work_exhausted);
+  EXPECT_EQ(Planner::rejection_reason_t::COLLISION, early_collision.early_rejection_reason);
+  EXPECT_LT(early_collision.states.size(), full_collision.states.size());
+
+  nh_->setParam("static_obstacles/num", 0);
+  auto clear = planner();
+  auto at_angle_limit = state();
+  at_angle_limit.gamma = 20.0f * Rad2Deg;
+  command = straight(*clear, at_angle_limit);
+  const auto full_envelope = clear->rollout_motion_primitive(at_angle_limit, command);
+  const auto early_envelope = clear->rollout_motion_primitive(at_angle_limit, command, 0, -1, &at_angle_limit);
+  EXPECT_TRUE(early_envelope.early_rejected);
+  EXPECT_EQ(Planner::rejection_reason_t::ENVELOPE, early_envelope.early_rejection_reason);
+  EXPECT_FALSE(early_envelope.work_exhausted);
+  EXPECT_LT(early_envelope.states.size(), full_envelope.states.size());
+
+  nh_->setParam("recovery/known_space_radius", 10.0);
+  auto limited = planner();
+  command = straight(*limited, initial);
+  const auto full_known = limited->rollout_motion_primitive(initial, command);
+  const auto early_known = limited->rollout_motion_primitive(initial, command, 0, -1, &initial);
+  ASSERT_TRUE(full_known.valid);
+  EXPECT_FALSE(limited->check_primary_feasibility(initial, full_known));
+  EXPECT_TRUE(early_known.early_rejected);
+  EXPECT_EQ(Planner::rejection_reason_t::KNOWN_SPACE, early_known.early_rejection_reason);
+  EXPECT_FALSE(early_known.work_exhausted);
+  EXPECT_LT(early_known.states.size(), full_known.states.size());
+  const auto cut = limited->rollout_motion_primitive(initial, command, 0, 3, &initial);
+  EXPECT_EQ(4u, cut.states.size());
+  EXPECT_TRUE(cut.work_exhausted);
+  EXPECT_FALSE(cut.early_rejected) << "Work truncation is not a sampled rejection";
+}
+
+TEST_F(TerminalRecovery, FailFastKeepsCountBudgetSelectionsAndPrimaryRolloutsIdentical) {
+  blockingCylinder();
+  const auto initial = state();
+  for (const std::string order : {"cost", "diverse"}) {
+    for (int budget : {1, 12, 29}) {
+      nh_->setParam("recovery/candidate_order", order);
+      nh_->setParam("recovery/max_candidates", budget);
+      nh_->setParam("recovery/stop_on_rejection", false);
+      auto full = planner();
+      std::vector<Planner::rollout_t> original_primaries;
+      const auto original = full->select_motion_primitive(initial, &original_primaries);
+      nh_->setParam("recovery/stop_on_rejection", true);
+      auto fast = planner();
+      std::vector<Planner::rollout_t> fast_primaries;
+      const auto updated = fast->select_motion_primitive(initial, &fast_primaries);
+      EXPECT_EQ(original.status, updated.status);
+      EXPECT_EQ(original.primary_feasible, updated.primary_feasible);
+      EXPECT_EQ(original.recovery_verified, updated.recovery_verified);
+      EXPECT_EQ(original.selected_cost_rank, updated.selected_cost_rank);
+      EXPECT_EQ(original.recovery_checked, updated.recovery_checked);
+      EXPECT_EQ(original.backup_evaluated, updated.backup_evaluated);
+      EXPECT_FLOAT_EQ(original.cost, updated.cost);
+      EXPECT_FLOAT_EQ(original.command.w_roll_c, updated.command.w_roll_c);
+      EXPECT_FLOAT_EQ(original.command.attack_c, updated.command.attack_c);
+      EXPECT_FLOAT_EQ(original.command.T_c, updated.command.T_c);
+      EXPECT_LE(updated.backup_integration_steps, original.backup_integration_steps);
+      EXPECT_GT(updated.backup_early_terminated, 0);
+      EXPECT_EQ(0, updated.backup_truncated);
+      ASSERT_EQ(original_primaries.size(), fast_primaries.size());
+      for (size_t i = 0; i < original_primaries.size(); ++i) {
+        ASSERT_EQ(original_primaries[i].states.size(), fast_primaries[i].states.size());
+        EXPECT_EQ(original_primaries[i].valid, fast_primaries[i].valid);
+        EXPECT_EQ(original_primaries[i].collision, fast_primaries[i].collision);
+        for (size_t j = 0; j < original_primaries[i].states.size(); ++j)
+          expectSameState(original_primaries[i].states[j], fast_primaries[i].states[j]);
+      }
+    }
+  }
+}
+
+TEST_F(TerminalRecovery, FailFastTerminalCountersAndWorkBudgetRemainExact) {
+  blockingCylinder();
+  nh_->setParam("recovery/stop_on_rejection", true);
+  nh_->setParam("recovery/max_backup_integration_steps", 47);
+  nh_->setParam("recovery/max_candidates", 29);
+  auto mp = planner();
+  const auto initial = state();
+  const auto selected = mp->select_motion_primitive(initial);
+  EXPECT_FALSE(selected.recovery_verified);
+  EXPECT_TRUE(selected.backup_work_budget_exhausted);
+  EXPECT_EQ("BACKUP_WORK_BUDGET_EXHAUSTED", selected.status);
+  EXPECT_EQ(47, selected.backup_integration_steps);
+  EXPECT_GT(selected.backup_early_terminated, 0);
+  EXPECT_LE(selected.backup_early_terminated + selected.backup_truncated, selected.backup_evaluated);
+  EXPECT_EQ(0, selected.backup_rejected_invalid);
+  const auto command = straight(*mp, initial);
+  const auto primary = mp->rollout_motion_primitive(initial, command);
+  const auto complete = mp->check_terminal_recovery(initial, primary, command.t_way);
+  EXPECT_FALSE(complete.verified);
+  EXPECT_FALSE(complete.work_budget_exhausted);
+  EXPECT_EQ(complete.checked, complete.early_terminated);
+  EXPECT_EQ(0, complete.truncated);
+  EXPECT_EQ(complete.checked, complete.rejected_collision + complete.rejected_envelope +
+      complete.rejected_known_space + complete.rejected_invalid);
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {

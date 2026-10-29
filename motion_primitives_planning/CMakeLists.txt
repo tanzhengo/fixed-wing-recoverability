@@ -204,6 +204,7 @@ catkin_install_python(PROGRAMS
   scripts/verify_horizontal_avoidance.py
   scripts/summarize_recovery_benchmark.py
   scripts/plot_recovery_benchmark.py
+  scripts/analyze_recovery_v4.py
   scripts/analyze_recovery_v3.py
   scripts/analyze_recovery_v2.py
   scripts/plot_recovery_v2.py

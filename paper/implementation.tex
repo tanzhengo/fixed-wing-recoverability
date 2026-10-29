@@ -1,0 +1,31 @@
+\section{Prediction Model and Primitive Construction}\label{app:model}
+Let $N_a=T\sin\alpha+kV^2C_L(\alpha)$, with $k=1.86$, $g=9.81$ m/s$^2$, $C_L(\alpha)=0.03\sin\alpha+0.028$, and $C_D(\alpha)=0.001\alpha^2+0.002$. The point-mass prediction model is
+\begin{align}
+ \dot p_x&=V\cos\gamma\cos\psi,&\dot p_y&=V\cos\gamma\sin\psi,\\
+ \dot h&=V\sin\gamma,\\
+ \dot V&=T\cos\alpha-kV^2C_D-g\sin\gamma,\\
+ \dot\gamma&=(N_a\cos\phi-g\cos\gamma)/V,\\
+ \dot\psi&=N_a\sin\phi/(V\cos\gamma),\\
+ \dot\phi&=2(\phi_c-\phi),&\dot\alpha&=\alpha_c-\alpha,\\
+ \dot T&=10(T_c-T).
+\end{align}
+The evaluation plant independently implements these equations using double-precision RK4 integration. Under wind, the prescribed horizontal wind components are added to $\dot p_x$ and $\dot p_y$. Model perturbations change the aerodynamic multipliers and actuator time constants only in this plant.
+
+For a primitive target $(d,\theta,h_w,V_w)$, the inherited generator uses $a_g=2V/d$, $\gamma_c=\operatorname{atan2}(h_w-h,d)$, and $\dot\gamma_d=a_g(\gamma_c-\gamma)$. Before saturation, the roll command is
+\begin{equation}
+ \phi_c=\operatorname{atan2}\!\left(2V^2\sin\theta\cos^2\gamma,
+ d(g\cos\gamma+V\dot\gamma_d)\right).
+\end{equation}
+With $L=kV^2\cos\phi_c$, the attack command is obtained from
+\begin{equation}
+ \alpha_c=\arcsin\!\left(
+ \frac{(V\dot\gamma_d+g\cos\gamma_c)/L-0.028}{0.03+T/L}\right),
+\end{equation}
+and the thrust command from
+\begin{equation}
+ T_c=\frac{kV^2C_D(\alpha_c)+g\sin\gamma_c}{\cos\alpha_c}
+       +2.2a_g(V_w-V).
+\end{equation}
+Commands and inverse-trigonometric arguments are clipped to their respective limits. Numerical denominator guards operate outside the normal tested envelope. An inherited 0.8 s compensation heuristic transforms the target direction and distance using current heading rate before recomputing the command. All methods use this same generator; each output command is held constant within its primitive.
+
+The primary cost weights in~\eqref{eq:cost} are $w_d=0.02$, $w_h=0.15$, and $w_\psi=3$. The command-change weights for $(\phi_c,\alpha_c,T_c)$ are $(1,0.1,0.05)$. Upright cylinders use a 20\% radial inflation and 1 m vertical clearance. Spheres use the larger of 20\% radius and 1 m as isotropic inflation. Collision tests are evaluated at every integration sample.

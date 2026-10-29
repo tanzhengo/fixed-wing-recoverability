@@ -1,0 +1,14 @@
+% Percentile intervals resample 24 paired maps, 10,000 repetitions, seed 12345.
+\begin{tabular}{llrrr}
+\toprule
+Evaluation & Budget & Diversity-only & Cost-only & Difference, pp [95\% map interval] \\
+\midrule
+Complete rollout (V3) & K12 & 78 & 0 & 23.28 [13.27, 34.66] \\
+ & W3600 & 0 & 0 & 0.00 [0.00, 0.00] \\
+ & W10800 & 12 & 19 & -2.09 [-6.50, 3.07] \\
+\midrule
+Incremental rejection (V4) & K12 & 78 & 0 & 23.28 [13.27, 34.66] \\
+ & W3600 & 71 & 6 & 19.40 [6.63, 34.66] \\
+ & W10800 & 90 & 0 & 26.87 [15.00, 40.46] \\
+\bottomrule
+\end{tabular}
