@@ -73,6 +73,7 @@ public:
         std::vector<s_t> states;
         bool valid = true;
         bool collision = false;
+        bool work_exhausted = false;
     };
 
     // A verified continuation is only a finite, sampled model rollout. It is
@@ -82,6 +83,9 @@ public:
         rollout_t backup;
         pr_t command;
         int checked = 0, integration_steps = 0;
+        int rejected_collision = 0, rejected_envelope = 0;
+        int rejected_known_space = 0, rejected_invalid = 0, truncated = 0;
+        bool work_budget_exhausted = false;
     };
 
     // Scheduling uses only terminal heading/height and finite primary cost.
@@ -99,7 +103,9 @@ public:
         bool primary_feasible = false, recovery_verified = false;
         bool reused_verified_plan = false;
         float plan_remaining_time = 0.0f;
-        bool budget_exhausted = false;
+        bool budget_exhausted = false, backup_work_budget_exhausted = false;
+        int backup_rejected_collision = 0, backup_rejected_envelope = 0;
+        int backup_rejected_known_space = 0, backup_rejected_invalid = 0, backup_truncated = 0;
         int primary_evaluated = 0, primary_feasible_count = 0;
         int recovery_checked = 0, backup_evaluated = 0;
         int primary_integration_steps = 0, backup_integration_steps = 0;
@@ -153,6 +159,11 @@ public:
         max_descent_angle = constraint(max_descent_angle, 0.0f, 45.0f * Rad2Deg);
         mp_d = horizon_time * mp_V;
         nh.param<bool>("recovery/enabled", recovery_enabled, false);
+        // The primary-only ablation uses IDENTICAL hard primary checks while
+        // omitting terminal validation; disabled preserves the legacy baseline.
+        nh.param<bool>("recovery/require_terminal", require_terminal, true);
+        nh.param<int>("recovery/max_backup_integration_steps", max_backup_integration_steps, 0);
+        max_backup_integration_steps = std::max(0, max_backup_integration_steps);
         nh.param<bool>("recovery/reuse_verified_plan", reuse_verified_plan, false);
         nh.param<float>("recovery/min_execution_time", min_execution_time, 0.1f);
         if (!std::isfinite(min_execution_time) || min_execution_time <= 0) min_execution_time = 0.1f;
@@ -318,29 +329,59 @@ public:
         return library;
     }
 
-    // start_time is the continuation start relative to the current obstacle
-    // snapshot, normally primary_command.t_way. Never restart moving obstacles
-    // at t=0 at the primary terminal state.
+    bool state_within_recovery_envelope(const s_t& state) const {
+        return valid_flight_state(state) && state.gamma <= max_climb_angle + 1e-5f &&
+            state.gamma >= -max_descent_angle - 1e-5f;
+    }
+
+    // Applies the recovery-mode primary filters to an already computed rollout;
+    // it does not regenerate geometry or trust an incomplete work-limited path.
+    bool check_primary_feasibility(const s_t& observed_start, const rollout_t& primary) const {
+        return valid_flight_state(observed_start) && primary.valid && !primary.work_exhausted &&
+            !primary.collision && within_recovery_envelope(primary) && within_known_space(observed_start, primary);
+    }
+
+    // start_time is relative to the current obstacle snapshot. The optional
+    // budget is an exact integration-step cap: -1 means unlimited; 0 permits
+    // no backup work. The ROS parameter uses 0 for unlimited at the SELECT level.
     recovery_result_t check_terminal_recovery(const s_t& observed_start,
                                                const rollout_t& primary,
-                                               float start_time) {
+                                               float start_time,
+                                               int max_integration_steps = -1) {
         recovery_result_t result;
-        if (!primary.valid || primary.collision || primary.states.size() < 2 ||
-            !valid_flight_state(observed_start) || !std::isfinite(start_time) || start_time < 0 ||
-            !within_recovery_envelope(primary) || !within_known_space(observed_start, primary)) return result;
+        if (primary.states.size() < 2 || !check_primary_feasibility(observed_start, primary) ||
+            !std::isfinite(start_time) || start_time < 0) return result;
         const s_t& terminal = primary.states.back();
-        if (!valid_flight_state(terminal)) return result;
         for (const auto& command : generate_recovery_library(terminal)) {
+            const int remaining = max_integration_steps < 0 ? -1 :
+                std::max(0, max_integration_steps - result.integration_steps);
+            if (remaining == 0) {
+                result.work_budget_exhausted = true;
+                break;
+            }
             ++result.checked;
-            const auto backup = rollout_motion_primitive(terminal, command, start_time);
+            const auto backup = rollout_motion_primitive(terminal, command, start_time, remaining);
             result.integration_steps += backup.states.empty() ? 0 : static_cast<int>(backup.states.size()) - 1;
-            if (backup.valid && !backup.collision && within_recovery_envelope(backup) &&
-                within_known_space(observed_start, backup)) {
+            if (backup.work_exhausted) {
+                ++result.truncated;
+                result.work_budget_exhausted = true;
+            }
+            // Mutually exclusive rejection reasons, in this priority order.
+            // Invalid means the underlying rollout failed (e.g. model envelope),
+            // while envelope means its stricter recovery flight limits failed.
+            // A truncated path may reveal a definite failure; otherwise only its
+            // truncation is counted. It can NEVER provide verification evidence.
+            if (!backup.valid && !backup.work_exhausted) ++result.rejected_invalid;
+            else if (backup.collision) ++result.rejected_collision;
+            else if (!within_recovery_envelope(backup)) ++result.rejected_envelope;
+            else if (!within_known_space(observed_start, backup)) ++result.rejected_known_space;
+            else if (!backup.work_exhausted) {
                 result.verified = true;
                 result.command = command;
                 result.backup = backup;
                 break;
             }
+            if (backup.work_exhausted) break;
         }
         return result;
     }
@@ -477,6 +518,10 @@ public:
             result.cost = feasible.front().cost;
             result.primary_feasible = true;
             result.selected_cost_rank = 1;
+            if (!require_terminal) {
+                result.status = "PRIMARY_ONLY_FEASIBLE";
+                return result;
+            }
             std::vector<recovery_candidate_t> summaries;
             summaries.reserve(feasible.size());
             for (const auto& candidate : feasible) {
@@ -489,11 +534,26 @@ public:
             result.scheduled_count = static_cast<int>(schedule.size());
             for (size_t i : schedule) {
                 const auto& candidate = feasible[i];
+                const int remaining_work = max_backup_integration_steps == 0 ? -1 :
+                    std::max(0, max_backup_integration_steps - result.backup_integration_steps);
+                if (remaining_work == 0) {
+                    result.backup_work_budget_exhausted = true;
+                    break;
+                }
                 ++result.recovery_checked;
-                const auto recovery = check_terminal_recovery(initial, candidate.rollout, candidate.command.t_way);
+                const auto recovery = check_terminal_recovery(initial, candidate.rollout, candidate.command.t_way, remaining_work);
                 result.backup_evaluated += recovery.checked;
                 result.backup_integration_steps += recovery.integration_steps;
-                if (!recovery.verified) continue;
+                result.backup_rejected_collision += recovery.rejected_collision;
+                result.backup_rejected_envelope += recovery.rejected_envelope;
+                result.backup_rejected_known_space += recovery.rejected_known_space;
+                result.backup_rejected_invalid += recovery.rejected_invalid;
+                result.backup_truncated += recovery.truncated;
+                result.backup_work_budget_exhausted = recovery.work_budget_exhausted;
+                if (!recovery.verified) {
+                    if (recovery.work_budget_exhausted) break;
+                    continue;
+                }
                 // A coverage schedule is not cost-ordered. Keep the cheapest
                 // verified member instead of committing to its first success.
                 if (!result.recovery_verified || candidate.cost < result.cost ||
@@ -513,9 +573,13 @@ public:
                 // modes may stop if the globally lowest-cost primary passes.
                 if (recovery_order_mode == "cost" || i == 0) return result;
             }
-            if (result.recovery_verified) return result;
-            result.budget_exhausted = schedule.size() < feasible.size();
-            result.status = result.budget_exhausted ? "BUDGET_EXHAUSTED" : "DEGRADED_NO_CONTINUATION";
+            if (result.recovery_verified) {
+                result.budget_exhausted = result.backup_work_budget_exhausted;
+                return result;
+            }
+            result.budget_exhausted = result.backup_work_budget_exhausted || schedule.size() < feasible.size();
+            result.status = result.backup_work_budget_exhausted ? "BACKUP_WORK_BUDGET_EXHAUSTED" :
+                (result.budget_exhausted ? "BUDGET_EXHAUSTED" : "DEGRADED_NO_CONTINUATION");
             try_reuse_cached_plan(initial, result);
             return result;
         }
@@ -553,7 +617,7 @@ public:
     // Every reuse starts from the then-current measured state and revalidates.
     void accept_selection(const selection_t& selection) {
         remember_command(selection.command);
-        if (!recovery_enabled || !reuse_verified_plan || !selection.primary_feasible ||
+        if (!recovery_enabled || !require_terminal || !reuse_verified_plan || !selection.primary_feasible ||
             selection.execution_plan.empty()) return;
         const bool fresh = selection.status == "RECOVERY_VERIFIED" && selection.recovery_verified;
         const bool reused = selection.status == "REVALIDATED_PLAN" && selection.reused_verified_plan &&
@@ -605,7 +669,7 @@ public:
         selection_t result;
         result.candidate_order = recovery_order_mode;
         result.status = "NO_CACHED_PLAN";
-        if (!recovery_enabled || !reuse_verified_plan || cached_execution_plan.empty()) return result;
+        if (!recovery_enabled || !require_terminal || !reuse_verified_plan || cached_execution_plan.empty()) return result;
         result.status = "CACHED_PLAN_REJECTED";
         // Do not publish a front control beyond the segment that was checked.
         // This guard assumes the next update occurs within min_execution_time;
@@ -671,7 +735,7 @@ public:
         }
         if (!selected.primary_feasible)
             ROS_WARN_THROTTLE(2.0, "No feasible 3D primitive; publishing best-effort emergency only if state is valid");
-        else if (recovery_enabled && !selected.recovery_verified && !selected.reused_verified_plan)
+        else if (recovery_enabled && require_terminal && !selected.recovery_verified && !selected.reused_verified_plan)
             ROS_WARN_THROTTLE(2.0, "Primary trajectory is feasible but finite continuation is not verified: %s", selected.status.c_str());
         auto optimal = visual_motion_primitive(selected.rollout);
         optimal.ns = "traj_optimal";
@@ -718,6 +782,12 @@ public:
              << ",\"backup_evaluated\":" << selected.backup_evaluated
              << ",\"primary_integration_steps\":" << selected.primary_integration_steps
              << ",\"backup_integration_steps\":" << selected.backup_integration_steps
+             << ",\"backup_work_budget_exhausted\":" << (selected.backup_work_budget_exhausted ? "true" : "false")
+             << ",\"backup_rejected_collision\":" << selected.backup_rejected_collision
+             << ",\"backup_rejected_envelope\":" << selected.backup_rejected_envelope
+             << ",\"backup_rejected_known_space\":" << selected.backup_rejected_known_space
+             << ",\"backup_rejected_invalid\":" << selected.backup_rejected_invalid
+             << ",\"backup_truncated\":" << selected.backup_truncated
              << ",\"selected_cost_rank\":" << selected.selected_cost_rank
              << ",\"scheduled_count\":" << selected.scheduled_count
              << ",\"candidate_order\":\"" << selected.candidate_order << "\"}";
@@ -878,7 +948,8 @@ public:
         return false;
     }
 
-    rollout_t rollout_motion_primitive(const s_t& initial, const pr_t& pr, float start_time = 0.0f) const {
+    rollout_t rollout_motion_primitive(const s_t& initial, const pr_t& pr, float start_time = 0.0f,
+                                       int max_integration_steps = -1) const {
         rollout_t result;
         result.states.push_back(initial);
         s_t s = initial;
@@ -892,6 +963,12 @@ public:
         }
         result.collision = collision_check(s.pos[0], s.pos[1], s.h, start_time);
         for (float t = 0; t < pr.t_way - 1e-6f;) {
+            if (max_integration_steps >= 0 &&
+                static_cast<int>(result.states.size()) - 1 >= max_integration_steps) {
+                result.valid = false;
+                result.work_exhausted = true;
+                break;
+            }
             const float dt = std::min(integration_dt, pr.t_way - t);
             const float speed = std::max(1.0f, s.V);
             const float lift = s.T * std::sin(s.attack) / speed + k * speed * C_L(s.attack);
@@ -1028,7 +1105,7 @@ private:
             command.T_c >= 0 && command.T_c <= max_thrust + 1e-5f;
     }
     bool try_reuse_cached_plan(const s_t& actual, selection_t& result) {
-        if (!recovery_enabled || !reuse_verified_plan) return false;
+        if (!recovery_enabled || !require_terminal || !reuse_verified_plan) return false;
         const auto reused = revalidate_cached_plan(actual);
         result.cached_integration_steps += reused.cached_integration_steps;
         result.cached_segments_checked += reused.cached_segments_checked;
@@ -1069,8 +1146,7 @@ private:
         // predicted state, including the current and primary terminal states.
         // Recheck states rather than trusting a caller-supplied valid flag.
         for (const auto& s : rollout.states) {
-            if (!valid_flight_state(s) || s.gamma > max_climb_angle + 1e-5f ||
-                s.gamma < -max_descent_angle - 1e-5f) return false;
+            if (!state_within_recovery_envelope(s)) return false;
         }
         return !rollout.states.empty();
     }
@@ -1113,7 +1189,8 @@ private:
     float integration_dt, min_speed, max_speed, max_thrust, vertical_clearance;
     float altitude_weight, distance_weight, heading_weight, altitude_tolerance;
     float CL_k1, CL_k2, CD_k1, CD_k2, tau_a;
-    bool recovery_enabled, reuse_verified_plan;
+    bool recovery_enabled, reuse_verified_plan, require_terminal;
+    int max_backup_integration_steps;
     float recovery_horizon, known_space_radius, min_execution_time;
     std::vector<pr_t> cached_execution_plan;
     ros::Time last_command_time;

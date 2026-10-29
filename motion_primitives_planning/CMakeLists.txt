@@ -162,6 +162,10 @@ add_executable(recovery_benchmark src/recovery_benchmark.cpp)
 target_link_libraries(recovery_benchmark ${catkin_LIBRARIES})
 add_dependencies(recovery_benchmark ${catkin_EXPORTED_TARGETS})
 
+add_executable(recovery_benchmark_v3 src/recovery_benchmark_v3.cpp)
+target_link_libraries(recovery_benchmark_v3 ${catkin_LIBRARIES})
+add_dependencies(recovery_benchmark_v3 ${catkin_EXPORTED_TARGETS})
+
 add_executable(recovery_benchmark_v2 src/recovery_benchmark_v2.cpp)
 target_link_libraries(recovery_benchmark_v2 ${catkin_LIBRARIES})
 add_dependencies(recovery_benchmark_v2 ${catkin_EXPORTED_TARGETS})
@@ -200,6 +204,7 @@ catkin_install_python(PROGRAMS
   scripts/verify_horizontal_avoidance.py
   scripts/summarize_recovery_benchmark.py
   scripts/plot_recovery_benchmark.py
+  scripts/analyze_recovery_v3.py
   scripts/analyze_recovery_v2.py
   scripts/plot_recovery_v2.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -239,6 +244,9 @@ catkin_install_python(PROGRAMS
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
+  add_rostest_gtest(evaluation_plant_test test/evaluation_plant.test test/test_evaluation_plant.cpp)
+  target_link_libraries(evaluation_plant_test ${catkin_LIBRARIES})
+  add_dependencies(evaluation_plant_test ${catkin_EXPORTED_TARGETS})
   add_rostest_gtest(terminal_recovery_test
     test/terminal_recovery.test
     test/test_terminal_recovery.cpp

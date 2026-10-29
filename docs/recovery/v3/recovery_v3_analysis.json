@@ -1,0 +1,6950 @@
+{
+  "schema_version": 3,
+  "audit": {
+    "passed": true,
+    "episodes": 480,
+    "matched_rows": 6048,
+    "matched_states": 432,
+    "maps": 24,
+    "conditions": [
+      "nominal",
+      "model_mismatch",
+      "crosswind",
+      "delay100ms"
+    ],
+    "families": [
+      "staggered",
+      "wall",
+      "culdesac",
+      "spatial"
+    ],
+    "timing_repeats": 2,
+    "repeat_decision_disagreements": 0,
+    "full_state_mismatches": 0,
+    "work_limit_violations": 0,
+    "reference_contradictions": 0,
+    "cost_comparison_tolerance": {
+      "absolute": 1e-07,
+      "relative": 1e-08
+    }
+  },
+  "interpretation": {
+    "reference": "Existence of a validated continuation in the same finite primary/backup library at the same input state.",
+    "timing": "Median of two repeated timings at each state/method; percentiles summarize 432 state medians.",
+    "bootstrap": "10,000 paired resamples of 24 maps, seed 12345; conditions and states remain within each resampled map. Percentile intervals describe this generated suite.",
+    "outcomes": "All 480 episodes retained, including collisions, envelope failures, infeasible-primary stops and timeouts.",
+    "cost": "Paired selected-cost differences use only states verified by both compared methods."
+  },
+  "episode_overall": [
+    {
+      "method": "cost12",
+      "n": 96,
+      "outcomes": {
+        "goal": 37,
+        "no_feasible_primary": 59,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.3854166666666667,
+      "sim_seconds": {
+        "n": 96,
+        "mean": 9.133333333333333,
+        "median": 6.6,
+        "p95": 15.8,
+        "p99": 16.029999999999998,
+        "min": 3.0,
+        "max": 16.6
+      },
+      "final_goal_distance": {
+        "n": 96,
+        "mean": 110.6500560640625,
+        "median": 147.8184814,
+        "p95": 203.55202105,
+        "p99": 203.58848646,
+        "min": 12.26561165,
+        "max": 203.9149475
+      }
+    },
+    {
+      "method": "diverse12",
+      "n": 96,
+      "outcomes": {
+        "goal": 56,
+        "no_feasible_primary": 34,
+        "collision": 5,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 1
+      },
+      "goal_fraction": 0.5833333333333334,
+      "sim_seconds": {
+        "n": 96,
+        "mean": 12.954166666666667,
+        "median": 15.6,
+        "p95": 18.95,
+        "p99": 36.76999999999999,
+        "min": 3.0,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 96,
+        "mean": 71.97327484904166,
+        "median": 14.647420409999999,
+        "p95": 195.738044775,
+        "p99": 199.333932515,
+        "min": 8.690328598,
+        "max": 203.9063873
+      }
+    },
+    {
+      "method": "full203",
+      "n": 96,
+      "outcomes": {
+        "goal": 67,
+        "no_feasible_primary": 27,
+        "collision": 2,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.6979166666666666,
+      "sim_seconds": {
+        "n": 96,
+        "mean": 13.168750000000001,
+        "median": 15.6,
+        "p95": 18.650000000000002,
+        "p99": 19.61,
+        "min": 3.0,
+        "max": 19.8
+      },
+      "final_goal_distance": {
+        "n": 96,
+        "mean": 61.83064446833333,
+        "median": 13.957829955,
+        "p95": 197.504775975,
+        "p99": 199.25264741499998,
+        "min": 12.022542,
+        "max": 203.9149475
+      }
+    },
+    {
+      "method": "primary3",
+      "n": 96,
+      "outcomes": {
+        "goal": 28,
+        "no_feasible_primary": 60,
+        "collision": 5,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 3
+      },
+      "goal_fraction": 0.2916666666666667,
+      "sim_seconds": {
+        "n": 96,
+        "mean": 9.608333333333334,
+        "median": 6.6,
+        "p95": 16.5,
+        "p99": 40.0,
+        "min": 3.0,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 96,
+        "mean": 117.27395895796876,
+        "median": 147.7460709,
+        "p95": 203.520034775,
+        "p99": 203.56704332,
+        "min": 9.343224525,
+        "max": 203.9177704
+      }
+    },
+    {
+      "method": "primary6",
+      "n": 96,
+      "outcomes": {
+        "goal": 43,
+        "no_feasible_primary": 43,
+        "collision": 6,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 4
+      },
+      "goal_fraction": 0.4479166666666667,
+      "sim_seconds": {
+        "n": 96,
+        "mean": 11.527083333333332,
+        "median": 13.2,
+        "p95": 24.45,
+        "p99": 40.0,
+        "min": 2.6,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 96,
+        "mean": 100.74570400687499,
+        "median": 76.208885195,
+        "p95": 200.4000092,
+        "p99": 207.041937255,
+        "min": 12.11769104,
+        "max": 210.0322571
+      }
+    }
+  ],
+  "episode_by_condition": [
+    {
+      "condition": "crosswind",
+      "method": "cost12",
+      "n": 24,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 23,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.041666666666666664,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 5.366666666666667,
+        "median": 3.6,
+        "p95": 11.119999999999992,
+        "p99": 14.679999999999998,
+        "min": 3.0,
+        "max": 15.6
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 167.60528560541664,
+        "median": 194.48248295,
+        "p95": 203.553789515,
+        "p99": 203.831891165,
+        "min": 12.74376583,
+        "max": 203.9149475
+      }
+    },
+    {
+      "condition": "crosswind",
+      "method": "diverse12",
+      "n": 24,
+      "outcomes": {
+        "goal": 7,
+        "no_feasible_primary": 17,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.2916666666666667,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 8.008333333333333,
+        "median": 5.2,
+        "p95": 16.97,
+        "p99": 17.154,
+        "min": 3.0,
+        "max": 17.2
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 137.30044977283333,
+        "median": 185.04276275,
+        "p95": 199.08901751,
+        "p99": 202.799371931,
+        "min": 8.690328598,
+        "max": 203.9063873
+      }
+    },
+    {
+      "condition": "crosswind",
+      "method": "full203",
+      "n": 24,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 18,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.25,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 7.600000000000001,
+        "median": 4.5,
+        "p95": 17.169999999999998,
+        "p99": 17.354,
+        "min": 3.0,
+        "max": 17.4
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 139.99707921791665,
+        "median": 188.47605135,
+        "p95": 199.001138325,
+        "p99": 202.78618011100002,
+        "min": 12.46776485,
+        "max": 203.9149475
+      }
+    },
+    {
+      "condition": "crosswind",
+      "method": "primary3",
+      "n": 24,
+      "outcomes": {
+        "goal": 2,
+        "no_feasible_primary": 22,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.08333333333333333,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 5.7250000000000005,
+        "median": 3.5,
+        "p95": 14.999999999999991,
+        "p99": 15.754,
+        "min": 3.0,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 162.20519545583332,
+        "median": 196.00163270000002,
+        "p95": 203.14246215499998,
+        "p99": 203.828112651,
+        "min": 13.34694767,
+        "max": 203.9177704
+      }
+    },
+    {
+      "condition": "crosswind",
+      "method": "primary6",
+      "n": 24,
+      "outcomes": {
+        "goal": 3,
+        "no_feasible_primary": 21,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.125,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 5.891666666666667,
+        "median": 3.6,
+        "p95": 16.2,
+        "p99": 16.2,
+        "min": 2.8,
+        "max": 16.2
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 162.40535608541666,
+        "median": 194.6548233,
+        "p95": 203.38839490499998,
+        "p99": 206.195503073,
+        "min": 12.92690468,
+        "max": 206.884552
+      }
+    },
+    {
+      "condition": "delay100ms",
+      "method": "cost12",
+      "n": 24,
+      "outcomes": {
+        "goal": 13,
+        "no_feasible_primary": 11,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.5416666666666666,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 10.708333333333334,
+        "median": 15.3,
+        "p95": 15.8,
+        "p99": 15.8,
+        "min": 3.0,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 86.63834765999998,
+        "median": 14.829078675,
+        "p95": 203.535891745,
+        "p99": 203.55805209,
+        "min": 12.68833828,
+        "max": 203.5638428
+      }
+    },
+    {
+      "condition": "delay100ms",
+      "method": "diverse12",
+      "n": 24,
+      "outcomes": {
+        "goal": 20,
+        "no_feasible_primary": 4,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 15.141666666666666,
+        "median": 15.8,
+        "p95": 19.57,
+        "p99": 20.832,
+        "min": 6.6,
+        "max": 21.2
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 36.14513536333333,
+        "median": 14.096279145,
+        "p95": 148.2339325,
+        "p99": 148.2339325,
+        "min": 12.1482048,
+        "max": 148.2339325
+      }
+    },
+    {
+      "condition": "delay100ms",
+      "method": "full203",
+      "n": 24,
+      "outcomes": {
+        "goal": 21,
+        "no_feasible_primary": 3,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.875,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 15.133333333333331,
+        "median": 15.8,
+        "p95": 18.71,
+        "p99": 18.954,
+        "min": 3.4,
+        "max": 19.0
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 33.58596749666666,
+        "median": 13.16785526,
+        "p95": 187.44392848499987,
+        "p99": 197.428050189,
+        "min": 12.11002159,
+        "max": 197.4712524
+      }
+    },
+    {
+      "condition": "delay100ms",
+      "method": "primary3",
+      "n": 24,
+      "outcomes": {
+        "goal": 12,
+        "no_feasible_primary": 12,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.5,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 10.366666666666667,
+        "median": 10.899999999999999,
+        "p95": 16.2,
+        "p99": 16.816,
+        "min": 3.0,
+        "max": 17.0
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 94.182660936875,
+        "median": 81.32424973500001,
+        "p95": 203.05618894999998,
+        "p99": 203.536699054,
+        "min": 9.343224525,
+        "max": 203.5424652
+      }
+    },
+    {
+      "condition": "delay100ms",
+      "method": "primary6",
+      "n": 24,
+      "outcomes": {
+        "goal": 17,
+        "no_feasible_primary": 6,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.7083333333333334,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 13.783333333333333,
+        "median": 15.7,
+        "p95": 19.349999999999994,
+        "p99": 32.736,
+        "min": 3.2,
+        "max": 36.6
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 64.47361406625,
+        "median": 14.086489675,
+        "p95": 200.4000092,
+        "p99": 200.4000092,
+        "min": 12.20239925,
+        "max": 200.4000092
+      }
+    },
+    {
+      "condition": "model_mismatch",
+      "method": "cost12",
+      "n": 24,
+      "outcomes": {
+        "goal": 12,
+        "no_feasible_primary": 12,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.5,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 10.558333333333332,
+        "median": 13.1,
+        "p95": 16.0,
+        "p99": 16.462,
+        "min": 3.0,
+        "max": 16.6
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 89.42589156041667,
+        "median": 49.135635375,
+        "p95": 203.36834106999999,
+        "p99": 203.38715832699998,
+        "min": 12.26561165,
+        "max": 203.3919067
+      }
+    },
+    {
+      "condition": "model_mismatch",
+      "method": "diverse12",
+      "n": 24,
+      "outcomes": {
+        "goal": 15,
+        "no_feasible_primary": 8,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 1
+      },
+      "goal_fraction": 0.625,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 15.108333333333334,
+        "median": 15.7,
+        "p95": 33.929999999999964,
+        "p99": 39.217999999999996,
+        "min": 3.4,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 57.86288134375,
+        "median": 14.344817165,
+        "p95": 145.302643625,
+        "p99": 185.87718169099998,
+        "min": 12.14987564,
+        "max": 197.9361572
+      }
+    },
+    {
+      "condition": "model_mismatch",
+      "method": "full203",
+      "n": 24,
+      "outcomes": {
+        "goal": 20,
+        "no_feasible_primary": 4,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 15.183333333333332,
+        "median": 15.8,
+        "p95": 19.45,
+        "p99": 19.754,
+        "min": 3.6,
+        "max": 19.8
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 34.34397427208333,
+        "median": 13.304532049999999,
+        "p95": 142.75351257999998,
+        "p99": 182.83449569399997,
+        "min": 12.022542,
+        "max": 194.5407257
+      }
+    },
+    {
+      "condition": "model_mismatch",
+      "method": "primary3",
+      "n": 24,
+      "outcomes": {
+        "goal": 10,
+        "no_feasible_primary": 11,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 3
+      },
+      "goal_fraction": 0.4166666666666667,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 13.833333333333334,
+        "median": 15.3,
+        "p95": 40.0,
+        "p99": 40.0,
+        "min": 3.0,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 91.63255985666666,
+        "median": 56.2664566,
+        "p95": 202.88673326,
+        "p99": 203.369403533,
+        "min": 12.52153111,
+        "max": 203.3746643
+      }
+    },
+    {
+      "condition": "model_mismatch",
+      "method": "primary6",
+      "n": 24,
+      "outcomes": {
+        "goal": 11,
+        "no_feasible_primary": 9,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 3
+      },
+      "goal_fraction": 0.4583333333333333,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 14.283333333333333,
+        "median": 15.0,
+        "p95": 40.0,
+        "p99": 40.0,
+        "min": 2.6,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 87.74219512666667,
+        "median": 48.628213885,
+        "p95": 200.0448303,
+        "p99": 207.735148936,
+        "min": 12.77754784,
+        "max": 210.0322571
+      }
+    },
+    {
+      "condition": "nominal",
+      "method": "cost12",
+      "n": 24,
+      "outcomes": {
+        "goal": 11,
+        "no_feasible_primary": 13,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.4583333333333333,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 9.9,
+        "median": 7.3,
+        "p95": 15.8,
+        "p99": 15.8,
+        "min": 3.0,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 98.93069943041667,
+        "median": 139.16482545,
+        "p95": 203.54819490499997,
+        "p99": 203.566752462,
+        "min": 12.4240284,
+        "max": 203.5713043
+      }
+    },
+    {
+      "condition": "nominal",
+      "method": "diverse12",
+      "n": 24,
+      "outcomes": {
+        "goal": 14,
+        "no_feasible_primary": 5,
+        "collision": 5,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.5833333333333334,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 13.558333333333335,
+        "median": 15.6,
+        "p95": 17.97,
+        "p99": 18.308,
+        "min": 5.4,
+        "max": 18.4
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 56.58463291625001,
+        "median": 14.56791735,
+        "p95": 181.056418625,
+        "p99": 183.613689142,
+        "min": 12.5825367,
+        "max": 183.6286011
+      }
+    },
+    {
+      "condition": "nominal",
+      "method": "full203",
+      "n": 24,
+      "outcomes": {
+        "goal": 20,
+        "no_feasible_primary": 2,
+        "collision": 2,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 14.758333333333335,
+        "median": 15.6,
+        "p95": 18.57,
+        "p99": 18.754,
+        "min": 4.0,
+        "max": 18.8
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 39.39555688666666,
+        "median": 13.90583801,
+        "p95": 180.87025072999995,
+        "p99": 188.524547123,
+        "min": 12.16586304,
+        "max": 190.1980133
+      }
+    },
+    {
+      "condition": "nominal",
+      "method": "primary3",
+      "n": 24,
+      "outcomes": {
+        "goal": 4,
+        "no_feasible_primary": 15,
+        "collision": 5,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.16666666666666666,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 8.508333333333333,
+        "median": 6.6,
+        "p95": 15.569999999999999,
+        "p99": 16.524,
+        "min": 3.0,
+        "max": 16.8
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 121.0754195825,
+        "median": 147.75100709999998,
+        "p95": 203.06801526499999,
+        "p99": 203.544169012,
+        "min": 13.44417477,
+        "max": 203.548584
+      }
+    },
+    {
+      "condition": "nominal",
+      "method": "primary6",
+      "n": 24,
+      "outcomes": {
+        "goal": 12,
+        "no_feasible_primary": 7,
+        "collision": 4,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 1
+      },
+      "goal_fraction": 0.5,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 12.15,
+        "median": 15.4,
+        "p95": 19.68999999999999,
+        "p99": 35.44599999999999,
+        "min": 3.2,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 88.36165074916666,
+        "median": 40.315687655,
+        "p95": 200.4000092,
+        "p99": 200.4000092,
+        "min": 12.11769104,
+        "max": 200.4000092
+      }
+    }
+  ],
+  "episode_by_family": [
+    {
+      "family": "culdesac",
+      "method": "cost12",
+      "n": 24,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 24,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 6.575,
+        "median": 6.6,
+        "p95": 6.77,
+        "p99": 6.8,
+        "min": 6.4,
+        "max": 6.8
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 148.16853014166668,
+        "median": 147.9308319,
+        "p95": 150.908419045,
+        "p99": 150.9112549,
+        "min": 144.8310852,
+        "max": 150.9112549
+      }
+    },
+    {
+      "family": "culdesac",
+      "method": "diverse12",
+      "n": 24,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 17,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.25,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 9.049999999999999,
+        "median": 6.699999999999999,
+        "p95": 17.77,
+        "p99": 17.954,
+        "min": 5.2,
+        "max": 18.0
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 125.35133851333335,
+        "median": 146.8698807,
+        "p95": 185.27449801999998,
+        "p99": 185.422666162,
+        "min": 12.150177,
+        "max": 185.4563751
+      }
+    },
+    {
+      "family": "culdesac",
+      "method": "full203",
+      "n": 24,
+      "outcomes": {
+        "goal": 14,
+        "no_feasible_primary": 9,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.5833333333333334,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 13.0,
+        "median": 17.6,
+        "p95": 18.77,
+        "p99": 19.416,
+        "min": 3.6,
+        "max": 19.6
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 78.62111854333332,
+        "median": 14.382644175,
+        "p95": 194.76260374999998,
+        "p99": 196.779340627,
+        "min": 12.17504501,
+        "max": 197.2834167
+      }
+    },
+    {
+      "family": "culdesac",
+      "method": "primary3",
+      "n": 24,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 24,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 6.566666666666666,
+        "median": 6.6,
+        "p95": 6.6,
+        "p99": 6.754,
+        "min": 6.4,
+        "max": 6.8
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 148.1628373375,
+        "median": 147.7556915,
+        "p95": 150.8169861,
+        "p99": 150.82606825,
+        "min": 144.6712799,
+        "max": 150.8287811
+      }
+    },
+    {
+      "family": "culdesac",
+      "method": "primary6",
+      "n": 24,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 24,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 3.275,
+        "median": 3.2,
+        "p95": 3.4,
+        "p99": 3.4,
+        "min": 3.2,
+        "max": 3.4
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 199.15294648333335,
+        "median": 200.0448303,
+        "p95": 200.4000092,
+        "p99": 200.4000092,
+        "min": 196.869873,
+        "max": 200.4000092
+      }
+    },
+    {
+      "family": "spatial",
+      "method": "cost12",
+      "n": 24,
+      "outcomes": {
+        "goal": 16,
+        "no_feasible_primary": 8,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 12.441666666666665,
+        "median": 15.6,
+        "p95": 15.8,
+        "p99": 15.8,
+        "min": 3.4,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 61.545541172083325,
+        "median": 13.89367247,
+        "p95": 198.29933398999998,
+        "p99": 198.997871725,
+        "min": 12.26561165,
+        "max": 199.0072632
+      }
+    },
+    {
+      "family": "spatial",
+      "method": "diverse12",
+      "n": 24,
+      "outcomes": {
+        "goal": 16,
+        "no_feasible_primary": 4,
+        "collision": 3,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 1
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 15.016666666666666,
+        "median": 15.6,
+        "p95": 33.65999999999996,
+        "p99": 39.217999999999996,
+        "min": 3.4,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 54.329070011166664,
+        "median": 14.313272475,
+        "p95": 198.36848451999998,
+        "p99": 199.086745782,
+        "min": 8.690328598,
+        "max": 199.093277
+      }
+    },
+    {
+      "family": "spatial",
+      "method": "full203",
+      "n": 24,
+      "outcomes": {
+        "goal": 16,
+        "no_feasible_primary": 8,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 12.441666666666665,
+        "median": 15.6,
+        "p95": 15.8,
+        "p99": 15.8,
+        "min": 3.4,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 61.545541172083325,
+        "median": 13.89367247,
+        "p95": 198.29933398999998,
+        "p99": 198.997871725,
+        "min": 12.26561165,
+        "max": 199.0072632
+      }
+    },
+    {
+      "family": "spatial",
+      "method": "primary3",
+      "n": 24,
+      "outcomes": {
+        "goal": 12,
+        "no_feasible_primary": 5,
+        "collision": 4,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 3
+      },
+      "goal_fraction": 0.5,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 16.0,
+        "median": 15.6,
+        "p95": 40.0,
+        "p99": 40.0,
+        "min": 3.4,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 60.571873742291665,
+        "median": 34.51973343,
+        "p95": 197.540791305,
+        "p99": 198.72073879799999,
+        "min": 9.343224525,
+        "max": 199.0728912
+      }
+    },
+    {
+      "family": "spatial",
+      "method": "primary6",
+      "n": 24,
+      "outcomes": {
+        "goal": 13,
+        "no_feasible_primary": 5,
+        "collision": 3,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 3
+      },
+      "goal_fraction": 0.5416666666666666,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 15.933333333333332,
+        "median": 15.7,
+        "p95": 40.0,
+        "p99": 40.0,
+        "min": 3.2,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 60.718887444166675,
+        "median": 14.752691745,
+        "p95": 191.59514766499993,
+        "p99": 199.85425295000002,
+        "min": 12.25195122,
+        "max": 200.5534058
+      }
+    },
+    {
+      "family": "staggered",
+      "method": "cost12",
+      "n": 24,
+      "outcomes": {
+        "goal": 18,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.75,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 12.858333333333334,
+        "median": 15.4,
+        "p95": 16.0,
+        "p99": 16.462,
+        "min": 3.0,
+        "max": 16.6
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 54.94649072458333,
+        "median": 13.696175575,
+        "p95": 197.94314419999998,
+        "p99": 202.562844683,
+        "min": 12.40324879,
+        "max": 203.9149475
+      }
+    },
+    {
+      "family": "staggered",
+      "method": "diverse12",
+      "n": 24,
+      "outcomes": {
+        "goal": 16,
+        "no_feasible_primary": 8,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 12.816666666666668,
+        "median": 15.4,
+        "p95": 16.2,
+        "p99": 16.508,
+        "min": 3.0,
+        "max": 16.6
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 57.316436689166665,
+        "median": 14.50465012,
+        "p95": 197.025990315,
+        "p99": 202.397952862,
+        "min": 12.1482048,
+        "max": 203.9063873
+      }
+    },
+    {
+      "family": "staggered",
+      "method": "full203",
+      "n": 24,
+      "outcomes": {
+        "goal": 19,
+        "no_feasible_primary": 5,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.7916666666666666,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 13.158333333333333,
+        "median": 15.4,
+        "p95": 16.139999999999997,
+        "p99": 16.508,
+        "min": 3.0,
+        "max": 16.6
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 50.53463494499999,
+        "median": 14.016812325,
+        "p95": 197.944565555,
+        "p99": 202.562844683,
+        "min": 12.34059334,
+        "max": 203.9149475
+      }
+    },
+    {
+      "family": "staggered",
+      "method": "primary3",
+      "n": 24,
+      "outcomes": {
+        "goal": 15,
+        "no_feasible_primary": 8,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.625,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 12.166666666666666,
+        "median": 15.3,
+        "p95": 16.369999999999997,
+        "p99": 16.708,
+        "min": 3.0,
+        "max": 16.8
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 67.51222427833333,
+        "median": 14.851294515,
+        "p95": 200.88617553,
+        "p99": 203.237025002,
+        "min": 12.45736027,
+        "max": 203.9177704
+      }
+    },
+    {
+      "family": "staggered",
+      "method": "primary6",
+      "n": 24,
+      "outcomes": {
+        "goal": 15,
+        "no_feasible_primary": 6,
+        "collision": 2,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 1
+      },
+      "goal_fraction": 0.625,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 14.5,
+        "median": 15.5,
+        "p95": 33.74999999999996,
+        "p99": 39.217999999999996,
+        "min": 2.8,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 67.16633943625,
+        "median": 13.87474585,
+        "p95": 202.92243496499998,
+        "p99": 206.195503073,
+        "min": 12.11769104,
+        "max": 206.884552
+      }
+    },
+    {
+      "family": "wall",
+      "method": "cost12",
+      "n": 24,
+      "outcomes": {
+        "goal": 3,
+        "no_feasible_primary": 21,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.125,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 4.658333333333332,
+        "median": 3.0,
+        "p95": 15.37,
+        "p99": 15.4,
+        "min": 3.0,
+        "max": 15.4
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 177.93966221791666,
+        "median": 203.33966064999998,
+        "p95": 203.56234133,
+        "p99": 203.56958815500002,
+        "min": 12.77980328,
+        "max": 203.5713043
+      }
+    },
+    {
+      "family": "wall",
+      "method": "diverse12",
+      "n": 24,
+      "outcomes": {
+        "goal": 18,
+        "no_feasible_primary": 5,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.75,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 14.933333333333332,
+        "median": 17.0,
+        "p95": 19.57,
+        "p99": 20.832,
+        "min": 3.4,
+        "max": 21.2
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 50.8962541825,
+        "median": 14.384247304999999,
+        "p95": 187.33773191999995,
+        "p99": 196.126840948,
+        "min": 12.15794182,
+        "max": 197.9361572
+      }
+    },
+    {
+      "family": "wall",
+      "method": "full203",
+      "n": 24,
+      "outcomes": {
+        "goal": 18,
+        "no_feasible_primary": 5,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.75,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 14.075000000000001,
+        "median": 17.0,
+        "p95": 18.97,
+        "p99": 19.616,
+        "min": 3.4,
+        "max": 19.8
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 56.62128321291667,
+        "median": 13.42191839,
+        "p95": 197.03167339499998,
+        "p99": 197.574505011,
+        "min": 12.022542,
+        "max": 197.6053467
+      }
+    },
+    {
+      "family": "wall",
+      "method": "primary3",
+      "n": 24,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 23,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.041666666666666664,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 3.7000000000000006,
+        "median": 3.2,
+        "p95": 3.909999999999999,
+        "p99": 12.931999999999995,
+        "min": 3.0,
+        "max": 15.6
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 192.84890047374998,
+        "median": 200.43598935,
+        "p95": 203.54050368,
+        "p99": 203.547176676,
+        "min": 12.92103577,
+        "max": 203.548584
+      }
+    },
+    {
+      "family": "wall",
+      "method": "primary6",
+      "n": 24,
+      "outcomes": {
+        "goal": 15,
+        "no_feasible_primary": 8,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.625,
+      "sim_seconds": {
+        "n": 24,
+        "mean": 12.4,
+        "median": 15.7,
+        "p95": 20.139999999999997,
+        "p99": 20.354,
+        "min": 2.6,
+        "max": 20.4
+      },
+      "final_goal_distance": {
+        "n": 24,
+        "mean": 75.94464266375,
+        "median": 14.316173555,
+        "p95": 192.58955531999996,
+        "p99": 206.537380834,
+        "min": 12.70807934,
+        "max": 210.0322571
+      }
+    }
+  ],
+  "episode_by_family_condition": [
+    {
+      "family": "culdesac",
+      "condition": "crosswind",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 6.666666666666667,
+        "median": 6.6,
+        "p95": 6.8,
+        "p99": 6.8,
+        "min": 6.6,
+        "max": 6.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 146.91198219999998,
+        "median": 147.8777618,
+        "p95": 147.9315796,
+        "p99": 147.9315796,
+        "min": 144.8310852,
+        "max": 147.9315796
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "crosswind",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 5.266666666666667,
+        "median": 5.2,
+        "p95": 5.4,
+        "p99": 5.4,
+        "min": 5.2,
+        "max": 5.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 185.08246105,
+        "median": 185.04276275,
+        "p95": 185.41973495,
+        "p99": 185.44904707,
+        "min": 184.8045807,
+        "max": 185.4563751
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "crosswind",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 5,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.16666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 7.066666666666666,
+        "median": 5.0,
+        "p95": 14.849999999999998,
+        "p99": 16.89,
+        "min": 3.8,
+        "max": 17.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 153.29454358333334,
+        "median": 185.50289915000002,
+        "p95": 194.54315185,
+        "p99": 194.98205564999998,
+        "min": 14.1362648,
+        "max": 195.0917816
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "crosswind",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 6.6000000000000005,
+        "median": 6.6,
+        "p95": 6.6,
+        "p99": 6.6,
+        "min": 6.6,
+        "max": 6.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 147.8622131,
+        "median": 147.8622131,
+        "p95": 147.8622131,
+        "p99": 147.8622131,
+        "min": 147.8622131,
+        "max": 147.8622131
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "crosswind",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 3.4,
+        "median": 3.4,
+        "p95": 3.4,
+        "p99": 3.4,
+        "min": 3.4,
+        "max": 3.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 197.329422,
+        "median": 197.329422,
+        "p95": 197.329422,
+        "p99": 197.329422,
+        "min": 197.329422,
+        "max": 197.329422
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "delay100ms",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 6.566666666666667,
+        "median": 6.6,
+        "p95": 6.6,
+        "p99": 6.6,
+        "min": 6.4,
+        "max": 6.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 148.36963651666667,
+        "median": 147.8788376,
+        "p95": 150.15196987500002,
+        "p99": 150.744273335,
+        "min": 147.8184814,
+        "max": 150.8923492
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "delay100ms",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 2,
+        "no_feasible_primary": 4,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.3333333333333333,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 10.166666666666666,
+        "median": 6.6,
+        "p95": 17.349999999999998,
+        "p99": 17.389999999999997,
+        "min": 6.6,
+        "max": 17.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 103.28884919833335,
+        "median": 148.2339325,
+        "p95": 148.2339325,
+        "p99": 148.2339325,
+        "min": 12.150177,
+        "max": 148.2339325
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "delay100ms",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 4,
+        "no_feasible_primary": 2,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 14.0,
+        "median": 17.6,
+        "p95": 18.65,
+        "p99": 18.77,
+        "min": 3.6,
+        "max": 18.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 63.59730369833334,
+        "median": 13.784377575,
+        "p95": 180.884269675,
+        "p99": 194.00358729500002,
+        "min": 12.17504501,
+        "max": 197.2834167
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "delay100ms",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 6.533333333333334,
+        "median": 6.6,
+        "p95": 6.6,
+        "p99": 6.6,
+        "min": 6.4,
+        "max": 6.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 148.76721191666667,
+        "median": 147.74243165000001,
+        "p95": 150.8169861,
+        "p99": 150.8169861,
+        "min": 147.742218,
+        "max": 150.8169861
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "delay100ms",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 3.233333333333333,
+        "median": 3.2,
+        "p95": 3.35,
+        "p99": 3.39,
+        "min": 3.2,
+        "max": 3.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 199.88334405,
+        "median": 200.4000092,
+        "p95": 200.4000092,
+        "p99": 200.4000092,
+        "min": 197.3000183,
+        "max": 200.4000092
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "model_mismatch",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 6.533333333333334,
+        "median": 6.6,
+        "p95": 6.6,
+        "p99": 6.6,
+        "min": 6.4,
+        "max": 6.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 148.45320130000002,
+        "median": 147.5028076,
+        "p95": 150.413147,
+        "p99": 150.413147,
+        "min": 147.4436493,
+        "max": 150.413147
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "model_mismatch",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 7.099999999999999,
+        "median": 7.0,
+        "p95": 7.4,
+        "p99": 7.4,
+        "min": 6.8,
+        "max": 7.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 142.72149913333334,
+        "median": 144.14923095,
+        "p95": 145.167186775,
+        "p99": 145.438100475,
+        "min": 139.1867218,
+        "max": 145.5058289
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "model_mismatch",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 4,
+        "no_feasible_primary": 2,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 14.933333333333332,
+        "median": 18.5,
+        "p95": 19.35,
+        "p99": 19.55,
+        "min": 7.0,
+        "max": 19.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 55.90551853,
+        "median": 13.779361250000001,
+        "p95": 142.1598053,
+        "p99": 143.34721986,
+        "min": 13.17271519,
+        "max": 143.6440735
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "model_mismatch",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 6.533333333333334,
+        "median": 6.6,
+        "p95": 6.6,
+        "p99": 6.6,
+        "min": 6.4,
+        "max": 6.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 148.2696813,
+        "median": 147.2391739,
+        "p95": 150.3345337,
+        "p99": 150.3345337,
+        "min": 147.2353363,
+        "max": 150.3345337
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "model_mismatch",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 3.233333333333333,
+        "median": 3.2,
+        "p95": 3.35,
+        "p99": 3.39,
+        "min": 3.2,
+        "max": 3.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 199.51567075000003,
+        "median": 200.0448303,
+        "p95": 200.0448303,
+        "p99": 200.0448303,
+        "min": 196.869873,
+        "max": 200.0448303
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "nominal",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 6.533333333333334,
+        "median": 6.6,
+        "p95": 6.6,
+        "p99": 6.6,
+        "min": 6.4,
+        "max": 6.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 148.93930055,
+        "median": 147.9581604,
+        "p95": 150.9112549,
+        "p99": 150.9112549,
+        "min": 147.9388123,
+        "max": 150.9112549
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "nominal",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 4,
+        "no_feasible_primary": 1,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 13.666666666666666,
+        "median": 17.6,
+        "p95": 17.95,
+        "p99": 17.99,
+        "min": 5.4,
+        "max": 18.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 70.31254467166666,
+        "median": 14.157241825,
+        "p95": 183.61239245000002,
+        "p99": 183.62535937,
+        "min": 12.86651134,
+        "max": 183.6286011
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "nominal",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 5,
+        "no_feasible_primary": 0,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 16.0,
+        "median": 18.0,
+        "p95": 18.55,
+        "p99": 18.59,
+        "min": 5.4,
+        "max": 18.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 41.68710836166667,
+        "median": 13.40742731,
+        "p95": 140.9098725575,
+        "p99": 174.51963323150002,
+        "min": 12.68834209,
+        "max": 182.9220734
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "nominal",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 6.6000000000000005,
+        "median": 6.6,
+        "p95": 6.75,
+        "p99": 6.79,
+        "min": 6.4,
+        "max": 6.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 147.75224303333334,
+        "median": 147.7541046,
+        "p95": 150.06050869999999,
+        "p99": 150.67512662,
+        "min": 144.6712799,
+        "max": 150.8287811
+      }
+    },
+    {
+      "family": "culdesac",
+      "condition": "nominal",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 3.233333333333333,
+        "median": 3.2,
+        "p95": 3.35,
+        "p99": 3.39,
+        "min": 3.2,
+        "max": 3.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 199.88334913333333,
+        "median": 200.4000092,
+        "p95": 200.4000092,
+        "p99": 200.4000092,
+        "min": 197.3000488,
+        "max": 200.4000092
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "crosswind",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 5,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.16666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 6.866666666666666,
+        "median": 3.6,
+        "p95": 14.6,
+        "p99": 15.4,
+        "min": 3.4,
+        "max": 15.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 145.20071778833332,
+        "median": 194.5187302,
+        "p95": 198.997055075,
+        "p99": 199.005221575,
+        "min": 12.74376583,
+        "max": 199.0072632
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "crosswind",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 2,
+        "no_feasible_primary": 4,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.3333333333333333,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 7.8,
+        "median": 3.6,
+        "p95": 16.7,
+        "p99": 16.94,
+        "min": 3.4,
+        "max": 17.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 134.75252183299997,
+        "median": 194.41966245,
+        "p95": 199.08617785,
+        "p99": 199.09185717,
+        "min": 8.690328598,
+        "max": 199.093277
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "crosswind",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 5,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.16666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 6.866666666666666,
+        "median": 3.6,
+        "p95": 14.6,
+        "p99": 15.4,
+        "min": 3.4,
+        "max": 15.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 145.20071778833332,
+        "median": 194.5187302,
+        "p95": 198.997055075,
+        "p99": 199.005221575,
+        "min": 12.74376583,
+        "max": 199.0072632
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "crosswind",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 2,
+        "no_feasible_primary": 4,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.3333333333333333,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 8.866666666666665,
+        "median": 7.5,
+        "p95": 15.75,
+        "p99": 15.790000000000001,
+        "min": 3.4,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 115.69315480666667,
+        "median": 134.654457105,
+        "p95": 198.69011684999998,
+        "p99": 198.99633633,
+        "min": 13.34694767,
+        "max": 199.0728912
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "crosswind",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 2,
+        "no_feasible_primary": 4,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.3333333333333333,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 9.4,
+        "median": 8.7,
+        "p95": 16.2,
+        "p99": 16.2,
+        "min": 3.2,
+        "max": 16.2
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 109.74284966166665,
+        "median": 116.21180723,
+        "p95": 199.79345705,
+        "p99": 200.40141605,
+        "min": 13.85674477,
+        "max": 200.5534058
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "delay100ms",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.633333333333333,
+        "median": 15.6,
+        "p95": 15.8,
+        "p99": 15.8,
+        "min": 15.4,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.412787914999997,
+        "median": 13.090141294999999,
+        "p95": 14.5634679825,
+        "p99": 14.6934156445,
+        "min": 12.72344112,
+        "max": 14.72590256
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "delay100ms",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.666666666666664,
+        "median": 15.6,
+        "p95": 15.95,
+        "p99": 15.99,
+        "min": 15.4,
+        "max": 16.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 14.16024494,
+        "median": 14.08889341,
+        "p95": 14.8938164675,
+        "p99": 14.9305767975,
+        "min": 13.42082119,
+        "max": 14.93976688
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "delay100ms",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.633333333333333,
+        "median": 15.6,
+        "p95": 15.8,
+        "p99": 15.8,
+        "min": 15.4,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.412787914999997,
+        "median": 13.090141294999999,
+        "p95": 14.5634679825,
+        "p99": 14.6934156445,
+        "min": 12.72344112,
+        "max": 14.72590256
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "delay100ms",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 16.0,
+        "median": 15.9,
+        "p95": 16.75,
+        "p99": 16.95,
+        "min": 15.6,
+        "max": 17.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.002602577500001,
+        "median": 13.708781720000001,
+        "p95": 14.5166068075,
+        "p99": 14.6102419855,
+        "min": 9.343224525,
+        "max": 14.63365078
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "delay100ms",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.833333333333334,
+        "median": 15.9,
+        "p95": 16.15,
+        "p99": 16.189999999999998,
+        "min": 15.4,
+        "max": 16.2
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.508284408333333,
+        "median": 13.395002365,
+        "p95": 14.760917665000001,
+        "p99": 14.909508517,
+        "min": 12.32724094,
+        "max": 14.94665623
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "model_mismatch",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 5,
+        "no_feasible_primary": 1,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 14.866666666666667,
+        "median": 15.6,
+        "p95": 15.8,
+        "p99": 15.8,
+        "min": 11.0,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 24.804829121666668,
+        "median": 13.078879355000002,
+        "p95": 66.315339805,
+        "p99": 80.343115569,
+        "min": 12.26561165,
+        "max": 83.85005951
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "model_mismatch",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 5,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 1
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 23.233333333333334,
+        "median": 15.8,
+        "p95": 39.15,
+        "p99": 39.83,
+        "min": 15.4,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 19.69338401166667,
+        "median": 13.129255295,
+        "p95": 43.4769296675,
+        "p99": 51.326178173500004,
+        "min": 12.14987564,
+        "max": 53.2884903
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "model_mismatch",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 5,
+        "no_feasible_primary": 1,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 14.866666666666667,
+        "median": 15.6,
+        "p95": 15.8,
+        "p99": 15.8,
+        "min": 11.0,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 24.804829121666668,
+        "median": 13.078879355000002,
+        "p95": 66.315339805,
+        "p99": 80.343115569,
+        "min": 12.26561165,
+        "max": 83.85005951
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "model_mismatch",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 3,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 3
+      },
+      "goal_fraction": 0.5,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 27.833333333333332,
+        "median": 27.9,
+        "p95": 40.0,
+        "p99": 40.0,
+        "min": 15.4,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 34.74816226833334,
+        "median": 34.41368723,
+        "p95": 56.437288280000004,
+        "p99": 56.573953624000005,
+        "min": 12.79032421,
+        "max": 56.60811996
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "model_mismatch",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 2,
+        "no_feasible_primary": 1,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 3
+      },
+      "goal_fraction": 0.3333333333333333,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 26.96666666666667,
+        "median": 28.0,
+        "p95": 40.0,
+        "p99": 40.0,
+        "min": 10.8,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 42.614029728333335,
+        "median": 48.628213885,
+        "p95": 71.6399822275,
+        "p99": 76.76907310950001,
+        "min": 13.62683964,
+        "max": 78.05134583
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "nominal",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 4,
+        "no_feasible_primary": 2,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 12.4,
+        "median": 15.5,
+        "p95": 15.75,
+        "p99": 15.790000000000001,
+        "min": 4.0,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 62.763829863333335,
+        "median": 14.927790645,
+        "p95": 175.246219625,
+        "p99": 187.207654565,
+        "min": 12.90645027,
+        "max": 190.1980133
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "nominal",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 3,
+        "no_feasible_primary": 0,
+        "collision": 3,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.5,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 13.366666666666667,
+        "median": 14.0,
+        "p95": 15.8,
+        "p99": 15.8,
+        "min": 8.2,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 48.71012926,
+        "median": 38.045082570000005,
+        "p95": 110.8365487975,
+        "p99": 123.88263567950001,
+        "min": 12.5825367,
+        "max": 127.1441574
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "nominal",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 4,
+        "no_feasible_primary": 2,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 12.4,
+        "median": 15.5,
+        "p95": 15.75,
+        "p99": 15.790000000000001,
+        "min": 4.0,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 62.763829863333335,
+        "median": 14.927790645,
+        "p95": 175.246219625,
+        "p99": 187.207654565,
+        "min": 12.90645027,
+        "max": 190.1980133
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "nominal",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 1,
+        "collision": 4,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.16666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 11.299999999999999,
+        "median": 12.399999999999999,
+        "p95": 14.85,
+        "p99": 15.45,
+        "min": 6.6,
+        "max": 15.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 78.84357531666667,
+        "median": 62.428821565,
+        "p95": 142.7893276,
+        "p99": 147.96312672,
+        "min": 14.21924686,
+        "max": 149.2565765
+      }
+    },
+    {
+      "family": "spatial",
+      "condition": "nominal",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 3,
+        "no_feasible_primary": 0,
+        "collision": 3,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.5,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 11.533333333333333,
+        "median": 11.8,
+        "p95": 16.0,
+        "p99": 16.0,
+        "min": 6.8,
+        "max": 16.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 77.01038597833333,
+        "median": 71.07293508000001,
+        "p95": 147.109565725,
+        "p99": 147.398658745,
+        "min": 12.25195122,
+        "max": 147.470932
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "crosswind",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 4.633333333333334,
+        "median": 3.5,
+        "p95": 7.800000000000001,
+        "p99": 8.280000000000001,
+        "min": 3.0,
+        "max": 8.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 179.35964330000002,
+        "median": 195.9311142,
+        "p95": 202.445270525,
+        "p99": 203.621012105,
+        "min": 121.3299179,
+        "max": 203.9149475
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "crosswind",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 5,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.16666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 5.966666666666666,
+        "median": 3.7,
+        "p95": 13.4,
+        "p99": 15.320000000000002,
+        "min": 3.0,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 160.21498569333332,
+        "median": 193.27841189999998,
+        "p95": 202.26678465,
+        "p99": 203.57846677,
+        "min": 14.69733906,
+        "max": 203.9063873
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "crosswind",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 5,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.16666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 5.866666666666667,
+        "median": 3.5,
+        "p95": 13.350000000000001,
+        "p99": 15.310000000000002,
+        "min": 3.0,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 161.51386943333333,
+        "median": 195.93585205,
+        "p95": 202.445270525,
+        "p99": 203.621012105,
+        "min": 14.164958,
+        "max": 203.9149475
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "crosswind",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 4.133333333333334,
+        "median": 3.3,
+        "p95": 7.2,
+        "p99": 8.160000000000002,
+        "min": 3.0,
+        "max": 8.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 186.33224233333337,
+        "median": 199.0001984,
+        "p95": 203.17782975,
+        "p99": 203.76978227,
+        "min": 120.6352844,
+        "max": 203.9177704
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "crosswind",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 5,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.16666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 5.800000000000001,
+        "median": 3.5,
+        "p95": 13.6,
+        "p99": 15.680000000000001,
+        "min": 2.8,
+        "max": 16.2
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 163.17996628000003,
+        "median": 195.95975495,
+        "p95": 206.135585775,
+        "p99": 206.734758755,
+        "min": 12.92690468,
+        "max": 206.884552
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "delay100ms",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.533333333333333,
+        "median": 15.5,
+        "p95": 15.8,
+        "p99": 15.8,
+        "min": 15.2,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.545695144999998,
+        "median": 13.356553075,
+        "p95": 14.7469029425,
+        "p99": 14.8951844205,
+        "min": 12.68833828,
+        "max": 14.93225479
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "delay100ms",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.66666666666667,
+        "median": 15.600000000000001,
+        "p95": 16.1,
+        "p99": 16.18,
+        "min": 15.4,
+        "max": 16.2
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.712266921666666,
+        "median": 13.961679935,
+        "p95": 14.6986196075,
+        "p99": 14.7122108015,
+        "min": 12.1482048,
+        "max": 14.7156086
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "delay100ms",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.533333333333333,
+        "median": 15.5,
+        "p95": 15.8,
+        "p99": 15.8,
+        "min": 15.2,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.491063276666667,
+        "median": 13.36652994,
+        "p95": 14.7469029425,
+        "p99": 14.8951844205,
+        "min": 12.34059334,
+        "max": 14.93225479
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "delay100ms",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.766666666666666,
+        "median": 15.8,
+        "p95": 16.2,
+        "p99": 16.2,
+        "min": 15.2,
+        "max": 16.2
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 14.01780812,
+        "median": 14.440054895,
+        "p95": 14.8924417475,
+        "p99": 14.9035135255,
+        "min": 12.45736027,
+        "max": 14.90628147
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "delay100ms",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 5,
+        "no_feasible_primary": 0,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 19.3,
+        "median": 15.899999999999999,
+        "p95": 31.55,
+        "p99": 35.59,
+        "min": 15.4,
+        "max": 36.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 30.56468344,
+        "median": 13.38759327,
+        "p95": 91.792422785,
+        "p99": 112.56853095700002,
+        "min": 12.20239925,
+        "max": 117.762558
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "model_mismatch",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.766666666666667,
+        "median": 15.7,
+        "p95": 16.450000000000003,
+        "p99": 16.57,
+        "min": 15.2,
+        "max": 16.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.097891013333333,
+        "median": 13.133995055,
+        "p95": 13.805970432499999,
+        "p99": 13.932279446499999,
+        "min": 12.40324879,
+        "max": 13.9638567
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "model_mismatch",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 5,
+        "no_feasible_primary": 1,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.033333333333333,
+        "median": 15.5,
+        "p95": 16.5,
+        "p99": 16.580000000000002,
+        "min": 11.2,
+        "max": 16.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 24.547614256666666,
+        "median": 13.486459255,
+        "p95": 63.05470824,
+        "p99": 76.039524408,
+        "min": 13.27897453,
+        "max": 79.28572845
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "model_mismatch",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.766666666666667,
+        "median": 15.600000000000001,
+        "p95": 16.5,
+        "p99": 16.580000000000002,
+        "min": 15.2,
+        "max": 16.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.08132124,
+        "median": 12.856799125,
+        "p95": 13.9608433275,
+        "p99": 13.9632540255,
+        "min": 12.40324879,
+        "max": 13.9638567
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "model_mismatch",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.766666666666667,
+        "median": 15.7,
+        "p95": 16.349999999999998,
+        "p99": 16.389999999999997,
+        "min": 15.2,
+        "max": 16.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.457972846666665,
+        "median": 13.432909965,
+        "p95": 14.5427236575,
+        "p99": 14.7038206115,
+        "min": 12.52153111,
+        "max": 14.74409485
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "model_mismatch",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 5,
+        "no_feasible_primary": 0,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 14.266666666666667,
+        "median": 15.2,
+        "p95": 17.25,
+        "p99": 17.53,
+        "min": 6.4,
+        "max": 17.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 36.662487516666665,
+        "median": 13.47411585,
+        "p95": 118.358958995,
+        "p99": 146.07165755900002,
+        "min": 12.77754784,
+        "max": 152.9998322
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "nominal",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.500000000000002,
+        "median": 15.4,
+        "p95": 15.8,
+        "p99": 15.8,
+        "min": 15.2,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.78273344,
+        "median": 13.73225832,
+        "p95": 14.935033794999999,
+        "p99": 14.957319255,
+        "min": 12.4240284,
+        "max": 14.96289062
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "nominal",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 4,
+        "no_feasible_primary": 2,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 14.600000000000001,
+        "median": 15.399999999999999,
+        "p95": 15.95,
+        "p99": 15.99,
+        "min": 12.0,
+        "max": 16.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 30.790879885,
+        "median": 14.54781151,
+        "p95": 64.8529100375,
+        "p99": 65.2129770235,
+        "min": 13.22729969,
+        "max": 65.30299377
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "nominal",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.466666666666669,
+        "median": 15.4,
+        "p95": 15.75,
+        "p99": 15.790000000000001,
+        "min": 15.2,
+        "max": 15.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 14.05228583,
+        "median": 14.382824894999999,
+        "p95": 14.913767335,
+        "p99": 14.953065963,
+        "min": 12.4240284,
+        "max": 14.96289062
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "nominal",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 3,
+        "no_feasible_primary": 2,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.5,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 13.0,
+        "median": 13.7,
+        "p95": 16.45,
+        "p99": 16.73,
+        "min": 6.4,
+        "max": 16.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 56.24087381333334,
+        "median": 40.12777853,
+        "p95": 134.87034225,
+        "p99": 151.20907821000003,
+        "min": 13.44417477,
+        "max": 155.2937622
+      }
+    },
+    {
+      "family": "staggered",
+      "condition": "nominal",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 4,
+        "no_feasible_primary": 1,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 1
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 18.633333333333333,
+        "median": 15.6,
+        "p95": 34.0,
+        "p99": 38.800000000000004,
+        "min": 9.2,
+        "max": 40.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 38.25822050833333,
+        "median": 13.5050478,
+        "p95": 100.6600341525,
+        "p99": 109.92983395050001,
+        "min": 12.11769104,
+        "max": 112.2472839
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "crosswind",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 3.2999999999999994,
+        "median": 3.2,
+        "p95": 3.85,
+        "p99": 3.97,
+        "min": 3.0,
+        "max": 4.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 198.94879913333332,
+        "median": 200.4716568,
+        "p95": 203.553760525,
+        "p99": 203.553818505,
+        "min": 188.2428131,
+        "max": 203.553833
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "crosswind",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 4,
+        "no_feasible_primary": 2,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 13.0,
+        "median": 16.8,
+        "p95": 17.1,
+        "p99": 17.18,
+        "min": 4.0,
+        "max": 17.2
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 69.151830515,
+        "median": 13.626499655,
+        "p95": 185.51650999999998,
+        "p99": 189.15895384,
+        "min": 12.60989475,
+        "max": 190.0695648
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "crosswind",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 3,
+        "no_feasible_primary": 3,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.5,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 10.6,
+        "median": 11.100000000000001,
+        "p95": 17.15,
+        "p99": 17.189999999999998,
+        "min": 3.4,
+        "max": 17.2
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 99.97918606666666,
+        "median": 92.48530435,
+        "p95": 196.040100125,
+        "p99": 197.292297385,
+        "min": 12.46776485,
+        "max": 197.6053467
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "crosswind",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 3.3000000000000003,
+        "median": 3.2,
+        "p95": 3.8,
+        "p99": 3.96,
+        "min": 3.0,
+        "max": 4.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 198.93317158333335,
+        "median": 200.45664975,
+        "p95": 202.767383575,
+        "p99": 203.37583999499998,
+        "min": 188.2428131,
+        "max": 203.5279541
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "crosswind",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 4.966666666666668,
+        "median": 5.1,
+        "p95": 5.7,
+        "p99": 5.78,
+        "min": 3.6,
+        "max": 5.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 179.36918640000002,
+        "median": 179.01885225,
+        "p95": 191.09116360000002,
+        "p99": 194.08794704000002,
+        "min": 167.7829437,
+        "max": 194.8371429
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "delay100ms",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 5,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.16666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 5.1000000000000005,
+        "median": 3.0,
+        "p95": 12.350000000000001,
+        "p99": 14.790000000000003,
+        "min": 3.0,
+        "max": 15.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 171.22527106333334,
+        "median": 203.51878355,
+        "p95": 203.55754855,
+        "p99": 203.56258395,
+        "min": 12.77980328,
+        "max": 203.5638428
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "delay100ms",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 19.066666666666666,
+        "median": 19.0,
+        "p95": 20.8,
+        "p99": 21.12,
+        "min": 17.6,
+        "max": 21.2
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.419180393333333,
+        "median": 13.330475329999999,
+        "p95": 14.7225925925,
+        "p99": 14.8896288385,
+        "min": 12.15794182,
+        "max": 14.9313879
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "delay100ms",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 5,
+        "no_feasible_primary": 1,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.366666666666665,
+        "median": 17.4,
+        "p95": 18.75,
+        "p99": 18.95,
+        "min": 3.4,
+        "max": 19.0
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 43.842715096666666,
+        "median": 13.09233999,
+        "p95": 151.70521041749998,
+        "p99": 188.31804400350003,
+        "min": 12.11002159,
+        "max": 197.4712524
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "delay100ms",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 3.1666666666666665,
+        "median": 3.2,
+        "p95": 3.35,
+        "p99": 3.39,
+        "min": 3.0,
+        "max": 3.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 200.94302113333333,
+        "median": 200.4373703,
+        "p95": 203.53619765000002,
+        "p99": 203.54121169,
+        "min": 197.3011169,
+        "max": 203.5424652
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "delay100ms",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 6,
+        "no_feasible_primary": 0,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 1.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 16.766666666666666,
+        "median": 16.299999999999997,
+        "p95": 19.05,
+        "p99": 19.650000000000002,
+        "min": 15.4,
+        "max": 19.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 13.938144366666668,
+        "median": 14.111024855,
+        "p95": 14.47681785,
+        "p99": 14.52991405,
+        "min": 13.1975317,
+        "max": 14.5431881
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "model_mismatch",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 5,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.16666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 5.066666666666666,
+        "median": 3.0,
+        "p95": 12.2,
+        "p99": 14.600000000000001,
+        "min": 3.0,
+        "max": 15.2
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 171.34764480666664,
+        "median": 203.33966064999998,
+        "p95": 203.386745425,
+        "p99": 203.39087444499998,
+        "min": 14.42121124,
+        "max": 203.3919067
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "model_mismatch",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 5,
+        "no_feasible_primary": 1,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.066666666666668,
+        "median": 17.2,
+        "p95": 18.4,
+        "p99": 18.720000000000002,
+        "min": 3.4,
+        "max": 18.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 44.48902797333333,
+        "median": 14.39695597,
+        "p95": 152.1621935175,
+        "p99": 188.78136446350004,
+        "min": 12.24672699,
+        "max": 197.9361572
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "model_mismatch",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 5,
+        "no_feasible_primary": 1,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.166666666666664,
+        "median": 17.2,
+        "p95": 19.3,
+        "p99": 19.700000000000003,
+        "min": 3.6,
+        "max": 19.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 43.584228196666665,
+        "median": 13.59878254,
+        "p95": 149.63365578,
+        "p99": 185.55931171600002,
+        "min": 12.022542,
+        "max": 194.5407257
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "model_mismatch",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 5,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.16666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 5.2,
+        "median": 3.2,
+        "p95": 12.5,
+        "p99": 14.980000000000002,
+        "min": 3.0,
+        "max": 15.6
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 170.05442301166667,
+        "median": 200.23854065,
+        "p95": 203.368946075,
+        "p99": 203.373520655,
+        "min": 12.92103577,
+        "max": 203.3746643
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "model_mismatch",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 4,
+        "no_feasible_primary": 2,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.6666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 12.666666666666666,
+        "median": 15.5,
+        "p95": 19.4,
+        "p99": 20.2,
+        "min": 2.6,
+        "max": 20.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 72.17659251166667,
+        "median": 14.357865335,
+        "p95": 199.17209245,
+        "p99": 207.86022417,
+        "min": 13.69046593,
+        "max": 210.0322571
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "nominal",
+      "method": "cost12",
+      "n": 6,
+      "outcomes": {
+        "goal": 1,
+        "no_feasible_primary": 5,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.16666666666666666,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 5.166666666666667,
+        "median": 3.1,
+        "p95": 12.4,
+        "p99": 14.800000000000002,
+        "min": 3.0,
+        "max": 15.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 170.23693386833335,
+        "median": 201.9840927,
+        "p95": 203.56635665,
+        "p99": 203.57031477,
+        "min": 12.99479961,
+        "max": 203.5713043
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "nominal",
+      "method": "diverse12",
+      "n": 6,
+      "outcomes": {
+        "goal": 3,
+        "no_feasible_primary": 2,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.5,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 12.6,
+        "median": 14.0,
+        "p95": 17.95,
+        "p99": 18.31,
+        "min": 6.2,
+        "max": 18.4
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 76.52497784833334,
+        "median": 48.391181950000004,
+        "p95": 166.780971525,
+        "p99": 166.834685505,
+        "min": 14.44050789,
+        "max": 166.848114
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "nominal",
+      "method": "full203",
+      "n": 6,
+      "outcomes": {
+        "goal": 5,
+        "no_feasible_primary": 0,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.166666666666664,
+        "median": 16.4,
+        "p95": 18.5,
+        "p99": 18.740000000000002,
+        "min": 6.4,
+        "max": 18.8
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 39.07900349166667,
+        "median": 12.93538904,
+        "p95": 130.658427705,
+        "p99": 161.52629002100002,
+        "min": 12.16586304,
+        "max": 169.2432556
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "nominal",
+      "method": "primary3",
+      "n": 6,
+      "outcomes": {
+        "goal": 0,
+        "no_feasible_primary": 6,
+        "collision": 0,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.0,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 3.1333333333333333,
+        "median": 3.2,
+        "p95": 3.2,
+        "p99": 3.2,
+        "min": 3.0,
+        "max": 3.2
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 201.46498616666668,
+        "median": 200.44223785,
+        "p95": 203.5437851,
+        "p99": 203.54762422000002,
+        "min": 200.4005127,
+        "max": 203.548584
+      }
+    },
+    {
+      "family": "wall",
+      "condition": "nominal",
+      "method": "primary6",
+      "n": 6,
+      "outcomes": {
+        "goal": 5,
+        "no_feasible_primary": 0,
+        "collision": 1,
+        "envelope_violation": 0,
+        "invalid_dynamics": 0,
+        "timeout": 0
+      },
+      "goal_fraction": 0.8333333333333334,
+      "sim_seconds": {
+        "n": 6,
+        "mean": 15.200000000000001,
+        "median": 16.299999999999997,
+        "p95": 19.35,
+        "p99": 20.03,
+        "min": 6.2,
+        "max": 20.2
+      },
+      "final_goal_distance": {
+        "n": 6,
+        "mean": 38.29464737666667,
+        "median": 13.729349615,
+        "p95": 125.53543662999999,
+        "p99": 155.30708732600002,
+        "min": 12.70807934,
+        "max": 162.75
+      }
+    }
+  ],
+  "episode_success_pair": {
+    "paired_episodes": 96,
+    "diverse_only_goal": 26,
+    "cost_only_goal": 7,
+    "map_bootstrap": {
+      "estimate": 0.19791666666666666,
+      "ci95": [
+        0.052083333333333336,
+        0.3541666666666667
+      ],
+      "map_wins": 10,
+      "map_losses": 3,
+      "map_ties": 11,
+      "clusters": 24,
+      "repetitions": 10000,
+      "seed": 12345,
+      "valid_repetitions": 10000,
+      "zero_denominator_repetitions": 0,
+      "unit": "paired map cluster",
+      "interval": "percentile"
+    },
+    "by_map": [
+      {
+        "scene": "staggered_0",
+        "paired_goal_difference_across_four_conditions": 0
+      },
+      {
+        "scene": "staggered_1",
+        "paired_goal_difference_across_four_conditions": 0
+      },
+      {
+        "scene": "staggered_2",
+        "paired_goal_difference_across_four_conditions": -1
+      },
+      {
+        "scene": "staggered_3",
+        "paired_goal_difference_across_four_conditions": 0
+      },
+      {
+        "scene": "staggered_4",
+        "paired_goal_difference_across_four_conditions": 0
+      },
+      {
+        "scene": "staggered_5",
+        "paired_goal_difference_across_four_conditions": -1
+      },
+      {
+        "scene": "wall_0",
+        "paired_goal_difference_across_four_conditions": 3
+      },
+      {
+        "scene": "wall_1",
+        "paired_goal_difference_across_four_conditions": 2
+      },
+      {
+        "scene": "wall_2",
+        "paired_goal_difference_across_four_conditions": 0
+      },
+      {
+        "scene": "wall_3",
+        "paired_goal_difference_across_four_conditions": 4
+      },
+      {
+        "scene": "wall_4",
+        "paired_goal_difference_across_four_conditions": 4
+      },
+      {
+        "scene": "wall_5",
+        "paired_goal_difference_across_four_conditions": 2
+      },
+      {
+        "scene": "culdesac_0",
+        "paired_goal_difference_across_four_conditions": 2
+      },
+      {
+        "scene": "culdesac_1",
+        "paired_goal_difference_across_four_conditions": 2
+      },
+      {
+        "scene": "culdesac_2",
+        "paired_goal_difference_across_four_conditions": 0
+      },
+      {
+        "scene": "culdesac_3",
+        "paired_goal_difference_across_four_conditions": 1
+      },
+      {
+        "scene": "culdesac_4",
+        "paired_goal_difference_across_four_conditions": 1
+      },
+      {
+        "scene": "culdesac_5",
+        "paired_goal_difference_across_four_conditions": 0
+      },
+      {
+        "scene": "spatial_0",
+        "paired_goal_difference_across_four_conditions": 0
+      },
+      {
+        "scene": "spatial_1",
+        "paired_goal_difference_across_four_conditions": -2
+      },
+      {
+        "scene": "spatial_2",
+        "paired_goal_difference_across_four_conditions": 0
+      },
+      {
+        "scene": "spatial_3",
+        "paired_goal_difference_across_four_conditions": 0
+      },
+      {
+        "scene": "spatial_4",
+        "paired_goal_difference_across_four_conditions": 0
+      },
+      {
+        "scene": "spatial_5",
+        "paired_goal_difference_across_four_conditions": 2
+      }
+    ]
+  },
+  "matched": {
+    "methods": {
+      "cost12": {
+        "states": 432,
+        "reference_positive": 335,
+        "verified": 239,
+        "discovery_recall": 0.7134328358208956,
+        "planning_ms_state_median": {
+          "n": 432,
+          "mean": 4.601659101851852,
+          "median": 3.6420737499999998,
+          "p95": 9.30633575,
+          "p99": 9.39134532,
+          "min": 1.9765975,
+          "max": 9.479842999999999
+        },
+        "primary_steps": {
+          "n": 432,
+          "mean": 30592.13425925926,
+          "median": 30653.0,
+          "p95": 30955.0,
+          "p99": 30955.0,
+          "min": 30211.0,
+          "max": 30955.0
+        },
+        "backup_steps": {
+          "n": 432,
+          "mean": 20605.125,
+          "median": 4816.0,
+          "p95": 54180.0,
+          "p99": 54180.0,
+          "min": 0.0,
+          "max": 54180.0
+        },
+        "total_integration_steps": {
+          "n": 432,
+          "mean": 51197.25925925926,
+          "median": 35469.0,
+          "p95": 84833.0,
+          "p99": 84833.0,
+          "min": 30512.0,
+          "max": 84833.0
+        },
+        "recovery_checked": {
+          "n": 432,
+          "mean": 5.037037037037037,
+          "median": 2.0,
+          "p95": 12.0,
+          "p99": 12.0,
+          "min": 0.0,
+          "max": 12.0
+        },
+        "backup_evaluated": {
+          "n": 432,
+          "mean": 68.46527777777777,
+          "median": 16.0,
+          "p95": 180.0,
+          "p99": 180.0,
+          "min": 0.0,
+          "max": 180.0
+        },
+        "selected_cost_verified": {
+          "n": 239,
+          "mean": 4.760758057778244,
+          "median": 4.559285164,
+          "p95": 6.8786190029,
+          "p99": 8.43952924696,
+          "min": 3.187892199,
+          "max": 8.985192299
+        },
+        "selected_cost_excess_over_reference_verified": {
+          "n": 239,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "work_exhausted_states": 0,
+        "truncated_rollouts": 0,
+        "status_counts": {
+          "RECOVERY_VERIFIED": 239,
+          "BUDGET_EXHAUSTED": 117,
+          "NO_FEASIBLE_PRIMARY": 71,
+          "DEGRADED_NO_CONTINUATION": 5
+        }
+      },
+      "diverse12": {
+        "states": 432,
+        "reference_positive": 335,
+        "verified": 317,
+        "discovery_recall": 0.9462686567164179,
+        "planning_ms_state_median": {
+          "n": 432,
+          "mean": 4.557582472222221,
+          "median": 4.2226360000000005,
+          "p95": 8.86012315,
+          "p99": 8.956609795,
+          "min": 1.9828065,
+          "max": 9.0023905
+        },
+        "primary_steps": {
+          "n": 432,
+          "mean": 30592.13425925926,
+          "median": 30653.0,
+          "p95": 30955.0,
+          "p99": 30955.0,
+          "min": 30211.0,
+          "max": 30955.0
+        },
+        "backup_steps": {
+          "n": 432,
+          "mean": 21053.805555555555,
+          "median": 20391.0,
+          "p95": 54180.0,
+          "p99": 54180.0,
+          "min": 0.0,
+          "max": 54180.0
+        },
+        "total_integration_steps": {
+          "n": 432,
+          "mean": 51645.93981481482,
+          "median": 50602.0,
+          "p95": 84833.0,
+          "p99": 84833.0,
+          "min": 30512.0,
+          "max": 84833.0
+        },
+        "recovery_checked": {
+          "n": 432,
+          "mean": 6.585648148148148,
+          "median": 12.0,
+          "p95": 12.0,
+          "p99": 12.0,
+          "min": 0.0,
+          "max": 12.0
+        },
+        "backup_evaluated": {
+          "n": 432,
+          "mean": 69.95601851851852,
+          "median": 68.0,
+          "p95": 180.0,
+          "p99": 180.0,
+          "min": 0.0,
+          "max": 180.0
+        },
+        "selected_cost_verified": {
+          "n": 317,
+          "mean": 5.865053871094637,
+          "median": 6.232647896,
+          "p95": 8.6751194,
+          "p99": 8.767157555,
+          "min": 3.187892199,
+          "max": 8.985192299
+        },
+        "selected_cost_excess_over_reference_verified": {
+          "n": 317,
+          "mean": 0.5559370946908517,
+          "median": 0.37002944899999957,
+          "p95": 1.7147856233999998,
+          "p99": 2.9853070639199992,
+          "min": 0.0,
+          "max": 3.3451566699999997
+        },
+        "work_exhausted_states": 0,
+        "truncated_rollouts": 0,
+        "status_counts": {
+          "RECOVERY_VERIFIED": 317,
+          "NO_FEASIBLE_PRIMARY": 71,
+          "DEGRADED_NO_CONTINUATION": 5,
+          "BUDGET_EXHAUSTED": 39
+        }
+      },
+      "full203": {
+        "states": 432,
+        "reference_positive": 335,
+        "verified": 335,
+        "discovery_recall": 1.0,
+        "planning_ms_state_median": {
+          "n": 432,
+          "mean": 10.259486208333332,
+          "median": 3.61898625,
+          "p95": 41.878814175,
+          "p99": 52.65129353499999,
+          "min": 1.9821815,
+          "max": 58.844628
+        },
+        "primary_steps": {
+          "n": 432,
+          "mean": 30592.13425925926,
+          "median": 30653.0,
+          "p95": 30955.0,
+          "p99": 30955.0,
+          "min": 30211.0,
+          "max": 30955.0
+        },
+        "backup_steps": {
+          "n": 432,
+          "mean": 81388.3125,
+          "median": 4816.0,
+          "p95": 395664.49999999994,
+          "p99": 502068.0,
+          "min": 0.0,
+          "max": 568890.0
+        },
+        "total_integration_steps": {
+          "n": 432,
+          "mean": 111980.44675925926,
+          "median": 35469.0,
+          "p95": 426317.49999999994,
+          "p99": 532721.0,
+          "min": 30512.0,
+          "max": 599543.0
+        },
+        "recovery_checked": {
+          "n": 432,
+          "mean": 18.680555555555557,
+          "median": 2.0,
+          "p95": 88.0,
+          "p99": 112.0,
+          "min": 0.0,
+          "max": 126.0
+        },
+        "backup_evaluated": {
+          "n": 432,
+          "mean": 270.40277777777777,
+          "median": 16.0,
+          "p95": 1314.5,
+          "p99": 1668.0,
+          "min": 0.0,
+          "max": 1890.0
+        },
+        "selected_cost_verified": {
+          "n": 335,
+          "mean": 5.466671870316418,
+          "median": 4.951942444,
+          "p95": 8.116433144,
+          "p99": 8.403100242320003,
+          "min": 3.187892199,
+          "max": 8.985192299
+        },
+        "selected_cost_excess_over_reference_verified": {
+          "n": 335,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "work_exhausted_states": 0,
+        "truncated_rollouts": 0,
+        "status_counts": {
+          "RECOVERY_VERIFIED": 335,
+          "NO_FEASIBLE_PRIMARY": 71,
+          "DEGRADED_NO_CONTINUATION": 26
+        }
+      },
+      "cost_w3600": {
+        "states": 432,
+        "reference_positive": 335,
+        "verified": 131,
+        "discovery_recall": 0.39104477611940297,
+        "planning_ms_state_median": {
+          "n": 432,
+          "mean": 3.031431336805556,
+          "median": 2.804886,
+          "p95": 4.3260285,
+          "p99": 4.344046755,
+          "min": 1.9822435,
+          "max": 4.4921245
+        },
+        "primary_steps": {
+          "n": 432,
+          "mean": 30592.13425925926,
+          "median": 30653.0,
+          "p95": 30955.0,
+          "p99": 30955.0,
+          "min": 30211.0,
+          "max": 30955.0
+        },
+        "backup_steps": {
+          "n": 432,
+          "mean": 2090.8564814814813,
+          "median": 3600.0,
+          "p95": 3600.0,
+          "p99": 3600.0,
+          "min": 0.0,
+          "max": 3600.0
+        },
+        "total_integration_steps": {
+          "n": 432,
+          "mean": 32682.99074074074,
+          "median": 33811.0,
+          "p95": 34253.0,
+          "p99": 34253.0,
+          "min": 30512.0,
+          "max": 34253.0
+        },
+        "recovery_checked": {
+          "n": 432,
+          "mean": 0.8356481481481481,
+          "median": 1.0,
+          "p95": 1.0,
+          "p99": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "backup_evaluated": {
+          "n": 432,
+          "mean": 6.969907407407407,
+          "median": 12.0,
+          "p95": 12.0,
+          "p99": 12.0,
+          "min": 0.0,
+          "max": 13.0
+        },
+        "selected_cost_verified": {
+          "n": 131,
+          "mean": 4.739780922801526,
+          "median": 4.243876457,
+          "p95": 7.298918724,
+          "p99": 8.561206531199998,
+          "min": 3.187892199,
+          "max": 8.985192299
+        },
+        "selected_cost_excess_over_reference_verified": {
+          "n": 131,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "work_exhausted_states": 230,
+        "truncated_rollouts": 230,
+        "status_counts": {
+          "RECOVERY_VERIFIED": 131,
+          "BACKUP_WORK_BUDGET_EXHAUSTED": 230,
+          "NO_FEASIBLE_PRIMARY": 71
+        }
+      },
+      "diverse_w3600": {
+        "states": 432,
+        "reference_positive": 335,
+        "verified": 131,
+        "discovery_recall": 0.39104477611940297,
+        "planning_ms_state_median": {
+          "n": 432,
+          "mean": 3.1541651377314817,
+          "median": 2.965341,
+          "p95": 4.537363875,
+          "p99": 4.563396335,
+          "min": 1.9844715,
+          "max": 4.664714
+        },
+        "primary_steps": {
+          "n": 432,
+          "mean": 30592.13425925926,
+          "median": 30653.0,
+          "p95": 30955.0,
+          "p99": 30955.0,
+          "min": 30211.0,
+          "max": 30955.0
+        },
+        "backup_steps": {
+          "n": 432,
+          "mean": 2090.8564814814813,
+          "median": 3600.0,
+          "p95": 3600.0,
+          "p99": 3600.0,
+          "min": 0.0,
+          "max": 3600.0
+        },
+        "total_integration_steps": {
+          "n": 432,
+          "mean": 32682.99074074074,
+          "median": 33811.0,
+          "p95": 34253.0,
+          "p99": 34253.0,
+          "min": 30512.0,
+          "max": 34253.0
+        },
+        "recovery_checked": {
+          "n": 432,
+          "mean": 0.8356481481481481,
+          "median": 1.0,
+          "p95": 1.0,
+          "p99": 1.0,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "backup_evaluated": {
+          "n": 432,
+          "mean": 6.969907407407407,
+          "median": 12.0,
+          "p95": 12.0,
+          "p99": 12.0,
+          "min": 0.0,
+          "max": 13.0
+        },
+        "selected_cost_verified": {
+          "n": 131,
+          "mean": 4.739780922801526,
+          "median": 4.243876457,
+          "p95": 7.298918724,
+          "p99": 8.561206531199998,
+          "min": 3.187892199,
+          "max": 8.985192299
+        },
+        "selected_cost_excess_over_reference_verified": {
+          "n": 131,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "work_exhausted_states": 230,
+        "truncated_rollouts": 230,
+        "status_counts": {
+          "RECOVERY_VERIFIED": 131,
+          "BACKUP_WORK_BUDGET_EXHAUSTED": 230,
+          "NO_FEASIBLE_PRIMARY": 71
+        }
+      },
+      "cost_w10800": {
+        "states": 432,
+        "reference_positive": 335,
+        "verified": 171,
+        "discovery_recall": 0.5104477611940299,
+        "planning_ms_state_median": {
+          "n": 432,
+          "mean": 3.3383235636574073,
+          "median": 3.22601975,
+          "p95": 5.0905116249999995,
+          "p99": 5.620863365,
+          "min": 1.9797069999999999,
+          "max": 5.659779
+        },
+        "primary_steps": {
+          "n": 432,
+          "mean": 30592.13425925926,
+          "median": 30653.0,
+          "p95": 30955.0,
+          "p99": 30955.0,
+          "min": 30211.0,
+          "max": 30955.0
+        },
+        "backup_steps": {
+          "n": 432,
+          "mean": 5424.462962962963,
+          "median": 4816.0,
+          "p95": 10800.0,
+          "p99": 10800.0,
+          "min": 0.0,
+          "max": 10800.0
+        },
+        "total_integration_steps": {
+          "n": 432,
+          "mean": 36016.59722222222,
+          "median": 35469.0,
+          "p95": 41453.0,
+          "p99": 41453.0,
+          "min": 30512.0,
+          "max": 41453.0
+        },
+        "recovery_checked": {
+          "n": 432,
+          "mean": 1.8125,
+          "median": 2.0,
+          "p95": 3.0,
+          "p99": 3.0,
+          "min": 0.0,
+          "max": 3.0
+        },
+        "backup_evaluated": {
+          "n": 432,
+          "mean": 18.078703703703702,
+          "median": 16.0,
+          "p95": 36.0,
+          "p99": 36.0,
+          "min": 0.0,
+          "max": 37.0
+        },
+        "selected_cost_verified": {
+          "n": 171,
+          "mean": 4.6807585291754386,
+          "median": 4.277638435,
+          "p95": 7.0007941725,
+          "p99": 8.495768832800001,
+          "min": 3.187892199,
+          "max": 8.985192299
+        },
+        "selected_cost_excess_over_reference_verified": {
+          "n": 171,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "work_exhausted_states": 190,
+        "truncated_rollouts": 190,
+        "status_counts": {
+          "RECOVERY_VERIFIED": 171,
+          "BACKUP_WORK_BUDGET_EXHAUSTED": 190,
+          "NO_FEASIBLE_PRIMARY": 71
+        }
+      },
+      "diverse_w10800": {
+        "states": 432,
+        "reference_positive": 335,
+        "verified": 164,
+        "discovery_recall": 0.48955223880597015,
+        "planning_ms_state_median": {
+          "n": 432,
+          "mean": 3.4508925057870368,
+          "median": 3.53319675,
+          "p95": 5.1338379,
+          "p99": 5.18888038,
+          "min": 1.9793515,
+          "max": 5.2441724999999995
+        },
+        "primary_steps": {
+          "n": 432,
+          "mean": 30592.13425925926,
+          "median": 30653.0,
+          "p95": 30955.0,
+          "p99": 30955.0,
+          "min": 30211.0,
+          "max": 30955.0
+        },
+        "backup_steps": {
+          "n": 432,
+          "mean": 5893.699074074074,
+          "median": 10800.0,
+          "p95": 10800.0,
+          "p99": 10800.0,
+          "min": 0.0,
+          "max": 10800.0
+        },
+        "total_integration_steps": {
+          "n": 432,
+          "mean": 36485.833333333336,
+          "median": 41011.0,
+          "p95": 41453.0,
+          "p99": 41453.0,
+          "min": 30512.0,
+          "max": 41453.0
+        },
+        "recovery_checked": {
+          "n": 432,
+          "mean": 2.2314814814814814,
+          "median": 3.0,
+          "p95": 7.0,
+          "p99": 9.379999999999995,
+          "min": 0.0,
+          "max": 13.0
+        },
+        "backup_evaluated": {
+          "n": 432,
+          "mean": 19.645833333333332,
+          "median": 36.0,
+          "p95": 36.0,
+          "p99": 36.0,
+          "min": 0.0,
+          "max": 37.0
+        },
+        "selected_cost_verified": {
+          "n": 164,
+          "mean": 5.01771022482317,
+          "median": 4.277638435,
+          "p95": 7.0231923822499995,
+          "p99": 8.50722043002,
+          "min": 3.187892199,
+          "max": 8.985192299
+        },
+        "selected_cost_excess_over_reference_verified": {
+          "n": 164,
+          "mean": 0.26971390481097557,
+          "median": 0.0,
+          "p95": 2.0601778029999993,
+          "p99": 2.0831980514700006,
+          "min": 0.0,
+          "max": 2.416107654
+        },
+        "work_exhausted_states": 228,
+        "truncated_rollouts": 228,
+        "status_counts": {
+          "RECOVERY_VERIFIED": 164,
+          "BACKUP_WORK_BUDGET_EXHAUSTED": 197,
+          "NO_FEASIBLE_PRIMARY": 71
+        }
+      }
+    },
+    "paired_comparisons": {
+      "K12": {
+        "states": 432,
+        "reference_positive": 335,
+        "diverse_only": 78,
+        "cost_only": 0,
+        "both_verified": 239,
+        "neither_verified": 115,
+        "recall_difference_diverse_minus_cost": 0.23283582089552238,
+        "selected_cost_difference_diverse_minus_cost_both_verified": {
+          "n": 239,
+          "mean": 0.5144504523263598,
+          "median": 0.0,
+          "p95": 1.9294571879999998,
+          "p99": 3.1020468620000012,
+          "min": 0.0,
+          "max": 3.3451566699999997
+        },
+        "paired_median_timing_difference_ms_diverse_minus_cost": {
+          "n": 432,
+          "mean": -0.04407662962962963,
+          "median": 0.004526999999999726,
+          "p95": 1.7684199999999966,
+          "p99": 2.8491113199999996,
+          "min": -1.7119095,
+          "max": 2.947437999999999
+        },
+        "paired_median_timing_ratio_diverse_over_cost": {
+          "n": 432,
+          "mean": 1.0309456876398297,
+          "median": 1.0020924346482933,
+          "p95": 1.5091945386289785,
+          "p99": 1.6800368052457832,
+          "min": 0.755964589901546,
+          "max": 1.8049892821474678
+        },
+        "backup_step_difference_diverse_minus_cost": {
+          "n": 432,
+          "mean": 448.68055555555554,
+          "median": 0.0,
+          "p95": 25840.849999999955,
+          "p99": 34013.0,
+          "min": -20167.0,
+          "max": 37324.0
+        },
+        "map_bootstrap": {
+          "estimate": 0.23283582089552238,
+          "ci95": [
+            0.13273803177311017,
+            0.34662576687116564
+          ],
+          "map_wins": 14,
+          "map_losses": 0,
+          "map_ties": 10,
+          "clusters": 24,
+          "repetitions": 10000,
+          "seed": 12345,
+          "valid_repetitions": 10000,
+          "zero_denominator_repetitions": 0,
+          "unit": "paired map cluster",
+          "interval": "percentile"
+        },
+        "by_map": [
+          {
+            "scene": "staggered_0",
+            "positive": 18,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "staggered_1",
+            "positive": 12,
+            "paired_verified_difference": 1
+          },
+          {
+            "scene": "staggered_2",
+            "positive": 11,
+            "paired_verified_difference": 1
+          },
+          {
+            "scene": "staggered_3",
+            "positive": 15,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "staggered_4",
+            "positive": 15,
+            "paired_verified_difference": 1
+          },
+          {
+            "scene": "staggered_5",
+            "positive": 14,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "wall_0",
+            "positive": 12,
+            "paired_verified_difference": 9
+          },
+          {
+            "scene": "wall_1",
+            "positive": 12,
+            "paired_verified_difference": 9
+          },
+          {
+            "scene": "wall_2",
+            "positive": 15,
+            "paired_verified_difference": 2
+          },
+          {
+            "scene": "wall_3",
+            "positive": 12,
+            "paired_verified_difference": 10
+          },
+          {
+            "scene": "wall_4",
+            "positive": 12,
+            "paired_verified_difference": 9
+          },
+          {
+            "scene": "wall_5",
+            "positive": 14,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "culdesac_0",
+            "positive": 14,
+            "paired_verified_difference": 6
+          },
+          {
+            "scene": "culdesac_1",
+            "positive": 12,
+            "paired_verified_difference": 6
+          },
+          {
+            "scene": "culdesac_2",
+            "positive": 16,
+            "paired_verified_difference": 6
+          },
+          {
+            "scene": "culdesac_3",
+            "positive": 16,
+            "paired_verified_difference": 6
+          },
+          {
+            "scene": "culdesac_4",
+            "positive": 16,
+            "paired_verified_difference": 6
+          },
+          {
+            "scene": "culdesac_5",
+            "positive": 16,
+            "paired_verified_difference": 6
+          },
+          {
+            "scene": "spatial_0",
+            "positive": 16,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "spatial_1",
+            "positive": 14,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "spatial_2",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "spatial_3",
+            "positive": 15,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "spatial_4",
+            "positive": 14,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "spatial_5",
+            "positive": 12,
+            "paired_verified_difference": 0
+          }
+        ]
+      },
+      "W3600": {
+        "states": 432,
+        "reference_positive": 335,
+        "diverse_only": 0,
+        "cost_only": 0,
+        "both_verified": 131,
+        "neither_verified": 301,
+        "recall_difference_diverse_minus_cost": 0.0,
+        "selected_cost_difference_diverse_minus_cost_both_verified": {
+          "n": 131,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "paired_median_timing_difference_ms_diverse_minus_cost": {
+          "n": 432,
+          "mean": 0.12273380092592591,
+          "median": 0.14916474999999974,
+          "p95": 0.24971027499999982,
+          "p99": 0.2845481049999993,
+          "min": -0.3234659999999998,
+          "max": 0.3290865000000007
+        },
+        "paired_median_timing_ratio_diverse_over_cost": {
+          "n": 432,
+          "mean": 1.0366301230751418,
+          "median": 1.0410224630715226,
+          "p95": 1.0791318216562313,
+          "p99": 1.0885980094920091,
+          "min": 0.8786486377487426,
+          "max": 1.0946879115258077
+        },
+        "backup_step_difference_diverse_minus_cost": {
+          "n": 432,
+          "mean": 0.0,
+          "median": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "map_bootstrap": {
+          "estimate": 0.0,
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "map_wins": 0,
+          "map_losses": 0,
+          "map_ties": 24,
+          "clusters": 24,
+          "repetitions": 10000,
+          "seed": 12345,
+          "valid_repetitions": 10000,
+          "zero_denominator_repetitions": 0,
+          "unit": "paired map cluster",
+          "interval": "percentile"
+        },
+        "by_map": [
+          {
+            "scene": "staggered_0",
+            "positive": 18,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "staggered_1",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "staggered_2",
+            "positive": 11,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "staggered_3",
+            "positive": 15,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "staggered_4",
+            "positive": 15,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "staggered_5",
+            "positive": 14,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "wall_0",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "wall_1",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "wall_2",
+            "positive": 15,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "wall_3",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "wall_4",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "wall_5",
+            "positive": 14,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "culdesac_0",
+            "positive": 14,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "culdesac_1",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "culdesac_2",
+            "positive": 16,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "culdesac_3",
+            "positive": 16,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "culdesac_4",
+            "positive": 16,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "culdesac_5",
+            "positive": 16,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "spatial_0",
+            "positive": 16,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "spatial_1",
+            "positive": 14,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "spatial_2",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "spatial_3",
+            "positive": 15,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "spatial_4",
+            "positive": 14,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "spatial_5",
+            "positive": 12,
+            "paired_verified_difference": 0
+          }
+        ]
+      },
+      "W10800": {
+        "states": 432,
+        "reference_positive": 335,
+        "diverse_only": 12,
+        "cost_only": 19,
+        "both_verified": 152,
+        "neither_verified": 249,
+        "recall_difference_diverse_minus_cost": -0.020895522388059702,
+        "selected_cost_difference_diverse_minus_cost_both_verified": {
+          "n": 152,
+          "mean": 0.19879834276973685,
+          "median": 0.0,
+          "p95": 2.0601782322999997,
+          "p99": 2.088674507190001,
+          "min": 0.0,
+          "max": 2.416107654
+        },
+        "paired_median_timing_difference_ms_diverse_minus_cost": {
+          "n": 432,
+          "mean": 0.11256894212962962,
+          "median": 0.06626224999999986,
+          "p95": 0.613761225,
+          "p99": 0.7079120899999998,
+          "min": -0.5906675000000003,
+          "max": 0.7570834999999998
+        },
+        "paired_median_timing_ratio_diverse_over_cost": {
+          "n": 432,
+          "mean": 1.0356141964535281,
+          "median": 1.0227060932332415,
+          "p95": 1.1647989727001997,
+          "p99": 1.2397070521962217,
+          "min": 0.8920009869828156,
+          "max": 1.2642755451129164
+        },
+        "backup_step_difference_diverse_minus_cost": {
+          "n": 432,
+          "mean": 469.2361111111111,
+          "median": 0.0,
+          "p95": 5683.0,
+          "p99": 5984.0,
+          "min": 0.0,
+          "max": 5984.0
+        },
+        "map_bootstrap": {
+          "estimate": -0.020895522388059702,
+          "ci95": [
+            -0.06497175141242938,
+            0.03067484662576687
+          ],
+          "map_wins": 5,
+          "map_losses": 11,
+          "map_ties": 8,
+          "clusters": 24,
+          "repetitions": 10000,
+          "seed": 12345,
+          "valid_repetitions": 10000,
+          "zero_denominator_repetitions": 0,
+          "unit": "paired map cluster",
+          "interval": "percentile"
+        },
+        "by_map": [
+          {
+            "scene": "staggered_0",
+            "positive": 18,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "staggered_1",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "staggered_2",
+            "positive": 11,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "staggered_3",
+            "positive": 15,
+            "paired_verified_difference": -1
+          },
+          {
+            "scene": "staggered_4",
+            "positive": 15,
+            "paired_verified_difference": -1
+          },
+          {
+            "scene": "staggered_5",
+            "positive": 14,
+            "paired_verified_difference": -2
+          },
+          {
+            "scene": "wall_0",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "wall_1",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "wall_2",
+            "positive": 15,
+            "paired_verified_difference": -1
+          },
+          {
+            "scene": "wall_3",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "wall_4",
+            "positive": 12,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "wall_5",
+            "positive": 14,
+            "paired_verified_difference": -2
+          },
+          {
+            "scene": "culdesac_0",
+            "positive": 14,
+            "paired_verified_difference": -2
+          },
+          {
+            "scene": "culdesac_1",
+            "positive": 12,
+            "paired_verified_difference": -2
+          },
+          {
+            "scene": "culdesac_2",
+            "positive": 16,
+            "paired_verified_difference": -2
+          },
+          {
+            "scene": "culdesac_3",
+            "positive": 16,
+            "paired_verified_difference": -2
+          },
+          {
+            "scene": "culdesac_4",
+            "positive": 16,
+            "paired_verified_difference": -2
+          },
+          {
+            "scene": "culdesac_5",
+            "positive": 16,
+            "paired_verified_difference": -2
+          },
+          {
+            "scene": "spatial_0",
+            "positive": 16,
+            "paired_verified_difference": 0
+          },
+          {
+            "scene": "spatial_1",
+            "positive": 14,
+            "paired_verified_difference": 1
+          },
+          {
+            "scene": "spatial_2",
+            "positive": 12,
+            "paired_verified_difference": 3
+          },
+          {
+            "scene": "spatial_3",
+            "positive": 15,
+            "paired_verified_difference": 2
+          },
+          {
+            "scene": "spatial_4",
+            "positive": 14,
+            "paired_verified_difference": 2
+          },
+          {
+            "scene": "spatial_5",
+            "positive": 12,
+            "paired_verified_difference": 4
+          }
+        ]
+      }
+    },
+    "by_family": [
+      {
+        "family": "staggered",
+        "method": "cost12",
+        "states": 108,
+        "reference_positive": 85,
+        "verified": 82,
+        "discovery_recall": 0.9647058823529412
+      },
+      {
+        "family": "staggered",
+        "method": "diverse12",
+        "states": 108,
+        "reference_positive": 85,
+        "verified": 85,
+        "discovery_recall": 1.0
+      },
+      {
+        "family": "staggered",
+        "method": "full203",
+        "states": 108,
+        "reference_positive": 85,
+        "verified": 85,
+        "discovery_recall": 1.0
+      },
+      {
+        "family": "staggered",
+        "method": "cost_w3600",
+        "states": 108,
+        "reference_positive": 85,
+        "verified": 49,
+        "discovery_recall": 0.5764705882352941
+      },
+      {
+        "family": "staggered",
+        "method": "diverse_w3600",
+        "states": 108,
+        "reference_positive": 85,
+        "verified": 49,
+        "discovery_recall": 0.5764705882352941
+      },
+      {
+        "family": "staggered",
+        "method": "cost_w10800",
+        "states": 108,
+        "reference_positive": 85,
+        "verified": 53,
+        "discovery_recall": 0.6235294117647059
+      },
+      {
+        "family": "staggered",
+        "method": "diverse_w10800",
+        "states": 108,
+        "reference_positive": 85,
+        "verified": 49,
+        "discovery_recall": 0.5764705882352941
+      },
+      {
+        "family": "wall",
+        "method": "cost12",
+        "states": 108,
+        "reference_positive": 77,
+        "verified": 38,
+        "discovery_recall": 0.4935064935064935
+      },
+      {
+        "family": "wall",
+        "method": "diverse12",
+        "states": 108,
+        "reference_positive": 77,
+        "verified": 77,
+        "discovery_recall": 1.0
+      },
+      {
+        "family": "wall",
+        "method": "full203",
+        "states": 108,
+        "reference_positive": 77,
+        "verified": 77,
+        "discovery_recall": 1.0
+      },
+      {
+        "family": "wall",
+        "method": "cost_w3600",
+        "states": 108,
+        "reference_positive": 77,
+        "verified": 9,
+        "discovery_recall": 0.11688311688311688
+      },
+      {
+        "family": "wall",
+        "method": "diverse_w3600",
+        "states": 108,
+        "reference_positive": 77,
+        "verified": 9,
+        "discovery_recall": 0.11688311688311688
+      },
+      {
+        "family": "wall",
+        "method": "cost_w10800",
+        "states": 108,
+        "reference_positive": 77,
+        "verified": 12,
+        "discovery_recall": 0.15584415584415584
+      },
+      {
+        "family": "wall",
+        "method": "diverse_w10800",
+        "states": 108,
+        "reference_positive": 77,
+        "verified": 9,
+        "discovery_recall": 0.11688311688311688
+      },
+      {
+        "family": "culdesac",
+        "method": "cost12",
+        "states": 108,
+        "reference_positive": 90,
+        "verified": 36,
+        "discovery_recall": 0.4
+      },
+      {
+        "family": "culdesac",
+        "method": "diverse12",
+        "states": 108,
+        "reference_positive": 90,
+        "verified": 72,
+        "discovery_recall": 0.8
+      },
+      {
+        "family": "culdesac",
+        "method": "full203",
+        "states": 108,
+        "reference_positive": 90,
+        "verified": 90,
+        "discovery_recall": 1.0
+      },
+      {
+        "family": "culdesac",
+        "method": "cost_w3600",
+        "states": 108,
+        "reference_positive": 90,
+        "verified": 24,
+        "discovery_recall": 0.26666666666666666
+      },
+      {
+        "family": "culdesac",
+        "method": "diverse_w3600",
+        "states": 108,
+        "reference_positive": 90,
+        "verified": 24,
+        "discovery_recall": 0.26666666666666666
+      },
+      {
+        "family": "culdesac",
+        "method": "cost_w10800",
+        "states": 108,
+        "reference_positive": 90,
+        "verified": 36,
+        "discovery_recall": 0.4
+      },
+      {
+        "family": "culdesac",
+        "method": "diverse_w10800",
+        "states": 108,
+        "reference_positive": 90,
+        "verified": 24,
+        "discovery_recall": 0.26666666666666666
+      },
+      {
+        "family": "spatial",
+        "method": "cost12",
+        "states": 108,
+        "reference_positive": 83,
+        "verified": 83,
+        "discovery_recall": 1.0
+      },
+      {
+        "family": "spatial",
+        "method": "diverse12",
+        "states": 108,
+        "reference_positive": 83,
+        "verified": 83,
+        "discovery_recall": 1.0
+      },
+      {
+        "family": "spatial",
+        "method": "full203",
+        "states": 108,
+        "reference_positive": 83,
+        "verified": 83,
+        "discovery_recall": 1.0
+      },
+      {
+        "family": "spatial",
+        "method": "cost_w3600",
+        "states": 108,
+        "reference_positive": 83,
+        "verified": 49,
+        "discovery_recall": 0.5903614457831325
+      },
+      {
+        "family": "spatial",
+        "method": "diverse_w3600",
+        "states": 108,
+        "reference_positive": 83,
+        "verified": 49,
+        "discovery_recall": 0.5903614457831325
+      },
+      {
+        "family": "spatial",
+        "method": "cost_w10800",
+        "states": 108,
+        "reference_positive": 83,
+        "verified": 70,
+        "discovery_recall": 0.8433734939759037
+      },
+      {
+        "family": "spatial",
+        "method": "diverse_w10800",
+        "states": 108,
+        "reference_positive": 83,
+        "verified": 82,
+        "discovery_recall": 0.9879518072289156
+      }
+    ],
+    "reference_positive": 335,
+    "reference_negative": 97
+  },
+  "diagnostic": {
+    "logged_states": 155,
+    "first_observed_time": 0.0,
+    "last_observed_time": 30.8,
+    "initial_goal_distance": 250.0,
+    "last_observed_goal_distance": 15.58801002519313,
+    "nearest_observed_goal_distance": 15.58801002519313,
+    "methods": {
+      "cache120": {
+        "states": 155,
+        "verified": 78,
+        "primary_feasible": 155,
+        "reused": 63,
+        "validated_evidence_fresh_or_reused": 141,
+        "status_counts": {
+          "BUDGET_EXHAUSTED": 14,
+          "RECOVERY_VERIFIED": 78,
+          "REVALIDATED_PLAN": 63
+        },
+        "rejections_and_truncations": {
+          "reject_collision": 16731,
+          "reject_envelope": 0,
+          "reject_known": 1607,
+          "reject_invalid": 0,
+          "truncated": 0
+        },
+        "primary_steps": 4751215,
+        "backup_steps": 5543517,
+        "cached_steps": 25160,
+        "planning_ms": {
+          "n": 155,
+          "mean": 5.004928064516129,
+          "median": 6.020135,
+          "p95": 6.5548462999999995,
+          "p99": 6.637424960000001,
+          "min": 2.583048,
+          "max": 6.778683
+        }
+      },
+      "diverse120": {
+        "states": 155,
+        "verified": 78,
+        "primary_feasible": 155,
+        "reused": 0,
+        "validated_evidence_fresh_or_reused": 78,
+        "status_counts": {
+          "BUDGET_EXHAUSTED": 77,
+          "RECOVERY_VERIFIED": 78
+        },
+        "rejections_and_truncations": {
+          "reject_collision": 16731,
+          "reject_envelope": 0,
+          "reject_known": 1607,
+          "reject_invalid": 0,
+          "truncated": 0
+        },
+        "primary_steps": 4751215,
+        "backup_steps": 5543517,
+        "cached_steps": 0,
+        "planning_ms": {
+          "n": 155,
+          "mean": 4.991979554838709,
+          "median": 5.989351,
+          "p95": 6.513968,
+          "p99": 6.57883258,
+          "min": 2.58223,
+          "max": 6.657763
+        }
+      },
+      "full120": {
+        "states": 155,
+        "verified": 116,
+        "primary_feasible": 155,
+        "reused": 0,
+        "validated_evidence_fresh_or_reused": 116,
+        "status_counts": {
+          "RECOVERY_VERIFIED": 116,
+          "DEGRADED_NO_CONTINUATION": 39
+        },
+        "rejections_and_truncations": {
+          "reject_collision": 96222,
+          "reject_envelope": 0,
+          "reject_known": 10925,
+          "reject_invalid": 0,
+          "truncated": 0
+        },
+        "primary_steps": 4751215,
+        "backup_steps": 32286163,
+        "cached_steps": 0,
+        "planning_ms": {
+          "n": 155,
+          "mean": 16.792000709677417,
+          "median": 11.566625,
+          "p95": 42.65186369999999,
+          "p99": 44.782031620000005,
+          "min": 2.554952,
+          "max": 49.377489
+        }
+      },
+      "diverse_unlimited": {
+        "states": 155,
+        "verified": 136,
+        "primary_feasible": 155,
+        "reused": 0,
+        "validated_evidence_fresh_or_reused": 136,
+        "status_counts": {
+          "RECOVERY_VERIFIED": 136,
+          "BUDGET_EXHAUSTED": 19
+        },
+        "rejections_and_truncations": {
+          "reject_collision": 10512,
+          "reject_envelope": 0,
+          "reject_known": 0,
+          "reject_invalid": 0,
+          "truncated": 0
+        },
+        "primary_steps": 4751215,
+        "backup_steps": 3228225,
+        "cached_steps": 0,
+        "planning_ms": {
+          "n": 155,
+          "mean": 3.9452709483870962,
+          "median": 2.775704,
+          "p95": 6.089221299999999,
+          "p99": 6.1993629,
+          "min": 2.219508,
+          "max": 7.067046
+        }
+      },
+      "full_unlimited": {
+        "states": 155,
+        "verified": 151,
+        "primary_feasible": 155,
+        "reused": 0,
+        "validated_evidence_fresh_or_reused": 151,
+        "status_counts": {
+          "RECOVERY_VERIFIED": 151,
+          "DEGRADED_NO_CONTINUATION": 4
+        },
+        "rejections_and_truncations": {
+          "reject_collision": 41970,
+          "reject_envelope": 0,
+          "reject_known": 0,
+          "reject_invalid": 0,
+          "truncated": 0
+        },
+        "primary_steps": 4751215,
+        "backup_steps": 12678421,
+        "cached_steps": 0,
+        "planning_ms": {
+          "n": 155,
+          "mean": 7.76382718064516,
+          "median": 2.734404,
+          "p95": 31.355040999999993,
+          "p99": 34.88830448,
+          "min": 2.222424,
+          "max": 35.299348
+        }
+      }
+    },
+    "counterfactual_counts": {
+      "full120_negative": 39,
+      "full_unrestricted_negative": 4,
+      "known_space_exclusion_full_unrestricted_positive_full120_negative": 35,
+      "budget_miss_120m": 38,
+      "budget_miss_unrestricted": 15,
+      "cache_verified_while_fresh_k12_negative": 0,
+      "cache_reused_while_fresh_k12_negative": 63
+    },
+    "verification_note": "verified counts fresh library witnesses; reused counts cached plans that passed revalidation. validated_evidence_fresh_or_reused is their union.",
+    "distance_at_observed_times": [
+      {
+        "time": 0.0,
+        "distance": 250.0,
+        "altitude_error": 0.0,
+        "x": 0.0,
+        "y": 0.0
+      },
+      {
+        "time": 0.2,
+        "distance": 246.600000381,
+        "altitude_error": 0.0,
+        "x": 3.399999619,
+        "y": -2.420919021e-09
+      },
+      {
+        "time": 0.4,
+        "distance": 243.199999332,
+        "altitude_error": 0.0,
+        "x": 6.800000668,
+        "y": -2.067023175e-08
+      },
+      {
+        "time": 0.6,
+        "distance": 239.79999828,
+        "altitude_error": 0.0,
+        "x": 10.20000172,
+        "y": -6.576220102e-08
+      },
+      {
+        "time": 0.8,
+        "distance": 236.39999676,
+        "altitude_error": 0.0,
+        "x": 13.60000324,
+        "y": -1.43652926e-07
+      },
+      {
+        "time": 1.0,
+        "distance": 232.99999619,
+        "altitude_error": 0.0,
+        "x": 17.00000381,
+        "y": -2.575253575e-07
+      },
+      {
+        "time": 1.2,
+        "distance": 229.59999466,
+        "altitude_error": 0.0,
+        "x": 20.40000534,
+        "y": -4.090797177e-07
+      },
+      {
+        "time": 1.4,
+        "distance": 226.19999313,
+        "altitude_error": 0.0,
+        "x": 23.80000687,
+        "y": -5.992243359e-07
+      },
+      {
+        "time": 1.6,
+        "distance": 222.79999161,
+        "altitude_error": 0.0,
+        "x": 27.20000839,
+        "y": -8.284442856e-07
+      },
+      {
+        "time": 1.8,
+        "distance": 219.39999008,
+        "altitude_error": 0.0,
+        "x": 30.60000992,
+        "y": -1.096998744e-06
+      },
+      {
+        "time": 2.0,
+        "distance": 216.00469207999998,
+        "altitude_error": 0.0006542200000012599,
+        "x": 33.99530792,
+        "y": -1.404887712e-06
+      },
+      {
+        "time": 2.2,
+        "distance": 212.63245011423479,
+        "altitude_error": 0.0011005399999994836,
+        "x": 37.3675499,
+        "y": 0.002460399177
+      },
+      {
+        "time": 2.4,
+        "distance": 209.28834269492788,
+        "altitude_error": -0.007478710000000888,
+        "x": 40.71165848,
+        "y": 0.022176506
+      },
+      {
+        "time": 2.6,
+        "distance": 205.95175521651538,
+        "altitude_error": -0.03941727000000128,
+        "x": 44.04825974,
+        "y": 0.07848975062
+      },
+      {
+        "time": 2.8,
+        "distance": 202.5992174298595,
+        "altitude_error": -0.0981731400000001,
+        "x": 47.40087128,
+        "y": 0.1895918995
+      },
+      {
+        "time": 3.0,
+        "distance": 199.23374369362784,
+        "altitude_error": -0.17498206999999866,
+        "x": 50.76660919,
+        "y": 0.3749833703
+      },
+      {
+        "time": 3.2,
+        "distance": 195.86004603183093,
+        "altitude_error": -0.2609710700000001,
+        "x": 54.14114761,
+        "y": 0.6837924123
+      },
+      {
+        "time": 3.4,
+        "distance": 192.49411512041854,
+        "altitude_error": -0.3492755900000013,
+        "x": 57.5093956,
+        "y": 1.162572026
+      },
+      {
+        "time": 3.6,
+        "distance": 189.16192112483628,
+        "altitude_error": -0.4376277900000005,
+        "x": 60.8470459,
+        "y": 1.841835737
+      },
+      {
+        "time": 3.8,
+        "distance": 185.8800367883675,
+        "altitude_error": -0.5258464799999985,
+        "x": 64.14019775,
+        "y": 2.742623568
+      },
+      {
+        "time": 4.0,
+        "distance": 182.6711659118404,
+        "altitude_error": -0.6108703599999998,
+        "x": 67.37001801,
+        "y": 3.87872839
+      },
+      {
+        "time": 4.2,
+        "distance": 179.56059133519614,
+        "altitude_error": -0.6878433199999989,
+        "x": 70.51634216,
+        "y": 5.25571394
+      },
+      {
+        "time": 4.4,
+        "distance": 176.56857699813966,
+        "altitude_error": -0.7468452499999998,
+        "x": 73.56496429,
+        "y": 6.865898132
+      },
+      {
+        "time": 4.6,
+        "distance": 173.7208173614721,
+        "altitude_error": -0.7782230400000003,
+        "x": 76.49703979,
+        "y": 8.697423935
+      },
+      {
+        "time": 4.8,
+        "distance": 171.04341800386982,
+        "altitude_error": -0.7754383099999984,
+        "x": 79.2939682,
+        "y": 10.73785591
+      },
+      {
+        "time": 5.0,
+        "distance": 168.56173383771312,
+        "altitude_error": -0.7343559299999995,
+        "x": 81.93814087,
+        "y": 12.97187805
+      },
+      {
+        "time": 5.2,
+        "distance": 166.2967789939298,
+        "altitude_error": -0.6546363799999995,
+        "x": 84.41568756,
+        "y": 15.37706661
+      },
+      {
+        "time": 5.4,
+        "distance": 164.26452164862872,
+        "altitude_error": -0.5408744799999994,
+        "x": 86.71743774,
+        "y": 17.93426704
+      },
+      {
+        "time": 5.6,
+        "distance": 162.47855224710761,
+        "altitude_error": -0.3999099699999995,
+        "x": 88.83625031,
+        "y": 20.62827492
+      },
+      {
+        "time": 5.8,
+        "distance": 160.950813732391,
+        "altitude_error": -0.2390041399999987,
+        "x": 90.7660141,
+        "y": 23.4457283
+      },
+      {
+        "time": 6.0,
+        "distance": 159.69173395978663,
+        "altitude_error": -0.0649223300000017,
+        "x": 92.50117493,
+        "y": 26.37366104
+      },
+      {
+        "time": 6.2,
+        "distance": 158.69128706325947,
+        "altitude_error": 0.12568664999999868,
+        "x": 94.05305481,
+        "y": 29.38494301
+      },
+      {
+        "time": 6.4,
+        "distance": 157.84075309708675,
+        "altitude_error": 0.3611564600000001,
+        "x": 95.52044678,
+        "y": 32.40016937
+      },
+      {
+        "time": 6.6,
+        "distance": 157.0299065812253,
+        "altitude_error": 0.6345958699999983,
+        "x": 97.00299072,
+        "y": 35.35967636
+      },
+      {
+        "time": 6.8,
+        "distance": 156.18877831946835,
+        "altitude_error": 0.9193592099999996,
+        "x": 98.56201935,
+        "y": 38.2292099
+      },
+      {
+        "time": 7.0,
+        "distance": 155.27609041118225,
+        "altitude_error": 1.1875247999999985,
+        "x": 100.2313156,
+        "y": 40.98786926
+      },
+      {
+        "time": 7.2,
+        "distance": 154.26825832622762,
+        "altitude_error": 1.415552139999999,
+        "x": 102.027771,
+        "y": 43.62241364
+      },
+      {
+        "time": 7.4,
+        "distance": 153.15185042701594,
+        "altitude_error": 1.5852623000000001,
+        "x": 103.9587097,
+        "y": 46.12408066
+      },
+      {
+        "time": 7.6,
+        "distance": 151.9189348636848,
+        "altitude_error": 1.6833953900000012,
+        "x": 106.0263672,
+        "y": 48.48665619
+      },
+      {
+        "time": 7.8,
+        "distance": 150.5642861466141,
+        "altitude_error": 1.7009105700000013,
+        "x": 108.2304916,
+        "y": 50.70513535
+      },
+      {
+        "time": 8.0,
+        "distance": 149.08368426652103,
+        "altitude_error": 1.6323490099999987,
+        "x": 110.5698242,
+        "y": 52.77471924
+      },
+      {
+        "time": 8.2,
+        "distance": 147.47303278297346,
+        "altitude_error": 1.4753246299999994,
+        "x": 113.0427551,
+        "y": 54.69011307
+      },
+      {
+        "time": 8.4,
+        "distance": 145.7278844486844,
+        "altitude_error": 1.2301788299999998,
+        "x": 115.6475449,
+        "y": 56.44496536
+      },
+      {
+        "time": 8.6,
+        "distance": 143.8433442833575,
+        "altitude_error": 0.899662020000001,
+        "x": 118.3821793,
+        "y": 58.03151703
+      },
+      {
+        "time": 8.8,
+        "distance": 141.8140752195835,
+        "altitude_error": 0.48871803000000114,
+        "x": 121.2441406,
+        "y": 59.44039536
+      },
+      {
+        "time": 9.0,
+        "distance": 139.63459540211934,
+        "altitude_error": 0.00424194,
+        "x": 124.2298965,
+        "y": 60.66054153
+      },
+      {
+        "time": 9.2,
+        "distance": 137.31013470389172,
+        "altitude_error": -0.5326099400000004,
+        "x": 127.3320541,
+        "y": 61.69804001
+      },
+      {
+        "time": 9.4,
+        "distance": 134.9084920062678,
+        "altitude_error": -1.0497550999999987,
+        "x": 130.5231934,
+        "y": 62.65456009
+      },
+      {
+        "time": 9.6,
+        "distance": 132.52134448512467,
+        "altitude_error": -1.5000667599999993,
+        "x": 133.7596588,
+        "y": 63.64031601
+      },
+      {
+        "time": 9.8,
+        "distance": 130.22844945434235,
+        "altitude_error": -1.8689975700000012,
+        "x": 137.0019073,
+        "y": 64.73700714
+      },
+      {
+        "time": 10.0,
+        "distance": 128.09882961866052,
+        "altitude_error": -2.1546668999999987,
+        "x": 140.2122345,
+        "y": 65.99967194
+      },
+      {
+        "time": 10.2,
+        "distance": 126.19235825058988,
+        "altitude_error": -2.3595409399999987,
+        "x": 143.3535309,
+        "y": 67.46141052
+      },
+      {
+        "time": 10.4,
+        "distance": 124.55984262391506,
+        "altitude_error": -2.4875812500000016,
+        "x": 146.3899384,
+        "y": 69.13833618
+      },
+      {
+        "time": 10.6,
+        "distance": 123.2422969702254,
+        "altitude_error": -2.5435104399999986,
+        "x": 149.2879639,
+        "y": 71.03343964
+      },
+      {
+        "time": 10.8,
+        "distance": 122.27033497743561,
+        "altitude_error": -2.5327701599999983,
+        "x": 152.0173492,
+        "y": 73.13983154
+      },
+      {
+        "time": 11.0,
+        "distance": 121.65814695258867,
+        "altitude_error": -2.4615173299999995,
+        "x": 154.5589447,
+        "y": 75.44342041
+      },
+      {
+        "time": 11.2,
+        "distance": 121.38912860828164,
+        "altitude_error": -2.3340492200000007,
+        "x": 156.9221802,
+        "y": 77.92201233
+      },
+      {
+        "time": 11.4,
+        "distance": 121.44709365744342,
+        "altitude_error": -2.1542949699999987,
+        "x": 159.1085358,
+        "y": 80.54898071
+      },
+      {
+        "time": 11.6,
+        "distance": 121.82552959904856,
+        "altitude_error": -1.9317665099999992,
+        "x": 161.1095886,
+        "y": 83.30638885
+      },
+      {
+        "time": 11.8,
+        "distance": 122.5167426622239,
+        "altitude_error": -1.6779003099999983,
+        "x": 162.9161224,
+        "y": 86.1785965
+      },
+      {
+        "time": 12.0,
+        "distance": 123.4870163662976,
+        "altitude_error": -1.3942108200000014,
+        "x": 164.539032,
+        "y": 89.13734436
+      },
+      {
+        "time": 12.2,
+        "distance": 124.60228239423151,
+        "altitude_error": -1.0558929399999997,
+        "x": 166.0801544,
+        "y": 92.10422516
+      },
+      {
+        "time": 12.4,
+        "distance": 125.74487819925322,
+        "altitude_error": -0.6710758199999987,
+        "x": 167.6401978,
+        "y": 95.01914215
+      },
+      {
+        "time": 12.6,
+        "distance": 126.84434661266856,
+        "altitude_error": -0.26647377000000105,
+        "x": 169.280304,
+        "y": 97.84589386
+      },
+      {
+        "time": 12.8,
+        "distance": 127.86043783172889,
+        "altitude_error": 0.13010978999999878,
+        "x": 171.0340424,
+        "y": 100.5617676
+      },
+      {
+        "time": 13.0,
+        "distance": 128.77090109906672,
+        "altitude_error": 0.4951591499999992,
+        "x": 172.9182129,
+        "y": 103.1520386
+      },
+      {
+        "time": 13.2,
+        "distance": 129.56394210832434,
+        "altitude_error": 0.8104133599999983,
+        "x": 174.9398499,
+        "y": 105.6067657
+      },
+      {
+        "time": 13.4,
+        "distance": 130.23339347377086,
+        "altitude_error": 1.0624179799999993,
+        "x": 177.1007843,
+        "y": 107.9186783
+      },
+      {
+        "time": 13.6,
+        "distance": 130.7759607317052,
+        "altitude_error": 1.2418270100000015,
+        "x": 179.4002228,
+        "y": 110.0818939
+      },
+      {
+        "time": 13.8,
+        "distance": 131.18939884198085,
+        "altitude_error": 1.34278488,
+        "x": 181.8362427,
+        "y": 112.0908585
+      },
+      {
+        "time": 14.0,
+        "distance": 131.4715805135692,
+        "altitude_error": 1.3624362900000015,
+        "x": 184.4062958,
+        "y": 113.9396439
+      },
+      {
+        "time": 14.2,
+        "distance": 131.61977170989167,
+        "altitude_error": 1.3005676299999998,
+        "x": 187.1076508,
+        "y": 115.6214371
+      },
+      {
+        "time": 14.4,
+        "distance": 131.63034660909986,
+        "altitude_error": 1.1593513500000014,
+        "x": 189.9371033,
+        "y": 117.1281204
+      },
+      {
+        "time": 14.6,
+        "distance": 131.4986546461334,
+        "altitude_error": 0.9431076000000012,
+        "x": 192.8908691,
+        "y": 118.4501724
+      },
+      {
+        "time": 14.8,
+        "distance": 131.21904874022712,
+        "altitude_error": 0.6581096600000009,
+        "x": 195.963974,
+        "y": 119.5765305
+      },
+      {
+        "time": 15.0,
+        "distance": 130.80411259024365,
+        "altitude_error": 0.32574272000000093,
+        "x": 199.1417236,
+        "y": 120.5120392
+      },
+      {
+        "time": 15.2,
+        "distance": 130.34290026050212,
+        "altitude_error": 0.009498600000000579,
+        "x": 202.3844604,
+        "y": 121.3343811
+      },
+      {
+        "time": 15.4,
+        "distance": 129.81960807013309,
+        "altitude_error": -0.27275848000000025,
+        "x": 205.6932373,
+        "y": 122.0247574
+      },
+      {
+        "time": 15.6,
+        "distance": 129.18795056956162,
+        "altitude_error": -0.5170173600000005,
+        "x": 209.0641632,
+        "y": 122.5307465
+      },
+      {
+        "time": 15.8,
+        "distance": 128.41482505420407,
+        "altitude_error": -0.7203845999999992,
+        "x": 212.4862061,
+        "y": 122.8132019
+      },
+      {
+        "time": 16.0,
+        "distance": 127.47891710372572,
+        "altitude_error": -0.879987719999999,
+        "x": 215.9354401,
+        "y": 122.8433151
+      },
+      {
+        "time": 16.2,
+        "distance": 126.36858853658784,
+        "altitude_error": -0.9957332600000015,
+        "x": 219.3826141,
+        "y": 122.6034088
+      },
+      {
+        "time": 16.4,
+        "distance": 125.07921656692382,
+        "altitude_error": -1.0701999700000009,
+        "x": 222.7983246,
+        "y": 122.0855408
+      },
+      {
+        "time": 16.6,
+        "distance": 123.61071987326848,
+        "altitude_error": -1.1075363200000012,
+        "x": 226.1550293,
+        "y": 121.2890244
+      },
+      {
+        "time": 16.8,
+        "distance": 121.96592531264152,
+        "altitude_error": -1.1125659900000002,
+        "x": 229.4272919,
+        "y": 120.2183456
+      },
+      {
+        "time": 17.0,
+        "distance": 120.14945948530544,
+        "altitude_error": -1.0902366599999986,
+        "x": 232.5918579,
+        "y": 118.8816605
+      },
+      {
+        "time": 17.2,
+        "distance": 118.16712134031013,
+        "altitude_error": -1.0453357700000012,
+        "x": 235.627243,
+        "y": 117.2897797
+      },
+      {
+        "time": 17.4,
+        "distance": 116.02624066724631,
+        "altitude_error": -0.9821338699999984,
+        "x": 238.514389,
+        "y": 115.4563522
+      },
+      {
+        "time": 17.6,
+        "distance": 113.73783585611248,
+        "altitude_error": -0.9033870700000008,
+        "x": 241.2385712,
+        "y": 113.3998795
+      },
+      {
+        "time": 17.8,
+        "distance": 111.3127799170605,
+        "altitude_error": -0.8118629499999983,
+        "x": 243.7872467,
+        "y": 111.139267
+      },
+      {
+        "time": 18.0,
+        "distance": 108.76493027493716,
+        "altitude_error": -0.7090168000000006,
+        "x": 246.1534729,
+        "y": 108.6968918
+      },
+      {
+        "time": 18.2,
+        "distance": 106.10744916527393,
+        "altitude_error": -0.5967330900000007,
+        "x": 248.3314819,
+        "y": 106.0943298
+      },
+      {
+        "time": 18.4,
+        "distance": 103.35160282001978,
+        "altitude_error": -0.47859001000000134,
+        "x": 250.3134155,
+        "y": 103.3511276
+      },
+      {
+        "time": 18.6,
+        "distance": 100.5180945092952,
+        "altitude_error": -0.3526134499999998,
+        "x": 252.1026001,
+        "y": 100.4961014
+      },
+      {
+        "time": 18.8,
+        "distance": 97.68044784523957,
+        "altitude_error": -0.18311690999999897,
+        "x": 253.8001709,
+        "y": 97.60649872
+      },
+      {
+        "time": 19.0,
+        "distance": 94.90878125397785,
+        "altitude_error": 0.03289412999999897,
+        "x": 255.5093384,
+        "y": 94.74874115
+      },
+      {
+        "time": 19.2,
+        "distance": 92.255528587467,
+        "altitude_error": 0.27574347999999915,
+        "x": 257.2946472,
+        "y": 91.96668243
+      },
+      {
+        "time": 19.4,
+        "distance": 89.76186352857486,
+        "altitude_error": 0.5219421400000002,
+        "x": 259.1928406,
+        "y": 89.28988647
+      },
+      {
+        "time": 19.6,
+        "distance": 87.46191156984368,
+        "altitude_error": 0.7508220700000017,
+        "x": 261.2226562,
+        "y": 86.73890686
+      },
+      {
+        "time": 19.8,
+        "distance": 85.38553735235772,
+        "altitude_error": 0.94613266,
+        "x": 263.3921814,
+        "y": 84.32875824
+      },
+      {
+        "time": 20.0,
+        "distance": 83.55978694405869,
+        "altitude_error": 1.095899580000001,
+        "x": 265.7031555,
+        "y": 82.07099915
+      },
+      {
+        "time": 20.2,
+        "distance": 82.00969378006589,
+        "altitude_error": 1.1918659200000015,
+        "x": 268.1539612,
+        "y": 79.97514343
+      },
+      {
+        "time": 20.4,
+        "distance": 80.75847865416249,
+        "altitude_error": 1.2288837400000006,
+        "x": 270.7407837,
+        "y": 78.04967499
+      },
+      {
+        "time": 20.6,
+        "distance": 79.827521007444,
+        "altitude_error": 1.2044448900000013,
+        "x": 273.4588013,
+        "y": 76.30280304
+      },
+      {
+        "time": 20.8,
+        "distance": 79.23585181036458,
+        "altitude_error": 1.1183109299999998,
+        "x": 276.3022461,
+        "y": 74.74297333
+      },
+      {
+        "time": 21.0,
+        "distance": 78.99950377987044,
+        "altitude_error": 0.972240450000001,
+        "x": 279.2646484,
+        "y": 73.37916565
+      },
+      {
+        "time": 21.2,
+        "distance": 79.13067195881841,
+        "altitude_error": 0.7697296099999988,
+        "x": 282.338562,
+        "y": 72.22105408
+      },
+      {
+        "time": 21.4,
+        "distance": 79.61759770807387,
+        "altitude_error": 0.5283470199999982,
+        "x": 285.5095215,
+        "y": 71.26033783
+      },
+      {
+        "time": 21.6,
+        "distance": 80.34494298001012,
+        "altitude_error": 0.31046485999999973,
+        "x": 288.73526,
+        "y": 70.39097595
+      },
+      {
+        "time": 21.8,
+        "distance": 81.19000181517872,
+        "altitude_error": 0.14545631000000014,
+        "x": 291.9745178,
+        "y": 69.49788666
+      },
+      {
+        "time": 22.0,
+        "distance": 82.06707856075926,
+        "altitude_error": 0.033000950000001694,
+        "x": 295.1981812,
+        "y": 68.49912262
+      },
+      {
+        "time": 22.2,
+        "distance": 82.91799848414867,
+        "altitude_error": -0.03603934999999936,
+        "x": 298.3780823,
+        "y": 67.34207916
+      },
+      {
+        "time": 22.4,
+        "distance": 83.70486674752985,
+        "altitude_error": -0.07112121999999843,
+        "x": 301.4919128,
+        "y": 65.99308777
+      },
+      {
+        "time": 22.6,
+        "distance": 84.40071994368198,
+        "altitude_error": -0.0790519699999983,
+        "x": 304.5128784,
+        "y": 64.43467712
+      },
+      {
+        "time": 22.8,
+        "distance": 84.9873471393388,
+        "altitude_error": -0.06612587000000048,
+        "x": 307.4142761,
+        "y": 62.66139221
+      },
+      {
+        "time": 23.0,
+        "distance": 85.45325955987327,
+        "altitude_error": -0.03834533999999934,
+        "x": 310.1723633,
+        "y": 60.67574692
+      },
+      {
+        "time": 23.2,
+        "distance": 85.79157734575588,
+        "altitude_error": -0.0010795600000008676,
+        "x": 312.7666626,
+        "y": 58.48538971
+      },
+      {
+        "time": 23.4,
+        "distance": 85.99833588321857,
+        "altitude_error": 0.04117392999999936,
+        "x": 315.1794128,
+        "y": 56.10131836
+      },
+      {
+        "time": 23.6,
+        "distance": 86.0713734364799,
+        "altitude_error": 0.08485985000000085,
+        "x": 317.3950195,
+        "y": 53.53683472
+      },
+      {
+        "time": 23.8,
+        "distance": 86.00950859306671,
+        "altitude_error": 0.12730597999999915,
+        "x": 319.3995056,
+        "y": 50.80693054
+      },
+      {
+        "time": 24.0,
+        "distance": 85.81225372700236,
+        "altitude_error": 0.16660500000000056,
+        "x": 321.1804504,
+        "y": 47.92792892
+      },
+      {
+        "time": 24.2,
+        "distance": 85.47938362884716,
+        "altitude_error": 0.20149422000000072,
+        "x": 322.7266235,
+        "y": 44.91729355
+      },
+      {
+        "time": 24.4,
+        "distance": 85.01118972496745,
+        "altitude_error": 0.23121452000000176,
+        "x": 324.0284424,
+        "y": 41.79344559
+      },
+      {
+        "time": 24.6,
+        "distance": 84.4079460269944,
+        "altitude_error": 0.25540352000000155,
+        "x": 325.0774231,
+        "y": 38.57566452
+      },
+      {
+        "time": 24.8,
+        "distance": 83.67032354194231,
+        "altitude_error": 0.27401352000000045,
+        "x": 325.8667603,
+        "y": 35.28395844
+      },
+      {
+        "time": 25.0,
+        "distance": 82.79906511568886,
+        "altitude_error": 0.28720283999999907,
+        "x": 326.3910217,
+        "y": 31.93895721
+      },
+      {
+        "time": 25.2,
+        "distance": 81.7952500009372,
+        "altitude_error": 0.2953052499999984,
+        "x": 326.6465149,
+        "y": 28.56176949
+      },
+      {
+        "time": 25.4,
+        "distance": 80.66008836219198,
+        "altitude_error": 0.2987594599999994,
+        "x": 326.6311035,
+        "y": 25.17387199
+      },
+      {
+        "time": 25.6,
+        "distance": 79.3949282427663,
+        "altitude_error": 0.2980766300000006,
+        "x": 326.3442688,
+        "y": 21.79695511
+      },
+      {
+        "time": 25.8,
+        "distance": 78.00148910581532,
+        "altitude_error": 0.29380225999999965,
+        "x": 325.787384,
+        "y": 18.45277023
+      },
+      {
+        "time": 26.0,
+        "distance": 76.4816805092527,
+        "altitude_error": 0.286500929999999,
+        "x": 324.9635315,
+        "y": 15.16299438
+      },
+      {
+        "time": 26.2,
+        "distance": 74.83768319926529,
+        "altitude_error": 0.27672005000000155,
+        "x": 323.877594,
+        "y": 11.94905567
+      },
+      {
+        "time": 26.4,
+        "distance": 73.07187594944097,
+        "altitude_error": 0.2649974800000017,
+        "x": 322.5361633,
+        "y": 8.831991196
+      },
+      {
+        "time": 26.6,
+        "distance": 71.18695101197797,
+        "altitude_error": 0.2518348699999997,
+        "x": 320.9476318,
+        "y": 5.832283974
+      },
+      {
+        "time": 26.8,
+        "distance": 69.18571324114515,
+        "altitude_error": 0.23769379000000157,
+        "x": 319.1219482,
+        "y": 2.969712734
+      },
+      {
+        "time": 27.0,
+        "distance": 67.07131723504735,
+        "altitude_error": 0.2229900399999991,
+        "x": 317.0708008,
+        "y": 0.2632027566
+      },
+      {
+        "time": 27.2,
+        "distance": 64.8471838399895,
+        "altitude_error": 0.20809554999999946,
+        "x": 314.8074646,
+        "y": -2.269313574
+      },
+      {
+        "time": 27.4,
+        "distance": 62.516714815677545,
+        "altitude_error": 0.19332886000000116,
+        "x": 312.3464355,
+        "y": -4.611031532
+      },
+      {
+        "time": 27.6,
+        "distance": 60.08375114426841,
+        "altitude_error": 0.17896651999999946,
+        "x": 309.7037964,
+        "y": -6.746395111
+      },
+      {
+        "time": 27.8,
+        "distance": 57.55227881078325,
+        "altitude_error": 0.16522979999999876,
+        "x": 306.8968201,
+        "y": -8.661215782
+      },
+      {
+        "time": 28.0,
+        "distance": 54.92644900097709,
+        "altitude_error": 0.15230178999999922,
+        "x": 303.9438782,
+        "y": -10.34276581
+      },
+      {
+        "time": 28.2,
+        "distance": 52.21107278190583,
+        "altitude_error": 0.14052582000000058,
+        "x": 300.8646545,
+        "y": -11.78062153
+      },
+      {
+        "time": 28.4,
+        "distance": 49.4131993349512,
+        "altitude_error": 0.1310901599999994,
+        "x": 297.6807861,
+        "y": -12.96946049
+      },
+      {
+        "time": 28.6,
+        "distance": 46.53939635462375,
+        "altitude_error": 0.12462233999999839,
+        "x": 294.4135742,
+        "y": -13.9050293
+      },
+      {
+        "time": 28.8,
+        "distance": 43.59722046076277,
+        "altitude_error": 0.12083434999999909,
+        "x": 291.0859985,
+        "y": -14.5828104
+      },
+      {
+        "time": 29.0,
+        "distance": 40.59761612479633,
+        "altitude_error": 0.11587906000000103,
+        "x": 287.7258606,
+        "y": -14.99752903
+      },
+      {
+        "time": 29.2,
+        "distance": 37.546879838623774,
+        "altitude_error": 0.10380553999999975,
+        "x": 284.3554077,
+        "y": -15.14840412
+      },
+      {
+        "time": 29.4,
+        "distance": 34.45448697317953,
+        "altitude_error": 0.09156035999999901,
+        "x": 280.9893799,
+        "y": -15.05888462
+      },
+      {
+        "time": 29.6,
+        "distance": 31.366214327160662,
+        "altitude_error": 0.13022803999999866,
+        "x": 277.6228943,
+        "y": -14.85984898
+      },
+      {
+        "time": 29.8,
+        "distance": 28.352448216484564,
+        "altitude_error": 0.23880004999999827,
+        "x": 274.2554626,
+        "y": -14.68107128
+      },
+      {
+        "time": 30.0,
+        "distance": 25.482742998645254,
+        "altitude_error": 0.41226577999999847,
+        "x": 270.895813,
+        "y": -14.58544445
+      },
+      {
+        "time": 30.2,
+        "distance": 22.769163801980746,
+        "altitude_error": 0.6468944500000013,
+        "x": 267.5639954,
+        "y": -14.48933697
+      },
+      {
+        "time": 30.4,
+        "distance": 20.204143735862502,
+        "altitude_error": 0.9186897300000005,
+        "x": 264.2684326,
+        "y": -14.3045187
+      },
+      {
+        "time": 30.6,
+        "distance": 17.79870575577739,
+        "altitude_error": 1.1976566300000009,
+        "x": 261.0160522,
+        "y": -13.98000431
+      },
+      {
+        "time": 30.8,
+        "distance": 15.58801002519313,
+        "altitude_error": 1.45725822,
+        "x": 257.8140564,
+        "y": -13.48801613
+      }
+    ],
+    "terminal_summary": {
+      "outcome": "goal",
+      "steps": 155,
+      "time": 31.0,
+      "goal_distance": 13.63865471,
+      "x": 254.6695099,
+      "y": -12.81438923,
+      "z": 21.67646408,
+      "V": 16.05739975,
+      "gamma": 0.059357889,
+      "sigma": 2.896946669,
+      "roll": -0.5362052321,
+      "attack": -0.2402861714,
+      "T": 1.104728341,
+      "d_sigma": -0.309343636
+    },
+    "terminal_observation_note": "Terminal outcome is supplied in a separate summary."
+  },
+  "provenance": {
+    "inputs": [
+      {
+        "file": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/recovery_v3_episodes.csv",
+        "sha256": "b2280b2783e0c79cc2db9a0e6425f084c9e5c5a534968e7d717678690a56fd9a"
+      },
+      {
+        "file": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/recovery_v3_plans.csv",
+        "sha256": "3e1ffb5ac7eeb454d3975a8c8d21e3095bb9dc5de532fad30423937087139367"
+      },
+      {
+        "file": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/recovery_v3_matched.csv",
+        "sha256": "3dd627c4ea3f345ebbbae4e049f4c53fcd38a1f7e92359eb64e8cb16be651fa9"
+      },
+      {
+        "file": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/recovery_v3_paths.csv",
+        "sha256": "502f802eb6712d80fb3757bfd4ca4ae1f115fe04674c16c05283f30fe89b1cdb"
+      },
+      {
+        "file": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/recovery_v3_scenarios.csv",
+        "sha256": "fb8914c1b559a9fbeddb709b2b443c8fffefc0691e53d13bc59f787953439897"
+      },
+      {
+        "file": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/recovery_v3_diagnostic.csv",
+        "sha256": "c23be1e63f3bef6b02b58a852fb1d4f1c9ee5975456ef5b051393b32a1b60da7"
+      },
+      {
+        "file": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/recovery_v3_diagnostic_summary.csv",
+        "sha256": "a5c4cb462ac1e4adf0f080512f48848f3c88e7233936bd278dc98cf464aae30e"
+      }
+    ],
+    "analysis_script_sha256": "9f5c22d777f98e317db2400abf747a9d610e09b5a1a9fff273549ab690e686f8",
+    "numpy_version": "1.21.6",
+    "matplotlib_version": "3.1.2"
+  },
+  "artifacts": [
+    "recovery_v3_matched.pdf",
+    "recovery_v3_matched.png",
+    "recovery_v3_outcomes.pdf",
+    "recovery_v3_outcomes.png",
+    "recovery_v3_paths.pdf",
+    "recovery_v3_paths.png",
+    "recovery_v3_diagnostic.pdf",
+    "recovery_v3_diagnostic.png",
+    "recovery_v3_outcomes_table.tex",
+    "recovery_v3_matched_table.tex",
+    "recovery_v3_paired_table.tex",
+    "recovery_v3_diagnostic_table.tex",
+    "recovery_v3_numbers.tex",
+    "recovery_v3_analysis.json"
+  ]
+}

@@ -1,0 +1,1 @@
+<launch><test test-name="evaluation_plant_test" pkg="motion_primitives_planning" type="evaluation_plant_test" time-limit="30" /></launch>

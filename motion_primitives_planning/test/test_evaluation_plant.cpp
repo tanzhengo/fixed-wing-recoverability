@@ -1,0 +1,11 @@
+#include <gtest/gtest.h>
+#include "../src/evaluation_plant.h"
+using MP=MotionPrimitives;
+MP::s_t level(){MP::s_t s;s.V=15.5;s.h=20;double lo=-.35,hi=.44;for(int i=0;i<60;++i){double a=(lo+hi)/2;double cl=.03*std::sin(a)+.028,cd=.001*a*a+.002;if(1.86*s.V*s.V*(cl+cd*std::tan(a))>9.81)hi=a;else lo=a;}s.attack=(lo+hi)/2;s.T=1.86*s.V*s.V*(.001*s.attack*s.attack+.002)/std::cos(s.attack);return s;}
+MP::pr_t control(const MP::s_t& s){MP::pr_t u;u.attack_c=s.attack;u.T_c=s.T;return u;}
+TEST(EvaluationPlant,LevelTrimPreservesSpeedAndAltitude){auto s=level();EvaluationPlant p;auto r=p.advance(s,control(s),10);ASSERT_TRUE(r.valid);auto e=r.states.back();EXPECT_NEAR(e.V,s.V,.001);EXPECT_NEAR(e.h,s.h,.001);EXPECT_NEAR(e.pos[0],155,.01);}
+TEST(EvaluationPlant,FourthOrderActuatorConvergence){auto s=level();auto u=control(s);u.T_c=2;const double exact=u.T_c+(s.T-u.T_c)*std::exp(-2.4);double errors[3];int i=0;for(double dt:{.08,.04,.02}){EvaluationPlant::Parameters p;p.dt=dt;auto r=EvaluationPlant(p).advance(s,u,.24);ASSERT_TRUE(r.valid);errors[i++]=std::abs(r.states.back().T-exact);}EXPECT_GT(errors[0],10*errors[1]);EXPECT_GT(errors[1],8*errors[2]);EXPECT_LT(errors[2],1e-5);}
+TEST(EvaluationPlant,WindChangesGroundTrackWithoutChangingAirspeed){auto s=level();auto u=control(s);EvaluationPlant::Parameters p;p.wind_y=1;auto a=EvaluationPlant().advance(s,u,2).states.back();auto b=EvaluationPlant(p).advance(s,u,2).states.back();EXPECT_NEAR(b.pos[1]-a.pos[1],2,1e-5);EXPECT_FLOAT_EQ(a.V,b.V);EXPECT_FLOAT_EQ(a.gamma,b.gamma);}
+TEST(EvaluationPlant,ModelPerturbationChangesFlightResponse){auto s=level();auto u=control(s);EvaluationPlant::Parameters p;p.lift_scale=.97;p.drag_scale=1.1;p.actuator_scale=1.25;auto a=EvaluationPlant().advance(s,u,2).states.back();auto b=EvaluationPlant(p).advance(s,u,2).states.back();EXPECT_GT(std::abs(a.h-b.h),.1);EXPECT_GT(std::abs(a.V-b.V),.01);}
+TEST(EvaluationPlant,RejectsInvalidStateAndParameters){auto s=level();s.V=0;EXPECT_FALSE(EvaluationPlant().advance(s,control(s),1).valid);EvaluationPlant::Parameters p;p.actuator_scale=0;EXPECT_THROW(EvaluationPlant bad(p),std::invalid_argument);}
+int main(int argc,char**argv){testing::InitGoogleTest(&argc,argv);ros::init(argc,argv,"evaluation_plant_test");return RUN_ALL_TESTS();}

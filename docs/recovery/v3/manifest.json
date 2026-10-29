@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-30",
+  "source_parent_commit": "749f5ada046a8e3079065b8284db04e58f29f96d",
+  "source_sha256": {
+    "motion_primitives_planning/src/motion_primitives.h": "4858207ed38aa090d8df34688e86b587b06cd0323c64b8ec8484db7acfde5468",
+    "motion_primitives_planning/src/recovery_benchmark_v3.cpp": "da4cff8e141e1530e3ece877c4db4d9db0f877c768559c394d9777759ce3ba44",
+    "motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+    "motion_primitives_planning/scripts/analyze_recovery_v3.py": "9f5c22d777f98e317db2400abf747a9d610e09b5a1a9fff273549ab690e686f8",
+    "docs/recovery/V3_PROTOCOL.md": "17c6370042dc83f5e329d71edb2e6c720b762a93f240ac44de625889a613b7b5"
+  },
+  "data_sha256": {
+    "recovery_v3_scenarios.csv": "fb8914c1b559a9fbeddb709b2b443c8fffefc0691e53d13bc59f787953439897",
+    "recovery_v3_episodes.csv": "b2280b2783e0c79cc2db9a0e6425f084c9e5c5a534968e7d717678690a56fd9a",
+    "recovery_v3_paths.csv": "502f802eb6712d80fb3757bfd4ca4ae1f115fe04674c16c05283f30fe89b1cdb",
+    "recovery_v3_plans.csv": "3e1ffb5ac7eeb454d3975a8c8d21e3095bb9dc5de532fad30423937087139367",
+    "recovery_v3_matched.csv": "3dd627c4ea3f345ebbbae4e049f4c53fcd38a1f7e92359eb64e8cb16be651fa9",
+    "recovery_v3_diagnostic_summary.csv": "a5c4cb462ac1e4adf0f080512f48848f3c88e7233936bd278dc98cf464aae30e",
+    "recovery_v3_diagnostic.csv": "c23be1e63f3bef6b02b58a852fb1d4f1c9ee5975456ef5b051393b32a1b60da7"
+  },
+  "compiler": "g++ (Ubuntu 8.4.0-3ubuntu2) 8.4.0",
+  "machine": "Intel Core i5-12400F; Ubuntu 20.04.6; benchmark pinned to logical CPU 2",
+  "prediction_dt": 0.02,
+  "plant_rk4_dt": 0.005,
+  "control_interval": 0.2,
+  "tests": 51,
+  "run_command": "taskset -c 2 rosrun motion_primitives_planning recovery_benchmark_v3 _output_prefix:=/absolute/output/prefix _phase:=all"
+}

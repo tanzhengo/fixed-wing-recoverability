@@ -694,6 +694,172 @@ TEST_F(TerminalRecovery, PreviousShortControlCannotMasqueradeAsFreshPrimary) {
          "not reclassified using their short executed duration";
 }
 
+TEST_F(TerminalRecovery, PrimaryOnlyAblationUsesTheSameHardFiltersWithoutBackupWork) {
+  blockingCylinder();
+  nh_->setParam("recovery/require_terminal", false);
+  nh_->setParam("recovery/max_backup_integration_steps", 1);
+  nh_->setParam("recovery/reuse_verified_plan", true);
+  auto control = planner();
+  const auto initial = state();
+  const auto selected = control->select_motion_primitive(initial);
+  ASSERT_TRUE(selected.primary_feasible);
+  EXPECT_EQ("PRIMARY_ONLY_FEASIBLE", selected.status);
+  EXPECT_FALSE(selected.recovery_verified);
+  EXPECT_FALSE(selected.reused_verified_plan);
+  EXPECT_TRUE(selected.execution_plan.empty());
+  EXPECT_EQ(0, selected.backup_evaluated);
+  EXPECT_EQ(0, selected.backup_integration_steps);
+  EXPECT_EQ(0, selected.recovery_checked);
+  int feasible_count = 0;
+  float best_cost = std::numeric_limits<float>::infinity();
+  for (const auto& command : control->generate_library(initial)) {
+    const auto rollout = control->rollout_motion_primitive(initial, command);
+    if (!control->check_primary_feasibility(initial, rollout)) continue;
+    ++feasible_count;
+    best_cost = std::min(best_cost, control->evaluate_motion_primitive(initial, command, rollout));
+  }
+  EXPECT_EQ(feasible_count, selected.primary_feasible_count);
+  EXPECT_FLOAT_EQ(best_cost, selected.cost);
+  control->accept_selection(selected);
+  EXPECT_TRUE(control->remaining_execution_plan().empty());
+  nh_->setParam("recovery/known_space_radius", 1.0);
+  auto unknown = planner();
+  EXPECT_EQ("NO_FEASIBLE_PRIMARY", unknown->select_motion_primitive(initial).status)
+      << "Primary-only must retain the same known-space hard gate";
+  auto over_limit = initial;
+  over_limit.gamma = 25.0f * Rad2Deg;
+  EXPECT_FALSE(control->state_within_recovery_envelope(over_limit));
+}
+
+TEST_F(TerminalRecovery, IntegrationWorkCapNeverTurnsAPrefixIntoACompleteTrajectory) {
+  auto mp = planner();
+  const auto initial = state();
+  const auto command = straight(*mp, initial);
+  const auto zero = mp->rollout_motion_primitive(initial, command, 0.0f, 0);
+  EXPECT_FALSE(zero.valid);
+  EXPECT_TRUE(zero.work_exhausted);
+  EXPECT_EQ(1u, zero.states.size());
+  const auto partial = mp->rollout_motion_primitive(initial, command, 0.0f, 7);
+  EXPECT_FALSE(partial.valid);
+  EXPECT_TRUE(partial.work_exhausted);
+  EXPECT_EQ(8u, partial.states.size());
+  EXPECT_FALSE(mp->check_primary_feasibility(initial, partial));
+  const auto full = mp->rollout_motion_primitive(initial, command);
+  ASSERT_TRUE(full.valid);
+  const auto exact = mp->rollout_motion_primitive(initial, command, 0.0f,
+      static_cast<int>(full.states.size()) - 1);
+  EXPECT_TRUE(exact.valid);
+  EXPECT_FALSE(exact.work_exhausted);
+  EXPECT_EQ(full.states.size(), exact.states.size());
+}
+
+TEST_F(TerminalRecovery, TerminalBudgetDistinguishesZeroExactAndUnlimitedWork) {
+  auto mp = planner();
+  const auto initial = state();
+  const auto command = straight(*mp, initial);
+  const auto primary = mp->rollout_motion_primitive(initial, command);
+  const auto zero = mp->check_terminal_recovery(initial, primary, command.t_way, 0);
+  EXPECT_FALSE(zero.verified);
+  EXPECT_TRUE(zero.work_budget_exhausted);
+  EXPECT_EQ(0, zero.integration_steps);
+  EXPECT_EQ(0, zero.checked);
+  const auto limited = mp->check_terminal_recovery(initial, primary, command.t_way, 7);
+  EXPECT_FALSE(limited.verified);
+  EXPECT_TRUE(limited.work_budget_exhausted);
+  EXPECT_EQ(7, limited.integration_steps);
+  EXPECT_EQ(1, limited.truncated);
+  EXPECT_EQ(0, limited.rejected_invalid) << "Budget truncation is not a numerical failure";
+  const auto unlimited = mp->check_terminal_recovery(initial, primary, command.t_way);
+  ASSERT_TRUE(unlimited.verified);
+  ASSERT_GT(unlimited.integration_steps, 7);
+  const auto exact = mp->check_terminal_recovery(initial, primary, command.t_way,
+      unlimited.integration_steps);
+  EXPECT_TRUE(exact.verified);
+  EXPECT_FALSE(exact.work_budget_exhausted);
+  EXPECT_EQ(unlimited.integration_steps, exact.integration_steps);
+}
+
+TEST_F(TerminalRecovery, SelectSharesOneExactWorkBudgetAcrossDifferentPrimaries) {
+  blockingCylinder();
+  nh_->setParam("recovery/require_terminal", false);
+  auto reference = planner();
+  const auto initial = state();
+  const auto cheapest = reference->select_motion_primitive(initial);
+  ASSERT_TRUE(cheapest.primary_feasible);
+  const auto exhaustive = reference->check_terminal_recovery(initial, cheapest.rollout,
+      cheapest.command.t_way);
+  ASSERT_FALSE(exhaustive.verified);
+  ASSERT_FALSE(exhaustive.work_budget_exhausted);
+  ASSERT_GT(exhaustive.integration_steps, 0);
+  const int budget = exhaustive.integration_steps + 7;
+  nh_->setParam("recovery/require_terminal", true);
+  nh_->setParam("recovery/max_backup_integration_steps", budget);
+  nh_->setParam("recovery/max_candidates", 29);
+  auto limited = planner();
+  const auto selected = limited->select_motion_primitive(initial);
+  EXPECT_TRUE(selected.primary_feasible);
+  EXPECT_FALSE(selected.recovery_verified);
+  EXPECT_TRUE(selected.backup_work_budget_exhausted);
+  EXPECT_TRUE(selected.budget_exhausted);
+  EXPECT_EQ("BACKUP_WORK_BUDGET_EXHAUSTED", selected.status);
+  EXPECT_EQ(budget, selected.backup_integration_steps);
+  EXPECT_EQ(2, selected.recovery_checked);
+  EXPECT_EQ(1, selected.backup_truncated);
+  nh_->setParam("recovery/max_backup_integration_steps", 0); // Config 0 is unlimited.
+  nh_->setParam("recovery/max_candidates", 1);
+  auto count_limited = planner();
+  const auto different_limit = count_limited->select_motion_primitive(initial);
+  EXPECT_EQ("BUDGET_EXHAUSTED", different_limit.status);
+  EXPECT_FALSE(different_limit.backup_work_budget_exhausted);
+  EXPECT_EQ(exhaustive.integration_steps, different_limit.backup_integration_steps);
+}
+
+TEST_F(TerminalRecovery, BackupRejectionCountersSeparateCollisionFromUnknownSpace) {
+  blockingCylinder();
+  auto blocked = planner();
+  const auto initial = state();
+  const auto command = straight(*blocked, initial);
+  const auto primary = blocked->rollout_motion_primitive(initial, command);
+  const auto collision = blocked->check_terminal_recovery(initial, primary, command.t_way);
+  EXPECT_FALSE(collision.verified);
+  EXPECT_GT(collision.rejected_collision, 0);
+  EXPECT_EQ(collision.checked, collision.rejected_collision + collision.rejected_envelope +
+      collision.rejected_known_space + collision.rejected_invalid);
+  EXPECT_EQ(0, collision.truncated);
+  nh_->setParam("static_obstacles/num", 0);
+  nh_->setParam("recovery/known_space_radius", 55.0);
+  auto limited = planner();
+  const auto clear_primary = limited->rollout_motion_primitive(initial, command);
+  const auto unknown = limited->check_terminal_recovery(initial, clear_primary, command.t_way);
+  EXPECT_FALSE(unknown.verified);
+  EXPECT_EQ(0, unknown.rejected_collision);
+  EXPECT_GT(unknown.rejected_known_space, 0);
+  EXPECT_EQ(unknown.checked, unknown.rejected_collision + unknown.rejected_envelope +
+      unknown.rejected_known_space + unknown.rejected_invalid);
+}
+
+TEST_F(TerminalRecovery, BackupCountersDistinguishModelInvalidityAndRecoveryEnvelope) {
+  auto mp = planner();
+  auto near_angle_limit = state();
+  near_angle_limit.gamma = 20.0f * Rad2Deg;
+  Planner::rollout_t primary;
+  primary.states = {near_angle_limit, near_angle_limit};
+  const auto angle = mp->check_terminal_recovery(near_angle_limit, primary, 3.0f);
+  EXPECT_FALSE(angle.verified);
+  EXPECT_GT(angle.rejected_envelope, 0);
+  auto accelerating = state();
+  accelerating.V = 44.9f;
+  accelerating.T = 20.0f;
+  accelerating.attack = 0.3f;
+  ASSERT_TRUE(mp->state_within_recovery_envelope(accelerating));
+  primary.states = {accelerating, accelerating};
+  const auto invalid = mp->check_terminal_recovery(accelerating, primary, 3.0f);
+  EXPECT_FALSE(invalid.verified);
+  EXPECT_EQ(invalid.checked, invalid.rejected_invalid);
+  EXPECT_GT(invalid.rejected_invalid, 0);
+  EXPECT_EQ(0, invalid.truncated);
+}
+
 }  // namespace
 
 int main(int argc, char** argv) {
