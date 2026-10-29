@@ -8,10 +8,10 @@
         "no_feasible_primary": 6
       },
       "planning_cycles": 569,
-      "mean_ms": 3.115987996485061,
-      "p95_ms": 19.24028000000001,
-      "p99_ms": 19.806256000000005,
-      "max_ms": 21.8642,
+      "mean_ms": 1.977801265377854,
+      "p95_ms": 3.3015360000000005,
+      "p99_ms": 3.500781600000001,
+      "max_ms": 3.75686,
       "cycles_over_100ms_reference": 0,
       "status_counts": {
         "BASELINE_FEASIBLE": 563,
@@ -27,10 +27,10 @@
         "no_feasible_primary": 6
       },
       "planning_cycles": 574,
-      "mean_ms": 8.244303292682929,
-      "p95_ms": 49.71566,
-      "p99_ms": 50.263568,
-      "max_ms": 50.3933,
+      "mean_ms": 5.037798989547037,
+      "p95_ms": 8.365355000000001,
+      "p99_ms": 8.6443931,
+      "max_ms": 8.78033,
       "cycles_over_100ms_reference": 0,
       "status_counts": {
         "BASELINE_FEASIBLE": 568,
@@ -47,10 +47,10 @@
         "no_feasible_primary": 3
       },
       "planning_cycles": 845,
-      "mean_ms": 5.577598781065091,
-      "p95_ms": 7.037618,
-      "p99_ms": 39.431363999999995,
-      "max_ms": 39.5992,
+      "mean_ms": 3.841910189349108,
+      "p95_ms": 4.554163999999999,
+      "p99_ms": 6.167005199999999,
+      "max_ms": 6.76266,
       "cycles_over_100ms_reference": 0,
       "status_counts": {
         "BASELINE_FEASIBLE": 842,
@@ -66,10 +66,10 @@
         "no_feasible_primary": 6
       },
       "planning_cycles": 561,
-      "mean_ms": 3.417777771836007,
-      "p95_ms": 5.84402,
-      "p99_ms": 37.38144,
-      "max_ms": 38.6643,
+      "mean_ms": 2.488041122994651,
+      "p95_ms": 5.6068,
+      "p99_ms": 6.000368,
+      "max_ms": 6.22879,
       "cycles_over_100ms_reference": 0,
       "status_counts": {
         "RECOVERY_VERIFIED": 480,
@@ -87,10 +87,10 @@
         "no_feasible_primary": 3
       },
       "planning_cycles": 789,
-      "mean_ms": 2.9497272370088696,
-      "p95_ms": 7.214813999999997,
-      "p99_ms": 19.413056,
-      "max_ms": 30.6027,
+      "mean_ms": 2.8970151837769333,
+      "p95_ms": 7.221073999999996,
+      "p99_ms": 19.459652000000002,
+      "max_ms": 27.8162,
       "cycles_over_100ms_reference": 0,
       "status_counts": {
         "RECOVERY_VERIFIED": 742,

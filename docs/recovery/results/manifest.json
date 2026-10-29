@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-10-30T01:07:44.247750+08:00",
+  "recorded_at": "2026-10-30T01:10:17.457619+08:00",
   "baseline_commit": "ccb6005c73992214a86cc0cff4fe648f1443a119",
   "scope": "model-in-the-loop diagnostic; all episodes retained",
   "integration_dt_s": 0.02,
@@ -12,6 +12,10 @@
   "files_sha256": {
     "motion_primitives_planning/src/motion_primitives.h": "b897327e4d963087a4344d30b9d7ab8561dd561ec0a96a75c530e6607cf14094",
     "motion_primitives_planning/src/recovery_benchmark.cpp": "d1b0d4371ee0cc6a6d1e25a276bca7c739de6b6e0490a19c767785ddafd622e3",
-    "motion_primitives_planning/scripts/summarize_recovery_benchmark.py": "fc7545b9219357bad41e15db66c6c43199f6746c96169b7fe78e5386489babae"
-  }
+    "motion_primitives_planning/scripts/summarize_recovery_benchmark.py": "fc7545b9219357bad41e15db66c6c43199f6746c96169b7fe78e5386489babae",
+    "motion_primitives_planning/scripts/plot_recovery_benchmark.py": "543fc72a2d58f685d3b9397903b686d612ee7ea0948b698e4c2e09303f0cf92c",
+    "motion_primitives_planning/test/test_terminal_recovery.cpp": "f27e81caf449c94687304f4f468f6ede27516a6ab284fd8cdca2344efecd983b"
+  },
+  "timing_environment": "Task-owned Gazebo processes stopped before final timing run; no CPU affinity or real-time scheduling",
+  "rerun_outcomes_match": true
 }

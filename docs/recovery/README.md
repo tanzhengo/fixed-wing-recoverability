@@ -54,6 +54,8 @@ roslaunch motion_primitives_planning terminal_recovery.launch paused:=false
 
 ## 可复现实验
 
+绘图依赖 `python3-matplotlib`（本机已安装，已在包依赖中声明）。
+
 ```bash
 mkdir -p results
 roslaunch -p 11331 motion_primitives_planning recovery_benchmark.launch output_prefix:=$PWD/results/recovery
