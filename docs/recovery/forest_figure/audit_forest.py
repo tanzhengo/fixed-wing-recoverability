@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Independently reconstruct forest geometry and validate all recorded episodes.
 
-Use --figure to additionally verify the figure manifest, projection, and sampled
-analytic surfaces. The script never reruns or changes the figure renderer.
+Use --figure to additionally verify the figure manifest, projection, occupied
+voxel cells and visible faces. The script never reruns or changes the renderer.
 """
 import csv,json,math,hashlib,sys
 from pathlib import Path
@@ -18,6 +18,24 @@ class RNG:
   self.state=(1664525*self.state+1013904223)&0xffffffff
   return a+(b-a)*self.state/4294967296.
 def geom_key(r):return tuple(r[x] for x in ('type','x','y','z','r','height'))
+def independent_voxelization(rows,side):
+ # Scalar sphere/cylinder--AABB intersection, independently implemented rather
+ # than inferred from surface samples or copied from the renderer's output.
+ cells=set()
+ for row in rows:
+  center=[float(row[k]) for k in ('x','y','z')]
+  radius=float(row['r']);height=float(row['height'])
+  extent=[radius,radius,radius if row['type']=='sphere' else height/2]
+  spans=[range(math.floor((center[d]-extent[d])/side),math.ceil((center[d]+extent[d])/side)) for d in range(3)]
+  for i in spans[0]:
+   for j in spans[1]:
+    for k in spans[2]:
+     index=(i,j,k);lo=[q*side for q in index];hi=[q+side for q in lo]
+     distance=[max(lo[d]-center[d],center[d]-hi[d],0.) for d in range(3)]
+     if row['type']=='sphere':overlap=sum(q*q for q in distance)<radius*radius
+     else:overlap=distance[0]**2+distance[1]**2<radius*radius and lo[2]<center[2]+height/2 and hi[2]>center[2]-height/2
+     if overlap:cells.add(index)
+ return cells
 geo=read('forest_scenarios.csv');groups=defaultdict(list)
 for r in geo:groups[r['scene']].append(r)
 assert len(groups)==16
@@ -114,20 +132,45 @@ if '--figure' in sys.argv:
   assert row['endpoint_xyz']==[float(recorded[-1][k]) for k in ('x','y','z')]
   xyz=np.array([[float(r[k]) for k in ('x','y','z')] for r in recorded])
   assert np.isfinite(render.project(xyz)).all()
- surface_points=0
- for row in geo:
-  if row['scene'] not in ('forest_sparse_0','forest_dense_0'):continue
-  xyz=render.sample_surface(row);center=np.array([float(row[k]) for k in ('x','y','z')])
-  delta=xyz-center;r=float(row['r']);h=float(row['height'])
-  assert xyz.ndim==2 and xyz.shape[1]==3 and np.isfinite(xyz).all()
-  if row['type']=='sphere':assert np.allclose(np.linalg.norm(delta,axis=1),r,rtol=0,atol=1e-10)
-  else:
-   assert np.allclose(np.linalg.norm(delta[:,:2],axis=1),r,rtol=0,atol=1e-10)
-   assert np.all(np.abs(delta[:,2])<=h/2+1e-10)
-  surface_points+=len(xyz)
+ assert render.VOXEL_SIZE==1.5 and np.array_equal(render.GRID_ORIGIN,np.zeros(3))
+ assert figure_manifest['voxel_size_m']==render.VOXEL_SIZE
+ assert figure_manifest['grid_origin_m']==render.GRID_ORIGIN.tolist()
+ voxel_counts={};face_counts={}
+ def face_key(vertices):return tuple(sorted(tuple(int(q) for q in vertex) for vertex in vertices))
+ for scene in ('forest_sparse_0','forest_dense_0'):
+  objects=[r for r in geo if r['scene']==scene]
+  expected=independent_voxelization(objects,1.5)
+  cells=render.voxelize(objects)
+  assert cells.ndim==2 and cells.shape[1]==3 and np.issubdtype(cells.dtype,np.integer)
+  assert cells.tolist()==[list(q) for q in sorted(expected)]
+  assert len(cells)==figure_manifest['voxel_counts'][scene]
+  assert hashlib.sha256(cells.astype('<i8').tobytes()).hexdigest()==figure_manifest['occupied_indices_sha256'][scene]
+  faces,heights,shades=render.visible_voxel_faces(cells)
+  assert faces.ndim==3 and faces.shape[1:]==(4,3) and np.isfinite(faces).all()
+  assert np.allclose(heights,faces[:,:,2].mean(axis=1),rtol=0,atol=1e-12)
+  assert np.all((shades>0)&(shades<=1)) and len(shades)==len(faces)
+  assert np.all(np.diff(faces.mean(axis=1)@render.DEPTH)>=-1e-10)
+  lattice=faces/1.5
+  assert np.allclose(lattice,np.rint(lattice),rtol=0,atol=1e-12)
+  actual_faces=[face_key(v) for v in np.rint(lattice).astype(int)]
+  assert len(set(actual_faces))==len(actual_faces)
+  expected_faces=set()
+  for cell in expected:
+   for axis in range(3):
+    sign=1 if render.DEPTH[axis]>0 else -1
+    adjacent=list(cell);adjacent[axis]+=sign
+    if tuple(adjacent) in expected:continue
+    other=[d for d in range(3) if d!=axis];vertices=[]
+    for a,b in ((0,0),(0,1),(1,0),(1,1)):
+     vertex=list(cell);vertex[axis]+=(sign+1)//2
+     vertex[other[0]]+=a;vertex[other[1]]+=b;vertices.append(vertex)
+    expected_faces.add(face_key(vertices))
+  assert set(actual_faces)==expected_faces
+  assert len(faces)==figure_manifest['visible_face_counts'][scene]
+  voxel_counts[scene]=len(cells);face_counts[scene]=len(faces)
  # A 50 m scale segment is projected by the same basis as the scene.
  scale=np.array([[5,-90,0],[55,-90,0]])
  assert np.linalg.norm(scale[1]-scale[0])==50
  assert np.allclose(np.diff(render.project(scale),axis=0)[0],basis[:2]@np.array([50.,0.,0.]))
- report['figure_audit']={'passed':True,'displayed_cases':10,'displayed_vertices':sum(r['stored_vertices'] for r in displayed),'all_endpoints_outcomes_match':True,'orthonormal_projection':True,'surface_points_on_actual_uninflated_geometry':surface_points,'figure_manifest_sha256':sha(D/'figure_manifest.json'),'renderer_sha256':sha(renderer),'output_sha256':{ext:sha(ROOT/('paper/figures/forest_comparison.'+ext)) for ext in ('png','pdf')}}
+ report['figure_audit']={'passed':True,'displayed_cases':10,'displayed_vertices':sum(r['stored_vertices'] for r in displayed),'all_endpoints_outcomes_match':True,'orthonormal_projection':True,'voxel_size_m':render.VOXEL_SIZE,'independent_positive_volume_overlap_check':True,'occupied_voxel_counts':voxel_counts,'exposed_camera_facing_face_counts':face_counts,'face_geometry_and_depth_sort_passed':True,'figure_manifest_sha256':sha(D/'figure_manifest.json'),'renderer_sha256':sha(renderer),'output_sha256':{ext:sha(ROOT/('paper/figures/forest_comparison.'+ext)) for ext in ('png','pdf')}}
 (D/'independent_audit.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

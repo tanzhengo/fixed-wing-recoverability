@@ -2,7 +2,27 @@
   "figure_seed": 601000,
   "selection_rule": "first prespecified seed for both densities",
   "projection": "orthographic, azimuth -80 degrees, elevation 34 degrees",
-  "geometry": "deterministic points on actual uninflated cylinders and spheres",
+  "geometry": "voxel display of uninflated analytic cylinders and spheres",
+  "voxel_size_m": 1.5,
+  "grid_origin_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "occupancy_rule": "positive-volume cell/obstacle intersection; union over all obstacles",
+  "collision_model": "original analytic geometry; voxelization used for visualization only",
+  "voxel_counts": {
+    "forest_sparse_0": 16998,
+    "forest_dense_0": 31042
+  },
+  "visible_face_counts": {
+    "forest_sparse_0": 10055,
+    "forest_dense_0": 17784
+  },
+  "occupied_indices_sha256": {
+    "forest_sparse_0": "675093d53f73f60da38ef18a4e8cdeac2c298fce5b9b6dc91d85891b8ef4394d",
+    "forest_dense_0": "0a0dce6b11cffa9c58d0656c82ba0d3b79cf1b1df7f02fd0f0c2fd2910b45d22"
+  },
   "trajectory_processing": "projection of recorded vertices only; no smoothing, displacement or extension",
   "displayed_cases": [
     {
@@ -132,5 +152,5 @@
     "forest_episodes.csv": "846faf4a8f7785948974d8e1245dfc71a836c657e0138de3f879e6abf5adc093",
     "forest_paths.csv": "fee1feb1e0b8dc3396266bc33e7d9e453dc02242d0ee96710822fb9164fc0b5c"
   },
-  "renderer_sha256": "12a5bb31d83be3e9e422324f35913c5bac1394bef50307d8afe5224aac65ad51"
+  "renderer_sha256": "2fec78d855f9ceb17eb80e13e0af1a3b3fe9cef505371ad36d85659c9861983b"
 }

@@ -19,9 +19,9 @@ These results provide a qualitative new-family comparison. They do not establish
 - `forest_paths.csv`, `forest_plans.csv`, `forest_episodes.csv`: complete recorded execution and all outcomes.
 - `analysis.json`: per-density counts and recorded-path summaries.
 - `analyze.py`: rechecks source/run integrity and regenerates the summary.
-- `audit_forest.py`: independently reconstructs the procedural geometry, verifies paired maps and checks all recorded episodes; `--figure` also checks the figure's input hashes, displayed endpoints, projection basis and sampled surfaces.
+- `audit_forest.py`: independently reconstructs the procedural geometry, verifies paired maps and checks all recorded episodes; `--figure` also checks the figure's input hashes, displayed endpoints, projection basis, occupied voxels and exposed faces.
 - `independent_audit.json`: the reproducible independent checks and input hashes.
-- `figure_manifest.json`: the ten displayed cases, recorded vertex counts, endpoints and renderer/input hashes.
+- `figure_manifest.json`: the ten displayed cases, recorded vertex counts, endpoints, voxel-grid settings and renderer/input hashes.
 
 From the repository root, reproduce the summary, render the figure, then audit both data and figure:
 
@@ -33,4 +33,6 @@ python3 docs/recovery/forest_figure/audit_forest.py --figure
 
 The renderer and optional figure audit require NumPy and Matplotlib. The data-only audit uses the Python standard library and can be run without `--figure`. All paths are resolved relative to the scripts, so the audit also works from another working directory. The ROS launch command is given in the protocol.
 
-The rendered surface samples lie on the recorded, uninflated analytic obstacle geometry; they are not simulated sensor measurements. The same orthographic projection is used in both panels. Trajectories use the stored execution vertices directly, and terminal symbols retain goal attainment or other termination without extending a path to the target. Cost and Full coincide in the displayed pair.
+The figure displays a voxelization of the recorded, uninflated analytic obstacle geometry. The grid uses 1.5 m cubic cells and a global origin at (0, 0, 0); each occupied cell has positive-volume overlap with a trunk cylinder, crown sphere or bush sphere. Only exposed faces facing the camera are rendered, with height color and face shading. This voxelization is a visualization of the original obstacles; the planner and execution collision checks still use the recorded analytic volumes. The same grid, orthographic projection and scale apply to both panels.
+
+Trajectories use the stored execution vertices directly, and terminal symbols retain goal attainment or other termination without extending a path to the target. Cost and Full coincide in the displayed pair. The raw geometry, episode data and model weights remain identical to the completed forest experiment.

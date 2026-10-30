@@ -42,7 +42,9 @@ were collected independently of training and compilation.
 
 An additional forest experiment contains 80 nominal episodes on eight paired
 sparse/dense seeds. The two-density trajectory figure uses the first seed,
-specified before execution, and actual logged flight states. All methods finish
+specified before execution, and actual logged flight states. The obstacle display
+uses a 1.5 m occupancy grid derived from the analytic geometry; collision checks
+retain the original analytic primitives. All methods finish
 8/8 sparse tasks; in dense forests, Learned finishes 7/8 and the other four
 methods finish 8/8. The displayed dense panel includes the Learned margin
 termination. Forest-run timing columns are diagnostic and are not pooled with

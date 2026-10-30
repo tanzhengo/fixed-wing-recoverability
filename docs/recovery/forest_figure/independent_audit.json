@@ -63,19 +63,29 @@
     "forest_map_metadata.csv": "0adb4a1d553c6c6dfa6c8e7d786728f502045a9ca88aeb16408a49605b6d0576",
     "run_manifest.json": "5488a3d0dda84ae971acdb8aa36bf906ea555d66b6c5acd93c36e55f3aa4147d"
   },
-  "audit_script_sha256": "379de0ef59286f00de523db17e6cf003ff1fd21f64abc6f75e417151074c7ac6",
+  "audit_script_sha256": "93befb2bc7c782758f28e0daf0916511051d94d37385d125dd8cb424fe328f02",
   "figure_audit": {
     "passed": true,
     "displayed_cases": 10,
     "displayed_vertices": 770,
     "all_endpoints_outcomes_match": true,
     "orthonormal_projection": true,
-    "surface_points_on_actual_uninflated_geometry": 201120,
-    "figure_manifest_sha256": "230dc3414ee3d2347c3b5ad0023ea8a3765607602f36e40ce027a78ce6ae914d",
-    "renderer_sha256": "12a5bb31d83be3e9e422324f35913c5bac1394bef50307d8afe5224aac65ad51",
+    "voxel_size_m": 1.5,
+    "independent_positive_volume_overlap_check": true,
+    "occupied_voxel_counts": {
+      "forest_sparse_0": 16998,
+      "forest_dense_0": 31042
+    },
+    "exposed_camera_facing_face_counts": {
+      "forest_sparse_0": 10055,
+      "forest_dense_0": 17784
+    },
+    "face_geometry_and_depth_sort_passed": true,
+    "figure_manifest_sha256": "b11f2fc9708b4914b15597fff6523da01046e0b54afc5d0645148b33ce286f49",
+    "renderer_sha256": "2fec78d855f9ceb17eb80e13e0af1a3b3fe9cef505371ad36d85659c9861983b",
     "output_sha256": {
-      "png": "69c30c08b268a4a72a4bcfd1a77f7ebda0fb39cbd39001a33ee1921a08479237",
-      "pdf": "c1ba784e330de0ef46910a7ddc8d2870c7986dd952066080ae5c15df6d486a53"
+      "png": "4b952bc6d60424ae3f31e49754ca7099459445d11425ecbfcc2f261dbcd803fe",
+      "pdf": "db92d51b667720afb991ed4d4e2fa768c0dcf2ae011947cd2197633e925eb749"
     }
   }
 }

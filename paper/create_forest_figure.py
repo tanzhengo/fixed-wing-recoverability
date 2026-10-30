@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Original Fig-8-style forest rendering from logged geometry and execution.
+"""Voxel-map visualization of logged forest geometry and execution.
 
-Surface points are deterministically sampled from the actual analytic collision
-volumes. Orthographic projection changes only the viewing coordinates. Stored
+Occupied cells have positive-volume overlap with the analytic collision volumes.
+Voxelization is for display; the experiment retains its analytic collision model.
+Orthographic projection changes only the viewing coordinates. Stored
 trajectory vertices are neither smoothed, resampled, displaced nor extended.
 """
 import csv
@@ -14,6 +15,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.colors import LinearSegmentedColormap, Normalize
+from matplotlib.collections import PolyCollection, LineCollection
 from matplotlib.lines import Line2D
 from matplotlib.patches import Polygon
 import numpy as np
@@ -33,6 +35,8 @@ AZIMUTH, ELEVATION = np.deg2rad([-80., 34.])
 RIGHT = np.array([-np.sin(AZIMUTH),np.cos(AZIMUTH),0.])
 UP = np.array([-np.sin(ELEVATION)*np.cos(AZIMUTH),-np.sin(ELEVATION)*np.sin(AZIMUTH),np.cos(ELEVATION)])
 DEPTH = np.cross(RIGHT,UP)
+VOXEL_SIZE = 1.5
+GRID_ORIGIN = np.zeros(3)
 
 
 def read_csv(path):
@@ -44,15 +48,42 @@ def project(points):
     return np.asarray(points) @ np.array([RIGHT,UP]).T
 
 
-def sample_surface(row):
-    x,y,z,r,h = [float(row[k]) for k in ['x','y','z','r','height']]
-    if row['type'] == 'cylinder':
-        theta,height = np.meshgrid(np.linspace(0,2*np.pi,32,endpoint=False),np.linspace(-h/2,h/2,28))
-        return np.c_[x+r*np.cos(theta.ravel()), y+r*np.sin(theta.ravel()), z+height.ravel()]
-    assert row['type'] == 'sphere'
-    # Equal-area Fibonacci sphere: fixed samples, independent of method/outcome.
-    n=650; k=np.arange(n); q=1-2*(k+.5)/n; angle=k*np.pi*(3-np.sqrt(5)); radius=np.sqrt(1-q*q)
-    return np.c_[x+r*radius*np.cos(angle),y+r*radius*np.sin(angle),z+r*q]
+def voxelize(objects):
+    """Union of globally aligned cells intersecting obstacle interiors."""
+    occupied=set()
+    for row in objects:
+        center=np.array([float(row[k]) for k in ['x','y','z']])
+        r,h=float(row['r']),float(row['height'])
+        assert row['type'] in ['sphere','cylinder']
+        extent=np.array([r,r,r if row['type']=='sphere' else h/2])
+        lo=np.floor((center-extent-GRID_ORIGIN)/VOXEL_SIZE).astype(int)
+        hi=np.ceil((center+extent-GRID_ORIGIN)/VOXEL_SIZE).astype(int)
+        cells=np.stack(np.meshgrid(*[np.arange(lo[a],hi[a]) for a in range(3)],indexing='ij'),axis=-1).reshape(-1,3)
+        lower=GRID_ORIGIN+cells*VOXEL_SIZE;upper=lower+VOXEL_SIZE
+        gap=np.maximum(np.maximum(lower-center,center-upper),0)
+        if row['type']=='sphere':
+            intersects=np.sum(gap*gap,axis=1)<r*r
+        else:
+            intersects=(np.sum(gap[:,:2]**2,axis=1)<r*r)&(lower[:,2]<center[2]+h/2)&(upper[:,2]>center[2]-h/2)
+        occupied.update(map(tuple,cells[intersects]))
+    return np.array(sorted(occupied),dtype=np.int64)
+
+
+def visible_voxel_faces(cells):
+    """Exterior cube faces toward the camera, sorted from far to near."""
+    occupied=set(map(tuple,cells));faces=[];shades=[]
+    for axis in range(3):
+        sign=1 if DEPTH[axis]>0 else -1
+        normal=np.zeros(3,dtype=int);normal[axis]=sign
+        corners=np.zeros((4,3));corners[:,axis]=(sign+1)/2
+        a,b=[i for i in range(3) if i!=axis]
+        corners[:,a]=[0,1,1,0];corners[:,b]=[0,0,1,1]
+        for cell in cells:
+            if tuple(cell+normal) in occupied:continue
+            faces.append(GRID_ORIGIN+(cell+corners)*VOXEL_SIZE)
+            shades.append([.85,.72,1.][axis])
+    faces=np.array(faces);order=np.argsort(faces.mean(axis=1)@DEPTH,kind='stable')
+    return faces[order],faces[order,:,2].mean(axis=1),np.array(shades)[order]
 
 
 def main():
@@ -70,11 +101,12 @@ def main():
         if row['case_id'] in points:
             points[row['case_id']].append([float(row[k]) for k in ['x','y','z']])
     plt.rcParams.update({'font.size':9,'pdf.fonttype':42,'savefig.facecolor':'white'})
-    cmap=LinearSegmentedColormap.from_list('forest_height',['#d5e5e6','#b3cfd0','#8baebd','#889bb7','#a997b9'])
+    cmap=LinearSegmentedColormap.from_list('forest_height',['#d4e9e4','#a4c9d1','#87afca','#9d9bc9','#b19aca'])
     norm=Normalize(0,45)
-    display_geometry={scene:np.concatenate([sample_surface(row) for row in geometry if row['scene']==scene])
+    display_geometry={scene:voxelize([row for row in geometry if row['scene']==scene])
                       for scene in ['forest_sparse_0','forest_dense_0']}
-    shared_bounds=project(np.vstack(list(display_geometry.values()) + list(points.values()) +
+    meshes={scene:visible_voxel_faces(cells) for scene,cells in display_geometry.items()}
+    shared_bounds=project(np.vstack([mesh[0].reshape(-1,3) for mesh in meshes.values()] + list(points.values()) +
                                    [[[0,-88,0],[265,-88,0],[265,88,0],[0,88,0]]]))
     limits=(shared_bounds.min(axis=0)-[12,14],shared_bounds.max(axis=0)+[18,7])
     fig=plt.figure(figsize=(7.2,6.0))
@@ -88,14 +120,17 @@ def main():
         assert len(objects)==2*trees+12
         ground=np.array([[0,-88,0],[265,-88,0],[265,88,0],[0,88,0]])
         ax.add_patch(Polygon(project(ground),fc='#f0f5f5',ec='#cbd9dc',lw=.65,zorder=0))
+        ground_lines=[project([[x,-88,0],[x,88,0]]) for x in range(0,266,20)]
+        ground_lines += [project([[0,y,0],[265,y,0]]) for y in range(-80,81,20)]
+        ax.add_collection(LineCollection(ground_lines,colors='#d9e3e6',linewidths=.22,zorder=.5))
         # The density denominator covers this explicit tree-placement rectangle.
         placement=project([[40,-80,0],[240,-80,0],[240,80,0],[40,80,0],[40,-80,0]])
         ax.plot(placement[:,0],placement[:,1],color='#9eaeb4',ls=(0,(3,3)),lw=.55,zorder=1)
-        surface=display_geometry[scene]
-        order=np.argsort(surface@DEPTH)
-        surface=surface[order]; xy=project(surface)
-        ax.scatter(xy[:,0],xy[:,1],c=surface[:,2],cmap=cmap,norm=norm,s=.65,
-                   alpha=.8,linewidths=0,rasterized=True,zorder=2)
+        faces,heights,shades=meshes[scene]
+        facecolors=cmap(norm(heights));facecolors[:,:3]*=shades[:,None]
+        ax.add_collection(PolyCollection(project(faces.reshape(-1,3)).reshape(-1,4,2),
+                          facecolors=facecolors,edgecolors=(.27,.36,.43,.48),
+                          linewidths=.12,rasterized=True,zorder=2))
         selected={row['method']:row for row in chosen if row['scene']==scene}
         draw_order=['full203','cost12','diverse12','learned12','state_only12']
         # All white halos are drawn first, so later halos cannot erase another curve.
@@ -129,6 +164,7 @@ def main():
     handles=[Line2D([0],[0],color=COLORS[m],ls=STYLES[m],lw=2,label=LABELS[m]) for m in METHODS]
     fig.legend(handles=handles,loc='upper center',bbox_to_anchor=(.48,.995),ncol=5,
                frameon=False,handlelength=2.4,columnspacing=1.25,fontsize=8.5)
+    fig.text(.48,.945,'Voxel size: 1.5 m',ha='center',fontsize=7.5,color='#52616d')
     cax=fig.add_axes([.925,.245,.016,.49]);mappable=plt.cm.ScalarMappable(norm=norm,cmap=cmap)
     mappable.set_array(np.array([0.,45.]));cb=fig.colorbar(mappable,cax=cax)
     cb.set_label('Height (m)',fontsize=8);cb.set_ticks([0,15,30,45]);cb.ax.tick_params(labelsize=7.5,length=2)
@@ -139,7 +175,13 @@ def main():
     files=[DATA/('forest_'+suffix+'.csv') for suffix in ['scenarios','map_metadata','episodes','paths']]
     report={'figure_seed':601000,'selection_rule':'first prespecified seed for both densities',
             'projection':'orthographic, azimuth -80 degrees, elevation 34 degrees',
-            'geometry':'deterministic points on actual uninflated cylinders and spheres',
+            'geometry':'voxel display of uninflated analytic cylinders and spheres',
+            'voxel_size_m':VOXEL_SIZE,'grid_origin_m':GRID_ORIGIN.tolist(),
+            'occupancy_rule':'positive-volume cell/obstacle intersection; union over all obstacles',
+            'collision_model':'original analytic geometry; voxelization used for visualization only',
+            'voxel_counts':{scene:len(cells) for scene,cells in display_geometry.items()},
+            'visible_face_counts':{scene:len(mesh[0]) for scene,mesh in meshes.items()},
+            'occupied_indices_sha256':{scene:hashlib.sha256(cells.astype('<i8').tobytes()).hexdigest() for scene,cells in display_geometry.items()},
             'trajectory_processing':'projection of recorded vertices only; no smoothing, displacement or extension',
             'displayed_cases':evidence,'source_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
             'renderer_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}

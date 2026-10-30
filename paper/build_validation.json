@@ -6,11 +6,11 @@
   "tables": 2,
   "references": 15,
   "author_format": "anonymous review manuscript",
-  "pdf_sha256": "6bead88379af256f5b5573a28ac766b9c15fae4bcab4a20a8a6e5f6d2edee39d",
+  "pdf_sha256": "74bf405c2bf0736687db905b851a8dcb1f8b060750913de11e8fe48bbffa9c00",
   "unresolved_references": 0,
   "overfull_boxes": 0,
   "missing_glyphs": 0,
-  "render_check": "All 12 pages reviewed in rendered contact sheet; forest figure page inspected separately. No clipped content or unresolved references.",
+  "render_check": "Voxel figure and affected final pages rendered and inspected; 12-page manuscript, no clipped content or unresolved references.",
   "sources": {
     "main.tex": "a31076ceaadde84ad7c5a70053fb24418dad7eef21195c7b6f4f3d5248286573",
     "abstract.tex": "ed1b41215eead13eaa86405c46cde4449ae008df2864a38dd263979b97926c49",
@@ -23,8 +23,9 @@
     "geometry_ablation.tex": "673f807b73ed7f13559820c112fb378daaa00cac7dbdcdce3ea455b8f5a3f2b4",
     "conclusion.tex": "76edb70ae634e49d94fcb74e0029a3e050aedcf4c90be0268ccd71ecca558ce3",
     "implementation.tex": "c4a568bfcb67a81f66a7ebc29c2e39b234356deb01c15b1b69becd5c3fcb2c35",
-    "forest_experiment.tex": "c3fe4e6cb8a56ed3c3aa93ef24b9457f0d98d84cd83c6850c3e1aa9fb367f786"
+    "forest_experiment.tex": "79bbd85c220a1385e61e517d50079003e194d5d5ccc94998c9aa01e28c8302b2"
   },
   "supplementary_forest_episodes": 80,
-  "forest_figure_sha256": "c1ba784e330de0ef46910a7ddc8d2870c7986dd952066080ae5c15df6d486a53"
+  "forest_figure_sha256": "db92d51b667720afb991ed4d4e2fa768c0dcf2ae011947cd2197633e925eb749",
+  "forest_voxel_size_m": 1.5
 }
