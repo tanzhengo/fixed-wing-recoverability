@@ -1,0 +1,79 @@
+{
+  "start_utc": "2026-10-30T05:41:09.755253+00:00",
+  "status": "complete",
+  "command": [
+    "taskset",
+    "-c",
+    "2",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/recovery_urban_benchmark",
+    "_output_prefix:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/urban_figure/urban",
+    "_phase:=all",
+    "_map_count:=8",
+    "_model_path:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/models/recovery_mlp.txt",
+    "_state_only_model_path:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/models/recovery_mlp_no_geometry.txt"
+  ],
+  "git_head": "b306c8a613400f519fe27ca29cb8487fe4010af8",
+  "source_sha256": {
+    "motion_primitives_planning/src/recovery_urban_benchmark.cpp": "e60b15f30b429bdc440efaa97e5c04ca864924e6d37f70c533f72eccb4b8cfb2",
+    "motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+    "motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+    "motion_primitives_planning/scripts/generate_urban_planner.py": "86e1e753e1ebf9b161324788319d0147de4081449aa614116e8faf4205899657",
+    "motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+    "motion_primitives_planning/src/recovery_learning_benchmark.cpp": "a94efa428c71075d75e76cceda456456dac04cfee55730fc14a425ed5146101d",
+    "motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+    "motion_primitives_planning/src/learned_recovery.h": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929",
+    "docs/recovery/urban_figure/PROTOCOL.md": "2550116dbf1f4a44e8f0c0316a2f5bfa53ce97bc545414ef0b3b5995e6a90e86"
+  },
+  "model_sha256": {
+    "geometry": "d324bf927dc89f53568cfc3980a7a6217227a89f4b28a1f90fb324b6580a36aa",
+    "state_only": "f4bd84b45dc374d6bbcc8697bac64992da9799d7b215414029f20fc4340ccba5"
+  },
+  "executable_sha256": "2272111b65a47653255aff8a3d973e064c183d034392ded5543e93a0563a8f76",
+  "ROS_MASTER_URI": "http://localhost:11348",
+  "cpu_affinity": [
+    2
+  ],
+  "episodes": 80,
+  "seed_count": 8,
+  "seed_base": 701000,
+  "figure_seed": 701000,
+  "building_counts": [
+    20,
+    28
+  ],
+  "box_counts": [
+    40,
+    48
+  ],
+  "physical_box_margin_m": 1.0,
+  "evaluation": "supplementary frozen-model nominal city-block maps; no retraining or selection",
+  "timing": "diagnostic records only; not isolated latency evidence",
+  "exit_code": 0,
+  "end_utc": "2026-10-30T05:41:41.336205+00:00",
+  "elapsed_seconds": 31.57812170199759,
+  "source_unchanged": true,
+  "models_unchanged": true,
+  "executable_unchanged": true,
+  "outputs": {
+    "urban_episodes.csv": {
+      "sha256": "a0db3e3dd78efcbe8b5970dc8218831d5308ae4c9f158ea8f610b38ec0e66c27",
+      "bytes": 7726
+    },
+    "urban_map_metadata.csv": {
+      "sha256": "155d182e6603e60689f8a0bfadc09af5a281026e3aa5526fd90a344e3e0813ba",
+      "bytes": 630
+    },
+    "urban_paths.csv": {
+      "sha256": "03c4a0ebb122ab68f696a78eff2c3714498ea53ff97f692c0ccfc36568b04515",
+      "bytes": 722411
+    },
+    "urban_plans.csv": {
+      "sha256": "9af0476effa863eeff5dd948145053d156e802617b64a0a08016561b8ad26581",
+      "bytes": 464252
+    },
+    "urban_scenarios.csv": {
+      "sha256": "a1be7c7721832123aafd17d48001307d00808c47cc01cb15ebb220979f836365",
+      "bytes": 87269
+    }
+  }
+}

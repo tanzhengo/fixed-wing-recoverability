@@ -61,11 +61,11 @@ Figure~\ref{fig:learningpaths} shows the first seeded instance of each test fami
 \end{figure*}
 
 \input{geometry_ablation}
-\input{forest_experiment}
+\input{urban_experiment}
 
 \section{Discussion}
 The results distinguish three effects of learning. Geometry substantially improves candidate-level continuation classification. Learned ordering obtains more witnesses within a restricted validation budget. Closed-loop behavior additionally depends on which verified primary is selected, so similar discovery recall can coexist with different task costs and mission outcomes. This separation is useful when designing learned planners whose proposals remain subject to explicit checks.
 
 Maneuver diversity supplies a complementary exploration mechanism, but fixed alternation is not uniformly advantageous. On the present test split, Hybrid reduces selected-cost excess and validation work relative to Learned under $K=12$, while Learned achieves slightly higher discovery and more completed tasks. Likewise, validation favors feasibility-only ranking over the tested positive work exponents. Both findings argue for evaluating schedule composition and computational objectives directly rather than assuming that additional components improve every metric.
 
-A continuation witness establishes feasibility of a sampled primary--successor pair under the prediction model. It does not impose a periodic terminal maneuver or a recursively invariant terminal set. The present experiments use static generated geometry and a point-mass model with actuator dynamics. Transfer to occluded sensor maps, different geometry families and six-degree-of-freedom flight dynamics remains to be evaluated. Wind-aware prediction and model-dependent clearance margins are natural extensions to address the observed execution failures.
+A continuation witness establishes feasibility of a sampled primary--successor pair under the prediction model. It does not impose a periodic terminal maneuver or a recursively invariant terminal set. The present experiments use static generated geometry and a point-mass model with actuator dynamics. Transfer to occluded sensor maps and six-degree-of-freedom flight dynamics remains to be evaluated. Wind-aware prediction and model-dependent clearance margins are natural extensions to address the observed execution failures.

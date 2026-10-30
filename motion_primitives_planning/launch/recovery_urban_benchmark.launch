@@ -1,0 +1,14 @@
+<launch>
+  <arg name="output_prefix" default="/tmp/recovery_urban"/>
+  <arg name="phase" default="all"/>
+  <arg name="map_count" default="8"/>
+  <arg name="model_path" default="$(find motion_primitives_planning)/models/recovery_mlp.txt"/>
+  <arg name="state_only_model_path" default="$(find motion_primitives_planning)/models/recovery_mlp_no_geometry.txt"/>
+  <node pkg="motion_primitives_planning" type="recovery_urban_benchmark" name="recovery_urban_benchmark" output="screen">
+    <param name="output_prefix" value="$(arg output_prefix)"/>
+    <param name="phase" value="$(arg phase)"/>
+    <param name="map_count" value="$(arg map_count)"/>
+    <param name="model_path" value="$(arg model_path)"/>
+    <param name="state_only_model_path" value="$(arg state_only_model_path)"/>
+  </node>
+</launch>

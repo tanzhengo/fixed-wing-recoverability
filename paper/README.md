@@ -6,7 +6,7 @@
 - [LaTeX entry file](main.tex)
 - [Chinese results and reproduction guide](../docs/recovery/FINAL_RESULTS.md)
 - [Network, data and experiment evidence](../docs/recovery/learning/README.md)
-- [Forest-density experiment and trajectory figure](../docs/recovery/forest_figure/README.md)
+- [Urban-building experiment and voxel figure](../docs/recovery/urban_figure/README.md)
 
 The English IEEE-format manuscript includes the actual trained neural network,
 its feature representation and loss, separate training/validation/test maps,
@@ -40,20 +40,23 @@ no-geometry input ablation completes 117/128. The manuscript retains both
 results and their different experimental roles. The primary runtime timings
 were collected independently of training and compilation.
 
-An additional forest experiment contains 80 nominal episodes on eight paired
-sparse/dense seeds. The two-density trajectory figure uses the first seed,
-specified before execution, and actual logged flight states. The obstacle display
-uses a 1.5 m occupancy grid derived from the analytic geometry; collision checks
-retain the original analytic primitives. All methods finish
-8/8 sparse tasks; in dense forests, Learned finishes 7/8 and the other four
-methods finish 8/8. The displayed dense panel includes the Learned margin
-termination. Forest-run timing columns are diagnostic and are not pooled with
-the primary isolated runtime measurements.
+An additional urban experiment contains 80 nominal episodes on eight paired
+layouts. Twenty podium--tower buildings form the base layout, and eight infill
+structures form the denser variant. Figure 6 uses the first seed, selected before
+execution, and actual recorded flight states. Buildings are displayed as 1.5 m
+voxels; analytic boxes with 1 m face margins enter both collision checking and
+clearance features. The existing network weights remain frozen.
+
+In Cost/Diverse/Learned/No-geometry/Full order, base-layout completion counts are
+7/6/4/8/7 out of eight, and infill counts are 6/1/1/1/4. All outcomes are included.
+Urban-run timing columns are diagnostic and are not pooled with the primary
+isolated runtime measurements. The earlier forest study remains archived in
+`docs/recovery/forest_figure`; the active manuscript uses the urban experiment.
 
 Figures are regenerated from audited experiment outputs using
-`create_schematic.py`, `create_learning_figures.py` and `create_forest_figure.py`.
+`create_schematic.py`, `create_learning_figures.py` and `create_urban_figure.py`.
 The data-driven scripts expect the repository's `docs/recovery/learning` and
-`docs/recovery/forest_figure` directories, respectively. Existing figure files suffice
+`docs/recovery/urban_figure` directories, respectively. Existing figure files suffice
 for compilation of the standalone source package.
 
 Historical nonlearning development experiments remain in docs/recovery/v3 and

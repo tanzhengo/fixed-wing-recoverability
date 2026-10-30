@@ -1,0 +1,157 @@
+{
+  "figure_seed": 701000,
+  "selection_rule": "first prespecified seed for both urban layouts",
+  "projection": "orthographic, azimuth -70 degrees, elevation 38 degrees",
+  "geometry": "voxel display of physical box unions forming podiums, offset towers and infill buildings",
+  "voxel_size_m": 1.5,
+  "grid_origin_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "ground_rounding_tolerance_m": 1e-07,
+  "occupancy_rule": "positive-volume cell/obstacle intersection; union over all obstacles",
+  "collision_model": "analytic boxes expanded by 1 m at each face; voxelization used for visualization only",
+  "voxel_counts": {
+    "urban_blocks_0": 63478,
+    "urban_dense_0": 80533
+  },
+  "visible_face_counts": {
+    "urban_blocks_0": 15659,
+    "urban_dense_0": 19839
+  },
+  "occupied_indices_sha256": {
+    "urban_blocks_0": "0fd27f181ff5cc75de9f69027dedd4e7766a773b6f8fc3c9da7b8e32d31f68ca",
+    "urban_dense_0": "f3579291239154a7bffcc1009d5ac7e72b405db705f510ab457f0e172dc6b83c"
+  },
+  "trajectory_processing": "projection of recorded vertices only; no smoothing, displacement or extension",
+  "displayed_cases": [
+    {
+      "scene": "urban_blocks_0",
+      "method": "full203",
+      "case_id": "urban_5",
+      "outcome": "goal",
+      "stored_vertices": 79,
+      "endpoint_xyz": [
+        239.2224121,
+        -6.387473106,
+        20.14523697
+      ]
+    },
+    {
+      "scene": "urban_blocks_0",
+      "method": "cost12",
+      "case_id": "urban_1",
+      "outcome": "goal",
+      "stored_vertices": 79,
+      "endpoint_xyz": [
+        239.2224121,
+        -6.387473106,
+        20.14523697
+      ]
+    },
+    {
+      "scene": "urban_blocks_0",
+      "method": "diverse12",
+      "case_id": "urban_2",
+      "outcome": "goal",
+      "stored_vertices": 79,
+      "endpoint_xyz": [
+        239.1584473,
+        7.249747753,
+        20.21979332
+      ]
+    },
+    {
+      "scene": "urban_blocks_0",
+      "method": "learned12",
+      "case_id": "urban_3",
+      "outcome": "goal",
+      "stored_vertices": 80,
+      "endpoint_xyz": [
+        239.136795,
+        -6.707221031,
+        20.08795738
+      ]
+    },
+    {
+      "scene": "urban_blocks_0",
+      "method": "state_only12",
+      "case_id": "urban_4",
+      "outcome": "goal",
+      "stored_vertices": 81,
+      "endpoint_xyz": [
+        239.4870911,
+        -7.545179367,
+        18.15094185
+      ]
+    },
+    {
+      "scene": "urban_dense_0",
+      "method": "full203",
+      "case_id": "urban_10",
+      "outcome": "margin_incursion",
+      "stored_vertices": 64,
+      "endpoint_xyz": [
+        192.4050598,
+        -5.055949688,
+        19.67222404
+      ]
+    },
+    {
+      "scene": "urban_dense_0",
+      "method": "cost12",
+      "case_id": "urban_6",
+      "outcome": "goal",
+      "stored_vertices": 79,
+      "endpoint_xyz": [
+        237.9351654,
+        -8.09183979,
+        20.74625397
+      ]
+    },
+    {
+      "scene": "urban_dense_0",
+      "method": "diverse12",
+      "case_id": "urban_7",
+      "outcome": "margin_incursion",
+      "stored_vertices": 52,
+      "endpoint_xyz": [
+        145.9495544,
+        45.18059158,
+        19.90909958
+      ]
+    },
+    {
+      "scene": "urban_dense_0",
+      "method": "learned12",
+      "case_id": "urban_8",
+      "outcome": "margin_incursion",
+      "stored_vertices": 44,
+      "endpoint_xyz": [
+        123.7965698,
+        -24.24328423,
+        20.71472549
+      ]
+    },
+    {
+      "scene": "urban_dense_0",
+      "method": "state_only12",
+      "case_id": "urban_9",
+      "outcome": "margin_incursion",
+      "stored_vertices": 24,
+      "endpoint_xyz": [
+        56.59720612,
+        -36.57249069,
+        20.44112396
+      ]
+    }
+  ],
+  "source_sha256": {
+    "urban_scenarios.csv": "a1be7c7721832123aafd17d48001307d00808c47cc01cb15ebb220979f836365",
+    "urban_map_metadata.csv": "155d182e6603e60689f8a0bfadc09af5a281026e3aa5526fd90a344e3e0813ba",
+    "urban_episodes.csv": "a0db3e3dd78efcbe8b5970dc8218831d5308ae4c9f158ea8f610b38ec0e66c27",
+    "urban_paths.csv": "03c4a0ebb122ab68f696a78eff2c3714498ea53ff97f692c0ccfc36568b04515"
+  },
+  "renderer_sha256": "2d02bbb39c5b071a42d9880fe96b789a0690e424e89df74554c2fabe0222f44d"
+}

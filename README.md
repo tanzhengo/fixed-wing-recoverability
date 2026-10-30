@@ -6,7 +6,7 @@
 
 **实验与复现：** [最新结果](docs/recovery/FINAL_RESULTS.md) · [训练模型和原始证据](docs/recovery/learning/README.md)
 
-**三维森林对照：** [双密度轨迹图](paper/figures/forest_comparison.png) · [80次补充闭环实验](docs/recovery/forest_figure/README.md)
+**三维城市对照：** [复杂建筑体素地图与轨迹](paper/figures/urban_comparison.png) · [80次城市闭环实验](docs/recovery/urban_figure/README.md)
 
 ## 网络与验证
 

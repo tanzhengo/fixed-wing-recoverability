@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "tests": 6,
+  "failures": 0,
+  "errors": 0,
+  "command": "rostest motion_primitives_planning urban_geometry.test",
+  "timestamp": "2026-10-30T13:40:48",
+  "checks": [
+    "PhysicalFacesRoofEdgesAndCorner",
+    "ThinWallAndPerFaceMargin",
+    "InvalidInstallationPreservesPreviousMap",
+    "UnionCollisionsMatchIndependentExpandedBounds",
+    "FeatureProbeSeesBoxesAndUnchangedStateChannels",
+    "PredictionRejectsWallEncounter"
+  ],
+  "source_sha256": {
+    "motion_primitives_planning/scripts/generate_urban_planner.py": "86e1e753e1ebf9b161324788319d0147de4081449aa614116e8faf4205899657",
+    "motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+    "motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+    "motion_primitives_planning/test/test_urban_geometry.cpp": "bb7bafd31ded3211f67ad54baa76fa924465777be52e42849fac4e97753129c6",
+    "motion_primitives_planning/test/urban_geometry.test": "3dbee915f7ed12027e76bfb39847fcfcecfdc7c0dad6248298ff8cdbae53f39f",
+    "motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73"
+  },
+  "xml_sha256": "dfbb4715d025b5bf24e638c7e11980789c0db7a051cfff745919188da0b38fbf",
+  "frozen_core_unchanged": true
+}

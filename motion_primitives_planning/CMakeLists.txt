@@ -162,6 +162,15 @@ add_executable(recovery_benchmark src/recovery_benchmark.cpp)
 target_link_libraries(recovery_benchmark ${catkin_LIBRARIES})
 add_dependencies(recovery_benchmark ${catkin_EXPORTED_TARGETS})
 
+# Reject a stale generated city extension before compiling either urban target.
+add_custom_target(check_urban_planner_header
+  COMMAND ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/generate_urban_planner.py --check
+  VERBATIM
+)
+add_executable(recovery_urban_benchmark src/recovery_urban_benchmark.cpp)
+target_link_libraries(recovery_urban_benchmark ${catkin_LIBRARIES})
+add_dependencies(recovery_urban_benchmark check_urban_planner_header ${catkin_EXPORTED_TARGETS})
+
 add_executable(recovery_forest_benchmark src/recovery_forest_benchmark.cpp)
 target_link_libraries(recovery_forest_benchmark ${catkin_LIBRARIES})
 add_dependencies(recovery_forest_benchmark ${catkin_EXPORTED_TARGETS})
@@ -258,6 +267,9 @@ catkin_install_python(PROGRAMS
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
+  add_rostest_gtest(urban_geometry_test test/urban_geometry.test test/test_urban_geometry.cpp)
+  target_link_libraries(urban_geometry_test ${catkin_LIBRARIES})
+  add_dependencies(urban_geometry_test check_urban_planner_header ${catkin_EXPORTED_TARGETS})
   add_rostest_gtest(learned_recovery_test test/learned_recovery.test test/test_learned_recovery.cpp)
   target_link_libraries(learned_recovery_test ${catkin_LIBRARIES})
   add_dependencies(learned_recovery_test ${catkin_EXPORTED_TARGETS})

@@ -1,0 +1,106 @@
+{
+  "audit": "independent_urban_v1",
+  "geometry_passed": true,
+  "maps": 16,
+  "paired_seeds": 8,
+  "buildings_blocks": 20,
+  "buildings_dense": 28,
+  "box_components_blocks": 40,
+  "box_components_dense": 48,
+  "independent_rng_reconstruction": true,
+  "blocks_subset_of_dense": true,
+  "frozen_sources_models_match": true,
+  "generated_extension_matches_recipe": true,
+  "box_query_and_feature_tests": 6,
+  "box_test_evidence_sha256": "1ba877ac14a0940e6782592a67aa44b24e56e932381bac3eb211425b17a503e7",
+  "display_seed": 701000,
+  "episode_audit_passed": true,
+  "episodes": 80,
+  "path_rows": 4949,
+  "planning_rows": 4869,
+  "all_outcomes_retained": true,
+  "identical_initial_states": true,
+  "candidate_budget_violations": 0,
+  "outcomes": {
+    "urban_blocks": {
+      "cost12": {
+        "goal": 7,
+        "margin_incursion": 1
+      },
+      "diverse12": {
+        "goal": 6,
+        "margin_incursion": 2
+      },
+      "learned12": {
+        "goal": 4,
+        "margin_incursion": 4
+      },
+      "state_only12": {
+        "goal": 8
+      },
+      "full203": {
+        "goal": 7,
+        "margin_incursion": 1
+      }
+    },
+    "urban_dense": {
+      "cost12": {
+        "goal": 6,
+        "margin_incursion": 2
+      },
+      "diverse12": {
+        "margin_incursion": 6,
+        "goal": 1,
+        "no_feasible_primary": 1
+      },
+      "learned12": {
+        "margin_incursion": 6,
+        "goal": 1,
+        "no_feasible_primary": 1
+      },
+      "state_only12": {
+        "margin_incursion": 5,
+        "no_feasible_primary": 2,
+        "goal": 1
+      },
+      "full203": {
+        "margin_incursion": 4,
+        "goal": 4
+      }
+    }
+  },
+  "input_sha256": {
+    "urban_episodes.csv": "a0db3e3dd78efcbe8b5970dc8218831d5308ae4c9f158ea8f610b38ec0e66c27",
+    "urban_paths.csv": "03c4a0ebb122ab68f696a78eff2c3714498ea53ff97f692c0ccfc36568b04515",
+    "urban_plans.csv": "9af0476effa863eeff5dd948145053d156e802617b64a0a08016561b8ad26581",
+    "urban_scenarios.csv": "a1be7c7721832123aafd17d48001307d00808c47cc01cb15ebb220979f836365",
+    "urban_map_metadata.csv": "155d182e6603e60689f8a0bfadc09af5a281026e3aa5526fd90a344e3e0813ba",
+    "run_manifest.json": "5b106a203a9b0adf104ab01b3200fe75815c3c3c0fe6af48fa36d8ab06afcec8"
+  },
+  "audit_script_sha256": "6338a90e6244172d6ea2bdb20c570ce9e80f2f072cf09138639ec562d3c2e543",
+  "figure_audit": {
+    "passed": true,
+    "displayed_cases": 10,
+    "displayed_vertices": 661,
+    "all_endpoints_outcomes_match": true,
+    "orthonormal_projection": true,
+    "voxel_size_m": 1.5,
+    "independent_positive_volume_overlap_check": true,
+    "ground_rounding_tolerance_m": 1e-07,
+    "occupied_voxel_counts": {
+      "urban_blocks_0": 63478,
+      "urban_dense_0": 80533
+    },
+    "exposed_camera_facing_face_counts": {
+      "urban_blocks_0": 15659,
+      "urban_dense_0": 19839
+    },
+    "face_geometry_and_depth_sort_passed": true,
+    "figure_manifest_sha256": "587d4aa4c2b57f0f43273f4193822ae71155c07a9d50e1205a54262c6b4ada6d",
+    "renderer_sha256": "2d02bbb39c5b071a42d9880fe96b789a0690e424e89df74554c2fabe0222f44d",
+    "output_sha256": {
+      "png": "07ad177eb7edead13f7a433195928f593a6ff95d1d44e8ba385dacb74b5ce43d",
+      "pdf": "e2ccc8a3954aed5d747e885fc2d95b2db7dd00d91859e2e2df8f2a68f375343a"
+    }
+  }
+}

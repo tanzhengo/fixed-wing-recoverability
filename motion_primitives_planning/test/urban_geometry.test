@@ -1,0 +1,4 @@
+<launch>
+  <param name="use_sim_time" value="false"/>
+  <test test-name="urban_geometry_test" pkg="motion_primitives_planning" type="urban_geometry_test" time-limit="90.0"/>
+</launch>

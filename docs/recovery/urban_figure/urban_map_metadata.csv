@@ -1,0 +1,17 @@
+scene,seed,building_count,box_count,view_area_m2,display_seed
+urban_blocks_0,701000,20,40,45000,1
+urban_dense_0,701000,28,48,45000,1
+urban_blocks_1,701001,20,40,45000,0
+urban_dense_1,701001,28,48,45000,0
+urban_blocks_2,701002,20,40,45000,0
+urban_dense_2,701002,28,48,45000,0
+urban_blocks_3,701003,20,40,45000,0
+urban_dense_3,701003,28,48,45000,0
+urban_blocks_4,701004,20,40,45000,0
+urban_dense_4,701004,28,48,45000,0
+urban_blocks_5,701005,20,40,45000,0
+urban_dense_5,701005,28,48,45000,0
+urban_blocks_6,701006,20,40,45000,0
+urban_dense_6,701006,28,48,45000,0
+urban_blocks_7,701007,20,40,45000,0
+urban_dense_7,701007,28,48,45000,0
