@@ -1,0 +1,101 @@
+{
+  "goals": [
+    {
+      "t": 0.144,
+      "target": [
+        -85.0,
+        -100.0,
+        40.0
+      ]
+    },
+    {
+      "t": 8.16,
+      "target": [
+        -85.0,
+        180.0,
+        50.0
+      ]
+    },
+    {
+      "t": 26.236,
+      "target": [
+        120.0,
+        225.0,
+        60.0
+      ]
+    },
+    {
+      "t": 38.84,
+      "target": [
+        60.0,
+        80.0,
+        60.0
+      ]
+    },
+    {
+      "t": 48.368,
+      "target": [
+        35.0,
+        -50.0,
+        60.0
+      ]
+    },
+    {
+      "t": 56.672,
+      "target": [
+        20.0,
+        -230.0,
+        55.0
+      ]
+    },
+    {
+      "t": 68.356,
+      "target": [
+        125.0,
+        -265.0,
+        55.0
+      ]
+    },
+    {
+      "t": 74.548,
+      "target": [
+        -90.0,
+        -270.0,
+        40.0
+      ]
+    },
+    {
+      "t": 90.408,
+      "target": [
+        -85.0,
+        -100.0,
+        40.0
+      ]
+    }
+  ],
+  "last_odometry": {
+    "t": 90.396,
+    "position": [
+      -48.03148126933163,
+      -293.5702142311875,
+      39.99580379694223
+    ]
+  },
+  "map_status": {
+    "filtered_nonfinite_points": 0,
+    "filtered_range_points": 0,
+    "frame": "world",
+    "input_points": 3407720,
+    "latest_scan_stamp": 90.208,
+    "map_kind": "accumulated_occupied_scan_endpoints",
+    "odometry_received": 5650,
+    "pending_scans": 1,
+    "resolution_m": 2.0,
+    "scans_integrated": 451,
+    "scans_received": 452,
+    "valid_points": 3399550,
+    "voxel_count": 163875
+  },
+  "sim_time": 90.408,
+  "purpose": "Separate run for native Gazebo/RViz interface screenshots; archived flight1 quantitative results retained."
+}

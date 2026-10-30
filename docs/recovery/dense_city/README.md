@@ -54,7 +54,9 @@ Gazebo 显示增密城市，RViz 显示实时扫描、飞行轨迹和 2 m 彩色
 
 ## 论文中的系统验证
 
-论文已加入 “Gazebo Closed-Loop Validation in a Dense Urban Environment” 小节，使用本轮记录制作四联图和结果表。组合图包含实际航迹、雷达体素、高度与滚转、障碍净空，均从记录重绘；不是窗口截图。图像数据与显示抽稀方式见 [paper_figure_data.json](paper_figure_data.json)，表格数据来源见 [paper_validation_data.json](paper_validation_data.json)。
+论文已加入 “Gazebo Closed-Loop Validation in a Dense Urban Environment” 小节。图 7 为 Gazebo 和 RViz 的真实窗口截图：上图展示增密城市，下图展示雷达体素地图与红色实际航迹。截图采自相同配置的独立复现运行，在八航点循环完成后暂停仿真并直接保存原生窗口，分辨率均为 1920 × 1043。采集说明、运行记录及视角配置见 [interface_capture/capture_manifest.json](interface_capture/capture_manifest.json)。
+
+图 8 为实际航迹、雷达体素、高度与滚转、障碍净空的四联数据图。该图及表 III 继续使用 `evidence/flight1` 原始记录。图像数据与显示抽稀方式见 [paper_figure_data.json](paper_figure_data.json)，表格数据来源见 [paper_validation_data.json](paper_validation_data.json)。
 
 论文表格采用完成第八航点并切回首点的实际消息时刻 **90.408 s**；上方记录结束时刻 **90.432 s** 是最后一条里程计，两者分别保留。正文说明了运行版的 406 个主候选、航点门限、简化动力学及已知地图规划输入。此单次系统验证与原有多地图方法对照分别报告。
 

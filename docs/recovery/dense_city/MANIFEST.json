@@ -15,7 +15,7 @@
   "runtime_planner_and_network_unchanged": true,
   "frozen_paper_source_unchanged": true,
   "files_sha256": {
-    "README.md": "5f11dbf7b4c113d396e4eefaca4c1c5edc747a17443ca41ff2027a67a5afe253",
+    "README.md": "65bfaab5418b62da4d3aa278702c39c5ca110c69c74e2e8972efca125dc2a3b2",
     "analyze_layout.py": "6422a15afb87f79c76cc120aee3aadd10774aeaa089737955e46c61c53cbff3f",
     "dense_city_flight.png": "b28d92fe00917635db338aa89b03e000d79a7fca8861750595599df7c90a8876",
     "dense_city_voxels.png": "d9e5105df5403e5b9b24e35cad4f3dfaf4fb0cbf24aec69f524c749dc5054fbc",
@@ -31,6 +31,13 @@
     "evidence/gui_check.json": "65fc23575589375309a9fde03149d00130f0697013ba8c59ec22d33894c81270",
     "generation_manifest.json": "3986297c348fafba70fa99bc6d0ad27489b7c97ccac99428a0aa1133202ec790",
     "generator_validation.json": "ba8a8d7403def2dd80426fe9a335f3d79078a79fc65e92dc54bfd7197c1c7da5",
+    "interface_capture/capture_manifest.json": "8a50cabc9a4864e5539c59b63bccd236f2908a0a2d283d12d88bfe94bcdbd7de",
+    "interface_capture/capture_run.json": "a112019a0647cd8f7685c3e452b16ab28ab3beb30c4c7e9ef5eed459c5a0b1ce",
+    "interface_capture/capture_window.py": "7852a348a4c528e70dd6a335c2ef01f605e5b91b20614a89e1a44fd96d4d350f",
+    "interface_capture/gazebo_camera_message.txt": "430b4861f08422cb6393e84fe9d35f11ee01b96b80aa86386449228a296ce33a",
+    "interface_capture/initial_view.rviz": "6a91980ba3c8e8323f546a4bf391cdabd782f41136d16de99d1a04a43ba7420d",
+    "interface_capture/run_and_pause.py": "6c049a5efe0eafaf8c9779fcf53842b204274a0dacd4a34eafacc5a9872f6dc9",
+    "interface_capture/set_gazebo_view.py": "4675ddcd6e7bc2dffe83ecca240cdc5feefd241dda23c8fe91c20e036b673b68",
     "layout.png": "5446305be8d1b5e34b01f051e8e6eaf897543c6f06f53ec2bd234c524e4ff324",
     "layout_checks.json": "21f05f2fe3da7a77c0cc3689ceefd80e00f59feeb99592760a65ced34d8fa8f7",
     "observe_towers.py": "0a66cbfe7096261ce9dc5878f5af064872667f510281e59bfcdf2da53c273d8f",
@@ -38,12 +45,15 @@
     "paper_validation_data.json": "25b12cdf82cab21118afa5e9aa14066eef43488e1a5070664cd9bc30caaff94b",
     "plot_dense_flight.py": "68dc704814078a2ba1c00573aad26aaddf6c1a856e94dec17cdde3a987b5739a"
   },
-  "paper_updated_utc": "2026-10-30T08:13:43.666513+00:00",
+  "paper_updated_utc": "2026-10-30T09:52:07.145517+00:00",
   "paper_extension_parent_commit": "fa908fa86f4258ff5aa295dd0ec6d46f956035db",
   "paper_sources_sha256": {
-    "paper/gazebo_validation.tex": "a3f4c3b50a6b3a4c7c8900a17479ab6b4af85df198193726dbe4873ac4b9d91e",
+    "paper/gazebo_validation.tex": "fc2e01f7a49c8e77954c587c3730c30b3f396ced8147c932d6fa6da1a6d60eb1",
     "paper/tables/gazebo.tex": "922fca84ddac4a825b420792b3a381ecae727b903c5cd4e5dd6251337f15d969",
     "paper/create_gazebo_figure.py": "ba2acd210451c9ec978fae859b6e812ca6a0f5dfe2d76840861c5ac9f4019cf7",
-    "paper/figures/gazebo_city.pdf": "63afed239bd808bb277c7bde317e9aa2a9478cd58ac41f66fa6d8f0099bc9715"
-  }
+    "paper/figures/gazebo_city.pdf": "63afed239bd808bb277c7bde317e9aa2a9478cd58ac41f66fa6d8f0099bc9715",
+    "paper/figures/gazebo_interface.png": "23fc0de45d7b085ec1a22ed8c687a0d2d74c6f26583746e6cf72e644c63a43e1",
+    "paper/figures/rviz_interface.png": "e79c153431bce7cd023374e712fafb8d89f3f464d121a5db5aeb6729d65bcd17"
+  },
+  "interface_capture_parent_commit": "c3be52bd4225a822872cadb869a7b91f59d81493"
 }

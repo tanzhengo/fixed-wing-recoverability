@@ -1,0 +1,1 @@
+camera {name: "user_camera" view_controller: "orbit" pose {position {x: 480 y: -680 z: 430} orientation {x: -0.20419916819506037 y: 0.10137283139817503 z: 0.8721117102971444 w: 0.4329519760035198}}}

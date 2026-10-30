@@ -1,16 +1,16 @@
 {
   "date": "2026-10-30",
   "engine": "Tectonic 0.17.0",
-  "pages": 13,
-  "figures": 7,
+  "pages": 14,
+  "figures": 8,
   "tables": 3,
   "references": 15,
   "author_format": "anonymous review manuscript",
-  "pdf_sha256": "bf4f2a26d96b1b9e983b454daffa657f9c3e63d9ca85b885eb53d5784320662c",
+  "pdf_sha256": "8debdc1b3dd867183d6953f19d161744ae8664ab93d80fd34d8a24722879c9ef",
   "unresolved_references": 0,
   "overfull_boxes": 0,
   "missing_glyphs": 0,
-  "render_check": "All 13 pages rendered; full-page inspection of the new table, city figure and final page, with contact-sheet inspection of all pages. No clipped content, overlapping labels or unresolved references.",
+  "render_check": "All 14 pages rendered; full-page inspection of pages 10, 12, 13 and 14, with contact-sheet inspection of all pages. Native screenshots, data plots, table and final references are readable, without clipped content or overlapping labels. No unresolved references, overfull boxes or missing glyphs.",
   "sources": {
     "main.tex": "a31076ceaadde84ad7c5a70053fb24418dad7eef21195c7b6f4f3d5248286573",
     "abstract.tex": "ed1b41215eead13eaa86405c46cde4449ae008df2864a38dd263979b97926c49",
@@ -24,7 +24,7 @@
     "conclusion.tex": "5f483660c7bbea359443bdaf39dcefd9b15411f8fdcb746573fa9bb5f75f75ed",
     "implementation.tex": "c4a568bfcb67a81f66a7ebc29c2e39b234356deb01c15b1b69becd5c3fcb2c35",
     "forest_experiment.tex": "79bbd85c220a1385e61e517d50079003e194d5d5ccc94998c9aa01e28c8302b2",
-    "gazebo_validation.tex": "a3f4c3b50a6b3a4c7c8900a17479ab6b4af85df198193726dbe4873ac4b9d91e",
+    "gazebo_validation.tex": "fc2e01f7a49c8e77954c587c3730c30b3f396ced8147c932d6fa6da1a6d60eb1",
     "tables/gazebo.tex": "922fca84ddac4a825b420792b3a381ecae727b903c5cd4e5dd6251337f15d969"
   },
   "supplementary_forest_episodes": 80,
@@ -32,9 +32,17 @@
   "forest_voxel_size_m": 1.5,
   "gazebo_system_validation_runs": 1,
   "gazebo_section": "VII-G",
-  "gazebo_figure": 7,
+  "gazebo_figure": 8,
   "gazebo_table": "III",
   "gazebo_figure_sha256": "63afed239bd808bb277c7bde317e9aa2a9478cd58ac41f66fa6d8f0099bc9715",
   "gazebo_data_summary_sha256": "25b12cdf82cab21118afa5e9aa14066eef43488e1a5070664cd9bc30caaff94b",
-  "compile_warnings_note": "Underfull boxes and an encoding warning in the cached algorithm.sty comment; PDF text contains no replacement glyphs."
+  "compile_warnings_note": "Underfull boxes and an encoding warning in the cached algorithm.sty comment; PDF text contains no replacement glyphs.",
+  "gazebo_interface_figure": 7,
+  "gazebo_interface_page": 12,
+  "gazebo_interface_capture_runs": 1,
+  "gazebo_interface_images_sha256": {
+    "gazebo_interface.png": "23fc0de45d7b085ec1a22ed8c687a0d2d74c6f26583746e6cf72e644c63a43e1",
+    "rviz_interface.png": "e79c153431bce7cd023374e712fafb8d89f3f464d121a5db5aeb6729d65bcd17"
+  },
+  "gazebo_interface_manifest_sha256": "8a50cabc9a4864e5539c59b63bccd236f2908a0a2d283d12d88bfe94bcdbd7de"
 }

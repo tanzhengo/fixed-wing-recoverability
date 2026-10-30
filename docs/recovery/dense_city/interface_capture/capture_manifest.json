@@ -1,0 +1,25 @@
+{
+  "source": "Native X11 Gazebo and RViz window captures",
+  "capture_method": "ImageMagick import -window on the application client window, after raising it; no image synthesis, repainting or pixel editing.",
+  "run": "Separate repeat of terminal_recovery_end_world_dense_lidar.launch, paused after eight-waypoint cycle.",
+  "quantitative_results": "Original flight1 records remain the source of the paper data figure and table.",
+  "view_adjustments": "Gazebo follow disabled and camera moved to overview; RViz dock layout and orbit adjusted to show the voxel map. Initial RViz config is archived.",
+  "world_sha256": "934d40f956160ac9cf0d982590ef63ca990b1f6cc928f8bb9fa336925a810987",
+  "task_sha256": "9ec377c7400a3ec5e24f8c1e27c2d5dca89d2e29c7966b6cacd3e11e5099213b",
+  "captures": {
+    "paper/figures/gazebo_interface.png": {
+      "sha256": "23fc0de45d7b085ec1a22ed8c687a0d2d74c6f26583746e6cf72e644c63a43e1",
+      "size_pixels": [
+        1920,
+        1043
+      ]
+    },
+    "paper/figures/rviz_interface.png": {
+      "sha256": "e79c153431bce7cd023374e712fafb8d89f3f464d121a5db5aeb6729d65bcd17",
+      "size_pixels": [
+        1920,
+        1043
+      ]
+    }
+  }
+}

@@ -80,7 +80,7 @@ roslaunch motion_primitives_planning terminal_recovery_end_world_lidar.launch pa
 roslaunch motion_primitives_planning terminal_recovery_end_world_dense_lidar.launch paused:=false
 ```
 
-建筑实体碰撞和规划地图同步更新，原八航点循环实测通过，8 栋新楼均被 LiDAR 扫到。论文已加入该场景的系统验证小节、组合图和实测结果表。详见[新增建筑位置、航迹与体素图](docs/recovery/dense_city/README.md)。
+建筑实体碰撞和规划地图同步更新，原八航点循环实测通过，8 栋新楼均被 LiDAR 扫到。论文已加入该场景的系统验证小节、Gazebo/RViz 真实界面截图、四联数据图和实测结果表。详见[新增建筑位置、航迹与体素图](docs/recovery/dense_city/README.md)。
 
 代码基于 [HKPolyU-UAV/Two-phase-motion-planning](https://github.com/HKPolyU-UAV/Two-phase-motion-planning) 的 `ccb6005c73992214a86cc0cff4fe648f1443a119`。历史非学习实验保留在[阶段结果](docs/recovery/NONLEARNING_RESULTS.md)，当前实验对照同一局部规划实现。以下保留原仓库说明和署名。
 
