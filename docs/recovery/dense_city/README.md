@@ -52,6 +52,14 @@ Gazebo 显示增密城市，RViz 显示实时扫描、飞行轨迹和 2 m 彩色
 
 实测原始记录位于 [evidence/flight1](evidence/flight1)：`flight` 保存里程计、规划状态及任务配置，`mapping` 保存点云统计与体素快照，`towers` 保存逐栋加载位姿和扫描命中数。布局预检查见 [layout_checks.json](layout_checks.json)，生成器验证见 [generator_validation.json](generator_validation.json)。这些场景接入数据独立于论文方法比较。
 
+## 论文中的系统验证
+
+论文已加入 “Gazebo Closed-Loop Validation in a Dense Urban Environment” 小节，使用本轮记录制作四联图和结果表。组合图包含实际航迹、雷达体素、高度与滚转、障碍净空，均从记录重绘；不是窗口截图。图像数据与显示抽稀方式见 [paper_figure_data.json](paper_figure_data.json)，表格数据来源见 [paper_validation_data.json](paper_validation_data.json)。
+
+论文表格采用完成第八航点并切回首点的实际消息时刻 **90.408 s**；上方记录结束时刻 **90.432 s** 是最后一条里程计，两者分别保留。正文说明了运行版的 406 个主候选、航点门限、简化动力学及已知地图规划输入。此单次系统验证与原有多地图方法对照分别报告。
+
+在仓库根目录执行 `python3 paper/create_gazebo_figure.py` 可重绘论文图；源文件为 `paper/gazebo_validation.tex` 和 `paper/tables/gazebo.tex`。
+
 ## 修改建筑与复现
 
 在仓库根目录编辑 `motion_primitives_planning/launch/config/end_city_dense_buildings.json`，然后依次生成建筑与雷达场景：

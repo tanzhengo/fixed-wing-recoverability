@@ -1,0 +1,31 @@
+{
+  "source_sha256": {
+    "docs/recovery/dense_city/evidence/flight1/flight/result.json": "454621274aa10511ff7c3b8d79dd6dd28ecde74cbaad4dc53b6665e4b43ebfca",
+    "docs/recovery/dense_city/evidence/flight1/mapping/result.json": "d32f5cd327c7e204faaa9c962fd9adf005ea08af74686860b73012afaaca9e5d",
+    "docs/recovery/dense_city/evidence/flight1/towers/result.json": "3e0fe3cd2ab61b78a2abb0baccd95d269f72b595e92f406ec2260d4afe58eec0"
+  },
+  "cycle_completion_sim_time_s": 90.408,
+  "recorded_first_last_sim_time_s": [
+    0.048,
+    90.432
+  ],
+  "completed_waypoints": 8,
+  "waypoint_thresholds_m": {
+    "horizontal": 48.824999999999996,
+    "vertical": 3.0
+  },
+  "logged_updates": 902,
+  "verified_updates": 902,
+  "minimum_physical_box_clearance_m": 11.562644826945045,
+  "minimum_expanded_box_clearance_m": 9.098011071407692,
+  "maximum_absolute_bank_deg": 34.999460250654444,
+  "maximum_absolute_flight_path_angle_deg": 16.299109659866907,
+  "received_scans": 452,
+  "received_return_points": 3410280,
+  "final_map_voxels": 163777,
+  "final_map_stamp": 89.808,
+  "all_added_towers_scanned": true,
+  "tower_observer_scan_count": 451,
+  "simulation_run_count": 1,
+  "scope": "System integration study; separate from frozen multi-map comparative experiments."
+}
