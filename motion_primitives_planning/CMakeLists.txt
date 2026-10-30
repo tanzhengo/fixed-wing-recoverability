@@ -211,6 +211,7 @@ add_dependencies(recovery_benchmark_v2 ${catkin_EXPORTED_TARGETS})
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination
 catkin_install_python(PROGRAMS
+  scripts/lidar_voxel_map.py
   scripts/gazebo_dynamic_obstacles.py
   scripts/generate_3d_validation_world.py
   scripts/verify_vertical_avoidance.py
@@ -267,6 +268,7 @@ catkin_install_python(PROGRAMS
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
+  catkin_add_nosetests(test/test_lidar_voxel_map.py)
   add_rostest_gtest(runtime_box_test test/runtime_box.test test/test_runtime_box.cpp)
   target_link_libraries(runtime_box_test ${catkin_LIBRARIES})
   add_dependencies(runtime_box_test ${catkin_EXPORTED_TARGETS})

@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   pluginlib
   urdf
   geometry_msgs
+  sensor_msgs
 )
 
 find_package(gazebo REQUIRED)
@@ -24,8 +25,8 @@ include_directories(
 )
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES gazebo_ros_planar_move_with_banking_and_pitching_plugin1
-  CATKIN_DEPENDS roscpp tf geometry_msgs
+  LIBRARIES gazebo_ros_planar_move_with_banking_and_pitching_plugin1 gazebo_ros_3d_lidar
+  CATKIN_DEPENDS roscpp tf geometry_msgs sensor_msgs
     urdf
   DEPENDS gazebo
 )
@@ -38,3 +39,7 @@ catkin_package(
 add_library(gazebo_ros_planar_move_with_banking_and_pitching_plugin1 src/gazebo_ros_planar_move_with_banking_and_pitching.cpp)
 target_link_libraries(gazebo_ros_planar_move_with_banking_and_pitching_plugin1 ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 add_dependencies(gazebo_ros_planar_move_with_banking_and_pitching_plugin1 ${catkin_EXPORTED_TARGETS})
+
+add_library(gazebo_ros_3d_lidar src/gazebo_ros_3d_lidar.cpp)
+target_link_libraries(gazebo_ros_3d_lidar ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+add_dependencies(gazebo_ros_3d_lidar ${catkin_EXPORTED_TARGETS})

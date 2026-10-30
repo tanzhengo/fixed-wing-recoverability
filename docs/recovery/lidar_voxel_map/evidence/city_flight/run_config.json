@@ -1,0 +1,9 @@
+{
+  "resolution_m": 1.0,
+  "max_voxels": 100000,
+  "gui": false,
+  "rviz": false,
+  "paused": false,
+  "stop_after_first_waypoint_cycle": true,
+  "sensor_configuration_shared": true
+}

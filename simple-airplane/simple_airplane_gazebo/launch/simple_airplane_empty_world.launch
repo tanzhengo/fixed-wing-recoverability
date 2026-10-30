@@ -10,6 +10,7 @@
   <!-- obs.world already contains suav1; enable spawning only for a world without it. -->
   <arg name="spawn_airplane" default="false" />
   <arg name="world_name" default="$(find simple_airplane_gazebo)/worlds/obs.world" />
+  <arg name="description_file" default="$(find simple_airplane_description)/urdf/simple_airplane.xacro" />
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <!-- <arg name="world_name" value="$(find simple_airplane_gazebo)/worlds/simple_airplane_empty_word3.world"/> -->
@@ -32,7 +33,7 @@
   <!-- <arg name="model" default="$(find simple_airplane_description)/urdf/simple_airplane.xacro"/>   -->
   <!-- send the robot XML to param server -->
   <param name="robot_description" command="
-    $(find xacro)/xacro '$(find simple_airplane_description)/urdf/simple_airplane.xacro'
+    $(find xacro)/xacro '$(arg description_file)'
     enable_logging:=$(arg enable_logging)
     enable_ground_truth:=$(arg enable_ground_truth)
     log_file:=$(arg log_file)"

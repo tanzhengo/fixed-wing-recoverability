@@ -1,0 +1,9 @@
+{
+  "resolution_m": 2.0,
+  "max_voxels": 200000,
+  "waypoints": 8,
+  "gui": false,
+  "rviz": false,
+  "paused": false,
+  "stop_after_first_waypoint_cycle": true
+}

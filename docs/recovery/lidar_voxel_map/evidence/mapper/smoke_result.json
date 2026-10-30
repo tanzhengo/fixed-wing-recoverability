@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "output_type": "sensor_msgs/PointCloud2",
+  "map_type": "visualization_msgs/Marker CUBE_LIST",
+  "point_world_xyz": [
+    6.0,
+    0.0,
+    0.15000000596046448
+  ],
+  "scan_stamp_preserved": 1.5,
+  "reset_cleared_map": true,
+  "last_stats": {
+    "dropped_time_reset": 0,
+    "filtered_nonfinite_points": 1,
+    "filtered_range_points": 0,
+    "frame": "world",
+    "input_points": 2,
+    "latest_scan_stamp": 0.0,
+    "map_kind": "accumulated_occupied_scan_endpoints",
+    "odometry_received": 3,
+    "pending_scans": 0,
+    "resolution_m": 1.0,
+    "scans_integrated": 1,
+    "scans_received": 1,
+    "time_resets": 1,
+    "valid_points": 1,
+    "voxel_count": 0
+  }
+}

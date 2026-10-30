@@ -1,0 +1,293 @@
+{
+  "scope": "Waypoints and straight geometric centerlines only; these values are not measured flight or curved-trajectory clearances.",
+  "config_path": "outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city.yaml",
+  "config_sha256": "e086003ab568af7022eb22b5bf22d52e5ea05cc5c9324f52cf83dcb0a475ca31",
+  "box_count": 154,
+  "configured_per_face_box_margins_m": [
+    2.0
+  ],
+  "new_middle_waypoint_indices": [
+    4,
+    5,
+    6
+  ],
+  "initial_position_m": [
+    -90.0,
+    -270.0,
+    40.0
+  ],
+  "loop_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    1
+  ],
+  "maximum_sample_spacing_m": 0.25,
+  "algorithm": "At each sample, use exact Euclidean signed distance to each axis-aligned physical box expanded by its configured per-face clearance, then take the minimum. Each 3D segment includes both endpoints and is sampled uniformly with spacing <= maximum_sample_spacing_m. Altitude is linearly interpolated.",
+  "continuous_straight_segment_bound": "Signed distance is 1-Lipschitz; subtract half the actual sample spacing from the minimum sampled value to bound every point on that straight segment.",
+  "waypoints": [
+    {
+      "waypoint_index": 1,
+      "position_m": [
+        -85.0,
+        -100.0,
+        40.0
+      ],
+      "new_middle_waypoint": false,
+      "inflated_box_clearance_m": 27.18210571921213,
+      "nearest_inflated_box": "box4",
+      "nearest_inflated_box_source": "cafe::link::collision/component3",
+      "physical_box_clearance_m": 30.009429852958846,
+      "nearest_physical_box_source": "cafe::link::collision/component3"
+    },
+    {
+      "waypoint_index": 2,
+      "position_m": [
+        -85.0,
+        180.0,
+        50.0
+      ],
+      "new_middle_waypoint": false,
+      "inflated_box_clearance_m": 40.00099078440462,
+      "nearest_inflated_box": "box97",
+      "nearest_inflated_box_source": "House 1::link::collision",
+      "physical_box_clearance_m": 43.090054203289455,
+      "nearest_physical_box_source": "House 1::link::collision"
+    },
+    {
+      "waypoint_index": 3,
+      "position_m": [
+        120.0,
+        225.0,
+        60.0
+      ],
+      "new_middle_waypoint": false,
+      "inflated_box_clearance_m": 54.80425092078993,
+      "nearest_inflated_box": "box144",
+      "nearest_inflated_box_source": "police_station::link::collision_main",
+      "physical_box_clearance_m": 57.829516676079045,
+      "nearest_physical_box_source": "police_station::link::collision_main"
+    },
+    {
+      "waypoint_index": 4,
+      "position_m": [
+        60.0,
+        80.0,
+        60.0
+      ],
+      "new_middle_waypoint": true,
+      "inflated_box_clearance_m": 35.74029013108347,
+      "nearest_inflated_box": "box146",
+      "nearest_inflated_box_source": "post_office::link::collision",
+      "physical_box_clearance_m": 38.2284715144671,
+      "nearest_physical_box_source": "post_office::link::collision"
+    },
+    {
+      "waypoint_index": 5,
+      "position_m": [
+        35.0,
+        -50.0,
+        60.0
+      ],
+      "new_middle_waypoint": true,
+      "inflated_box_clearance_m": 47.99997739029562,
+      "nearest_inflated_box": "box4",
+      "nearest_inflated_box_source": "cafe::link::collision/component3",
+      "physical_box_clearance_m": 50.79817318603108,
+      "nearest_physical_box_source": "cafe::link::collision/component3"
+    },
+    {
+      "waypoint_index": 6,
+      "position_m": [
+        20.0,
+        -230.0,
+        55.0
+      ],
+      "new_middle_waypoint": true,
+      "inflated_box_clearance_m": 20.09288039859171,
+      "nearest_inflated_box": "box141",
+      "nearest_inflated_box_source": "parking_garage::link::collision",
+      "physical_box_clearance_m": 22.706106521436716,
+      "nearest_physical_box_source": "parking_garage::link::collision"
+    },
+    {
+      "waypoint_index": 7,
+      "position_m": [
+        125.0,
+        -265.0,
+        55.0
+      ],
+      "new_middle_waypoint": false,
+      "inflated_box_clearance_m": 30.763689050739718,
+      "nearest_inflated_box": "box152",
+      "nearest_inflated_box_source": "parking_garage_1_clone::link::collision",
+      "physical_box_clearance_m": 33.19465191302061,
+      "nearest_physical_box_source": "parking_garage_1_clone::link::collision"
+    },
+    {
+      "waypoint_index": 8,
+      "position_m": [
+        -90.0,
+        -270.0,
+        40.0
+      ],
+      "new_middle_waypoint": false,
+      "inflated_box_clearance_m": 36.51701939938699,
+      "nearest_inflated_box": "box98",
+      "nearest_inflated_box_source": "House 2::link::collision",
+      "physical_box_clearance_m": 39.35752738416383,
+      "nearest_physical_box_source": "House 2::link::collision"
+    }
+  ],
+  "cycle_segments": [
+    {
+      "from_waypoint": 1,
+      "to_waypoint": 2,
+      "touches_inserted_middle_route": false,
+      "length_3d_m": 280.178514522438,
+      "horizontal_length_m": 280.0,
+      "sample_count": 1122,
+      "actual_sample_spacing_m": 0.24993623061769668,
+      "minimum_sampled_inflated_clearance_m": 27.18210571921213,
+      "minimum_sample_position_m": [
+        -85.0,
+        -100.0,
+        40.0
+      ],
+      "nearest_box": "box4",
+      "nearest_box_source": "cafe::link::collision/component3",
+      "straight_segment_clearance_lower_bound_m": 27.057137603903282
+    },
+    {
+      "from_waypoint": 2,
+      "to_waypoint": 3,
+      "touches_inserted_middle_route": false,
+      "length_3d_m": 210.11901389450694,
+      "horizontal_length_m": 209.88091861815357,
+      "sample_count": 842,
+      "actual_sample_spacing_m": 0.2498442495772972,
+      "minimum_sampled_inflated_clearance_m": 24.82025283730337,
+      "minimum_sample_position_m": [
+        -54.28656361474435,
+        186.74197384066588,
+        51.498216409036864
+      ],
+      "nearest_box": "box97",
+      "nearest_box_source": "House 1::link::collision",
+      "straight_segment_clearance_lower_bound_m": 24.69533071251472
+    },
+    {
+      "from_waypoint": 3,
+      "to_waypoint": 4,
+      "touches_inserted_middle_route": true,
+      "length_3d_m": 156.92354826475216,
+      "horizontal_length_m": 156.92354826475216,
+      "sample_count": 629,
+      "actual_sample_spacing_m": 0.2498782615680767,
+      "minimum_sampled_inflated_clearance_m": 33.196985501483965,
+      "minimum_sample_position_m": [
+        85.4140127388535,
+        141.4171974522293,
+        60.0
+      ],
+      "nearest_box": "box150",
+      "nearest_box_source": "tower_crane::link::collision",
+      "straight_segment_clearance_lower_bound_m": 33.07204637069993
+    },
+    {
+      "from_waypoint": 4,
+      "to_waypoint": 5,
+      "touches_inserted_middle_route": true,
+      "length_3d_m": 132.38202294873727,
+      "horizontal_length_m": 132.38202294873727,
+      "sample_count": 531,
+      "actual_sample_spacing_m": 0.24977740179007032,
+      "minimum_sampled_inflated_clearance_m": 32.713204041250975,
+      "minimum_sample_position_m": [
+        48.34905660377358,
+        19.41509433962264,
+        60.0
+      ],
+      "nearest_box": "box142",
+      "nearest_box_source": "parking_garage_0::link::collision",
+      "straight_segment_clearance_lower_bound_m": 32.58831534035594
+    },
+    {
+      "from_waypoint": 5,
+      "to_waypoint": 6,
+      "touches_inserted_middle_route": true,
+      "length_3d_m": 180.6931099959265,
+      "horizontal_length_m": 180.62391868188442,
+      "sample_count": 724,
+      "actual_sample_spacing_m": 0.24992131396393708,
+      "minimum_sampled_inflated_clearance_m": 19.290988255749383,
+      "minimum_sample_position_m": [
+        20.477178423236516,
+        -224.27385892116183,
+        55.159059474412174
+      ],
+      "nearest_box": "box141",
+      "nearest_box_source": "parking_garage::link::collision",
+      "straight_segment_clearance_lower_bound_m": 19.166027598767414
+    },
+    {
+      "from_waypoint": 6,
+      "to_waypoint": 7,
+      "touches_inserted_middle_route": true,
+      "length_3d_m": 110.67971810589327,
+      "horizontal_length_m": 110.67971810589327,
+      "sample_count": 444,
+      "actual_sample_spacing_m": 0.24984135012616993,
+      "minimum_sampled_inflated_clearance_m": 20.09288039859171,
+      "minimum_sample_position_m": [
+        20.0,
+        -230.0,
+        55.0
+      ],
+      "nearest_box": "box141",
+      "nearest_box_source": "parking_garage::link::collision",
+      "straight_segment_clearance_lower_bound_m": 19.967959723528626
+    },
+    {
+      "from_waypoint": 7,
+      "to_waypoint": 8,
+      "touches_inserted_middle_route": false,
+      "length_3d_m": 215.580611373101,
+      "horizontal_length_m": 215.05813167606567,
+      "sample_count": 864,
+      "actual_sample_spacing_m": 0.24980372117392932,
+      "minimum_sampled_inflated_clearance_m": 30.763689050739718,
+      "minimum_sample_position_m": [
+        125.0,
+        -265.0,
+        55.0
+      ],
+      "nearest_box": "box152",
+      "nearest_box_source": "parking_garage_1_clone::link::collision",
+      "straight_segment_clearance_lower_bound_m": 30.638787190152755
+    },
+    {
+      "from_waypoint": 8,
+      "to_waypoint": 1,
+      "touches_inserted_middle_route": false,
+      "length_3d_m": 170.07351351694948,
+      "horizontal_length_m": 170.07351351694948,
+      "sample_count": 682,
+      "actual_sample_spacing_m": 0.2497408421687951,
+      "minimum_sampled_inflated_clearance_m": 24.032935612225902,
+      "minimum_sample_position_m": [
+        -87.25403817914831,
+        -176.63729809104257,
+        40.0
+      ],
+      "nearest_box": "box141",
+      "nearest_box_source": "parking_garage::link::collision",
+      "straight_segment_clearance_lower_bound_m": 23.908065191141503
+    }
+  ]
+}

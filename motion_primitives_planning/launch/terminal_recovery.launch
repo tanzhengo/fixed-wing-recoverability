@@ -5,6 +5,8 @@
   <arg name="paused" default="true"/>
   <arg name="world_name" default="$(find simple_airplane_gazebo)/worlds/vertical_avoidance.world"/>
   <arg name="task_config" default="$(find motion_primitives_planning)/launch/config/task_3d_validation.yaml"/>
+  <arg name="description_file" default="$(find simple_airplane_description)/urdf/simple_airplane.xacro"/>
+  <arg name="rviz_config" default="$(find motion_primitives_planning)/launch/mp_test_3d.rviz"/>
   <arg name="enabled" default="true"/>
   <arg name="known_space_radius" default="0.0"/>
   <!-- Full primary coverage for the first prototype; 12 is the budget ablation. -->
@@ -21,11 +23,13 @@
     <arg name="world_name" value="$(arg world_name)"/>
     <arg name="gui" value="$(arg gui)"/>
     <arg name="paused" value="$(arg paused)"/>
+    <arg name="description_file" value="$(arg description_file)"/>
   </include>
   <include file="$(find motion_primitives_planning)/launch/motion_primitives_test.launch">
     <arg name="task_config" value="$(arg task_config)"/>
     <arg name="gazebo_dynamic_obstacles" value="false"/>
     <arg name="rviz" value="$(arg rviz)"/>
+    <arg name="rviz_config" value="$(arg rviz_config)"/>
   </include>
   <param name="/suav1/recovery/enabled" value="$(arg enabled)" type="bool"/>
   <param name="/suav1/recovery/known_space_radius" value="$(arg known_space_radius)" type="double"/>

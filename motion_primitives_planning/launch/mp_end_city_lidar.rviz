@@ -1,0 +1,259 @@
+Panels:
+- Class: rviz/Displays
+  Help Height: 78
+  Name: Displays
+  Property Tree Widget:
+    Expanded:
+    - /Global Options1
+    - /3D Voxel Map1
+    - /Current 3D LiDAR Scan1
+    Splitter Ratio: 0.5
+  Tree Height: 746
+- Class: rviz/Selection
+  Name: Selection
+- Class: rviz/Tool Properties
+  Expanded:
+  - /2D Pose Estimate1
+  - /2D Nav Goal1
+  - /Publish Point1
+  Name: Tool Properties
+  Splitter Ratio: 0.5886790156364441
+- Class: rviz/Views
+  Expanded:
+  - /Current View1
+  Name: Views
+  Splitter Ratio: 0.5
+- Class: rviz/Time
+  Name: Time
+  SyncMode: 0
+  SyncSource: ''
+Preferences:
+  PromptSaveOnExit: true
+Toolbars:
+  toolButtonStyle: 2
+Visualization Manager:
+  Class: ''
+  Displays:
+  - Alpha: 0.5
+    Cell Size: 20
+    Class: rviz/Grid
+    Color: 160; 160; 164
+    Enabled: true
+    Line Style:
+      Line Width: 0.029999999329447746
+      Value: Lines
+    Name: Grid
+    Normal Cell Count: 0
+    Offset:
+      X: 0
+      Y: 0
+      Z: 0
+    Plane: XY
+    Plane Cell Count: 40
+    Reference Frame: <Fixed Frame>
+    Value: true
+  - Class: rviz/Marker
+    Enabled: true
+    Marker Topic: /suav1/voxel_map
+    Name: 3D Voxel Map
+    Namespaces:
+      lidar_occupied_voxels: true
+    Queue Size: 2
+    Value: true
+  - Class: rviz/PointCloud2
+    Enabled: true
+    Name: Current 3D LiDAR Scan
+    Topic: /suav1/lidar/points
+    Queue Size: 2
+    Style: Points
+    Size (Pixels): 2
+    Size (m): 0.05
+    Alpha: 0.8
+    Position Transformer: XYZ
+    Color Transformer: FlatColor
+    Color: 255; 255; 255
+    Decay Time: 0
+    Selectable: true
+    Use Fixed Frame: true
+    Value: true
+  - Angle Tolerance: 0.10000000149011612
+    Class: rviz/Odometry
+    Covariance:
+      Orientation:
+        Alpha: 0.5
+        Color: 255; 255; 127
+        Color Style: Unique
+        Frame: Local
+        Offset: 1
+        Scale: 1
+        Value: true
+      Position:
+        Alpha: 0.30000001192092896
+        Color: 204; 51; 204
+        Scale: 1
+        Value: true
+      Value: false
+    Enabled: true
+    Keep: 1500
+    Name: Flight Path
+    Position Tolerance: 2
+    Queue Size: 10
+    Shape:
+      Alpha: 1
+      Axes Length: 1
+      Axes Radius: 1
+      Color: 255; 25; 0
+      Head Length: 2
+      Head Radius: 0.7
+      Shaft Length: 4
+      Shaft Radius: 0.25
+      Value: Arrow
+    Topic: /suav1/odom
+    Unreliable: false
+    Value: true
+  - Alpha: 1
+    Class: rviz/RobotModel
+    Collision Enabled: false
+    Enabled: true
+    Links:
+      All Links Enabled: true
+      Expand Joint Details: false
+      Expand Link Details: false
+      Expand Tree: false
+      Link Tree Style: Links in Alphabetic Order
+    Name: RobotModel
+    Robot Description: /robot_description
+    TF Prefix: suav1
+    Update Interval: 0
+    Value: true
+    Visual Enabled: true
+  - Class: rviz/Marker
+    Enabled: true
+    Marker Topic: /suav1/goal
+    Name: Marker
+    Namespaces:
+      goal: true
+    Queue Size: 100
+    Value: true
+  - Class: rviz/MarkerArray
+    Enabled: false
+    Marker Topic: /suav1/traj
+    Name: Planning Candidates
+    Namespaces:
+      traj1: true
+      traj10: true
+      traj11: true
+      traj12: true
+      traj13: true
+      traj14: true
+      traj15: true
+      traj16: true
+      traj17: true
+      traj18: true
+      traj19: true
+      traj2: true
+      traj20: true
+      traj21: true
+      traj22: true
+      traj23: true
+      traj24: true
+      traj25: true
+      traj26: true
+      traj27: true
+      traj28: true
+      traj29: true
+      traj3: true
+      traj4: true
+      traj5: true
+      traj6: true
+      traj7: true
+      traj8: true
+      traj9: true
+      traj_optimal: true
+    Queue Size: 100
+    Value: false
+  - Class: rviz/MarkerArray
+    Enabled: false
+    Marker Topic: /suav1/obs
+    Name: Planner Bounds (optional)
+    Namespaces:
+      dyn_obs1: true
+      dyn_obs2: true
+      dyn_obs3: true
+      static_obs1: true
+      static_obs10: true
+      static_obs11: true
+      static_obs12: true
+      static_obs2: true
+      static_obs3: true
+      static_obs4: true
+      static_obs5: true
+      static_obs6: true
+      static_obs7: true
+      static_obs8: true
+      static_obs9: true
+    Queue Size: 100
+    Value: false
+  - Class: rviz/Image
+    Enabled: false
+    Image Topic: /suav1/front_camera/image_raw
+    Name: Front Camera
+    Queue Size: 2
+    Transport Hint: raw
+    Unreliable: false
+    Value: false
+  Enabled: true
+  Global Options:
+    Background Color: 28; 32; 40
+    Default Light: true
+    Fixed Frame: world
+    Frame Rate: 20
+  Name: root
+  Tools:
+  - Class: rviz/Interact
+    Hide Inactive Objects: true
+  - Class: rviz/MoveCamera
+  - Class: rviz/Select
+  - Class: rviz/FocusCamera
+  - Class: rviz/Measure
+  - Class: rviz/SetInitialPose
+    Theta std deviation: 0.2617993950843811
+    Topic: /initialpose
+    X std deviation: 0.5
+    Y std deviation: 0.5
+  - Class: rviz/SetGoal
+    Topic: /move_base_simple/goal
+  - Class: rviz/PublishPoint
+    Single click: true
+    Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Class: rviz/Orbit
+      Distance: 420
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.05999999865889549
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Field of View: 0.7853981852531433
+      Focal Point:
+        X: 20
+        Y: -75
+        Z: 35
+      Focal Shape Fixed Size: true
+      Focal Shape Size: 0.05000000074505806
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.009999999776482582
+      Pitch: 0.75
+      Target Frame: world
+      Yaw: 0.8
+    Saved: null
+Window Geometry:
+  Height: 900
+  Width: 1300
+  X: 40
+  Y: 40
+  Hide Left Dock: false
+  Hide Right Dock: true

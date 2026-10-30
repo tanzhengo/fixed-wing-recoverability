@@ -1,0 +1,39 @@
+[ INFO] [1793344896.378295672]: Finished loading Gazebo ROS API Plugin.
+[ INFO] [1793344896.378911168]: waitForService: Service [/gazebo/set_physics_properties] has not been advertised, waiting...
+[ INFO] [1793344899.501087028]: waitForService: Service [/gazebo/set_physics_properties] is now available.
+[ INFO] [1793344899.506655782]: 3D lidar: 512 x 32, frame suav1/lidar, topic /suav1/lidar/points_raw
+[ INFO] [1793344899.508840845]: Physics dynamic reconfigure ready.
+... logging to /home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/lidar_sensor/roslog/8a34448a-d432-11f1-9a8c-8f86cb9a84ad/roslaunch-tz-131015.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+]2;/opt/ros/noetic/share/gazebo_ros/launch/empty_world.launch
+[1mstarted roslaunch server http://tz:33767/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /gazebo/enable_ros_network: True
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+ * /use_sim_time: True
+
+NODES
+  /
+    gazebo (gazebo_ros/gzserver)
+
+auto-starting new master
+[1mprocess[master]: started with pid [131040][0m
+[1mROS_MASTER_URI=http://127.0.0.1:11468[0m
+]2;/opt/ros/noetic/share/gazebo_ros/launch/empty_world.launch http://127.0.0.1:11468
+[1msetting /run_id to 8a34448a-d432-11f1-9a8c-8f86cb9a84ad[0m
+[1mprocess[rosout-1]: started with pid [131070][0m
+started core service [/rosout]
+[1mprocess[gazebo-2]: started with pid [131073][0m
+[gazebo-2] killing on exit
+[rosout-1] killing on exit
+[master] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

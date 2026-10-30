@@ -1,0 +1,25 @@
+{
+  "mode": "empty",
+  "cloud_count": 8,
+  "point_count": 0,
+  "total_rays": 16384,
+  "frame": "suav1/lidar",
+  "fields": [
+    "x",
+    "y",
+    "z",
+    "intensity"
+  ],
+  "stamp_intervals_s": [
+    0.20000000000000018,
+    0.19999999999999973,
+    0.20000000000000018,
+    0.20000000000000018,
+    0.19999999999999973,
+    0.20000000000000018,
+    0.19999999999999973
+  ],
+  "mean_hz": 5.0,
+  "all_finite": true,
+  "passed": true
+}

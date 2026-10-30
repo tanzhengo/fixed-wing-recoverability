@@ -1406,7 +1406,7 @@ box_obstacles:
     clearance: 2.0
     source: parking_garage_1_clone_clone_clone::link::collision
 waypoints:
-  num: 5
+  num: 8
   wp1:
     x: -85.0
     y: -100.0
@@ -1420,10 +1420,22 @@ waypoints:
     y: 225.0
     h: 60.0
   wp4:
+    x: 60.0
+    y: 80.0
+    h: 60.0
+  wp5:
+    x: 35.0
+    y: -50.0
+    h: 60.0
+  wp6:
+    x: 20.0
+    y: -230.0
+    h: 55.0
+  wp7:
     x: 125.0
     y: -265.0
     h: 55.0
-  wp5:
+  wp8:
     x: -90.0
     y: -270.0
     h: 40.0

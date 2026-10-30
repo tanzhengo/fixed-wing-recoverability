@@ -1,0 +1,42 @@
+{
+  "waypoint_count": 8,
+  "status": {
+    "filtered_nonfinite_points": 0,
+    "filtered_range_points": 0,
+    "frame": "world",
+    "input_points": 961713,
+    "latest_scan_stamp": 27.008,
+    "map_kind": "accumulated_occupied_scan_endpoints",
+    "odometry_received": 1691,
+    "pending_scans": 0,
+    "resolution_m": 2.0,
+    "scans_integrated": 135,
+    "scans_received": 135,
+    "valid_points": 961713,
+    "voxel_count": 61162
+  },
+  "rviz_voxel_subscribers": [
+    "/suav1_rviz"
+  ],
+  "rviz_point_subscribers": [
+    "/suav1_rviz"
+  ],
+  "static_frames": [
+    {
+      "parent": "suav1/base_link",
+      "child": "suav1/body_link"
+    },
+    {
+      "parent": "suav1/base_link",
+      "child": "suav1/front_camera_link"
+    },
+    {
+      "parent": "suav1/front_camera_link",
+      "child": "suav1/front_camera_optical_frame"
+    },
+    {
+      "parent": "suav1/base_link",
+      "child": "suav1/lidar"
+    }
+  ]
+}

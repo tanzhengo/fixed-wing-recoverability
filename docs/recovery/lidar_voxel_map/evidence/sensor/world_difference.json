@@ -1,0 +1,9 @@
+{
+  "all_original_world_elements_unchanged": true,
+  "added_elements": [
+    "lidar_housing",
+    "lidar_band",
+    "lidar_3d"
+  ],
+  "aircraft_dynamics_and_collision_unchanged": true
+}
