@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<launch>
+
+  <arg name="gui" default="false" />
+  <arg name="rviz" default="false" />
+  <arg name="paused" default="false" />
+  <arg name="enabled" default="true" />
+  <arg name="known_space_radius" default="0.0" />
+
+  <arg name="max_candidates" default="12" />
+  <arg name="candidate_order" default="learned" />
+  <arg name="model_path" default="$(find motion_primitives_planning)/models/recovery_mlp.txt" />
+  <arg name="learned_work_power" default="0.0" />
+  <arg name="backup_horizon" default="6.0" />
+  <arg name="reuse_verified_plan" default="false" />
+  <arg name="require_terminal" default="true" />
+  <arg name="stop_on_rejection" default="true" />
+  <arg name="max_backup_integration_steps" default="0" />
+  <include file="$(find simple_airplane_gazebo)/launch/simple_airplane_empty_world.launch">
+    <arg name="world_name" value="$(dirname)/multiturn.world" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)" />
+  </include>
+  <include file="$(find motion_primitives_planning)/launch/motion_primitives_test.launch">
+    <arg name="task_config" value="$(dirname)/multiturn.yaml" />
+    <arg name="gazebo_dynamic_obstacles" value="false" />
+    <arg name="rviz" value="$(arg rviz)" />
+  </include>
+  <param name="/suav1/recovery/enabled" value="$(arg enabled)" type="bool" />
+  <param name="/suav1/recovery/known_space_radius" value="$(arg known_space_radius)" type="double" />
+  <param name="/suav1/recovery/max_candidates" value="$(arg max_candidates)" type="int" />
+  <param name="/suav1/recovery/candidate_order" value="$(arg candidate_order)" type="str" />
+  <param name="/suav1/recovery/model_path" value="$(arg model_path)" type="str" />
+  <param name="/suav1/recovery/learned_work_power" value="$(arg learned_work_power)" type="double" />
+  <param name="/suav1/recovery/horizon_time" value="$(arg backup_horizon)" type="double" />
+  <param name="/suav1/recovery/reuse_verified_plan" value="$(arg reuse_verified_plan)" type="bool" />
+  <param name="/suav1/recovery/require_terminal" value="$(arg require_terminal)" type="bool" />
+  <param name="/suav1/recovery/stop_on_rejection" value="$(arg stop_on_rejection)" type="bool" />
+  <param name="/suav1/recovery/max_backup_integration_steps" value="$(arg max_backup_integration_steps)" type="int" />
+<param name="/suav1/motion_primitive/max_altitude" value="120.0" type="double" /></launch>

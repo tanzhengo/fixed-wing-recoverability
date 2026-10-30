@@ -1,0 +1,147 @@
+{
+  "max_banked_climb_gain_over_5s_m": 14.474081739807177,
+  "best_banked_climb_window": [
+    3.04,
+    8.04,
+    9.2320457636672,
+    23.706127503474377
+  ],
+  "tag": "multiturn_110",
+  "stop_reason": "multiturn_goal_attained",
+  "wall_seconds": 48.823760359002335,
+  "last_sim_time": 44.68,
+  "odom_count": 2231,
+  "command_count": 444,
+  "status_count": 444,
+  "goal_transitions": [
+    {
+      "t": 0.3,
+      "x": 50.0,
+      "y": 0.0,
+      "z": 110.0,
+      "aircraft": {
+        "t": 0.3,
+        "x": 3.8886749744371407,
+        "y": 0.0,
+        "z": 7.983785492778653,
+        "V": 13.317908979471397,
+        "gamma": -0.009633160631239918,
+        "sigma": 0.0,
+        "roll": -0.0,
+        "attack": 4.3499520131773384e-10,
+        "T": 0.0,
+        "d_sigma": 0.0,
+        "physical_center_clearance": null,
+        "inflated_clearance": null
+      }
+    }
+  ],
+  "status_counts": {
+    "BUDGET_EXHAUSTED": 5,
+    "RECOVERY_VERIFIED": 439
+  },
+  "last_odom": {
+    "t": 44.68,
+    "x": 27.27116074405935,
+    "y": 0.8048572558203921,
+    "z": 107.01235404886322,
+    "V": 15.498447120672061,
+    "gamma": 0.10309243073354407,
+    "sigma": -0.8510721159622998,
+    "roll": 0.6108652353286741,
+    "attack": -0.039804688297611926,
+    "T": 1.707666126418426,
+    "d_sigma": 0.4432249366546179,
+    "physical_center_clearance": null,
+    "inflated_clearance": null
+  },
+  "minimum_physical_center_clearance_m": null,
+  "minimum_inflated_clearance_m": null,
+  "altitude_min_max": [
+    7.548813371761154,
+    107.01235404886322
+  ],
+  "banked_positive_climb_m": 99.0712726638202,
+  "banked_positive_climb_duration_s": 42.419999999999995,
+  "planner_parameters": {
+    "horizon_time": 3.0,
+    "V": 15.5,
+    "theata": 45.0,
+    "num": 29,
+    "vertical_num": 7,
+    "max_climb_angle": 20.0,
+    "max_descent_angle": 20.0,
+    "min_altitude": 1.0,
+    "max_altitude": 120.0,
+    "vertical_clearance": 1.0,
+    "integration_dt": 0.02,
+    "min_speed": 3.0,
+    "max_speed": 45.0,
+    "max_thrust": 20.0,
+    "altitude_weight": 0.15,
+    "distance_weight": 0.02,
+    "heading_weight": 3.0,
+    "waypoint_altitude_tolerance": 3.0,
+    "max_roll_angle": 35.0,
+    "max_attack_angle": 25.0,
+    "min_attack_angle": -20.0,
+    "compensate_tau": 0.8,
+    "K_T": 2.2
+  },
+  "recovery_parameters": {
+    "require_terminal": true,
+    "stop_on_rejection": true,
+    "max_backup_integration_steps": 0,
+    "enabled": true,
+    "horizon_time": 6.0,
+    "max_candidates": 12,
+    "candidate_order": "learned",
+    "reuse_verified_plan": false,
+    "min_execution_time": 0.1,
+    "known_space_radius": 0.0,
+    "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/models/recovery_mlp.txt",
+    "learned_work_power": 0.0
+  },
+  "command": [
+    "roslaunch",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/spiral_fix/multiturn_110_scenario/multiturn.launch",
+    "gui:=false",
+    "rviz:=false",
+    "paused:=false"
+  ],
+  "world_sha256": "49e93368d1ed0ee4eb78dfb9dee4d9b8ee641c2178f5333d60505fee37c3e060",
+  "planner_binary_sha256": "efad44d4d94a6bd9adbf6b8f4e2c4603df4d049bafe3ecfa7666ef4c94d1bdd5",
+  "point_clearance_note": "Clearance is sampled for aircraft reference-point position against analytic physical/inflated static cylinders; not an aircraft mesh-contact certificate.",
+  "case": "multiturn",
+  "obstacle_count": 0,
+  "absolute_heading_turns": 2.9184180391803,
+  "signed_heading_turns": 2.864547665816918,
+  "speed_min_max": [
+    13.308736906198872,
+    15.89606241612413
+  ],
+  "max_abs_gamma_deg": 12.468750161201077,
+  "max_abs_roll_deg": 34.999999835598885,
+  "observer_cli": {
+    "tag": "multiturn_110",
+    "sim_seconds": 180.0,
+    "wall_seconds": 120.0,
+    "port": 11418,
+    "launch": "terminal_recovery_learned.launch",
+    "case": "multiturn",
+    "workspace": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws",
+    "output_dir": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/spiral_fix",
+    "scenario_dir": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/spiral_fix/multiturn_110_scenario",
+    "goal_x": 50,
+    "goal_y": 0,
+    "goal_height": 110.0
+  },
+  "scenario_source_sha256": {
+    "multiturn.yaml": "403f054fb99ed93d84480e8bfc40f28e54ea41b3c68aea4d5086eb31e80321c7",
+    "multiturn.world": "49e93368d1ed0ee4eb78dfb9dee4d9b8ee641c2178f5333d60505fee37c3e060",
+    "multiturn.launch": "14e695ea850d6521ab32642a35158d5329992575110599f00a6db3bc470fff2c"
+  },
+  "network_fallback_warning": false,
+  "waypoint_gate_checks_passed": true,
+  "passed": true
+}

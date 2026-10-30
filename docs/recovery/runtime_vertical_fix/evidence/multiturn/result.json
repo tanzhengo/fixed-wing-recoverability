@@ -1,0 +1,128 @@
+{
+  "max_banked_climb_gain_over_5s_m": 12.735860434701856,
+  "best_banked_climb_window": [
+    12.74,
+    17.74,
+    29.475582772898953,
+    42.21144320760081
+  ],
+  "tag": "multiturn",
+  "stop_reason": "multiturn_goal_attained",
+  "wall_seconds": 33.84483449099935,
+  "last_sim_time": 29.5,
+  "odom_count": 1474,
+  "command_count": 292,
+  "status_count": 292,
+  "goal_transitions": [
+    {
+      "t": 0.3,
+      "x": 50.0,
+      "y": 0.0,
+      "z": 70.0,
+      "aircraft": {
+        "t": 0.3,
+        "x": 3.8886749744371407,
+        "y": 0.0,
+        "z": 7.983785492778653,
+        "V": 13.317908979471397,
+        "gamma": -0.009633160631239918,
+        "sigma": 0.0,
+        "roll": -0.0,
+        "attack": 4.3499520131773384e-10,
+        "T": 0.0,
+        "d_sigma": 0.0,
+        "physical_center_clearance": null,
+        "inflated_clearance": null
+      }
+    }
+  ],
+  "status_counts": {
+    "BUDGET_EXHAUSTED": 5,
+    "RECOVERY_VERIFIED": 287
+  },
+  "last_odom": {
+    "t": 29.5,
+    "x": 19.60636977253975,
+    "y": 9.933799309239085,
+    "z": 67.28609792927176,
+    "V": 15.235871444223589,
+    "gamma": 0.13775169641456736,
+    "sigma": -1.0675117647180674,
+    "roll": 0.5922108292579652,
+    "attack": -0.07255018294534815,
+    "T": 1.8261645130646653,
+    "d_sigma": 0.4084542411851544,
+    "physical_center_clearance": null,
+    "inflated_clearance": null
+  },
+  "minimum_physical_center_clearance_m": null,
+  "minimum_inflated_clearance_m": null,
+  "altitude_min_max": [
+    7.491520211983517,
+    67.28609792927176
+  ],
+  "banked_positive_climb_m": 59.729194538286364,
+  "banked_positive_climb_duration_s": 27.38,
+  "planner_parameters": {
+    "horizon_time": 3.0,
+    "V": 15.5,
+    "theata": 45.0,
+    "num": 29,
+    "vertical_num": 7,
+    "max_climb_angle": 20.0,
+    "max_descent_angle": 20.0,
+    "min_altitude": 1.0,
+    "max_altitude": 80.0,
+    "vertical_clearance": 1.0,
+    "integration_dt": 0.02,
+    "min_speed": 3.0,
+    "max_speed": 45.0,
+    "max_thrust": 20.0,
+    "altitude_weight": 0.15,
+    "distance_weight": 0.02,
+    "heading_weight": 3.0,
+    "waypoint_altitude_tolerance": 3.0,
+    "max_roll_angle": 35.0,
+    "max_attack_angle": 25.0,
+    "min_attack_angle": -20.0,
+    "compensate_tau": 0.8,
+    "K_T": 2.2
+  },
+  "recovery_parameters": {
+    "require_terminal": true,
+    "stop_on_rejection": true,
+    "max_backup_integration_steps": 0,
+    "enabled": true,
+    "horizon_time": 6.0,
+    "max_candidates": 12,
+    "candidate_order": "learned",
+    "reuse_verified_plan": false,
+    "min_execution_time": 0.1,
+    "known_space_radius": 0.0,
+    "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/models/recovery_mlp.txt",
+    "learned_work_power": 0.0
+  },
+  "command": [
+    "roslaunch",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/spiral_fix/multiturn_scenario/multiturn.launch",
+    "gui:=false",
+    "rviz:=false",
+    "paused:=false"
+  ],
+  "world_sha256": "49e93368d1ed0ee4eb78dfb9dee4d9b8ee641c2178f5333d60505fee37c3e060",
+  "planner_binary_sha256": "efad44d4d94a6bd9adbf6b8f4e2c4603df4d049bafe3ecfa7666ef4c94d1bdd5",
+  "point_clearance_note": "Clearance is sampled for aircraft reference-point position against analytic physical/inflated static cylinders; not an aircraft mesh-contact certificate.",
+  "case": "multiturn",
+  "obstacle_count": 0,
+  "absolute_heading_turns": 1.878966111932531,
+  "signed_heading_turns": 1.8301002258363654,
+  "speed_min_max": [
+    13.308736906198872,
+    15.773617943955164
+  ],
+  "max_abs_gamma_deg": 10.641193349615536,
+  "max_abs_roll_deg": 34.99999642050429,
+  "network_fallback_warning": false,
+  "waypoint_gate_checks_passed": true,
+  "passed": false
+}

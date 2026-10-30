@@ -1,0 +1,203 @@
+{
+  "max_banked_climb_gain_over_5s_m": 3.733639356781529,
+  "best_banked_climb_window": [
+    1.8399999999999999,
+    6.83,
+    7.566357008437583,
+    11.299996365219112
+  ],
+  "tag": "after",
+  "stop_reason": "completed_first_waypoint_cycle",
+  "wall_seconds": 35.75701078999555,
+  "last_sim_time": 31.42,
+  "odom_count": 1570,
+  "command_count": 311,
+  "status_count": 311,
+  "goal_transitions": [
+    {
+      "t": 0.31,
+      "x": 170.0,
+      "y": 0.0,
+      "z": 8.0,
+      "aircraft": {
+        "t": 0.3,
+        "x": 3.8886749744371407,
+        "y": 0.0,
+        "z": 7.983785492778653,
+        "V": 13.317908979471397,
+        "gamma": -0.009633160631239918,
+        "sigma": 0.0,
+        "roll": -0.0,
+        "attack": 4.3499520131773384e-10,
+        "T": 0.0,
+        "d_sigma": 0.0,
+        "physical_center_clearance": 80.11132502556286,
+        "inflated_clearance": 78.91132502556286
+      }
+    },
+    {
+      "t": 8.81,
+      "x": 350.0,
+      "y": 0.0,
+      "z": 24.0,
+      "aircraft": {
+        "t": 8.8,
+        "x": 125.77376335571302,
+        "y": 17.965980133741365,
+        "z": 9.432848659065472,
+        "V": 15.59666020465168,
+        "gamma": -0.0727241189659818,
+        "sigma": -0.27778069799053656,
+        "roll": -0.11458675563335421,
+        "attack": -0.17976190136063258,
+        "T": 0.47684573576633305,
+        "d_sigma": -0.07465973583756859,
+        "physical_center_clearance": 29.831541711833864,
+        "inflated_clearance": 28.631541711833865
+      },
+      "previous_goal": [
+        170.0,
+        0.0,
+        8.0
+      ],
+      "previous_goal_horizontal_error": 47.736112638991266,
+      "previous_goal_height_error": 1.4328486590654723
+    },
+    {
+      "t": 20.81,
+      "x": 520.0,
+      "y": 0.0,
+      "z": 8.0,
+      "aircraft": {
+        "t": 20.8,
+        "x": 308.6320382424296,
+        "y": 5.765610020653893,
+        "z": 21.147050620182444,
+        "V": 14.95133299777632,
+        "gamma": 0.10987703310080088,
+        "sigma": -0.12145933735766927,
+        "roll": -0.0754498764872551,
+        "attack": -0.2329556028706602,
+        "T": 0.12743202371679677,
+        "d_sigma": -0.04396417175155463,
+        "physical_center_clearance": 32.915603738596715,
+        "inflated_clearance": 31.674893731136216
+      },
+      "previous_goal": [
+        350.0,
+        0.0,
+        24.0
+      ],
+      "previous_goal_horizontal_error": 41.767816783811824,
+      "previous_goal_height_error": 2.852949379817556
+    },
+    {
+      "t": 31.22,
+      "x": 170.0,
+      "y": 0.0,
+      "z": 8.0,
+      "aircraft": {
+        "t": 31.22,
+        "x": 472.8310275070452,
+        "y": 0.9989447132188657,
+        "z": 8.476753227941057,
+        "V": 15.554408725327898,
+        "gamma": -0.03309402020598543,
+        "sigma": 0.0027429565366300993,
+        "roll": -3.97038020309993e-05,
+        "attack": -0.19024826435421813,
+        "T": 0.6856035348090898,
+        "d_sigma": -2.6114239267897776e-05,
+        "physical_center_clearance": 197.36855488686103,
+        "inflated_clearance": 196.100330430186
+      },
+      "previous_goal": [
+        520.0,
+        0.0,
+        8.0
+      ],
+      "previous_goal_horizontal_error": 47.17954913499277,
+      "previous_goal_height_error": 0.4767532279410567
+    }
+  ],
+  "status_counts": {
+    "RECOVERY_VERIFIED": 264,
+    "BUDGET_EXHAUSTED": 47
+  },
+  "last_odom": {
+    "t": 31.42,
+    "x": 475.9426142322308,
+    "y": 0.9944855662142672,
+    "z": 8.378055484701376,
+    "V": 15.580542583383375,
+    "gamma": -0.029550349159129605,
+    "sigma": -0.01079393135796872,
+    "roll": -0.20307324826717382,
+    "attack": -0.15677074547301914,
+    "T": 0.7730791541024957,
+    "d_sigma": -0.12904550926667313,
+    "physical_center_clearance": 200.4789525991186,
+    "inflated_clearance": 199.21129111901746
+  },
+  "minimum_physical_center_clearance_m": 1.086488426352675,
+  "minimum_inflated_clearance_m": 0.0008815118289611235,
+  "altitude_min_max": [
+    7.054735129411736,
+    21.852310192699054
+  ],
+  "banked_positive_climb_m": 4.714051185481022,
+  "banked_positive_climb_duration_s": 4.480000000000002,
+  "planner_parameters": {
+    "horizon_time": 3.0,
+    "V": 15.5,
+    "theata": 45.0,
+    "num": 29,
+    "vertical_num": 7,
+    "max_climb_angle": 20.0,
+    "max_descent_angle": 20.0,
+    "min_altitude": 1.0,
+    "max_altitude": 80.0,
+    "vertical_clearance": 1.0,
+    "integration_dt": 0.02,
+    "min_speed": 3.0,
+    "max_speed": 45.0,
+    "max_thrust": 20.0,
+    "altitude_weight": 0.15,
+    "distance_weight": 0.02,
+    "heading_weight": 3.0,
+    "waypoint_altitude_tolerance": 3.0,
+    "max_roll_angle": 35.0,
+    "max_attack_angle": 25.0,
+    "min_attack_angle": -20.0,
+    "compensate_tau": 0.8,
+    "K_T": 2.2
+  },
+  "recovery_parameters": {
+    "require_terminal": true,
+    "stop_on_rejection": true,
+    "max_backup_integration_steps": 0,
+    "enabled": true,
+    "horizon_time": 6.0,
+    "max_candidates": 12,
+    "candidate_order": "learned",
+    "reuse_verified_plan": false,
+    "min_execution_time": 0.1,
+    "known_space_radius": 0.0,
+    "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/models/recovery_mlp.txt",
+    "learned_work_power": 0.0
+  },
+  "command": [
+    "roslaunch",
+    "motion_primitives_planning",
+    "terminal_recovery_learned.launch",
+    "gui:=false",
+    "rviz:=false",
+    "paused:=false"
+  ],
+  "world_sha256": "def4255a047c758a7d9b83f75fe31ec259e52be53a71ef418edbc12f25f8a80e",
+  "planner_binary_sha256": "efad44d4d94a6bd9adbf6b8f4e2c4603df4d049bafe3ecfa7666ef4c94d1bdd5",
+  "point_clearance_note": "Clearance is sampled for aircraft reference-point position against analytic physical/inflated static cylinders; not an aircraft mesh-contact certificate.",
+  "network_fallback_warning": false,
+  "waypoint_gate_checks_passed": true,
+  "passed": true
+}

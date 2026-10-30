@@ -50,6 +50,14 @@ roslaunch motion_primitives_planning terminal_recovery_no_geometry.launch paused
 
 通过 `candidate_order:=learned_diverse` 运行混合调度。上述两个入口默认 K=12、主时域 3 s、续飞时域 6 s，并启用逐采样拒绝。网络训练与基准复现命令见[学习实验说明](docs/recovery/learning/README.md)。
 
+Gazebo 运行版已补充当前高度附近的细分升降候选，修复高空航点前持续平飞盘旋的问题。原三航点路线已连续两次完成；新增 6 项回归检查通过。观察连续多圈爬升时，先停止上一场景，再运行：
+
+```bash
+roslaunch motion_primitives_planning terminal_recovery_multiturn.launch paused:=false
+```
+
+该空旷演示从约 8 m 爬向 110 m，实测累计净航向变化 2.865 圈后满足原到点容差。运行版使用 `runtime_motion_primitives.h`；论文训练及基准继续使用冻结的 `motion_primitives.h`，历史实验和网络权重保持不变。详见[修复与原始测试记录](docs/recovery/runtime_vertical_fix/README.md)。
+
 代码基于 [HKPolyU-UAV/Two-phase-motion-planning](https://github.com/HKPolyU-UAV/Two-phase-motion-planning) 的 `ccb6005c73992214a86cc0cff4fe648f1443a119`。历史非学习实验保留在[阶段结果](docs/recovery/NONLEARNING_RESULTS.md)，当前实验对照同一局部规划实现。以下保留原仓库说明和署名。
 
 ## Two-Phase Motion Planning for Fixed-Wing UAVs — upstream demo
@@ -72,7 +80,7 @@ The solid green line is the measured flight after adding six pillars directly on
 
 ## Features
 
-- Up to **203 candidate primitives** per planning cycle: 29 heading samples × 7 altitude layers.
+- The frozen benchmark uses up to **203 candidate primitives**: 29 headings × 7 altitude layers. The Gazebo runtime adds state-relative levels for gradual climbing, giving up to **406 candidates** with the default configuration.
 - Model-based trajectory rollouts with climb, descent, turning, and actuator response.
 - Collision checks for finite-height upright cylinders, spheres, oriented horizontal cylinders, and predicted moving obstacles.
 - One launch file starts Gazebo, RViz, the planner, and dynamic-obstacle synchronization.
@@ -173,7 +181,8 @@ The original layout is preserved as a scene and uses the current 3D planner. The
 | `motion_primitives_planning/launch/config/task*.yaml` | Obstacle dimensions/motion, waypoints, and scene-validation settings |
 | `simple-airplane/simple_airplane_gazebo/worlds/` | Gazebo worlds matching the scene configurations |
 | `motion_primitives_planning/scripts/generate_*.py` | Deterministic world-generation utilities |
-| `motion_primitives_planning/src/motion_primitives.h` | Planning, prediction, collision checks, and visualization |
+| `motion_primitives_planning/src/runtime_motion_primitives.h` | Gazebo runtime planning, including gradual climb/descent candidates |
+| `motion_primitives_planning/src/motion_primitives.h` | Frozen planning implementation for training and paper benchmarks |
 
 Positions and dimensions are in meters. Waypoint `h` is altitude. An upright cylinder uses `r`, `height`, and optional center height `z`; without `z`, its center is at half its height. A horizontal cylinder uses `x`, `y`, `z`, `r`, `length`, and `axis_yaw` in **degrees**. Circular dynamic obstacles use `center`, orbit `radius`, and `angular_velocity` in **radians per second**.
 

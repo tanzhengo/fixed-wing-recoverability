@@ -1,0 +1,17 @@
+{
+  "max_banked_climb_gain_over_5s_m": 1.0256499277248778,
+  "best_banked_climb_window": [
+    6.82,
+    11.82,
+    7.186921484583005,
+    8.212571412307883
+  ],
+  "last_20s_height_range": [
+    8.683548956999466,
+    8.686346115436312
+  ],
+  "baseline_binary": {
+    "sha256": "230db2d2bb19d433216995bc1b7f5478bac2c4be496ad2d6424703cdb80965a4",
+    "path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/spiral_fix/motion_primitives_test_before"
+  }
+}

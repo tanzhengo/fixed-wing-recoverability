@@ -1,0 +1,12 @@
+# Large-height-error trajectory test, with unchanged flight envelope.
+static_obstacles:
+  num: 0
+sphere_obstacles:
+  num: 0
+horizontal_obstacles:
+  num: 0
+dynamic_obstacles:
+  num: 0
+waypoints:
+  num: 1
+  wp1: {x: 50.0, y: 0.0, h: 70.0}

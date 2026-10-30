@@ -1,0 +1,8 @@
+{
+  "all_ros_parameters_match_tested_scenario": true,
+  "parameter_count": 54,
+  "world_identical": true,
+  "world_sha256": "49e93368d1ed0ee4eb78dfb9dee4d9b8ee641c2178f5333d60505fee37c3e060",
+  "target_height": 110.0,
+  "ceiling": 120.0
+}

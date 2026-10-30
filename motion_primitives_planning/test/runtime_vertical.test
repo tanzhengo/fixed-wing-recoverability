@@ -1,0 +1,5 @@
+<launch>
+  <param name="use_sim_time" value="false"/>
+  <param name="runtime_vertical_model_path" value="$(find motion_primitives_planning)/models/recovery_mlp.txt"/>
+  <test test-name="runtime_vertical_test" pkg="motion_primitives_planning" type="runtime_vertical_test" time-limit="120.0"/>
+</launch>

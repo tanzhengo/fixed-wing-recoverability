@@ -1,0 +1,210 @@
+{
+  "format": 1,
+  "acquired_date": "2026-10-30",
+  "runs": {
+    "before": {
+      "result": "evidence/before/result.json",
+      "planner_binary_sha256": "230db2d2bb19d433216995bc1b7f5478bac2c4be496ad2d6424703cdb80965a4",
+      "collector_sha256_at_acquisition": null,
+      "source_hashes_at_acquisition": null,
+      "note": "Acquisition script/source hashes were not recorded. Raw evidence and planner binary hashes are preserved."
+    },
+    "after": {
+      "result": "evidence/after/result.json",
+      "planner_binary_sha256": "efad44d4d94a6bd9adbf6b8f4e2c4603df4d049bafe3ecfa7666ef4c94d1bdd5",
+      "collector_sha256_at_acquisition": null,
+      "source_hashes_at_acquisition": null,
+      "note": "Acquisition script/source hashes were not recorded. Raw evidence and planner binary hashes are preserved."
+    },
+    "after_repeat": {
+      "result": "evidence/after_repeat/result.json",
+      "planner_binary_sha256": "efad44d4d94a6bd9adbf6b8f4e2c4603df4d049bafe3ecfa7666ef4c94d1bdd5",
+      "collector_sha256_at_acquisition": null,
+      "source_hashes_at_acquisition": null,
+      "note": "Acquisition script/source hashes were not recorded. Raw evidence and planner binary hashes are preserved."
+    },
+    "multiturn": {
+      "result": "evidence/multiturn/result.json",
+      "planner_binary_sha256": "efad44d4d94a6bd9adbf6b8f4e2c4603df4d049bafe3ecfa7666ef4c94d1bdd5",
+      "collector_sha256_at_acquisition": null,
+      "source_hashes_at_acquisition": null,
+      "note": "Acquisition script/source hashes were not recorded. Raw evidence and planner binary hashes are preserved."
+    },
+    "multiturn_110": {
+      "result": "evidence/multiturn_110/result.json",
+      "planner_binary_sha256": "efad44d4d94a6bd9adbf6b8f4e2c4603df4d049bafe3ecfa7666ef4c94d1bdd5",
+      "collector_sha256_at_acquisition": null,
+      "source_hashes_at_acquisition": null,
+      "note": "Acquisition script/source hashes were not recorded. Raw evidence and planner binary hashes are preserved."
+    }
+  },
+  "provided_observer": {
+    "path": "gazebo_regression.py",
+    "sha256": "d541126ffd11fb80e629447a51c3ef7f021a972ee6dcd3bca92396b1ccfacb4d",
+    "note": "Final portable observer. The portable CLI was used for multiturn_110. Port/output safeguards and hash capture were added after acquisition; this hash is not the acquisition hash."
+  },
+  "source_hashes_captured_at_packaging": {
+    "motion_primitives_planning/src/runtime_motion_primitives.h": "2f160ee85a3c503628074ddad8f3a416ef962eed3124ed863de991e124d1b6ff",
+    "motion_primitives_planning/src/motion_primitives_test.cpp": "24b6df70b78c0f31289cba719912ebbbb84512641fe3b22ea818db5dd6e3d1fb",
+    "motion_primitives_planning/scripts/generate_urban_planner.py": "86e1e753e1ebf9b161324788319d0147de4081449aa614116e8faf4205899657",
+    "motion_primitives_planning/models/recovery_mlp.txt": "d324bf927dc89f53568cfc3980a7a6217227a89f4b28a1f90fb324b6580a36aa",
+    "motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b"
+  },
+  "files": {
+    "evidence/before/observations.json.gz": {
+      "sha256": "6a1fbc9100ac290b96e2eb1a688edb0c4a1f916bf808d76dac06fdd7ad26cced",
+      "uncompressed_sha256": "7619d08b7e0ccdeb1fa7344e9986d04b4e816270d6f9d8b5f70529d1c3bf07eb",
+      "uncompressed_bytes": 2761558
+    },
+    "evidence/before/launch.log.gz": {
+      "sha256": "95a1c95af41ebd4738636ee07473437b00e862c54487ee0f5b3d12d4c7ada7c0",
+      "uncompressed_sha256": "5e503b68dc1034560675405bee40a983e66093d7c900c00e9309f68076c5ac93",
+      "uncompressed_bytes": 2026255
+    },
+    "evidence/before/result.json": {
+      "sha256": "7f8c18158384d01d9f1e625ca5d13c5e6138e93d3fda28e0ea437de60e2ffed1"
+    },
+    "evidence/before/diagnostics.json": {
+      "sha256": "80be3afdd2f0dcbc2a3ffe6ec5ad53ae5786f06856fc41d1dfb8a4b16814ba82"
+    },
+    "evidence/after/observations.json.gz": {
+      "sha256": "369faf89505bdd7b62776c9d93b1b4dc8adb58c3288b1956feb38574435498f0",
+      "uncompressed_sha256": "8f94e1021130c22acbbea58facc62b731c0c2a8a2f3869c7e2574efed5412ef8",
+      "uncompressed_bytes": 866465
+    },
+    "evidence/after/launch.log.gz": {
+      "sha256": "5bab2b36e37f1c2cd6d8193e177de4af8c9038be64c1c1c146a664e9515eba13",
+      "uncompressed_sha256": "83a7a95329d92b168c805464ec0bc1a294cf301b6b0dce920e48c3a27000b75a",
+      "uncompressed_bytes": 637834
+    },
+    "evidence/after/result.json": {
+      "sha256": "fea70ed0e2048ca4495145ab28e5cacb9d4bc6e77d8e6da83980ab0d973b07af"
+    },
+    "evidence/after_repeat/observations.json.gz": {
+      "sha256": "26d4967565b8feac7bec39c65e4cf34bd2732c3d40042ea17bf53564be78d820",
+      "uncompressed_sha256": "f3b30a96d8c6a11a55241b293973d48898d68471a519faa8eb10b375a67253ce",
+      "uncompressed_bytes": 875053
+    },
+    "evidence/after_repeat/launch.log.gz": {
+      "sha256": "973b6b35726b3792039afd1d2bc03ccca0c7ba4192b0567bd374520b16ecd471",
+      "uncompressed_sha256": "bfe289821d5df3d5cee1fed77675e76742d7b169f2623898376c92b36fb0c631",
+      "uncompressed_bytes": 637430
+    },
+    "evidence/after_repeat/result.json": {
+      "sha256": "83f9ba4877c15304f48e5da13b5aa5a21cb6f736eaacd5a3f7f8e1a27b596ce1"
+    },
+    "evidence/multiturn/observations.json.gz": {
+      "sha256": "1da31ce919ed8cc6a74466aa973653b8df0ce3fa4c1e2a231179057bf4a77de5",
+      "uncompressed_sha256": "7475b624dc02dbdc137eaa55cae1f76655761f4442d7430fe2194176ba9ddc38",
+      "uncompressed_bytes": 764504
+    },
+    "evidence/multiturn/launch.log.gz": {
+      "sha256": "60eaab4a0b4b28f22d8491a4efd84604375b208887d538d3c68b8fad8ae27ffc",
+      "uncompressed_sha256": "aea682997b1a0324db3324bf757666be191297916137e212558101a3715a2ca3",
+      "uncompressed_bytes": 582181
+    },
+    "evidence/multiturn/result.json": {
+      "sha256": "606c30aece81ec95743c1c75abd7ca14c17fd021856eab392c2bcedb512c7bee"
+    },
+    "evidence/multiturn_110/observations.json.gz": {
+      "sha256": "170b86eea25ee6539341bbacbbab72c26dce20dc9d54cbe97b176675de51f62a",
+      "uncompressed_sha256": "19f158e4e35c0ec30aac4c35336029862c197c530060ecff73e775d68990cb86",
+      "uncompressed_bytes": 1159270
+    },
+    "evidence/multiturn_110/launch.log.gz": {
+      "sha256": "29bc4b66b80def26c3247201ab916d2adf109706c2e2062184a9104f338de474",
+      "uncompressed_sha256": "27e32439ea33e7096efab2fa9d99b4dcb566cb24f4c578c7bd0b0e86db7ab2da",
+      "uncompressed_bytes": 887013
+    },
+    "evidence/multiturn_110/result.json": {
+      "sha256": "9821adb60edef054647bd8c7a293c830a8a4d42acbc0e11638008fbc308759cf"
+    },
+    "scenarios/multiturn_70/multiturn.yaml": {
+      "sha256": "f7daeda6a413ec074cc58916b0b8cd120d4058ddbbf7777e862a068bb351ece0"
+    },
+    "scenarios/multiturn_70/multiturn.world": {
+      "sha256": "49e93368d1ed0ee4eb78dfb9dee4d9b8ee641c2178f5333d60505fee37c3e060"
+    },
+    "scenarios/multiturn_70/multiturn.launch": {
+      "sha256": "1c5b3fec4946affcfad70a477357f1e952bb37201a3027e93e379239bfd842a8"
+    },
+    "scenarios/multiturn_110/multiturn.yaml": {
+      "sha256": "403f054fb99ed93d84480e8bfc40f28e54ea41b3c68aea4d5086eb31e80321c7"
+    },
+    "scenarios/multiturn_110/multiturn.world": {
+      "sha256": "49e93368d1ed0ee4eb78dfb9dee4d9b8ee641c2178f5333d60505fee37c3e060"
+    },
+    "scenarios/multiturn_110/multiturn.launch": {
+      "sha256": "e1e9461cc12f198f875d5facdf9ae6e53687b2f7c99a792f2e8ccb59ae491cbb"
+    },
+    "evidence/before/binary.json": {
+      "sha256": "4354d9f9b0eb6cc228052941b165c885d5b27f78e8613e711b931cc1c2181fdb"
+    },
+    "diagnosis/candidates.cpp": {
+      "sha256": "e571d28f05da7eacb73d530cd170bc259fd9625454222723a9f3f62d791db4e7"
+    },
+    "diagnosis/candidates.csv.gz": {
+      "sha256": "bbdbe20dabd336b430a71b783f74850203e5dbaadc51d7051c72896810127deb",
+      "uncompressed_sha256": "28fb5d31683e084fa59e11d0f46c6b7fd00c300482536a82168adb56a77cc551",
+      "uncompressed_bytes": 511631
+    },
+    "diagnosis/near_candidates.cpp": {
+      "sha256": "c59fd97f427c04d69bd7a0df350607d1190afb4ae01c194e5b908b688437b56b"
+    },
+    "diagnosis/near_candidates.csv.gz": {
+      "sha256": "ac905f74cfb0dc4de899c357b662bdcb8d1ccd9264bb54e82bb9f480ebce8cde",
+      "uncompressed_sha256": "a4b0af35f974fe2507be1cec829dd6f413cc19a36f026cc2116fbd4a76f092c9",
+      "uncompressed_bytes": 841079
+    },
+    "diagnosis/states.csv": {
+      "sha256": "6412d9d348124544e099f10e6980b531be6970fee23c07b0e256b604d158006d"
+    },
+    "entry_verification.json": {
+      "sha256": "e3d73ebe54ae5539570318ccc3e39ff663931079413e5e1f8d8e3bd9690a3ee7"
+    },
+    "unit_tests/build_runtime.log.gz": {
+      "sha256": "02f3763df2aa93f39d3a645c11999999b13de898a2188a04ca9893631cf5fc8a",
+      "uncompressed_sha256": "1d006e0fe05d16fb5438adcf4d6d0f4f9f35e939a6925a3dfaa62bfa35517aec",
+      "uncompressed_bytes": 4441
+    },
+    "unit_tests/build_test.log.gz": {
+      "sha256": "309685ab74ae42b2c3af6264f27f868a4f6570147365fbedb652cde3d8c3b73e",
+      "uncompressed_sha256": "9cb98dce51c4e181cc966b4d5ea8668f4967cfabca38dae94f0e2cb481b949e6",
+      "uncompressed_bytes": 18323
+    },
+    "unit_tests/rostest-test_runtime_vertical.xml": {
+      "sha256": "c8a48fe7c4ed67264365ca9a533d3488ff837c9de39b992fc814f5e9d2698061"
+    },
+    "unit_tests/rosunit-runtime_vertical_test.xml": {
+      "sha256": "8da0ec0223555a6ebe7e82aac0c26386230df96849ed27c73d3cb84ced6357c4"
+    },
+    "unit_tests/runtime_tests.log.gz": {
+      "sha256": "a086cd7c12556782635f53b5b41c225a9f568008de0e6a689e0c9a915ebd31c1",
+      "uncompressed_sha256": "849b85ba198cd3407396d21fff32e3d5e34877d2bec5f4593bda6bcce5de8c41",
+      "uncompressed_bytes": 1429
+    },
+    "scenarios/multiturn_70/multiturn.launch.original.gz": {
+      "sha256": "fdd85dc95fe2164b44736578b4ad5b4142a108567ac727b89c2bae30a0a0c8ce",
+      "uncompressed_sha256": "9ff78c97fc1b3565cc152910caaecde1bff57a2deb41ebe711ea9b82bff0cfd4",
+      "uncompressed_bytes": 2354
+    },
+    "scenarios/multiturn_110/multiturn.launch.original.gz": {
+      "sha256": "a59905c3b9e8e0de962702ce84f5473e677b12378608a9cb8ecfed59c62a83d2",
+      "uncompressed_sha256": "14e695ea850d6521ab32642a35158d5329992575110599f00a6db3bc470fff2c",
+      "uncompressed_bytes": 2435
+    },
+    "multiturn_climb.png": {
+      "sha256": "5bab3e90014fb6592bb0bea3cac8ccf691f333575549bf9198f660a96fe49f22"
+    },
+    "plot_multiturn_climb.py": {
+      "sha256": "8f900ea94e9cdac3f419bf7cfc63671edffdf9f5fb6f9189c248da89225c6b48"
+    }
+  },
+  "notes": [
+    "The 70m scenario attained its goal after 1.8301 net heading turns; passed=false reflects only its additional test criterion of at least two turns.",
+    "The 110 m scenario changes the altitude ceiling to 120 m so its 110 m goal lies within the altitude bound; climb/descent limits remain 20 degrees and the roll limit remains 35 degrees.",
+    "Physical and inflated obstacle clearances are reference-point distances sampled from odometry, not swept aircraft mesh clearances.",
+    "Existing BUDGET_EXHAUSTED statuses and near-zero positive inflated clearance in course runs are retained in raw evidence.",
+    "Runnable scenario launch XML has whitespace normalized; exact acquired launch bytes are retained in multiturn.launch.original.gz alongside each scenario."
+  ]
+}

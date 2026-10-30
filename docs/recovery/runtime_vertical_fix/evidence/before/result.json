@@ -1,0 +1,137 @@
+{
+  "tag": "before",
+  "stop_reason": "simulation_limit",
+  "wall_seconds": 104.2140442450036,
+  "last_sim_time": 100.1,
+  "odom_count": 5004,
+  "command_count": 999,
+  "status_count": 999,
+  "goal_transitions": [
+    {
+      "t": 0.3,
+      "x": 170.0,
+      "y": 0.0,
+      "z": 8.0,
+      "aircraft": {
+        "t": 0.3,
+        "x": 3.8886749744371407,
+        "y": 0.0,
+        "z": 7.983785492778653,
+        "V": 13.317908979471397,
+        "gamma": -0.009633160631239918,
+        "sigma": 0.0,
+        "roll": -0.0,
+        "attack": 4.3499520131773384e-10,
+        "T": 0.0,
+        "d_sigma": 0.0,
+        "physical_center_clearance": 80.11132502556286,
+        "inflated_clearance": 78.91132502556286
+      }
+    },
+    {
+      "t": 16.1,
+      "x": 350.0,
+      "y": 0.0,
+      "z": 24.0,
+      "aircraft": {
+        "t": 16.1,
+        "x": 156.28549900415274,
+        "y": 45.964432356953736,
+        "z": 8.456223864896211,
+        "V": 15.469114918094762,
+        "gamma": -0.01079308368147744,
+        "sigma": -1.1649200497069532,
+        "roll": -0.12416490167379375,
+        "attack": -0.18429341040669542,
+        "T": 0.8558117460373847,
+        "d_sigma": -0.07914315554489691,
+        "physical_center_clearance": 60.40823130027735,
+        "inflated_clearance": 59.20823130027735
+      },
+      "previous_goal": [
+        170.0,
+        0.0,
+        8.0
+      ],
+      "previous_goal_horizontal_error": 47.966827907024154,
+      "previous_goal_height_error": 0.45622386489621114
+    }
+  ],
+  "status_counts": {
+    "RECOVERY_VERIFIED": 999
+  },
+  "last_odom": {
+    "t": 100.1,
+    "x": 337.9346613273958,
+    "y": 6.832550337919148,
+    "z": 8.683847048477526,
+    "V": 15.497526612448837,
+    "gamma": 2.5881977750488518e-08,
+    "sigma": 0.49211434369371915,
+    "roll": -0.6108652353286744,
+    "attack": -0.03725090975925513,
+    "T": 0.8946860791518326,
+    "d_sigma": -0.44323434088207386,
+    "physical_center_clearance": 63.63962314886919,
+    "inflated_clearance": 62.24940978885523
+  },
+  "minimum_physical_center_clearance_m": 3.1752616581987514,
+  "minimum_inflated_clearance_m": 1.975261658198752,
+  "altitude_min_max": [
+    7.180479832556732,
+    9.08824423459078
+  ],
+  "banked_positive_climb_m": 3.600768139332464,
+  "banked_positive_climb_duration_s": 50.83999999999999,
+  "planner_parameters": {
+    "horizon_time": 3.0,
+    "V": 15.5,
+    "theata": 45.0,
+    "num": 29,
+    "vertical_num": 7,
+    "max_climb_angle": 20.0,
+    "max_descent_angle": 20.0,
+    "min_altitude": 1.0,
+    "max_altitude": 80.0,
+    "vertical_clearance": 1.0,
+    "integration_dt": 0.02,
+    "min_speed": 3.0,
+    "max_speed": 45.0,
+    "max_thrust": 20.0,
+    "altitude_weight": 0.15,
+    "distance_weight": 0.02,
+    "heading_weight": 3.0,
+    "waypoint_altitude_tolerance": 3.0,
+    "max_roll_angle": 35.0,
+    "max_attack_angle": 25.0,
+    "min_attack_angle": -20.0,
+    "compensate_tau": 0.8,
+    "K_T": 2.2
+  },
+  "recovery_parameters": {
+    "require_terminal": true,
+    "stop_on_rejection": true,
+    "max_backup_integration_steps": 0,
+    "enabled": true,
+    "horizon_time": 6.0,
+    "max_candidates": 12,
+    "candidate_order": "learned",
+    "reuse_verified_plan": false,
+    "min_execution_time": 0.1,
+    "known_space_radius": 0.0,
+    "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/models/recovery_mlp.txt",
+    "learned_work_power": 0.0
+  },
+  "command": [
+    "roslaunch",
+    "motion_primitives_planning",
+    "terminal_recovery_learned.launch",
+    "gui:=false",
+    "rviz:=false",
+    "paused:=false"
+  ],
+  "world_sha256": "def4255a047c758a7d9b83f75fe31ec259e52be53a71ef418edbc12f25f8a80e",
+  "point_clearance_note": "Clearance is sampled for aircraft reference-point position against analytic physical/inflated static cylinders; not an aircraft mesh-contact certificate.",
+  "network_fallback_warning": false,
+  "passed": false
+}

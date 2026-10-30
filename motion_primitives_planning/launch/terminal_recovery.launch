@@ -3,6 +3,8 @@
   <arg name="gui" default="true"/>
   <arg name="rviz" default="true"/>
   <arg name="paused" default="true"/>
+  <arg name="world_name" default="$(find simple_airplane_gazebo)/worlds/vertical_avoidance.world"/>
+  <arg name="task_config" default="$(find motion_primitives_planning)/launch/config/task_3d_validation.yaml"/>
   <arg name="enabled" default="true"/>
   <arg name="known_space_radius" default="0.0"/>
   <!-- Full primary coverage for the first prototype; 12 is the budget ablation. -->
@@ -16,12 +18,12 @@
   <arg name="stop_on_rejection" default="false"/>
   <arg name="max_backup_integration_steps" default="0"/>
   <include file="$(find simple_airplane_gazebo)/launch/simple_airplane_empty_world.launch">
-    <arg name="world_name" value="$(find simple_airplane_gazebo)/worlds/vertical_avoidance.world"/>
+    <arg name="world_name" value="$(arg world_name)"/>
     <arg name="gui" value="$(arg gui)"/>
     <arg name="paused" value="$(arg paused)"/>
   </include>
   <include file="$(find motion_primitives_planning)/launch/motion_primitives_test.launch">
-    <arg name="task_config" value="$(find motion_primitives_planning)/launch/config/task_3d_validation.yaml"/>
+    <arg name="task_config" value="$(arg task_config)"/>
     <arg name="gazebo_dynamic_obstacles" value="false"/>
     <arg name="rviz" value="$(arg rviz)"/>
   </include>

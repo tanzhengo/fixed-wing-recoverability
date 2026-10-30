@@ -1,0 +1,14 @@
+# Large-height-error test: 110 m goal, 120 m ceiling, original 20-degree climb limit.
+motion_primitive:
+  max_altitude: 120.0
+static_obstacles:
+  num: 0
+sphere_obstacles:
+  num: 0
+horizontal_obstacles:
+  num: 0
+dynamic_obstacles:
+  num: 0
+waypoints:
+  num: 1
+  wp1: {x: 50.0, y: 0.0, h: 110.0}

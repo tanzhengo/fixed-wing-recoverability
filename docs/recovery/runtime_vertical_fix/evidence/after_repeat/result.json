@@ -1,0 +1,203 @@
+{
+  "max_banked_climb_gain_over_5s_m": 8.567681147269646,
+  "best_banked_climb_window": [
+    16.86,
+    21.86,
+    13.847457978145712,
+    22.415139125415358
+  ],
+  "tag": "after_repeat",
+  "stop_reason": "completed_first_waypoint_cycle",
+  "wall_seconds": 36.157646115003445,
+  "last_sim_time": 31.78,
+  "odom_count": 1587,
+  "command_count": 315,
+  "status_count": 315,
+  "goal_transitions": [
+    {
+      "t": 0.32,
+      "x": 170.0,
+      "y": 0.0,
+      "z": 8.0,
+      "aircraft": {
+        "t": 0.32,
+        "x": 4.154963711179265,
+        "y": 0.0,
+        "z": 7.981163004224776,
+        "V": 13.306650646115504,
+        "gamma": -0.01049862642332647,
+        "sigma": 0.0,
+        "roll": -0.0,
+        "attack": 2.6568505902269113e-10,
+        "T": 0.0,
+        "d_sigma": 0.0,
+        "physical_center_clearance": 79.84503628882074,
+        "inflated_clearance": 78.64503628882073
+      }
+    },
+    {
+      "t": 8.51,
+      "x": 350.0,
+      "y": 0.0,
+      "z": 24.0,
+      "aircraft": {
+        "t": 8.49,
+        "x": 123.43200591634917,
+        "y": 13.786666469252902,
+        "z": 9.4890516563911,
+        "V": 15.578628964025153,
+        "gamma": -0.07557983756282298,
+        "sigma": -0.20394542417666695,
+        "roll": -0.11496213823556901,
+        "attack": -0.18426407813808954,
+        "T": 0.3373623113827636,
+        "d_sigma": -0.07454786304267261,
+        "physical_center_clearance": 27.645770351415194,
+        "inflated_clearance": 26.445770351415195
+      },
+      "previous_goal": [
+        170.0,
+        0.0,
+        8.0
+      ],
+      "previous_goal_horizontal_error": 48.565937088759654,
+      "previous_goal_height_error": 1.4890516563910996
+    },
+    {
+      "t": 21.11,
+      "x": 520.0,
+      "y": 0.0,
+      "z": 8.0,
+      "aircraft": {
+        "t": 21.1,
+        "x": 308.37096562253987,
+        "y": 23.767967074390448,
+        "z": 21.52798101133936,
+        "V": 15.215652122648484,
+        "gamma": 0.10471488854512027,
+        "sigma": -0.36909247365247944,
+        "roll": -0.1828115135431289,
+        "attack": -0.19233142158612065,
+        "T": 1.8706084004136578,
+        "d_sigma": -0.11086527718910445,
+        "physical_center_clearance": 32.588788065646405,
+        "inflated_clearance": 31.359078548504236
+      },
+      "previous_goal": [
+        350.0,
+        0.0,
+        24.0
+      ],
+      "previous_goal_horizontal_error": 47.93634072443437,
+      "previous_goal_height_error": 2.47201898866064
+    },
+    {
+      "t": 31.65,
+      "x": 170.0,
+      "y": 0.0,
+      "z": 8.0,
+      "aircraft": {
+        "t": 31.64,
+        "x": 472.3866147603449,
+        "y": 1.6861021736258772,
+        "z": 8.508297188553223,
+        "V": 15.550837767142536,
+        "gamma": -0.03317550927396486,
+        "sigma": -0.026938408509839185,
+        "roll": 5.893276465940725e-06,
+        "attack": -0.19128472000364594,
+        "T": 0.6806772297485464,
+        "d_sigma": 3.86992344472562e-06,
+        "physical_center_clearance": 196.92757695898874,
+        "inflated_clearance": 195.65935303401608
+      },
+      "previous_goal": [
+        520.0,
+        0.0,
+        8.0
+      ],
+      "previous_goal_horizontal_error": 47.643230311553296,
+      "previous_goal_height_error": 0.5082971885532235
+    }
+  ],
+  "status_counts": {
+    "RECOVERY_VERIFIED": 274,
+    "BUDGET_EXHAUSTED": 41
+  },
+  "last_odom": {
+    "t": 31.78,
+    "x": 474.5626638816944,
+    "y": 1.6241276766323876,
+    "z": 8.437533285019494,
+    "V": 15.567948903278953,
+    "gamma": -0.03131630241366234,
+    "sigma": -0.032689969679896826,
+    "roll": -0.14109179377555847,
+    "attack": -0.16832862079648173,
+    "T": 0.7711248327900374,
+    "d_sigma": -0.08598506737130056,
+    "physical_center_clearance": 199.10237906128614,
+    "inflated_clearance": 197.83454336294497
+  },
+  "minimum_physical_center_clearance_m": 1.0658899756024856,
+  "minimum_inflated_clearance_m": 0.002389787425816081,
+  "altitude_min_max": [
+    7.6352356509734305,
+    22.468326924422197
+  ],
+  "banked_positive_climb_m": 12.810040258018457,
+  "banked_positive_climb_duration_s": 9.33,
+  "planner_parameters": {
+    "horizon_time": 3.0,
+    "V": 15.5,
+    "theata": 45.0,
+    "num": 29,
+    "vertical_num": 7,
+    "max_climb_angle": 20.0,
+    "max_descent_angle": 20.0,
+    "min_altitude": 1.0,
+    "max_altitude": 80.0,
+    "vertical_clearance": 1.0,
+    "integration_dt": 0.02,
+    "min_speed": 3.0,
+    "max_speed": 45.0,
+    "max_thrust": 20.0,
+    "altitude_weight": 0.15,
+    "distance_weight": 0.02,
+    "heading_weight": 3.0,
+    "waypoint_altitude_tolerance": 3.0,
+    "max_roll_angle": 35.0,
+    "max_attack_angle": 25.0,
+    "min_attack_angle": -20.0,
+    "compensate_tau": 0.8,
+    "K_T": 2.2
+  },
+  "recovery_parameters": {
+    "require_terminal": true,
+    "stop_on_rejection": true,
+    "max_backup_integration_steps": 0,
+    "enabled": true,
+    "horizon_time": 6.0,
+    "max_candidates": 12,
+    "candidate_order": "learned",
+    "reuse_verified_plan": false,
+    "min_execution_time": 0.1,
+    "known_space_radius": 0.0,
+    "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/models/recovery_mlp.txt",
+    "learned_work_power": 0.0
+  },
+  "command": [
+    "roslaunch",
+    "motion_primitives_planning",
+    "terminal_recovery_learned.launch",
+    "gui:=false",
+    "rviz:=false",
+    "paused:=false"
+  ],
+  "world_sha256": "def4255a047c758a7d9b83f75fe31ec259e52be53a71ef418edbc12f25f8a80e",
+  "planner_binary_sha256": "efad44d4d94a6bd9adbf6b8f4e2c4603df4d049bafe3ecfa7666ef4c94d1bdd5",
+  "point_clearance_note": "Clearance is sampled for aircraft reference-point position against analytic physical/inflated static cylinders; not an aircraft mesh-contact certificate.",
+  "network_fallback_warning": false,
+  "waypoint_gate_checks_passed": true,
+  "passed": true
+}

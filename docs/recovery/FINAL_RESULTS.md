@@ -55,6 +55,8 @@
 
 ## 编译和运行
 
+Gazebo 运行版现使用 `runtime_motion_primitives.h`，新增当前高度附近的细分候选，解决高空航点前的平飞盘旋停滞。原三航点在原限制下连续两次完成，独立 110 m 空旷场景验证了 2.865 圈连续爬升，新增 6 项回归检查全部通过。详见[运行版修复及原始记录](runtime_vertical_fix/README.md)。本页论文实验、冻结的 `motion_primitives.h` 和网络权重保持原版本；运行版结果单独统计。
+
 在catkin工作区根目录执行：
 
 ```bash

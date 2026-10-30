@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.6">
+  <world name="default">
+    <physics name="default_physics" default="0" type="ode">
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>50</iters>
+          <sor>0.8</sor>
+          <use_dynamic_moi_rescaling>0</use_dynamic_moi_rescaling>
+        </solver>
+        <constraints>
+          <cfm>0</cfm>
+          <erp>0.2</erp>
+          <contact_max_correcting_vel>0.1</contact_max_correcting_vel>
+          <contact_surface_layer>0</contact_surface_layer>
+        </constraints>
+      </ode>
+      <real_time_update_rate>100</real_time_update_rate>
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <light name="sun" type="directional">
+      <cast_shadows>1</cast_shadows>
+      <pose frame="">0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name="ground_plane">
+      <static>1</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode />
+              </torsional>
+            </friction>
+            <contact>
+              <ode />
+            </contact>
+            <bounce />
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name="visual">
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 0</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type="adiabatic" />
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <wind />
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <model name="suav1">
+      <link name="base_link">
+        <pose frame="">0 0 0 0 -0 0</pose>
+        <inertial>
+          <pose frame="">0 0 0 0 -0 0</pose>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <collision name="base_link_fixed_joint_lump__body_link_collision">
+          <pose frame="">0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.1 0.1 0.1</scale>
+              <uri>package://simple_airplane_description/meshes/simple_airplane.dae</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode />
+            </contact>
+            <friction>
+              <ode />
+              <torsional>
+                <ode />
+              </torsional>
+            </friction>
+            <bounce />
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name="base_link_fixed_joint_lump__base_visual_visual">
+          <pose frame="">0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.1 0.1 0.1</scale>
+              <uri>package://simple_airplane_description/meshes/simple_airplane.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay />
+        <gravity>0</gravity>
+        <gravity>1</gravity>
+        <velocity_decay />
+        <gravity>0</gravity>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <visual name="front_camera_housing">
+          <pose>0 0 0.015 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.04 0.05 0.04</size>
+            </box>
+          </geometry>
+        </visual>
+        <visual name="front_camera_lens">
+          <pose>0.025 0 0.015 0 1.5708 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.01</length>
+              <radius>0.012</radius>
+            </cylinder>
+          </geometry>
+        </visual>
+        <sensor name="front_camera" type="camera">
+          <pose>0.03 0 0.015 0 0 0</pose>
+          <always_on>true</always_on>
+          <update_rate>15</update_rate>
+          <visualize>false</visualize>
+          <camera name="front_camera">
+            <horizontal_fov>1.5707963267948966</horizontal_fov>
+            <image>
+              <width>640</width>
+              <height>360</height>
+              <format>R8G8B8</format>
+            </image>
+            <clip>
+              <near>0.05</near>
+              <far>300</far>
+            </clip>
+          </camera>
+          <plugin filename="libgazebo_ros_camera.so" name="front_camera_controller">
+            <robotNamespace>/suav1</robotNamespace>
+            <cameraName>front_camera</cameraName>
+            <imageTopicName>image_raw</imageTopicName>
+            <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+            <frameName>front_camera_optical_frame</frameName>
+            <updateRate>15.0</updateRate>
+          </plugin>
+        </sensor>
+      </link>
+      <static>0</static>
+      <plugin name="object_controller" filename="libgazebo_ros_planar_move_with_banking_and_pitching_plugin1.so">
+        <commandTopic>cmd_vel</commandTopic>
+        <odometryTopic>odom</odometryTopic>
+        <odometryFrame>odom</odometryFrame>
+        <odometryRate>80.0</odometryRate>
+        <robotBaseFrame>base_link</robotBaseFrame>
+        <robotNamespace>/suav1/</robotNamespace>
+      </plugin>
+      <pose frame="">0.0 0.0 8.0 0.0 0.0 0.0</pose>
+    </model>
+    <gui fullscreen="0">
+      <camera name="user_camera">
+        <pose frame="">260 -500 320 0 0.55 1.5707963267948966</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    </world>
+</sdf>

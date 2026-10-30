@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="6" failures="0" disabled="0" errors="0" time="3.273" timestamp="2026-10-30T14:20:50" name="AllTests">
+  <testsuite name="RuntimeVertical" tests="6" failures="0" disabled="0" errors="0" time="3.273" timestamp="2026-10-30T14:20:50">
+    <testcase name="CapturedOrbitSelectsVerifiedClimbingTurn" status="run" result="completed" time="0.169" timestamp="2026-10-30T14:20:50" classname="RuntimeVertical" />
+    <testcase name="AggressiveCoarseClimbStillFailsOriginalEnvelope" status="run" result="completed" time="0.297" timestamp="2026-10-30T14:20:50" classname="RuntimeVertical" />
+    <testcase name="DistantAltitudeTargetsRetainGentleVerifiedClimbs" status="run" result="completed" time="0.22" timestamp="2026-10-30T14:20:50" classname="RuntimeVertical" />
+    <testcase name="AltitudeBoundaryClippingKeepsFiniteUniqueTargets" status="run" result="completed" time="0.282" timestamp="2026-10-30T14:20:51" classname="RuntimeVertical" />
+    <testcase name="HeightToleranceIsNotRelaxedToSkipWaypoint" status="run" result="completed" time="0.22" timestamp="2026-10-30T14:20:51" classname="RuntimeVertical" />
+    <testcase name="IndependentPlantEscapesThreeCapturedOrbitPhases" status="run" result="completed" time="2.085" timestamp="2026-10-30T14:20:51" classname="RuntimeVertical" />
+  </testsuite>
+</testsuites>

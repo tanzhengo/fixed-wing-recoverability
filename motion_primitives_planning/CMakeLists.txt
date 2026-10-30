@@ -267,6 +267,9 @@ catkin_install_python(PROGRAMS
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
+  add_rostest_gtest(runtime_vertical_test test/runtime_vertical.test test/test_runtime_vertical.cpp)
+  target_link_libraries(runtime_vertical_test ${catkin_LIBRARIES})
+  add_dependencies(runtime_vertical_test ${catkin_EXPORTED_TARGETS})
   add_rostest_gtest(urban_geometry_test test/urban_geometry.test test/test_urban_geometry.cpp)
   target_link_libraries(urban_geometry_test ${catkin_LIBRARIES})
   add_dependencies(urban_geometry_test check_urban_planner_header ${catkin_EXPORTED_TARGETS})
