@@ -1,6 +1,6 @@
-# City-block trajectory comparison
+# City-block trajectory comparison (archived alternative)
 
-This supplementary experiment replaces the paper's forest figure with complex city blocks. It uses new geometric scenes and newly executed trajectories from the five frozen planners.
+The active manuscript has returned to the forest voxel figure. This city-block experiment is retained as an evaluated alternative, with its geometry, trajectories and all outcomes preserved.
 
 - Eight paired seeds, 16 city maps and five methods: **80 nominal closed-loop episodes**.
 - Base layout: 20 buildings composed of 40 podium/tower boxes. Dense layout: the same base buildings plus eight infill buildings, giving 28 buildings and 48 boxes.

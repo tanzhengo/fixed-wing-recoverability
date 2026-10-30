@@ -6,11 +6,11 @@
   "tables": 2,
   "references": 15,
   "author_format": "anonymous review manuscript",
-  "pdf_sha256": "34cef56434ee7c65e91ed7c8088f4f873b74186aa93f4d79e4a110ed11d6d128",
+  "pdf_sha256": "74bf405c2bf0736687db905b851a8dcb1f8b060750913de11e8fe48bbffa9c00",
   "unresolved_references": 0,
   "overfull_boxes": 0,
   "missing_glyphs": 0,
-  "render_check": "Urban voxel figure and affected pages 8-12 rendered and reviewed; 12 pages, no clipped content or unresolved references.",
+  "render_check": "Voxel figure and affected final pages rendered and inspected; 12-page manuscript, no clipped content or unresolved references.",
   "sources": {
     "main.tex": "a31076ceaadde84ad7c5a70053fb24418dad7eef21195c7b6f4f3d5248286573",
     "abstract.tex": "ed1b41215eead13eaa86405c46cde4449ae008df2864a38dd263979b97926c49",
@@ -19,14 +19,13 @@
     "method.tex": "0c3eac616670364707790447f63a84ee3b444ee49758a4b5b0b58aba00ec15e7",
     "learning_method.tex": "6a6ec76c93d18a9873a811b70166960858c0c0e20ccef82f91bd7c1a3a8b2942",
     "experiments.tex": "018f2fd010feec8f9edf0a22865811d2a2b8eb72d702d1a43acf6100e6b8e1a8",
-    "results.tex": "cdcf2294a3a33c4e83bff3243eba43fe8f3ba5dc6bc00ef1554982f7a7dea853",
+    "results.tex": "973400a4bb0f101a65a24ef9fddaa262c3d34bab379482bd591dd2fb87f78503",
     "geometry_ablation.tex": "673f807b73ed7f13559820c112fb378daaa00cac7dbdcdce3ea455b8f5a3f2b4",
-    "conclusion.tex": "15dbe2319ff9759879f2b44f5ff800832575b9788e0c4383307d113e663edad9",
+    "conclusion.tex": "76edb70ae634e49d94fcb74e0029a3e050aedcf4c90be0268ccd71ecca558ce3",
     "implementation.tex": "c4a568bfcb67a81f66a7ebc29c2e39b234356deb01c15b1b69becd5c3fcb2c35",
-    "urban_experiment.tex": "a11d0551a2189f8f13926134435f3adeeb4465ca457ee457d1b7a387a25d8426"
+    "forest_experiment.tex": "79bbd85c220a1385e61e517d50079003e194d5d5ccc94998c9aa01e28c8302b2"
   },
-  "urban_figure_sha256": "e2ccc8a3954aed5d747e885fc2d95b2db7dd00d91859e2e2df8f2a68f375343a",
-  "urban_voxel_size_m": 1.5,
-  "supplementary_urban_episodes": 80,
-  "urban_geometry_tests_passed": 6
+  "supplementary_forest_episodes": 80,
+  "forest_figure_sha256": "db92d51b667720afb991ed4d4e2fa768c0dcf2ae011947cd2197633e925eb749",
+  "forest_voxel_size_m": 1.5
 }
