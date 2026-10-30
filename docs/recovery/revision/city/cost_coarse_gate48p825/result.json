@@ -1,0 +1,170 @@
+{
+  "stop_reason": "no_feasible_primary",
+  "error": null,
+  "wall_seconds": 67.96051096999145,
+  "first_sim_time": 0.06,
+  "last_sim_time": 53.74,
+  "odom_count": 3356,
+  "status_count": 536,
+  "last_odom": {
+    "t": 53.74,
+    "x": -179.79734222213622,
+    "y": -238.03162295308536,
+    "z": 32.00317339130772,
+    "V": 15.463832826231663,
+    "gamma": -0.01991517294663738,
+    "sigma": -1.4635761891602952,
+    "roll": 0.31044855713844305,
+    "attack": -0.16730177949648548,
+    "T": 1.0875625947207952,
+    "d_sigma": 0.20017347506397243,
+    "physical_box_clearance": 2.6949233535737043,
+    "inflated_box_clearance": 0.06873974413622363
+  },
+  "goal_transitions": [
+    {
+      "t": 0.204,
+      "x": -85.0,
+      "y": -100.0,
+      "z": 40.0,
+      "aircraft": {
+        "t": 0.204,
+        "x": -90.0000001197952,
+        "y": -267.25940466718725,
+        "z": 39.99229097242862,
+        "V": 13.368673972938428,
+        "gamma": -0.006233592267526336,
+        "sigma": 1.5707963705062866,
+        "roll": -1.0264005200593522e-09,
+        "attack": -0.0012041323525774994,
+        "T": 0.04520598411560059,
+        "d_sigma": 0.0,
+        "physical_box_clearance": 20.000000119795203,
+        "inflated_box_clearance": 18.000000119795203
+      },
+      "odometry_age_s": 0.0
+    }
+  ],
+  "waypoints": [
+    [
+      -85.0,
+      -100.0,
+      40.0
+    ],
+    [
+      -85.0,
+      180.0,
+      50.0
+    ],
+    [
+      120.0,
+      225.0,
+      60.0
+    ],
+    [
+      60.0,
+      80.0,
+      60.0
+    ],
+    [
+      35.0,
+      -50.0,
+      60.0
+    ],
+    [
+      20.0,
+      -230.0,
+      55.0
+    ],
+    [
+      125.0,
+      -265.0,
+      55.0
+    ],
+    [
+      -90.0,
+      -270.0,
+      40.0
+    ]
+  ],
+  "waypoint_gate_horizontal_m": 48.825,
+  "waypoint_gate_height_m": 3.0,
+  "waypoint_gate_checks_passed": false,
+  "status_counts": {
+    "RECOVERY_VERIFIED": 527,
+    "BUDGET_EXHAUSTED": 8,
+    "NO_FEASIBLE_PRIMARY": 1
+  },
+  "primary_infeasible_status_count": 1,
+  "minimum_physical_box_clearance_m": 2.5231653985474045,
+  "minimum_inflated_box_clearance_m": 0.06873974413622363,
+  "physical_box_intrusion_samples": 0,
+  "inflated_box_intrusion_samples": 0,
+  "altitude_min_max_m": [
+    31.281510300262923,
+    39.999438053615926
+  ],
+  "speed_min_max_m_s": [
+    13.351220460380945,
+    16.151154606710694
+  ],
+  "max_abs_gamma_deg": 11.481195145999314,
+  "max_abs_roll_deg": 34.999999835598885,
+  "planner_parameters": {
+    "horizon_time": 3.0,
+    "V": 15.5,
+    "theata": 45.0,
+    "num": 29,
+    "vertical_num": 7,
+    "max_climb_angle": 20.0,
+    "max_descent_angle": 20.0,
+    "min_altitude": 5.0,
+    "max_altitude": 160.0,
+    "vertical_clearance": 1.0,
+    "integration_dt": 0.02,
+    "min_speed": 3.0,
+    "max_speed": 45.0,
+    "max_thrust": 20.0,
+    "altitude_weight": 0.15,
+    "distance_weight": 0.02,
+    "heading_weight": 3.0,
+    "waypoint_altitude_tolerance": 3.0,
+    "max_roll_angle": 35.0,
+    "max_attack_angle": 25.0,
+    "min_attack_angle": -20.0,
+    "compensate_tau": 0.8,
+    "K_T": 2.2,
+    "state_relative_altitudes": false,
+    "waypoint_horizontal_tolerance": 48.825
+  },
+  "recovery_parameters": {
+    "require_terminal": true,
+    "stop_on_rejection": true,
+    "max_backup_integration_steps": 0,
+    "enabled": true,
+    "horizon_time": 6.0,
+    "max_candidates": 12,
+    "candidate_order": "cost",
+    "reuse_verified_plan": false,
+    "min_execution_time": 0.1,
+    "known_space_radius": 0.0,
+    "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/models/recovery_mlp.txt",
+    "learned_work_power": 0.0
+  },
+  "box_count": 162,
+  "ros_master_uri": "http://127.0.0.1:11371",
+  "task_config_sha256": "368e573c0c2766d782d82a4902b167960de3413eb7b6333bdfb05f71d0adcaca",
+  "observer_sha256": "bd3c0ec5887b2b55f6258490f2a7339a8e1a64a5dce328b42e44f2d7722ad654",
+  "point_clearance_note": "Distances are sampled aircraft reference-point distances to the imported planning boxes, not swept aircraft mesh collision measurements.",
+  "gate_sampling_note": "Goal transition checks use the latest preceding recorded odometry without enlarging the planner gate; message timing can differ from the exact state consumed by the planner.",
+  "cli": {
+    "task_config": "work/revision_city/cost_coarse_gate48p825/task.yaml",
+    "output_dir": "outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/city/cost_coarse_gate48p825",
+    "sim_seconds": 180.0,
+    "wall_seconds": 500.0,
+    "startup_seconds": 30,
+    "stop_after_cycle": true,
+    "stop_on_failure": true
+  },
+  "passed": false
+}

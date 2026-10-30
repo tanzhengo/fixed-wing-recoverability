@@ -1,0 +1,102 @@
+{
+  "created_utc": "2026-10-30T13:20:40.174254+00:00",
+  "archive_format": "gzip; deterministic mtime=0; lossless raw SHA256 verified",
+  "files": [
+    {
+      "raw_path": "heldout_matched.csv",
+      "raw_sha256": "6dfea735d6981187d7db19fd15f9049085252b7ffe8011a01ff728ea4d152c9d",
+      "raw_bytes": 10310900,
+      "archive_path": "heldout_matched.csv.gz",
+      "archive_sha256": "a7b5ec358b11808b161918a05343bfc3d6a80c479f3d96e6d9a873863071b11a",
+      "archive_bytes": 522595
+    },
+    {
+      "raw_path": "heldout_paths.csv",
+      "raw_sha256": "44daedfd1d5a44602fd5ed49163e6538eb3dc150af1d59f176168f66b2dc55a2",
+      "raw_bytes": 11685345,
+      "archive_path": "heldout_paths.csv.gz",
+      "archive_sha256": "96398a627f876314e664d2cf9c502b4a6fbe5dd9defb0cf4f2cc53779a2bab6f",
+      "archive_bytes": 4571257
+    },
+    {
+      "raw_path": "heldout_plans.csv",
+      "raw_sha256": "0ab494ecba2444a6b9d4745a79f5038f3b0ce85389e9f12b5d298fac8bb14aa1",
+      "raw_bytes": 7594387,
+      "archive_path": "heldout_plans.csv.gz",
+      "archive_sha256": "7eb5599c61bad7da408d282fef3f56b322bf480f8fbf0ef6470e73a6b48abd58",
+      "archive_bytes": 1491151
+    },
+    {
+      "raw_path": "parity_old_matched.csv",
+      "raw_sha256": "58af01a4f3d4bcb578290dde827453ca230c1a9c52936c7e28076f68bc343de2",
+      "raw_bytes": 1815143,
+      "archive_path": "parity_old_matched.csv.gz",
+      "archive_sha256": "f6e47cec32c0c13335a938db4af41c507c90f4259fb2bb59665b9df3bfa30b05",
+      "archive_bytes": 139710
+    },
+    {
+      "raw_path": "prefix/heldout_matched.csv",
+      "raw_sha256": "ce3831938f2752c2ba7cfc23e84ece43fb91fcbdeba034b68ff4ee9c06b88b3b",
+      "raw_bytes": 10369758,
+      "archive_path": "prefix/heldout_matched.csv.gz",
+      "archive_sha256": "6f0121d60380b758bc37342af31285137cd37934028dbfa26c33843e362c27ff",
+      "archive_bytes": 527077
+    },
+    {
+      "raw_path": "prefix/heldout_paths.csv",
+      "raw_sha256": "e1e5b509b5ffbf6778b0e1fcfcf579dff33730d3648b6a29f763022d04f2a13c",
+      "raw_bytes": 12124845,
+      "archive_path": "prefix/heldout_paths.csv.gz",
+      "archive_sha256": "1b508dd56869da2c3d54bef5d1c4869f2d4a4fba2f8161c4366a3d185af7bd74",
+      "archive_bytes": 4755177
+    },
+    {
+      "raw_path": "prefix/heldout_plans.csv",
+      "raw_sha256": "b12dc689dc8bb36ab312da28cb7bc0737900c8367852105395f2732185f27c13",
+      "raw_bytes": 7879309,
+      "archive_path": "prefix/heldout_plans.csv.gz",
+      "archive_sha256": "b39bc876439d14841db3cad88cc2224558176f8a9a806d73a51c760da88e8f15",
+      "archive_bytes": 1549670
+    },
+    {
+      "raw_path": "prefix/profile_matched.csv",
+      "raw_sha256": "33effb82dfad09c072b1e9c73ef2b611aa15595be877cb63b1fd210f06a44253",
+      "raw_bytes": 4382303,
+      "archive_path": "prefix/profile_matched.csv.gz",
+      "archive_sha256": "d8fcb2d7fd1d134628d4ca942df1be19f5abbc062e7531eee65a582092d68e9b",
+      "archive_bytes": 766831
+    },
+    {
+      "raw_path": "profile_matched.csv",
+      "raw_sha256": "66f8f62fefd185f8c7b1ec6c355b1d8d2161ab005937da024416aa2c3b799e2b",
+      "raw_bytes": 4276673,
+      "archive_path": "profile_matched.csv.gz",
+      "archive_sha256": "6737edb08272e2ab69bf810538aafc1f44d7a8d3909a7c3b0d4ace2545c23b32",
+      "archive_bytes": 712564
+    },
+    {
+      "raw_path": "timing_aborted_before_isolation/heldout_matched.csv",
+      "raw_sha256": "dc815b273a17a5b7a7062809c67394d8b260df4ffdda91c1b0e7a959221e26d1",
+      "raw_bytes": 2270712,
+      "archive_path": "timing_aborted_before_isolation/heldout_matched.csv.gz",
+      "archive_sha256": "431ffee87ef48ee5e7739b300a44a18268cc6a2d71ce5cf01701a519aa0ed705",
+      "archive_bytes": 111701
+    },
+    {
+      "raw_path": "validation_paths.csv",
+      "raw_sha256": "f3b357f9005f3dd836cf0a4a1ee1766836b91397485ee060ca96811a6a4b0f06",
+      "raw_bytes": 5415579,
+      "archive_path": "validation_paths.csv.gz",
+      "archive_sha256": "8617b97591cec2b836a3ff34c726882969886099c56d268b9f707009dcb5cbb2",
+      "archive_bytes": 2095741
+    },
+    {
+      "raw_path": "validation_plans.csv",
+      "raw_sha256": "8dbac3c2b35a5c5636b43a44fb09ab19113ebb6dc2916ae8bf09149b22e2dd12",
+      "raw_bytes": 3482376,
+      "archive_path": "validation_plans.csv.gz",
+      "archive_sha256": "737ff163f34b916e9954bd24092d825cea68556e6d306c1c69de886cfb0f8d75",
+      "archive_bytes": 683920
+    }
+  ]
+}

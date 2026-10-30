@@ -1,0 +1,38 @@
+[
+  {
+    "input": "geometry",
+    "seed": 20261030,
+    "initial_validation_bce": 0.6847986578941345,
+    "same_initial_prediction": true
+  },
+  {
+    "input": "geometry",
+    "seed": 20261031,
+    "initial_validation_bce": 0.6951225399971008,
+    "same_initial_prediction": true
+  },
+  {
+    "input": "geometry",
+    "seed": 20261032,
+    "initial_validation_bce": 0.68775475025177,
+    "same_initial_prediction": true
+  },
+  {
+    "input": "state",
+    "seed": 20261030,
+    "initial_validation_bce": 0.6839514374732971,
+    "same_initial_prediction": true
+  },
+  {
+    "input": "state",
+    "seed": 20261031,
+    "initial_validation_bce": 0.7017942070960999,
+    "same_initial_prediction": true
+  },
+  {
+    "input": "state",
+    "seed": 20261032,
+    "initial_validation_bce": 0.6853775382041931,
+    "same_initial_prediction": true
+  }
+]

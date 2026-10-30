@@ -1,0 +1,39 @@
+{
+  "start_utc": "2026-10-30T12:44:34.581221+00:00",
+  "ROS_MASTER_URI": "http://localhost:11373",
+  "cpu_affinity": [
+    4
+  ],
+  "status": "complete",
+  "hashes_before": {
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/recovery_learning_benchmark.cpp": "a94efa428c71075d75e76cceda456456dac04cfee55730fc14a425ed5146101d",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/recovery_review_diagnostics.cpp": "189589f44feacad784d5dec219f174d0b7d158c7c7cd97cbddcdfc0111738546",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/recovery_review_diagnostics": "858216dc9b460df568c53272f420cb74dabcedbcc86b2d4a7d55d8bef9297227",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/learning/models/geometry/network.txt": "d324bf927dc89f53568cfc3980a7a6217227a89f4b28a1f90fb324b6580a36aa",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/learning/models/state_only/network.txt": "f4bd84b45dc374d6bbcc8697bac64992da9799d7b215414029f20fc4340ccba5"
+  },
+  "command": [
+    "taskset",
+    "-c",
+    "4",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/recovery_review_diagnostics",
+    "_output_prefix:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/diagnostics/diagnostic",
+    "_model_path:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/learning/models/geometry/network.txt",
+    "_state_only_model_path:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/learning/models/state_only/network.txt",
+    "_yaw_mask_model_path:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/diagnostics/models/geometry_yaw_mask.txt"
+  ],
+  "exit_code": 0,
+  "hashes_after": {
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/recovery_learning_benchmark.cpp": "a94efa428c71075d75e76cceda456456dac04cfee55730fc14a425ed5146101d",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/recovery_review_diagnostics.cpp": "189589f44feacad784d5dec219f174d0b7d158c7c7cd97cbddcdfc0111738546",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/recovery_review_diagnostics": "858216dc9b460df568c53272f420cb74dabcedbcc86b2d4a7d55d8bef9297227",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/learning/models/geometry/network.txt": "d324bf927dc89f53568cfc3980a7a6217227a89f4b28a1f90fb324b6580a36aa",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/learning/models/state_only/network.txt": "f4bd84b45dc374d6bbcc8697bac64992da9799d7b215414029f20fc4340ccba5"
+  },
+  "sources_unchanged": true,
+  "end_utc": "2026-10-30T12:47:22.029705+00:00"
+}

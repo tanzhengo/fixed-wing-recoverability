@@ -179,6 +179,27 @@ add_executable(recovery_learning_benchmark src/recovery_learning_benchmark.cpp)
 target_link_libraries(recovery_learning_benchmark ${catkin_LIBRARIES})
 add_dependencies(recovery_learning_benchmark ${catkin_EXPORTED_TARGETS})
 
+add_executable(recovery_review_diagnostics src/recovery_review_diagnostics.cpp)
+target_link_libraries(recovery_review_diagnostics ${catkin_LIBRARIES})
+add_dependencies(recovery_review_diagnostics ${catkin_EXPORTED_TARGETS})
+
+add_executable(recovery_review_branchpoints src/recovery_review_branchpoints.cpp)
+target_link_libraries(recovery_review_branchpoints ${catkin_LIBRARIES})
+add_dependencies(recovery_review_branchpoints ${catkin_EXPORTED_TARGETS})
+
+add_executable(recovery_review_benchmark src/recovery_review_benchmark.cpp)
+target_link_libraries(recovery_review_benchmark ${catkin_LIBRARIES})
+add_dependencies(recovery_review_benchmark ${catkin_EXPORTED_TARGETS})
+
+add_executable(recovery_review_parity src/recovery_review_parity.cpp)
+target_link_libraries(recovery_review_parity ${catkin_LIBRARIES})
+add_dependencies(recovery_review_parity ${catkin_EXPORTED_TARGETS})
+
+add_executable(recovery_review_prefix_test src/recovery_review_prefix_test.cpp)
+target_link_libraries(recovery_review_prefix_test ${catkin_LIBRARIES})
+target_compile_options(recovery_review_prefix_test PRIVATE -UNDEBUG)
+add_dependencies(recovery_review_prefix_test ${catkin_EXPORTED_TARGETS})
+
 add_executable(recovery_benchmark_v3 src/recovery_benchmark_v3.cpp)
 target_link_libraries(recovery_benchmark_v3 ${catkin_LIBRARIES})
 add_dependencies(recovery_benchmark_v3 ${catkin_EXPORTED_TARGETS})

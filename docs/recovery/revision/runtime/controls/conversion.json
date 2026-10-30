@@ -1,0 +1,6 @@
+{
+  "operation": "Exact removal of zero input columns and unused work output; no retraining",
+  "source": "docs/recovery/learning/models/state_only/network.txt",
+  "source_sha256": "f4bd84b45dc374d6bbcc8697bac64992da9799d7b215414029f20fc4340ccba5",
+  "output_sha256": "979a1d835c7f30b4d34257dac9fd66a5d37a6c81c534b4a882216399eeda67b4"
+}

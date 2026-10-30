@@ -43,35 +43,34 @@ figures, the class file, a PDF preview and Chinese editing instructions:
 python3 package_latex.py --output /path/to/manuscript.zip
 ```
 
-## Evidence
+## Revised evidence
 
-The primary learning suite contains 576 matched states (11 methods/budgets,
-two timing repeats) and 768 closed-loop method-map-condition episodes. A
-separate frozen-model geometry-input ablation adds 256 changed-method episodes
-on the same maps and replays 512 unchanged baseline episodes exactly. These
-replays do not add independent maps. The 32 test maps are separate from the
-160 training and 32 validation maps.
+The revision adds twelve matched training runs (State/Geometry × BCE/auxiliary
+loss × three seeds), 512 validation execution episodes, and 2,304 closed-loop
+episodes on 32 new test maps. Validation execution freezes the State+Aux model
+before the new test split is opened. With the common RK4 prefix check, it
+completes 118/128 tasks with zero recorded inflated-margin incursions;
+Diverse completes 89 and Full 96 under the same check.
 
-The prospectively frozen geometry model completes 99/128 tasks; the subsequent
-no-geometry input ablation completes 117/128. The manuscript retains both
-results and their different experimental roles. The primary runtime timings
-were collected independently of training and compilation.
+Exact compact export removes inactive inputs and the unused work output.
+Deferred inference checks the common cheapest primary before constructing
+learned priorities. Runtime comparisons use isolated, rotated repeated inputs;
+component profiling is a separate pass. The full timing tables are in the PDF
+and the derived runtime analysis.
 
-An additional forest experiment contains 80 nominal episodes on eight paired
-sparse/dense seeds. The two-density trajectory figure uses the first seed,
-specified before execution, and actual logged flight states. The obstacle display
-uses a 1.5 m occupancy grid derived from the analytic geometry; collision checks
-retain the original analytic primitives. All methods finish
-8/8 sparse tasks; in dense forests, Learned finishes 7/8 and the other four
-methods finish 8/8. The displayed dense panel includes the Learned margin
-termination. Forest-run timing columns are diagnostic and are not pooled with
-the primary isolated runtime measurements.
+Historical failure replay reproduces 512 archived episodes. A separate urban
+matrix contains fifteen trials (five schedules × three library/gate settings).
+The city planner reads supplied building boxes; lidar voxels document observed
+space. The native Gazebo/RViz screenshots and original forest illustration are
+retained as archived records, with their original models and settings explicit.
 
-Figures are regenerated from audited experiment outputs using
-`create_schematic.py`, `create_learning_figures.py` and `create_forest_figure.py`.
-The data-driven scripts expect the repository's `docs/recovery/learning` and
-`docs/recovery/forest_figure` directories, respectively. Existing figure files suffice
-for compilation of the standalone source package.
+Protocols, hashes, raw observations, models and analysis scripts are indexed in
+[revision/README.md](../docs/recovery/revision/README.md). The original frozen
+models and prior test records remain in `docs/recovery/learning`.
 
-Historical nonlearning development experiments remain in docs/recovery/v3 and
-v4. They are not merged with the new learning test split.
+Regenerate the current figures with `create_schematic.py`,
+`create_revision_training_figure.py` and `create_revision_result_figures.py`.
+The retained forest/city image files are sufficient for independent LaTeX
+compilation; no ROS installation or experiment execution is needed to edit the
+standalone ZIP. Avoid running the historical `create_learning_figures.py` to
+update the revised manuscript: it targets the archived table/figure layout.

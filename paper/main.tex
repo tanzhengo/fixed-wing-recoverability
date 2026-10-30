@@ -2,9 +2,8 @@
 % Figures are stored in figures/. Compile main.tex twice with XeLaTeX.
 % No BibTeX step is needed; the bibliography is embedded at the end.
 % Navigation: search for BEGIN SECTION or use the editor section outline.
-% Sections: abstract, introduction, learning_related_work, method,
-% learning_method, experiments, results, geometry_ablation,
-% forest_experiment, gazebo_validation, conclusion, implementation, REFERENCES.
+% Sections: abstract, introduction, related work, method, learning,
+% experiments, results, forest/city studies, conclusion, appendices, references.
 \RequirePackage[T1]{fontenc}
 \documentclass[journal]{IEEEtran}
 \usepackage{amsmath,amssymb,graphicx,booktabs,array,url}
@@ -20,7 +19,7 @@
 \maketitle
 %% BEGIN SECTION: abstract
 \begin{abstract}
-Fixed-wing local planners must preserve room for subsequent maneuvers while operating within a finite computation budget. Evaluating a continuation for every candidate is expensive, whereas task-cost ordering concentrates checks on similar terminal motions. This paper presents a learning-guided terminal continuation search for motion-primitive planning. A compact neural network encodes the terminal dynamic state and surrounding obstacle clearance to predict continuation feasibility and validation work. Learned ranking and an optional maneuver-diversity schedule allocate explicit checks, while an incremental validator rejects infeasible rollouts at their first constraint violation. The network is trained from model-generated continuation labels on 160 maps and selected on 32 separate validation maps. On 576 matched states from 32 held-out maps, learned ranking discovers 96.50\% of full-library witnesses with at most 12 candidate checks, compared with 94.39\% for diversity and 77.34\% for cost ordering. Under a common 3,600-step validation limit, recall increases from 78.50\% to 87.15\% relative to diversity. In 768 closed-loop simulations covering nominal dynamics, model mismatch, wind and delay, the learned planner completes 99 of 128 tasks, compared with 70 for diversity. A subsequent frozen-model input ablation completes 117 tasks without the obstacle-clearance channels, revealing that candidate classification accuracy and closed-loop success favor different representations in this suite.
+Fixed-wing local planners must retain room for subsequent maneuvers while allocating limited computation to trajectory validation. This paper presents a learning-guided scheduler for finite-library terminal continuation queries. A network trained from model-generated labels ranks primary endpoints by successor feasibility. The cheapest primary is checked first, and inference is deferred until that query fails; compact single-output inference removes inactive inputs and unused computation while preserving the selected control. A factorial study evaluates state and geometry inputs, auxiliary work supervision and three training seeds. The deployed configuration is selected by closed-loop performance on validation maps before testing on 32 new maps. A separate common RK4 check of the imminent control interval addresses numerical inconsistency between prediction and execution. Across 2,304 closed-loop episodes, the selected state-input network with this check completes 118 of 128 tasks, compared with 89 for maneuver diversity and 96 for full-library search under the same check, with no recorded inflated-boundary incursions for these three methods. Paired failure replay distinguishes numerical boundary crossings from terminal continuation scarcity. Fifteen known-map Gazebo trials further quantify the influence of altitude discretization and waypoint tolerance. The results support learning the allocation of explicit continuation checks and selecting its representation through execution-level validation.
 \end{abstract}
 %% END SECTION: abstract
 \begin{IEEEkeywords}Fixed-wing UAV, learning-based planning, motion primitives, terminal feasibility, budgeted search.\end{IEEEkeywords}
@@ -30,11 +29,11 @@ A fixed-wing aircraft must continue moving while its planner chooses the next ma
 
 Two-phase fixed-wing planning combines global route guidance with local maneuver selection~\cite{tan2022twophase,tan2026twophase}. Within this hierarchy, a terminal continuation test evaluates a second control segment from the complete endpoint state of each primary. The additional look-ahead introduces a computational problem: checking $M$ successors for each of $N$ primaries requires up to $NM$ dynamic rollouts. A limited validation budget must therefore be allocated among candidates that differ in both their likelihood of admitting a continuation and the effort required to establish that result.
 
-Task-cost ordering tends to concentrate checks on similar terminal motions. Maneuver diversity spreads the search across turning directions and altitudes, but geometry can make some of these alternatives unproductive. An endpoint near an open turning region and one facing a wall may be equally distant from the previously selected maneuvers. This motivates an environment-conditioned schedule that learns which terminal states are promising while preserving exploration across distinct maneuvers.
+Task-cost ordering can spend its allowance on similar terminal motions. A learned schedule can prioritize endpoints likely to admit a continuation, but its utility depends on both the checks it saves and the cost of computing that priority. A further distinction arises in execution: a classifier trained to recognize nominal finite-horizon feasibility need not favor the same candidates as a policy trained for task completion. We therefore evaluate scheduling yield, total computation and closed-loop behavior as separate outcomes.
 
-We develop a learning-guided continuation search for a fixed-wing primitive planner. A compact neural network receives the initial and terminal dynamic states, target information and a terminal-frame clearance representation. It predicts whether a finite continuation witness exists and the work required by the incremental validator. The predictions prioritize explicit checks, and a hybrid schedule interleaves learned ranking with physically normalized maneuver coverage. The primary generator, task objective and trajectory acceptance tests are shared with the baselines.
+We develop a learning-guided continuation search that predicts finite-bank feasibility and allocates explicit checks. The implementation first validates the cheapest feasible primary and evaluates the network only when this common query fails. A compact inference model removes unused outputs and inactive input columns. Geometry encoding, auxiliary work supervision and maneuver interleaving are evaluated as design choices. The primary generator, nominal task objective and trajectory acceptance tests are shared with the baselines.
 
-The contributions are threefold. First, we formulate learned continuation-query selection under candidate-count and integration-step budgets, using labels obtained directly from a fixed-wing dynamic validator. Second, we combine a geometry-conditioned neural ranking with maneuver-space exploration and incremental rejection of infeasible continuations. Third, we evaluate the learned component on independent map splits through geometry ablation, matched-state budget comparisons and closed-loop execution with nominal dynamics, model mismatch, wind and command delay. An additional urban Gazebo flight evaluates online execution with onboard three-dimensional lidar acquisition. The analysis separates candidate prediction accuracy from validation yield and mission completion. The study isolates the local planning layer: every method receives the same target and obstacle map.
+The contributions are threefold. First, we formulate learned allocation of finite continuation queries under candidate-count and integration-step limits. Second, we derive a deferred-inference implementation that preserves the selected control while avoiding network work on queries resolved by the cheapest primary. Third, we provide a factorial training ablation, independent-map evaluation, component-level runtime measurements and paired failure replay to identify where scheduling gains do and do not transfer to execution. A separate Gazebo study compares scheduling and altitude-library configurations in a known urban map. Its lidar stream records the observed environment; the planning input is the supplied collision geometry.
 
 \section{Related Work}
 \subsection{Fixed-Wing Planning and Terminal Maneuvers}
@@ -45,24 +44,22 @@ Terminal constraints in model predictive control connect finite-horizon optimiza
 Our continuation query asks whether a primary endpoint admits a feasible successor from a specified control library over a specified duration. This finite witness fits the existing fixed-wing generator and provides a measurable validation task. The scheduling method allocates these queries; the periodic terminal maneuver and invariant-set constructions above address a different horizon of feasibility.
 
 %% BEGIN SECTION: learning_related_work
-% Replace the former Backup Trajectories and Learned Candidate Libraries subsection
-% with this text, and retain the separate terminal-set and diversity discussions.
 \subsection{Learned Primitives and Validation Effort}
 YOPO~\cite{lu2024yopo} learns trajectory parameters and scores for a spatially anchored candidate set, while YOPOv2-Tracker~\cite{lu2026yopov2} extends this representation to integrated tracking and navigation. ORACLE~\cite{nguyen2022oracle} predicts collision costs for predefined velocity--steering action sequences from depth images and estimated motion, and combines these predictions with goal information to select a primitive. DPNet~\cite{zhang2026dpnet} predicts structural dead ends and prunes a compact trajectory library. These approaches establish the role of learned environment-dependent scores in selecting among multiple local maneuvers.
 
 Learning can also target the computation performed by a planner. SaIL~\cite{bhardwaj2017sail} trains a node-expansion policy by imitating a fully informed search oracle, with search effort as its objective. Bayesian active edge evaluation~\cite{choudhury2018active} uses correlations among edge-validity outcomes to choose informative checks in a path library. Fastron~\cite{das2017fastron} instead learns a configuration-space collision proxy. These methods address different parts of the planning pipeline: search expansion, evaluation order, and the collision test itself.
 
-We learn the priority of terminal continuation queries for a dynamically propagated fixed-wing primitive library. Each query asks whether the terminal state admits a feasible successor and how many integration steps the incremental validator is likely to require. The two quantities provide joint supervision from feasibility and computational-effort labels. The influence of predicted work on ranking is selected using validation maps. The online planner combines this learned priority with maneuver-space coverage, and accepts a candidate after evaluating the corresponding continuation under the dynamics and geometric constraints. The comparison therefore concerns how much useful continuation evidence is obtained within a prescribed budget.
+We learn the priority of terminal continuation queries for a dynamically propagated fixed-wing primitive library. Each query asks whether the terminal state admits a feasible successor and how many integration steps the incremental validator is likely to require. The work label supplies an optional auxiliary training loss, whose effect is measured against feasibility-only training. Online ranking uses feasibility probability. Acceptance is determined by explicit continuation validation under the dynamics and geometric constraints. The comparison therefore concerns how much useful continuation evidence is obtained within a prescribed budget.
 %% END SECTION: learning_related_work
 
 \subsection{Maneuver Coverage}
-Farthest-first selection spreads representatives across a metric space~\cite{gonzalez1985clustering}. We use this principle to diversify terminal headings and altitudes, normalized by nominal aircraft maneuver capability. Such physical scaling prevents small altitude variations in a narrow flight band from receiving the same importance as a substantial heading change. The hybrid schedule couples this coverage with learned geometric information, and the experiments isolate the contribution of each component.
+Farthest-first selection spreads representatives across a metric space~\cite{gonzalez1985clustering}. We use this principle to diversify terminal headings and altitudes, normalized by nominal aircraft maneuver capability. Such physical scaling prevents small altitude variations in a narrow flight band from receiving the same importance as a substantial heading change. A hybrid ablation interleaves this coverage with learned priority. It tests the effect of exploration without assuming that fixed alternation improves task completion.
 %% END SECTION: introduction
 %% BEGIN SECTION: method
 \section{Problem Formulation}
 \begin{figure*}[!t]
 \centering\includegraphics[width=.94\textwidth]{figures/architecture.pdf}
-\caption{Local planning cycle. A geometry-conditioned network and maneuver coverage schedule explicit continuation checks. The same validator supplies offline training labels and online trajectory acceptance.}
+\caption{Local planning cycle with deferred inference. The cheapest primary is checked before constructing learned priorities. The Euler continuation validator supplies offline labels and online witness acceptance. An optional online RK4 prefix check is evaluated separately. If the budget yields no witness, the fallback is the cheapest feasible primary.}
 \label{fig:architecture}
 \end{figure*}
 
@@ -71,12 +68,14 @@ The aircraft state is
 \begin{equation}
  x=(p_x,p_y,h,V,\gamma,\psi,\phi,\alpha,T),
 \end{equation}
-where $h$ is altitude, $V$ is airspeed, $\gamma$ is flight-path angle, $\psi$ is heading, and $\phi$, $\alpha$, and $T$ are the roll, angle-of-attack, and specific-thrust actuator states. Each primitive holds the commanded input $u=(\phi_c,\alpha_c,T_c)$ constant for a duration $H$. First-order actuator dynamics maintain continuity across control switches. The model is given in Appendix~\ref{app:model}.
+where $h$ is altitude, $V$ is airspeed, $\gamma$ is flight-path angle, $\psi$ is heading, and $\phi$, $\alpha$, and $T$ are the roll, angle-of-attack, and specific-thrust actuator states. Each primitive holds the commanded input $u=(\phi_c,\alpha_c,T_c)$ constant for a duration $H$. First-order actuator dynamics maintain continuity across control switches. All internal angles and angular rates use radians and radians per second; degree values in the experimental setup are converted on input. The model is given in Appendix~\ref{app:model}.
 
 At a planning update, the primary library $\mathcal U_H(x_0)$ contains $N$ regularly sampled controls. Numerical integration produces a sampled trajectory $\tau_i=\Phi_H(x_0,u_i)$ and terminal state $x_i^+$. Let $\mathcal X$ denote the flight envelope, $\mathcal F$ the collision-free region after obstacle inflation, and $\mathcal O(x_0)$ the region available for validation at the current update. The primary feasibility indicator is
 \begin{equation}
- A_i=\mathbf 1\{x\in\mathcal X,\ p(x)\in\mathcal F\cap\mathcal O(x_0)
-                 \text{ for all }x\in\tau_i\}.
+ A_i=\mathbf 1\left\{\begin{array}{l}
+ \forall x\in\tau_i:\quad x\in\mathcal X,\\
+ p(x)\in\mathcal F\cap\mathcal O(x_0)
+ \end{array}\right\}.
  \label{eq:primary}
 \end{equation}
 The experiments use the supplied obstacle map without a range restriction.
@@ -98,82 +97,73 @@ For each feasible primary, a terminal-dependent library $\mathcal B_B(x_i^+)$ co
 \end{equation}
 uses the same sampled state and collision checks as~\eqref{eq:primary}. The continuation starts with the full terminal state, including actuator states; it does not restart at trim. Its observation boundary remains centered at the original planning state.
 
-Full-library selection solves
+The nominal finite-library reference solves
 \begin{equation}
  i^*=\arg\min_{i:A_i=1,\ C_i=1}J_i. \label{eq:full}
 \end{equation}
-The implementation checks continuation controls in a fixed order and stops checking a primary when it finds one feasible successor. The resulting pair is a finite continuation witness. When no witness is found within the available budget, the planner selects the cheapest feasible primary and records the unresolved continuation status. If the primary set is empty, the evaluation records a planning failure.
+Equation~\eqref{eq:full} ranks verified candidates by nominal task progress. It does not maximize geometric clearance or the number of feasible successors. The implementation checks continuation controls in a fixed order and stops checking a primary when it finds one feasible successor. The resulting pair is a finite continuation witness. When no witness is found within the available budget, the planner selects the cheapest feasible primary and records the unresolved continuation status. If the primary set is empty, the evaluation records a planning failure.
 
 Two budgets are considered. A candidate budget $K$ limits the number of primary endpoints submitted for continuation validation. A work budget $W$ limits the total numerical integration steps spent on continuations. The latter accounts for rollouts that terminate early because of invalid dynamics. An unfinished rollout is never accepted as a complete witness. Primary propagation and schedule construction are included in elapsed planning time, but are reported separately from the continuation work budget.
 
 \section{Budgeted Continuation Validation}
-\subsection{Terminal Representation and Physical Scaling}
-For a feasible primary, the scheduling representation is $z_i=(\psi_i^+,h_i^+)$. Its two coordinates capture changes in turning direction and vertical maneuver. Let $V_0=\max(V_{\min},V(x_0))$ denote the airspeed used for scaling at the current update. Define the nominal scales
+\subsection{Cost and Maneuver-Coverage Baselines}
+Cost ordering sorts feasible primaries by $J_i$. Diverse starts from the same cheapest primary and then uses farthest-first coverage of $z_i=(\psi_i^+,h_i^+)$. With $V_0=\max(V_{\min},V(x_0))$, its scales are $s_\psi=\min(\pi,g\tan\phi_{\max}H/V_0)$ and $s_h=V_0H\max(\tan\gamma_{\max},\tan|\gamma_{\min}|)$. The distance and next query are
 \begin{align}
- s_\psi&=\min\left(\pi,\frac{g\tan\phi_{\max}}{V_0}H\right),\\
- s_h&=V_0H\max(\tan\gamma_{\max},\tan|\gamma_{\min}|).
+ d(i,j)^2&=\left(\frac{\wrap(\psi_i^+-\psi_j^+)}{s_\psi}\right)^2
+           +\left(\frac{h_i^+-h_j^+}{s_h}\right)^2,\label{eq:metric}\\
+ s_{k+1}&=\arg\max_{i\in\mathcal I\setminus S_k}\min_{j\in S_k}d(i,j).
+ \label{eq:schedule}
 \end{align}
-The distance between two terminal representations is
-\begin{equation}
- d(i,j)^2=\left(\frac{\wrap(\psi_i^+-\psi_j^+)}{s_\psi}\right)^2
-             +\left(\frac{h_i^+-h_j^+}{s_h}\right)^2. \label{eq:metric}
-\end{equation}
-Zero maneuver scales deactivate the corresponding coordinate. Circular heading differences avoid an artificial discontinuity at $\pm\pi$.
-
-This representation is used only for scheduling. Every candidate is still validated in the full dynamic state. In particular, equal endpoint headings and heights do not imply equivalent velocity or actuator states. Physical scaling avoids a different problem: normalizing each coordinate by the observed candidate range can make millimeter-scale altitude differences dominate the selection when an altitude constraint compresses the candidate set.
-
-\subsection{Cost-Seeded Farthest-First Schedule}
-Let $\mathcal I=\{i:A_i=1\}$ and order this set stably by $J_i$. The schedule begins with the cheapest primary,
-\begin{equation}
- s_1=\arg\min_{i\in\mathcal I}J_i.
-\end{equation}
-Subsequent candidates maximize their minimum distance to the selected set:
-\begin{equation}
- s_{k+1}=\arg\max_{i\in\mathcal I\setminus S_k}
-                       \min_{j\in S_k}d(i,j),\qquad
- S_k=\{s_1,\ldots,s_k\}. \label{eq:schedule}
-\end{equation}
-Ties are resolved by task cost and original library index. Under a candidate budget, the first $K$ scheduled endpoints are considered. Under a work budget, the schedule may contain all feasible primaries and validation stops when the integration allowance is consumed.
-
-Among the scheduled primaries with a verified continuation, the algorithm selects the one with minimum $J_i$. It therefore uses diversity to distribute verification effort, not to replace the task objective. When the globally cheapest feasible primary passes the continuation test, selection can terminate immediately. Otherwise, the diversity schedule examines its remaining allowance because a later scheduled endpoint may have lower cost than an earlier verified endpoint. Cost-ordered validation terminates at its first witness, which is already the cheapest verified member of that ordered prefix.
+Zero scales deactivate the corresponding coordinate. Ties use task cost and original index. Physical scales prevent compressed altitude ranges from dominating coverage. These coordinates determine query order only; acceptance uses the full dynamic state. The minimum-cost verified member of the checked set is selected. Cost ordering can stop at its first witness; other schedules can stop when the globally cheapest primary passes, or after consuming their allowance.
 
 \begin{algorithm}[t]
-\caption{Budgeted terminal continuation selection}
+\caption{Deferred learned continuation selection}
 \label{alg:search}
 \begin{algorithmic}[1]
 \Require State $x_0$, target $g$, primary library, budget $K$ or $W$
-\State Propagate all primaries; retain feasible set $\mathcal I$
+\State Propagate primaries and retain feasible set $\mathcal I$
 \If{$\mathcal I=\varnothing$ and a preceding control exists}
  \State Test that control over $H$; add it if feasible
 \EndIf
 \If{$\mathcal I=\varnothing$}\State \Return planning failure\EndIf
-\State Compute costs and a cost, diverse, learned or hybrid schedule $S$
-\State $i_{\rm best}\gets\varnothing$, $w\gets0$
-\For{each scheduled primary $i$ within the budget}
- \For{each continuation $v\in\mathcal B_B(x_i^+)$}
-  \State Integrate with the remaining work allowance; update $w$
-  \If{the complete continuation is feasible}
-   \State Update $i_{\rm best}$ if $J_i$ improves its cost
-   \State \textbf{break} the continuation loop
-  \EndIf
-  \If{the work allowance is exhausted}\State \textbf{break}\EndIf
- \EndFor
- \If{$i_{\rm best}\ne\varnothing$ and (cost order or cheapest primary found)}
- \State \textbf{break}
-\EndIf
+\State Let $s_1$ be the cheapest feasible primary
+\State Validate successors of $s_1$; debit the query and work budget
+\If{a complete witness is found}\State \Return $s_1$ and witness\EndIf
+\If{budget is exhausted}\State \Return $s_1$ with unresolved status\EndIf
+\State Extract features and rank the remaining primary endpoints
+\State $i_{\rm best}\gets\varnothing$
+\For{each remaining scheduled primary $i$ within budget}
+ \State Validate its successors with incremental rejection
+ \State Debit query and integration work; reject truncated rollouts
+ \If{a complete witness is found and $J_i$ improves the best cost}
+  \State Store $i$ and its witness as $i_{\rm best}$
+ \EndIf
+ \If{cost ordering found a witness or budget is exhausted}
+  \State \textbf{break}
+ \EndIf
 \EndFor
-\If{$i_{\rm best}\ne\varnothing$}\State \Return primary and continuation witness
-\Else\State \Return cheapest feasible primary and search status
+\If{$i_{\rm best}\ne\varnothing$}\State \Return primary and witness
+\Else\State \Return $s_1$ with unresolved continuation status
 \EndIf
 \end{algorithmic}
 \end{algorithm}
 
-Maintaining the closest selected distance for each endpoint gives $O(NK)$ schedule construction for a $K$-candidate prefix. Primary propagation costs $O(NH/\Delta t)$. Continuation work scales as $O(KMB/\Delta t)$ in candidate-budget mode and is bounded by $W$ integration steps in work-budget mode. These operation counts expose an important distinction: the same number of checked primary endpoints need not entail the same amount of validation work.
+Maintaining the closest selected distance for each endpoint gives $O(NK)$ farthest-first updates for a $K$-candidate prefix, in addition to $O(N\log N)$ task-cost sorting. Learned schedules also incur feature extraction and network inference. Primary propagation costs $O(NH/\Delta t)$. Continuation work scales as $O(KMB/\Delta t)$ in candidate-budget mode and is bounded by $W$ integration steps in work-budget mode. These operation counts expose an important distinction: the same number of checked primary endpoints need not entail the same amount of validation work.
 
 \subsection{Incremental Constraint Rejection}
 A continuation is feasible only if every sampled state satisfies its constraints. Once a sample violates a constraint, further integration cannot change the rejection. The incremental validator therefore terminates at the first violating sample and allocates the remaining work to subsequent controls or primary endpoints. A work-limit truncation is treated separately from a constraint rejection.
 
 For a fixed candidate schedule without work truncation, this modification preserves the accepted continuation set and the selected primary. Both validators use the same deterministic integration prefix; a rejected prefix cannot become an accepted complete trajectory, while a feasible continuation is integrated to the same terminal sample. Under a hard work limit, the modification can change the decision by allowing the search to inspect more of the scheduled candidates. All learned and nonlearned schedules in the present comparison use this same incremental validator.
+
+\subsection{Short-Prefix Prediction Consistency}
+To test numerical sensitivity separately from scheduling, an optional common filter checks the next control interval with a higher-order nominal prediction. Let $\Delta_c=0.2$ s and let $\Phi^{\mathrm{RK4}}_{\Delta_c}$ use 0.005 s integration steps. The refined primary indicator is
+\begin{equation}
+ A_i^{\mathrm{p}}=A_i\,\mathbf 1\left\{\begin{array}{l}
+ \forall x\in\Phi^{\mathrm{RK4}}_{\Delta_c}(x_0,u_i):\\
+ x\in\mathcal X,\quad p(x)\in\mathcal F
+ \end{array}\right\}.
+\end{equation}
+Only primaries passing the original Euler checks incur this extra test. Every schedule receives the same refined feasible set. The check addresses numerical agreement over the imminent execution interval; it does not estimate disturbances or replace the finite continuation horizon. Experiments report the filter both off and on, so its effect is not assigned to learned ranking.
 
 \subsection{Search Status}
 The implementation distinguishes finding a witness, exhausting a budget, exhausting the finite continuation search, and having no feasible primary. Rejected continuations are classified by invalid dynamics, inflated-obstacle intersection, flight-envelope violation, and observation-boundary violation. Complete-rollout validation assigns reasons in this priority order. Incremental rejection records the first violating sample, resolving simultaneous violations by envelope, collision, and observation boundary; model-invalid states are rejected first. Truncation by a work limit is recorded separately.
@@ -181,206 +171,294 @@ The implementation distinguishes finding a witness, exhausting a budget, exhaust
 %% BEGIN SECTION: learning_method
 \section{Learning to Allocate Continuation Checks}
 \subsection{Geometry and Dynamic-State Encoding}
-The diversity schedule covers different terminal maneuvers but does not distinguish an open turn from a geometrically blocked one. We learn this distinction from the outcomes of the continuation validator. For each feasible primary, a shared encoder constructs a 103-dimensional feature vector $\xi_i$ from the initial state, terminal state, target, flight envelope, and obstacle geometry.
+For each feasible primary, an encoder represents the initial state, terminal state, target and flight envelope in 28 scalar channels. A geometry-augmented variant appends 75 obstacle-clearance channels, giving a 103-dimensional vector $\xi_i$. Both representations use the same validator-generated labels. During training, State masks the geometry inputs in the common 103-input architecture; deployment removes these inactive columns.
 
-Twenty-eight scalar channels describe the initial and terminal airspeed, flight-path angle, roll, angle of attack, thrust and yaw rate; terminal displacement in the initial heading frame; the sine and cosine of relative terminal heading; target displacement in the terminal heading frame; upper and lower altitude margins; the two prediction durations; observation radius and normalized terminal displacement; primary cost; and vertical clearance. Fixed physical scales normalize these quantities. Absolute world position and absolute heading are omitted, so the encoding is invariant to a common horizontal rigid transformation of the state, map and target.
+Twenty-eight scalar channels describe the initial and terminal airspeed, flight-path angle, roll, angle of attack, thrust and yaw rate; terminal displacement in the initial heading frame; the sine and cosine of relative terminal heading; target displacement in the terminal heading frame; upper and lower altitude margins; the two prediction durations; observation radius and normalized terminal displacement; primary cost; and vertical clearance. Yaw rate is an additional stored motion input, rather than an independent component of the nine-state dynamics. Fixed physical scales normalize these quantities as specified in Appendix~\ref{app:features}. Absolute world position and absolute heading are omitted, so the encoding is invariant to a common horizontal rigid transformation of the state, map and target.
 
 The remaining 75 channels sample signed obstacle clearance on a grid attached to the terminal heading. Forward offsets are $\{0,22.5,45,67.5,90\}$ m, lateral offsets are $\{-60,-30,0,30,60\}$ m, and height offsets are $\{-15,0,15\}$ m. For probe $q$, the feature is
 \begin{equation}
  c(q)=\clip\!\left(\frac{d_{\mathcal F}(q)}{30\,{\rm m}},-1,1\right),
 \end{equation}
-where signed clearance is positive outside the inflated obstacles. This representation captures free turning space and nearby barriers without integrating a continuation. The encoder and explicit validator use the same obstacle dimensions and margins. Flight-envelope limits remain separate scalar channels.
+where signed clearance is positive outside the inflated obstacles. This representation captures free turning space and nearby barriers without integrating a continuation. The encoder and explicit validator use the same obstacle dimensions and margins. Altitude margins and vertical clearance are encoded separately.
 
-\subsection{Joint Feasibility and Work Prediction}
+\subsection{Feasibility Learning and Auxiliary-Loss Ablation}
 A multilayer perceptron contains two ReLU hidden layers of widths 64 and 32, followed by two linear outputs. With $\rho$ denoting ReLU,
 \begin{equation}
  (\ell_i,r_i)=W_3\rho\!\left(W_2\rho(W_1\xi_i+b_1)+b_2\right)+b_3.
 \end{equation}
-The network has 8,802 trainable parameters. The first output predicts continuation feasibility as $\hat p_i=\operatorname{sigmoid}(\ell_i)$. The second predicts log validation work, giving $\hat w_i=\exp(\clip(r_i,0,12))-1$ integration steps.
+The common training architecture contains 8,802 parameters. The first output predicts continuation feasibility as $\hat p_i=\operatorname{sigmoid}(\ell_i)$. The second predicts log validation work, giving $\hat w_i=\exp(\clip(r_i,0,12))-1$ integration steps.
 
-Training labels come from the same finite continuation bank used online. For every primary that passes the common feasibility checks, the incremental validator tests its 15 successors in the fixed library order. The binary label $C_i$ records whether a witness is found. The work label $w_i$ records all integration steps consumed up to the first witness or exhaustion of the bank. Thus, negative queries also provide work supervision. The loss is
+Training labels come from the same finite continuation bank used online. For every primary that passes the Euler feasibility checks, the incremental validator tests its 15 successors in the fixed library order. Training labels do not use the later online RK4-prefix filter. The binary label $C_i$ records whether a witness is found. The work label $w_i$ records all integration steps consumed up to the first witness or exhaustion of the bank. Thus, negative queries also provide work supervision. The training loss is
 \begin{equation}
  \mathcal L=\frac{1}{n}\sum_i\left[
  \operatorname{BCE}(\ell_i,C_i)
- +0.1\operatorname{Huber}_1(r_i-\log(1+w_i))\right].
+ +\lambda_w\operatorname{Huber}_1(r_i-\log(1+w_i))\right].
  \label{eq:learning_loss}
 \end{equation}
-Candidate examples are weighted uniformly. This supervision requires obstacle geometry and model-based validation, but no expert flight trajectories.
+Candidate examples are weighted uniformly. We compare $\lambda_w=0$ and $0.1$ using matched initializations and a common validation-BCE checkpoint criterion. The auxiliary output is removed for deployment because it is not used by the selected priority. This supervision requires obstacle geometry and model-based validation, but no expert flight trajectories.
 
-\subsection{Learned Priority and Maneuver Exploration}
-We rank continuation queries using
-\begin{equation}
- a_i=\frac{\hat p_i}{(1+\hat w_i/1000)^\beta}, \label{eq:priority}
-\end{equation}
-where $\beta$ controls the influence of predicted work. At $\beta=0$, the schedule uses only predicted feasibility. Positive $\beta$ favors candidates expected to supply a witness with less validation effort. The denominator scales the regression output to the integration budgets used by the planner; the priority is a scheduling heuristic for correlated candidates. Validation selects $\beta=0$ for the frozen test model, so its deployed ranking uses feasibility and the work head supplies auxiliary supervision.
+\subsection{Feasibility Priority and Deferred Inference}
+The online priority is $a_i=\hat p_i$. The original implementation also evaluated $\hat p_i/(1+\hat w_i/1000)^\beta$ with $\beta\in\{0,0.5,1\}$; validation favored $\beta=0$. The inference path therefore omits the work output. A state-only export additionally removes the 75 first-layer columns whose weights are zero after masking. The resulting networks have dimensions $28$--$64$--$32$--$1$ or $103$--$64$--$32$--$1$, with 3,969 or 8,769 parameters. This transformation changes neither the feasibility logit nor the training procedure.
 
-Both learned schedules retain the cheapest feasible primary as their first query. \emph{Learned} then visits candidates in descending $a_i$, with task cost and original library index resolving ties. \emph{Hybrid} alternates a learned-priority query with a farthest-first query under~\eqref{eq:metric}. The distance to the selected set is updated after every query, including those chosen by the network. This interleaving preserves maneuver exploration when geometrically similar candidates receive similar predicted scores.
+All schedules start with the cheapest feasible primary $s_1$. We validate this candidate before constructing a learned schedule, charging its work to the same budget. If it has a witness, it is already the minimum-cost verified choice and inference is unnecessary. If it fails and budget remains, the network constructs the same ordering of the remaining candidates as the eager implementation. Learned ranking uses descending $a_i$, with task cost and original index resolving ties. Hybrid alternates this ordering with farthest-first coverage; it is retained as an ablation.
 
-The selected schedule enters the explicit continuation search in Algorithm~\ref{alg:search}. The explicit search determines acceptance, and the minimum-cost verified primary is executed. The network changes the allocation of checks while retaining the original control parameterization, primary objective and constraint evaluator. Feature extraction and inference contribute to measured planning time, whereas $W$ counts continuation integration steps. This distinction permits separate assessment of validation savings and total runtime.
+The deferred procedure preserves control selection for a fixed model and budget. When $s_1$ passes, both implementations terminate at $s_1$. Otherwise they validate the same remaining sequence with the same residual budget. This equivalence covers the selected control and consumed validation budget. We verify equivalence against the archived implementation and measure runtime with instrumentation disabled. Separate instrumented runs resolve primary propagation, scalar and geometric features, network inference, scheduling and continuation validation.
 
-The deployed implementation evaluates the exported dense layers directly in C++, using the same feature encoder as the offline dataset generator. Model and source hashes identify the exact implementation used for each experiment.
+The minimum-cost verified primary is executed. Finite-bank labels indicate nominal successor existence, so improved classification need not increase execution clearance or task completion. We select the deployed training configuration using closed-loop validation maps and report all factorial alternatives on untouched test maps.
+
 %% END SECTION: learning_method
 %% BEGIN SECTION: experiments
 \section{Experimental Design}
 \subsection{Common Planner and Execution Model}
-The primary library contains 29 horizontal directions and seven altitude targets, giving 203 controls of duration $H=3$ s. The 15 continuation controls combine five horizontal direction fractions $\{0,-0.5,0.5,-1,1\}$ of a $45^\circ$ span with level, upper and lower altitude targets over $B=6$ s. The initial airspeed is 15.5 m/s at numerically solved level-flight trim. Roll is limited to $35^\circ$, climb and descent to $20^\circ$, and angle of attack to $[-20^\circ,25^\circ]$. Planner integration uses forward Euler with a 0.02 s step.
+The benchmark library contains 29 horizontal directions and seven altitude targets, giving up to 203 primary controls of duration $H=3$ s. Fifteen continuation controls combine five horizontal direction fractions $\{0,-0.5,0.5,-1,1\}$ of a $45^\circ$ span with level, upper and lower altitude targets over $B=6$ s. Initial airspeed is 15.5 m/s at numerically solved level-flight trim. Roll is limited to $35^\circ$, climb and descent to $20^\circ$, and angle of attack to $[-20^\circ,25^\circ]$. Primary and continuation prediction use forward Euler with a 0.02 s step.
 
-All methods apply identical primary constraints, continuation banks, collision inflation and task costs. The goal is $(250,0,20)$ m, with a 15 m horizontal tolerance and 3 m altitude tolerance. The control interval is 0.2 s, and the episode timeout is 40 s. The principal suite provides complete static obstacle geometry. All reported learning experiments use the full supplied geometry and disable the execution cache.
+The goal is $(250,0,20)$ m with 15 m horizontal and 3 m altitude tolerances. Controls are updated every 0.2 s; the timeout is 40 s. An independent execution plant integrates the nominal point-mass equations with RK4 at 0.005 s. Four conditions are tested: nominal dynamics; actuator time constants multiplied by 1.25, lift by 0.97 and drag by 1.10; a lateral ground velocity of 1 m/s; and a 0.1 s command delay. In the delay case the preceding command acts for 0.1 s and the new command for 0.1 s. The planner receives the actual state at each update. All methods use the same static map, candidate library, constraints and task cost. Cache reuse is disabled.
 
-An independently implemented execution plant integrates the same nominal point-mass equations using fourth-order Runge--Kutta with a 0.005 s step. Four execution conditions are evaluated. The nominal condition uses unchanged parameters. Model mismatch multiplies actuator time constants by 1.25, lift coefficients by 0.97 and drag coefficients by 1.10. Crosswind adds a lateral ground velocity of 1 m/s. Command delay applies the previous control for 0.1 s and the new control for the remaining 0.1 s of each update. The planner always receives the actual state at the next update.
+\subsection{Data Splits and Factorial Training}
+Four procedural families contain staggered pillars, a lateral wall, an offset cul-de-sac, and finite-height cylinders with floating spheres. The first three have altitude bounds 16--24 m; the spatial family uses 5--45 m. Independent seed ranges define 160 training maps, 32 validation maps, 32 diagnostic maps and 32 held-out test maps. Each split is balanced across the four families. The diagnostic split supplies the frozen-model comparisons and failure analysis; the held-out split evaluates the implementation and model-selection protocol.
 
-\subsection{Training, Validation and Test Maps}
-Four procedural map families contain staggered pillars, a lateral obstacle wall, an offset cul-de-sac, and finite-height cylinders with floating spheres. The first three use altitude bounds of 16--24 m; the spatial family uses 5--45 m. Independent seed ranges define 160 training maps, 32 validation maps and 32 test maps, balanced across the four families. The test maps are unseen instances of these families. None of the 24 maps used to develop the earlier nonlearning baseline belongs to these splits.
+Training and validation sample 24 states per map: $p_x\in[0,65]$ m, $p_y\in[-12,12]$ m, $h=20$ m, heading within $\pm0.3$ rad, speed 14.8--16.2 m/s, flight-path angle within $\pm0.04$ rad and roll within $\pm0.18$ rad. Attack is perturbed by at most 0.015 rad from trim and thrust by 10\%. These states yield 298,418 training and 53,117 validation candidate examples. Every candidate label comes from the same explicit 15-control bank. The original sampler sets initial yaw rate to zero; the factorial study retains these data to isolate the input/loss ablation, and separately measures support differences during execution.
 
-Training and validation each sample 24 states per map. Position varies over $p_x\in[0,65]$ m and $p_y\in[-12,12]$ m; heading varies within $\pm0.3$ rad. Airspeed is sampled from 14.8--16.2 m/s, flight-path angle within $\pm0.04$ rad, and roll within $\pm0.18$ rad. Angle of attack is perturbed by up to 0.015 rad from trim, and thrust by up to 10\%. Altitude is 20 m. The preceding command holds the sampled actuator state. This generates 298,418 feasible-primary examples from 3,840 training states and 53,117 examples from 768 validation states. The respective numbers of positive continuation labels are 127,311 and 20,507. States with no feasible generated primary remain in the dataset audit, although they supply no candidate labels.
+The factorial experiment crosses State/Geometry inputs with $\lambda_w\in\{0,0.1\}$ at seeds 20261030--20261032. Each run uses Adam for 60 epochs, learning rate $10^{-3}$, weight decay $10^{-5}$ and batch size 2,048. Paired loss variants share their initialization and batch ordering. Every checkpoint is selected by validation BCE, avoiding a comparison of unlike aggregate losses. Candidate recall is measured by replaying validation labels under $K=12$ and $W=3600$; all seed-level results are retained.
 
-The network is trained for 60 epochs using Adam, a learning rate of $10^{-3}$, weight decay $10^{-5}$, and batches of 2,048 examples. The random seed is fixed at 20261030. Checkpoints are selected by the minimum validation loss in~\eqref{eq:learning_loss}. The geometry model selects epoch 60. The geometry ablation uses the same architecture, optimizer, split and seed, masks the 75 obstacle-clearance channels, and selects epoch 55. Its exported first-layer weights on these channels are zeroed, so the ablation is identical in training and C++ execution. The remaining inputs still include the target, altitude bounds and primary cost.
+\subsection{Execution-Based Model Selection}
+Two validation criteria are compared. The query-only criterion maximizes the three-seed average recall across the two budgets, with mean BCE breaking ties. The execution criterion evaluates the four configurations at the fixed deployment seed 20261030 on the 32 validation maps under all four conditions, giving 512 episodes. It maximizes completion count, then minimizes margin incursions, then uses validation recall and BCE to resolve ties. The protocol and selected model are recorded before generating the held-out test maps. Both criteria and all four factorial models are reported, so the choice of criterion is visible in the results.
 
-We evaluate $\beta\in\{0,0.5,1\}$ on validation queries. A shared value maximizes mean discovery recall over Learned and Hybrid schedules under both $K=12$ and $W=3600$. This selects $\beta=0$, with respective mean recalls of 92.82\%, 92.56\% and 92.30\% for the three values. The frozen test schedules therefore use predicted feasibility; work prediction acts as an auxiliary training target. Network parameters, sorting rules and source hashes are frozen before opening the test split.
+\subsection{Prediction-Consistency Ablation}
+The original predictor and execution integrator differ near obstacle boundaries. We first replay the archived failures with identical initial state and control, comparing Euler at 0.02 and 0.005 s with nominal RK4 at 0.005 s over the actual 0.2 s command interval. Disturbance and delay are then applied separately. This diagnostic uses original outcomes, rather than new test outcomes, to define a short-prefix revalidation rule.
 
-\subsection{Matched-State Comparisons and Ablations}
-Each test map supplies 18 matched inputs: three longitudinal positions $\{0,25,50\}$ m, three lateral positions $\{-5,0,5\}$ m, and two heading offsets $\{-0.15,0.15\}$ rad at nominal trim. This gives 576 inputs. Every method receives the same full state, target, map and preceding command.
+The rule re-integrates the next 0.2 s of every Euler-feasible primary with nominal RK4 and applies the same envelope and collision constraints. It uses no true wind or perturbed-model parameters. We test this common filter both off and on for every method in the held-out split. The original nominal task cost and continuation test are unchanged. This isolates a prediction-consistency correction from the scheduling contribution.
 
-Under a 12-candidate limit, we compare Cost, Diverse, Learned, Hybrid and No-geometry. Full-203 can search the complete feasible primary set in task-cost order, stopping at its first witness; it supplies the finite-library reference. A second comparison gives each of the five budgeted methods up to 203 candidates but imposes a hard limit of 3,600 continuation integration steps. Two repeats rotate method order, yielding $576\times11\times2=12{,}672$ timing observations. Repeat outcomes are checked for equality and merged before computing discovery rates.
+\subsection{Matched Queries, Closed Loop and Runtime}
+Each new test map supplies 18 matched inputs: $p_x\in\{0,25,50\}$ m, $p_y\in\{-5,0,5\}$ m and heading $\pm0.15$ rad at nominal trim, giving 576 inputs. Cost and Diverse are compared with learned ordering under $K=12$ and $W=3600$. Full-203 searches in task-cost order until its first witness and supplies the finite-library discovery reference. Eager, deferred and compact versions of each relevant model are compared on identical queries. Model-dependent discovery and decision differences are kept separate from implementation equivalence.
 
-Discovery recall is the fraction of Full-203-positive inputs on which a method obtains a witness. We also report consumed integration steps, planning-time quantiles and selected-primary cost relative to Full-203. Predicted work does not enter the test priority because the validation-selected exponent is zero. The geometry ablation isolates the value of the obstacle representation; Learned versus Hybrid isolates maneuver exploration. All learned timings include feature extraction and dense-network inference.
+The held-out closed-loop matrix contains Cost, Diverse, Full, the two original frozen learned models and the four factorial models: nine methods, 32 maps, four conditions and two prefix-filter settings, totaling 2,304 episodes. Outcomes are goal attainment, loss of every feasible primary, entry into inflated geometry, envelope violation, invalid dynamics and timeout. Every failure is counted. The four factorial methods use deferred single-output inference; the state variants also omit the inactive geometry computation.
 
-\subsection{Closed-Loop and Implementation Checks}
-The 32 test maps are run under four execution conditions with Primary-3, Cost-12, Diverse-12, Learned-12, Hybrid-12 and Full-203, giving 768 episodes. Primary-3 applies the same primary checks but omits continuation validation. Episodes terminate at goal attainment, loss of every feasible primary, entry into inflated obstacle geometry, flight-envelope violation, invalid dynamics or timeout. All outcomes are reported. Minimum geometric clearance is measured against uninflated obstacles, distinguishing a planning-margin incursion from contact with an obstacle.
+End-to-end timing is measured with instrumentation disabled and method order rotated across repeated matched inputs. A separate instrumented pass separates primary integration, other primary work, scalar features, geometry probes, network inference, schedule construction, continuation validation and residual overhead. The optional RK4-prefix filter is timed separately. Runs are pinned to one logical CPU of an Intel Core i5-12400F and isolated from training, Gazebo and diagnostic replay. The software uses Ubuntu 20.04, ROS Noetic and GCC 8.4 with \texttt{-O2}. Candidate count and integration steps are operation budgets, not wall-clock deadlines.
 
-After the primary test suite, we conduct a frozen-model geometry-input ablation to examine why similar matched-state discovery counts accompany different candidate predictions. The already trained No-geometry model replaces the geometry model in Learned and Hybrid, adding 256 method--map--condition episodes on the same 32 maps. The four unaffected baselines are replayed to verify exact decision and trajectory reproduction. No model or scheduling parameter is changed. This post-evaluation ablation is reported separately from the primary 768-episode matrix.
+\subsection{Paired Diagnostics and Implementation Checks}
+The archived Geometry, No-geometry, Diverse and Full trajectories are replayed for 512 method--map--condition tasks. We require exact reproduction of outcomes, control-step counts and final goal distances. Failure predecessors are compared at identical states; a second probe locates the first Geometry/No-geometry command divergence along their shared trajectory. It records task cost, minimum predicted primary clearance and the feasible fraction of the 15 continuations. Distance probes saturate at 30 m, matching the feature encoder. These outcome-conditioned diagnostics explain the original suite and are not counted as independent test tasks.
 
-Paired comparisons retain all conditions or states of a map together. Confidence intervals use 10,000 bootstrap resamples of the 32 map blocks. Timing repeats and correlated states do not increase the number of independent maps.
-
-The implementation passes 65 ROS tests covering geometry, continuation logic, exact work limits, the independent plant, neural inference and feature invariance, plus ten Python scheduling-replay tests. Exported network predictions are compared with PyTorch on 32 real validation examples per model; maximum absolute output error is $1.06\times10^{-5}$. Timed experiments run separately from Gazebo, training and compilation, pinned to one logical CPU of an Intel Core i5-12400F. The software uses Ubuntu 20.04, ROS Noetic and GCC 8.4 with \texttt{-O2}. Raw results, trained weights, split definitions and source hashes accompany the manuscript.
+Paired performance comparisons resample whole maps, retaining all conditions within a map, with 10,000 bootstrap draws. Three training seeds measure training variability and do not increase the number of independent test maps. Numerical export checks compare PyTorch and C++ logits; replay checks verify that deferred inference and removal of zero input columns preserve the selected command, witness status and validation work. Raw records, protocols and model/source hashes accompany the results.
 %% END SECTION: experiments
 %% BEGIN SECTION: results
 \section{Results}
-\subsection{Learning Continuation Feasibility}
-Figure~\ref{fig:training} shows the training and validation curves. On the 50,141 labeled primary candidates from the held-out test states, the geometry model achieves 97.93\% classification accuracy and an AUROC of 0.9951. Removing the 75 clearance channels reduces these values to 85.52\% and 0.9458. The corresponding Brier scores are 0.0177 and 0.0997. Positive and negative class recalls for the geometry model are 97.77\% and 98.07\%, respectively. Thus, the classification gain is present on both feasible and infeasible continuation queries.
-
-The geometry model's mean absolute error in log validation work is 0.481, compared with 0.581 for the geometry ablation. Nevertheless, weighting the online priority by predicted work reduces the combined validation recall objective. The frozen exponent remains zero. These results support learning continuation feasibility from local geometry, while the work-head result is reported as auxiliary prediction rather than an independently established scheduling improvement.
-
-\begin{figure*}[!t]
-\centering\includegraphics[width=.94\textwidth]{figures/training.pdf}
-\caption{Training with and without obstacle-clearance channels. Both models use the same architecture, seed, optimizer and map splits. Markers identify the checkpoints selected by joint validation loss.}
-\label{fig:training}
-\end{figure*}
-
-\subsection{Discovery Under Candidate and Work Budgets}
-Full-203 finds a continuation on 428 of the 576 matched test inputs. Of the remaining 148, 70 have no feasible primary and 78 have feasible primaries but no successor in the continuation bank. Table~\ref{tab:learning} reports discovery and computation for all methods.
-
-Under $K=12$, Cost finds 331 witnesses, Diverse finds 404, Learned finds 413 and Hybrid finds 412. Learned therefore increases recall from 94.39\% to 96.50\% relative to Diverse. The paired comparison contains nine Learned-only discoveries and no Diverse-only discovery, giving a 2.10 percentage-point difference with a 95\% map-bootstrap interval of [0.99,3.24]. Hybrid reaches 96.26\% recall. The additional exploration does not improve discovery over learned ranking on this test grid.
-
-The learned advantage is larger under the 3,600-step integration limit. Cost finds 210 witnesses, Diverse finds 336, and both Learned and Hybrid find 373. Relative to Diverse, the learned schedules increase recall from 78.50\% to 87.15\%, a difference of 8.64 percentage points [4.43,13.57]. Each adds 37 discoveries without losing a Diverse-positive input. Diverse, Learned and Hybrid consume the same mean continuation work of 2,452 steps on this grid. The gain therefore reflects a different allocation of the available validation work.
-
-\begin{figure*}[!t]
-\centering\includegraphics[width=.94\textwidth]{figures/learning_matched.pdf}
-\caption{Continuation discovery on the 428 Full-203-positive test inputs under a candidate limit and an integration-step limit. The models and ordering parameter were frozen using separate validation maps.}
-\label{fig:learningmatched}
-\end{figure*}
-
-\begin{table*}[!t]
-\centering\small
-\caption{Held-out matched-state comparison. Backup steps are means over all 576 inputs; timings are percentiles of within-state medians from two repeats. All timings include primary propagation and learned feature/inference overhead where applicable.}
-\label{tab:learning}
-%% BEGIN GENERATED TABLE: learning
-\begin{tabular}{llrrrrr}
-\toprule
-Schedule & Budget & Found & Recall (\%) & Backup steps & Median (ms) & P95 (ms) \\
-\midrule
-Cost & 12 candidates & 331 & 77.3 & 7512 & 2.76 & 6.51 \\
-Diverse & 12 candidates & 404 & 94.4 & 3424 & 2.82 & 4.70 \\
-No geometry & 12 candidates & 413 & 96.5 & 3637 & 4.01 & 6.22 \\
-Learned & 12 candidates & 413 & 96.5 & 4560 & 4.25 & 6.94 \\
-Hybrid & 12 candidates & 412 & 96.3 & 4053 & 4.17 & 6.73 \\
-Cost & 3600 steps & 210 & 49.1 & 2192 & 2.75 & 4.17 \\
-Diverse & 3600 steps & 336 & 78.5 & 2452 & 3.08 & 4.38 \\
-No geometry & 3600 steps & 372 & 86.9 & 2452 & 4.13 & 6.00 \\
-Learned & 3600 steps & 373 & 87.1 & 2452 & 4.43 & 6.37 \\
-Hybrid & 3600 steps & 373 & 87.1 & 2452 & 4.45 & 6.40 \\
-Full & 203 candidates & 428 & 100.0 & 16122 & 2.83 & 12.29 \\
-\bottomrule
-\end{tabular}
-%% END GENERATED TABLE: learning
-\end{table*}
-
-The geometry ablation finds the same 413 witnesses as Learned under $K=12$ and 372 rather than 373 under $W=3600$. Its substantially poorer candidate classification therefore produces little loss of binary witness recall at these budgets. The choice among verified primaries is more sensitive: mean selected-cost excess above Full-203 is 2.066 for No-geometry and 1.537 for Learned under $K=12$. Hybrid reduces this excess to 1.113, while Diverse achieves 0.769. All of these means are computed over each method's verified inputs. On the 404 inputs verified by both Learned and Diverse, Learned's mean cost is 0.800 higher; the corresponding Hybrid difference is 0.364. Better discovery and lower immediate task cost are distinct outcomes of the schedule.
-
-\subsection{Computation and Runtime}
-Under $K=12$, Learned consumes 4,560 mean continuation integration steps, Hybrid 4,053, Diverse 3,424 and Cost 7,512. Full-203 consumes 16,122 steps. Thus, the learned methods reduce continuation work relative to complete candidate search, but they do not minimize work among the budgeted schedules. The shared primary propagation requires approximately 30,579 steps per input.
-
-Network inference and geometric feature extraction also affect total runtime. Median/P95 planning times are 4.25/6.94 ms for Learned, 4.17/6.73 ms for Hybrid and 2.82/4.70 ms for Diverse. Full-203 has a 2.83 ms median and a 12.29 ms P95: cost ordering often terminates quickly on easy inputs, while difficult queries produce a longer tail. Under $W=3600$, Learned and Hybrid retain higher recall at median times of 4.43 and 4.45 ms, compared with 3.08 ms for Diverse. The learned ranking improves the use of an integration budget at the cost of additional scheduling time.
-
-\subsection{Closed-Loop Task Completion}
-Figure~\ref{fig:learningoutcomes} reports every outcome in the 768-episode primary test matrix. Primary-3 completes 44 of 128 tasks, Cost-12 completes 50, Diverse-12 completes 70, Learned-12 completes 99, Hybrid-12 completes 89 and Full-203 completes 87. The Learned--Diverse comparison contains 35 tasks completed only by Learned and six completed only by Diverse. The completion-rate difference is 22.66 percentage points [14.06,31.25]. Hybrid improves over Diverse by 14.84 percentage points [6.25,23.44], but completes ten fewer tasks than Learned.
-
-Learned completes 24 of 32 nominal tasks, all 32 mismatch tasks, 12 crosswind tasks and 31 delay tasks. Diverse completes 18, 23, two and 27, respectively. The largest remaining loss of completion occurs under crosswind. The planner continues to integrate an air-relative nominal model, so repeated state updates do not remove the ground-track discrepancy accumulated within a prediction horizon. Command holding and parameter mismatch also change which states are visited, explaining why aggregate completion need not decrease monotonically from the nominal condition.
-
-Full-203 is the reference for finite-library discovery and immediate verified task cost, rather than an upper bound on mission completion. Its minimum-cost choice can differ from a learned schedule's cheapest verified member. These decisions lead to different subsequent states and explain how Learned can complete more tasks while finding fewer matched-input witnesses than Full-203.
-
-\begin{figure*}[!t]
-\centering\includegraphics[width=.96\textwidth]{figures/learning_outcomes.pdf}
-\caption{All closed-loop outcomes on 32 test maps per condition. Margin incursion denotes entry into inflated obstacle geometry. Six methods share the same primary constraints, target tolerance and 40 s timeout.}
-\label{fig:learningoutcomes}
-\end{figure*}
-
-Margin incursions occur in six Diverse, nine Learned, ten Hybrid and four Full-203 episodes. Every incursion in these four groups follows a command with a verified sampled continuation. For Learned, geometric clearance at the first detected margin violation ranges from 1.48 to 2.39 m relative to the uninflated obstacles. The mismatch between Euler prediction and RK4 execution is consequential near these boundaries. The completion gain therefore accompanies a reduction in loss-of-primary failures, rather than a uniform improvement across all failure categories.
-
-Figure~\ref{fig:learningpaths} shows the first seeded instance of each test family under nominal execution. This fixed selection includes both a Learned margin incursion in the staggered map and a Learned completion in the wall map where Diverse and Full encounter the inflated boundary. The cul-de-sac example shows continuation-aware schedules choosing an outward turn before approaching the closed end. The spatial panel is a horizontal projection of trajectories whose full height states enter every feasibility check. The No-geometry paths come from the subsequent frozen-model ablation.
-
-\begin{figure*}[!t]
-\centering\includegraphics[width=.96\textwidth]{figures/learning_paths.pdf}
-\caption{Nominal trajectories for the first test instance in each family. Dots mark goal attainment and crosses other terminations. Obstacles are shown without inflation in horizontal projection; the spatial map also contains finite-height geometry. No-geometry trajectories are from the post-evaluation ablation.}
-\label{fig:learningpaths}
-\end{figure*}
-
-%% BEGIN SECTION: geometry_ablation
-\subsection{Geometry-Input Ablation in Closed Loop}
-The similar K12 discovery counts motivate a separate execution comparison using the two already frozen networks. The 512 unaffected baseline episodes reproduce all outcomes, 28,593 recorded path states and 28,081 planner decisions exactly. The comparison therefore isolates which trained network supplies the priority for Learned and Hybrid.
-
-Table~\ref{tab:geometryablation} shows that removing the clearance channels increases Learned completion from 99 to 117 of 128 tasks and reduces margin incursions from nine to two. The paired comparison contains 23 No-geometry-only completions and five Geometry-only completions. Geometry minus No-geometry has a completion-rate difference of $-14.06$ percentage points [$-21.09$,$-7.03$]. The largest difference occurs under crosswind, where No-geometry completes 26 of 32 tasks compared with 12 for Geometry. For Hybrid, the corresponding overall counts are 92 and 89; the difference is $-2.34$ percentage points [$-12.50$,9.38].
+\subsection{Representation and Auxiliary-Loss Ablation}
+Table~\ref{tab:factorial} and Fig.~\ref{fig:training} report the twelve training runs. Geometry reduces validation BCE from approximately 0.282 to 0.076 and improves continuation discovery on the sampled validation inputs. Auxiliary supervision has a smaller, budget-dependent effect: for Geometry, it increases mean $K=12$ recall from 97.55\% to 98.18\%, while reducing $W=3600$ recall from 87.84\% to 87.21\%. For State, the corresponding changes are 96.09\% to 95.95\% and 86.23\% to 85.46\%. Thus the auxiliary loss does not uniformly improve query allocation. The online implementation uses only the feasibility output.
 
 \begin{table}[!t]
-\centering\small
-\caption{Frozen-model geometry-input ablation. Each row contains the same 128 map--condition tasks. Margin denotes entry into inflated obstacle geometry.}
-\label{tab:geometryablation}
-\begin{tabular}{llrr}
+\centering\scriptsize
+\caption{Validation factorial ablation. Recall is mean $\pm$ sample standard deviation across three training seeds; BCE is the three-seed mean. Aux denotes $\lambda_w=0.1$.}
+\label{tab:factorial}
+\begin{tabular}{llrrr}
 \toprule
-Schedule & Input & Goals/128 & Margin \\
+Input & Loss & BCE & $K=12$ (\%) & $W=3600$ (\%)\\
 \midrule
-Learned & Geometry & 99 & 9 \\
-Learned & No geometry & 117 & 2 \\
-Hybrid & Geometry & 89 & 10 \\
-Hybrid & No geometry & 92 & 9 \\
+Geometry & BCE & .07645 & $97.55\pm.12$ & $87.84\pm.36$\\
+Geometry & BCE+Aux & .07548 & $98.18\pm.32$ & $87.21\pm.00$\\
+State & BCE & .28208 & $96.09\pm.12$ & $86.23\pm.64$\\
+State & BCE+Aux & .28205 & $95.95\pm.12$ & $85.46\pm1.40$\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The geometry model predicts the nominal finite-bank label more accurately and tends to select a lower-cost verified primary, yet this advantage does not transfer to mission completion. The explicit validator already supplies geometric acceptance, while the learned dynamic-state, goal and cost features can favor different maneuvers among candidates that pass. This result locates the strongest demonstrated benefit in learning continuation-query priorities; it does not establish an execution benefit from the additional clearance-grid representation. The ablation uses the original test maps and frozen weights, so it adds a representation comparison rather than a new generalization split.
-%% END SECTION: geometry_ablation
-%% BEGIN SECTION: forest_experiment
-\subsection{Trajectory Comparison in Three-Dimensional Forests}
-We further evaluate the frozen planners in a forest environment and visualize their executed trajectories at two obstacle densities, following the scene-level comparison used in YOPO~\cite{lu2024yopo}. Eight paired seeds generate 40 and 80 tree centers within a $200\times160$ m region, corresponding to $1/800$ and $1/400$ tree/m$^2$. Each tree consists of a cylindrical trunk with radius $0.8$--$1.4$ m and height $24$--$36$ m, together with a spherical crown of radius $4$--$6$ m. Twelve low spherical bushes are shared by each pair. The dense map retains every sparse-map obstacle and adds 40 trees. All five methods start at $(0,0,20)$ m with an airspeed of $15.5$ m/s and approach the target at $(250,0,20)$ m. The nominal execution model, planner settings and network weights remain unchanged. This experiment comprises 80 episodes on 16 additional maps.
+The query-only criterion selects Geometry+Aux after a recall tie is resolved by BCE. Execution validation instead selects State+Aux: it completes 108/128 tasks, compared with 102 for State+BCE, 94 for Geometry+Aux and 89 for Geometry+BCE. These counts use validation maps. The State+Aux choice and checkpoint are frozen before evaluating the held-out test split. We refer to this configuration as Selected; Geometry+Aux remains the query-selected comparator. The difference between the two criteria is measurable before testing and motivates execution-based selection of the deployed representation.
 
-Figure~\ref{fig:forestcomparison} shows the first seed, fixed for both panels before execution. The obstacle map is displayed on a 1.5 m voxel grid: a cell is occupied when its interior intersects an analytic obstacle. Collision checks retain the analytic primitives, and each curve connects recorded flight states. All methods complete the eight sparse-forest tasks. In the dense forests, Learned completes seven tasks and terminates at an inflated obstacle margin in one; Cost, Diverse, No-geometry and Full each complete all eight. This termination appears in the displayed dense scene, where Learned initially follows a different route and ends before reaching the goal region. Cost and Full select identical trajectories in both displayed scenes. These examples illustrate how continuation-query ordering changes the executed route, while the broader forest comparison shows little separation in completion across the tested methods.
+\begin{figure*}[!t]
+\centering\includegraphics[width=.95\textwidth]{figures/revision_training.pdf}
+\caption{Validation results for State/Geometry inputs and BCE/auxiliary losses. Dots denote the three training seeds; diamonds and bars denote their means and sample standard deviations. All checkpoints use validation BCE.}
+\label{fig:training}
+\end{figure*}
+
+%% BEGIN REVISION MATCHED RESULTS
+\subsection{Discovery Under Candidate and Work Budgets}
+Full finds a finite continuation witness on 423 of the 576 matched inputs. Under $K=12$, Selected finds 415 witnesses (98.11\%), Diverse finds 406 (95.98\%), and Cost finds 280 (66.19\%). The paired Selected--Diverse difference is 2.13 percentage points [0.24,4.55]. Under $W=3600$, Selected finds 389 (91.96\%), Diverse finds 312 (73.76\%), and Cost finds 235 (55.56\%). The Selected--Diverse difference increases to 18.20 points [10.83,26.41]. Geometry+Aux finds 416 and 388 under the respective budgets, close to Selected despite its better validation classification score.
+
+Figure~\ref{fig:learningmatched} includes all four factorial configurations. The prefix filter rejects no additional primary on these prescribed near-trim inputs, so recall is identical with the filter off and on. Its closed-loop effect is evaluated on the states reached during execution below. Selected and Diverse each consume 1,994 mean continuation steps under the work budget; their discovery difference therefore reflects allocation of the same mean validation work. Under $K=12$, Selected consumes 2,623 mean continuation steps, Diverse 2,637 and Full 13,462. Primary propagation remains common, at approximately 30,602 integration steps per input.
+
+\begin{figure*}[!t]
+\centering\includegraphics[width=.95\textwidth]{figures/revision_matched.pdf}
+\caption{Finite-library witness recall on 576 held-out matched inputs. Each setting has 423 Full-positive inputs. The common prefix check does not change these near-trim query outcomes. State+Aux is selected by execution validation; Geometry+Aux is selected by query recall.}
+\label{fig:learningmatched}
+\end{figure*}
+%% END REVISION MATCHED RESULTS
+
+%% BEGIN REVISION RUNTIME RESULTS
+\subsection{Implementation Equivalence and Measured Runtime}
+Deferred and eager inference yield identical decisions and consumed budgets in all 3,456 paired historical-input checks. The original 10,368 repeated decision records are also reproduced. For the four fixed-seed factorial models, compact and padded C++ logits are identical on 64 examples per model; the maximum difference from PyTorch is $8.59\times10^{-6}$. The fresh matched runs also preserve all decisions across exact implementation variants and between instrumented and uninstrumented execution.
+
+Table~\ref{tab:runtime} reports total planning time from three rotated repeats, reducing each input to its median before computing distribution statistics. For the unchanged reference State model with the common prefix enabled, compact eager inference reduces mean time from 4.763 to 4.237 ms; deferring inference further reduces it to 4.134 ms. Median/P95 time changes from 5.005/7.487 ms to 3.830/6.383 ms under the combined transformation. This comparison holds weights, decisions and validation work fixed. Deferral avoids inference on an additional 28.30\% of all matched inputs, or 35.21\% of primary-feasible inputs. Including queries with no feasible primary, 47.92\% require no neural pass.
+
+Selected has median/P95 time of 3.840/6.362 ms with the prefix check, compared with 3.855/5.825 ms for Diverse and 3.812/13.212 ms for Full. Its median is close to Diverse, while mean and P95 remain higher. Relative to Full, it reduces the mean and the long tail. Without the common prefix, Selected's median/P95 is 3.023/4.799 ms versus Diverse's 2.699/4.292 ms. Thus the learned schedule improves discovery under explicit operation limits, while the elapsed-time tradeoff depends on the reference method and input distribution.
+
+\begin{table*}[!t]
+\centering\small
+\caption{Uninstrumented end-to-end planning time (ms). Statistics use within-input medians of three repeats on 576 matched inputs. Eager and deferred rows for a reference model use identical weights and decisions. Learned rows without a budget label use $K=12$. CPU frequency is not locked.}
+\label{tab:runtime}
+\begin{tabular}{lrrrrr}
+\toprule
+ & \multicolumn{2}{c}{Prefix off} & \multicolumn{3}{c}{Prefix on}\\
+Method & Median & P95 & Median & P95 & Mean\\
+\midrule
+Cost, $K=12$ & 2.540 & 6.053 & 3.809 & 7.733 & 4.109 \\
+Diverse, $K=12$ & 2.699 & 4.292 & 3.855 & 5.825 & 3.853 \\
+Full & 2.545 & 11.641 & 3.812 & 13.212 & 5.059 \\
+Reference Geometry, eager & 3.986 & 6.364 & 5.275 & 7.843 & 4.943 \\
+Reference Geometry, deferred & 3.408 & 6.282 & 4.197 & 7.873 & 4.694 \\
+Reference State, padded eager & 3.716 & 5.933 & 5.005 & 7.487 & 4.763 \\
+Reference State, compact eager & 3.090 & 4.840 & 4.424 & 6.388 & 4.237 \\
+Reference State, compact deferred & 3.019 & 4.804 & 3.830 & 6.383 & 4.134 \\
+Selected, $K=12$ & 3.023 & 4.799 & 3.840 & 6.362 & 4.120 \\
+Diverse, $W=3600$ & 2.708 & 4.034 & 4.053 & 5.583 & 3.888 \\
+Selected, $W=3600$ & 2.996 & 4.592 & 3.835 & 6.158 & 4.109 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+Table~\ref{tab:breakdown} isolates the computational components in a separate instrumented pass. For Selected, mean primary integration costs 2.378 ms and the prefix check 0.910 ms. Scalar features, inference and scheduling together cost approximately 0.275 ms, with no geometry-probe cost. The padded reference State implementation still spends 0.338 ms on unused geometric probes; compact export removes that work and reduces forward inference. Primary propagation remains the dominant common cost. The selected scheduler reduces avoidable inference overhead and continuation work, but does not eliminate the cost of generating the primary library.
+
+\begin{table*}[!t]
+\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\caption{Instrumented mean component times (ms), with prefix checking enabled. Primary ``other'' includes feasibility and cost work; residual excludes all listed components. The prefix term is reported separately from the other primary terms. These means are from a separate pass, not sums of timing percentiles.}
+\label{tab:breakdown}
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+ & \multicolumn{2}{c}{Primary} & RK4 & Scalar & Geometry & MLP & Schedule & Continuation & Residual & Total\\
+Method & Integrate & Other & Prefix & Features & Probes & Forward & & Validate & & \\
+\midrule
+Diverse & 2.381 & 0.235 & 0.911 & 0.000 & 0.000 & 0.000 & 0.027 & 0.305 & 0.010 & 3.869 \\
+Full & 2.382 & 0.235 & 0.911 & 0.000 & 0.000 & 0.000 & 0.001 & 1.518 & 0.010 & 5.058 \\
+Ref. Geometry, eager & 2.384 & 0.235 & 0.914 & 0.004 & 0.342 & 0.708 & 0.034 & 0.329 & 0.010 & 4.961 \\
+Ref. Geometry, deferred & 2.378 & 0.236 & 0.909 & 0.003 & 0.264 & 0.517 & 0.023 & 0.327 & 0.010 & 4.668 \\
+Ref. State, padded eager & 2.386 & 0.236 & 0.912 & 0.004 & 0.338 & 0.518 & 0.032 & 0.313 & 0.010 & 4.748 \\
+Ref. State, compact eager & 2.382 & 0.235 & 0.912 & 0.004 & 0.000 & 0.357 & 0.027 & 0.309 & 0.010 & 4.235 \\
+Ref. State, compact deferred & 2.380 & 0.235 & 0.910 & 0.003 & 0.000 & 0.265 & 0.019 & 0.308 & 0.010 & 4.130 \\
+Selected & 2.378 & 0.234 & 0.910 & 0.003 & 0.000 & 0.253 & 0.019 & 0.310 & 0.010 & 4.117 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+%% END REVISION RUNTIME RESULTS
+
+%% BEGIN REVISION CLOSED LOOP RESULTS
+\subsection{Closed-Loop Completion on Held-Out Maps}
+Table~\ref{tab:closed} reports all nine methods on the held-out split, with the common prefix filter off and on. Without the filter, Selected completes 107/128 tasks, compared with 88 for Diverse, 94 for Full and 95 for Geometry+Aux. The paired Selected--Diverse difference is 14.84 percentage points, with a 95\% map-bootstrap interval of [7.03,22.66]. Selected nevertheless incurs twelve inflated-boundary violations, versus one for Diverse and four for Full. Learned scheduling alone therefore improves completion without uniformly improving execution margin.
+
+With the same prefix check enabled for every method, Selected completes 118/128 tasks with zero observed margin incursions; Diverse completes 89 and Full completes 96, also without incursions. The Selected--Diverse difference is 22.66 percentage points [14.84,30.47], and the Selected--Full difference is 17.19 points [8.59,25.78]. Selected completes 26/32 nominal, 32/32 mismatch, 29/32 crosswind and 31/32 delayed-command tasks. Figure~\ref{fig:learningoutcomes} reports the complete outcome distribution, including unsuccessful tasks.
+
+\begin{table}[!t]
+\centering\scriptsize
+\caption{Held-out closed-loop outcomes. Each row contains 128 paired map--condition tasks per setting. All budgeted methods use $K=12$; Full searches the complete library of up to 203 primaries.}
+\label{tab:closed}
+\begin{tabular}{lrrrr}
+\toprule
+ & \multicolumn{2}{c}{Prefix off} & \multicolumn{2}{c}{Prefix on}\\
+Method & Goals & Margin & Goals & Margin\\
+\midrule
+Cost & 43 & 2 & 44 & 0 \\
+Diverse & 88 & 1 & 89 & 0 \\
+Full & 94 & 4 & 96 & 0 \\
+Reference Geometry & 90 & 4 & 92 & 1 \\
+Reference State & 100 & 10 & 108 & 0 \\
+Geometry+BCE & 90 & 13 & 100 & 1 \\
+Geometry+Aux & 95 & 5 & 100 & 0 \\
+State+BCE & 103 & 14 & 113 & 3 \\
+Selected (State+Aux) & 107 & 12 & 118 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure*}[!t]
+\centering\includegraphics[width=.96\textwidth]{figures/revision_outcomes.pdf}
+\caption{All outcomes on the held-out test maps with the numerical-prefix filter off and on. Each method uses the same 32 maps and four execution conditions. G and S denote Geometry and State; Legacy denotes the reference models, and S+Aux is Selected. Margin incursion denotes entry into inflated obstacle geometry.}
+\label{fig:learningoutcomes}
+\end{figure*}
+
+Within Selected, the common filter adds eleven completions without losing a completed task, a gain of 8.59 percentage points [4.69,12.50]. Of its twelve former incursions, eleven become completed tasks and one becomes a primary failure. This paired intervention separates the numerical correction from query scheduling. The filter does not remove all incursions for every model: State+BCE retains three, and Geometry+BCE and Reference Geometry retain one each. No recorded aircraft reference-point state enters the physical analytic obstacle geometry.
+
+On the prefix-on test, State+Aux completes five more tasks than State+BCE, a difference of 3.91 points [0.78,7.03], whereas the two Geometry losses each complete 100 tasks. Auxiliary supervision thus has a configuration-dependent execution effect. Geometry+Aux remains below Selected despite its higher validation query recall. Both choices are retained to expose the effect of the pre-test selection criterion.
+
+Figure~\ref{fig:learningpaths} visualizes the first prescribed map in each family under nominal execution with the common filter enabled. Its fixed seed selection illustrates the spatial decisions corresponding to the aggregate comparison.
+\begin{figure*}[!t]
+\centering\includegraphics[width=.96\textwidth]{figures/revision_paths.pdf}
+\caption{Horizontal projections of nominal executed trajectories on the first prescribed held-out test map in each family, with the common prefix filter enabled. The selected State+Aux model, query-selected Geometry+Aux model and nonlearned baselines use identical map geometry, initial state and goal.}
+\label{fig:learningpaths}
+\end{figure*}
+%% END REVISION CLOSED LOOP RESULTS
+
+\subsection{Numerical Error and Selection Mechanisms}
+The controlled replay reproduces all 512 archived outcomes, update counts and final goal distances. Geometry, No-geometry, Diverse and Full have 9, 2, 6 and 4 margin incursions, respectively. Table~\ref{tab:replay} reintegrates the command immediately preceding each event from the same initial state. Euler at 0.02 s detects none; Euler at 0.005 s detects 15 of the 21; nominal RK4 detects 18. The remaining three crossings require the recorded crosswind. This identifies numerical prediction error as a direct contributor to these boundary events and motivates the common short-prefix check.
+
+\begin{table}[!t]
+\centering\scriptsize
+\caption{Detection of the 21 archived margin-incursion prefixes. Each counterfactual uses the same initial state, selected command and 0.2 s duration.}
+\label{tab:replay}
+\begin{tabular}{lrrrr}
+\toprule
+Archived model & Actual & Euler .02 & Euler .005 & Nominal RK4\\
+\midrule
+Geometry & 9 & 0 & 8 & 8\\
+No-geometry & 2 & 0 & 2 & 2\\
+Diverse & 6 & 0 & 3 & 4\\
+Full & 4 & 0 & 2 & 4\\
+\midrule
+Total & 21 & 0 & 15 & 18\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All 21 incursion-producing primaries admit between three and ten feasible continuations out of fifteen; the Geometry cases admit five to ten. A larger number of terminal successors alone would therefore not reject all observed failures. The short executed prefix and the later continuation describe different parts of the motion, and each requires an appropriate numerical check.
+
+The two learned controllers first choose different commands in 124 of the 128 shared-prefix tasks. Both choices have verified continuations in every such case. Geometry selects a lower task-cost primary in 99 cases and fewer feasible successors in 88, with a mean difference of $-1.185$ successors. Its minimum primary clearance is lower in 42 cases, higher in 48 and tied in 34; the mean difference is $+1.118$ m under the common 30 m clearance cap. The experiment establishes a tradeoff between task progress and continuation options, while showing that geometry conditioning does not consistently reduce primary clearance. Consequently, Full is a reference for the finite-library objective in~\eqref{eq:full}, rather than an upper bound on closed-loop completion.
+
+\subsection{Training Support and Historical Transfer Tests}
+The archived sampler fixes initial yaw rate at zero. During closed-loop execution, this feature lies outside that support in 92.67\% of Geometry and 93.04\% of No-geometry selected-candidate observations. Initial roll also leaves its training range in 46.30\% and 46.39\%, respectively. A paired probe masking only the unsupported yaw-rate input changes none of the selected ranks, costs or witness statuses at 139 primary-feasible failure states. The distribution shift is substantial, but this probe does not identify yaw rate alone as the cause of the representation gap. The factorial experiment retains the original data so that input and loss comparisons have a common training distribution.
+
+The archived hybrid schedule completed 89/128 tasks versus 99/128 for its geometry-only learned ordering. Together with the auxiliary-loss ablation, this result supports treating fixed interleaving and work supervision as evaluated alternatives rather than required components of the selected scheduler.
+
+%% BEGIN SECTION: forest_experiment
+\subsection{Forest Transfer with Reference Models}
+Figure~\ref{fig:forestcomparison} retains the original frozen-controller comparison in voxelized forests. Eight paired seeds place 40 or 80 tree centers in a $200\times160$ m region; each dense map contains its sparse counterpart. Trunks have radius 0.8--1.4 m and height 24--36 m, with crown radius 4--6 m and twelve shared low bushes. All methods use the same initial state, goal and nominal plant. This separate experiment contains 80 episodes on sixteen maps and uses the original model weights.
+
+All five methods complete all eight sparse tasks. In dense forests, reference Geometry completes seven and enters an inflated boundary in one; Cost, Diverse, original No-geometry and Full each complete eight. This experiment illustrates route selection but provides no completion advantage for the geometry model. The displayed scene is the first prescribed seed. Voxels at 1.5 m resolution visualize analytic obstacle occupancy; collision checks use the analytic geometry.
 
 \begin{figure*}[!t]
 \centering\includegraphics[width=.94\textwidth]{figures/forest_comparison.pdf}
-\caption{Nominal closed-loop trajectories in paired sparse and dense forests (seed 601000). Height-colored 1.5 m voxels visualize the obstacle map; curves show recorded execution states. Voxelization is used for display, while collision checks use the analytic primitives. The dense map retains the 40 sparse-map trees and adds 40, while 12 bushes remain common. Circles mark goal attainment and the cross marks termination at an inflated obstacle margin. Cost and Full coincide in this pair. The dashed ground rectangle denotes the region used to calculate tree-center density.}
+\caption{Reference-model nominal trajectories in sparse and dense forests, seed 601000. Learned and No-geometry identify the original frozen models, not the newly selected configuration. Height-colored voxels display occupied space. Circles mark goal attainment; the cross marks the reference Geometry model's margin incursion. Cost and Full coincide. The dense scene retains all forty sparse-map trees and adds forty.}
 \label{fig:forestcomparison}
 \end{figure*}
 %% END SECTION: forest_experiment
 %% BEGIN SECTION: gazebo_validation
-\subsection{Gazebo Closed-Loop Validation in a Dense Urban Environment}
+\subsection{Controlled Gazebo Study in a Known Urban Map}
 \label{sec:gazebocity}
-We integrate the learned planner with the \texttt{suav1} flight model in Gazebo 11 and ROS Noetic to evaluate online execution in an urban scene. The environment combines existing building meshes with eight additional towers of 90--125 m height. The planning map contains 162 axis-aligned collision boxes, each expanded by 2 m at its faces. The aircraft starts at $(-90,-270,40)$ m heading north and follows eight waypoints with target altitudes of 40--60 m, including three waypoints through the city interior. Waypoint acceptance thresholds are 48.825 m horizontally and 3 m vertically.
+The ROS Noetic/Gazebo 11 deployment uses the \texttt{suav1} model in an urban scene containing 162 axis-aligned collision boxes, including eight added towers of 90--125 m height. Each box is expanded by 2 m at its faces. The aircraft starts at $(-90,-270,40)$ m heading north and follows eight waypoints at altitudes of 40--60 m. The planner runs at 10 Hz with $H=3$ s, $B=6$ s and $K=12$. The plugin integrates the point-mass dynamics and actuator responses at 0.004 s and updates aircraft velocity and attitude. Initial and commanded cruise speeds are 13.5 and 15.5 m/s.
 
-The deployment planner runs at 10 Hz with $H=3$ s, $B=6$ s and $K=12$, using the frozen learned weights and feasibility-only ranking. It augments the seven coarse altitude targets with state-relative levels for gradual climbing and descending, giving up to 406 primary controls. The preceding comparative experiments retain their frozen 203-control library. The Gazebo plugin integrates point-mass flight dynamics and first-order actuator responses at a 0.004 s simulation step, then updates the aircraft velocity and attitude. Initial airspeed is 13.5 m/s, and the commanded cruise speed is 15.5 m/s.
+We cross five schedules with three configurations: the original coarse altitude library and a 48.825 m horizontal gate; added state-relative altitude targets and the same gate; and state-relative targets with a 15 m gate. The libraries contain up to 203 and 406 controls. The larger gate originates from the deployment rule $d+0.15V=46.5+0.15(15.5)$ m. It advances the waypoint before close approach and therefore changes the task. Relative altitude targets provide intermediate climbs between the coarse absolute levels. The 15 m comparison isolates gate sensitivity while preserving those intermediate commands. Vertical tolerance remains 3 m. Runs stop at the first completed cycle, primary failure, margin incursion or 180 s simulation limit. Each configuration is run once, giving fifteen trials in this single layout. All schedules share each configuration, and the numerical-prefix filter is disabled in this deployment study. The urban adapter retains the original inference path for all learned models; compact-inference timing is measured in the numerical benchmark.
 
-A body-mounted three-dimensional lidar provides 512 horizontal samples across 360$^\circ$ and 32 vertical lines spanning $-40^\circ$ to $20^\circ$, at 5 Hz with a 1--120 m range. Ray intersections with Gazebo collision geometry generate the returns. The mapping node interpolates the simulation odometry at each scan time and accumulates occupied endpoints on a 2 m voxel grid; RViz displays the current scan, map and flight trajectory. Planning uses the supplied building collision map, while the lidar map records the observed environment. Figure~\ref{fig:gazebointerfaces} shows the Gazebo and RViz interfaces during a repeat run with the same configuration.
+%% BEGIN REVISION CITY RESULTS
+Table~\ref{tab:citycontrolled} separates the schedule from deployment configuration. None of the five coarse-library trials completes the first waypoint; four lose every feasible primary and reference Geometry reaches the time limit. Adding relative altitude levels at the same 48.825 m gate enables every schedule to complete the cycle. At the tighter 15 m gate, reference Geometry completes all eight waypoints, while Cost, Diverse and Selected lose the primary set after three waypoints and reference State incurs an inflated-boundary violation. Thus the original urban completion is strongly affected by altitude discretization and waypoint tolerance. The selected model's procedural-map advantage does not transfer uniformly to this stricter urban route.
 
-Figure~\ref{fig:gazebocity} and Table~\ref{tab:gazebocity} summarize the recorded validation flight. The aircraft completes the eight-waypoint cycle at $t=90.408$ s. Each of the 902 logged planning updates selects a continuation-verified primary. The minimum aircraft-reference-point distance to the physical boxes is 11.563 m, and the corresponding minimum distance to the expanded boxes is 9.098 m. Recorded states remain outside both sets of boxes. The maximum absolute bank angle is 34.999$^\circ$, and the maximum absolute flight-path angle is 16.299$^\circ$, within their respective 35$^\circ$ and 20$^\circ$ limits. All eight added towers produce lidar returns. The final stored map contains 163,777 occupied cells without capacity eviction. This urban flight demonstrates online integration of learned continuation search, vehicle execution and lidar acquisition; the multi-map comparisons above quantify the scheduling performance.
+\begin{table*}[!t]
+\centering\small
+\caption{Controlled urban configuration trials, one run per cell in one layout. Parentheses give completed waypoints out of eight. Relative/48.825 m entries all complete the cycle; time is the recorded simulation timestamp. Clearance is to expanded boxes. Original models are distinguished from Selected (State+Aux).}
+\label{tab:citycontrolled}
+\begin{tabular}{llrrlr}
+\toprule
+ & Coarse / 48.825 m & \multicolumn{2}{c}{Relative / 48.825 m} & \multicolumn{2}{c}{Relative / 15 m}\\
+Method & Outcome & Time (s) & Clearance (m) & Outcome & Clearance (m)\\
+\midrule
+Cost & No primary (0/8) & 90.524 & 9.520 & No primary (3/8) & 0.041 \\
+Diverse & No primary (0/8) & 90.428 & 8.843 & No primary (3/8) & 0.735 \\
+Reference Geometry & Time limit (0/8) & 90.460 & 8.771 & Completed (8/8) & 2.641 \\
+Reference State & No primary (0/8) & 90.556 & 9.464 & Margin incursion (3/8) & -0.005 \\
+Selected & No primary (0/8) & 90.780 & 8.376 & No primary (3/8) & 2.287 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+%% END REVISION CITY RESULTS
+
+The onboard lidar supplies 512 horizontal samples over $360^\circ$ and 32 vertical lines from $-40^\circ$ to $20^\circ$, at 5 Hz and 1--120 m range. The original recorded flight accumulates scan endpoints using interpolated simulation odometry on a 2 m voxel grid. Its screenshots and sensor record are retained in Figs.~\ref{fig:gazebointerfaces} and~\ref{fig:gazebocity}. Collision checking and geometric feature queries use the supplied building boxes. The lidar voxels are an observation product and do not feed the planner in these runs.
+
+The archived illustrated flight, using reference Geometry with relative levels and the 48.825 m gate, completes the cycle at $t=90.408$ s. All 902 logged updates select continuation-verified primaries. Minimum reference-point clearance is 11.563 m to physical boxes and 9.098 m to expanded boxes. Maximum absolute bank and flight-path angles are $34.999^\circ$ and $16.299^\circ$. The recorded map contains 163,777 occupied cells, with returns from all eight added towers. This sensor record demonstrates execution and acquisition in the same simulator; Table~\ref{tab:citycontrolled} provides the controlled planning comparison.
 
 \begin{figure*}[!t]
 \centering
@@ -389,52 +467,34 @@ Figure~\ref{fig:gazebocity} and Table~\ref{tab:gazebocity} summarize the recorde
 \par\medskip
 \includegraphics[width=.90\textwidth]{figures/rviz_interface.png}
 \par\smallskip{\footnotesize (b) RViz: lidar voxels and executed flight path}
-\caption{Native application screenshots of the urban simulation system. Gazebo displays the building geometry, while RViz displays the lidar-derived occupied voxels and the flight path in red. Both windows were captured after the eight-waypoint cycle in a repeat run using the validation configuration.}
+\caption{Native application screenshots from a repeat of the archived urban acquisition flight. Gazebo displays the buildings; RViz displays lidar-derived occupied voxels and the flight path in red. The planner uses the supplied collision boxes. Screenshots correspond to the reference Geometry model, relative altitude levels and the 48.825 m gate.}
 \label{fig:gazebointerfaces}
 \end{figure*}
 
 \begin{figure*}[!t]
 \centering\includegraphics[width=.98\textwidth]{figures/gazebo_city.pdf}
-\caption{Recorded Gazebo flight in the dense urban scene. (a) Building footprints and the executed trajectory, with $Y$ horizontal and $X$ vertical. Blue footprints identify the added towers, stars mark waypoints and the green dot marks the initial recorded position. (b) Occupied 2 m lidar voxels colored by height. The view omits cells at or below 2 m and displays every fourth remaining cell (17,822 of 71,286). (c) Recorded altitude and bank angle, with target altitude and bank limits. (d) Aircraft-reference-point clearance to the physical and expanded collision boxes. All panels are reconstructed from saved simulation data; the occupied map in (b) is obtained from lidar returns.}
+\caption{Archived Gazebo acquisition flight. (a) Building footprints and executed trajectory, with $Y$ horizontal and $X$ vertical. Blue footprints identify added towers, stars mark waypoints and green marks the start. (b) Occupied 2 m lidar voxels colored by height, displaying every fourth cell above 2 m. (c) Altitude and bank angle, target altitude and bank limits. (d) Reference-point clearance to physical and expanded boxes. Panels use saved simulation data; this flight is separate from the fifteen controlled configuration trials.}
 \label{fig:gazebocity}
 \end{figure*}
-
-\begin{table}[!t]
-\centering\small
-\caption{Urban Gazebo run. Clearances refer to the aircraft reference point. Scan acquisition ends at 90.408 s; the last periodically published map is stamped 89.808 s.}
-\label{tab:gazebocity}
-%% BEGIN SECTION: tables/gazebo
-\begin{tabular}{lr}
-\toprule
-Quantity & Recorded value \\
-\midrule
-Completed waypoints & 8 \\
-Cycle completion time (s) & 90.408 \\
-Logged / continuation-verified updates & 902 / 902 \\
-Minimum physical-box clearance (m) & 11.563 \\
-Minimum expanded-box clearance (m) & 9.098 \\
-Maximum absolute bank angle ($^\circ$) & 34.999 \\
-Maximum absolute flight-path angle ($^\circ$) & 16.299 \\
-Received lidar scans & 452 \\
-Occupied voxels in the last map & 163,777 \\
-\bottomrule
-\end{tabular}
-%% END SECTION: tables/gazebo
-\end{table}
 %% END SECTION: gazebo_validation
 
 \section{Discussion}
-The results distinguish three effects of learning. Geometry substantially improves candidate-level continuation classification. Learned ordering obtains more witnesses within a restricted validation budget. Closed-loop behavior additionally depends on which verified primary is selected, so similar discovery recall can coexist with different task costs and mission outcomes. This separation is useful when designing learned planners whose proposals remain subject to explicit checks.
+The experiments separate finite-library discovery, execution consistency and mission completion. Geometry is useful for predicting a nominal feasibility label, while the validation-selected State model yields better completion on the new procedural test maps. Lower classification error alone does not establish a better closed-loop schedule. Auxiliary work supervision and fixed maneuver interleaving likewise require direct measurement; neither provides a uniform improvement across the reported criteria.
 
-Maneuver diversity supplies a complementary exploration mechanism, but fixed alternation is not uniformly advantageous. On the present test split, Hybrid reduces selected-cost excess and validation work relative to Learned under $K=12$, while Learned achieves slightly higher discovery and more completed tasks. Likewise, validation favors feasibility-only ranking over the tested positive work exponents. Both findings argue for evaluating schedule composition and computational objectives directly rather than assuming that additional components improve every metric.
+Deferred inference addresses an implementation cost that is independent of learning quality. Every tested schedule begins with the same cheapest primary. Resolving that query first avoids feature and network work when its witness already determines the answer. Removing inactive columns and the unused output further reduces inference work without changing the feasibility logits. These changes preserve the original decision rule and can therefore be evaluated separately from a newly trained model.
 
-A continuation witness establishes feasibility of a sampled primary--successor pair under the prediction model. It does not impose a periodic terminal maneuver or a recursively invariant terminal set. The comparative experiments use static generated geometry and a point-mass model with actuator dynamics. The urban Gazebo study extends the implementation to imported building geometry and online lidar acquisition. Comparative evaluation across multiple urban layouts, planning from occluded sensor maps and six-degree-of-freedom flight dynamics remain directions for further study. Wind-aware prediction and model-dependent clearance margins are natural extensions to address the observed execution failures.
+The nominal objective still favors task progress among explicitly verified candidates. First-divergence replay shows that this can reduce the number of available continuations, but does not consistently reduce primary clearance. The observed boundary crossings instead motivate checking the executed prefix with a consistent numerical integrator. This correction uses the nominal RK4 equations shared with the execution plant; unmodeled wind, actuator mismatch and delay remain separate sources of prediction error. A finite witness covers only the sampled primary and successor horizon. Recursive feasibility would require an additional terminal construction, such as a repeatable loiter maneuver.
+
+The current training distribution covers a narrow initial-state region, and closed-loop roll and yaw-rate observations extend beyond it. Broader state sampling and trajectory-level training are consequently relevant extensions. The city trials further show the influence of waypoint tolerance and altitude discretization. They evaluate known-map planning with a parallel lidar observation stream; planning from a partial sensor map and evaluation with six-degree-of-freedom flight dynamics remain separate system developments.
 %% END SECTION: results
 %% BEGIN SECTION: conclusion
+% Flush the large scene figures before the concluding text.
+\onecolumn
+\twocolumn
 \section{Conclusion}
-This paper presented a learning-guided terminal continuation search for fixed-wing motion-primitive planning. A geometry-conditioned neural network learns continuation feasibility and validation work from explicit model-based checks. Its priority is combined with candidate and integration budgets, incremental constraint rejection, and an optional maneuver-diversity schedule.
+This paper presented learned allocation of finite terminal-continuation queries for fixed-wing primitive planning. Deferred inference and compact single-output export preserve the original decision rule while removing unnecessary feature and network work. A controlled input/loss study shows that geometric classification accuracy, query recall and closed-loop completion favor different configurations; execution validation selects the State+Aux model before independent testing.
 
-On independent test maps, learned ranking improves witness recall from 94.39\% to 96.50\% under a 12-candidate limit and from 78.50\% to 87.15\% under a 3,600-step continuation budget, relative to diversity alone. Closed-loop completion increases from 70 to 99 tasks out of 128. A subsequent frozen-model input ablation completes 117 tasks without the obstacle-clearance channels, despite lower classification accuracy. This finding emphasizes the importance of evaluating learned representations through execution as well as prediction. The urban Gazebo implementation completes an eight-waypoint flight while acquiring lidar scans and accumulating a three-dimensional occupied map. The study also identifies the accompanying tradeoffs: inference increases planning time, fixed diversity interleaving does not improve every metric, and sampled continuation feasibility does not eliminate execution-margin incursions. Learning the allocation of explicit continuation checks provides a practical way to extend an existing fixed-wing primitive planner without changing its trajectory representation or control interface.
+On the new maps, this model completes 107/128 tasks without the numerical-prefix check and 118/128 with it. Under the same enabled check, Diverse and Full complete 89 and 96. Controlled replay identifies numerical prediction inconsistency in eighteen of twenty-one archived margin events, supporting a separate correction shared by every scheduler. The fifteen city trials expose the effect of altitude-library and waypoint-gate choices on deployment outcomes. These results locate the contribution in efficient allocation of explicit finite-horizon checks, with model selection, numerical execution and system configuration evaluated independently.
 %% END SECTION: conclusion
 \appendices
 %% BEGIN SECTION: implementation
@@ -466,11 +526,21 @@ and the thrust command from
  T_c=\frac{kV^2C_D(\alpha_c)+g\sin\gamma_c}{\cos\alpha_c}
        +2.2a_g(V_w-V).
 \end{equation}
-Commands and inverse-trigonometric arguments are clipped to their respective limits. Numerical denominator guards operate outside the normal tested envelope. An inherited 0.8 s compensation heuristic transforms the target direction and distance using current heading rate before recomputing the command. All methods use this same generator; each output command is held constant within its primitive.
+Commands and inverse-trigonometric arguments are clipped to their respective limits. Numerical denominator guards operate outside the normal tested envelope. The inherited target-shift heuristic uses $\tau=0.8$ s. For a target at polar offset $(d,\theta)$, define $\nu=\dot\psi\tau/2$ and $l=V\tau$. It computes
+\begin{align}
+ d'&=\sqrt{\max(0.01,d^2+l^2-2dl\cos(\theta-\nu))},\\
+ c_\tau&=\clip\!\left(\frac{l-d\cos(\theta-\nu)}{d'},-1,1\right),\nonumber\\
+ a&=s(\theta-\nu)\arccos c_\tau,\\
+ \theta'&=\clip(\wrap(\pi-a-\nu),-\theta_{\max},\theta_{\max}),
+\end{align}
+where $s(z)=-1$ for $z<0$ and $s(z)=1$ otherwise. The generator then recomputes the command from $(d',\theta')$. This geometric heuristic is common to all methods; it is not a wind estimator. Each output command is held constant within its primitive.
 
 The primary cost weights in~\eqref{eq:cost} are $w_d=0.02$, $w_h=0.15$, and $w_\psi=3$. The command-change weights for $(\phi_c,\alpha_c,T_c)$ are $(1,0.1,0.05)$. Upright cylinders use a 20\% radial inflation and 1 m vertical clearance. Spheres use the larger of 20\% radius and 1 m as isotropic inflation. Collision tests are evaluated at every integration sample.
 %% END SECTION: implementation
-\IEEEtriggeratref{9}
+\section{Feature Normalization}\label{app:features}
+Initial and terminal $(V,\gamma,\phi,\alpha,T)$ are divided by $(20,0.35,0.61,0.44,20)$ in their SI units; yaw rate remains in rad/s. Terminal displacement in the initial heading frame is divided by $(100,100,30)$ m, and goal displacement in the terminal frame by $(250,250,50)$ m. Relative heading uses its sine and cosine. Lower and upper altitude margins use 50 m; $H$ and $B$ use 10 s; observation radius uses 200 m; cost uses 20; and vertical clearance uses 10 m. Terminal displacement norm is divided by observation radius when the radius is positive, and set to zero otherwise. Geometry channels divide signed clearance by 30 m and clip to $[-1,1]$. No fitted normalization statistics are used.
+
+\IEEEtriggeratref{12}
 %% BEGIN REFERENCES: edit the bibitems below directly
 % Generated by IEEEtran.bst, version: 1.14 (2015/08/26)
 \begin{thebibliography}{10}

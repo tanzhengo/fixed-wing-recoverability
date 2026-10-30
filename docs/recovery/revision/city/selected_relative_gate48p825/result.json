@@ -1,0 +1,408 @@
+{
+  "stop_reason": "completed_first_waypoint_cycle",
+  "error": null,
+  "wall_seconds": 111.12425219299621,
+  "first_sim_time": 0.06,
+  "last_sim_time": 90.78,
+  "odom_count": 5671,
+  "status_count": 905,
+  "last_odom": {
+    "t": 90.78,
+    "x": -49.22915867519093,
+    "y": -292.681693194465,
+    "z": 40.00323264230077,
+    "V": 15.488894247118967,
+    "gamma": 0.002247089860174471,
+    "sigma": 2.6388288476624178,
+    "roll": -0.035919312387704835,
+    "attack": -0.1859236158106063,
+    "T": 1.0378165925781995,
+    "d_sigma": -0.02058038550715693,
+    "physical_box_clearance": 17.91064652161837,
+    "inflated_box_clearance": 15.10137584315473
+  },
+  "goal_transitions": [
+    {
+      "t": 0.372,
+      "x": -85.0,
+      "y": -100.0,
+      "z": 40.0,
+      "aircraft": {
+        "t": 0.364,
+        "x": -90.00000021297211,
+        "y": -265.1277650183129,
+        "z": 39.97223926190816,
+        "V": 13.277788548345812,
+        "gamma": -0.013015788573747222,
+        "sigma": 1.5707963705062866,
+        "roll": -1.7348704267633527e-18,
+        "attack": -4.060811357314842e-10,
+        "T": 0.0,
+        "d_sigma": 0.0,
+        "physical_box_clearance": 20.00000021297211,
+        "inflated_box_clearance": 18.00000021297211
+      },
+      "odometry_age_s": 0.008000000000000007
+    },
+    {
+      "t": 8.236,
+      "x": -85.0,
+      "y": 180.0,
+      "z": 50.0,
+      "aircraft": {
+        "t": 8.236,
+        "x": -89.11347799902835,
+        "y": -146.52624895182012,
+        "z": 40.1779450329976,
+        "V": 15.182301072207574,
+        "gamma": 0.009271669247955135,
+        "sigma": 1.505479678674323,
+        "roll": -0.06124534085392953,
+        "attack": -0.21669613108953836,
+        "T": 1.158690598704353,
+        "d_sigma": -0.036756376006762854,
+        "physical_box_clearance": 28.560025844672413,
+        "inflated_box_clearance": 26.302501400812623
+      },
+      "odometry_age_s": 0.0,
+      "previous_goal": [
+        -85.0,
+        -100.0,
+        40.0
+      ],
+      "previous_goal_horizontal_error": 46.70773536337673,
+      "previous_goal_height_error": 0.17794503299759867,
+      "previous_goal_gate_passed": true
+    },
+    {
+      "t": 26.348,
+      "x": 120.0,
+      "y": 225.0,
+      "z": 60.0,
+      "aircraft": {
+        "t": 26.348,
+        "x": -84.11425287696841,
+        "y": 133.195688742627,
+        "z": 49.998812225157614,
+        "V": 15.500715970126157,
+        "gamma": -7.627599419705588e-05,
+        "sigma": 1.6035973512919108,
+        "roll": -0.004797239322215334,
+        "attack": -0.18851474232493298,
+        "T": 0.9680002607414933,
+        "d_sigma": 5.722798784761343e-05,
+        "physical_box_clearance": 40.890152992567536,
+        "inflated_box_clearance": 38.192916580835714
+      },
+      "odometry_age_s": 0.0,
+      "previous_goal": [
+        -85.0,
+        180.0,
+        50.0
+      ],
+      "previous_goal_horizontal_error": 46.812691657743976,
+      "previous_goal_height_error": 0.001187774842385636,
+      "previous_goal_gate_passed": true
+    },
+    {
+      "t": 39.048,
+      "x": 60.0,
+      "y": 80.0,
+      "z": 60.0,
+      "aircraft": {
+        "t": 39.036,
+        "x": 73.97514171522319,
+        "y": 217.25676104804148,
+        "z": 59.997852171578764,
+        "V": 15.479011469388507,
+        "gamma": 0.0032151214319068597,
+        "sigma": 0.16568663584199575,
+        "roll": -4.258912156257968e-07,
+        "attack": -0.19143869201715774,
+        "T": 0.9690560067972304,
+        "d_sigma": -2.7092097406006965e-07,
+        "physical_box_clearance": 38.001514777878775,
+        "inflated_box_clearance": 34.67935178994506
+      },
+      "odometry_age_s": 0.012000000000000455,
+      "previous_goal": [
+        120.0,
+        225.0,
+        60.0
+      ],
+      "previous_goal_horizontal_error": 46.671675881640645,
+      "previous_goal_height_error": 0.0021478284212363974,
+      "previous_goal_gate_passed": true
+    },
+    {
+      "t": 48.648,
+      "x": 35.0,
+      "y": -50.0,
+      "z": 60.0,
+      "aircraft": {
+        "t": 48.636,
+        "x": 93.20322913501857,
+        "y": 113.11824841162024,
+        "z": 60.36894827152151,
+        "V": 15.485899969441144,
+        "gamma": -0.011382880133825638,
+        "sigma": -2.2758202940618033,
+        "roll": -0.11745529621839523,
+        "attack": -0.1862849421079575,
+        "T": 0.8482588759188939,
+        "d_sigma": -0.07457202329868982,
+        "physical_box_clearance": 36.801567366321514,
+        "inflated_box_clearance": 34.801567366321514
+      },
+      "odometry_age_s": 0.012000000000000455,
+      "previous_goal": [
+        60.0,
+        80.0,
+        60.0
+      ],
+      "previous_goal_horizontal_error": 46.896405009833465,
+      "previous_goal_height_error": 0.36894827152151066,
+      "previous_goal_gate_passed": true
+    },
+    {
+      "t": 56.948,
+      "x": 20.0,
+      "y": -230.0,
+      "z": 55.0,
+      "aircraft": {
+        "t": 56.94,
+        "x": 44.83496746826583,
+        "y": -4.271626159796675,
+        "z": 60.031973627915974,
+        "V": 15.49777513472002,
+        "gamma": -0.0006299391588911504,
+        "sigma": -1.7876943164483716,
+        "roll": 0.0001059895585058136,
+        "attack": -0.18963467327740344,
+        "T": 0.9211729597118458,
+        "d_sigma": 6.792927669211668e-05,
+        "physical_box_clearance": 24.420206682381732,
+        "inflated_box_clearance": 21.926533445177594
+      },
+      "odometry_age_s": 0.008000000000002672,
+      "previous_goal": [
+        35.0,
+        -50.0,
+        60.0
+      ],
+      "previous_goal_horizontal_error": 46.77403937197683,
+      "previous_goal_height_error": 0.031973627915974134,
+      "previous_goal_gate_passed": true
+    },
+    {
+      "t": 68.548,
+      "x": 125.0,
+      "y": -265.0,
+      "z": 55.0,
+      "aircraft": {
+        "t": 68.54,
+        "x": 24.561283329160013,
+        "y": -182.56564334602317,
+        "z": 54.99666496855605,
+        "V": 15.503846063900465,
+        "gamma": -0.00044095124081631126,
+        "sigma": -1.6645927867869583,
+        "roll": -2.167747197750855e-06,
+        "attack": -0.18929712866469364,
+        "T": 0.9179581188898082,
+        "d_sigma": -1.3899229588381828e-06,
+        "physical_box_clearance": 25.31842305084001,
+        "inflated_box_clearance": 23.31842305084001
+      },
+      "odometry_age_s": 0.007999999999995566,
+      "previous_goal": [
+        20.0,
+        -230.0,
+        55.0
+      ],
+      "previous_goal_horizontal_error": 47.65315830861108,
+      "previous_goal_height_error": 0.003335031443953085,
+      "previous_goal_gate_passed": true
+    },
+    {
+      "t": 74.824,
+      "x": -90.0,
+      "y": -270.0,
+      "z": 40.0,
+      "aircraft": {
+        "t": 74.812,
+        "x": 79.6876705142946,
+        "y": -252.7979563397415,
+        "z": 55.35800657991649,
+        "V": 15.454314848376365,
+        "gamma": -0.0035361720757094975,
+        "sigma": -0.38050709956878703,
+        "roll": 0.12450187653303149,
+        "attack": -0.1851553247733506,
+        "T": 0.9166362232283481,
+        "d_sigma": 0.07896883553411482,
+        "physical_box_clearance": 29.464847063316586,
+        "inflated_box_clearance": 26.734347958871265
+      },
+      "odometry_age_s": 0.012000000000000455,
+      "previous_goal": [
+        125.0,
+        -265.0,
+        55.0
+      ],
+      "previous_goal_horizontal_error": 46.92650714583372,
+      "previous_goal_height_error": 0.3580065799164913,
+      "previous_goal_gate_passed": true
+    },
+    {
+      "t": 90.74,
+      "x": -85.0,
+      "y": -100.0,
+      "z": 40.0,
+      "aircraft": {
+        "t": 90.732,
+        "x": -48.57763666370014,
+        "y": -293.0396891924244,
+        "z": 40.00155214563759,
+        "V": 15.487064772656664,
+        "gamma": 0.0022938110160411174,
+        "sigma": 2.639244658360136,
+        "roll": -1.8873744920698544e-05,
+        "attack": -0.19039030449863087,
+        "T": 0.9509413191235975,
+        "d_sigma": -1.2066659116796484e-05,
+        "physical_box_clearance": 17.632304274985003,
+        "inflated_box_clearance": 14.81881080107313
+      },
+      "odometry_age_s": 0.007999999999995566,
+      "previous_goal": [
+        -90.0,
+        -270.0,
+        40.0
+      ],
+      "previous_goal_horizontal_error": 47.39872848978079,
+      "previous_goal_height_error": 0.0015521456375893194,
+      "previous_goal_gate_passed": true
+    }
+  ],
+  "waypoints": [
+    [
+      -85.0,
+      -100.0,
+      40.0
+    ],
+    [
+      -85.0,
+      180.0,
+      50.0
+    ],
+    [
+      120.0,
+      225.0,
+      60.0
+    ],
+    [
+      60.0,
+      80.0,
+      60.0
+    ],
+    [
+      35.0,
+      -50.0,
+      60.0
+    ],
+    [
+      20.0,
+      -230.0,
+      55.0
+    ],
+    [
+      125.0,
+      -265.0,
+      55.0
+    ],
+    [
+      -90.0,
+      -270.0,
+      40.0
+    ]
+  ],
+  "waypoint_gate_horizontal_m": 48.825,
+  "waypoint_gate_height_m": 3.0,
+  "waypoint_gate_checks_passed": true,
+  "status_counts": {
+    "RECOVERY_VERIFIED": 905
+  },
+  "primary_infeasible_status_count": 0,
+  "minimum_physical_box_clearance_m": 10.850223071236138,
+  "minimum_inflated_box_clearance_m": 8.376446590216027,
+  "physical_box_intrusion_samples": 0,
+  "inflated_box_intrusion_samples": 0,
+  "altitude_min_max_m": [
+    33.83320782735467,
+    60.56716485390035
+  ],
+  "speed_min_max_m_s": [
+    13.262379800676342,
+    18.644067586949557
+  ],
+  "max_abs_gamma_deg": 16.326114545092345,
+  "max_abs_roll_deg": 34.99941243933025,
+  "planner_parameters": {
+    "horizon_time": 3.0,
+    "V": 15.5,
+    "theata": 45.0,
+    "num": 29,
+    "vertical_num": 7,
+    "max_climb_angle": 20.0,
+    "max_descent_angle": 20.0,
+    "min_altitude": 5.0,
+    "max_altitude": 160.0,
+    "vertical_clearance": 1.0,
+    "integration_dt": 0.02,
+    "min_speed": 3.0,
+    "max_speed": 45.0,
+    "max_thrust": 20.0,
+    "altitude_weight": 0.15,
+    "distance_weight": 0.02,
+    "heading_weight": 3.0,
+    "waypoint_altitude_tolerance": 3.0,
+    "max_roll_angle": 35.0,
+    "max_attack_angle": 25.0,
+    "min_attack_angle": -20.0,
+    "compensate_tau": 0.8,
+    "K_T": 2.2,
+    "state_relative_altitudes": true,
+    "waypoint_horizontal_tolerance": 48.825
+  },
+  "recovery_parameters": {
+    "require_terminal": true,
+    "stop_on_rejection": true,
+    "max_backup_integration_steps": 0,
+    "enabled": true,
+    "horizon_time": 6.0,
+    "max_candidates": 12,
+    "candidate_order": "learned",
+    "reuse_verified_plan": false,
+    "min_execution_time": 0.1,
+    "known_space_radius": 0.0,
+    "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/training/state_joint/20261030/network_v1.txt",
+    "learned_work_power": 0.0
+  },
+  "box_count": 162,
+  "ros_master_uri": "http://127.0.0.1:11371",
+  "task_config_sha256": "07a34dea2a21190485cd5aae26d8cf0e0952840841ee352172b0a1036847afa9",
+  "observer_sha256": "bd3c0ec5887b2b55f6258490f2a7339a8e1a64a5dce328b42e44f2d7722ad654",
+  "point_clearance_note": "Distances are sampled aircraft reference-point distances to the imported planning boxes, not swept aircraft mesh collision measurements.",
+  "gate_sampling_note": "Goal transition checks use the latest preceding recorded odometry without enlarging the planner gate; message timing can differ from the exact state consumed by the planner.",
+  "cli": {
+    "task_config": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/revision_city/selected_relative_gate48p825/task.yaml",
+    "output_dir": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/city/selected_relative_gate48p825",
+    "sim_seconds": 180.0,
+    "wall_seconds": 500.0,
+    "startup_seconds": 30,
+    "stop_after_cycle": true,
+    "stop_on_failure": true
+  },
+  "passed": true
+}

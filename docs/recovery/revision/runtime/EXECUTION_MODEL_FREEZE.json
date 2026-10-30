@@ -1,0 +1,71 @@
+{
+  "created_utc": "2026-10-30T12:49:28.898390+00:00",
+  "selected_configuration": "state_joint",
+  "deployment_seed": 20261030,
+  "model_path": "docs/recovery/revision/training/state_joint/20261030/network_compact.txt",
+  "model_sha256": "c806ea47d4167a55449d88e4a324cf0f9de866825c73a55877d989c0ff5e7545",
+  "new_test_accessed": false,
+  "selection_protocol_sha256": "9718bbaccf9b0c3e2bf6552b453a179e21b967cc59a028d42cc04669a063a90e",
+  "validation_episodes_sha256": "ef9fe9e74b9623c5069046725e48453ebdf7d9a9d7d77282da6beac791456160",
+  "validation_run_manifest_sha256": "3482ff5fa340bd42b7fba642f0482e2cae580f2500a4a8ed649fbe200b11329d",
+  "training_summary_sha256": "92a342353fc4b7bf93b0d094b489c0cb8c2a13bef6e951a57892e9932eca7364",
+  "ranked_validation_configurations": [
+    {
+      "configuration": "state_joint",
+      "method": "state_aux_lazy12",
+      "completed": 108,
+      "margin_incursions": 7,
+      "validation_query_mean_recall": 0.907058001397624,
+      "validation_mean_bce": 0.2820464273293813,
+      "condition_completions": {
+        "crosswind": 28,
+        "delay100ms": 32,
+        "model_mismatch": 30,
+        "nominal": 18
+      }
+    },
+    {
+      "configuration": "state_bce",
+      "method": "state_bce_lazy12",
+      "completed": 102,
+      "margin_incursions": 8,
+      "validation_query_mean_recall": 0.9116002795248077,
+      "validation_mean_bce": 0.2820775906244914,
+      "condition_completions": {
+        "crosswind": 27,
+        "delay100ms": 31,
+        "model_mismatch": 28,
+        "nominal": 16
+      }
+    },
+    {
+      "configuration": "geometry_joint",
+      "method": "geometry_aux_lazy12",
+      "completed": 94,
+      "margin_incursions": 8,
+      "validation_query_mean_recall": 0.926974143955276,
+      "validation_mean_bce": 0.07548333456118901,
+      "condition_completions": {
+        "crosswind": 16,
+        "delay100ms": 31,
+        "model_mismatch": 29,
+        "nominal": 18
+      }
+    },
+    {
+      "configuration": "geometry_bce",
+      "method": "geometry_bce_lazy12",
+      "completed": 89,
+      "margin_incursions": 10,
+      "validation_query_mean_recall": 0.926974143955276,
+      "validation_mean_bce": 0.07645098119974136,
+      "condition_completions": {
+        "crosswind": 9,
+        "delay100ms": 32,
+        "model_mismatch": 31,
+        "nominal": 17
+      }
+    }
+  ],
+  "interpretation": "Execution configuration selected only on existing validation maps. Original query-only freeze remains separate."
+}

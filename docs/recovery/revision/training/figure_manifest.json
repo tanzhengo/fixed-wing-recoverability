@@ -1,0 +1,17 @@
+{
+  "source_sha256": "92a342353fc4b7bf93b0d094b489c0cb8c2a13bef6e951a57892e9932eca7364",
+  "script_sha256": "f02c934d14093de857111e14816cffddeb66d39cc80c99b144d3a5cace71ffea",
+  "figure_pdf_sha256": "d2998216ec78e66f57e85b9d3f4110a78787949958ccdb68b05a8ae955f75d6a",
+  "seeds": [
+    20261030,
+    20261031,
+    20261032
+  ],
+  "data_split": "validation only",
+  "panels": [
+    "BCE",
+    "K12 recall",
+    "W3600 recall"
+  ],
+  "display": "Three individual seed dots plus mean and sample standard deviation."
+}

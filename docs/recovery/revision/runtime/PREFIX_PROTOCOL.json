@@ -1,0 +1,11 @@
+{
+  "created_utc": "2026-10-30T12:50:42.343973+00:00",
+  "reason": "Historical failure replay identified execution-prefix collisions not detected by the Euler primary rollout. Test a common short-prefix correction before any new-map evaluation.",
+  "new_test_accessed": false,
+  "execution_model_frozen_before_this_amendment": true,
+  "intervention": "After the unchanged Euler primary feasibility checks, validate the next0.2s command with nominal RK4 at0.005s; reject candidate on any sampled flight-envelope or inflated-collision violation. All schedulers use identical filter.",
+  "model_information": "Nominal dynamics only; no access to perturbed execution parameters, actual wind or delay.",
+  "heldout_design": "Two matched nine-method closed-loop matrices (prefix off/on), each32maps\u00d74conditions\u00d79methods=1152episodes, same801000seeds. No retraining or selection using prefix or heldout outcomes.",
+  "limits": "Checks current execution interval, not fullH+B robust feasibility or unknown-space sensing. May reduce available primaries and increase planning time.",
+  "timing": "Prefix integration/validation measured separately inside primary phase; walltime assessed with profileoff."
+}

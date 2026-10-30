@@ -1,0 +1,22 @@
+... logging to /home/tan/.ros/log/rostest-tz-171180.log
+[ROSUNIT] Outputting test results to /home/tan/.ros/test_results/motion_primitives_planning/rostest-test_runtime_vertical.xml
+[Testcase: testruntime_vertical_test] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[motion_primitives_planning.rosunit-runtime_vertical_test/CapturedOrbitSelectsVerifiedClimbingTurn][passed]
+[motion_primitives_planning.rosunit-runtime_vertical_test/AggressiveCoarseClimbStillFailsOriginalEnvelope][passed]
+[motion_primitives_planning.rosunit-runtime_vertical_test/DistantAltitudeTargetsRetainGentleVerifiedClimbs][passed]
+[motion_primitives_planning.rosunit-runtime_vertical_test/AltitudeBoundaryClippingKeepsFiniteUniqueTargets][passed]
+[motion_primitives_planning.rosunit-runtime_vertical_test/HeightToleranceIsNotRelaxedToSkipWaypoint][passed]
+[motion_primitives_planning.rosunit-runtime_vertical_test/CoarseLibraryOptionMatchesFrozenCommands][passed]
+[motion_primitives_planning.rosunit-runtime_vertical_test/ExplicitHorizontalGateIsRespected][passed]
+[motion_primitives_planning.rosunit-runtime_vertical_test/IndependentPlantEscapesThreeCapturedOrbitPhases][passed]
+
+SUMMARY
+ * RESULT: SUCCESS
+ * TESTS: 8
+ * ERRORS: 0
+ * FAILURES: 0
+
+rostest log file is in /home/tan/.ros/log/rostest-tz-171180.log

@@ -1,0 +1,13 @@
+\begin{tabular}{llrrrrr}
+\toprule
+Input & Loss & BCE & AUROC & K12 (\%) & W3600 (\%) & Val. goals \\
+\midrule
+Geometry & BCE & 0.0765 & 0.9960 & 97.55 & 87.84 & 89/128 \\
+Geometry & Aux & 0.0755 & 0.9962 & 98.18 & 87.21 & 94/128 \\
+State & BCE & 0.2821 & 0.9480 & 96.09 & 86.23 & 102/128 \\
+State & Aux & 0.2820 & 0.9484 & 95.95 & 85.46 & 108/128 \\
+\bottomrule
+\end{tabular}
+% Prediction and query metrics are three-seed validation means.
+% Execution counts use fixed seed 20261030 on the same 128 validation tasks.
+% Aux denotes BCE + 0.1 Huber; all checkpoints use validation BCE.

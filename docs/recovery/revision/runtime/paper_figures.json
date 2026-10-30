@@ -1,0 +1,691 @@
+{
+  "outcomes": {
+    "counts": {
+      "off": {
+        "nominal": {
+          "cost12": {
+            "collision": 2,
+            "no_feasible_primary": 18,
+            "goal": 12
+          },
+          "diverse12": {
+            "goal": 26,
+            "no_feasible_primary": 5,
+            "collision": 1
+          },
+          "full203": {
+            "collision": 4,
+            "no_feasible_primary": 4,
+            "goal": 24
+          },
+          "geometry_eager12": {
+            "goal": 18,
+            "no_feasible_primary": 11,
+            "collision": 3
+          },
+          "state_legacy_eager12": {
+            "goal": 15,
+            "collision": 8,
+            "no_feasible_primary": 9
+          },
+          "geometry_bce_lazy12": {
+            "goal": 16,
+            "collision": 11,
+            "no_feasible_primary": 5
+          },
+          "geometry_aux_lazy12": {
+            "goal": 20,
+            "collision": 5,
+            "no_feasible_primary": 7
+          },
+          "state_bce_lazy12": {
+            "goal": 14,
+            "collision": 10,
+            "no_feasible_primary": 8
+          },
+          "state_aux_lazy12": {
+            "goal": 16,
+            "collision": 11,
+            "no_feasible_primary": 5
+          }
+        },
+        "model_mismatch": {
+          "cost12": {
+            "goal": 13,
+            "no_feasible_primary": 18,
+            "timeout": 1
+          },
+          "diverse12": {
+            "goal": 30,
+            "no_feasible_primary": 2
+          },
+          "full203": {
+            "goal": 28,
+            "no_feasible_primary": 4
+          },
+          "geometry_eager12": {
+            "goal": 31,
+            "no_feasible_primary": 1
+          },
+          "state_legacy_eager12": {
+            "goal": 29,
+            "collision": 2,
+            "no_feasible_primary": 1
+          },
+          "geometry_bce_lazy12": {
+            "goal": 30,
+            "collision": 1,
+            "no_feasible_primary": 1
+          },
+          "geometry_aux_lazy12": {
+            "goal": 29,
+            "no_feasible_primary": 3
+          },
+          "state_bce_lazy12": {
+            "goal": 31,
+            "collision": 1
+          },
+          "state_aux_lazy12": {
+            "goal": 31,
+            "collision": 1
+          }
+        },
+        "crosswind": {
+          "cost12": {
+            "no_feasible_primary": 30,
+            "goal": 2
+          },
+          "diverse12": {
+            "goal": 8,
+            "no_feasible_primary": 24
+          },
+          "full203": {
+            "no_feasible_primary": 21,
+            "goal": 11
+          },
+          "geometry_eager12": {
+            "goal": 10,
+            "no_feasible_primary": 22
+          },
+          "state_legacy_eager12": {
+            "goal": 24,
+            "no_feasible_primary": 8
+          },
+          "geometry_bce_lazy12": {
+            "goal": 15,
+            "no_feasible_primary": 17
+          },
+          "geometry_aux_lazy12": {
+            "goal": 14,
+            "no_feasible_primary": 18
+          },
+          "state_bce_lazy12": {
+            "goal": 29,
+            "no_feasible_primary": 3
+          },
+          "state_aux_lazy12": {
+            "goal": 29,
+            "no_feasible_primary": 3
+          }
+        },
+        "delay100ms": {
+          "cost12": {
+            "goal": 16,
+            "no_feasible_primary": 16
+          },
+          "diverse12": {
+            "goal": 24,
+            "no_feasible_primary": 8
+          },
+          "full203": {
+            "goal": 31,
+            "no_feasible_primary": 1
+          },
+          "geometry_eager12": {
+            "goal": 31,
+            "collision": 1
+          },
+          "state_legacy_eager12": {
+            "goal": 32
+          },
+          "geometry_bce_lazy12": {
+            "goal": 29,
+            "collision": 1,
+            "no_feasible_primary": 2
+          },
+          "geometry_aux_lazy12": {
+            "goal": 32
+          },
+          "state_bce_lazy12": {
+            "goal": 29,
+            "collision": 3
+          },
+          "state_aux_lazy12": {
+            "goal": 31,
+            "no_feasible_primary": 1
+          }
+        }
+      },
+      "on": {
+        "nominal": {
+          "cost12": {
+            "goal": 13,
+            "no_feasible_primary": 19
+          },
+          "diverse12": {
+            "goal": 27,
+            "no_feasible_primary": 5
+          },
+          "full203": {
+            "goal": 26,
+            "no_feasible_primary": 6
+          },
+          "geometry_eager12": {
+            "goal": 20,
+            "no_feasible_primary": 12
+          },
+          "state_legacy_eager12": {
+            "goal": 22,
+            "no_feasible_primary": 10
+          },
+          "geometry_bce_lazy12": {
+            "goal": 25,
+            "no_feasible_primary": 7
+          },
+          "geometry_aux_lazy12": {
+            "goal": 25,
+            "no_feasible_primary": 7
+          },
+          "state_bce_lazy12": {
+            "goal": 23,
+            "no_feasible_primary": 9
+          },
+          "state_aux_lazy12": {
+            "goal": 26,
+            "no_feasible_primary": 6
+          }
+        },
+        "model_mismatch": {
+          "cost12": {
+            "goal": 13,
+            "no_feasible_primary": 18,
+            "timeout": 1
+          },
+          "diverse12": {
+            "goal": 30,
+            "no_feasible_primary": 2
+          },
+          "full203": {
+            "goal": 28,
+            "no_feasible_primary": 4
+          },
+          "geometry_eager12": {
+            "goal": 31,
+            "no_feasible_primary": 1
+          },
+          "state_legacy_eager12": {
+            "goal": 30,
+            "no_feasible_primary": 2
+          },
+          "geometry_bce_lazy12": {
+            "goal": 31,
+            "no_feasible_primary": 1
+          },
+          "geometry_aux_lazy12": {
+            "goal": 29,
+            "no_feasible_primary": 3
+          },
+          "state_bce_lazy12": {
+            "goal": 32
+          },
+          "state_aux_lazy12": {
+            "goal": 32
+          }
+        },
+        "crosswind": {
+          "cost12": {
+            "no_feasible_primary": 30,
+            "goal": 2
+          },
+          "diverse12": {
+            "goal": 8,
+            "no_feasible_primary": 24
+          },
+          "full203": {
+            "no_feasible_primary": 21,
+            "goal": 11
+          },
+          "geometry_eager12": {
+            "goal": 10,
+            "no_feasible_primary": 22
+          },
+          "state_legacy_eager12": {
+            "goal": 24,
+            "no_feasible_primary": 8
+          },
+          "geometry_bce_lazy12": {
+            "goal": 15,
+            "no_feasible_primary": 17
+          },
+          "geometry_aux_lazy12": {
+            "goal": 14,
+            "no_feasible_primary": 18
+          },
+          "state_bce_lazy12": {
+            "goal": 29,
+            "no_feasible_primary": 3
+          },
+          "state_aux_lazy12": {
+            "goal": 29,
+            "no_feasible_primary": 3
+          }
+        },
+        "delay100ms": {
+          "cost12": {
+            "goal": 16,
+            "no_feasible_primary": 16
+          },
+          "diverse12": {
+            "goal": 24,
+            "no_feasible_primary": 8
+          },
+          "full203": {
+            "goal": 31,
+            "no_feasible_primary": 1
+          },
+          "geometry_eager12": {
+            "goal": 31,
+            "collision": 1
+          },
+          "state_legacy_eager12": {
+            "goal": 32
+          },
+          "geometry_bce_lazy12": {
+            "goal": 29,
+            "collision": 1,
+            "no_feasible_primary": 2
+          },
+          "geometry_aux_lazy12": {
+            "goal": 32
+          },
+          "state_bce_lazy12": {
+            "goal": 29,
+            "collision": 3
+          },
+          "state_aux_lazy12": {
+            "goal": 31,
+            "no_feasible_primary": 1
+          }
+        }
+      }
+    },
+    "episodes_per_prefix": 1152,
+    "tasks_per_method_condition": 32,
+    "outcome_label_mapping": {
+      "goal": "Goal",
+      "no_feasible_primary": "No feasible primary",
+      "collision": "Margin incursion",
+      "timeout": "Timeout"
+    },
+    "source_sha256": {
+      "heldout_episodes.csv": "869fcb53f37cf7aa99174549734e284b03f036a1ee32dff8680d1decf5ef5f97",
+      "prefix/heldout_episodes.csv": "42927a10cb0234a489f63f403c5d91c729628dccac3ed31851cee4ebf641e979"
+    },
+    "script_sha256": "caf09767fdab0e289980798aec34efd46386982c833152ceae1e1bce5fe8b658",
+    "figure_sha256": "1f9ce5ba82ee586405455e1d22754be7192f8612977563652e84db58ccc98f7c"
+  },
+  "paths": {
+    "selection_rule": "First map in each family, nominal execution, prefix on; chosen before inspection.",
+    "projection": "XY; physical obstacle projections, without inflation. Dashed spheres have finite height.",
+    "cases": [
+      {
+        "case_id": "review_9",
+        "scene": "review_staggered_0",
+        "seed": 801000,
+        "method": "full203",
+        "outcome": "goal",
+        "path_states": 79,
+        "min_altitude": 19.94749069,
+        "max_altitude": 20.10967827
+      },
+      {
+        "case_id": "review_2",
+        "scene": "review_staggered_0",
+        "seed": 801000,
+        "method": "diverse12",
+        "outcome": "goal",
+        "path_states": 79,
+        "min_altitude": 19.96644402,
+        "max_altitude": 21.46187782
+      },
+      {
+        "case_id": "review_1",
+        "scene": "review_staggered_0",
+        "seed": 801000,
+        "method": "cost12",
+        "outcome": "goal",
+        "path_states": 79,
+        "min_altitude": 19.94780159,
+        "max_altitude": 20.12783623
+      },
+      {
+        "case_id": "review_6",
+        "scene": "review_staggered_0",
+        "seed": 801000,
+        "method": "geometry_aux_lazy12",
+        "outcome": "goal",
+        "path_states": 79,
+        "min_altitude": 19.96563721,
+        "max_altitude": 20.40650177
+      },
+      {
+        "case_id": "review_8",
+        "scene": "review_staggered_0",
+        "seed": 801000,
+        "method": "state_aux_lazy12",
+        "outcome": "goal",
+        "path_states": 81,
+        "min_altitude": 19.90493011,
+        "max_altitude": 20.7905674
+      },
+      {
+        "case_id": "review_297",
+        "scene": "review_wall_0",
+        "seed": 802000,
+        "method": "full203",
+        "outcome": "goal",
+        "path_states": 92,
+        "min_altitude": 19.77092743,
+        "max_altitude": 20.49346352
+      },
+      {
+        "case_id": "review_290",
+        "scene": "review_wall_0",
+        "seed": 802000,
+        "method": "diverse12",
+        "outcome": "goal",
+        "path_states": 93,
+        "min_altitude": 20.0,
+        "max_altitude": 21.73567009
+      },
+      {
+        "case_id": "review_289",
+        "scene": "review_wall_0",
+        "seed": 802000,
+        "method": "cost12",
+        "outcome": "no_feasible_primary",
+        "path_states": 12,
+        "min_altitude": 20.0,
+        "max_altitude": 20.00145531
+      },
+      {
+        "case_id": "review_294",
+        "scene": "review_wall_0",
+        "seed": 802000,
+        "method": "geometry_aux_lazy12",
+        "outcome": "goal",
+        "path_states": 87,
+        "min_altitude": 20.0,
+        "max_altitude": 20.44494057
+      },
+      {
+        "case_id": "review_296",
+        "scene": "review_wall_0",
+        "seed": 802000,
+        "method": "state_aux_lazy12",
+        "outcome": "no_feasible_primary",
+        "path_states": 30,
+        "min_altitude": 20.0,
+        "max_altitude": 20.37633324
+      },
+      {
+        "case_id": "review_585",
+        "scene": "review_culdesac_0",
+        "seed": 803000,
+        "method": "full203",
+        "outcome": "goal",
+        "path_states": 90,
+        "min_altitude": 19.57032967,
+        "max_altitude": 20.53127098
+      },
+      {
+        "case_id": "review_578",
+        "scene": "review_culdesac_0",
+        "seed": 803000,
+        "method": "diverse12",
+        "outcome": "no_feasible_primary",
+        "path_states": 36,
+        "min_altitude": 19.78126907,
+        "max_altitude": 20.13721657
+      },
+      {
+        "case_id": "review_577",
+        "scene": "review_culdesac_0",
+        "seed": 803000,
+        "method": "cost12",
+        "outcome": "no_feasible_primary",
+        "path_states": 34,
+        "min_altitude": 19.82512283,
+        "max_altitude": 20.01631355
+      },
+      {
+        "case_id": "review_582",
+        "scene": "review_culdesac_0",
+        "seed": 803000,
+        "method": "geometry_aux_lazy12",
+        "outcome": "goal",
+        "path_states": 87,
+        "min_altitude": 20.0,
+        "max_altitude": 21.12769508
+      },
+      {
+        "case_id": "review_584",
+        "scene": "review_culdesac_0",
+        "seed": 803000,
+        "method": "state_aux_lazy12",
+        "outcome": "goal",
+        "path_states": 87,
+        "min_altitude": 20.0,
+        "max_altitude": 20.69198036
+      },
+      {
+        "case_id": "review_873",
+        "scene": "review_spatial_0",
+        "seed": 804000,
+        "method": "full203",
+        "outcome": "goal",
+        "path_states": 79,
+        "min_altitude": 19.9601059,
+        "max_altitude": 20.11802292
+      },
+      {
+        "case_id": "review_866",
+        "scene": "review_spatial_0",
+        "seed": 804000,
+        "method": "diverse12",
+        "outcome": "goal",
+        "path_states": 79,
+        "min_altitude": 19.64307022,
+        "max_altitude": 20.16019058
+      },
+      {
+        "case_id": "review_865",
+        "scene": "review_spatial_0",
+        "seed": 804000,
+        "method": "cost12",
+        "outcome": "goal",
+        "path_states": 79,
+        "min_altitude": 19.9601059,
+        "max_altitude": 20.11802292
+      },
+      {
+        "case_id": "review_870",
+        "scene": "review_spatial_0",
+        "seed": 804000,
+        "method": "geometry_aux_lazy12",
+        "outcome": "goal",
+        "path_states": 80,
+        "min_altitude": 19.51083946,
+        "max_altitude": 20.80237579
+      },
+      {
+        "case_id": "review_872",
+        "scene": "review_spatial_0",
+        "seed": 804000,
+        "method": "state_aux_lazy12",
+        "outcome": "goal",
+        "path_states": 79,
+        "min_altitude": 19.54078484,
+        "max_altitude": 20.70000648
+      }
+    ],
+    "source_sha256": {
+      "heldout_episodes.csv": "869fcb53f37cf7aa99174549734e284b03f036a1ee32dff8680d1decf5ef5f97",
+      "prefix/heldout_episodes.csv": "42927a10cb0234a489f63f403c5d91c729628dccac3ed31851cee4ebf641e979",
+      "prefix/heldout_paths.csv.gz": "1b508dd56869da2c3d54bef5d1c4869f2d4a4fba2f8161c4366a3d185af7bd74",
+      "prefix/heldout_scenarios.csv": "bc5566e9a79b6a78230a6b9ae18e081d38379af97d4cbde4befabcf81f9ed126"
+    },
+    "script_sha256": "caf09767fdab0e289980798aec34efd46386982c833152ceae1e1bce5fe8b658",
+    "figure_sha256": "0602e119196df02040a7b241a0a8232944ece4fb82024a2f9b8ed6a23a4eb6cc"
+  },
+  "matched": {
+    "matched_states": 576,
+    "repeat_policy": "Three repeats must have identical decisions; count each state once.",
+    "oracle_positive": {
+      "off": 423,
+      "on": 423
+    },
+    "settings": {
+      "off": {
+        "cost_k12": {
+          "found": 280,
+          "oracle_positive": 423,
+          "recall_percent": 66.19385342789599
+        },
+        "diverse_k12": {
+          "found": 406,
+          "oracle_positive": 423,
+          "recall_percent": 95.98108747044917
+        },
+        "geometry_bce_lazy_k12": {
+          "found": 415,
+          "oracle_positive": 423,
+          "recall_percent": 98.10874704491725
+        },
+        "geometry_aux_lazy_k12": {
+          "found": 416,
+          "oracle_positive": 423,
+          "recall_percent": 98.3451536643026
+        },
+        "state_bce_lazy_k12": {
+          "found": 415,
+          "oracle_positive": 423,
+          "recall_percent": 98.10874704491725
+        },
+        "state_aux_lazy_k12": {
+          "found": 415,
+          "oracle_positive": 423,
+          "recall_percent": 98.10874704491725
+        },
+        "cost_w3600": {
+          "found": 235,
+          "oracle_positive": 423,
+          "recall_percent": 55.55555555555556
+        },
+        "diverse_w3600": {
+          "found": 312,
+          "oracle_positive": 423,
+          "recall_percent": 73.75886524822695
+        },
+        "geometry_bce_lazy_w3600": {
+          "found": 389,
+          "oracle_positive": 423,
+          "recall_percent": 91.96217494089835
+        },
+        "geometry_aux_lazy_w3600": {
+          "found": 388,
+          "oracle_positive": 423,
+          "recall_percent": 91.725768321513
+        },
+        "state_bce_lazy_w3600": {
+          "found": 376,
+          "oracle_positive": 423,
+          "recall_percent": 88.88888888888889
+        },
+        "state_aux_lazy_w3600": {
+          "found": 389,
+          "oracle_positive": 423,
+          "recall_percent": 91.96217494089835
+        }
+      },
+      "on": {
+        "cost_k12": {
+          "found": 280,
+          "oracle_positive": 423,
+          "recall_percent": 66.19385342789599
+        },
+        "diverse_k12": {
+          "found": 406,
+          "oracle_positive": 423,
+          "recall_percent": 95.98108747044917
+        },
+        "geometry_bce_lazy_k12": {
+          "found": 415,
+          "oracle_positive": 423,
+          "recall_percent": 98.10874704491725
+        },
+        "geometry_aux_lazy_k12": {
+          "found": 416,
+          "oracle_positive": 423,
+          "recall_percent": 98.3451536643026
+        },
+        "state_bce_lazy_k12": {
+          "found": 415,
+          "oracle_positive": 423,
+          "recall_percent": 98.10874704491725
+        },
+        "state_aux_lazy_k12": {
+          "found": 415,
+          "oracle_positive": 423,
+          "recall_percent": 98.10874704491725
+        },
+        "cost_w3600": {
+          "found": 235,
+          "oracle_positive": 423,
+          "recall_percent": 55.55555555555556
+        },
+        "diverse_w3600": {
+          "found": 312,
+          "oracle_positive": 423,
+          "recall_percent": 73.75886524822695
+        },
+        "geometry_bce_lazy_w3600": {
+          "found": 389,
+          "oracle_positive": 423,
+          "recall_percent": 91.96217494089835
+        },
+        "geometry_aux_lazy_w3600": {
+          "found": 388,
+          "oracle_positive": 423,
+          "recall_percent": 91.725768321513
+        },
+        "state_bce_lazy_w3600": {
+          "found": 376,
+          "oracle_positive": 423,
+          "recall_percent": 88.88888888888889
+        },
+        "state_aux_lazy_w3600": {
+          "found": 389,
+          "oracle_positive": 423,
+          "recall_percent": 91.96217494089835
+        }
+      }
+    },
+    "source_sha256": {
+      "heldout_matched.csv.gz": "a7b5ec358b11808b161918a05343bfc3d6a80c479f3d96e6d9a873863071b11a",
+      "prefix/heldout_matched.csv.gz": "6f0121d60380b758bc37342af31285137cd37934028dbfa26c33843e362c27ff"
+    },
+    "script_sha256": "caf09767fdab0e289980798aec34efd46386982c833152ceae1e1bce5fe8b658",
+    "figure_sha256": "71d2e984ee71f2bf12e480b8c20dd7cf602daaf4df038ba3978aeb20d20179bc"
+  }
+}

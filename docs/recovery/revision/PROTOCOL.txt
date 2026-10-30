@@ -1,0 +1,40 @@
+Reviewer-driven revision protocol, 2026-10-30
+
+Historical reference: repository commit 2f9160a. Original learning source, maps,
+weights and recorded results remain frozen. New implementations and evidence
+are under review_* / revision paths.
+
+1. Auxiliary-loss ablation: Geometry/State inputs x BCE/BCE+Huber x three
+training seeds. Same training/validation maps; shared validation-BCE checkpoint
+selection and validation-only schedule selection. Detailed protocol in training/.
+New held-out maps use base seed 801000, 8 maps per each of four families.
+The new test is opened only after training/model-selection hashes are frozen.
+
+2. Exact implementation optimization: single feasibility output, remove known
+zero input columns, delay learned schedule construction until common cheapest
+candidate fails. Validate probability/control/selected-candidate equivalence;
+measure total time separately from a six-part instrumented breakdown. Timing
+runs are CPU-pinned and isolated from training, diagnostics and Gazebo.
+
+3. Failure diagnostics: replay frozen methods and records; compare choices at
+identical pre-failure states, with same-command integration and disturbance
+counterfactuals. These analyses explain previously observed outcomes; they are
+not independent held-out performance tests. Details in diagnostics/PROTOCOL.json.
+
+4. Gazebo city matrix: original dense city, same eight waypoints, 3 s primary,
+6 s continuation, K=12, same dynamics and known collision map. Cost, Diverse,
+original Geometry and original No-geometry are compared with coarse versus
+state-relative altitude candidates (up to 203/406), all using the inherited
+48.825 m horizontal waypoint switch gate. Additional 406-candidate runs use
+15 m for all four methods. Vertical tolerance stays 3 m. Stop at first complete
+cycle, first primary failure, first inflated-box incursion, or 180 simulation
+seconds; startup/wall-time failures are reported separately. One deterministic
+run per configuration; no statistical population claim from this one city.
+Perception remains a measurement/visualization stream; no sensor-map planning
+claim is made. New runtime parameters preserve existing defaults.
+
+5. Manuscript restructuring: separate evidence for scheduling, inference cost,
+closed-loop outcomes and known-map system integration. Geometry, work-head and
+fixed Hybrid are treated as ablated design choices. Preserve negative outcomes
+and distinguish validated numerical findings from causal interpretations.
+No recursive-safety or unknown-map navigation guarantee is claimed.

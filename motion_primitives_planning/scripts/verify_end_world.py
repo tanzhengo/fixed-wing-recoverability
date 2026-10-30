@@ -141,6 +141,7 @@ def main():
     parser.add_argument('--wall-seconds', type=float, default=300)
     parser.add_argument('--startup-seconds', type=float, default=30)
     parser.add_argument('--stop-after-cycle', action='store_true')
+    parser.add_argument('--stop-on-failure', action='store_true')
     args = parser.parse_args()
     if min(args.sim_seconds, args.wall_seconds, args.startup_seconds) <= 0:
         parser.error('All time limits must be positive')
@@ -218,16 +219,25 @@ def main():
                 last = dict(records['odom'][-1]) if records['odom'] else None
                 first = records['odom'][0]['t'] if records['odom'] else None
                 sequence = list(transitions)
+                latest_status = dict(records['status'][-1]) if records['status'] else None
             if last and not planner_params:
                 planner_params = rospy.get_param('/suav1/motion_primitive', {})
                 recovery_params = rospy.get_param('/suav1/recovery', {})
                 if 'V' not in planner_params or 'horizon_time' not in planner_params:
                     raise RuntimeError('Planner gate parameters are unavailable')
-                horizontal_tolerance = planner_params['V'] * (planner_params['horizon_time'] + .15)
+                horizontal_tolerance = planner_params.get('waypoint_horizontal_tolerance',
+                    planner_params['V'] * (planner_params['horizon_time'] + .15))
                 height_tolerance = planner_params.get('waypoint_altitude_tolerance', 3.0)
             if args.stop_after_cycle and complete_cycle(sequence, goals):
                 stop = 'completed_first_waypoint_cycle'
                 break
+            if args.stop_on_failure and last:
+                if last['inflated_box_clearance'] is not None and last['inflated_box_clearance'] <= 0:
+                    stop = 'inflated_box_incursion'
+                    break
+                if latest_status and latest_status.get('primary_feasible') is False:
+                    stop = 'no_feasible_primary'
+                    break
             if args.stop_after_cycle and len(goals) == 1 and last:
                 target = goals[0]
                 if math.hypot(last['x']-target[0], last['y']-target[1]) <= horizontal_tolerance and abs(last['z']-target[2]) <= height_tolerance:

@@ -154,6 +154,7 @@ public:
         nh.param<float>("motion_primitive/V", mp_V, 15.5f);
         nh.param<int>("motion_primitive/num", mp_num, 29);
         nh.param<int>("motion_primitive/vertical_num", vertical_num, 7);
+        nh.param<bool>("motion_primitive/state_relative_altitudes", state_relative_altitudes, true);
         load_angle("theata", mp_theata, 45);
         load_angle("max_roll_angle", mp_max_roll, 35);
         load_angle("max_attack_angle", mp_max_attack, 25);
@@ -186,6 +187,8 @@ public:
         max_climb_angle = constraint(max_climb_angle, 0.0f, 45.0f * Rad2Deg);
         max_descent_angle = constraint(max_descent_angle, 0.0f, 45.0f * Rad2Deg);
         mp_d = horizon_time * mp_V;
+        nh.param<float>("motion_primitive/waypoint_horizontal_tolerance", horizontal_tolerance, mp_d + 0.15f * mp_V);
+        horizontal_tolerance = std::max(0.1f, horizontal_tolerance);
         nh.param<bool>("recovery/enabled", recovery_enabled, false);
         // The primary-only ablation uses IDENTICAL hard primary checks while
         // omitting terminal validation; disabled preserves the legacy baseline.
@@ -333,7 +336,7 @@ public:
         // the global layers, and fill in gentle state-relative height changes.
         // The fractions are target-direction angles, not relaxed flight limits;
         // every resulting rollout still passes the original hard checks.
-        if (vertical_num > 1) {
+        if (vertical_num > 1 && state_relative_altitudes) {
             const auto add_height = [&](float height) {
                 height = constraint(height, low, high);
                 for (float existing : heights)
@@ -1028,7 +1031,7 @@ public:
     }
 
     void check_target(const s_t& s) {
-        if (std::hypot(s.pos[0] - global_target.pos[0], s.pos[1] - global_target.pos[1]) <= mp_d + 0.15f * mp_V &&
+        if (std::hypot(s.pos[0] - global_target.pos[0], s.pos[1] - global_target.pos[1]) <= horizontal_tolerance &&
             std::abs(s.h - global_target.h) <= altitude_tolerance) {
             wp_i = (wp_i + 1) % wp_n;
             global_target = wp_vec[wp_i];
@@ -1454,7 +1457,8 @@ private:
     float mp_d, mp_V, mp_theata, mp_max_roll, mp_max_attack, mp_min_attack, mp_k_T;
     float horizon_time, max_climb_angle, max_descent_angle, min_altitude, max_altitude;
     float integration_dt, min_speed, max_speed, max_thrust, vertical_clearance;
-    float altitude_weight, distance_weight, heading_weight, altitude_tolerance;
+    float altitude_weight, distance_weight, heading_weight, altitude_tolerance, horizontal_tolerance;
+    bool state_relative_altitudes = true;
     float CL_k1, CL_k2, CD_k1, CD_k2, tau_a;
     bool recovery_enabled, reuse_verified_plan, require_terminal, stop_on_rejection;
     int max_backup_integration_steps;

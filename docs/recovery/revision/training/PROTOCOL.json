@@ -1,0 +1,48 @@
+{
+  "protocol": "review_loss_ablation_v1",
+  "created_utc": "2026-10-30T12:38:53.017058+00:00",
+  "cells": [
+    {
+      "name": "geometry_bce",
+      "state_only": false,
+      "auxiliary_weight": 0.0
+    },
+    {
+      "name": "geometry_joint",
+      "state_only": false,
+      "auxiliary_weight": 0.1
+    },
+    {
+      "name": "state_bce",
+      "state_only": true,
+      "auxiliary_weight": 0.0
+    },
+    {
+      "name": "state_joint",
+      "state_only": true,
+      "auxiliary_weight": 0.1
+    }
+  ],
+  "seeds": [
+    20261030,
+    20261031,
+    20261032
+  ],
+  "epochs": 60,
+  "batch_size": 2048,
+  "optimizer": "Adam lr=0.001 weight_decay=0.00001",
+  "checkpoint_rule": "Minimum validation BCE for every cell; exact ties retain earliest epoch.",
+  "priority": "Feasibility only (beta=0); common cheapest feasible primary is queried first.",
+  "configuration_rule": "Maximize three-seed mean of validation K12 and W3600 recall; exact ties minimize three-seed mean validation BCE, then lexical cell name.",
+  "deployment_seed": 20261030,
+  "heldout_policy": "No test arrays, maps, closed-loop outcomes or test-derived parameters are read by this training and selection script.",
+  "inference_export": "Remove work head; for state-only also remove 75 inactive geometry columns. No retraining after compact export.",
+  "train_archive_sha256": "8f688140b34188d58614e19157a1b25a3290cb8bd89ffe686ba9ae40b6c4a968",
+  "val_archive_sha256": "c4d96bf01d73cf62331b6f0902ac6bb7203f5b5a6aefe0ec4adefbfca8d0cbd4",
+  "validation_states_sha256": "c5b7dfcdd91cf82911c1e04aadc23350496405ddb506a5508d81f4dcdf6c142f",
+  "script_sha256": "55091f071369c012dea62fc632b075653fa77fad967bf666d82fd756ccdb3887",
+  "helper_sha256": {
+    "train_recovery_network.py": "e9dd623a098af8c4b29867ebb2188284fcc11621d65e74a832c25c5799766452",
+    "select_recovery_schedule.py": "99d94d58e3fb680583bd5cc1399a814834fe0cd2b1c9fd510444ced54b9b7dde"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "excluded": true,
+  "reason": "First timing stage overlapped the tail of a figure-rendering task; terminated and retained for audit before clean restart. No rows enter timing analysis.",
+  "recorded_utc": "2026-10-30T13:09:19.984230+00:00"
+}

@@ -1,0 +1,33 @@
+{
+  "baseline_commit": "2f9160a98d5ca2c81099b3e2eb0d18b9565bf388",
+  "frozen_sources_unchanged": true,
+  "maps": "Original 32 held-out maps (base seed 501000), used here as a diagnostic set, not a new validation set",
+  "methods": [
+    "geometry",
+    "no_geometry",
+    "diverse",
+    "full"
+  ],
+  "conditions": [
+    "nominal",
+    "model_mismatch",
+    "crosswind",
+    "delay100ms"
+  ],
+  "replays": 512,
+  "paired_state_selection": "For every non-goal episode, final attempted planning state and last primary-feasible planning state, unique per episode. State/history are frozen before comparing all four methods.",
+  "measurements": [
+    "primary minimum signed inflated clearance (capped at 30 m)",
+    "selected continuation minimum signed inflated clearance",
+    "all-15 continuation feasible count",
+    "best feasible continuation clearance",
+    "primary gamma/altitude slack",
+    "same-command 0.2 s Euler0.02/Euler0.005/RK4 nominal discrepancy",
+    "actual-condition displacement and collision-margin changes"
+  ],
+  "distribution_shift": "All primary-feasible selected candidate features during replay, compared descriptively with the original all-feasible-candidate training marginal ranges. This includes selection bias and is not causal evidence.",
+  "timing": "No runtime comparison: diagnostics may overlap independent training tasks",
+  "causal_scope": "Numerical and disturbance counterfactuals hold initial state and executed command fixed; alternative-choice comparisons hold state and command history fixed. They do not establish closed-loop safety or optimality.",
+  "posthoc_yaw_rate_probe": "In addition to the four prespecified comparisons, mask only geometry-model input column11 at paired failure states. Training input11 is identically0. No state/control-generation changes; no claim of new held-out performance.",
+  "posthoc_shared_prefix_probe": "For each of128 original map-condition tasks, replay Geometry and No-geometry identically until their first different executed control; compare task cost and margins at that common state. Designed after late-state probes showed mainly identical decisions; descriptive posthoc mechanism analysis."
+}

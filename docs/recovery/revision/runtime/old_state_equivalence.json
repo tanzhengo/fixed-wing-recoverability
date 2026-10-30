@@ -1,0 +1,56 @@
+{
+  "decision_fields": [
+    "status",
+    "primary_feasible",
+    "verified",
+    "reused",
+    "primary_count",
+    "feasible_count",
+    "recovery_checked",
+    "backup_evaluated",
+    "primary_steps",
+    "backup_steps",
+    "cached_steps",
+    "rank",
+    "cost",
+    "reject_collision",
+    "reject_envelope",
+    "reject_known",
+    "reject_invalid",
+    "truncated",
+    "work_exhausted"
+  ],
+  "comparisons": {
+    "geometry_eager_k12 vs geometry_lazy_k12": {
+      "states": 576,
+      "mismatches": 0
+    },
+    "geometry_eager_w3600 vs geometry_lazy_w3600": {
+      "states": 576,
+      "mismatches": 0
+    },
+    "state_legacy_eager_k12 vs state_compact_eager_k12": {
+      "states": 576,
+      "mismatches": 0
+    },
+    "state_legacy_eager_w3600 vs state_compact_eager_w3600": {
+      "states": 576,
+      "mismatches": 0
+    },
+    "state_legacy_eager_k12 vs state_compact_lazy_k12": {
+      "states": 576,
+      "mismatches": 0
+    },
+    "state_legacy_eager_w3600 vs state_compact_lazy_w3600": {
+      "states": 576,
+      "mismatches": 0
+    }
+  },
+  "archived_original_timing_repeats_compared": 10368,
+  "legacy_compact_forward_parity": {
+    "examples": 32,
+    "compact_vs_padded_max_abs_error": 0,
+    "compact_vs_python_max_abs_error": 1.05500221252e-05
+  },
+  "timing_note": "Correctness run concurrently with other work; its times are not performance evidence."
+}

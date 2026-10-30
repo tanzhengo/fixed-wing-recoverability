@@ -1,0 +1,17 @@
+{
+  "purpose": "Correctness-only replay of previously published test states; no runtime claims",
+  "ros_master_uri": "http://localhost:11372",
+  "cpu": 6,
+  "split": "test",
+  "phase": "matched",
+  "repeats": 1,
+  "states": 576,
+  "methods": 15,
+  "source_hashes": {
+    "motion_primitives_planning/src/review_motion_primitives.h": "dc390846434e10dda6e65e3c9dbe3aa4e3fbd5793a723dbbab3a622a47aa23ee",
+    "motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+    "motion_primitives_planning/src/recovery_review_benchmark.cpp": "261540c5a65e8a00649aa4265cfc94130eb8203c4732bf7541f9e75c37db6d9f"
+  },
+  "executable_sha256": "3e64eadfc903a490c34ee235ab9b6e11708b2f7c48408acf0674a862ca195442",
+  "raw_csv_sha256": "58af01a4f3d4bcb578290dde827453ca230c1a9c52936c7e28076f68bc343de2"
+}

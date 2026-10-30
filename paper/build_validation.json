@@ -1,34 +1,46 @@
 {
-  "date": "2026-10-30",
+  "validated_utc": "2026-10-30T13:31:24.046046+00:00",
   "engine": "Tectonic 0.17.0",
-  "pages": 14,
+  "pages": 16,
   "figures": 8,
-  "tables": 3,
+  "tables": 6,
   "references": 15,
   "author_format": "anonymous review manuscript",
-  "pdf_sha256": "5a5fd1a6b43c9597587ec6e1f7127a5947d3197bedaa36c2c518a115667f9c2f",
+  "editable_tex_files": 1,
+  "bibliography": "embedded bibitems; no BibTeX",
+  "pdf_sha256": "d4dc2f0af7a5b22b92c6ab7191a457c0d76dbf0dc0315a90725217b18293d007",
+  "sources": {
+    "main.tex": "4514ac3b075a8dcb0e5375faf64f462dbc2ff07e692ec135fce65f48b227a387",
+    "IEEEtran.cls": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
+  },
+  "figure_assets_sha256": {
+    "figures/architecture.pdf": "d9f1ae3ba1590f9aba09424ea7346f7df54deafc3fc2ad85b8a870c725a9b69c",
+    "figures/revision_training.pdf": "d2998216ec78e66f57e85b9d3f4110a78787949958ccdb68b05a8ae955f75d6a",
+    "figures/revision_matched.pdf": "71d2e984ee71f2bf12e480b8c20dd7cf602daaf4df038ba3978aeb20d20179bc",
+    "figures/revision_outcomes.pdf": "1f9ce5ba82ee586405455e1d22754be7192f8612977563652e84db58ccc98f7c",
+    "figures/revision_paths.pdf": "0602e119196df02040a7b241a0a8232944ece4fb82024a2f9b8ed6a23a4eb6cc",
+    "figures/forest_comparison.pdf": "db92d51b667720afb991ed4d4e2fa768c0dcf2ae011947cd2197633e925eb749",
+    "figures/gazebo_interface.png": "23fc0de45d7b085ec1a22ed8c687a0d2d74c6f26583746e6cf72e644c63a43e1",
+    "figures/rviz_interface.png": "e79c153431bce7cd023374e712fafb8d89f3f464d121a5db5aeb6729d65bcd17",
+    "figures/gazebo_city.pdf": "63afed239bd808bb277c7bde317e9aa2a9478cd58ac41f66fa6d8f0099bc9715"
+  },
   "unresolved_references": 0,
   "overfull_boxes": 0,
   "missing_glyphs": 0,
-  "render_check": "All 14 pages rendered after consolidation. Formula review of equations (2), (4), (11); contact-sheet inspection and full-page checks of figures/tables. No unresolved references, overfull boxes or missing glyphs.",
-  "supplementary_forest_episodes": 80,
-  "forest_figure_sha256": "db92d51b667720afb991ed4d4e2fa768c0dcf2ae011947cd2197633e925eb749",
-  "forest_voxel_size_m": 1.5,
-  "gazebo_system_validation_runs": 1,
-  "gazebo_section": "VII-G",
-  "gazebo_figure": 8,
-  "gazebo_table": "III",
-  "gazebo_figure_sha256": "63afed239bd808bb277c7bde317e9aa2a9478cd58ac41f66fa6d8f0099bc9715",
-  "gazebo_data_summary_sha256": "25b12cdf82cab21118afa5e9aa14066eef43488e1a5070664cd9bc30caaff94b",
-  "compile_warnings_note": "Underfull boxes and an encoding warning in the cached algorithm.sty comment; PDF text contains no replacement glyphs.",
-  "gazebo_interface_figure": 7,
-  "gazebo_interface_page": 12,
-  "gazebo_interface_capture_runs": 1,
-  "gazebo_interface_images_sha256": {
-    "gazebo_interface.png": "23fc0de45d7b085ec1a22ed8c687a0d2d74c6f26583746e6cf72e644c63a43e1",
-    "rviz_interface.png": "e79c153431bce7cd023374e712fafb8d89f3f464d121a5db5aeb6729d65bcd17"
+  "render_check": "All pages rendered and contact sheets inspected. Full-page checks covered indicator/clearance formulas, timing tables, outcome plots, native screenshots, concluding text and balanced references. Final scene floats are flushed before the conclusion.",
+  "compile_warnings_note": "Underfull layout warnings and a cached algorithm.sty comment encoding warning; no replacement characters in extracted PDF text.",
+  "revision_experiments": {
+    "training_runs": 12,
+    "validation_episodes": 512,
+    "heldout_closed_loop_episodes": 2304,
+    "heldout_maps": 32,
+    "matched_inputs": 576,
+    "uninstrumented_timing_rows": 93312,
+    "profile_rows": 31104,
+    "city_configuration_trials": 15,
+    "archived_failure_replay_episodes": 512
   },
-  "gazebo_interface_manifest_sha256": "8a50cabc9a4864e5539c59b63bccd236f2908a0a2d283d12d88bfe94bcdbd7de",
+  "implementation_checks": "../docs/recovery/revision/implementation_checks.json",
   "archived_split_sources": {
     "commit": "19aeeee31b10fda93d2ae4c35f7a61f6edad4836",
     "sha256": {
@@ -47,12 +59,5 @@
       "gazebo_validation.tex": "fc2e01f7a49c8e77954c587c3730c30b3f396ced8147c932d6fa6da1a6d60eb1",
       "tables/gazebo.tex": "922fca84ddac4a825b420792b3a381ecae727b903c5cd4e5dd6251337f15d969"
     }
-  },
-  "sources": {
-    "main.tex": "1e241b2b1192ae3f2d9c78764ff33028b20c9ef0a8fc5b65308fbc744d384b7f",
-    "IEEEtran.cls": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
-  },
-  "editable_tex_files": 1,
-  "bibliography": "15 bibitems embedded in main.tex; no BibTeX required",
-  "single_file_migration": "All text, tables and bibliography consolidated; algorithm and recorded results unchanged."
+  }
 }

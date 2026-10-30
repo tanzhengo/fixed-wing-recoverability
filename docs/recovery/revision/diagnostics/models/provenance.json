@@ -1,0 +1,6 @@
+{
+  "source": "docs/recovery/learning/models/geometry/network.txt",
+  "source_sha256": "d324bf927dc89f53568cfc3980a7a6217227a89f4b28a1f90fb324b6580a36aa",
+  "masked_model_sha256": "0436d923cd3237f6ba131c5f2f76a7536f66447cf81c82d9047c401020c40347",
+  "change": "Only first-layer input column11 zeroed. Frozen true state and primitive generation remain unmodified. This is a posthoc failure-state sensitivity probe, not a retrained model or new held-out evaluation."
+}

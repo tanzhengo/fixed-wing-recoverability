@@ -1,0 +1,165 @@
+{
+  "checked_models": 12,
+  "structural_compaction_exact": true,
+  "arithmetic": "sequential float32 accumulation versus PyTorch fixture",
+  "tolerance": 0.0001,
+  "maximum_absolute_error": 1.1444091796875e-05,
+  "models": [
+    {
+      "cell": "geometry_bce",
+      "seed": 20261030,
+      "dimensions": [
+        103,
+        64,
+        32,
+        1
+      ],
+      "fixture_rows": 64,
+      "maximum_absolute_error": 8.58306884765625e-06,
+      "mean_absolute_error": 1.9692815840244293e-06
+    },
+    {
+      "cell": "geometry_bce",
+      "seed": 20261031,
+      "dimensions": [
+        103,
+        64,
+        32,
+        1
+      ],
+      "fixture_rows": 64,
+      "maximum_absolute_error": 9.5367431640625e-06,
+      "mean_absolute_error": 2.200482413172722e-06
+    },
+    {
+      "cell": "geometry_bce",
+      "seed": 20261032,
+      "dimensions": [
+        103,
+        64,
+        32,
+        1
+      ],
+      "fixture_rows": 64,
+      "maximum_absolute_error": 6.4373016357421875e-06,
+      "mean_absolute_error": 2.0689330995082855e-06
+    },
+    {
+      "cell": "geometry_joint",
+      "seed": 20261030,
+      "dimensions": [
+        103,
+        64,
+        32,
+        1
+      ],
+      "fixture_rows": 64,
+      "maximum_absolute_error": 8.58306884765625e-06,
+      "mean_absolute_error": 2.122018486261368e-06
+    },
+    {
+      "cell": "geometry_joint",
+      "seed": 20261031,
+      "dimensions": [
+        103,
+        64,
+        32,
+        1
+      ],
+      "fixture_rows": 64,
+      "maximum_absolute_error": 7.62939453125e-06,
+      "mean_absolute_error": 1.8980354070663452e-06
+    },
+    {
+      "cell": "geometry_joint",
+      "seed": 20261032,
+      "dimensions": [
+        103,
+        64,
+        32,
+        1
+      ],
+      "fixture_rows": 64,
+      "maximum_absolute_error": 9.5367431640625e-06,
+      "mean_absolute_error": 2.1692831069231033e-06
+    },
+    {
+      "cell": "state_bce",
+      "seed": 20261030,
+      "dimensions": [
+        28,
+        64,
+        32,
+        1
+      ],
+      "fixture_rows": 64,
+      "maximum_absolute_error": 7.62939453125e-06,
+      "mean_absolute_error": 1.4742836356163025e-06
+    },
+    {
+      "cell": "state_bce",
+      "seed": 20261031,
+      "dimensions": [
+        28,
+        64,
+        32,
+        1
+      ],
+      "fixture_rows": 64,
+      "maximum_absolute_error": 1.1444091796875e-05,
+      "mean_absolute_error": 2.116197720170021e-06
+    },
+    {
+      "cell": "state_bce",
+      "seed": 20261032,
+      "dimensions": [
+        28,
+        64,
+        32,
+        1
+      ],
+      "fixture_rows": 64,
+      "maximum_absolute_error": 5.7220458984375e-06,
+      "mean_absolute_error": 1.3189855962991714e-06
+    },
+    {
+      "cell": "state_joint",
+      "seed": 20261030,
+      "dimensions": [
+        28,
+        64,
+        32,
+        1
+      ],
+      "fixture_rows": 64,
+      "maximum_absolute_error": 7.62939453125e-06,
+      "mean_absolute_error": 1.5711411833763123e-06
+    },
+    {
+      "cell": "state_joint",
+      "seed": 20261031,
+      "dimensions": [
+        28,
+        64,
+        32,
+        1
+      ],
+      "fixture_rows": 64,
+      "maximum_absolute_error": 8.58306884765625e-06,
+      "mean_absolute_error": 2.2915774025022984e-06
+    },
+    {
+      "cell": "state_joint",
+      "seed": 20261032,
+      "dimensions": [
+        28,
+        64,
+        32,
+        1
+      ],
+      "fixture_rows": 64,
+      "maximum_absolute_error": 8.106231689453125e-06,
+      "mean_absolute_error": 1.5513505786657333e-06
+    }
+  ]
+}

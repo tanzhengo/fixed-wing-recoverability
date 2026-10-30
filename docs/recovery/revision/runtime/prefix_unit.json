@@ -1,0 +1,1 @@
+{"checks":7,"passed":7,"checks_description":["accept-all preserves decision","prefix accounting","reject-all removes primaries","previous-control fallback uses same prefix filter","nominal prefix accepts open-flight control","prefix rejects envelope violation","prefix rejects collision"]}

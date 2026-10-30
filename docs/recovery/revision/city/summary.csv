@@ -1,0 +1,16 @@
+case,method,relative_altitudes,max_primary_candidates,horizontal_gate_m,outcome,completed_waypoints,cycle_complete,last_sim_time_s,minimum_physical_clearance_m,minimum_inflated_clearance_m,gate_checks_passed,updates
+cost_coarse_gate48p825,cost,False,203,48.825,no_feasible_primary,0,False,53.74,2.5231653985474045,0.06873974413622363,False,536
+cost_relative_gate48p825,cost,True,406,48.825,completed_first_waypoint_cycle,8,True,90.524,12.113184006657432,9.519702850284284,True,903
+cost_relative_gate15p0,cost,True,406,15.0,no_feasible_primary,3,False,49.724,2.6764466669366502,0.04083117544703896,True,495
+diverse_coarse_gate48p825,diverse,False,203,48.825,no_feasible_primary,0,False,39.74,3.340617877518946,0.5241048635159159,False,395
+diverse_relative_gate48p825,diverse,True,406,48.825,completed_first_waypoint_cycle,8,True,90.428,11.30286617111783,8.842777286445443,True,902
+diverse_relative_gate15p0,diverse,True,406,15.0,no_feasible_primary,3,False,51.532,2.7667577192819666,0.7354422772196472,True,513
+geometry_coarse_gate48p825,geometry,False,203,48.825,simulation_limit,0,False,180.064,3.648090797256211,0.9307993669620578,False,1798
+geometry_relative_gate48p825,geometry,True,406,48.825,completed_first_waypoint_cycle,8,True,90.46,11.236801358139028,8.771380538596166,True,903
+geometry_relative_gate15p0,geometry,True,406,15.0,completed_first_waypoint_cycle,8,True,114.508,5.4590846981712495,2.6413003205105317,True,1142
+state_only_coarse_gate48p825,state_only,False,203,48.825,no_feasible_primary,0,False,104.06,2.3429917733592283,0.010819619187373064,False,1038
+state_only_relative_gate48p825,state_only,True,406,48.825,completed_first_waypoint_cycle,8,True,90.556,11.929269013581225,9.464043421275337,True,904
+state_only_relative_gate15p0,state_only,True,406,15.0,inflated_box_incursion,3,False,49.068,2.700006092348921,-0.005320937391076086,True,488
+selected_coarse_gate48p825,selected,False,203,48.825,no_feasible_primary,0,False,53.42,2.2033094660953063,0.047007607818977164,False,532
+selected_relative_gate48p825,selected,True,406,48.825,completed_first_waypoint_cycle,8,True,90.78,10.850223071236138,8.376446590216027,True,905
+selected_relative_gate15p0,selected,True,406,15.0,no_feasible_primary,3,False,49.516,4.28727678726284,2.28727678726284,True,494

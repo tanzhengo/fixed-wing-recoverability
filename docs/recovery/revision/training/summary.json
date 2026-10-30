@@ -1,0 +1,663 @@
+{
+  "protocol_sha256": "cd66c5a73ae141a41d73063dcc7d021900916545ffcc6cc2ba85dff69eaf5437",
+  "cells": [
+    {
+      "cell": "geometry_bce",
+      "state_only": false,
+      "auxiliary_weight": 0.0,
+      "mean_validation_recall": 0.926974143955276,
+      "mean_validation_bce": 0.07645098119974136,
+      "mean_validation_auroc": 0.996021060085735,
+      "K12": {
+        "values": [
+          0.9748427672955975,
+          0.9748427672955975,
+          0.9769392033542977
+        ],
+        "mean": 0.9755415793151642,
+        "std": 0.0012103779228294252
+      },
+      "W3600": {
+        "values": [
+          0.8805031446540881,
+          0.8742138364779874,
+          0.8805031446540881
+        ],
+        "mean": 0.8784067085953878,
+        "std": 0.0036311337684882114
+      }
+    },
+    {
+      "cell": "geometry_joint",
+      "state_only": false,
+      "auxiliary_weight": 0.1,
+      "mean_validation_recall": 0.926974143955276,
+      "mean_validation_bce": 0.07548333456118901,
+      "mean_validation_auroc": 0.9961535391631804,
+      "K12": {
+        "values": [
+          0.9790356394129979,
+          0.9811320754716981,
+          0.9853249475890985
+        ],
+        "mean": 0.9818308874912649,
+        "std": 0.003202358976209527
+      },
+      "W3600": {
+        "values": [
+          0.8721174004192872,
+          0.8721174004192872,
+          0.8721174004192872
+        ],
+        "mean": 0.8721174004192872,
+        "std": 0.0
+      }
+    },
+    {
+      "cell": "state_bce",
+      "state_only": true,
+      "auxiliary_weight": 0.0,
+      "mean_validation_recall": 0.9116002795248077,
+      "mean_validation_bce": 0.2820775906244914,
+      "mean_validation_auroc": 0.947988065804871,
+      "K12": {
+        "values": [
+          0.9622641509433962,
+          0.960167714884696,
+          0.960167714884696
+        ],
+        "mean": 0.9608665269042628,
+        "std": 0.0012103779228294252
+      },
+      "W3600": {
+        "values": [
+          0.8637316561844863,
+          0.8679245283018868,
+          0.8553459119496856
+        ],
+        "mean": 0.8623340321453529,
+        "std": 0.006404717952419054
+      }
+    },
+    {
+      "cell": "state_joint",
+      "state_only": true,
+      "auxiliary_weight": 0.1,
+      "mean_validation_recall": 0.907058001397624,
+      "mean_validation_bce": 0.2820464273293813,
+      "mean_validation_auroc": 0.9483831288968171,
+      "K12": {
+        "values": [
+          0.9580712788259959,
+          0.960167714884696,
+          0.960167714884696
+        ],
+        "mean": 0.9594689028651292,
+        "std": 0.001210377922829361
+      },
+      "W3600": {
+        "values": [
+          0.8637316561844863,
+          0.8616352201257862,
+          0.8385744234800838
+        ],
+        "mean": 0.8546470999301188,
+        "std": 0.013958759158237737
+      }
+    }
+  ],
+  "runs": [
+    {
+      "cell": "geometry_bce",
+      "seed": 20261030,
+      "best_epoch": 60,
+      "validation_metrics": {
+        "loss": 0.07784296572208405,
+        "bce": 0.07784296572208405,
+        "huber": 5.356489917521795,
+        "brier": 0.022178588435053825,
+        "auroc": 0.9958546895685331,
+        "accuracy": 0.9710827042189882,
+        "log_work_mae": 5.856489917521795,
+        "count": 53117,
+        "positive": 20507,
+        "work_head_trained": false
+      },
+      "validation_schedules": [
+        {
+          "budget": "K12",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 465,
+          "recall": 0.9748427672955975,
+          "mean_work": 5477.813802083333,
+          "mean_checks": 6.154947916666667,
+          "mean_regret": 1.0873353670860215,
+          "p95_regret": 3.7020217891999994,
+          "truncations": 0
+        },
+        {
+          "budget": "W3600",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 420,
+          "recall": 0.8805031446540881,
+          "mean_work": 1951.23828125,
+          "mean_checks": 3.5013020833333335,
+          "mean_regret": 1.2240843534238095,
+          "p95_regret": 4.14940125955,
+          "truncations": 373
+        }
+      ],
+      "selection_score": 0.9276729559748428,
+      "training_seconds": 36.37637168299989,
+      "model_compact_sha256": "9962d0cd13d6c03e80299f6ccf73f118220f298536d801835c73e36af757ac29"
+    },
+    {
+      "cell": "geometry_bce",
+      "seed": 20261031,
+      "best_epoch": 57,
+      "validation_metrics": {
+        "loss": 0.0750207006931305,
+        "bce": 0.0750207006931305,
+        "huber": 5.277507258837542,
+        "brier": 0.021386731415987015,
+        "auroc": 0.9961959571713846,
+        "accuracy": 0.9712897942278367,
+        "log_work_mae": 5.777507258837542,
+        "count": 53117,
+        "positive": 20507,
+        "work_head_trained": false
+      },
+      "validation_schedules": [
+        {
+          "budget": "K12",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 465,
+          "recall": 0.9748427672955975,
+          "mean_work": 5118.486979166667,
+          "mean_checks": 6.154947916666667,
+          "mean_regret": 1.119114181027957,
+          "p95_regret": 3.6511914252,
+          "truncations": 0
+        },
+        {
+          "budget": "W3600",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 417,
+          "recall": 0.8742138364779874,
+          "mean_work": 1951.23828125,
+          "mean_checks": 3.5677083333333335,
+          "mean_regret": 1.2462979963908873,
+          "p95_regret": 4.1428919794,
+          "truncations": 373
+        }
+      ],
+      "selection_score": 0.9245283018867925,
+      "training_seconds": 29.325957323992043,
+      "model_compact_sha256": "e63175beffce78bc7f4fe1b532dbbaf77117648ef6cc53806b1b787bd1c92082"
+    },
+    {
+      "cell": "geometry_bce",
+      "seed": 20261032,
+      "best_epoch": 59,
+      "validation_metrics": {
+        "loss": 0.07648927718400955,
+        "bce": 0.07648927718400955,
+        "huber": 5.333934529011568,
+        "brier": 0.021945642307400703,
+        "auroc": 0.9960125335172871,
+        "accuracy": 0.971346273321159,
+        "log_work_mae": 5.833934529011568,
+        "count": 53117,
+        "positive": 20507,
+        "work_head_trained": false
+      },
+      "validation_schedules": [
+        {
+          "budget": "K12",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 466,
+          "recall": 0.9769392033542977,
+          "mean_work": 5102.55859375,
+          "mean_checks": 6.154947916666667,
+          "mean_regret": 0.9687641035343347,
+          "p95_regret": 3.2515819072499994,
+          "truncations": 0
+        },
+        {
+          "budget": "W3600",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 420,
+          "recall": 0.8805031446540881,
+          "mean_work": 1951.23828125,
+          "mean_checks": 3.4778645833333335,
+          "mean_regret": 1.0933063245976191,
+          "p95_regret": 3.755925726449999,
+          "truncations": 372
+        }
+      ],
+      "selection_score": 0.928721174004193,
+      "training_seconds": 36.75024856699747,
+      "model_compact_sha256": "e5bea188b66b658040c6c064465f3b657bd3f67b533f256c394d184d6b50d760"
+    },
+    {
+      "cell": "geometry_joint",
+      "seed": 20261030,
+      "best_epoch": 60,
+      "validation_metrics": {
+        "loss": 0.08939882366303496,
+        "bce": 0.07543110102415085,
+        "huber": 0.1396772263888411,
+        "brier": 0.021555596962571144,
+        "auroc": 0.9961593730785968,
+        "accuracy": 0.9717792797032965,
+        "log_work_mae": 0.40198638347103544,
+        "count": 53117,
+        "positive": 20507,
+        "work_head_trained": true
+      },
+      "validation_schedules": [
+        {
+          "budget": "K12",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 467,
+          "recall": 0.9790356394129979,
+          "mean_work": 5231.6015625,
+          "mean_checks": 6.154947916666667,
+          "mean_regret": 1.140669565379015,
+          "p95_regret": 3.7644563193000002,
+          "truncations": 0
+        },
+        {
+          "budget": "W3600",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 416,
+          "recall": 0.8721174004192872,
+          "mean_work": 1951.23828125,
+          "mean_checks": 3.46875,
+          "mean_regret": 1.2624110201057694,
+          "p95_regret": 4.212800860250001,
+          "truncations": 373
+        }
+      ],
+      "selection_score": 0.9255765199161425,
+      "training_seconds": 32.92658733599819,
+      "model_compact_sha256": "c309cd3c09bd2817417074d970fcef753bf1b2d173570415eaf3132c3efde042"
+    },
+    {
+      "cell": "geometry_joint",
+      "seed": 20261031,
+      "best_epoch": 57,
+      "validation_metrics": {
+        "loss": 0.09102653785413273,
+        "bce": 0.07635729759931564,
+        "huber": 0.1466924025481708,
+        "brier": 0.021403497084975243,
+        "auroc": 0.9960286423314934,
+        "accuracy": 0.9716474951522112,
+        "log_work_mae": 0.41750154663310796,
+        "count": 53117,
+        "positive": 20507,
+        "work_head_trained": true
+      },
+      "validation_schedules": [
+        {
+          "budget": "K12",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 468,
+          "recall": 0.9811320754716981,
+          "mean_work": 5123.25390625,
+          "mean_checks": 6.154947916666667,
+          "mean_regret": 1.116815347948718,
+          "p95_regret": 3.5651498080499993,
+          "truncations": 0
+        },
+        {
+          "budget": "W3600",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 416,
+          "recall": 0.8721174004192872,
+          "mean_work": 1951.23828125,
+          "mean_checks": 3.55078125,
+          "mean_regret": 1.2216638338004808,
+          "p95_regret": 4.20133036375,
+          "truncations": 373
+        }
+      ],
+      "selection_score": 0.9266247379454926,
+      "training_seconds": 29.24557755701244,
+      "model_compact_sha256": "7c2cf3f656b748a325daf52eab0a4af7f83cd0feaeff78c479db37e387a95780"
+    },
+    {
+      "cell": "geometry_joint",
+      "seed": 20261032,
+      "best_epoch": 57,
+      "validation_metrics": {
+        "loss": 0.0893539046708778,
+        "bce": 0.07466160506010056,
+        "huber": 0.14692299610777235,
+        "brier": 0.021217800676822662,
+        "auroc": 0.9962726020794509,
+        "accuracy": 0.9720428488054672,
+        "log_work_mae": 0.4166089726075893,
+        "count": 53117,
+        "positive": 20507,
+        "work_head_trained": true
+      },
+      "validation_schedules": [
+        {
+          "budget": "K12",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 470,
+          "recall": 0.9853249475890985,
+          "mean_work": 5320.0,
+          "mean_checks": 6.154947916666667,
+          "mean_regret": 1.0407363308191488,
+          "p95_regret": 3.393215298499999,
+          "truncations": 0
+        },
+        {
+          "budget": "W3600",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 416,
+          "recall": 0.8721174004192872,
+          "mean_work": 1951.23828125,
+          "mean_checks": 3.421875,
+          "mean_regret": 1.1845192416346153,
+          "p95_regret": 3.9948533774999992,
+          "truncations": 372
+        }
+      ],
+      "selection_score": 0.9287211740041929,
+      "training_seconds": 34.072087152002496,
+      "model_compact_sha256": "d86ab802fb85634fe2550015c939791a1fdd8f481d9cfc935f5be65ed830190d"
+    },
+    {
+      "cell": "state_bce",
+      "seed": 20261030,
+      "best_epoch": 55,
+      "validation_metrics": {
+        "loss": 0.2779366075992584,
+        "bce": 0.2779366075992584,
+        "huber": 5.205153389160952,
+        "brier": 0.09180018305778503,
+        "auroc": 0.949328512547312,
+        "accuracy": 0.8674059152437072,
+        "log_work_mae": 5.705153389160952,
+        "count": 53117,
+        "positive": 20507,
+        "work_head_trained": false
+      },
+      "validation_schedules": [
+        {
+          "budget": "K12",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 459,
+          "recall": 0.9622641509433962,
+          "mean_work": 4481.287760416667,
+          "mean_checks": 6.154947916666667,
+          "mean_regret": 1.4558317178257079,
+          "p95_regret": 4.2787601,
+          "truncations": 0
+        },
+        {
+          "budget": "W3600",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 412,
+          "recall": 0.8637316561844863,
+          "mean_work": 1951.23828125,
+          "mean_checks": 3.7890625,
+          "mean_regret": 1.4186177450364077,
+          "p95_regret": 4.424769854599999,
+          "truncations": 372
+        }
+      ],
+      "selection_score": 0.9129979035639413,
+      "training_seconds": 51.92147333199682,
+      "model_compact_sha256": "edcb65932cc9968654ea4909547910c769e3e57b0cc90abc4725361e26bda3c6"
+    },
+    {
+      "cell": "state_bce",
+      "seed": 20261031,
+      "best_epoch": 60,
+      "validation_metrics": {
+        "loss": 0.28537318110466003,
+        "bce": 0.28537318110466003,
+        "huber": 5.356489917521795,
+        "brier": 0.09349212050437927,
+        "auroc": 0.9476757235362314,
+        "accuracy": 0.8645819605775928,
+        "log_work_mae": 5.856489917521795,
+        "count": 53117,
+        "positive": 20507,
+        "work_head_trained": false
+      },
+      "validation_schedules": [
+        {
+          "budget": "K12",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 458,
+          "recall": 0.960167714884696,
+          "mean_work": 4402.341145833333,
+          "mean_checks": 6.154947916666667,
+          "mean_regret": 1.443174700537118,
+          "p95_regret": 4.31545536505,
+          "truncations": 0
+        },
+        {
+          "budget": "W3600",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 414,
+          "recall": 0.8679245283018868,
+          "mean_work": 1951.23828125,
+          "mean_checks": 3.8932291666666665,
+          "mean_regret": 1.4079646326884057,
+          "p95_regret": 4.46171438685,
+          "truncations": 371
+        }
+      ],
+      "selection_score": 0.9140461215932913,
+      "training_seconds": 55.35472232000029,
+      "model_compact_sha256": "51bfb61ab0bfd26af75caee80b2735d1ddc8782c630edf29193aa6650379ddbb"
+    },
+    {
+      "cell": "state_bce",
+      "seed": 20261032,
+      "best_epoch": 41,
+      "validation_metrics": {
+        "loss": 0.28292298316955566,
+        "bce": 0.28292298316955566,
+        "huber": 4.2852084471634235,
+        "brier": 0.092345230281353,
+        "auroc": 0.94695996133107,
+        "accuracy": 0.8665963815727545,
+        "log_work_mae": 4.7852084471634235,
+        "count": 53117,
+        "positive": 20507,
+        "work_head_trained": false
+      },
+      "validation_schedules": [
+        {
+          "budget": "K12",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 458,
+          "recall": 0.960167714884696,
+          "mean_work": 4526.165364583333,
+          "mean_checks": 6.154947916666667,
+          "mean_regret": 1.3936180870502182,
+          "p95_regret": 4.234308624099999,
+          "truncations": 0
+        },
+        {
+          "budget": "W3600",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 408,
+          "recall": 0.8553459119496856,
+          "mean_work": 1951.23828125,
+          "mean_checks": 3.7864583333333335,
+          "mean_regret": 1.3746291141666669,
+          "p95_regret": 4.41015725105,
+          "truncations": 373
+        }
+      ],
+      "selection_score": 0.9077568134171907,
+      "training_seconds": 55.48930998799915,
+      "model_compact_sha256": "81465995fc272e3d0fd35e413a2a2a6ce6fc6e6ef0c2049b4a5632716338fe88"
+    },
+    {
+      "cell": "state_joint",
+      "seed": 20261030,
+      "best_epoch": 55,
+      "validation_metrics": {
+        "loss": 0.30043130715647376,
+        "bce": 0.2786210775375366,
+        "huber": 0.21810229618937138,
+        "brier": 0.09205417335033417,
+        "auroc": 0.9496579144327603,
+        "accuracy": 0.8677071370747594,
+        "log_work_mae": 0.5178982997671305,
+        "count": 53117,
+        "positive": 20507,
+        "work_head_trained": true
+      },
+      "validation_schedules": [
+        {
+          "budget": "K12",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 457,
+          "recall": 0.9580712788259959,
+          "mean_work": 4456.826822916667,
+          "mean_checks": 6.154947916666667,
+          "mean_regret": 1.4421717384923416,
+          "p95_regret": 4.265335941,
+          "truncations": 0
+        },
+        {
+          "budget": "W3600",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 412,
+          "recall": 0.8637316561844863,
+          "mean_work": 1951.23828125,
+          "mean_checks": 3.8697916666666665,
+          "mean_regret": 1.400496811526699,
+          "p95_regret": 4.41006293295,
+          "truncations": 372
+        }
+      ],
+      "selection_score": 0.9109014675052411,
+      "training_seconds": 50.088333902007435,
+      "model_compact_sha256": "c806ea47d4167a55449d88e4a324cf0f9de866825c73a55877d989c0ff5e7545"
+    },
+    {
+      "cell": "state_joint",
+      "seed": 20261031,
+      "best_epoch": 59,
+      "validation_metrics": {
+        "loss": 0.30545181507296676,
+        "bce": 0.28433528542518616,
+        "huber": 0.21116529647780602,
+        "brier": 0.09322500973939896,
+        "auroc": 0.947489555140572,
+        "accuracy": 0.8654667997063087,
+        "log_work_mae": 0.5001719279241371,
+        "count": 53117,
+        "positive": 20507,
+        "work_head_trained": true
+      },
+      "validation_schedules": [
+        {
+          "budget": "K12",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 458,
+          "recall": 0.960167714884696,
+          "mean_work": 4429.015625,
+          "mean_checks": 6.154947916666667,
+          "mean_regret": 1.456321705882096,
+          "p95_regret": 4.3104687927,
+          "truncations": 0
+        },
+        {
+          "budget": "W3600",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 411,
+          "recall": 0.8616352201257862,
+          "mean_work": 1951.23828125,
+          "mean_checks": 3.8502604166666665,
+          "mean_regret": 1.4183531897737227,
+          "p95_regret": 4.5296757219999995,
+          "truncations": 372
+        }
+      ],
+      "selection_score": 0.9109014675052411,
+      "training_seconds": 49.6937506779941,
+      "model_compact_sha256": "4d372a1dc102df6bacaf7417b5a04d3bda3949f635da8a3bb2423acc48d6fb3a"
+    },
+    {
+      "cell": "state_joint",
+      "seed": 20261032,
+      "best_epoch": 55,
+      "validation_metrics": {
+        "loss": 0.30515766559332924,
+        "bce": 0.28318291902542114,
+        "huber": 0.219747465679081,
+        "brier": 0.09278980642557144,
+        "auroc": 0.948001917117119,
+        "accuracy": 0.8658056742662424,
+        "log_work_mae": 0.5181835491614035,
+        "count": 53117,
+        "positive": 20507,
+        "work_head_trained": true
+      },
+      "validation_schedules": [
+        {
+          "budget": "K12",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 458,
+          "recall": 0.960167714884696,
+          "mean_work": 4622.466145833333,
+          "mean_checks": 6.154947916666667,
+          "mean_regret": 1.4192393346528385,
+          "p95_regret": 4.310491133149998,
+          "truncations": 0
+        },
+        {
+          "budget": "W3600",
+          "states": 768,
+          "oracle_positive": 477,
+          "verified": 400,
+          "recall": 0.8385744234800838,
+          "mean_work": 1951.23828125,
+          "mean_checks": 3.65234375,
+          "mean_regret": 1.3851056802275,
+          "p95_regret": 4.382801628049999,
+          "truncations": 370
+        }
+      ],
+      "selection_score": 0.89937106918239,
+      "training_seconds": 37.86813361399982,
+      "model_compact_sha256": "92d483e79e6bcba4ba27dca815f34cd91e9c50aa6dd02915aa6bdfb30aa40945"
+    }
+  ]
+}

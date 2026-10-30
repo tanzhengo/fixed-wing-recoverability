@@ -1,0 +1,33 @@
+{
+  "created_utc": "2026-10-30T12:46:10.847020+00:00",
+  "amends": "PROTOCOL.json and training query-recall-only deployment selection",
+  "reason": "Reviewer identified mismatch between nominal witness recall and closed-loop mission outcome. Select execution configuration using validation execution before accessing new test maps.",
+  "new_test_accessed": false,
+  "split": "val",
+  "map_seed_base": 401000,
+  "maps": 32,
+  "conditions": [
+    "nominal",
+    "model_mismatch",
+    "crosswind1mps",
+    "delay100ms"
+  ],
+  "models": [
+    "geometry_bce",
+    "geometry_joint",
+    "state_bce",
+    "state_joint"
+  ],
+  "seed": 20261030,
+  "episodes": 512,
+  "selection_order": [
+    "maximum goal completions",
+    "minimum margin incursions",
+    "maximum across-three-training-seeds mean validation witness recall",
+    "minimum across-three-training-seeds mean validation BCE",
+    "lexicographic configuration name"
+  ],
+  "timing_role": "No timing claims; may run concurrently with other work",
+  "query_only_selection": "Training candidate-recall selection is retained as a separate comparator, not the deployment selection.",
+  "amendment_context": "Recorded after some validation-query training runs had completed, before any added validation closed-loop run and before any seed801000 test; motivated by the review, not by new-test results."
+}

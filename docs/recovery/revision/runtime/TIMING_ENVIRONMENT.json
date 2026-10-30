@@ -1,0 +1,17 @@
+{
+  "cpu": "12th Gen Intel(R) Core(TM) i5-12400F",
+  "logical_cpu": 2,
+  "sibling_logical_cpu": 3,
+  "governor": "powersave",
+  "clock_frequency_locked": false,
+  "compiler": "g++ (Ubuntu 8.4.0-3ubuntu2) 8.4.0",
+  "optimization": "-O2",
+  "os": "Linux-5.15.0-139-generic-x86_64-with-glibc2.29",
+  "unprofiled_repeats_per_state": 3,
+  "profiled_repeats_per_state": 1,
+  "states": 576,
+  "methods": 27,
+  "scheduling": "Method traversal order rotates across repeats; use within-state repeat median before aggregating states.",
+  "concurrent_experimental_work": "Training, Gazebo execution, diagnostics, compilation and figure rendering stopped for all four accepted runs. Ordinary desktop processes remain.",
+  "excluded_attempt": "timing_aborted_before_isolation/EXCLUDED.json"
+}

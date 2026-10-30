@@ -1,0 +1,362 @@
+{
+  "paired_episodes_per_layer": 1152,
+  "comparison": {
+    "cost12": {
+      "off_outcomes": {
+        "collision": 2,
+        "goal": 43,
+        "no_feasible_primary": 82,
+        "timeout": 1
+      },
+      "on_outcomes": {
+        "goal": 44,
+        "no_feasible_primary": 83,
+        "timeout": 1
+      },
+      "on_minus_off_completion": {
+        "difference_percentage_points": 0.78125,
+        "ci95_map_block_bootstrap": [
+          0.0,
+          2.34375
+        ],
+        "map_blocks": 32
+      },
+      "on_only_completions": 1,
+      "off_only_completions": 0,
+      "condition_goals": {
+        "crosswind": {
+          "off": 2,
+          "on": 2
+        },
+        "delay100ms": {
+          "off": 16,
+          "on": 16
+        },
+        "model_mismatch": {
+          "off": 13,
+          "on": 13
+        },
+        "nominal": {
+          "off": 12,
+          "on": 13
+        }
+      }
+    },
+    "diverse12": {
+      "off_outcomes": {
+        "goal": 88,
+        "no_feasible_primary": 39,
+        "collision": 1
+      },
+      "on_outcomes": {
+        "goal": 89,
+        "no_feasible_primary": 39
+      },
+      "on_minus_off_completion": {
+        "difference_percentage_points": 0.78125,
+        "ci95_map_block_bootstrap": [
+          0.0,
+          2.34375
+        ],
+        "map_blocks": 32
+      },
+      "on_only_completions": 1,
+      "off_only_completions": 0,
+      "condition_goals": {
+        "crosswind": {
+          "off": 8,
+          "on": 8
+        },
+        "delay100ms": {
+          "off": 24,
+          "on": 24
+        },
+        "model_mismatch": {
+          "off": 30,
+          "on": 30
+        },
+        "nominal": {
+          "off": 26,
+          "on": 27
+        }
+      }
+    },
+    "full203": {
+      "off_outcomes": {
+        "collision": 4,
+        "goal": 94,
+        "no_feasible_primary": 30
+      },
+      "on_outcomes": {
+        "goal": 96,
+        "no_feasible_primary": 32
+      },
+      "on_minus_off_completion": {
+        "difference_percentage_points": 1.5625,
+        "ci95_map_block_bootstrap": [
+          0.0,
+          3.90625
+        ],
+        "map_blocks": 32
+      },
+      "on_only_completions": 2,
+      "off_only_completions": 0,
+      "condition_goals": {
+        "crosswind": {
+          "off": 11,
+          "on": 11
+        },
+        "delay100ms": {
+          "off": 31,
+          "on": 31
+        },
+        "model_mismatch": {
+          "off": 28,
+          "on": 28
+        },
+        "nominal": {
+          "off": 24,
+          "on": 26
+        }
+      }
+    },
+    "geometry_aux_lazy12": {
+      "off_outcomes": {
+        "goal": 95,
+        "collision": 5,
+        "no_feasible_primary": 28
+      },
+      "on_outcomes": {
+        "goal": 100,
+        "no_feasible_primary": 28
+      },
+      "on_minus_off_completion": {
+        "difference_percentage_points": 3.90625,
+        "ci95_map_block_bootstrap": [
+          0.78125,
+          7.050781249999716
+        ],
+        "map_blocks": 32
+      },
+      "on_only_completions": 5,
+      "off_only_completions": 0,
+      "condition_goals": {
+        "crosswind": {
+          "off": 14,
+          "on": 14
+        },
+        "delay100ms": {
+          "off": 32,
+          "on": 32
+        },
+        "model_mismatch": {
+          "off": 29,
+          "on": 29
+        },
+        "nominal": {
+          "off": 20,
+          "on": 25
+        }
+      }
+    },
+    "geometry_bce_lazy12": {
+      "off_outcomes": {
+        "goal": 90,
+        "collision": 13,
+        "no_feasible_primary": 25
+      },
+      "on_outcomes": {
+        "goal": 100,
+        "no_feasible_primary": 27,
+        "collision": 1
+      },
+      "on_minus_off_completion": {
+        "difference_percentage_points": 7.8125,
+        "ci95_map_block_bootstrap": [
+          3.90625,
+          11.71875
+        ],
+        "map_blocks": 32
+      },
+      "on_only_completions": 10,
+      "off_only_completions": 0,
+      "condition_goals": {
+        "crosswind": {
+          "off": 15,
+          "on": 15
+        },
+        "delay100ms": {
+          "off": 29,
+          "on": 29
+        },
+        "model_mismatch": {
+          "off": 30,
+          "on": 31
+        },
+        "nominal": {
+          "off": 16,
+          "on": 25
+        }
+      }
+    },
+    "geometry_eager12": {
+      "off_outcomes": {
+        "goal": 90,
+        "no_feasible_primary": 34,
+        "collision": 4
+      },
+      "on_outcomes": {
+        "goal": 92,
+        "no_feasible_primary": 35,
+        "collision": 1
+      },
+      "on_minus_off_completion": {
+        "difference_percentage_points": 1.5625,
+        "ci95_map_block_bootstrap": [
+          0.0,
+          3.90625
+        ],
+        "map_blocks": 32
+      },
+      "on_only_completions": 2,
+      "off_only_completions": 0,
+      "condition_goals": {
+        "crosswind": {
+          "off": 10,
+          "on": 10
+        },
+        "delay100ms": {
+          "off": 31,
+          "on": 31
+        },
+        "model_mismatch": {
+          "off": 31,
+          "on": 31
+        },
+        "nominal": {
+          "off": 18,
+          "on": 20
+        }
+      }
+    },
+    "state_aux_lazy12": {
+      "off_outcomes": {
+        "goal": 107,
+        "collision": 12,
+        "no_feasible_primary": 9
+      },
+      "on_outcomes": {
+        "goal": 118,
+        "no_feasible_primary": 10
+      },
+      "on_minus_off_completion": {
+        "difference_percentage_points": 8.59375,
+        "ci95_map_block_bootstrap": [
+          4.6875,
+          12.5
+        ],
+        "map_blocks": 32
+      },
+      "on_only_completions": 11,
+      "off_only_completions": 0,
+      "condition_goals": {
+        "crosswind": {
+          "off": 29,
+          "on": 29
+        },
+        "delay100ms": {
+          "off": 31,
+          "on": 31
+        },
+        "model_mismatch": {
+          "off": 31,
+          "on": 32
+        },
+        "nominal": {
+          "off": 16,
+          "on": 26
+        }
+      }
+    },
+    "state_bce_lazy12": {
+      "off_outcomes": {
+        "goal": 103,
+        "collision": 14,
+        "no_feasible_primary": 11
+      },
+      "on_outcomes": {
+        "goal": 113,
+        "no_feasible_primary": 12,
+        "collision": 3
+      },
+      "on_minus_off_completion": {
+        "difference_percentage_points": 7.8125,
+        "ci95_map_block_bootstrap": [
+          3.90625,
+          11.71875
+        ],
+        "map_blocks": 32
+      },
+      "on_only_completions": 10,
+      "off_only_completions": 0,
+      "condition_goals": {
+        "crosswind": {
+          "off": 29,
+          "on": 29
+        },
+        "delay100ms": {
+          "off": 29,
+          "on": 29
+        },
+        "model_mismatch": {
+          "off": 31,
+          "on": 32
+        },
+        "nominal": {
+          "off": 14,
+          "on": 23
+        }
+      }
+    },
+    "state_legacy_eager12": {
+      "off_outcomes": {
+        "goal": 100,
+        "collision": 10,
+        "no_feasible_primary": 18
+      },
+      "on_outcomes": {
+        "goal": 108,
+        "no_feasible_primary": 20
+      },
+      "on_minus_off_completion": {
+        "difference_percentage_points": 6.25,
+        "ci95_map_block_bootstrap": [
+          2.34375,
+          10.9375
+        ],
+        "map_blocks": 32
+      },
+      "on_only_completions": 8,
+      "off_only_completions": 0,
+      "condition_goals": {
+        "crosswind": {
+          "off": 24,
+          "on": 24
+        },
+        "delay100ms": {
+          "off": 32,
+          "on": 32
+        },
+        "model_mismatch": {
+          "off": 29,
+          "on": 30
+        },
+        "nominal": {
+          "off": 15,
+          "on": 22
+        }
+      }
+    }
+  },
+  "interpretation": "Same models and scenes; only common nominal RK4 execution-prefix filter changes. Candidate scheduling is not credited with the shared numerical-filter effect."
+}

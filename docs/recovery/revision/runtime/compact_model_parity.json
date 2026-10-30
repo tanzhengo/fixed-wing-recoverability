@@ -1,0 +1,22 @@
+{
+  "geometry_bce": {
+    "examples": 64,
+    "compact_vs_padded_max_abs_error": 0,
+    "compact_vs_python_max_abs_error": 8.58306884766e-06
+  },
+  "geometry_joint": {
+    "examples": 64,
+    "compact_vs_padded_max_abs_error": 0,
+    "compact_vs_python_max_abs_error": 8.58306884766e-06
+  },
+  "state_bce": {
+    "examples": 64,
+    "compact_vs_padded_max_abs_error": 0,
+    "compact_vs_python_max_abs_error": 7.62939453125e-06
+  },
+  "state_joint": {
+    "examples": 64,
+    "compact_vs_padded_max_abs_error": 0,
+    "compact_vs_python_max_abs_error": 7.62939453125e-06
+  }
+}

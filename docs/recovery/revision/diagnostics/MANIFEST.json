@@ -1,0 +1,33 @@
+{
+  "created_utc": "2026-10-30T12:53:52.163837+00:00",
+  "base_commit": "2f9160a98d5ca2c81099b3e2eb0d18b9565bf388",
+  "new_source_sha256": {
+    "motion_primitives_planning/src/recovery_review_diagnostics.cpp": "189589f44feacad784d5dec219f174d0b7d158c7c7cd97cbddcdfc0111738546",
+    "motion_primitives_planning/src/recovery_review_branchpoints.cpp": "91e7ef20f2fe2382041fe58f0edc7e60cbb864c0987c46c3c8da9e7ce25994b6",
+    "motion_primitives_planning/scripts/analyze_recovery_review_diagnostics.py": "71428cab0214cefe88e09108ff0cdee47e8d324ad08e2ca24eeadf01048dc06f",
+    "motion_primitives_planning/scripts/run_recovery_review_diagnostics.py": "4f8a22c097c51690f7f74edaac42bfd752ba87c47d5f01e31c8d35329c39aaec",
+    "motion_primitives_planning/scripts/run_recovery_review_branchpoints.py": "e6760359c3ecaea4b0e53488bbeb4255c8466714924c3f35a4e6da2c9557513c"
+  },
+  "frozen_source_sha256": {
+    "motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+    "motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+    "motion_primitives_planning/src/recovery_learning_benchmark.cpp": "a94efa428c71075d75e76cceda456456dac04cfee55730fc14a425ed5146101d",
+    "motion_primitives_planning/src/learned_recovery.h": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929"
+  },
+  "files_sha256": {
+    ".gitignore": "8a1fc202611f075fa58a51ef0b4c17c57ffa3e545fed4bd89ee0143666e8edb7",
+    "PROTOCOL.json": "98fc5490a7f32dd49bba988caef4ea8519d345fa1c988bb80679727cd2a52f1f",
+    "README.md": "0e20c2070e3cb40758a36069f6d37f5a8be92023138e12323fb7440549d2174a",
+    "analysis.json": "4b1d34176524384ca29a1a606c24e945523d071f6c6a5ba10efb8962d6b93a89",
+    "branch_run.log": "14edd3a650b92dfe49863c1e77c79554b0b4efc4d1d541206fd622b7a49562b8",
+    "branch_run_manifest.json": "a3738890bfce47e0ad0accfbfb0113976521cea476f6a3f18eee1aafec33b695",
+    "diagnostic_branchpoints.csv.gz": "e7bd8652d8e28b7d585307997c093ebf7b2ff2bfc48e51f54cf0f0f2e1f00afc",
+    "diagnostic_episodes.csv.gz": "0c9af9d637d24c949071f4e725a494d4cce52ebea5c8bbe52b51fe08d05ab7f4",
+    "diagnostic_features.csv.gz": "df1c0e17ef8bf99e8376c963b7e599f136b6921ae7db73351bb00ffe676e21cd",
+    "diagnostic_paired.csv.gz": "62940a84f35e1110ffeaca060484a72ba12cf6e560a2786116a858e9a33163f6",
+    "models/geometry_yaw_mask.txt": "0436d923cd3237f6ba131c5f2f76a7536f66447cf81c82d9047c401020c40347",
+    "models/provenance.json": "afec265c45257719ad0e36684ad36cfd4b98294ddb1170ade8aa854e0041feea",
+    "run.log": "457915baccedef77536f622dfb6e4b5b8b6142685c1046363f8f6bd06cb173cd",
+    "run_manifest.json": "cc7e199228ea3fd70149f6fc53ceb6addde28bb632a38d568677c2819c445581"
+  }
+}

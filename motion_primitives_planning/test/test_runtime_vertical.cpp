@@ -156,6 +156,30 @@ TEST_F(RuntimeVertical, HeightToleranceIsNotRelaxedToSkipWaypoint) {
     EXPECT_FLOAT_EQ(runtime.goal_visual().pose.position.x,600.);
 }
 
+TEST_F(RuntimeVertical, CoarseLibraryOptionMatchesFrozenCommands) {
+    nh->setParam("motion_primitive/state_relative_altitudes",false);
+    Runtime runtime(*nh);Frozen frozen(*nh);const auto initial=orbit();
+    const auto actual=runtime.generate_library(initial);
+    const auto expected=frozen.generate_library(state_cast<Frozen::s_t>(initial));
+    ASSERT_EQ(actual.size(),expected.size());
+    for(size_t i=0;i<actual.size();++i) {
+        EXPECT_FLOAT_EQ(actual[i].w_roll_c,expected[i].w_roll_c);
+        EXPECT_FLOAT_EQ(actual[i].attack_c,expected[i].attack_c);
+        EXPECT_FLOAT_EQ(actual[i].T_c,expected[i].T_c);
+    }
+}
+
+TEST_F(RuntimeVertical, ExplicitHorizontalGateIsRespected) {
+    nh->setParam("motion_primitive/waypoint_horizontal_tolerance",15.);
+    nh->setParam("waypoints/num",2);nh->setParam("waypoints/wp2/x",600.);
+    nh->setParam("waypoints/wp2/y",0.);nh->setParam("waypoints/wp2/h",24.);
+    Runtime runtime(*nh);auto initial=orbit();initial.h=24;initial.pos[1]=0;
+    initial.pos[0]=330;runtime.check_target(initial);
+    EXPECT_FLOAT_EQ(runtime.goal_visual().pose.position.x,350.);
+    initial.pos[0]=336;runtime.check_target(initial);
+    EXPECT_FLOAT_EQ(runtime.goal_visual().pose.position.x,600.);
+}
+
 TEST_F(RuntimeVertical, IndependentPlantEscapesThreeCapturedOrbitPhases) {
     for(unsigned phase=0;phase<3;++phase) {
         Runtime runtime(*nh);remember_orbit(runtime);auto state=orbit(phase);

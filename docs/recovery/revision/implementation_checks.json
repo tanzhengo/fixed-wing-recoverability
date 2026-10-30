@@ -1,0 +1,25 @@
+{
+  "runtime_vertical": {
+    "tests": 8,
+    "errors": 0,
+    "failures": 0,
+    "log_sha256": "72a24f0ad2e3a119df658ab8e5d1c06b6f3028a7b922a38e9b6035af0b556df5"
+  },
+  "prefix_unit": {
+    "checks": 7,
+    "passed": 7,
+    "checks_description": [
+      "accept-all preserves decision",
+      "prefix accounting",
+      "reject-all removes primaries",
+      "previous-control fallback uses same prefix filter",
+      "nominal prefix accepts open-flight control",
+      "prefix rejects envelope violation",
+      "prefix rejects collision"
+    ]
+  },
+  "exact_decision_equivalence": "runtime/old_state_equivalence.json",
+  "compact_cpp_parity": "runtime/compact_model_parity.json",
+  "training_export_checks": "training/export_validation.json",
+  "frozen_baseline_commit": "2f9160a98d5ca2c81099b3e2eb0d18b9565bf388"
+}
