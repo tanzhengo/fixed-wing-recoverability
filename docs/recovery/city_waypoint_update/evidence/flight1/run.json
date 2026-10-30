@@ -1,0 +1,56 @@
+{
+  "commands": {
+    "mapping": [
+      "python3",
+      "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/lidar_voxel_map/verify_lidar.py",
+      "--output-dir",
+      "outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/city_waypoint_update/evidence/flight1/mapping",
+      "--sim-seconds",
+      "180",
+      "--wall-seconds",
+      "500",
+      "--stop-after-cycle",
+      "--resolution",
+      "2.0"
+    ],
+    "flight": [
+      "python3",
+      "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/verify_end_world.py",
+      "--task-config",
+      "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml",
+      "--output-dir",
+      "outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/city_waypoint_update/evidence/flight1/flight",
+      "--sim-seconds",
+      "180",
+      "--wall-seconds",
+      "500",
+      "--stop-after-cycle",
+      "--stop-on-failure"
+    ],
+    "launch": [
+      "roslaunch",
+      "motion_primitives_planning",
+      "terminal_recovery_end_world_dense_lidar.launch",
+      "gui:=false",
+      "rviz:=false",
+      "paused:=false"
+    ]
+  },
+  "started_utc": "2026-10-30T13:52:21Z",
+  "source_sha256": {
+    "motion_primitives_planning/launch/config/task_end_city_dense.yaml": "1f0e8b7da0971665be693a3a5207b3e09ab5b014291910794ee4fda6ae60e490",
+    "motion_primitives_planning/models/recovery_mlp.txt": "d324bf927dc89f53568cfc3980a7a6217227a89f4b28a1f90fb324b6580a36aa",
+    "motion_primitives_planning/src/runtime_motion_primitives.h": "b68253477f351711dcb3db7f7a1ee81ab5389452aafac3ec3032546c8aaf35dc",
+    "simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "934d40f956160ac9cf0d982590ef63ca990b1f6cc928f8bb9fa336925a810987",
+    "motion_primitives_planning/scripts/run_city_waypoint_update.py": "b7f1ed0079692c86cce1b99d2221d7ed542b55c478edc271b5be4105883cde36"
+  },
+  "only_requested_waypoint_xy_changed": true,
+  "figure_model": "original Geometry (same as the previous Figure 8)",
+  "horizontal_gate_m": 48.825,
+  "height_gate_m": 3.0,
+  "voxel_resolution_m": 2.0,
+  "max_voxels": 200000,
+  "ended_utc": "2026-10-30T13:54:12Z",
+  "elapsed_wall_s": 111.46009495900944,
+  "source_unchanged": true
+}

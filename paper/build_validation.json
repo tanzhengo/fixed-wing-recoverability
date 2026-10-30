@@ -1,5 +1,5 @@
 {
-  "validated_utc": "2026-10-30T13:31:24.046046+00:00",
+  "validated_utc": "2026-10-30T13:58:19.208895+00:00",
   "engine": "Tectonic 0.17.0",
   "pages": 16,
   "figures": 8,
@@ -8,9 +8,9 @@
   "author_format": "anonymous review manuscript",
   "editable_tex_files": 1,
   "bibliography": "embedded bibitems; no BibTeX",
-  "pdf_sha256": "d4dc2f0af7a5b22b92c6ab7191a457c0d76dbf0dc0315a90725217b18293d007",
+  "pdf_sha256": "0460e6820710e5f39dbf04f8cdc9b44fd834ababbd1279ac27c403ef8582d6e6",
   "sources": {
-    "main.tex": "4514ac3b075a8dcb0e5375faf64f462dbc2ff07e692ec135fce65f48b227a387",
+    "main.tex": "8cb71366e81a4770ef06de459eebf587244a52f0b409269ac34935a2b214e5a0",
     "IEEEtran.cls": "da751920a317ed318b7b5cd7fa585a6cc7d28502d457856382e9be24b10a3bd7"
   },
   "figure_assets_sha256": {
@@ -22,12 +22,12 @@
     "figures/forest_comparison.pdf": "db92d51b667720afb991ed4d4e2fa768c0dcf2ae011947cd2197633e925eb749",
     "figures/gazebo_interface.png": "23fc0de45d7b085ec1a22ed8c687a0d2d74c6f26583746e6cf72e644c63a43e1",
     "figures/rviz_interface.png": "e79c153431bce7cd023374e712fafb8d89f3f464d121a5db5aeb6729d65bcd17",
-    "figures/gazebo_city.pdf": "63afed239bd808bb277c7bde317e9aa2a9478cd58ac41f66fa6d8f0099bc9715"
+    "figures/gazebo_city_updated.pdf": "ddfe4efccbf642a41efa1eee98a8c0bdae79477cf06ff914182ca21de0b90856"
   },
   "unresolved_references": 0,
   "overfull_boxes": 0,
   "missing_glyphs": 0,
-  "render_check": "All pages rendered and contact sheets inspected. Full-page checks covered indicator/clearance formulas, timing tables, outcome plots, native screenshots, concluding text and balanced references. Final scene floats are flushed before the conclusion.",
+  "render_check": "Prior full-manuscript checks retained. After waypoint update, pages 11–15 were rendered and inspected, with full-page checks of the revised city text and Figure 8; labels, equations and concluding columns remain legible and unclipped.",
   "compile_warnings_note": "Underfull layout warnings and a cached algorithm.sty comment encoding warning; no replacement characters in extracted PDF text.",
   "revision_experiments": {
     "training_runs": 12,
@@ -59,5 +59,23 @@
       "gazebo_validation.tex": "fc2e01f7a49c8e77954c587c3730c30b3f396ced8147c932d6fa6da1a6d60eb1",
       "tables/gazebo.tex": "922fca84ddac4a825b420792b3a381ecae727b903c5cd4e5dd6251337f15d969"
     }
+  },
+  "waypoint_update": {
+    "evidence": "../docs/recovery/city_waypoint_update/evidence/flight1",
+    "configuration_only_requested_xy_changed": true,
+    "complete_waypoint_cycle_s": 88.544,
+    "flight_observer_passed": true,
+    "lidar_observer_passed": true,
+    "figures_and_text_updated": [
+      8
+    ],
+    "native_screenshots_original_route": true,
+    "original_city_configuration_trials_preserved": 15
+  },
+  "independent_latex_package_compile": {
+    "passed": true,
+    "tex_file_count": 1,
+    "pdf_text_matches_main": true,
+    "engine": "Tectonic 0.17.0"
   }
 }

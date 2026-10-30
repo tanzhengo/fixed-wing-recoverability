@@ -1,0 +1,48 @@
+{
+  "created_utc": "2026-10-30T13:58:19.223618+00:00",
+  "baseline_commit": "a2871f11a32ce87e71e47ff1256b957ab7090167",
+  "scope": "Waypoints 2–5 world XY update, one fresh city flight with lidar, Figure 8 and associated manuscript text. Heights, all other live configuration values and prior experimental records are preserved.",
+  "prior_revision_manifest": "docs/recovery/revision/MANIFEST.json records the prior revision at baseline_commit, including its paper/source hashes.",
+  "files_sha256": {
+    "README.md": "ba1ec8628226b2608df834a48cbdcd5fd85948aba4eadbfde87d12cc2ee49d7c",
+    "docs/recovery/FINAL_RESULTS.md": "e73fd8e151562d4925abf24db3127081d370c36a7cb5f37b400286b3e6252ece",
+    "docs/recovery/city_waypoint_update/CHANGE_RECORD.json": "d1a1bb0b5c30a30e42163362c50b3876323f37066e94c6727d6e96b3cafb4b30",
+    "docs/recovery/city_waypoint_update/README.md": "ec8b1b7b5cd6d28f70d30f329bfed0c7161991108594c88bad39e101e36c4922",
+    "docs/recovery/city_waypoint_update/evidence/flight1/flight/observations.json.gz": "ccfb519dade31d0f3bfb5856adb28aeb78e51927f96538908860f82c9278c240",
+    "docs/recovery/city_waypoint_update/evidence/flight1/flight/result.json": "a9b8db2393682c822fe6655ff3ca0ffb6509f38d8ac63f3e6443249c2fd0ff26",
+    "docs/recovery/city_waypoint_update/evidence/flight1/flight/task_config.yaml": "1f0e8b7da0971665be693a3a5207b3e09ab5b014291910794ee4fda6ae60e490",
+    "docs/recovery/city_waypoint_update/evidence/flight1/mapping/observations.json.gz": "eb0197c9c66f6a6a2afb3b4054cd0ccaf863b848bbf57a03030c2d751d49a30d",
+    "docs/recovery/city_waypoint_update/evidence/flight1/mapping/result.json": "907d8ab021a7f17ab2d62cbd4a2617f0b074ba80fb51f681bce76c9c39d6d156",
+    "docs/recovery/city_waypoint_update/evidence/flight1/mapping/snapshots.npz": "da31a19ad68cf1d71c2d6cf46c328c4bbb1a4d692d25444ecb715e194873030c",
+    "docs/recovery/city_waypoint_update/evidence/flight1/run.json": "78ef0e80a444a84bd2e9145d25628b1485e1a205b3d4ed6006197891617c0f48",
+    "docs/recovery/city_waypoint_update/paper_figure_data.json": "a41f833917e33ded20107d0f219acc5e8a216f89cac1df072da4536c3ebfd29e",
+    "docs/recovery/dense_city/README.md": "7c45702f82b6a5248f0cc8a815161bf0d24042f233855de93fa397ca043b3f1d",
+    "docs/recovery/revision/city/README.md": "d052e709427105b71a8627fcbb268bf6a1d2a883d2748febae89c947eb5faf21",
+    "motion_primitives_planning/launch/config/task_end_city.yaml": "9d539bd4ae4f3117705443e079e5b2defb1e89137a1be57d324c95ea0e2f89b4",
+    "motion_primitives_planning/launch/config/task_end_city_dense.yaml": "1f0e8b7da0971665be693a3a5207b3e09ab5b014291910794ee4fda6ae60e490",
+    "motion_primitives_planning/scripts/import_end_world.py": "44b81f4f9d0a0c07f24da002e49274c76b4a9c3f380a2a5ccd55ec2aa8ec84db",
+    "motion_primitives_planning/scripts/run_city_waypoint_update.py": "b7f1ed0079692c86cce1b99d2221d7ed542b55c478edc271b5be4105883cde36",
+    "motion_primitives_planning/scripts/run_review_city.py": "37165c4bfcd6d8971d4b7fb54f96c608d55cc0e306a83d2b048015560bd16a8a",
+    "paper/README.md": "29cc83a188642e288b543e33599b9aa958203469de967dc0416511117a2d0071",
+    "paper/build_validation.json": "8a0625280ca49666ac71227160978c8f05c21ef68ce8bf8cb1b2fdf404418e42",
+    "paper/create_gazebo_figure.py": "b975bba077d315b57cd24a0cdc982f92c983bca74d0dea44df564e2e4629d46b",
+    "paper/figures/gazebo_city_updated.pdf": "ddfe4efccbf642a41efa1eee98a8c0bdae79477cf06ff914182ca21de0b90856",
+    "paper/figures/gazebo_city_updated.png": "d6415b6425398ca292e6d7767bbb830c1dace483aaefafebc0d41df3354ed497",
+    "paper/main.pdf": "0460e6820710e5f39dbf04f8cdc9b44fd834ababbd1279ac27c403ef8582d6e6",
+    "paper/main.tex": "8cb71366e81a4770ef06de459eebf587244a52f0b409269ac34935a2b214e5a0"
+  },
+  "checks": {
+    "only_requested_live_xy_changes": true,
+    "flight_observer_passed": true,
+    "lidar_observer_passed": true,
+    "rendered_page_checks": [
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "single_main_tex_zip_independent_compile": true,
+    "independent_pdf_text_identical": true
+  }
+}

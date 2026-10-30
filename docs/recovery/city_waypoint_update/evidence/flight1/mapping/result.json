@@ -1,0 +1,164 @@
+{
+  "stop_reason": "completed_waypoint_cycle",
+  "error": null,
+  "wall_seconds": 108.01344395599153,
+  "ros_master_uri": "http://127.0.0.1:11478",
+  "topics": {
+    "raw": "/suav1/lidar/points_raw",
+    "world": "/suav1/lidar/points",
+    "map": "/suav1/voxel_map_points",
+    "marker": "/suav1/voxel_map",
+    "status": "/suav1/voxel_map/status"
+  },
+  "resolution_m": 2.0,
+  "range_max_m": 120.0,
+  "checks": {
+    "raw_nonempty": true,
+    "raw_frame": true,
+    "raw_finite_in_range": true,
+    "raw_is_3d": true,
+    "no_max_range_shell": true,
+    "world_frame": true,
+    "world_nonempty": true,
+    "voxel_map_nonempty": true,
+    "voxel_grid_alignment": true,
+    "voxel_marker_valid": true,
+    "map_grew": true,
+    "no_observer_errors": true
+  },
+  "passed": true,
+  "raw": {
+    "messages": 442,
+    "first_stamp": 0.204,
+    "last_stamp": 88.408,
+    "mean_hz_sim": 4.9997732529137,
+    "median_hz_sim": 4.999999999999929,
+    "nonpositive_stamp_steps": 0
+  },
+  "world": {
+    "messages": 442,
+    "first_stamp": 0.204,
+    "last_stamp": 88.408,
+    "mean_hz_sim": 4.9997732529137,
+    "median_hz_sim": 4.999999999999929,
+    "nonpositive_stamp_steps": 0
+  },
+  "map": {
+    "messages": 109,
+    "first_stamp": 0.0,
+    "last_stamp": 87.207999999,
+    "mean_hz_sim": 1.2384184937303737,
+    "median_hz_sim": 1.249999999999999,
+    "nonpositive_stamp_steps": 0
+  },
+  "marker": {
+    "messages": 109,
+    "first_stamp": 0.0,
+    "last_stamp": 87.207999999,
+    "mean_hz_sim": 1.2384184937303737,
+    "median_hz_sim": 1.249999999999999,
+    "nonpositive_stamp_steps": 0
+  },
+  "raw_point_total": 3409697,
+  "raw_points_per_scan_median": 7617.0,
+  "raw_elevation_bins_max": 32,
+  "raw_vertical_span_max_m": 118.12174987792969,
+  "raw_near_max_range_fraction": 8.006576537445996e-05,
+  "world_ground_near_zero_points": 1220832,
+  "world_below_minus_one_m_points": 218,
+  "final_voxel_count": 151666,
+  "maximum_voxel_count": 151666,
+  "map_counts_non_decreasing": true,
+  "goals": [
+    {
+      "stamp": 0.34,
+      "goal": [
+        -85.0,
+        -100.0,
+        40.0
+      ]
+    },
+    {
+      "stamp": 8.16,
+      "goal": [
+        -30.0,
+        80.0,
+        50.0
+      ]
+    },
+    {
+      "stamp": 28.344,
+      "goal": [
+        70.0,
+        200.0,
+        60.0
+      ]
+    },
+    {
+      "stamp": 37.148,
+      "goal": [
+        130.0,
+        100.0,
+        60.0
+      ]
+    },
+    {
+      "stamp": 43.852,
+      "goal": [
+        80.0,
+        60.0,
+        60.0
+      ]
+    },
+    {
+      "stamp": 47.24,
+      "goal": [
+        20.0,
+        -230.0,
+        55.0
+      ]
+    },
+    {
+      "stamp": 66.148,
+      "goal": [
+        125.0,
+        -265.0,
+        55.0
+      ]
+    },
+    {
+      "stamp": 72.364,
+      "goal": [
+        -90.0,
+        -270.0,
+        40.0
+      ]
+    },
+    {
+      "stamp": 88.544,
+      "goal": [
+        -85.0,
+        -100.0,
+        40.0
+      ]
+    }
+  ],
+  "final_mapper_status": {
+    "filtered_nonfinite_points": 0,
+    "filtered_range_points": 0,
+    "frame": "world",
+    "input_points": 3361932,
+    "latest_scan_stamp": 87.208,
+    "map_kind": "accumulated_occupied_scan_endpoints",
+    "odometry_received": 5461,
+    "pending_scans": 0,
+    "resolution_m": 2.0,
+    "scans_integrated": 436,
+    "scans_received": 436,
+    "valid_points": 3361932,
+    "voxel_count": 151666,
+    "received_wall_seconds": 107.17282361199614
+  },
+  "cloud_origin": "Gazebo ray sensor returns; this observer never reads the known obstacle map",
+  "ground_note": "Near-zero and below-ground counts are diagnostic distributions; not all lidar returns are ground points."
+}

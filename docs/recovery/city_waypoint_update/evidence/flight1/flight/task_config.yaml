@@ -1,0 +1,1513 @@
+motion_primitive:
+  min_altitude: 5.0
+  max_altitude: 160.0
+static_obstacles:
+  num: 0
+dynamic_obstacles:
+  num: 0
+sphere_obstacles:
+  num: 0
+horizontal_obstacles:
+  num: 0
+box_obstacles:
+  num: 162
+  box1:
+    x: -188.842893132352
+    y: -184.852398195773
+    z: 9.2830399627628
+    size_x: 21.566047973736005
+    size_y: 42.389552124206006
+    size_z: 18.5660799255256
+    clearance: 2.0
+    source: cafe::link::collision/component0
+    triangles: 52
+  box2:
+    x: -128.16132187381703
+    y: -96.29686554201601
+    z: 9.6773996124214
+    size_x: 23.073374572742026
+    size_y: 22.491014770484
+    size_z: 19.3547992248428
+    clearance: 2.0
+    source: cafe::link::collision/component1
+    triangles: 10
+  box3:
+    x: -123.940649266284
+    y: -45.6436036782318
+    z: 9.6773996124214
+    size_x: 16.960600402836008
+    size_y: 40.101546432408384
+    size_z: 19.3547992248428
+    clearance: 2.0
+    source: cafe::link::collision/component2
+    triangles: 16
+  box4:
+    x: -29.3446950999855
+    y: -70.133382105435
+    z: 9.6757873077339
+    size_x: 67.757956184477
+    size_y: 79.48168147294601
+    size_z: 19.3515746154678
+    clearance: 2.0
+    source: cafe::link::collision/component3
+    triangles: 46
+  box5:
+    x: -128.23875125616902
+    y: -96.21943615966399
+    z: 9.6773996124214
+    size_x: 22.918515808038038
+    size_y: 22.336156005779984
+    size_z: 19.3547992248428
+    clearance: 2.0
+    source: cafe::link::collision/component4
+    triangles: 10
+  box6:
+    x: -124.018067021405
+    y: -45.721023371233095
+    z: 9.6773996124214
+    size_x: 16.805764892594
+    size_y: 39.94670704640579
+    size_z: 19.3547992248428
+    clearance: 2.0
+    source: cafe::link::collision/component5
+    triangles: 16
+  box7:
+    x: -29.2640488597035
+    y: -70.133381136425
+    z: 9.6757873077339
+    size_x: 67.596663703913
+    size_y: 79.15909844983801
+    size_z: 19.3515746154678
+    clearance: 2.0
+    source: cafe::link::collision/component6
+    triangles: 46
+  box8:
+    x: 28.973927851880035
+    y: -1.7686044340699993
+    z: 0.16158210062991998
+    size_x: 584.1480961922
+    size_y: 925.03935058562
+    size_z: 0.32316420125983997
+    clearance: 2.0
+    source: cafe::link::collision/component7
+    triangles: 7137
+  box9:
+    x: 5.138858098450001
+    y: -381.5750836515
+    z: 8.98259636895819
+    size_x: 46.0190183761
+    size_y: 63.20544926100001
+    size_z: 17.96519285168362
+    clearance: 2.0
+    source: Gas Station::link::collision
+  box10:
+    x: -8.90017
+    y: -368.351990557
+    z: 0.59097004299014
+    size_x: 1.670196175580001
+    size_y: 1.0235439139999585
+    size_z: 1.18221117135972
+    clearance: 2.0
+    source: Dumpster::link::collision
+  box11:
+    x: -11.3737
+    y: -368.472990557
+    z: 0.59097004299014
+    size_x: 1.6701961755999992
+    size_y: 1.0235439140000153
+    size_z: 1.18221117135972
+    clearance: 2.0
+    source: Dumpster_clone::link::collision
+  box12:
+    x: -14.120999999999999
+    y: -368.349990557
+    z: 0.59097004299014
+    size_x: 1.6701961755999992
+    size_y: 1.0235439140000153
+    size_z: 1.18221117135972
+    clearance: 2.0
+    source: Dumpster_clone_0::link::collision
+  box13:
+    x: -27.748600000000003
+    y: -347.79499999999996
+    z: 0.5715
+    size_x: 4.06542
+    size_y: 0.30630000000002156
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier::link::upright
+  box14:
+    x: -27.748600000000003
+    y: -347.795
+    z: 0.032258
+    size_x: 4.06542
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier::link::base
+  box15:
+    x: -27.748600000000003
+    y: -347.795
+    z: 0.1
+    size_x: 4.06542
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier::link::base2
+  box16:
+    x: -27.748600000000003
+    y: -347.795
+    z: 0.2
+    size_x: 4.06542
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier::link::base3
+  box17:
+    x: -27.748600000000003
+    y: -348.019
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.36134210399995936
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier::link::left-angle
+  box18:
+    x: -27.748600000000003
+    y: -347.571
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier::link::right-angle
+  box19:
+    x: -22.0
+    y: -348.0
+    z: 0.5715
+    size_x: 4.065420000000003
+    size_y: 0.3062999999999647
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier_clone::link::upright
+  box20:
+    x: -22.0
+    y: -348.0
+    z: 0.032258
+    size_x: 4.065420000000003
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier_clone::link::base
+  box21:
+    x: -22.0
+    y: -348.0
+    z: 0.1
+    size_x: 4.065420000000003
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier_clone::link::base2
+  box22:
+    x: -22.0
+    y: -348.0
+    z: 0.2
+    size_x: 4.065420000000003
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier_clone::link::base3
+  box23:
+    x: -22.0
+    y: -348.22400000000005
+    z: 0.24009999999985
+    size_x: 4.065420000000003
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone::link::left-angle
+  box24:
+    x: -22.0
+    y: -347.77599999999995
+    z: 0.24009999999985
+    size_x: 4.065420000000003
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone::link::right-angle
+  box25:
+    x: -18.0
+    y: -348.0
+    z: 0.5715
+    size_x: 4.065420000000001
+    size_y: 0.3062999999999647
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier_clone_clone::link::upright
+  box26:
+    x: -18.0
+    y: -348.0
+    z: 0.032258
+    size_x: 4.065420000000001
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier_clone_clone::link::base
+  box27:
+    x: -18.0
+    y: -348.0
+    z: 0.1
+    size_x: 4.065420000000001
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier_clone_clone::link::base2
+  box28:
+    x: -18.0
+    y: -348.0
+    z: 0.2
+    size_x: 4.065420000000001
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier_clone_clone::link::base3
+  box29:
+    x: -18.0
+    y: -348.22400000000005
+    z: 0.24009999999985
+    size_x: 4.065420000000001
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone::link::left-angle
+  box30:
+    x: -18.0
+    y: -347.77599999999995
+    z: 0.24009999999985
+    size_x: 4.065420000000001
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone::link::right-angle
+  box31:
+    x: -14.0215
+    y: -348.019
+    z: 0.5715
+    size_x: 4.065420000000001
+    size_y: 0.3062999999999647
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone::link::upright
+  box32:
+    x: -14.0215
+    y: -348.019
+    z: 0.032258
+    size_x: 4.065420000000001
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone::link::base
+  box33:
+    x: -14.0215
+    y: -348.019
+    z: 0.1
+    size_x: 4.065420000000001
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone::link::base2
+  box34:
+    x: -14.0215
+    y: -348.019
+    z: 0.2
+    size_x: 4.065420000000001
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone::link::base3
+  box35:
+    x: -14.0215
+    y: -348.243
+    z: 0.24009999999985
+    size_x: 4.065420000000001
+    size_y: 0.36134210399995936
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone::link::left-angle
+  box36:
+    x: -14.0215
+    y: -347.79499999999996
+    z: 0.24009999999985
+    size_x: 4.065420000000001
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone::link::right-angle
+  box37:
+    x: -10.0
+    y: -348.0
+    z: 0.5715
+    size_x: 4.06542
+    size_y: 0.3062999999999647
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone::link::upright
+  box38:
+    x: -10.0
+    y: -348.0
+    z: 0.032258
+    size_x: 4.06542
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone::link::base
+  box39:
+    x: -10.0
+    y: -348.0
+    z: 0.1
+    size_x: 4.06542
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone::link::base2
+  box40:
+    x: -10.0
+    y: -348.0
+    z: 0.2
+    size_x: 4.06542
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone::link::base3
+  box41:
+    x: -10.0
+    y: -348.22400000000005
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone::link::left-angle
+  box42:
+    x: -10.0
+    y: -347.77599999999995
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone::link::right-angle
+  box43:
+    x: -6.0
+    y: -348.0
+    z: 0.5715
+    size_x: 4.06542
+    size_y: 0.3062999999999647
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone::link::upright
+  box44:
+    x: -6.0
+    y: -348.0
+    z: 0.032258
+    size_x: 4.06542
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone::link::base
+  box45:
+    x: -6.0
+    y: -348.0
+    z: 0.1
+    size_x: 4.06542
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone::link::base2
+  box46:
+    x: -6.0
+    y: -348.0
+    z: 0.2
+    size_x: 4.06542
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone::link::base3
+  box47:
+    x: -6.0
+    y: -348.22400000000005
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone::link::left-angle
+  box48:
+    x: -6.0
+    y: -347.77599999999995
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone::link::right-angle
+  box49:
+    x: -2.0
+    y: -348.0
+    z: 0.5715
+    size_x: 4.06542
+    size_y: 0.3062999999999647
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone::link::upright
+  box50:
+    x: -2.0
+    y: -348.0
+    z: 0.032258
+    size_x: 4.06542
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone::link::base
+  box51:
+    x: -2.0
+    y: -348.0
+    z: 0.1
+    size_x: 4.06542
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone::link::base2
+  box52:
+    x: -2.0
+    y: -348.0
+    z: 0.2
+    size_x: 4.06542
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone::link::base3
+  box53:
+    x: -2.0
+    y: -348.22400000000005
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone::link::left-angle
+  box54:
+    x: -2.0
+    y: -347.77599999999995
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone::link::right-angle
+  box55:
+    x: 6.0
+    y: -348.0
+    z: 0.5715
+    size_x: 4.06542
+    size_y: 0.3062999999999647
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone::link::upright
+  box56:
+    x: 6.0
+    y: -348.0
+    z: 0.032258
+    size_x: 4.06542
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone::link::base
+  box57:
+    x: 6.0
+    y: -348.0
+    z: 0.1
+    size_x: 4.06542
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone::link::base2
+  box58:
+    x: 6.0
+    y: -348.0
+    z: 0.2
+    size_x: 4.06542
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone::link::base3
+  box59:
+    x: 6.0
+    y: -348.22400000000005
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone::link::left-angle
+  box60:
+    x: 6.0
+    y: -347.77599999999995
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone::link::right-angle
+  box61:
+    x: 2.0
+    y: -348.0
+    z: 0.5715
+    size_x: 4.06542
+    size_y: 0.3062999999999647
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone::link::upright
+  box62:
+    x: 2.0
+    y: -348.0
+    z: 0.032258
+    size_x: 4.06542
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone::link::base
+  box63:
+    x: 2.0
+    y: -348.0
+    z: 0.1
+    size_x: 4.06542
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone::link::base2
+  box64:
+    x: 2.0
+    y: -348.0
+    z: 0.2
+    size_x: 4.06542
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone::link::base3
+  box65:
+    x: 2.0
+    y: -348.22400000000005
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone::link::left-angle
+  box66:
+    x: 2.0
+    y: -347.77599999999995
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone::link::right-angle
+  box67:
+    x: 10.0
+    y: -348.0
+    z: 0.5715
+    size_x: 4.06542
+    size_y: 0.3062999999999647
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0::link::upright
+  box68:
+    x: 10.0
+    y: -348.0
+    z: 0.032258
+    size_x: 4.06542
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0::link::base
+  box69:
+    x: 10.0
+    y: -348.0
+    z: 0.1
+    size_x: 4.06542
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0::link::base2
+  box70:
+    x: 10.0
+    y: -348.0
+    z: 0.2
+    size_x: 4.06542
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0::link::base3
+  box71:
+    x: 10.0
+    y: -348.22400000000005
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0::link::left-angle
+  box72:
+    x: 10.0
+    y: -347.77599999999995
+    z: 0.24009999999985
+    size_x: 4.06542
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0::link::right-angle
+  box73:
+    x: 14.0
+    y: -348.0
+    z: 0.5715
+    size_x: 4.065420000000001
+    size_y: 0.3062999999999647
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone::link::upright
+  box74:
+    x: 14.0
+    y: -348.0
+    z: 0.032258
+    size_x: 4.065420000000001
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone::link::base
+  box75:
+    x: 14.0
+    y: -348.0
+    z: 0.1
+    size_x: 4.065420000000001
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone::link::base2
+  box76:
+    x: 14.0
+    y: -348.0
+    z: 0.2
+    size_x: 4.065420000000001
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone::link::base3
+  box77:
+    x: 14.0
+    y: -348.22400000000005
+    z: 0.24009999999985
+    size_x: 4.065420000000001
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone::link::left-angle
+  box78:
+    x: 14.0
+    y: -347.77599999999995
+    z: 0.24009999999985
+    size_x: 4.065420000000001
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone::link::right-angle
+  box79:
+    x: 18.0
+    y: -348.0
+    z: 0.5715
+    size_x: 4.065420000000001
+    size_y: 0.3062999999999647
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone_clone::link::upright
+  box80:
+    x: 18.0
+    y: -348.0
+    z: 0.032258
+    size_x: 4.065420000000001
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone_clone::link::base
+  box81:
+    x: 18.0
+    y: -348.0
+    z: 0.1
+    size_x: 4.065420000000001
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone_clone::link::base2
+  box82:
+    x: 18.0
+    y: -348.0
+    z: 0.2
+    size_x: 4.065420000000001
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone_clone::link::base3
+  box83:
+    x: 18.0
+    y: -348.22400000000005
+    z: 0.24009999999985
+    size_x: 4.065420000000001
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone_clone::link::left-angle
+  box84:
+    x: 18.0
+    y: -347.77599999999995
+    z: 0.24009999999985
+    size_x: 4.065420000000001
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone_clone::link::right-angle
+  box85:
+    x: 22.0
+    y: -348.0
+    z: 0.5715
+    size_x: 4.065420000000003
+    size_y: 0.3062999999999647
+    size_z: 1.143
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone_clone_clone::link::upright
+  box86:
+    x: 22.0
+    y: -348.0
+    z: 0.032258
+    size_x: 4.065420000000003
+    size_y: 0.8106999999999971
+    size_z: 0.064516
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone_clone_clone::link::base
+  box87:
+    x: 22.0
+    y: -348.0
+    z: 0.1
+    size_x: 4.065420000000003
+    size_y: 0.6499999999999773
+    size_z: 0.09999999999999999
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone_clone_clone::link::base2
+  box88:
+    x: 22.0
+    y: -348.0
+    z: 0.2
+    size_x: 4.065420000000003
+    size_y: 0.5
+    size_z: 0.1
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone_clone_clone::link::base3
+  box89:
+    x: 22.0
+    y: -348.22400000000005
+    z: 0.24009999999985
+    size_x: 4.065420000000003
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone_clone_clone::link::left-angle
+  box90:
+    x: 22.0
+    y: -347.77599999999995
+    z: 0.24009999999985
+    size_x: 4.065420000000003
+    size_y: 0.3613421040000162
+    size_z: 0.4317672435263
+    clearance: 2.0
+    source: jersey_barrier_clone_clone_clone_clone_clone_clone_clone_clone_0_clone_clone_clone::link::right-angle
+  box91:
+    x: -29.0
+    y: -350.0
+    z: 1.4
+    size_x: 2.444483902400002
+    size_y: 7.213470142000006
+    size_z: 2.8
+    clearance: 2.0
+    source: grey_wall::link::collision
+  box92:
+    x: -27.0
+    y: -357.0
+    z: 1.4
+    size_x: 2.444483902400002
+    size_y: 7.213470142000006
+    size_z: 2.8
+    clearance: 2.0
+    source: grey_wall_clone::link::collision
+  box93:
+    x: -25.0
+    y: -364.0
+    z: 1.4
+    size_x: 2.444483902400002
+    size_y: 7.213470142000006
+    size_z: 2.8
+    clearance: 2.0
+    source: grey_wall_clone_0::link::collision
+  box94:
+    x: -23.0
+    y: -371.0
+    z: 1.4
+    size_x: 2.444483902400002
+    size_y: 7.213470142000006
+    size_z: 2.8
+    clearance: 2.0
+    source: grey_wall_clone_0_clone::link::collision
+  box95:
+    x: -21.0
+    y: -378.0
+    z: 1.4
+    size_x: 2.444483902400002
+    size_y: 7.213470142000006
+    size_z: 2.8
+    clearance: 2.0
+    source: grey_wall_clone_0_clone_clone::link::collision
+  box96:
+    x: -19.0
+    y: -385.0
+    z: 1.4
+    size_x: 2.444483902400002
+    size_y: 7.213470142000006
+    size_z: 2.8
+    clearance: 2.0
+    source: grey_wall_clone_0_clone_clone_clone::link::collision
+  box97:
+    x: -17.1621446857
+    y: 142.95008551249998
+    z: 15.372989030595127
+    size_x: 61.755328715999994
+    size_y: 52.18981241899999
+    size_z: 30.747666653209745
+    clearance: 2.0
+    source: House 1::link::collision
+  box98:
+    x: -58.0994965883
+    y: -325.1933926985
+    z: 14.3082005828695
+    size_x: 45.7666531708
+    size_y: 37.136253124999996
+    size_z: 28.907356768861
+    clearance: 2.0
+    source: House 2::link::collision
+  box99:
+    x: -114.29815144150001
+    y: -393.093236447
+    z: 21.222494447262697
+    size_x: 43.660061010999996
+    size_y: 20.62460603200003
+    size_z: 42.44499523627461
+    clearance: 2.0
+    source: House 3::link::collision
+  box100:
+    x: -19.0
+    y: -389.557
+    z: 0.544444441795
+    size_x: 0.5029200315999987
+    size_y: 0.50292003200002
+    size_z: 1.08888888359
+    clearance: 2.0
+    source: Construction Cone::link::collision
+  box101:
+    x: -20.5705027222
+    y: -391.331007622
+    z: 0.5442954417348506
+    size_x: 0.5029254760000015
+    size_y: 0.5029352760000165
+    size_z: 1.088898438950299
+    clearance: 2.0
+    source: Construction Cone_clone::link::collision
+  box102:
+    x: -22.3249
+    y: -393.096
+    z: 0.544327441795
+    size_x: 0.5029200315999987
+    size_y: 0.50292003200002
+    size_z: 1.08888888359
+    clearance: 2.0
+    source: Construction Cone_clone_clone::link::collision
+  box103:
+    x: -25.1263
+    y: -394.655
+    z: 0.544444441795
+    size_x: 0.5029200315999987
+    size_y: 0.5029200319999632
+    size_z: 1.08888888359
+    clearance: 2.0
+    source: Construction Cone_clone_clone_clone::link::collision
+  box104:
+    x: -28.6583
+    y: -395.53499999999997
+    z: 0.544444441795
+    size_x: 0.5029200315999987
+    size_y: 0.5029200319999632
+    size_z: 1.08888888359
+    clearance: 2.0
+    source: Construction Cone_clone_clone_clone_clone::link::collision
+  box105:
+    x: -33.3133
+    y: -396.401
+    z: 0.544444441795
+    size_x: 0.5029200315999987
+    size_y: 0.50292003200002
+    size_z: 1.08888888359
+    clearance: 2.0
+    source: Construction Cone_clone_clone_clone_clone_clone::link::collision
+  box106:
+    x: -39.2634027222
+    y: -397.190997278
+    z: 0.544444441779921
+    size_x: 0.5029254760000015
+    size_y: 0.5029254759999731
+    size_z: 1.0888939127601578
+    clearance: 2.0
+    source: Construction Cone_clone_clone_clone_clone_clone_clone::link::collision
+  box107:
+    x: 195.176426483
+    y: 56.69584909055
+    z: 24.025699386599996
+    size_x: 99.14254760799997
+    size_y: 64.6476974487
+    size_z: 48.03139877320001
+    clearance: 2.0
+    source: powerplant::link::wall1
+  box108:
+    x: 93.9624
+    y: -21.376012348049997
+    z: 1.180107831955
+    size_x: 0.7783520221999964
+    size_y: 0.02959973930000004
+    size_z: 2.36021566391
+    clearance: 2.0
+    source: Speed limit::link::collision
+  box109:
+    x: 264.828
+    y: 294.822
+    z: 44.34584957733555
+    size_x: 60.77170944200003
+    size_y: 66.81025695799997
+    size_z: 88.8275421783289
+    clearance: 2.0
+    source: apartment::link::collision
+  box110:
+    x: 61.7598
+    y: -228.113
+    z: 5.0
+    size_x: 39.96
+    size_y: 19.360000000000014
+    size_z: 50.0
+    clearance: 2.0
+    source: fire_station::link::main
+  box111:
+    x: 61.7598
+    y: -223.02100000000002
+    z: 7.0
+    size_x: 40.0
+    size_y: 1.0300000000000011
+    size_z: 30.0
+    clearance: 2.0
+    source: fire_station::link::front_top
+  box112:
+    x: 71.0928
+    y: -223.02100000000002
+    z: 2.0
+    size_x: 2.6299999999999955
+    size_y: 1.0300000000000011
+    size_z: 20.0
+    clearance: 2.0
+    source: fire_station::link::column_0
+  box113:
+    x: 65.0898
+    y: -223.02100000000002
+    z: 2.0
+    size_x: 5.260000000000005
+    size_y: 1.0300000000000011
+    size_z: 20.0
+    clearance: 2.0
+    source: fire_station::link::column_1
+  box114:
+    x: 58.4298
+    y: -223.02100000000002
+    z: 2.0
+    size_x: 5.260000000000005
+    size_y: 1.0300000000000011
+    size_z: 20.0
+    clearance: 2.0
+    source: fire_station::link::column_2
+  box115:
+    x: 52.4268
+    y: -223.02100000000002
+    z: 2.0
+    size_x: 2.6299999999999955
+    size_y: 1.0300000000000011
+    size_z: 20.0
+    clearance: 2.0
+    source: fire_station::link::column_3
+  box116:
+    x: 61.7598
+    y: -230.72
+    z: 10.46699999998
+    size_x: 42.94
+    size_y: 12.20585358400001
+    size_z: 4.384701851640001
+    clearance: 2.0
+    source: fire_station::link::roof_back
+  box117:
+    x: 61.7598
+    y: -224.858
+    z: 10.46699999998
+    size_x: 42.94
+    size_y: 12.20585358400001
+    size_z: 4.384701851640001
+    clearance: 2.0
+    source: fire_station::link::roof_front
+  box118:
+    x: 61.7598
+    y: -227.79000000000002
+    z: 9.705
+    size_x: 42.94
+    size_y: 23.72
+    size_z: 1.3999999999999986
+    clearance: 2.0
+    source: fire_station::link::roof_base
+  box119:
+    x: 61.7598
+    y: -227.79
+    z: 9.985
+    size_x: 42.94
+    size_y: 19.060000000000002
+    size_z: 1.4000000000000004
+    clearance: 2.0
+    source: fire_station::link::roof_filling_0
+  box120:
+    x: 61.7598
+    y: -227.79
+    z: 10.14
+    size_x: 42.94
+    size_y: 16.819999999999993
+    size_z: 1.4000000000000004
+    clearance: 2.0
+    source: fire_station::link::roof_filling_1
+  box121:
+    x: 61.7598
+    y: -227.79
+    z: 10.42
+    size_x: 42.94
+    size_y: 12.5
+    size_z: 1.3999999999999986
+    clearance: 2.0
+    source: fire_station::link::roof_filling_2
+  box122:
+    x: 61.7598
+    y: -227.79000000000002
+    z: 10.7
+    size_x: 42.94
+    size_y: 8.099999999999994
+    size_z: 1.4000000000000004
+    clearance: 2.0
+    source: fire_station::link::roof_filling_3
+  box123:
+    x: 61.7598
+    y: -227.79000000000002
+    z: 10.98
+    size_x: 42.94
+    size_y: 3.6599999999999966
+    size_z: 1.4000000000000004
+    clearance: 2.0
+    source: fire_station::link::roof_filling_4
+  box124:
+    x: -160.156
+    y: -313.79200000000003
+    z: 5.0
+    size_x: 39.96000000000001
+    size_y: 19.359999999999957
+    size_z: 50.0
+    clearance: 2.0
+    source: fire_station_0::link::main
+  box125:
+    x: -160.156
+    y: -308.7
+    z: 7.0
+    size_x: 40.0
+    size_y: 1.0299999999999727
+    size_z: 30.0
+    clearance: 2.0
+    source: fire_station_0::link::front_top
+  box126:
+    x: -150.823
+    y: -308.7
+    z: 2.0
+    size_x: 2.6299999999999955
+    size_y: 1.0299999999999727
+    size_z: 20.0
+    clearance: 2.0
+    source: fire_station_0::link::column_0
+  box127:
+    x: -156.826
+    y: -308.7
+    z: 2.0
+    size_x: 5.259999999999991
+    size_y: 1.0299999999999727
+    size_z: 20.0
+    clearance: 2.0
+    source: fire_station_0::link::column_1
+  box128:
+    x: -163.486
+    y: -308.7
+    z: 2.0
+    size_x: 5.260000000000019
+    size_y: 1.0299999999999727
+    size_z: 20.0
+    clearance: 2.0
+    source: fire_station_0::link::column_2
+  box129:
+    x: -169.489
+    y: -308.7
+    z: 2.0
+    size_x: 2.6299999999999955
+    size_y: 1.0299999999999727
+    size_z: 20.0
+    clearance: 2.0
+    source: fire_station_0::link::column_3
+  box130:
+    x: -160.156
+    y: -316.399
+    z: 10.46699999998
+    size_x: 42.94
+    size_y: 12.20585358400001
+    size_z: 4.384701851640001
+    clearance: 2.0
+    source: fire_station_0::link::roof_back
+  box131:
+    x: -160.156
+    y: -310.537
+    z: 10.46699999998
+    size_x: 42.94
+    size_y: 12.20585358400001
+    size_z: 4.384701851640001
+    clearance: 2.0
+    source: fire_station_0::link::roof_front
+  box132:
+    x: -160.156
+    y: -313.469
+    z: 9.705
+    size_x: 42.94
+    size_y: 23.720000000000027
+    size_z: 1.3999999999999986
+    clearance: 2.0
+    source: fire_station_0::link::roof_base
+  box133:
+    x: -160.156
+    y: -313.46900000000005
+    z: 9.985
+    size_x: 42.94
+    size_y: 19.060000000000002
+    size_z: 1.4000000000000004
+    clearance: 2.0
+    source: fire_station_0::link::roof_filling_0
+  box134:
+    x: -160.156
+    y: -313.46900000000005
+    z: 10.14
+    size_x: 42.94
+    size_y: 16.819999999999993
+    size_z: 1.4000000000000004
+    clearance: 2.0
+    source: fire_station_0::link::roof_filling_1
+  box135:
+    x: -160.156
+    y: -313.469
+    z: 10.42
+    size_x: 42.94
+    size_y: 12.5
+    size_z: 1.3999999999999986
+    clearance: 2.0
+    source: fire_station_0::link::roof_filling_2
+  box136:
+    x: -160.156
+    y: -313.469
+    z: 10.7
+    size_x: 42.94
+    size_y: 8.100000000000023
+    size_z: 1.4000000000000004
+    clearance: 2.0
+    source: fire_station_0::link::roof_filling_3
+  box137:
+    x: -160.156
+    y: -313.469
+    z: 10.98
+    size_x: 42.94
+    size_y: 3.659999999999968
+    size_z: 1.4000000000000004
+    clearance: 2.0
+    source: fire_station_0::link::roof_filling_4
+  box138:
+    x: -150.2453385085
+    y: -215.2954983675
+    z: 15.372989030595127
+    size_x: 54.966527939
+    size_y: 43.10200881900002
+    size_z: 30.747666653209745
+    clearance: 2.0
+    source: House 1_0::link::collision
+  box139:
+    x: -138.33067691
+    y: -159.336327688
+    z: 21.222494447262697
+    size_x: 42.13079834
+    size_y: 15.997008800000003
+    size_z: 42.44499523627461
+    clearance: 2.0
+    source: House 3_0::link::collision
+  box140:
+    x: 14.959492602515
+    y: -102.9979804346
+    z: 3.2288299314666498
+    size_x: 10.61075592037
+    size_y: 8.489843368799995
+    size_z: 6.5982349887467
+    clearance: 2.0
+    source: oak_tree::link::collision
+  box141:
+    x: -30.99329999999
+    y: -200.033669716
+    z: 45.90268163753739
+    size_x: 60.472320556620005
+    size_y: 41.525224686
+    size_z: 91.81032886352521
+    clearance: 2.0
+    source: parking_garage::link::collision
+  box142:
+    x: -16.0215
+    y: 48.30423028415
+    z: 68.85401864183109
+    size_x: 60.4723205566
+    size_y: 41.525224685699996
+    size_z: 137.71548566633783
+    clearance: 2.0
+    source: parking_garage_0::link::collision
+  box143:
+    x: 13.7932
+    y: 90.4854
+    z: 2.538903975868345
+    size_x: 3.1723141669999997
+    size_y: 3.172314166999996
+    size_z: 5.07780785484331
+    clearance: 2.0
+    source: pine_tree::link::collision
+  box144:
+    x: 84.2014
+    y: 299.56600000000003
+    z: 4.28998
+    size_x: 52.148
+    size_y: 52.14799999999997
+    size_z: 51.4797
+    clearance: 2.0
+    source: police_station::link::collision_main
+  box145:
+    x: 84.2014
+    y: 299.56600000000003
+    z: 0.464086
+    size_x: 52.148
+    size_y: 64.97840000000002
+    size_z: 5.569038
+    clearance: 2.0
+    source: police_station::link::collision_landing
+  box146:
+    x: 77.03710000000001
+    y: 106.19437707540001
+    z: 11.78369017367446
+    size_x: 41.6263313294
+    size_y: 29.2301445012
+    size_z: 23.56738146305108
+    clearance: 2.0
+    source: post_office::link::collision
+  box147:
+    x: 185.6177369305
+    y: -224.47093181050002
+    z: 44.168010711649956
+    size_x: 11.729740143000015
+    size_y: 13.395650387000018
+    size_z: 88.33602142330008
+    clearance: 2.0
+    source: radio_tower_0::link::collision
+  box148:
+    x: 210.639
+    y: -66.38425655365
+    z: 35.6002883911
+    size_x: 99.04676055999997
+    size_y: 52.57020759590001
+    size_z: 71.2005767822
+    clearance: 2.0
+    source: school::link::collision
+  box149:
+    x: 190.079
+    y: -156.321
+    z: 5.694690000000001
+    size_x: 7.212970000000013
+    size_y: 8.147474999999986
+    size_z: 45.5576
+    clearance: 2.0
+    source: thrift_shop::link::collision
+  box150:
+    x: 57.9681
+    y: 172.053623676
+    z: 17.514100961052627
+    size_x: 6.546220302600005
+    size_y: 39.08459568000001
+    size_z: 35.028202191694746
+    clearance: 2.0
+    source: tower_crane::link::collision
+  box151:
+    x: -138.22746176700002
+    y: -60.41369314225
+    z: 22.951340818793696
+    size_x: 42.93256705600001
+    size_y: 61.429919886899995
+    size_z: 45.90516443181261
+    clearance: 2.0
+    source: parking_garage_1::link::collision
+  box152:
+    x: 155.353538233
+    y: -327.6977931425
+    z: 45.90268163753739
+    size_x: 42.93256705599998
+    size_y: 61.42991988699998
+    size_z: 91.81032886352521
+    clearance: 2.0
+    source: parking_garage_1_clone::link::collision
+  box153:
+    x: 3.945668232800001
+    y: 299.8532068575
+    z: 45.90268163753739
+    size_x: 42.9325670556
+    size_y: 61.42991988700004
+    size_z: 91.81032886352521
+    clearance: 2.0
+    source: parking_garage_1_clone_clone::link::collision
+  box154:
+    x: 74.34673823279999
+    y: -133.0667931425
+    z: 68.85401864183109
+    size_x: 42.932567055599996
+    size_y: 61.42991988700001
+    size_z: 137.71548566633783
+    clearance: 2.0
+    source: parking_garage_1_clone_clone_clone::link::collision
+  box155:
+    x: -55.0
+    y: 0.0
+    z: 50.0
+    size_x: 24.0
+    size_y: 24.0
+    size_z: 100.0
+    clearance: 2.0
+    source: dense_highrise_01::building::collision
+  box156:
+    x: -115.0
+    y: 75.0
+    z: 57.5
+    size_x: 20.0
+    size_y: 24.0
+    size_z: 115.0
+    clearance: 2.0
+    source: dense_highrise_02::building::collision
+  box157:
+    x: -55.0
+    y: 240.0
+    z: 47.5
+    size_x: 26.0
+    size_y: 26.0
+    size_z: 95.0
+    clearance: 2.0
+    source: dense_highrise_03::building::collision
+  box158:
+    x: 145.0
+    y: 145.0
+    z: 62.5
+    size_x: 26.0
+    size_y: 26.0
+    size_z: 125.0
+    clearance: 2.0
+    source: dense_highrise_04::building::collision
+  box159:
+    x: 80.0
+    y: -25.0
+    z: 55.0
+    size_x: 24.0
+    size_y: 26.0
+    size_z: 110.0
+    clearance: 2.0
+    source: dense_highrise_05::building::collision
+  box160:
+    x: -25.0
+    y: -140.0
+    z: 52.5
+    size_x: 24.0
+    size_y: 22.0
+    size_z: 105.0
+    clearance: 2.0
+    source: dense_highrise_06::building::collision
+  box161:
+    x: 115.0
+    y: -190.0
+    z: 50.0
+    size_x: 24.0
+    size_y: 26.0
+    size_z: 100.0
+    clearance: 2.0
+    source: dense_highrise_07::building::collision
+  box162:
+    x: -60.0
+    y: -260.0
+    z: 45.0
+    size_x: 20.0
+    size_y: 22.0
+    size_z: 90.0
+    clearance: 2.0
+    source: dense_highrise_08::building::collision
+waypoints:
+  num: 8
+  wp1:
+    x: -85.0
+    y: -100.0
+    h: 40.0
+  wp2:
+    x: -30.0
+    y: 80.0
+    h: 50.0
+  wp3:
+    x: 70.0
+    y: 200.0
+    h: 60.0
+  wp4:
+    x: 130.0
+    y: 100.0
+    h: 60.0
+  wp5:
+    x: 80.0
+    y: 60.0
+    h: 60.0
+  wp6:
+    x: 20.0
+    y: -230.0
+    h: 55.0
+  wp7:
+    x: 125.0
+    y: -265.0
+    h: 55.0
+  wp8:
+    x: -90.0
+    y: -270.0
+    h: 40.0

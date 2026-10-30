@@ -163,9 +163,10 @@ def main():
             'static_obstacles': {'num': 0}, 'dynamic_obstacles': {'num': 0},
             'sphere_obstacles': {'num': 0}, 'horizontal_obstacles': {'num': 0},
             'box_obstacles': {'num': len(boxes)},
-            'waypoints': {'num': 5}}
+            'waypoints': {'num': 8}}
     task['box_obstacles'].update({'box'+str(i+1): value for i, value in enumerate(boxes)})
-    goals = [(-85,-100,40), (-85,180,50), (120,225,60), (125,-265,55), (-90,-270,40)]
+    goals = [(-85,-100,40), (-30,80,50), (70,200,60), (130,100,60),
+             (80,60,60), (20,-230,55), (125,-265,55), (-90,-270,40)]
     for i, (x,y,h) in enumerate(goals):
         task['waypoints']['wp'+str(i+1)] = {'x': float(x), 'y': float(y), 'h': float(h)}
     for output in (args.output_world, args.output_task, args.manifest):

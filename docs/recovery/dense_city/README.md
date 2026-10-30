@@ -27,7 +27,7 @@ roslaunch motion_primitives_planning terminal_recovery_end_world_dense_lidar.lau
 
 Gazebo 显示增密城市，RViz 显示实时扫描、飞行轨迹和 2 m 彩色体素地图。地图容量为 200,000 格，可通过 `voxel_resolution`、`max_voxels` 调整。原入口 `terminal_recovery_end_world_lidar.launch` 保留较稀疏的城市，用于对照。
 
-## 完整航线测试
+## 原路线完整航线测试
 
 | 项目 | 实测结果 |
 | --- | ---: |
@@ -56,11 +56,11 @@ Gazebo 显示增密城市，RViz 显示实时扫描、飞行轨迹和 2 m 彩色
 
 论文已加入 “Gazebo Closed-Loop Validation in a Dense Urban Environment” 小节。图 7 为 Gazebo 和 RViz 的真实窗口截图：上图展示增密城市，下图展示雷达体素地图与红色实际航迹。截图采自相同配置的独立复现运行，在八航点循环完成后暂停仿真并直接保存原生窗口，分辨率均为 1920 × 1043。采集说明、运行记录及视角配置见 [interface_capture/capture_manifest.json](interface_capture/capture_manifest.json)。
 
-图 8 为实际航迹、雷达体素、高度与滚转、障碍净空的四联数据图。该图及表 III 继续使用 `evidence/flight1` 原始记录。图像数据与显示抽稀方式见 [paper_figure_data.json](paper_figure_data.json)，表格数据来源见 [paper_validation_data.json](paper_validation_data.json)。
+图 8 现已使用第 2–5 点调整后的新航线，并重新运行 Gazebo 采集实际航迹、体素地图和状态数据。新点的世界坐标为 (-30,80)、(70,200)、(130,100)、(80,60)，高度及其余配置保持不变。完整循环在 88.544 s 完成；来源与重绘命令见 [航点更新记录](../city_waypoint_update/README.md)。图 7 保留原路线的原生窗口截图。
 
-论文表格采用完成第八航点并切回首点的实际消息时刻 **90.408 s**；上方记录结束时刻 **90.432 s** 是最后一条里程计，两者分别保留。正文说明了运行版的 406 个主候选、航点门限、简化动力学及已知地图规划输入。此单次系统验证与原有多地图方法对照分别报告。
+本目录 `evidence/flight1`、`paper_figure_data.json` 和 `paper_validation_data.json` 是更新前的历史记录。原路线完成循环的实际消息时刻为 90.408 s，最后里程计时刻为 90.432 s。审稿中的十五组城市配置试验也使用原路线，见 [城市配置对照](../revision/city/README.md)。
 
-在仓库根目录执行 `python3 paper/create_gazebo_figure.py` 可重绘论文图；城市验证正文、图注和表格已统一放入 `paper/main.tex`，搜索 `BEGIN SECTION: gazebo_validation` 即可定位。
+论文城市验证正文、图注和表格统一放在 `paper/main.tex`，搜索 `BEGIN SECTION: gazebo_validation` 即可定位。`python3 paper/create_gazebo_figure.py` 默认重绘旧图；当前图 8 需使用航点更新记录中的显式参数。
 
 ## 修改建筑与复现
 

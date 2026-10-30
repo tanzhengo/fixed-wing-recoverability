@@ -39,3 +39,10 @@ The imported city meshes must be available in Gazebo's model path. Clearances
 refer to the aircraft reference point, not a swept airframe volume. The
 `collision`/incursion outcome denotes inflated boxes, distinct from physical
 box penetration.
+
+The runner defaults to the archived original route in
+`geometry_relative_gate48p825/task_config.yaml`, keeping this fifteen-case
+comparison reproducible after edits to the live city waypoints. To evaluate a
+different route, pass `--task-config /absolute/path/to/task.yaml` and a fresh
+output directory. The later interior-waypoint acquisition flight is recorded
+separately in `docs/recovery/city_waypoint_update`.

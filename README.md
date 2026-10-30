@@ -6,6 +6,8 @@
 
 **审稿修订：** [完整结果与复现](docs/recovery/revision/README.md) · [逐条回复](docs/recovery/revision/RESPONSE_TO_REVIEW.txt) · [原始实验档案](docs/recovery/learning/README.md)
 
+**城市航点更新：** 图 8 的第 2–5 点已改为世界坐标 (-30,80)、(70,200)、(130,100)、(80,60)，高度与其余配置保持不变。新航线在 88.544 s 完成八航点循环；[航点表、实测数据与重绘方法](docs/recovery/city_waypoint_update/README.md)。
+
 ## 修订方法与证据
 
 完成12次“State/Geometry × BCE/辅助损失 × 3种子”训练消融。使用32张验证地图的512个闭环回合选择State+Aux，选定模型随后在32张新测试地图上评价。部署网络为28–64–32–1、3,969参数，移除未参与排序的工作量输出和75个无效几何通道。共同最小代价候选先检查，只有未找到见证且预算剩余时才执行网络。

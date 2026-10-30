@@ -5,7 +5,7 @@ import argparse,hashlib,json,os,signal,socket,subprocess,time
 import yaml
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);p.add_argument('--scratch',type=Path,required=True);p.add_argument('--only',default='');a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);p.add_argument('--scratch',type=Path,required=True);p.add_argument('--only',default='');p.add_argument('--task-config',type=Path,default=Path(__file__).resolve().parents[2]/'docs/recovery/revision/city/geometry_relative_gate48p825/task_config.yaml');a=p.parse_args()
  repo=Path(__file__).resolve().parents[2];a.output.mkdir(parents=True,exist_ok=True);a.scratch.mkdir(parents=True,exist_ok=True)
  cases=[(method,relative,gate) for relative in (False,True) for method in ('cost','diverse','geometry','state_only','selected') for gate in (48.825,)]
  cases += [(m,True,15.) for m in ('cost','diverse','geometry','state_only','selected')]
@@ -17,7 +17,7 @@ def main():
   out.mkdir(exist_ok=True);work.mkdir(exist_ok=True)
   for port in (11371,11375):
    with socket.socket() as s: assert s.connect_ex(('127.0.0.1',port))!=0,'Port already active'
-  task=yaml.safe_load((repo/'motion_primitives_planning/launch/config/task_end_city_dense.yaml').read_text())
+  task=yaml.safe_load(a.task_config.read_text())
   task['motion_primitive'].update(state_relative_altitudes=relative,waypoint_horizontal_tolerance=gate)
   config=work/'task.yaml';config.write_text(yaml.safe_dump(task,sort_keys=False))
   env=os.environ.copy();env.update(ROS_MASTER_URI='http://127.0.0.1:11371',GAZEBO_MASTER_URI='http://127.0.0.1:11375',GAZEBO_MODEL_DATABASE_URI='',ROS_LOG_DIR=str(work/'roslog'))

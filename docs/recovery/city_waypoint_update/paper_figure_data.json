@@ -1,0 +1,99 @@
+{
+  "figure_kind": "Replotted recorded Gazebo simulation data; not Gazebo/RViz screenshots",
+  "input_sha256": {
+    "docs/recovery/city_waypoint_update/evidence/flight1/flight/observations.json.gz": "ccfb519dade31d0f3bfb5856adb28aeb78e51927f96538908860f82c9278c240",
+    "docs/recovery/city_waypoint_update/evidence/flight1/flight/task_config.yaml": "1f0e8b7da0971665be693a3a5207b3e09ab5b014291910794ee4fda6ae60e490",
+    "docs/recovery/city_waypoint_update/evidence/flight1/mapping/snapshots.npz": "da31a19ad68cf1d71c2d6cf46c328c4bbb1a4d692d25444ecb715e194873030c",
+    "motion_primitives_planning/launch/config/end_city_dense_buildings.json": "83b953dddb75671c473f6bab5ee297e7943b492e148083490d4513501a9dbf63",
+    "docs/recovery/city_waypoint_update/evidence/flight1/flight/result.json": "a9b8db2393682c822fe6655ff3ca0ffb6509f38d8ac63f3e6443249c2fd0ff26",
+    "docs/recovery/city_waypoint_update/evidence/flight1/mapping/result.json": "907d8ab021a7f17ab2d62cbd4a2617f0b074ba80fb51f681bce76c9c39d6d156"
+  },
+  "odometry_samples": 5536,
+  "simulation_time_range_s": [
+    0.048,
+    88.608
+  ],
+  "waypoints": 8,
+  "planning_boxes": 162,
+  "added_towers": 8,
+  "waypoint_coordinates_xyz_m": [
+    [
+      -85.0,
+      -100.0,
+      40.0
+    ],
+    [
+      -30.0,
+      80.0,
+      50.0
+    ],
+    [
+      70.0,
+      200.0,
+      60.0
+    ],
+    [
+      130.0,
+      100.0,
+      60.0
+    ],
+    [
+      80.0,
+      60.0,
+      60.0
+    ],
+    [
+      20.0,
+      -230.0,
+      55.0
+    ],
+    [
+      125.0,
+      -265.0,
+      55.0
+    ],
+    [
+      -90.0,
+      -270.0,
+      40.0
+    ]
+  ],
+  "flight_outcome": "completed_first_waypoint_cycle",
+  "last_planner_status": "RECOVERY_VERIFIED",
+  "completed_waypoints": 8,
+  "failure_endpoint_marked": false,
+  "time_axis_limits_s": [
+    0,
+    90
+  ],
+  "altitude_axis_limits_m": [
+    30,
+    65
+  ],
+  "map_projection": "Y horizontal, X vertical, equal scale; view limits Y [-355,285], X [-148,182] m",
+  "minimum_physical_clearance_m": 5.7051701109336435,
+  "minimum_inflated_clearance_m": 3.2259281827044335,
+  "maximum_abs_roll_deg": 34.99931340158729,
+  "voxel_resolution_m": 2.0,
+  "total_observed_voxels": 151666,
+  "ground_display_threshold_m": 2.0,
+  "eligible_above_ground_voxels": 68482,
+  "voxel_display_stride": 4,
+  "rendered_voxels": 17121,
+  "voxel_display_method": "Filter voxel centers Z > 2 m, then select every 4-th cell in stored order; render true 2 m cubes",
+  "map_timestamp_s": 87.207999999,
+  "voxel_color_range_m": [
+    0,
+    140
+  ],
+  "voxel_colorbar_ticks_m": [
+    0,
+    70,
+    140
+  ],
+  "rendering": "3D voxel faces rasterized at 400 dpi in PDF; map, curves and labels retained as vectors",
+  "output_sha256": {
+    "paper/figures/gazebo_city_updated.pdf": "ddfe4efccbf642a41efa1eee98a8c0bdae79477cf06ff914182ca21de0b90856",
+    "paper/figures/gazebo_city_updated.png": "d6415b6425398ca292e6d7767bbb830c1dace483aaefafebc0d41df3354ed497"
+  }
+}

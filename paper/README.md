@@ -74,3 +74,10 @@ The retained forest/city image files are sufficient for independent LaTeX
 compilation; no ROS installation or experiment execution is needed to edit the
 standalone ZIP. Avoid running the historical `create_learning_figures.py` to
 update the revised manuscript: it targets the archived table/figure layout.
+
+Figure 8 now uses a new acquisition flight with waypoints 2--5 at world XY
+(-30,80), (70,200), (130,100), and (80,60). Heights and other settings are
+unchanged. The flight completes the eight-waypoint cycle at 88.544 s.
+The [waypoint update record](../docs/recovery/city_waypoint_update/README.md)
+contains the evidence and exact figure command. Figure 7 and the fifteen
+controlled urban trials retain the original route.

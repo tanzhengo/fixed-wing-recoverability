@@ -1,0 +1,246 @@
+{
+  "coordinate_order": "Gazebo world X,Y; Figure8 draws Y horizontally and X vertically",
+  "baseline_commit": "a2871f11a32ce87e71e47ff1256b957ab7090167",
+  "requested_points": {
+    "2": [
+      -30.0,
+      80.0
+    ],
+    "3": [
+      70.0,
+      200.0
+    ],
+    "4": [
+      130.0,
+      100.0
+    ],
+    "5": [
+      80.0,
+      60.0
+    ]
+  },
+  "files": {
+    "task_end_city.yaml": {
+      "before_waypoints": {
+        "num": 8,
+        "wp1": {
+          "x": -85.0,
+          "y": -100.0,
+          "h": 40.0
+        },
+        "wp2": {
+          "x": -85.0,
+          "y": 180.0,
+          "h": 50.0
+        },
+        "wp3": {
+          "x": 120.0,
+          "y": 225.0,
+          "h": 60.0
+        },
+        "wp4": {
+          "x": 60.0,
+          "y": 80.0,
+          "h": 60.0
+        },
+        "wp5": {
+          "x": 35.0,
+          "y": -50.0,
+          "h": 60.0
+        },
+        "wp6": {
+          "x": 20.0,
+          "y": -230.0,
+          "h": 55.0
+        },
+        "wp7": {
+          "x": 125.0,
+          "y": -265.0,
+          "h": 55.0
+        },
+        "wp8": {
+          "x": -90.0,
+          "y": -270.0,
+          "h": 40.0
+        }
+      },
+      "after_waypoints": {
+        "num": 8,
+        "wp1": {
+          "x": -85.0,
+          "y": -100.0,
+          "h": 40.0
+        },
+        "wp2": {
+          "x": -30.0,
+          "y": 80.0,
+          "h": 50.0
+        },
+        "wp3": {
+          "x": 70.0,
+          "y": 200.0,
+          "h": 60.0
+        },
+        "wp4": {
+          "x": 130.0,
+          "y": 100.0,
+          "h": 60.0
+        },
+        "wp5": {
+          "x": 80.0,
+          "y": 60.0,
+          "h": 60.0
+        },
+        "wp6": {
+          "x": 20.0,
+          "y": -230.0,
+          "h": 55.0
+        },
+        "wp7": {
+          "x": 125.0,
+          "y": -265.0,
+          "h": 55.0
+        },
+        "wp8": {
+          "x": -90.0,
+          "y": -270.0,
+          "h": 40.0
+        }
+      },
+      "only_requested_xy_changed": true,
+      "sha256": "9d539bd4ae4f3117705443e079e5b2defb1e89137a1be57d324c95ea0e2f89b4"
+    },
+    "task_end_city_dense.yaml": {
+      "before_waypoints": {
+        "num": 8,
+        "wp1": {
+          "x": -85.0,
+          "y": -100.0,
+          "h": 40.0
+        },
+        "wp2": {
+          "x": -85.0,
+          "y": 180.0,
+          "h": 50.0
+        },
+        "wp3": {
+          "x": 120.0,
+          "y": 225.0,
+          "h": 60.0
+        },
+        "wp4": {
+          "x": 60.0,
+          "y": 80.0,
+          "h": 60.0
+        },
+        "wp5": {
+          "x": 35.0,
+          "y": -50.0,
+          "h": 60.0
+        },
+        "wp6": {
+          "x": 20.0,
+          "y": -230.0,
+          "h": 55.0
+        },
+        "wp7": {
+          "x": 125.0,
+          "y": -265.0,
+          "h": 55.0
+        },
+        "wp8": {
+          "x": -90.0,
+          "y": -270.0,
+          "h": 40.0
+        }
+      },
+      "after_waypoints": {
+        "num": 8,
+        "wp1": {
+          "x": -85.0,
+          "y": -100.0,
+          "h": 40.0
+        },
+        "wp2": {
+          "x": -30.0,
+          "y": 80.0,
+          "h": 50.0
+        },
+        "wp3": {
+          "x": 70.0,
+          "y": 200.0,
+          "h": 60.0
+        },
+        "wp4": {
+          "x": 130.0,
+          "y": 100.0,
+          "h": 60.0
+        },
+        "wp5": {
+          "x": 80.0,
+          "y": 60.0,
+          "h": 60.0
+        },
+        "wp6": {
+          "x": 20.0,
+          "y": -230.0,
+          "h": 55.0
+        },
+        "wp7": {
+          "x": 125.0,
+          "y": -265.0,
+          "h": 55.0
+        },
+        "wp8": {
+          "x": -90.0,
+          "y": -270.0,
+          "h": 40.0
+        }
+      },
+      "only_requested_xy_changed": true,
+      "sha256": "1f0e8b7da0971665be693a3a5207b3e09ab5b014291910794ee4fda6ae60e490"
+    }
+  },
+  "geometry_precheck": [
+    {
+      "waypoint": 2,
+      "xyz": [
+        -30.0,
+        80.0,
+        50.0
+      ],
+      "minimum_inflated_box_clearance_m": 8.933157373,
+      "nearest_obstacle": "parking_garage_0::link::collision"
+    },
+    {
+      "waypoint": 3,
+      "xyz": [
+        70.0,
+        200.0,
+        60.0
+      ],
+      "minimum_inflated_box_clearance_m": 24.78703213752577,
+      "nearest_obstacle": "tower_crane::link::collision"
+    },
+    {
+      "waypoint": 4,
+      "xyz": [
+        130.0,
+        100.0,
+        60.0
+      ],
+      "minimum_inflated_box_clearance_m": 19.102872693630022,
+      "nearest_obstacle": "powerplant::link::wall1"
+    },
+    {
+      "waypoint": 5,
+      "xyz": [
+        80.0,
+        60.0,
+        60.0
+      ],
+      "minimum_inflated_box_clearance_m": 45.39317714862028,
+      "nearest_obstacle": "post_office::link::collision"
+    }
+  ]
+}
