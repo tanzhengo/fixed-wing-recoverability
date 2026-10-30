@@ -74,6 +74,14 @@ roslaunch motion_primitives_planning terminal_recovery_end_world_lidar.launch pa
 
 沿用 `suav1` 和上述城市场景，RViz 默认显示实际激光回波累积的彩色体素、当前扫描及飞行轨迹。雷达为 360°、5 Hz、120 m，地图默认 2 m 分辨率、20 万格容量；八航点完整航线得到 146,412 个体素，未触发容量淘汰。规划器仍使用原有已知障碍地图。详见[配置、实测图与原始记录](docs/recovery/lidar_voxel_map/README.md)。
 
+增加 **8 栋 90–125 m 高楼**的密集城区入口：
+
+```bash
+roslaunch motion_primitives_planning terminal_recovery_end_world_dense_lidar.launch paused:=false
+```
+
+建筑实体碰撞和规划地图同步更新，原八航点循环实测通过，8 栋新楼均被 LiDAR 扫到。详见[新增建筑位置、航迹与体素图](docs/recovery/dense_city/README.md)。
+
 代码基于 [HKPolyU-UAV/Two-phase-motion-planning](https://github.com/HKPolyU-UAV/Two-phase-motion-planning) 的 `ccb6005c73992214a86cc0cff4fe648f1443a119`。历史非学习实验保留在[阶段结果](docs/recovery/NONLEARNING_RESULTS.md)，当前实验对照同一局部规划实现。以下保留原仓库说明和署名。
 
 ## Two-Phase Motion Planning for Fixed-Wing UAVs — upstream demo

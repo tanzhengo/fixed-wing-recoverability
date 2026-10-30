@@ -1,0 +1,39 @@
+{
+  "created_utc": "2026-10-30T07:51:18.334733+00:00",
+  "parent_commit": "d32b54cb2441a745c8b4053eed8bea9b072a7e0c",
+  "source_sha256": {
+    "motion_primitives_planning/scripts/generate_dense_city.py": "78dd54917ccb1afa011a54b5d03dea28fadd76c6f3ecbb8899a5ed4c370c7559",
+    "motion_primitives_planning/scripts/generate_lidar_world.py": "4a556409d02f8da9869b75b20f1af0f2c917a1daf43a6acb400416b4e7dc0bcc",
+    "motion_primitives_planning/launch/config/end_city_dense_buildings.json": "83b953dddb75671c473f6bab5ee297e7943b492e148083490d4513501a9dbf63",
+    "motion_primitives_planning/launch/config/task_end_city_dense.yaml": "9ec377c7400a3ec5e24f8c1e27c2d5dca89d2e29c7966b6cacd3e11e5099213b",
+    "motion_primitives_planning/launch/terminal_recovery_end_world_dense_lidar.launch": "594faf947693aab0996ab7867912643a2fb1a635cb7350afe02a2dde8f86a342",
+    "motion_primitives_planning/launch/terminal_recovery_end_world_lidar.launch": "e611813bc09ecd18da5b904c5f13904c3eaf1c3f97bb18eb0f86605537ff33d2",
+    "simple-airplane/simple_airplane_gazebo/worlds/end_city_dense.world": "e6de536981dbcc2eceda3724eb18e4022eaffff94921b269fc34c7d5120b3324",
+    "simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "934d40f956160ac9cf0d982590ef63ca990b1f6cc928f8bb9fa336925a810987"
+  },
+  "original_city_and_eight_waypoints_unchanged": true,
+  "runtime_planner_and_network_unchanged": true,
+  "frozen_paper_source_unchanged": true,
+  "files_sha256": {
+    "README.md": "7f5685434beff399b55989cd2dfb144c67f160d732e2f6b2da67d8e1dc8060c8",
+    "analyze_layout.py": "6422a15afb87f79c76cc120aee3aadd10774aeaa089737955e46c61c53cbff3f",
+    "dense_city_flight.png": "b28d92fe00917635db338aa89b03e000d79a7fca8861750595599df7c90a8876",
+    "dense_city_voxels.png": "d9e5105df5403e5b9b24e35cad4f3dfaf4fb0cbf24aec69f524c749dc5054fbc",
+    "evidence/flight1/flight/observations.json.gz": "4f7465915f90af0c8855fda35b86ac0dcca05504b41721b3c8dc9a72f7306ff0",
+    "evidence/flight1/flight/result.json": "454621274aa10511ff7c3b8d79dd6dd28ecde74cbaad4dc53b6665e4b43ebfca",
+    "evidence/flight1/flight/task_config.yaml": "9ec377c7400a3ec5e24f8c1e27c2d5dca89d2e29c7966b6cacd3e11e5099213b",
+    "evidence/flight1/launch.log.gz": "33c005010fb60b32b5704ba18ea5887e9a44445408f894f9b95af1b114e185e8",
+    "evidence/flight1/mapping/observations.json.gz": "76753e6e3c42dd2bbf986f0da7ba5370da70c19717717b9765356e7dfbaa3903",
+    "evidence/flight1/mapping/result.json": "d32f5cd327c7e204faaa9c962fd9adf005ea08af74686860b73012afaaca9e5d",
+    "evidence/flight1/mapping/snapshots.npz": "83a681c5545c4121209ebadef532838c812b294f05478055deaaa466b99d297b",
+    "evidence/flight1/run_config.json": "357bcb1b850da1eb3cdae8ef3e7dbfe1a73d25635186ac15cdd849c92358a427",
+    "evidence/flight1/towers/result.json": "3e0fe3cd2ab61b78a2abb0baccd95d269f72b595e92f406ec2260d4afe58eec0",
+    "evidence/gui_check.json": "65fc23575589375309a9fde03149d00130f0697013ba8c59ec22d33894c81270",
+    "generation_manifest.json": "3986297c348fafba70fa99bc6d0ad27489b7c97ccac99428a0aa1133202ec790",
+    "generator_validation.json": "ba8a8d7403def2dd80426fe9a335f3d79078a79fc65e92dc54bfd7197c1c7da5",
+    "layout.png": "5446305be8d1b5e34b01f051e8e6eaf897543c6f06f53ec2bd234c524e4ff324",
+    "layout_checks.json": "21f05f2fe3da7a77c0cc3689ceefd80e00f59feeb99592760a65ced34d8fa8f7",
+    "observe_towers.py": "0a66cbfe7096261ce9dc5878f5af064872667f510281e59bfcdf2da53c273d8f",
+    "plot_dense_flight.py": "68dc704814078a2ba1c00573aad26aaddf6c1a856e94dec17cdde3a987b5739a"
+  }
+}

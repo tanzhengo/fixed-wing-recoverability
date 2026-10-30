@@ -1,0 +1,94 @@
+{
+  "inputs_sha256": {
+    "base_world": "03037b8d34f717a737881189754ffc3b437ead614886528c21a087ae2b09d4e2",
+    "base_task": "e086003ab568af7022eb22b5bf22d52e5ea05cc5c9324f52cf83dcb0a475ca31",
+    "buildings": "83b953dddb75671c473f6bab5ee297e7943b492e148083490d4513501a9dbf63"
+  },
+  "outputs_sha256": {
+    "world": "e6de536981dbcc2eceda3724eb18e4022eaffff94921b269fc34c7d5120b3324",
+    "task": "9ec377c7400a3ec5e24f8c1e27c2d5dca89d2e29c7966b6cacd3e11e5099213b"
+  },
+  "original_planning_boxes": 154,
+  "added_planning_boxes": 8,
+  "total_planning_boxes": 162,
+  "buildings": [
+    {
+      "name": "dense_highrise_01",
+      "x": -55.0,
+      "y": 0.0,
+      "size_x": 24.0,
+      "size_y": 24.0,
+      "height": 100.0,
+      "z": 50.0
+    },
+    {
+      "name": "dense_highrise_02",
+      "x": -115.0,
+      "y": 75.0,
+      "size_x": 20.0,
+      "size_y": 24.0,
+      "height": 115.0,
+      "z": 57.5
+    },
+    {
+      "name": "dense_highrise_03",
+      "x": -55.0,
+      "y": 240.0,
+      "size_x": 26.0,
+      "size_y": 26.0,
+      "height": 95.0,
+      "z": 47.5
+    },
+    {
+      "name": "dense_highrise_04",
+      "x": 145.0,
+      "y": 145.0,
+      "size_x": 26.0,
+      "size_y": 26.0,
+      "height": 125.0,
+      "z": 62.5
+    },
+    {
+      "name": "dense_highrise_05",
+      "x": 80.0,
+      "y": -25.0,
+      "size_x": 24.0,
+      "size_y": 26.0,
+      "height": 110.0,
+      "z": 55.0
+    },
+    {
+      "name": "dense_highrise_06",
+      "x": -25.0,
+      "y": -140.0,
+      "size_x": 24.0,
+      "size_y": 22.0,
+      "height": 105.0,
+      "z": 52.5
+    },
+    {
+      "name": "dense_highrise_07",
+      "x": 115.0,
+      "y": -190.0,
+      "size_x": 24.0,
+      "size_y": 26.0,
+      "height": 100.0,
+      "z": 50.0
+    },
+    {
+      "name": "dense_highrise_08",
+      "x": -60.0,
+      "y": -260.0,
+      "size_x": 20.0,
+      "size_y": 22.0,
+      "height": 90.0,
+      "z": 45.0
+    }
+  ],
+  "all_original_world_elements_unchanged": true,
+  "original_task_except_added_boxes_unchanged": true,
+  "new_collision_geometry": "One exact axis-aligned box per static building",
+  "planning_clearance_m": 2.0,
+  "saved_state_policy": "Original state retained; new buildings load from their model poses",
+  "external_assets_required_for_new_buildings": false
+}

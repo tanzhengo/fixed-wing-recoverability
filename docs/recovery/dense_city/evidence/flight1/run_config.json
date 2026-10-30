@@ -1,0 +1,11 @@
+{
+  "launch": "terminal_recovery_end_world_dense_lidar.launch",
+  "gui": false,
+  "rviz": false,
+  "paused": false,
+  "voxel_resolution_m": 2.0,
+  "max_voxels": 200000,
+  "waypoints": 8,
+  "added_highrises": 8,
+  "stop_after_first_waypoint_cycle": true
+}

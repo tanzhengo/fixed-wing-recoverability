@@ -1,0 +1,35 @@
+{
+  "waypoints": 8,
+  "planning_boxes": 162,
+  "new_models": [
+    "dense_highrise_01",
+    "dense_highrise_02",
+    "dense_highrise_03",
+    "dense_highrise_04",
+    "dense_highrise_05",
+    "dense_highrise_06",
+    "dense_highrise_07",
+    "dense_highrise_08"
+  ],
+  "map_status": {
+    "filtered_nonfinite_points": 0,
+    "filtered_range_points": 0,
+    "frame": "world",
+    "input_points": 1819743,
+    "latest_scan_stamp": 49.412,
+    "map_kind": "accumulated_occupied_scan_endpoints",
+    "odometry_received": 3092,
+    "pending_scans": 0,
+    "resolution_m": 2.0,
+    "scans_integrated": 247,
+    "scans_received": 247,
+    "valid_points": 1819743,
+    "voxel_count": 99570
+  },
+  "rviz_map_subscribers": [
+    "/suav1_rviz"
+  ],
+  "rviz_scan_subscribers": [
+    "/suav1_rviz"
+  ]
+}

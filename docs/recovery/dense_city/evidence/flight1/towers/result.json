@@ -1,0 +1,259 @@
+{
+  "passed": true,
+  "checks": {
+    "all_models_loaded": true,
+    "all_model_poses_match": true,
+    "all_towers_scanned": true,
+    "world_frame": true,
+    "finite_clouds": true,
+    "no_errors": true
+  },
+  "stop_reason": "completed_waypoint_cycle",
+  "error": null,
+  "wall_seconds": 108.79864377600461,
+  "ros_master_uri": "http://127.0.0.1:11478",
+  "buildings_sha256": "83b953dddb75671c473f6bab5ee297e7943b492e148083490d4513501a9dbf63",
+  "observer_sha256": "0a66cbfe7096261ce9dc5878f5af064872667f510281e59bfcdf2da53c273d8f",
+  "surface_tolerance_m": 0.08,
+  "pose_tolerance_m": 1e-05,
+  "surface_definition": "Finite AABB four facades and roof; all three coordinates must lie within expanded bounds. Bottom face and z <= tolerance are excluded.",
+  "pose_definition": "Gazebo model pose must equal (x, y, height/2) with identity rotation.",
+  "stats": {
+    "model_state_messages": 22606,
+    "world_scan_messages": 451,
+    "finite_points": 3402118,
+    "nonfinite_points": 0,
+    "first_scan_stamp": 0.208,
+    "last_scan_stamp": 90.207999999,
+    "invalid_frames": 0
+  },
+  "buildings": {
+    "dense_highrise_01": {
+      "expected_position_m": [
+        -55.0,
+        0.0,
+        50.0
+      ],
+      "size_m": [
+        24.0,
+        24.0,
+        100.0
+      ],
+      "pose_samples": 22606,
+      "maximum_position_error_m": 0.0,
+      "maximum_identity_rotation_error": 0.0,
+      "surface_return_count": 141703,
+      "scans_with_returns": 140,
+      "first_return_stamp": 9.407999999,
+      "last_return_stamp": 63.204
+    },
+    "dense_highrise_02": {
+      "expected_position_m": [
+        -115.0,
+        75.0,
+        57.5
+      ],
+      "size_m": [
+        20.0,
+        24.0,
+        115.0
+      ],
+      "pose_samples": 22606,
+      "maximum_position_error_m": 0.0,
+      "maximum_identity_rotation_error": 0.0,
+      "surface_return_count": 77633,
+      "scans_with_returns": 85,
+      "first_return_stamp": 14.208,
+      "last_return_stamp": 31.004
+    },
+    "dense_highrise_03": {
+      "expected_position_m": [
+        -55.0,
+        240.0,
+        47.5
+      ],
+      "size_m": [
+        26.0,
+        26.0,
+        95.0
+      ],
+      "pose_samples": 22606,
+      "maximum_position_error_m": 0.0,
+      "maximum_identity_rotation_error": 0.0,
+      "surface_return_count": 71653,
+      "scans_with_returns": 73,
+      "first_return_stamp": 24.807999999,
+      "last_return_stamp": 39.204
+    },
+    "dense_highrise_04": {
+      "expected_position_m": [
+        145.0,
+        145.0,
+        62.5
+      ],
+      "size_m": [
+        26.0,
+        26.0,
+        125.0
+      ],
+      "pose_samples": 22606,
+      "maximum_position_error_m": 0.0,
+      "maximum_identity_rotation_error": 0.0,
+      "surface_return_count": 91097,
+      "scans_with_returns": 91,
+      "first_return_stamp": 35.807999999,
+      "last_return_stamp": 53.804
+    },
+    "dense_highrise_05": {
+      "expected_position_m": [
+        80.0,
+        -25.0,
+        55.0
+      ],
+      "size_m": [
+        24.0,
+        26.0,
+        110.0
+      ],
+      "pose_samples": 22606,
+      "maximum_position_error_m": 0.0,
+      "maximum_identity_rotation_error": 0.0,
+      "surface_return_count": 100667,
+      "scans_with_returns": 87,
+      "first_return_stamp": 49.008,
+      "last_return_stamp": 66.207999999
+    },
+    "dense_highrise_06": {
+      "expected_position_m": [
+        -25.0,
+        -140.0,
+        52.5
+      ],
+      "size_m": [
+        24.0,
+        22.0,
+        105.0
+      ],
+      "pose_samples": 22606,
+      "maximum_position_error_m": 0.0,
+      "maximum_identity_rotation_error": 0.0,
+      "surface_return_count": 101558,
+      "scans_with_returns": 155,
+      "first_return_stamp": 1.008,
+      "last_return_stamp": 73.203999999
+    },
+    "dense_highrise_07": {
+      "expected_position_m": [
+        115.0,
+        -190.0,
+        50.0
+      ],
+      "size_m": [
+        24.0,
+        26.0,
+        100.0
+      ],
+      "pose_samples": 22606,
+      "maximum_position_error_m": 0.0,
+      "maximum_identity_rotation_error": 0.0,
+      "surface_return_count": 35492,
+      "scans_with_returns": 89,
+      "first_return_stamp": 62.408,
+      "last_return_stamp": 80.007999999
+    },
+    "dense_highrise_08": {
+      "expected_position_m": [
+        -60.0,
+        -260.0,
+        45.0
+      ],
+      "size_m": [
+        20.0,
+        22.0,
+        90.0
+      ],
+      "pose_samples": 22606,
+      "maximum_position_error_m": 0.0,
+      "maximum_identity_rotation_error": 0.0,
+      "surface_return_count": 80487,
+      "scans_with_returns": 113,
+      "first_return_stamp": 0.208,
+      "last_return_stamp": 90.207999999
+    }
+  },
+  "goals": [
+    {
+      "stamp": 0.34,
+      "target": [
+        -85.0,
+        -100.0,
+        40.0
+      ]
+    },
+    {
+      "stamp": 8.148,
+      "target": [
+        -85.0,
+        180.0,
+        50.0
+      ]
+    },
+    {
+      "stamp": 26.348,
+      "target": [
+        120.0,
+        225.0,
+        60.0
+      ]
+    },
+    {
+      "stamp": 38.948,
+      "target": [
+        60.0,
+        80.0,
+        60.0
+      ]
+    },
+    {
+      "stamp": 48.44,
+      "target": [
+        35.0,
+        -50.0,
+        60.0
+      ]
+    },
+    {
+      "stamp": 56.748,
+      "target": [
+        20.0,
+        -230.0,
+        55.0
+      ]
+    },
+    {
+      "stamp": 68.42,
+      "target": [
+        125.0,
+        -265.0,
+        55.0
+      ]
+    },
+    {
+      "stamp": 74.608,
+      "target": [
+        -90.0,
+        -270.0,
+        40.0
+      ]
+    },
+    {
+      "stamp": 90.408,
+      "target": [
+        -85.0,
+        -100.0,
+        40.0
+      ]
+    }
+  ],
+  "callback_errors": []
+}

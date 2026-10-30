@@ -1,0 +1,14 @@
+{
+  "original_world_elements_identical": true,
+  "new_static_models": 2,
+  "planning_box_count": 156,
+  "collision_and_planning_box_exact_match": true,
+  "all_visuals_within_collision_bounds": true,
+  "waypoints_unchanged": true,
+  "deterministic_output": true,
+  "source_overwrite_rejected": true,
+  "duplicate_model_rejected": true,
+  "negative_dimension_rejected": true,
+  "nonfinite_dimension_rejected": true,
+  "passed": true
+}

@@ -1,0 +1,242 @@
+{
+  "task_config_sha256": "e086003ab568af7022eb22b5bf22d52e5ea05cc5c9324f52cf83dcb0a475ca31",
+  "new_building_count": 8,
+  "existing_boxes": 154,
+  "excluded_ground_boxes": [
+    8
+  ],
+  "all_original_footprints_disjoint": true,
+  "all_new_footprints_disjoint": true,
+  "all_waypoints_outside_new_inflated_boxes": true,
+  "all_prior_flight_samples_outside_new_inflated_boxes": true,
+  "inflation_per_face_m": 2,
+  "waypoints": [
+    [
+      -85.0,
+      -100.0,
+      40.0
+    ],
+    [
+      -85.0,
+      180.0,
+      50.0
+    ],
+    [
+      120.0,
+      225.0,
+      60.0
+    ],
+    [
+      60.0,
+      80.0,
+      60.0
+    ],
+    [
+      35.0,
+      -50.0,
+      60.0
+    ],
+    [
+      20.0,
+      -230.0,
+      55.0
+    ],
+    [
+      125.0,
+      -265.0,
+      55.0
+    ],
+    [
+      -90.0,
+      -270.0,
+      40.0
+    ]
+  ],
+  "checks": [
+    {
+      "name": "dense_highrise_01",
+      "nearest_original_footprint_clearance_m": 15.541617941300004,
+      "nearest_original_box": 142,
+      "nearest_original_source": "parking_garage_0::link::collision",
+      "new_footprint_clearances_m": {
+        "dense_highrise_02": 63.60031446463138,
+        "dense_highrise_03": 215.0,
+        "dense_highrise_04": 212.19095173922943,
+        "dense_highrise_05": 111.0,
+        "dense_highrise_06": 117.15374513859982,
+        "dense_highrise_07": 220.32022149589446,
+        "dense_highrise_08": 237.0
+      },
+      "minimum_waypoint_clearance_to_inflated_box_m": 84.09518416651456,
+      "minimum_prior_flight_clearance_to_inflated_box_m": 14.088094946705603,
+      "nearest_prior_flight_time_s": 16.796,
+      "nearest_prior_flight_xyz_m": [
+        -83.0863009574803,
+        -14.22482117934345,
+        49.80100280993107
+      ]
+    },
+    {
+      "name": "dense_highrise_02",
+      "nearest_original_footprint_clearance_m": 58.74233972169999,
+      "nearest_original_box": 142,
+      "nearest_original_source": "parking_garage_0::link::collision",
+      "new_footprint_clearances_m": {
+        "dense_highrise_01": 63.60031446463138,
+        "dense_highrise_03": 144.80676779764127,
+        "dense_highrise_04": 241.2343259156955,
+        "dense_highrise_05": 188.55768348173987,
+        "dense_highrise_06": 203.68603290358425,
+        "dense_highrise_07": 317.5909318604673,
+        "dense_highrise_08": 313.95700342562833
+      },
+      "minimum_waypoint_clearance_to_inflated_box_m": 92.76313923105448,
+      "minimum_prior_flight_clearance_to_inflated_box_m": 18.29656211885683,
+      "nearest_prior_flight_time_s": 23.472,
+      "nearest_prior_flight_xyz_m": [
+        -84.7043405585782,
+        89.18174425080272,
+        50.008798796595364
+      ]
+    },
+    {
+      "name": "dense_highrise_03",
+      "nearest_original_footprint_clearance_m": 29.320356222130364,
+      "nearest_original_box": 153,
+      "nearest_original_source": "parking_garage_1_clone_clone::link::collision",
+      "new_footprint_clearances_m": {
+        "dense_highrise_01": 215.0,
+        "dense_highrise_02": 144.80676779764127,
+        "dense_highrise_04": 187.18172987767795,
+        "dense_highrise_05": 263.09884074240995,
+        "dense_highrise_06": 356.0351106281514,
+        "dense_highrise_07": 429.23303693914335,
+        "dense_highrise_08": 476.0
+      },
+      "minimum_waypoint_clearance_to_inflated_box_m": 47.43416490252569,
+      "minimum_prior_flight_clearance_to_inflated_box_m": 32.342517169891316,
+      "nearest_prior_flight_time_s": 32.128,
+      "nearest_prior_flight_xyz_m": [
+        -29.31560945043385,
+        194.47325409630014,
+        58.65003124906368
+      ]
+    },
+    {
+      "name": "dense_highrise_04",
+      "nearest_original_footprint_clearance_m": 35.936510397629434,
+      "nearest_original_box": 146,
+      "nearest_original_source": "post_office::link::collision",
+      "new_footprint_clearances_m": {
+        "dense_highrise_01": 212.19095173922943,
+        "dense_highrise_02": 241.2343259156955,
+        "dense_highrise_03": 187.18172987767795,
+        "dense_highrise_05": 149.45233353815524,
+        "dense_highrise_06": 298.573274088623,
+        "dense_highrise_07": 309.04045042680093,
+        "dense_highrise_08": 422.2380844973603
+      },
+      "minimum_waypoint_clearance_to_inflated_box_m": 65.76473218982953,
+      "minimum_prior_flight_clearance_to_inflated_box_m": 8.461489324915533,
+      "nearest_prior_flight_time_s": 44.812,
+      "nearest_prior_flight_xyz_m": [
+        121.85446673509281,
+        162.29065262009541,
+        60.220319690641496
+      ]
+    },
+    {
+      "name": "dense_highrise_05",
+      "nearest_original_footprint_clearance_m": 1.5732239889000041,
+      "nearest_original_box": 108,
+      "nearest_original_source": "Speed limit::link::collision",
+      "new_footprint_clearances_m": {
+        "dense_highrise_01": 111.0,
+        "dense_highrise_02": 188.55768348173987,
+        "dense_highrise_03": 263.09884074240995,
+        "dense_highrise_04": 149.45233353815524,
+        "dense_highrise_06": 121.82774724995944,
+        "dense_highrise_07": 139.43457247038842,
+        "dense_highrise_08": 241.75400720567177
+      },
+      "minimum_waypoint_clearance_to_inflated_box_m": 32.57299494980466,
+      "minimum_prior_flight_clearance_to_inflated_box_m": 21.783428208957808,
+      "nearest_prior_flight_time_s": 56.912,
+      "nearest_prior_flight_xyz_m": [
+        44.71280784000134,
+        -5.376884764781396,
+        60.03169986822498
+      ]
+    },
+    {
+      "name": "dense_highrise_06",
+      "nearest_original_footprint_clearance_m": 19.125777158091992,
+      "nearest_original_box": 4,
+      "nearest_original_source": "cafe::link::collision/component3",
+      "new_footprint_clearances_m": {
+        "dense_highrise_01": 117.15374513859982,
+        "dense_highrise_02": 203.68603290358425,
+        "dense_highrise_03": 356.0351106281514,
+        "dense_highrise_04": 298.573274088623,
+        "dense_highrise_05": 121.82774724995944,
+        "dense_highrise_07": 118.87808881370864,
+        "dense_highrise_08": 98.85848471426213
+      },
+      "minimum_waypoint_clearance_to_inflated_box_m": 53.33854141237835,
+      "minimum_prior_flight_clearance_to_inflated_box_m": 38.02095965208605,
+      "nearest_prior_flight_time_s": 66.768,
+      "nearest_prior_flight_xyz_m": [
+        26.836376532547774,
+        -156.74192246750556,
+        55.03024268613783
+      ]
+    },
+    {
+      "name": "dense_highrise_07",
+      "nearest_original_footprint_clearance_m": 15.045753809400175,
+      "nearest_original_box": 154,
+      "nearest_original_source": "parking_garage_1_clone_clone_clone::link::collision",
+      "new_footprint_clearances_m": {
+        "dense_highrise_01": 220.32022149589446,
+        "dense_highrise_02": 317.5909318604673,
+        "dense_highrise_03": 429.23303693914335,
+        "dense_highrise_04": 309.04045042680093,
+        "dense_highrise_05": 139.43457247038842,
+        "dense_highrise_06": 118.87808881370864,
+        "dense_highrise_08": 159.76545308670458
+      },
+      "minimum_waypoint_clearance_to_inflated_box_m": 60.0,
+      "minimum_prior_flight_clearance_to_inflated_box_m": 52.25232511385189,
+      "nearest_prior_flight_time_s": 74.864,
+      "nearest_prior_flight_xyz_m": [
+        81.8046742831844,
+        -253.5988163480247,
+        55.34411243431645
+      ]
+    },
+    {
+      "name": "dense_highrise_08",
+      "nearest_original_footprint_clearance_m": 28.203717941000008,
+      "nearest_original_box": 141,
+      "nearest_original_source": "parking_garage::link::collision",
+      "new_footprint_clearances_m": {
+        "dense_highrise_01": 237.0,
+        "dense_highrise_02": 313.95700342562833,
+        "dense_highrise_03": 476.0,
+        "dense_highrise_04": 422.2380844973603,
+        "dense_highrise_05": 241.75400720567177,
+        "dense_highrise_06": 98.85848471426213,
+        "dense_highrise_07": 159.76545308670458
+      },
+      "minimum_waypoint_clearance_to_inflated_box_m": 18.0,
+      "minimum_prior_flight_clearance_to_inflated_box_m": 18.000000035356805,
+      "nearest_prior_flight_time_s": 0.064,
+      "nearest_prior_flight_xyz_m": [
+        -90.0000000353568,
+        -269.1911303085863,
+        39.999438053615926
+      ]
+    }
+  ],
+  "note": "Prior-flight clearance is evaluated against newly proposed boxes only. It is not a new closed-loop flight result. Footprint checks exclude only the broad terrain box and include trees and small props."
+}
