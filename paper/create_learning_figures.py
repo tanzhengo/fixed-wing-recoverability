@@ -23,7 +23,16 @@ f.tight_layout(pad=.7)
 f.savefig(out/'training.pdf',bbox_inches='tight');f.savefig(out/'training.png',dpi=200,bbox_inches='tight')
 for name in ['matched','outcomes']:
  for ext in ['pdf','png']:shutil.copyfile(data/(name+'.'+ext),out/('learning_'+name+'.'+ext))
-(root/'tables/learning.tex').write_text((data/'table.tex').read_text())
+# Keep the manuscript editable as one TeX file.
+main_path = root / 'main.tex'
+main_text = main_path.read_text()
+begin = '%% BEGIN GENERATED TABLE: learning\n'
+end = '%% END GENERATED TABLE: learning'
+if main_text.count(begin) != 1 or main_text.count(end) != 1:
+ raise ValueError('Expected one embedded learning-table block in main.tex')
+prefix, rest = main_text.split(begin, 1)
+_, suffix = rest.split(end, 1)
+main_path.write_text(prefix + begin + (data/'table.tex').read_text().rstrip() + '\n' + end + suffix)
 
 # Predetermined first instance of every test family, nominal execution.
 import csv

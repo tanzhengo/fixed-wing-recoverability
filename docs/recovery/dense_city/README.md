@@ -60,7 +60,7 @@ Gazebo 显示增密城市，RViz 显示实时扫描、飞行轨迹和 2 m 彩色
 
 论文表格采用完成第八航点并切回首点的实际消息时刻 **90.408 s**；上方记录结束时刻 **90.432 s** 是最后一条里程计，两者分别保留。正文说明了运行版的 406 个主候选、航点门限、简化动力学及已知地图规划输入。此单次系统验证与原有多地图方法对照分别报告。
 
-在仓库根目录执行 `python3 paper/create_gazebo_figure.py` 可重绘论文图；源文件为 `paper/gazebo_validation.tex` 和 `paper/tables/gazebo.tex`。
+在仓库根目录执行 `python3 paper/create_gazebo_figure.py` 可重绘论文图；城市验证正文、图注和表格已统一放入 `paper/main.tex`，搜索 `BEGIN SECTION: gazebo_validation` 即可定位。
 
 ## 修改建筑与复现
 

@@ -3,7 +3,7 @@
 **Learning-Guided Terminal Continuation Search for Fixed-Wing Motion Planning**
 
 - [Paper PDF](main.pdf)
-- [LaTeX entry file](main.tex)
+- [Single editable LaTeX file](main.tex)
 - [Chinese results and reproduction guide](../docs/recovery/FINAL_RESULTS.md)
 - [Network, data and experiment evidence](../docs/recovery/learning/README.md)
 - [Forest-density experiment and trajectory figure](../docs/recovery/forest_figure/README.md)
@@ -14,7 +14,16 @@ matched-state budget comparisons, closed-loop evaluation, and input ablation.
 It uses an anonymous author line for review; author and affiliation information
 can be entered in main.tex when preparing a named submission.
 
-## Compile
+## Edit and compile
+
+All prose, equations, tables, captions and reference entries are embedded in
+`main.tex`. Search for `BEGIN SECTION` or use the editor's section outline to
+navigate. Reference entries are at `BEGIN REFERENCES`. Images remain in
+`figures/`. The earlier split sources are retained in Git history.
+
+In a LaTeX editor, select `main.tex` as the main document and XeLaTeX as the
+compiler. Run XeLaTeX twice to resolve citations and cross-references. The
+bibliography is embedded, so there is no BibTeX step.
 
 The project contains every figure, table and bibliography needed to compile:
 
@@ -24,7 +33,15 @@ tectonic --keep-logs main.tex
 ```
 
 The delivered PDF uses Tectonic 0.17.0. A fresh installation may need network
-access to obtain TeX packages. The generated main.bbl is included.
+access to obtain TeX packages. `IEEEtran.cls` is included with its original
+copyright and license notices.
+
+Create a standalone ZIP containing exactly one TeX file, the referenced
+figures, the class file, a PDF preview and Chinese editing instructions:
+
+```bash
+python3 package_latex.py --output /path/to/manuscript.zip
+```
 
 ## Evidence
 
