@@ -6,6 +6,7 @@
 - [LaTeX entry file](main.tex)
 - [Chinese results and reproduction guide](../docs/recovery/FINAL_RESULTS.md)
 - [Network, data and experiment evidence](../docs/recovery/learning/README.md)
+- [Forest-density experiment and trajectory figure](../docs/recovery/forest_figure/README.md)
 
 The English IEEE-format manuscript includes the actual trained neural network,
 its feature representation and loss, separate training/validation/test maps,
@@ -39,9 +40,18 @@ no-geometry input ablation completes 117/128. The manuscript retains both
 results and their different experimental roles. The primary runtime timings
 were collected independently of training and compilation.
 
+An additional forest experiment contains 80 nominal episodes on eight paired
+sparse/dense seeds. The two-density trajectory figure uses the first seed,
+specified before execution, and actual logged flight states. All methods finish
+8/8 sparse tasks; in dense forests, Learned finishes 7/8 and the other four
+methods finish 8/8. The displayed dense panel includes the Learned margin
+termination. Forest-run timing columns are diagnostic and are not pooled with
+the primary isolated runtime measurements.
+
 Figures are regenerated from audited experiment outputs using
-`create_schematic.py` and `create_learning_figures.py`. The latter expects the
-repository's `docs/recovery/learning` directory. Existing figure files suffice
+`create_schematic.py`, `create_learning_figures.py` and `create_forest_figure.py`.
+The data-driven scripts expect the repository's `docs/recovery/learning` and
+`docs/recovery/forest_figure` directories, respectively. Existing figure files suffice
 for compilation of the standalone source package.
 
 Historical nonlearning development experiments remain in docs/recovery/v3 and

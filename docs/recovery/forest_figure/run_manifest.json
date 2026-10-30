@@ -1,0 +1,73 @@
+{
+  "start_utc": "2026-10-30T05:04:54.021825+00:00",
+  "status": "complete",
+  "command": [
+    "taskset",
+    "-c",
+    "2",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/recovery_forest_benchmark",
+    "_output_prefix:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/forest_figure/forest",
+    "_phase:=all",
+    "_map_count:=8",
+    "_model_path:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/models/recovery_mlp.txt",
+    "_state_only_model_path:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/models/recovery_mlp_no_geometry.txt"
+  ],
+  "git_head": "4e9d94b077fc28a60adcb995d81dbda0cc107452",
+  "source_sha256": {
+    "motion_primitives_planning/src/recovery_forest_benchmark.cpp": "715ac6068f8c0039d4faa72e44a4cc95fda3e4ddc6c983c3651df3f2be43abe0",
+    "motion_primitives_planning/src/recovery_learning_benchmark.cpp": "a94efa428c71075d75e76cceda456456dac04cfee55730fc14a425ed5146101d",
+    "motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+    "motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+    "motion_primitives_planning/src/learned_recovery.h": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929",
+    "docs/recovery/forest_figure/PROTOCOL.md": "dcb62757e59fbbebbdf8ed09c7921a6a8a3c1a0dc10a3d43ac72f7a5ff03e668"
+  },
+  "model_sha256": {
+    "geometry": "d324bf927dc89f53568cfc3980a7a6217227a89f4b28a1f90fb324b6580a36aa",
+    "state_only": "f4bd84b45dc374d6bbcc8697bac64992da9799d7b215414029f20fc4340ccba5"
+  },
+  "executable_sha256": "763ab4fcb43e0de7d148d6405e30174d85abe3768423a9c342008b86a0d81152",
+  "ROS_MASTER_URI": "http://localhost:11338",
+  "cpu_affinity": [
+    2
+  ],
+  "episodes": 80,
+  "seed_count": 8,
+  "seed_base": 601000,
+  "figure_seed": 601000,
+  "trees": [
+    40,
+    80
+  ],
+  "bushes_per_map": 12,
+  "area_m2": 32000,
+  "evaluation": "supplementary frozen-model nominal forest family; no retraining or selection",
+  "timing": "retained diagnostic records; not a substitute for primary isolated latency evaluation",
+  "exit_code": 0,
+  "end_utc": "2026-10-30T05:06:28.716241+00:00",
+  "elapsed_seconds": 94.69144096200034,
+  "source_unchanged": true,
+  "models_unchanged": true,
+  "executable_unchanged": true,
+  "outputs": {
+    "forest_episodes.csv": {
+      "sha256": "846faf4a8f7785948974d8e1245dfc71a836c657e0138de3f879e6abf5adc093",
+      "bytes": 7619
+    },
+    "forest_paths.csv": {
+      "sha256": "fee1feb1e0b8dc3396266bc33e7d9e453dc02242d0ee96710822fb9164fc0b5c",
+      "bytes": 919736
+    },
+    "forest_plans.csv": {
+      "sha256": "bb65ec78670bebeee50de7fec2cf9fc67753bf85c1e870ab1b0720fb5b360694",
+      "bytes": 586149
+    },
+    "forest_scenarios.csv": {
+      "sha256": "708a18d004fddf4c3698f65ad900d33d124cf4539362770c58431b29658d3b61",
+      "bytes": 218430
+    },
+    "forest_map_metadata.csv": {
+      "sha256": "0adb4a1d553c6c6dfa6c8e7d786728f502045a9ca88aeb16408a49605b6d0576",
+      "bytes": 778
+    }
+  }
+}

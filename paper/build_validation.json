@@ -1,16 +1,16 @@
 {
   "date": "2026-10-30",
   "engine": "Tectonic 0.17.0",
-  "pages": 11,
-  "figures": 5,
+  "pages": 12,
+  "figures": 6,
   "tables": 2,
   "references": 15,
   "author_format": "anonymous review manuscript",
-  "pdf_sha256": "56332caa7ce5defe85baced8d69e5a31c8e892a9f9ab27fc176c7f5c5c03d9e5",
+  "pdf_sha256": "6bead88379af256f5b5573a28ac766b9c15fae4bcab4a20a8a6e5f6d2edee39d",
   "unresolved_references": 0,
   "overfull_boxes": 0,
   "missing_glyphs": 0,
-  "render_check": "All pages reviewed as PNG; final reference page balanced in two columns.",
+  "render_check": "All 12 pages reviewed in rendered contact sheet; forest figure page inspected separately. No clipped content or unresolved references.",
   "sources": {
     "main.tex": "a31076ceaadde84ad7c5a70053fb24418dad7eef21195c7b6f4f3d5248286573",
     "abstract.tex": "ed1b41215eead13eaa86405c46cde4449ae008df2864a38dd263979b97926c49",
@@ -19,9 +19,12 @@
     "method.tex": "0c3eac616670364707790447f63a84ee3b444ee49758a4b5b0b58aba00ec15e7",
     "learning_method.tex": "6a6ec76c93d18a9873a811b70166960858c0c0e20ccef82f91bd7c1a3a8b2942",
     "experiments.tex": "018f2fd010feec8f9edf0a22865811d2a2b8eb72d702d1a43acf6100e6b8e1a8",
-    "results.tex": "815d2b2ea21e577756e51164a9e3545f91e6f97773358342e9691d6f278d854e",
+    "results.tex": "973400a4bb0f101a65a24ef9fddaa262c3d34bab379482bd591dd2fb87f78503",
     "geometry_ablation.tex": "673f807b73ed7f13559820c112fb378daaa00cac7dbdcdce3ea455b8f5a3f2b4",
     "conclusion.tex": "76edb70ae634e49d94fcb74e0029a3e050aedcf4c90be0268ccd71ecca558ce3",
-    "implementation.tex": "c4a568bfcb67a81f66a7ebc29c2e39b234356deb01c15b1b69becd5c3fcb2c35"
-  }
+    "implementation.tex": "c4a568bfcb67a81f66a7ebc29c2e39b234356deb01c15b1b69becd5c3fcb2c35",
+    "forest_experiment.tex": "c3fe4e6cb8a56ed3c3aa93ef24b9457f0d98d84cd83c6850c3e1aa9fb367f786"
+  },
+  "supplementary_forest_episodes": 80,
+  "forest_figure_sha256": "c1ba784e330de0ef46910a7ddc8d2870c7986dd952066080ae5c15df6d486a53"
 }

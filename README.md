@@ -6,6 +6,8 @@
 
 **实验与复现：** [最新结果](docs/recovery/FINAL_RESULTS.md) · [训练模型和原始证据](docs/recovery/learning/README.md)
 
+**三维森林对照：** [双密度轨迹图](paper/figures/forest_comparison.png) · [80次补充闭环实验](docs/recovery/forest_figure/README.md)
+
 ## 网络与验证
 
 网络为 103–64–32–2 的 MLP，共 8,802 个参数；输入包含 28 个状态、目标和约束特征，以及 75 个障碍净空采样。另提供移除障碍净空输入的已训练消融模型。训练使用 160 张地图的 298,418 条候选标签，验证和测试各使用另外 32 张地图。监督标签由原有续飞验证器生成。

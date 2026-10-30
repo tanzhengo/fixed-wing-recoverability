@@ -162,6 +162,10 @@ add_executable(recovery_benchmark src/recovery_benchmark.cpp)
 target_link_libraries(recovery_benchmark ${catkin_LIBRARIES})
 add_dependencies(recovery_benchmark ${catkin_EXPORTED_TARGETS})
 
+add_executable(recovery_forest_benchmark src/recovery_forest_benchmark.cpp)
+target_link_libraries(recovery_forest_benchmark ${catkin_LIBRARIES})
+add_dependencies(recovery_forest_benchmark ${catkin_EXPORTED_TARGETS})
+
 add_executable(recovery_learning_benchmark src/recovery_learning_benchmark.cpp)
 target_link_libraries(recovery_learning_benchmark ${catkin_LIBRARIES})
 add_dependencies(recovery_learning_benchmark ${catkin_EXPORTED_TARGETS})

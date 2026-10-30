@@ -1,0 +1,136 @@
+{
+  "figure_seed": 601000,
+  "selection_rule": "first prespecified seed for both densities",
+  "projection": "orthographic, azimuth -80 degrees, elevation 34 degrees",
+  "geometry": "deterministic points on actual uninflated cylinders and spheres",
+  "trajectory_processing": "projection of recorded vertices only; no smoothing, displacement or extension",
+  "displayed_cases": [
+    {
+      "scene": "forest_sparse_0",
+      "method": "full203",
+      "case_id": "forest_5",
+      "outcome": "goal",
+      "stored_vertices": 77,
+      "endpoint_xyz": [
+        235.367691,
+        2.133423328,
+        19.6931057
+      ]
+    },
+    {
+      "scene": "forest_sparse_0",
+      "method": "cost12",
+      "case_id": "forest_1",
+      "outcome": "goal",
+      "stored_vertices": 77,
+      "endpoint_xyz": [
+        235.367691,
+        2.133423328,
+        19.6931057
+      ]
+    },
+    {
+      "scene": "forest_sparse_0",
+      "method": "diverse12",
+      "case_id": "forest_2",
+      "outcome": "goal",
+      "stored_vertices": 77,
+      "endpoint_xyz": [
+        235.3563232,
+        2.506068945,
+        19.59394836
+      ]
+    },
+    {
+      "scene": "forest_sparse_0",
+      "method": "learned12",
+      "case_id": "forest_3",
+      "outcome": "goal",
+      "stored_vertices": 78,
+      "endpoint_xyz": [
+        237.0079041,
+        6.662838459,
+        19.81877518
+      ]
+    },
+    {
+      "scene": "forest_sparse_0",
+      "method": "state_only12",
+      "case_id": "forest_4",
+      "outcome": "goal",
+      "stored_vertices": 78,
+      "endpoint_xyz": [
+        238.0289459,
+        -5.551792622,
+        19.03559685
+      ]
+    },
+    {
+      "scene": "forest_dense_0",
+      "method": "full203",
+      "case_id": "forest_10",
+      "outcome": "goal",
+      "stored_vertices": 77,
+      "endpoint_xyz": [
+        235.367691,
+        2.133423328,
+        19.6931057
+      ]
+    },
+    {
+      "scene": "forest_dense_0",
+      "method": "cost12",
+      "case_id": "forest_6",
+      "outcome": "goal",
+      "stored_vertices": 77,
+      "endpoint_xyz": [
+        235.367691,
+        2.133423328,
+        19.6931057
+      ]
+    },
+    {
+      "scene": "forest_dense_0",
+      "method": "diverse12",
+      "case_id": "forest_7",
+      "outcome": "goal",
+      "stored_vertices": 77,
+      "endpoint_xyz": [
+        235.5802002,
+        2.224571228,
+        19.64306068
+      ]
+    },
+    {
+      "scene": "forest_dense_0",
+      "method": "learned12",
+      "case_id": "forest_8",
+      "outcome": "collision",
+      "stored_vertices": 73,
+      "endpoint_xyz": [
+        220.6715088,
+        8.243647575,
+        20.28559875
+      ]
+    },
+    {
+      "scene": "forest_dense_0",
+      "method": "state_only12",
+      "case_id": "forest_9",
+      "outcome": "goal",
+      "stored_vertices": 79,
+      "endpoint_xyz": [
+        239.4120789,
+        -7.978631973,
+        18.27274704
+      ]
+    }
+  ],
+  "source_sha256": {
+    "forest_scenarios.csv": "708a18d004fddf4c3698f65ad900d33d124cf4539362770c58431b29658d3b61",
+    "forest_map_metadata.csv": "0adb4a1d553c6c6dfa6c8e7d786728f502045a9ca88aeb16408a49605b6d0576",
+    "forest_episodes.csv": "846faf4a8f7785948974d8e1245dfc71a836c657e0138de3f879e6abf5adc093",
+    "forest_paths.csv": "fee1feb1e0b8dc3396266bc33e7d9e453dc02242d0ee96710822fb9164fc0b5c"
+  },
+  "renderer_sha256": "12a5bb31d83be3e9e422324f35913c5bac1394bef50307d8afe5224aac65ad51"
+}

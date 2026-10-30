@@ -1,0 +1,81 @@
+{
+  "audit": "independent_forest_v1",
+  "geometry_passed": true,
+  "maps": 16,
+  "paired_seeds": 8,
+  "tree_centers_sparse": 40,
+  "tree_centers_dense": 80,
+  "bushes": 12,
+  "independent_rng_reconstruction": true,
+  "sparse_subset_of_dense": true,
+  "same_bushes_in_each_pair": true,
+  "frozen_sources_models_match": true,
+  "display_seed": 601000,
+  "episode_audit_passed": true,
+  "episodes": 80,
+  "path_rows": 6206,
+  "planning_rows": 6126,
+  "all_outcomes_retained": true,
+  "identical_initial_states": true,
+  "candidate_budget_violations": 0,
+  "outcomes": {
+    "forest_sparse": {
+      "cost12": {
+        "goal": 8
+      },
+      "diverse12": {
+        "goal": 8
+      },
+      "learned12": {
+        "goal": 8
+      },
+      "state_only12": {
+        "goal": 8
+      },
+      "full203": {
+        "goal": 8
+      }
+    },
+    "forest_dense": {
+      "cost12": {
+        "goal": 8
+      },
+      "diverse12": {
+        "goal": 8
+      },
+      "learned12": {
+        "collision": 1,
+        "goal": 7
+      },
+      "state_only12": {
+        "goal": 8
+      },
+      "full203": {
+        "goal": 8
+      }
+    }
+  },
+  "input_sha256": {
+    "forest_episodes.csv": "846faf4a8f7785948974d8e1245dfc71a836c657e0138de3f879e6abf5adc093",
+    "forest_paths.csv": "fee1feb1e0b8dc3396266bc33e7d9e453dc02242d0ee96710822fb9164fc0b5c",
+    "forest_plans.csv": "bb65ec78670bebeee50de7fec2cf9fc67753bf85c1e870ab1b0720fb5b360694",
+    "forest_scenarios.csv": "708a18d004fddf4c3698f65ad900d33d124cf4539362770c58431b29658d3b61",
+    "forest_map_metadata.csv": "0adb4a1d553c6c6dfa6c8e7d786728f502045a9ca88aeb16408a49605b6d0576",
+    "run_manifest.json": "5488a3d0dda84ae971acdb8aa36bf906ea555d66b6c5acd93c36e55f3aa4147d"
+  },
+  "audit_script_sha256": "379de0ef59286f00de523db17e6cf003ff1fd21f64abc6f75e417151074c7ac6",
+  "figure_audit": {
+    "passed": true,
+    "displayed_cases": 10,
+    "displayed_vertices": 770,
+    "all_endpoints_outcomes_match": true,
+    "orthonormal_projection": true,
+    "surface_points_on_actual_uninflated_geometry": 201120,
+    "figure_manifest_sha256": "230dc3414ee3d2347c3b5ad0023ea8a3765607602f36e40ce027a78ce6ae914d",
+    "renderer_sha256": "12a5bb31d83be3e9e422324f35913c5bac1394bef50307d8afe5224aac65ad51",
+    "output_sha256": {
+      "png": "69c30c08b268a4a72a4bcfd1a77f7ebda0fb39cbd39001a33ee1921a08479237",
+      "pdf": "c1ba784e330de0ef46910a7ddc8d2870c7986dd952066080ae5c15df6d486a53"
+    }
+  }
+}
