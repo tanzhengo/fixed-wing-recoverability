@@ -1,0 +1,63 @@
+{
+  "source_world_sha256": "354f02cc00184790ba61b4f414771d132d772acc2873b42178a7a9ce56a8d3ad",
+  "model_count": 55,
+  "planner_box_count": 154,
+  "mcity_triangles_covered": 7333,
+  "frozen_street_props": [
+    "Dumpster",
+    "Dumpster_clone",
+    "Dumpster_clone_0",
+    "Construction Cone",
+    "Construction Cone_clone",
+    "Construction Cone_clone_clone",
+    "Construction Cone_clone_clone_clone",
+    "Construction Cone_clone_clone_clone_clone",
+    "Construction Cone_clone_clone_clone_clone_clone",
+    "Construction Cone_clone_clone_clone_clone_clone_clone"
+  ],
+  "original_state_geometry_retained": true,
+  "airplane": "suav1",
+  "initial_pose": [
+    -90,
+    -270,
+    40,
+    0,
+    0,
+    1.5707963267948966
+  ],
+  "waypoints": [
+    [
+      -85,
+      -100,
+      40
+    ],
+    [
+      -85,
+      180,
+      50
+    ],
+    [
+      120,
+      225,
+      60
+    ],
+    [
+      125,
+      -265,
+      55
+    ],
+    [
+      -90,
+      -270,
+      40
+    ]
+  ],
+  "box_clearance_m": 2.0,
+  "geometry_method": "Gazebo loaded collision AABBs; mcity ground/elevated connected components",
+  "files": {
+    "loaded_world.json": "12f740e2bfe58bc874377e2de579f25d3a1ab1b83dfa696c530c719d6e3873d8",
+    "mcity_mesh.json": "e87bbe5ba3c20f2c35212545190d63592a89860fcaf19712e8e53622367a9694",
+    "end_city.world": "03037b8d34f717a737881189754ffc3b437ead614886528c21a087ae2b09d4e2",
+    "task_end_city.yaml": "54e62ebe98a978d6fce43f66fdb7bd7720c04aa487b1a5f17c13aba1b94247e5"
+  }
+}

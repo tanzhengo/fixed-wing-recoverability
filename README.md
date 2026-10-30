@@ -58,6 +58,14 @@ roslaunch motion_primitives_planning terminal_recovery_multiturn.launch paused:=
 
 该空旷演示从约 8 m 爬向 110 m，实测累计净航向变化 2.865 圈后满足原到点容差。运行版使用 `runtime_motion_primitives.h`；论文训练及基准继续使用冻结的 `motion_primitives.h`，历史实验和网络权重保持不变。详见[修复与原始测试记录](docs/recovery/runtime_vertical_fix/README.md)。
 
+用户提供的 `end.world` 城市环境也已接入，沿用原 `suav1`，五航点循环实测通过。城市模型需保留在本机 `~/.gazebo/models`。先停止上一场景，再运行：
+
+```bash
+roslaunch motion_primitives_planning terminal_recovery_end_world.launch paused:=false
+```
+
+该入口默认跟随飞机显示，规划地图与原场景碰撞几何同步。飞机只显示方块的 mesh 地址问题也已修复。详见[城市测试、轨迹和复现说明](docs/recovery/end_world/README.md)。
+
 代码基于 [HKPolyU-UAV/Two-phase-motion-planning](https://github.com/HKPolyU-UAV/Two-phase-motion-planning) 的 `ccb6005c73992214a86cc0cff4fe648f1443a119`。历史非学习实验保留在[阶段结果](docs/recovery/NONLEARNING_RESULTS.md)，当前实验对照同一局部规划实现。以下保留原仓库说明和署名。
 
 ## Two-Phase Motion Planning for Fixed-Wing UAVs — upstream demo

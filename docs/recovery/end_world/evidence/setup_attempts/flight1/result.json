@@ -1,0 +1,74 @@
+{
+  "stop_reason": "interrupted",
+  "error": null,
+  "wall_seconds": 22.671502224002325,
+  "first_sim_time": null,
+  "last_sim_time": null,
+  "odom_count": 0,
+  "status_count": 0,
+  "last_odom": null,
+  "goal_transitions": [],
+  "waypoints": [
+    [
+      -85.0,
+      -100.0,
+      40.0
+    ],
+    [
+      -85.0,
+      180.0,
+      50.0
+    ],
+    [
+      120.0,
+      225.0,
+      60.0
+    ],
+    [
+      125.0,
+      -265.0,
+      55.0
+    ],
+    [
+      -90.0,
+      -270.0,
+      40.0
+    ]
+  ],
+  "waypoint_gate_horizontal_m": null,
+  "waypoint_gate_height_m": null,
+  "waypoint_gate_checks_passed": false,
+  "status_counts": {},
+  "primary_infeasible_status_count": 0,
+  "minimum_physical_box_clearance_m": null,
+  "minimum_inflated_box_clearance_m": null,
+  "physical_box_intrusion_samples": 0,
+  "inflated_box_intrusion_samples": 0,
+  "altitude_min_max_m": [
+    null,
+    null
+  ],
+  "speed_min_max_m_s": [
+    null,
+    null
+  ],
+  "max_abs_gamma_deg": null,
+  "max_abs_roll_deg": null,
+  "planner_parameters": {},
+  "recovery_parameters": {},
+  "box_count": 154,
+  "ros_master_uri": "http://127.0.0.1:11458",
+  "task_config_sha256": "54e62ebe98a978d6fce43f66fdb7bd7720c04aa487b1a5f17c13aba1b94247e5",
+  "observer_sha256": "07797fd54b27a2238e7f413d1b061cf818a68ec9a9c8540d865be3ec5d89e938",
+  "point_clearance_note": "Distances are sampled aircraft reference-point distances to the imported planning boxes, not swept aircraft mesh collision measurements.",
+  "gate_sampling_note": "Goal transition checks use the latest preceding recorded odometry without enlarging the planner gate; message timing can differ from the exact state consumed by the planner.",
+  "cli": {
+    "task_config": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city.yaml",
+    "output_dir": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/end_world/flight1/observations",
+    "sim_seconds": 180.0,
+    "wall_seconds": 300.0,
+    "startup_seconds": 30,
+    "stop_after_cycle": true
+  },
+  "passed": false
+}

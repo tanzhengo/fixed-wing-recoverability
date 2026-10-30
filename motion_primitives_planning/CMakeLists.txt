@@ -267,6 +267,9 @@ catkin_install_python(PROGRAMS
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
+  add_rostest_gtest(runtime_box_test test/runtime_box.test test/test_runtime_box.cpp)
+  target_link_libraries(runtime_box_test ${catkin_LIBRARIES})
+  add_dependencies(runtime_box_test ${catkin_EXPORTED_TARGETS})
   add_rostest_gtest(runtime_vertical_test test/runtime_vertical.test test/test_runtime_vertical.cpp)
   target_link_libraries(runtime_vertical_test ${catkin_LIBRARIES})
   add_dependencies(runtime_vertical_test ${catkin_EXPORTED_TARGETS})

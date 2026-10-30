@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuite errors="0" failures="0" name="unittest.suite.TestSuite" tests="1" time="3.509"><testcase classname="rostest.runner.RosTest" name="testruntime_vertical_test" time="3.5094" /><system-out>&lt;![CDATA[
+[ROSTEST]setup[/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/test/runtime_vertical.test] run_id[3823ff58-d42f-11f1-9a8c-8f86cb9a84ad] starting
+&amp;#x001B;[1mstarted roslaunch server http://tz:41337/&amp;#x001B;[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /rosdistro: noetic
+ * /rosversion: 1.17.4
+ * /runtime_vertical_model_path: /home/tan/Documen...
+ * /use_sim_time: False
+
+NODES
+
+[ROSTEST]setup[/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/test/runtime_vertical.test] run_id[3823ff58-d42f-11f1-9a8c-8f86cb9a84ad] done
+[ROSTEST]Running test [runtime_vertical_test]
+&amp;#x001B;[1mROS_MASTER_URI=http://127.0.0.1:11438&amp;#x001B;[0m
+[ROSTEST]running test runtime_vertical_test
+&amp;#x001B;[1mprocess[runtime_vertical_test-1]: started with pid [118651]&amp;#x001B;[0m
+&amp;#x001B;[1m[runtime_vertical_test-1] process has finished cleanly
+log file: /home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/end_world/runtime_box_tests/roslog/3823ff58-d42f-11f1-9a8c-8f86cb9a84ad/runtime_vertical_test-1*.log&amp;#x001B;[0m
+[ROSTEST]test [runtime_vertical_test] finished
+[ROSTEST]test [runtime_vertical_test] results are in [/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/end_world/runtime_box_tests/xml/motion_primitives_planning/rosunit-runtime_vertical_test.xml]
+[ROSTEST]test [runtime_vertical_test] results summary: 0 errors, 0 failures, 6 tests
+[ROSTEST][ROSTEST] test [runtime_vertical_test] done
+[ROSTEST]tearDown[/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/test/runtime_vertical.test]
+shutting down processing monitor...
+... shutting down processing monitor complete
+[ROSTEST]rostest teardown /home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/test/runtime_vertical.test complete
+
+]]&gt;</system-out><system-err>&lt;![CDATA[
+
+]]&gt;</system-err></testsuite>

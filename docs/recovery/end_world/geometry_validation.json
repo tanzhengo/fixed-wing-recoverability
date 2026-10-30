@@ -1,0 +1,30 @@
+{
+  "original_model_count": 55,
+  "unchanged_loaded_models": 55,
+  "non_mcity_collision_boxes_covered": 146,
+  "mcity_triangles": 7333,
+  "mcity_triangles_covered": 7333,
+  "final_world_only_gui_changed_after_flight": true,
+  "airplane_mesh_collision_bounds": {
+    "name": "suav1::base_link::base_link_fixed_joint_lump__body_link_collision",
+    "min": [
+      -90.4779440463,
+      -270.412282169,
+      39.9677293524
+    ],
+    "max": [
+      -89.5220558047,
+      -270.002475529,
+      40.0802872926
+    ],
+    "pose": [
+      -90,
+      -270,
+      40,
+      0,
+      0,
+      1.57079632679
+    ]
+  },
+  "original_user_world_sha256": "354f02cc00184790ba61b4f414771d132d772acc2873b42178a7a9ce56a8d3ad"
+}

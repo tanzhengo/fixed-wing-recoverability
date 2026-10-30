@@ -1,0 +1,112 @@
+{
+  "based_on_commit": "9130cfa",
+  "files": {
+    "README.md": {
+      "sha256": "55732f7b645e8838417e02abb2f2d98999ea95f4035fa2ce8133150d3118e4aa"
+    },
+    "end_world_flight.png": {
+      "sha256": "d59313cc589ad90a6b7e4f81c8697ac040c001dcb4eee1dda7059190f4a5eda2"
+    },
+    "evidence/flight/headless_world.world.gz": {
+      "sha256": "0954ad6c8168a146f1acca458c6af3e95e7169ede2bd6dc34f4a60044c3e86ce",
+      "uncompressed_sha256": "0c8f960d3e2157a7cbcff2e0c5d7f56acbf475ed702a7bf0585eada9ecb20191"
+    },
+    "evidence/flight/launch.log.gz": {
+      "sha256": "cf42980ee1f09e2f5e7384853aa3972f86a9e8f3085a72d4ba31776ef3b42bca",
+      "uncompressed_sha256": "ff440fb7780900a6e2a3d9f717d2033113ad79a967f5f7c80aad9b624082611a"
+    },
+    "evidence/flight/observations.json.gz": {
+      "sha256": "567c904ccc0bd8f300494d3aadb50cdc41db374f5e935be6b31e1906feae33c5",
+      "uncompressed_sha256": "a7108bfb40b30a13b2ea3095a02b14a0d3100891b591bad030515e474061641a"
+    },
+    "evidence/flight/result.json": {
+      "sha256": "56c5a3f8724419a8e8ae11d649ba53c40c13f081351953af553c27a154ec5ecb"
+    },
+    "evidence/flight/task_config.yaml": {
+      "sha256": "54e62ebe98a978d6fce43f66fdb7bd7720c04aa487b1a5f17c13aba1b94247e5"
+    },
+    "evidence/imported_loaded_world.json.gz": {
+      "sha256": "34723be3804ac30e3905c3ddff1bdf6c08d2e785209e77c4446fb1592f8f200f",
+      "uncompressed_sha256": "825ab2aa7de576c448df8e861368213326a94c38a9d076ee325a59f086fab93e"
+    },
+    "evidence/loaded_world.json.gz": {
+      "sha256": "71b2c1e5ce446a1859ef36bc96fcf447723472651d2e6af14855dd631ed61016",
+      "uncompressed_sha256": "12f740e2bfe58bc874377e2de579f25d3a1ab1b83dfa696c530c719d6e3873d8"
+    },
+    "evidence/mcity_mesh.json.gz": {
+      "sha256": "e76d357630d14c14ec8bede094ef539b011b124dbcd4e8ffa8964c9e0e971d3c",
+      "uncompressed_sha256": "e87bbe5ba3c20f2c35212545190d63592a89860fcaf19712e8e53622367a9694"
+    },
+    "evidence/original_end.world.gz": {
+      "sha256": "3af59af56e5cfa4be4e8cce97a8bcb28e6190ea2692d648420ceb17e22ab3dca",
+      "uncompressed_sha256": "354f02cc00184790ba61b4f414771d132d772acc2873b42178a7a9ce56a8d3ad"
+    },
+    "evidence/setup_attempts/flight1/launch.log.gz": {
+      "sha256": "9155e6e0739e2a9836f4dc390889bdb71f9db1d26798d0e1885ab1199a540a5e",
+      "uncompressed_sha256": "8c21635530d343648c2a13774e4418710098cd34c6c3ba6d9dc82a3a22db7a5d"
+    },
+    "evidence/setup_attempts/flight1/observations.json.gz": {
+      "sha256": "8debf4b2f2dd2885ff677d5feffdc82dd8468c886cb239b53ac31d49342e8741",
+      "uncompressed_sha256": "9afce9df78816b54351610ecc13760c814609a390eacf80d9bba26321dc72e4b"
+    },
+    "evidence/setup_attempts/flight1/result.json": {
+      "sha256": "c80e1ab8abaeca0970fe26118383f62777ba0b7547579a4b57956062245ba780"
+    },
+    "evidence/setup_attempts/flight2/launch.log.gz": {
+      "sha256": "f80a4e0d94f531651380a466f50c03c316ec89c80a246c348aeb445bcac9cf11",
+      "uncompressed_sha256": "6446f806afdaa6c07920ae18eb3b049a427b31e327186dc4c9c388f61bb60eb3"
+    },
+    "evidence/setup_attempts/flight2/observations.json.gz": {
+      "sha256": "8debf4b2f2dd2885ff677d5feffdc82dd8468c886cb239b53ac31d49342e8741",
+      "uncompressed_sha256": "9afce9df78816b54351610ecc13760c814609a390eacf80d9bba26321dc72e4b"
+    },
+    "evidence/setup_attempts/flight2/result.json": {
+      "sha256": "b774862058f8cc7ba5f425cdcfa61995168e28165e00e72214bb344ec5e7c302"
+    },
+    "evidence/unit_tests/build.log.gz": {
+      "sha256": "9098e80f36311ff94ed517006fe41d4ede220b80f7e1185e967c5968487ba0f4",
+      "uncompressed_sha256": "0bebd68170c4198c4c4c349c46e831d36acc33b7a37d0b99e92aef01afcae1a8"
+    },
+    "evidence/unit_tests/motion_primitives_planning/rostest-test_runtime_box.xml": {
+      "sha256": "94e83ba41709eb4815c575892aaae7d1189dd66ee8e0494f9150facfba75a02f"
+    },
+    "evidence/unit_tests/motion_primitives_planning/rostest-test_runtime_vertical.xml": {
+      "sha256": "d812032318b06950165c15192291184449456ae17cff10ad5f32d532d795b341"
+    },
+    "evidence/unit_tests/motion_primitives_planning/rosunit-runtime_box_test.xml": {
+      "sha256": "4d8a57b0afbd1d14fba8c6bbcc9f755c98b81e7b9220b6d7ac7544e07e80081c"
+    },
+    "evidence/unit_tests/motion_primitives_planning/rosunit-runtime_vertical_test.xml": {
+      "sha256": "6d1dda08b9279d486bdc73c048e994ad58e0cd7d685372b3f10b30be52ef298a"
+    },
+    "geometry_validation.json": {
+      "sha256": "489117d5e51e20ff7206fbce90babb4feea4bd856470cffcbb0bbdd2d826000c"
+    },
+    "import_manifest.json": {
+      "sha256": "68247efa5d779840b5b1e1a9a5acd54526535a9a2f48dc863c9da68ff05d3f53"
+    },
+    "plot_end_world.py": {
+      "sha256": "1564016a2f362c58952229a7db14528c8206233b4c0477da380f6b00cb60b458"
+    }
+  },
+  "sources_at_packaging": {
+    "motion_primitives_planning/src/runtime_motion_primitives.h": "e6d287541cff6dabdf759543bdc04c07af984f023ec8c051492ce4fab615dbc6",
+    "motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+    "motion_primitives_planning/src/motion_primitives_test.cpp": "24b6df70b78c0f31289cba719912ebbbb84512641fe3b22ea818db5dd6e3d1fb",
+    "motion_primitives_planning/models/recovery_mlp.txt": "d324bf927dc89f53568cfc3980a7a6217227a89f4b28a1f90fb324b6580a36aa",
+    "motion_primitives_planning/scripts/import_end_world.py": "08bb06cc8494fde3c4dd618b3bca00db117193d656b6370dd41ab911920568c2",
+    "motion_primitives_planning/scripts/verify_end_world.py": "07797fd54b27a2238e7f413d1b061cf818a68ec9a9c8540d865be3ec5d89e938",
+    "motion_primitives_planning/launch/config/task_end_city.yaml": "54e62ebe98a978d6fce43f66fdb7bd7720c04aa487b1a5f17c13aba1b94247e5",
+    "motion_primitives_planning/launch/terminal_recovery_end_world.launch": "c78e7c752176422ed7da6722296a8a8b35274baf7de424c200593346bf0bc8b3",
+    "simple-airplane/simple_airplane_description/package.xml": "f0cb1e0abadc394f5acc5fa95a4007edbe9fcfa4e31a578bf07c206be69660be",
+    "simple-airplane/simple_airplane_gazebo/worlds/end_city.world": "03037b8d34f717a737881189754ffc3b437ead614886528c21a087ae2b09d4e2"
+  },
+  "runtime_binary_sha256": "90c5e2536ef4ee106c858283c804a2ba4c9bc1631dd214b3c471a9a89cb3b357",
+  "frozen_paper_source_hashes_unchanged": true,
+  "flight": "evidence/flight/result.json",
+  "notes": [
+    "The completed flight used the same planner binary, source and task as the release; the only later world change adds GUI aircraft tracking.",
+    "Two pre-flight observer startup interruptions are kept separately and are not counted as flight episodes.",
+    "Urban mesh and material files are supplied by the local Gazebo model collection; their original model URIs are retained."
+  ]
+}

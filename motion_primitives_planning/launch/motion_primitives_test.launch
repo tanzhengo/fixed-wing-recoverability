@@ -7,6 +7,7 @@
 <!-- Planning -->
     <rosparam command="load" file="$(arg primitive_config)" />
     <!-- Switching back to a task without spheres must clear the previous count. -->
+    <param name="box_obstacles/num" value="0" type="int"/>
     <param name="sphere_obstacles/num" value="0" type="int"/>
     <param name="horizontal_obstacles/num" value="0" type="int"/>
     <rosparam command="load" file="$(arg task_config)" />

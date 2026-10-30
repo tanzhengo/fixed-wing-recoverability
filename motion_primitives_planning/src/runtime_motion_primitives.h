@@ -18,6 +18,7 @@
 #include <sstream>
 #include <vector>
 #include "learned_recovery.h"
+#include "urban_box_geometry.h"
 
 #define Rad2Deg 0.017453292519943295f
 
@@ -64,6 +65,22 @@ public:
         float x = 0, y = 0, z = 0, r = 4, length = 200, yaw = 0;
         float axis_x = 1, axis_y = 0;
     };
+
+    struct box_obstacle_t {
+        urban_geometry::Box geometry;
+        double clearance = urban_geometry::face_margin;
+    };
+
+    // Install complete physical geometry atomically. The same per-face margin
+    // is used by hard collision checks and the learned geometry features.
+    void set_box_obstacles(const std::vector<box_obstacle_t>& boxes) {
+        for (const auto& box : boxes)
+            if (!urban_geometry::valid(box.geometry) ||
+                !std::isfinite(box.clearance) || box.clearance < 0.0)
+                throw std::invalid_argument("Invalid box obstacle geometry or clearance");
+        box_obstacles_ = boxes;
+    }
+    const std::vector<box_obstacle_t>& box_obstacles() const { return box_obstacles_; }
 
     struct dynamic_obstacle {
         float pos[2] = {0, 0}, current_pos[2] = {0, 0}, center[2] = {0, 0};
@@ -217,6 +234,7 @@ public:
         }
         global_target = wp_vec.front();
 
+        load_box_obstacles();
         int count;
         float default_height;
         nh.param<int>("static_obstacles/num", count, 0);
@@ -484,6 +502,9 @@ public:
     float obstacle_signed_distance(float x, float y, float z,
                                    float prediction_time = 0.0f) const {
         float distance = 30.0f;
+        for (const auto& box : box_obstacles_)
+            distance = std::min(distance, static_cast<float>(urban_geometry::signed_distance(
+                box.geometry, x, y, z, box.clearance)));
         const auto capped_cylinder = [](float radial, float axial) {
             return std::hypot(std::max(radial, 0.0f), std::max(axial, 0.0f)) +
                 std::min(std::max(radial, axial), 0.0f);
@@ -1074,6 +1095,9 @@ public:
     bool collision_check(float x, float y, float z, float prediction_time = 0.0f) const {
         if (!std::isfinite(x) || !std::isfinite(y) || !std::isfinite(z) ||
             z < min_altitude || z > max_altitude) return true;
+        for (const auto& box : box_obstacles_)
+            if (urban_geometry::signed_distance(box.geometry, x, y, z, box.clearance) <= 0.0)
+                return true;
         for (const auto& obs : static_obs_vec) {
             if (inside_cylinder(x, y, z, obs.pos[0], obs.pos[1], obs.z, obs.r, obs.height))
                 return true;
@@ -1240,6 +1264,26 @@ public:
     visualization_msgs::MarkerArray collision_visual() const {
         visualization_msgs::MarkerArray result;
         int id = 1;
+        for (const auto& box : box_obstacles_) {
+            const auto& geometry = box.geometry;
+            visualization_msgs::Marker marker;
+            marker.header.frame_id = "world";
+            marker.header.stamp = ros::Time::now();
+            marker.ns = "box_obstacles";
+            marker.id = id++;
+            marker.type = visualization_msgs::Marker::CUBE;
+            marker.action = visualization_msgs::Marker::ADD;
+            marker.pose.position.x = geometry.x;
+            marker.pose.position.y = geometry.y;
+            marker.pose.position.z = geometry.z;
+            marker.pose.orientation.w = 1;
+            marker.scale.x = geometry.size_x;
+            marker.scale.y = geometry.size_y;
+            marker.scale.z = geometry.size_z;
+            marker.color.b = 1;
+            marker.color.a = 0.5;
+            result.markers.push_back(marker);
+        }
         for (size_t i = 0; i < static_obs_vec.size(); ++i) {
             const auto& obs = static_obs_vec[i];
             auto marker = cylinder_marker("static_obs" + std::to_string(i + 1), id++, obs.pos[0], obs.pos[1], obs.z, obs.r, obs.height);
@@ -1272,6 +1316,48 @@ public:
     }
 
 private:
+    void load_box_obstacles() {
+        XmlRpc::XmlRpcValue config;
+        if (!nh.getParam("box_obstacles", config)) return;
+        const std::string prefix = nh.resolveName("box_obstacles");
+        if (config.getType() != XmlRpc::XmlRpcValue::TypeStruct ||
+            !config.hasMember("num") || config["num"].getType() != XmlRpc::XmlRpcValue::TypeInt)
+            throw std::invalid_argument(prefix + "/num must be a nonnegative integer");
+        const int count = static_cast<int>(config["num"]);
+        if (count < 0)
+            throw std::invalid_argument(prefix + "/num must be a nonnegative integer");
+        std::vector<box_obstacle_t> boxes;
+        for (int i = 0; i < count; ++i) {
+            const std::string key = "box" + std::to_string(i + 1);
+            if (!config.hasMember(key) || config[key].getType() != XmlRpc::XmlRpcValue::TypeStruct)
+                throw std::invalid_argument(prefix + "/" + key + " is missing or invalid");
+            auto& fields = config[key];
+            const auto number = [&](const std::string& field) {
+                if (!fields.hasMember(field))
+                    throw std::invalid_argument(prefix + "/" + key + "/" + field + " is missing");
+                auto& value = fields[field];
+                double result;
+                if (value.getType() == XmlRpc::XmlRpcValue::TypeInt)
+                    result = static_cast<int>(value);
+                else if (value.getType() == XmlRpc::XmlRpcValue::TypeDouble)
+                    result = static_cast<double>(value);
+                else
+                    throw std::invalid_argument(prefix + "/" + key + "/" + field + " must be numeric");
+                if (!std::isfinite(result))
+                    throw std::invalid_argument(prefix + "/" + key + "/" + field + " must be finite");
+                return result;
+            };
+            box_obstacle_t box;
+            box.geometry = {number("x"), number("y"), number("z"),
+                            number("size_x"), number("size_y"), number("size_z")};
+            if (fields.hasMember("clearance")) box.clearance = number("clearance");
+            if (!urban_geometry::valid(box.geometry) || box.clearance < 0.0)
+                throw std::invalid_argument(prefix + "/" + key + " requires positive sizes and nonnegative clearance");
+            boxes.push_back(box);
+        }
+        set_box_obstacles(boxes);
+    }
+
     static bool same_control(const pr_t& a, const pr_t& b) {
         return a.w_roll_c == b.w_roll_c && a.attack_c == b.attack_c &&
             a.T_c == b.T_c && a.t_way == b.t_way;
@@ -1390,6 +1476,7 @@ private:
     target_t global_target;
     std::vector<target_t> wp_vec;
     std::vector<obs_t> static_obs_vec;
+    std::vector<box_obstacle_t> box_obstacles_;
     std::vector<sphere_obstacle> sphere_obs_vec;
     std::vector<horizontal_obstacle> horizontal_obs_vec;
     std::vector<dyn_obs_t> dyn_obs_vec;

@@ -47,11 +47,12 @@
   <run_depend>rospy</run_depend>
   <run_depend>std_msgs</run_depend>
   <run_depend>xacro</run_depend>
+  <run_depend>gazebo_ros</run_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
-    <!-- Other tools can request additional information be placed here -->
-
+    <!-- Gazebo's resource resolver searches parent/name for package:// meshes. -->
+    <gazebo_ros gazebo_model_path="${prefix}/.."/>
   </export>
 </package>

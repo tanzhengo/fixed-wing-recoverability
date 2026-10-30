@@ -116,7 +116,7 @@
           <geometry>
             <mesh>
               <scale>0.1 0.1 0.1</scale>
-              <uri>package://simple_airplane_description/meshes/simple_airplane.dae</uri>
+              <uri>model://simple_airplane_description/meshes/simple_airplane.dae</uri>
             </mesh>
           </geometry>
           <surface>
@@ -138,7 +138,7 @@
           <geometry>
             <mesh>
               <scale>0.1 0.1 0.1</scale>
-              <uri>package://simple_airplane_description/meshes/simple_airplane.dae</uri>
+              <uri>model://simple_airplane_description/meshes/simple_airplane.dae</uri>
             </mesh>
           </geometry>
         </visual>

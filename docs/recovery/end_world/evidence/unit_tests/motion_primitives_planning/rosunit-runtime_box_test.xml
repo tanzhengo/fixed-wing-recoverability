@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="6" failures="0" disabled="0" errors="0" time="1.802" timestamp="2026-10-30T14:57:50" name="AllTests">
+  <testsuite name="RuntimeBoxes" tests="6" failures="0" disabled="0" errors="0" time="1.802" timestamp="2026-10-30T14:57:50">
+    <testcase name="LoadsNumericFieldsAndPerBoxClearance" status="run" result="completed" time="0.298" timestamp="2026-10-30T14:57:50" classname="RuntimeBoxes" />
+    <testcase name="MalformedParametersCannotSilentlyOmitObstacles" status="run" result="completed" time="0.299" timestamp="2026-10-30T14:57:50" classname="RuntimeBoxes" />
+    <testcase name="ExplicitZeroCountClearsPreviousSceneParameters" status="run" result="completed" time="0.3" timestamp="2026-10-30T14:57:50" classname="RuntimeBoxes" />
+    <testcase name="InvalidMapReplacementPreservesExistingCollisionMap" status="run" result="completed" time="0.302" timestamp="2026-10-30T14:57:51" classname="RuntimeBoxes" />
+    <testcase name="CollisionAndNetworkFeaturesUseSameExpandedGeometry" status="run" result="completed" time="0.306" timestamp="2026-10-30T14:57:51" classname="RuntimeBoxes" />
+    <testcase name="PhysicalMarkersAndPredictedWallEncounter" status="run" result="completed" time="0.296" timestamp="2026-10-30T14:57:51" classname="RuntimeBoxes" />
+  </testsuite>
+</testsuites>
