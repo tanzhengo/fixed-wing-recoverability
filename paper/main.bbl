@@ -94,12 +94,49 @@ J.~Lu, Y.~Hui, X.~Zhang, W.~Feng, H.~Shen, Z.~Li, and B.~Tian,
   [Online]. Available: \url{https://doi.org/10.1109/tro.2026.3721689}
 \BIBentrySTDinterwordspacing
 
+\bibitem{nguyen2022oracle}
+\BIBentryALTinterwordspacing
+H.~Nguyen, S.~H. Fyhn, P.~{De Petris}, and K.~Alexis, ``Motion primitives-based
+  navigation planning using deep collision prediction,'' in \emph{2022
+  International Conference on Robotics and Automation (ICRA)}, 2022, pp.
+  9660--9667. [Online]. Available:
+  \url{https://doi.org/10.1109/ICRA46639.2022.9812231}
+\BIBentrySTDinterwordspacing
+
 \bibitem{zhang2026dpnet}
 \BIBentryALTinterwordspacing
 R.~Zhang, L.~Pan, Z.~Xia, J.~Hou, and F.~Gao, ``{DPNet: Efficient Dead-End
   Prediction and Avoidance for Vision-Based UAV Navigation},'' 2026, version 1,
   August 17, 2026. [Online]. Available:
   \url{https://arxiv.org/abs/2608.16640v1}
+\BIBentrySTDinterwordspacing
+
+\bibitem{bhardwaj2017sail}
+\BIBentryALTinterwordspacing
+M.~Bhardwaj, S.~Choudhury, and S.~Scherer, ``Learning heuristic search via
+  imitation,'' in \emph{Proceedings of the 1st Annual Conference on Robot
+  Learning}, ser. Proceedings of Machine Learning Research, vol.~78.\hskip 1em
+  plus 0.5em minus 0.4em\relax PMLR, 2017, pp. 271--280. [Online]. Available:
+  \url{https://proceedings.mlr.press/v78/bhardwaj17a.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{choudhury2018active}
+\BIBentryALTinterwordspacing
+S.~Choudhury, S.~Srinivasa, and S.~Scherer, ``Bayesian active edge evaluation
+  on expensive graphs,'' in \emph{Proceedings of the Twenty-Seventh
+  International Joint Conference on Artificial Intelligence}, 2018, pp.
+  4890--4897. [Online]. Available:
+  \url{https://doi.org/10.24963/ijcai.2018/679}
+\BIBentrySTDinterwordspacing
+
+\bibitem{das2017fastron}
+\BIBentryALTinterwordspacing
+N.~Das, N.~Gupta, and M.~Yip, ``Fastron: An online learning-based model and
+  active learning strategy for proxy collision detection,'' in
+  \emph{Proceedings of the 1st Annual Conference on Robot Learning}, ser.
+  Proceedings of Machine Learning Research, vol.~78.\hskip 1em plus 0.5em minus
+  0.4em\relax PMLR, 2017, pp. 496--504. [Online]. Available:
+  \url{https://proceedings.mlr.press/v78/das17a.html}
 \BIBentrySTDinterwordspacing
 
 \bibitem{gonzalez1985clustering}

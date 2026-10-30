@@ -1,0 +1,24 @@
+... logging to <local-log>
+[ROSUNIT] Outputting test results to <local-log>
+[Testcase: testlearned_recovery_test] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[motion_primitives_planning.rosunit-learned_recovery_test/DenseForwardKnownSignedLinearMap][passed]
+[motion_primitives_planning.rosunit-learned_recovery_test/RejectsMalformedAndPartialModels][passed]
+[motion_primitives_planning.rosunit-learned_recovery_test/ProbabilityStableAtExtremeLogits][passed]
+[motion_primitives_planning.rosunit-learned_recovery_test/LearnedRankingRetainsCheapestAndBudget][passed]
+[motion_primitives_planning.rosunit-learned_recovery_test/NetworkCannotBypassExplicitWorkBudget][passed]
+[motion_primitives_planning.rosunit-learned_recovery_test/MissingModelFallsBackExplicitly][passed]
+[motion_primitives_planning.rosunit-learned_recovery_test/FeatureGeometryUsesInflatedFiniteVolumes][passed]
+[motion_primitives_planning.rosunit-learned_recovery_test/FeatureEncodingIsRigidTransformInvariant][passed]
+[motion_primitives_planning.rosunit-learned_recovery_test/DistanceSignsMatchAllObstacleTypesAndPrediction][passed]
+[motion_primitives_planning.rosunit-learned_recovery_test/HybridExploresBetweenLearnedChoices][passed]
+
+SUMMARY
+ * RESULT: SUCCESS
+ * TESTS: 10
+ * ERRORS: 0
+ * FAILURES: 0
+
+rostest log file is in <local-log>

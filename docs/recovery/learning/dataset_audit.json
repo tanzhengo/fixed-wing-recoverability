@@ -1,0 +1,46 @@
+{
+  "train": {
+    "maps": 160,
+    "states": 3840,
+    "candidate_rows": 298418,
+    "positive_candidates": 127311,
+    "states_with_feasible_primary": 3264,
+    "states_with_verified_continuation": 2865,
+    "files": {
+      "train_candidates.csv": {
+        "sha256": "68f166f43d3aa2ca0ddb8e5805462c2a00cf3ae0fe6038775eb61c9fd9ad6065",
+        "bytes": 283302146
+      },
+      "train_states.csv": {
+        "sha256": "46264807a32694bc43158474e1e7faa19cb84c6b3a8b1335dd6b31d44ea20214",
+        "bytes": 575011
+      },
+      "train_scenarios.csv": {
+        "sha256": "f9a91662f382a9117cc966977066cddac846e960c0f4b1e669ca5c9d27ad3086",
+        "bytes": 88105
+      }
+    }
+  },
+  "val": {
+    "maps": 32,
+    "states": 768,
+    "candidate_rows": 53117,
+    "positive_candidates": 20507,
+    "states_with_feasible_primary": 574,
+    "states_with_verified_continuation": 477,
+    "files": {
+      "val_candidates.csv": {
+        "sha256": "e3223e4cc432615f3658db15f71d6c55b353c95eecfbe2c9bb5c007bc5793b8f",
+        "bytes": 50511682
+      },
+      "val_states.csv": {
+        "sha256": "c5b7dfcdd91cf82911c1e04aadc23350496405ddb506a5508d81f4dcdf6c142f",
+        "bytes": 112066
+      },
+      "val_scenarios.csv": {
+        "sha256": "cdf8a8a8e6d53bd5749a374084643410a605e1271eab3a2bee120ecb30562d06",
+        "bytes": 17086
+      }
+    }
+  }
+}

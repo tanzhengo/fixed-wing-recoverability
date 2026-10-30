@@ -1,0 +1,21 @@
+{
+  "python": "3.8",
+  "torch": "2.4.1+cpu",
+  "numpy": "1.24.4",
+  "torch_num_threads": 3,
+  "device": "CPU",
+  "seed": 20261030,
+  "deterministic_algorithms": true,
+  "epochs": 60,
+  "batch_size": 2048,
+  "models": [
+    "geometry",
+    "state_only"
+  ],
+  "training_logs": [
+    "training_geometry.jsonl",
+    "training_state_only.jsonl"
+  ],
+  "checkpoint_criterion": "minimum validation BCE + 0.1 Huber",
+  "validation_selection_source": "validation_schedule.json"
+}

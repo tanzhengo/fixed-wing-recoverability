@@ -1,0 +1,45 @@
+... logging to <local-log>
+[ROSUNIT] Outputting test results to <local-log>
+[Testcase: testterminal_recovery_test] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[motion_primitives_planning.rosunit-terminal_recovery_test/OpenSpaceHasVerifiedContinuationWithFullStateContinuity][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/SafePrimaryCanHaveNoVerifiedContinuation][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/SelectionRejectsShortSightedWinnerForVerifiedTurn][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/InvalidStatesAndCommandsCannotBecomeEvidence][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/RecoveryRejectsInteriorFlightPathAngleViolations][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/KnownSpaceRemainsCenteredAtObservationState][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/DynamicObstacleUsesAbsoluteContinuationStartTime][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/BudgetExhaustionIsDifferentFromNoFeasiblePrimary][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/DisabledModeMatchesOriginalGreedySelection][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/DiverseOrderIsDeterministicAndCoversDistinctManeuversWithinBudget][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/CostOrderKeepsStableRankingAndBudget][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/DefaultOrderRetainsCostModeSelection][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/DiverseSelectionUsesLowestCostVerifiedScheduledCandidate][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/CachedPlanConsumesElapsedTimeWithoutRenewingItsHorizon][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/CachedPlanRejectsUnusableTailAndInvalidElapsedTime][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/PlanReuseIsOptInAndExternalControlClearsCachedEvidence][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/CachedPlanIsRecheckedFromActualStateAgainstCurrentObstacles][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/CachedPlanMustFitTheCurrentKnownRegion][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/SelectorRevalidatesRemainingPlanWhenNewHorizonDoesNotFit][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/CachedSegmentsAccumulateDynamicObstaclePredictionTime][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/PreviousShortControlCannotMasqueradeAsFreshPrimary][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/PrimaryOnlyAblationUsesTheSameHardFiltersWithoutBackupWork][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/IntegrationWorkCapNeverTurnsAPrefixIntoACompleteTrajectory][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/TerminalBudgetDistinguishesZeroExactAndUnlimitedWork][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/SelectSharesOneExactWorkBudgetAcrossDifferentPrimaries][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/BackupRejectionCountersSeparateCollisionFromUnknownSpace][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/BackupCountersDistinguishModelInvalidityAndRecoveryEnvelope][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/FailFastPreservesCompleteAcceptedWitnessExactly][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/FailFastReducesCollisionEnvelopeAndKnownSpaceWork][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/FailFastKeepsCountBudgetSelectionsAndPrimaryRolloutsIdentical][passed]
+[motion_primitives_planning.rosunit-terminal_recovery_test/FailFastTerminalCountersAndWorkBudgetRemainExact][passed]
+
+SUMMARY
+ * RESULT: SUCCESS
+ * TESTS: 31
+ * ERRORS: 0
+ * FAILURES: 0
+
+rostest log file is in <local-log>

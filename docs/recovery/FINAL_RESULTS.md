@@ -1,125 +1,61 @@
-# 最终方法、实验结果与复现
+# 学习引导终端续飞：论文、实验与复现
 
-英文论文稿：**[Maneuver-Diverse Terminal Continuation Search for Fixed-Wing Local Motion Planning](../../paper/main.pdf)**。对应 [LaTeX 源码](../../paper/main.tex)、[V3 分析数据](v3/recovery_v3_analysis.json) 和 [V4 补充分析数据](v4/recovery_v4_analysis.json)。
+论文：[Learning-Guided Terminal Continuation Search for Fixed-Wing Motion Planning](../../paper/main.pdf)。[LaTeX 源码](../../paper/main.tex)包含网络结构、训练目标、数据划分、预算调度、测试与消融。
 
-## 方法
+## 实现与训练
 
-本工作研究固定计算预算下的后续机动发现。主轨迹采用原有三维运动基元及飞行动力学预测；候选先通过碰撞、速度、姿态、飞行高度和已知区域检查，再从其完整终态验证后续控制。
+- 保留固定翼动力学、203 个主运动基元、15 个后续控制及原任务代价。
+- 103–64–32–2 MLP 预测有限库续飞可行性和验证工作量；参数量为 8,802。
+- 28 个状态/目标/包线特征与 75 个终端坐标系净空特征，由同一编码器用于训练和 C++ 在线推理。
+- 160 张训练地图、32 张验证地图和32 张独立测试地图。训练/验证分别包含 298,418 和 53,117 条可行主候选标签；无可行主轨迹的采样状态也保留统计。
+- Adam 训练60个epoch，验证损失选择包含几何输入模型第60个、去几何模型第55个epoch。选择过程不使用测试地图。
+- 验证集比较工作量指数0、0.5和1，最终选择0；发布排序使用可续接概率，工作量预测是辅助任务。
 
-最终方法由两个部分组成：
+## 预先冻结的测试
 
-1. **按机动覆盖分配候选预算。** 保留原代价最低的候选，其余名额使用最远点增量采样，覆盖不同终态航向和相对高度。归一化尺度来自空速、主时域与转弯/爬升限制，避免把狭窄高度带中的微小差异放大成主要覆盖维度。在完成验证的候选中选择原代价最低者。
-2. **逐采样拒绝。** 后续轨迹一旦出现明确的采样约束违规，即终止该条积分。完整可行轨迹继续积分到后续时域终点，保持原数值更新和完整见证判据。候选数上限与实际积分步上限均可独立配置，预算截断与约束拒绝分开记录。
+匹配状态对照包含576个输入、11种方法/预算配置和2次轮换计时，共12,672条记录。完整库在428个输入上找到见证，另外70个输入无可行主轨迹、78个输入无库内续飞。
 
-主实验采用 29 个航向 × 7 个高度层、15 个后续控制、3 s 主时域、6 s 后续时域和 0.02 s 预测积分步长。终端续飞验证是对有限控制库和有限时域的检验；执行闭环每 0.2 s 根据实际状态重新规划。缓存余段重验作为独立可选模块保留，主实验关闭。
-
-## 实验规模与对照
-
-| 项目 | 设置 |
-| --- | --- |
-| 地图 | 4 类几何场景，每类 6 个固定种子，共 24 张 |
-| 闭环执行条件 | 名义 RK4、执行器/升阻力模型偏差、1 m/s 横风、100 ms 控制延迟 |
-| 闭环方法 | 同约束主时域 3 s、同约束主时域 6 s、代价 K=12、多样性 K=12、完整库 K=203 |
-| 不同闭环配置 | 24 × 4 × 5 = **480**；每方法 96 项 |
-| 匹配输入 | 24 地图 × 3 纵向位置 × 3 横向位置 × 2 航向 = **432 状态** |
-| 每种验证器的匹配记录 | 432 × 7 方法 × 2 次计时 = **6,048 行** |
-| 工作预算 | 后续积分上限 3,600 或 10,800 步；记录实际消耗 |
-| 测试 | **55 项通过**：19 项原几何/运动测试、31 项续飞与预算测试、5 项独立执行积分测试 |
-
-执行模型使用单独实现的 RK4 积分，步长 0.005 s。主任务采用完整配置地图；有限观测半径另在诊断实验中分析。计时重复先在状态—方法内部合并，置信区间以 24 张地图为成组重采样单位。相同工作上限不意味着每次调用都消耗相同步数。
-
-## 续飞发现与计算量
-
-完整库在 432 个状态中的 335 个找到可行后续控制。以下发现率均以这 **335 个参考阳性状态**为分母。
-
-| 验证器与预算 | 代价顺序 | 多样性顺序 |
+| 方法 | K=12发现数 /428 | W=3600发现数 /428 |
 | --- | ---: | ---: |
-| 完整积分，K=12 | 239/335，71.34% | 317/335，94.63% |
-| 逐采样拒绝，K=12 | 239/335，71.34% | 317/335，94.63% |
-| 完整积分，W=3,600 | 131/335，39.10% | 131/335，39.10% |
-| 逐采样拒绝，W=3,600 | 204/335，60.90% | 269/335，80.30% |
-| 完整积分，W=10,800 | 171/335，51.04% | 164/335，48.96% |
-| 逐采样拒绝，W=10,800 | 227/335，67.76% | 317/335，94.63% |
+| 代价 | 331 | 210 |
+| 多样性 | 404 | 336 |
+| 学习，含几何 | 413 | 373 |
+| 混合，含几何 | 412 | 373 |
+| 学习，去几何 | 413 | 372 |
 
-V3 首先表明，单独改变候选顺序能改善 K=12 的发现率，但在较紧的积分工作上限下并未带来同样收益：3,600 步时两者持平，10,800 步时多样性顺序略低。V4 随后在相同地图、状态与预算上加入逐采样拒绝，减少已经失败的后续轨迹所占用的积分工作，得到表中的固定工作预算改进。
+相对多样性，学习方法在K=12下增加2.10个百分点（95%地图分组bootstrap区间0.99–3.24），在W=3600下增加8.64个百分点（4.43–13.57）。网络特征与推理增加耗时：K=12学习模型中位/P95为4.25/6.94 ms，多样性为2.82/4.70 ms。
 
-对多样性 K=12，平均后续积分步数从 **21,053.81** 降至 **2,653.86**，减少 **87.39%**。这一比例只指后续积分，主候选生成和检查仍计入总规划工作。相同 K 的代价顺序、多样性顺序和完整库在两版验证器之间，发现结果、选中排名和代价均无差异。
+主闭环实验为32张地图×4种执行条件×6种方法，共768项。每种方法128项任务的完成数：仅主轨迹44、代价50、多样性70、学习99、混合89、完整库87。学习相对多样性增加22.66个百分点（14.06–31.25）。相应障碍裕量侵入次数为5、1、6、9、10、4，所有失败均进入统计。
 
-![匹配输入的验证器与预算比较](v4/recovery_v4_comparison.png)
+## 去几何输入的补充闭环消融
 
-## 闭环任务结果
+在主实验结束后，用已经训练并冻结的去几何模型替换几何模型，保持地图、算法和全部参数不变。新增学习/混合两种输入配置共256项；另外512项未改变的基线作为重放检查，任务、28,593条路径状态和28,081条规划决策完全一致。
 
-| 方法 | 到达目标 | 无可行主轨迹 | 膨胀障碍边界侵入 | 超时 |
-| --- | ---: | ---: | ---: | ---: |
-| 同约束主时域 3 s | 28 | 60 | 5 | 3 |
-| 同约束主时域 6 s | 43 | 43 | 6 | 4 |
-| 代价 K=12 | 37 | 59 | 0 | 0 |
-| 多样性 K=12 | 56 | 34 | 5 | 1 |
-| 完整库 K=203 | 67 | 27 | 2 | 0 |
+去几何学习模型完成117/128项，障碍裕量侵入2项；去几何混合模型完成92项，侵入9项。几何学习模型与去几何学习模型的完成率差为−14.06个百分点（−21.09至−7.03）。几何模型的测试候选分类准确率为97.93%，去几何为85.52%，但更高的分类准确率没有转化为更高的闭环完成率。本文据此把主要贡献定位于学习续飞检查优先级，并报告几何表示的实际得失。
 
-每行合计 96 项；这组运行没有额外的飞行包线违规或无效动力学终止。多样性 K=12 的任务完成率为 **58.33%**，代价 K=12 为 **38.54%**，完整库为 **69.79%**。
+该补充消融使用同一批32张测试地图，未形成新的泛化测试集。固定翼仍由显式验证器执行几何约束检查；“去几何”指网络输入，不是关闭避障。
 
-多样性方法的 5 次边界侵入均出现在名义 RK4 执行条件。日志中的 `collision` 按膨胀后的规划障碍判定；这 5 次运行在首次裕量违规检测时记录的原始障碍最小净空为 **1.57–2.43 m**，因此它们记录的是规划裕量侵入，不能等同于物理接触。完成率和裕量侵入同时报告，反映有限库选择与实际执行之间的差别。
+## 文件与复现
 
-V4 又重放了同一组 480 项闭环配置。对比全部 27,771 条路径记录和 27,291 条决策记录，任务结果、状态路径及相关决策值完全一致。该重放用于验证两种验证器的实现等价性，不与原任务合并计算样本量。
+- [学习实验说明与命令](learning/README.md)
+- [数据及测试协议](LEARNING_DATA_PROTOCOL.md)
+- [主实验冻结记录](learning/MODEL_FREEZE.json)、[运行溯源](learning/run_manifest.json)
+- [主实验完整统计](learning/analysis.json)、[候选分类测试](learning/classifier_metrics.json)
+- [补充消融统计](learning/geometry_ablation/analysis.json)
+- [75项回归验证](learning/test_summary.json)
+- [原非学习阶段完整结果](NONLEARNING_RESULTS.md)
 
-![闭环任务结果](v3/recovery_v3_outcomes.png)
+## 编译和运行
 
-## 复现命令
-
-以下命令在**包含当前仓库的 catkin 工作区根目录**执行。运行计时实验时保持 Gazebo 和编译任务关闭，将新输出放入单独目录。
+在catkin工作区根目录执行：
 
 ```bash
 source /opt/ros/noetic/setup.bash
 catkin_make -j2 -DCATKIN_WHITELIST_PACKAGES="motion_primitives_planning;simple_airplane_plugins;simple_airplane_gazebo;simple_airplane_description"
 source devel/setup.bash
-catkin_make motion_primitives_3d_test terminal_recovery_test evaluation_plant_test -j2
-rostest motion_primitives_planning motion_primitives_3d.test
-rostest motion_primitives_planning terminal_recovery.test
-rostest motion_primitives_planning evaluation_plant.test
+roslaunch motion_primitives_planning terminal_recovery_learned.launch paused:=false
+# 或使用去几何输入网络：
+roslaunch motion_primitives_planning terminal_recovery_no_geometry.launch paused:=false
 ```
 
-运行完整 V3，包括分析程序要求的诊断记录：
-
-```bash
-repro_dir="$PWD/recovery_reproduction"
-mkdir -p "$repro_dir"
-roslaunch motion_primitives_planning recovery_benchmark_v3.launch \
-  output_prefix:="$repro_dir/recovery_v3" phase:=all stop_on_rejection:=false
-```
-
-运行 V4 匹配输入和闭环等价性重放。两次调用使用同一个 V4 前缀；也可用 `phase:=all` 一次完成。
-
-```bash
-roslaunch motion_primitives_planning recovery_benchmark_v3.launch \
-  output_prefix:="$repro_dir/recovery_v4" phase:=matched stop_on_rejection:=true
-roslaunch motion_primitives_planning recovery_benchmark_v3.launch \
-  output_prefix:="$repro_dir/recovery_v4" phase:=episodes stop_on_rejection:=true
-```
-
-分析程序需要 NumPy 和 Matplotlib。V3 分析检查完整的 episodes、plans、paths、matched、scenarios 和 diagnostic 输入；V4 分析比较两版 matched 数据，并在 V4 episodes 存在时检查完整的闭环等价性重放。
-
-```bash
-planner_pkg="$(rospack find motion_primitives_planning)"
-python3 "$planner_pkg/scripts/analyze_recovery_v3.py" \
-  "$repro_dir/recovery_v3" --output-dir "$repro_dir/report_v3"
-python3 "$planner_pkg/scripts/analyze_recovery_v4.py" \
-  "$repro_dir/recovery_v3" "$repro_dir/recovery_v4" \
-  --output-dir "$repro_dir/report_v4"
-```
-
-Gazebo/RViz 演示使用推荐入口：
-
-```bash
-roslaunch motion_primitives_planning terminal_recovery_v3.launch paused:=false
-```
-
-入口默认启用多样性 K=12、6 s 后续时域和逐采样拒绝；缓存复用默认关闭。参数 `max_backup_integration_steps:=0` 表示不额外限制后续积分总步数，候选数上限仍生效。验证预算耗尽与没有在完整候选库中找到后续控制是不同状态，均写入 `planning_status`。
-
-## 来源与研究范围
-
-研究代码以 [HKPolyU-UAV/Two-phase-motion-planning](https://github.com/HKPolyU-UAV/Two-phase-motion-planning) 的 `ccb6005c73992214a86cc0cff4fe648f1443a119` 为基线，继承其三维运动基元、执行器响应、代价及几何检查。本研究采用这份公开局部实现，在相同代码和约束上比较主时域消融、候选顺序与完整基元库搜索；相关两阶段规划论文与实现版本分别注明来源。本文研究确定性的候选验证效率，没有训练神经网络。
-
-后续研究将围绕执行裕量侵入开展连续路径检查、模型残差与控制延迟分析，并扩展真实观测遮挡、动态障碍和更完整的飞行动力学验证。在这些共同基线建立后，再评估学习候选生成是否能进一步改善相同实际工作预算下的续飞发现与闭环完成率。
-
-历史结果保持原样：[V1](README.md)、[V2](V2.md)、[V3 冻结协议](V3_PROTOCOL.md)、[V4 补充协议](V4_PROTOCOL.md)。
+网络权重随仓库提供，在线C++推理不依赖PyTorch。训练环境及数据再生成命令见学习实验说明。

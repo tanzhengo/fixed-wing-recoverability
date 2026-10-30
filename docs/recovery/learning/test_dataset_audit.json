@@ -1,0 +1,32 @@
+{
+  "generated_utc": "2026-10-30T03:54:07.972010+00:00",
+  "split": "test",
+  "purpose": "Frozen held-out candidate classifier evaluation on the 576 matched planner inputs",
+  "maps": 32,
+  "states": 576,
+  "candidate_rows": 50141,
+  "positive_candidates": 23539,
+  "states_with_feasible_primary": 506,
+  "states_with_verified_continuation": 428,
+  "oracle_integration_steps": 22420738,
+  "matched_states_exactly_equal": true,
+  "finite_library_positive_status_matches_full203": true,
+  "scenarios_exactly_equal_to_timed_benchmark": true,
+  "master_port11337_stopped": true,
+  "executable_sha256": "19610661518426ac9359acdb5bb5f9ab068b38b246d14aceed13953696ba323d",
+  "model_freeze_sha256": "47d37fe9847b75ed825782adbb1ffe2e01c6947787fa3a3a71108853f74484f3",
+  "files": {
+    "test_candidates.csv": {
+      "sha256": "b6fa30980fd02c7a3fb17924c17ba3b37be4bc1e32cf917f57e7a0b512ff507e",
+      "bytes": 46322554
+    },
+    "test_states.csv": {
+      "sha256": "9aa797e7921bcc512586e9315fbb4aa3b425bcb1ca4cb0837b030d15054a5367",
+      "bytes": 55069
+    },
+    "test_scenarios.csv": {
+      "sha256": "bb1e4fb5696367fe64167b4a070f613b1c6f3121bea1402d0779bbb56f397cac",
+      "bytes": 17280
+    }
+  }
+}

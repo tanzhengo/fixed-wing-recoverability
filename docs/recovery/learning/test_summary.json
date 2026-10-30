@@ -1,0 +1,76 @@
+{
+  "utc": "2026-10-30T03:48:10.897276+00:00",
+  "total_tests": 75,
+  "passed": 75,
+  "failed": 0,
+  "suites": [
+    {
+      "suite": "motion_primitives_3d",
+      "command": "rostest motion_primitives_planning motion_primitives_3d.test",
+      "tests": 19,
+      "passed": 19,
+      "failures": 0,
+      "log": "tests_motion_primitives_3d.txt",
+      "sha256": "d2f1900a29c2e80fc9b50d380cdee05d7d40c41b70bf9a805dfa9964001d49fe"
+    },
+    {
+      "suite": "terminal_recovery",
+      "command": "rostest motion_primitives_planning terminal_recovery.test",
+      "tests": 31,
+      "passed": 31,
+      "failures": 0,
+      "log": "tests_terminal_recovery.txt",
+      "sha256": "14d432cef5250436c14395e9cf8b952923d8837f6ec9a90685957409411254d0"
+    },
+    {
+      "suite": "evaluation_plant",
+      "command": "rostest motion_primitives_planning evaluation_plant.test",
+      "tests": 5,
+      "passed": 5,
+      "failures": 0,
+      "log": "tests_evaluation_plant.txt",
+      "sha256": "c79839fdc41f6341979b4e2cb2208b947e7f4de5d2a75becf52c097b20a0cf4d"
+    },
+    {
+      "suite": "learned_recovery",
+      "command": "rostest motion_primitives_planning learned_recovery.test",
+      "tests": 10,
+      "passed": 10,
+      "failures": 0,
+      "log": "tests_learned_recovery.txt",
+      "sha256": "fd03d738e759ad1aaeb339f3eaf1647ae180314b3802c2cc34c8236059d54f05"
+    },
+    {
+      "suite": "schedule_replay",
+      "command": "python3 motion_primitives_planning/scripts/test_select_recovery_schedule.py",
+      "tests": 10,
+      "passed": 10,
+      "failures": 0,
+      "log": "tests_schedule_replay.txt",
+      "sha256": "cf8d3a2572a7898fcf32a4c2dd1445509b3d59e66061853243c4627f80695068"
+    }
+  ],
+  "source_sha256": {
+    "motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+    "motion_primitives_planning/src/learned_recovery.h": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929",
+    "motion_primitives_planning/test/test_learned_recovery.cpp": "88e973055244a6986ecada0a910cdbba513bea66db6168404873e3c72c25e901",
+    "motion_primitives_planning/scripts/select_recovery_schedule.py": "99d94d58e3fb680583bd5cc1399a814834fe0cd2b1c9fd510444ced54b9b7dde"
+  },
+  "forward_parity": {
+    "geometry": {
+      "rows": 32,
+      "max_logit_error": 5.722045898e-06,
+      "max_log_steps_error": 9.536743164e-07,
+      "tolerance": 0.0001,
+      "passed": true
+    },
+    "state_only": {
+      "rows": 32,
+      "max_logit_error": 1.055002213e-05,
+      "max_log_steps_error": 1.907348633e-06,
+      "tolerance": 0.0001,
+      "passed": true
+    }
+  },
+  "launch_parameter_check": "roslaunch motion_primitives_planning terminal_recovery_learned.launch --dump-params: correct learned/model_path/learned_work_power forwarding"
+}

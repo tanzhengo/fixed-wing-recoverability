@@ -1,0 +1,3 @@
+# Preserve experimental evidence byte-for-byte for recorded SHA-256 hashes.
+docs/recovery/learning/** -text
+docs/recovery/learning/**/*.csv whitespace=cr-at-eol

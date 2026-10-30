@@ -1,0 +1,33 @@
+... logging to <local-log>
+[ROSUNIT] Outputting test results to <local-log>
+[Testcase: testmotion_primitives_3d_test] ... ok
+
+[ROSTEST]-----------------------------------------------------------------------
+
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/LibrarySpansThreeDimensions][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/FiniteCylinderAllowsClearanceAboveAndBelow][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/DynamicCollisionUsesFuturePositionAndHeight][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/SphereUsesTheSameClearanceInAllThreeAxes][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/SphereDoesNotOccupyItsBoundingCylinderCorners][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/SphereClearanceIncludesRadiusInflationAndConfiguredMargin][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/SphereMarkerMatchesGeometryAndPreservesCylinderMarkers][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/HorizontalCylinderHasRoundCrossSectionAndFlatEnds][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/HorizontalCylinderYawRotatesItsLongAxis][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/DiagonalHorizontalCylinderUsesLocalCoordinates][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/HorizontalMarkerMatchesAxisAndStaticColor][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/RolloutDetectsHorizontalRodBetweenClearEndpoints][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/RolloutDetectsSphereBetweenClearEndpoints][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/GroundCrossingRejectsEvenTheClimbCandidate][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/CeilingCrossingRejectsEvenTheDescentCandidate][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/DelayCompensationPreservesSelectedHeight][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/VisualizedTrajectoryMatchesEvaluatedRollout][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/ChoosesClimbWhenHorizontalPassageIsBlocked][passed]
+[motion_primitives_planning.rosunit-motion_primitives_3d_test/ChoosesDescentBelowAnElevatedObstacle][passed]
+
+SUMMARY
+ * RESULT: SUCCESS
+ * TESTS: 19
+ * ERRORS: 0
+ * FAILURES: 0
+
+rostest log file is in <local-log>

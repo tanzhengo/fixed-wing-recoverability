@@ -58,3 +58,7 @@ recovery:
   # sphere at the current position for BOTH primary and continuation trajectories.
   # This does not model real camera FOV, visibility occlusions, or aircraft volume.
   known_space_radius: 0.0
+
+# Optional trained continuation ranking; explicit validation remains unchanged.
+# Set recovery/candidate_order to learned or learned_diverse and provide the
+# exported model through recovery/model_path (terminal_recovery_learned.launch).

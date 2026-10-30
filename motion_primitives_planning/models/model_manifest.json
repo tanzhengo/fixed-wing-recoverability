@@ -1,0 +1,21 @@
+{
+  "geometry": {
+    "file": "recovery_mlp.txt",
+    "sha256": "d324bf927dc89f53568cfc3980a7a6217227a89f4b28a1f90fb324b6580a36aa",
+    "protocol": "prospectively frozen primary model"
+  },
+  "no_geometry": {
+    "file": "recovery_mlp_no_geometry.txt",
+    "sha256": "f4bd84b45dc374d6bbcc8697bac64992da9799d7b215414029f20fc4340ccba5",
+    "protocol": "same pretrained input ablation; matched test prespecified, closed-loop ablation post-evaluation"
+  },
+  "feature_schema": "feature_schema.json",
+  "architecture": [
+    103,
+    64,
+    32,
+    2
+  ],
+  "work_power": 0.0,
+  "evidence": "../../docs/recovery/learning/"
+}

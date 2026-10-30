@@ -13,6 +13,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include "learned_recovery.h"
 
 #define Rad2Deg 0.017453292519943295f
 
@@ -93,8 +94,8 @@ public:
         int early_terminated = 0;
     };
 
-    // Scheduling uses only terminal heading/height and finite primary cost.
-    // Collision, known-space, and envelope checks precede scheduling online.
+    // Primary hard checks precede all schedulers. Learned scheduling uses the
+    // terminal state, cost, and local geometry through recovery_features().
     struct recovery_candidate_t {
         s_t terminal;
         float cost = std::numeric_limits<float>::infinity();
@@ -178,9 +179,21 @@ public:
         nh.param<float>("recovery/horizon_time", recovery_horizon, 3.0f);
         nh.param<int>("recovery/max_candidates", recovery_max_candidates, 12);
         nh.param<std::string>("recovery/candidate_order", recovery_order_mode, "cost");
-        if (recovery_order_mode != "cost" && recovery_order_mode != "diverse") {
+        if (recovery_order_mode != "cost" && recovery_order_mode != "diverse" &&
+            recovery_order_mode != "learned" && recovery_order_mode != "learned_diverse") {
             ROS_WARN("Unknown recovery/candidate_order '%s'; using cost", recovery_order_mode.c_str());
             recovery_order_mode = "cost";
+        }
+        nh.param<float>("recovery/learned_work_power", learned_work_power, 1.0f);
+        if (!std::isfinite(learned_work_power)) learned_work_power = 1.0f;
+        learned_work_power = constraint(learned_work_power, 0.0f, 4.0f);
+        if (recovery_order_mode == "learned" || recovery_order_mode == "learned_diverse") {
+            std::string path;
+            nh.param<std::string>("recovery/model_path", path, "");
+            if (!learned_network.load(path)) {
+                ROS_WARN("Could not load recovery network '%s'; using diverse scheduling", path.c_str());
+                recovery_order_mode = "diverse";
+            }
         }
         nh.param<float>("recovery/known_space_radius", known_space_radius, 0.0f);
         if (!std::isfinite(recovery_horizon)) recovery_horizon = 3.0f;
@@ -403,6 +416,90 @@ public:
         return result;
     }
 
+    // Shared training/deployment feature encoder, version 1 (103 scalars).
+    // No fitted normalization or validation labels enter this representation.
+    std::vector<float> recovery_features(const s_t& initial,
+                                         const recovery_candidate_t& candidate) const {
+        const s_t& terminal = candidate.terminal;
+        const float ci = std::cos(initial.sigma), si = std::sin(initial.sigma);
+        const float ct = std::cos(terminal.sigma), st = std::sin(terminal.sigma);
+        const float dx = terminal.pos[0] - initial.pos[0];
+        const float dy = terminal.pos[1] - initial.pos[1];
+        const float gx = global_target.pos[0] - terminal.pos[0];
+        const float gy = global_target.pos[1] - terminal.pos[1];
+        const float delta = terminal.sigma - initial.sigma;
+        std::vector<float> feature = {
+            terminal.V / 20.0f, terminal.gamma / 0.35f, terminal.roll / 0.61f,
+            terminal.attack / 0.44f, terminal.T / 20.0f, terminal.d_sigma,
+            initial.V / 20.0f, initial.gamma / 0.35f, initial.roll / 0.61f,
+            initial.attack / 0.44f, initial.T / 20.0f, initial.d_sigma,
+            (dx * ci + dy * si) / 100.0f, (-dx * si + dy * ci) / 100.0f,
+            (terminal.h - initial.h) / 30.0f, std::sin(delta), std::cos(delta),
+            (gx * ct + gy * st) / 250.0f, (-gx * st + gy * ct) / 250.0f,
+            (global_target.h - terminal.h) / 50.0f,
+            (terminal.h - min_altitude) / 50.0f, (max_altitude - terminal.h) / 50.0f,
+            horizon_time / 10.0f, recovery_horizon / 10.0f, known_space_radius / 200.0f,
+            known_space_radius > 0.0f ?
+                std::sqrt(dx * dx + dy * dy + (terminal.h - initial.h) * (terminal.h - initial.h)) / known_space_radius : 0.0f,
+            candidate.cost / 20.0f, vertical_clearance / 10.0f
+        };
+        feature.reserve(LearnedRecoveryNetwork::input_size);
+        // These spatial probes describe geometry at primary terminal time. The
+        // explicit validator retains its time-varying dynamic-obstacle checks.
+        for (float forward : {0.0f, 22.5f, 45.0f, 67.5f, 90.0f})
+            for (float lateral : {-60.0f, -30.0f, 0.0f, 30.0f, 60.0f})
+                for (float height : {-15.0f, 0.0f, 15.0f}) {
+                    const float x = terminal.pos[0] + ct * forward - st * lateral;
+                    const float y = terminal.pos[1] + st * forward + ct * lateral;
+                    const float clearance = obstacle_signed_distance(x, y, terminal.h + height, horizon_time);
+                    feature.push_back(std::max(-1.0f, std::min(1.0f, clearance / 30.0f)));
+                }
+        return feature;
+    }
+
+    // Signed distance to the union of the same inflated geometric obstacles
+    // used by collision_check(). Altitude limits are encoded separately above.
+    float obstacle_signed_distance(float x, float y, float z,
+                                   float prediction_time = 0.0f) const {
+        float distance = 30.0f;
+        const auto capped_cylinder = [](float radial, float axial) {
+            return std::hypot(std::max(radial, 0.0f), std::max(axial, 0.0f)) +
+                std::min(std::max(radial, axial), 0.0f);
+        };
+        const auto vertical = [&](float ox, float oy, float oz, float radius, float height) {
+            return capped_cylinder(std::hypot(x - ox, y - oy) - 1.2f * radius,
+                std::abs(z - oz) - height / 2.0f - vertical_clearance);
+        };
+        for (const auto& o : static_obs_vec)
+            distance = std::min(distance, vertical(o.pos[0], o.pos[1], o.z, o.r, o.height));
+        for (const auto& o : sphere_obs_vec) {
+            const float margin = std::max(0.2f * o.r, vertical_clearance);
+            distance = std::min(distance, std::sqrt((x-o.x)*(x-o.x) +
+                (y-o.y)*(y-o.y) + (z-o.z)*(z-o.z)) - o.r - margin);
+        }
+        for (const auto& o : horizontal_obs_vec) {
+            const float dx = x - o.x, dy = y - o.y;
+            const float axial = dx * o.axis_x + dy * o.axis_y;
+            const float transverse = -dx * o.axis_y + dy * o.axis_x;
+            const float margin = std::max(0.2f * o.r, vertical_clearance);
+            distance = std::min(distance, capped_cylinder(std::hypot(transverse, z - o.z) - o.r - margin,
+                std::abs(axial) - o.length / 2.0f - margin));
+        }
+        for (const auto& o : dyn_obs_vec) {
+            float ox = o.current_pos[0], oy = o.current_pos[1];
+            if (prediction_time > 0 && o.type == "linear") {
+                ox += o.velocity * std::cos(o.direction) * prediction_time;
+                oy += o.velocity * std::sin(o.direction) * prediction_time;
+            } else if (prediction_time > 0 && o.type == "circular") {
+                const float angle = o.angle + o.angular_velocity * prediction_time;
+                ox = o.center[0] + o.radius * std::cos(angle);
+                oy = o.center[1] + o.radius * std::sin(angle);
+            }
+            distance = std::min(distance, vertical(ox, oy, o.z, o.r, o.height));
+        }
+        return distance;
+    }
+
     // Return original input indices under the configured validation budget.
     // Deterministic farthest-point coverage supplements, but cannot establish,
     // recoverability: every scheduled primary still needs explicit validation.
@@ -440,6 +537,25 @@ public:
                 ? (first.h - second.h) / height_span : 0.0f;
             return heading * heading + height * height;
         };
+        std::vector<size_t> learned_order = cost_order;
+        bool use_learned = (recovery_order_mode == "learned" || recovery_order_mode == "learned_diverse") &&
+            learned_network.ready();
+        if (use_learned) {
+            std::vector<float> utility(candidates.size(), 0.0f);
+            for (size_t i : cost_order) {
+                std::array<float, 2> output;
+                if (!learned_network.predict(recovery_features(initial, candidates[i]), output)) {
+                    use_learned = false;
+                    ROS_WARN_THROTTLE(5.0, "Nonfinite recovery network inference; using diverse scheduling");
+                    break;
+                }
+                utility[i] = LearnedRecoveryNetwork::probability(output[0]) /
+                    std::pow(1.0f + LearnedRecoveryNetwork::predicted_steps(output[1]) / 1000.0f,
+                             learned_work_power);
+            }
+            if (use_learned) std::stable_sort(learned_order.begin(), learned_order.end(),
+                [&](size_t a, size_t b) { return utility[a] > utility[b]; });
+        }
         std::vector<size_t> selected;
         selected.reserve(limit);
         std::vector<bool> used(candidates.size(), false);
@@ -458,6 +574,12 @@ public:
                     farthest = closest[i];
                     next = i;
                 }
+            }
+            // After the common cheapest-first seed, the hybrid alternates
+            // learned ranking and farthest-first exploration. Distances above
+            // are updated against every selected member in either mode.
+            if (use_learned && (recovery_order_mode == "learned" || selected.size() % 2 == 1)) {
+                for (size_t i : learned_order) if (!used[i]) { next = i; break; }
             }
             if (next == candidates.size()) break;
             selected.push_back(next);
@@ -587,7 +709,7 @@ public:
                     result.recovery_verified = true;
                     result.status = "RECOVERY_VERIFIED";
                 }
-                // Cost mode retains its previous first-success behavior. Both
+                // Cost mode retains its previous first-success behavior. All
                 // modes may stop if the globally lowest-cost primary passes.
                 if (recovery_order_mode == "cost" || i == 0) return result;
             }
@@ -1234,6 +1356,8 @@ private:
     bool have_command_time = false;
     int recovery_max_candidates;
     std::string recovery_order_mode;
+    float learned_work_power = 1.0f;
+    LearnedRecoveryNetwork learned_network;
     int mp_num, vertical_num, wp_i = 0, wp_n, previous_marker_count = 0;
     s_t* state_ptr = nullptr;
     pr_t* last_pr_ptr = nullptr;

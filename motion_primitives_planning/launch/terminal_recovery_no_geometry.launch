@@ -1,0 +1,22 @@
+<launch>
+  <arg name="gui" default="true"/>
+  <arg name="rviz" default="true"/>
+  <arg name="paused" default="true"/>
+  <arg name="model_path" default="$(find motion_primitives_planning)/models/recovery_mlp_no_geometry.txt"/>
+  <arg name="candidate_order" default="learned"/>
+  <arg name="learned_work_power" default="0.0"/>
+  <arg name="max_candidates" default="12"/>
+  <arg name="max_backup_integration_steps" default="0"/>
+  <arg name="known_space_radius" default="0.0"/>
+  <include file="$(find motion_primitives_planning)/launch/terminal_recovery_v3.launch">
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="rviz" value="$(arg rviz)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="model_path" value="$(arg model_path)"/>
+    <arg name="candidate_order" value="$(arg candidate_order)"/>
+    <arg name="learned_work_power" value="$(arg learned_work_power)"/>
+    <arg name="max_candidates" value="$(arg max_candidates)"/>
+    <arg name="max_backup_integration_steps" value="$(arg max_backup_integration_steps)"/>
+    <arg name="known_space_radius" value="$(arg known_space_radius)"/>
+  </include>
+</launch>

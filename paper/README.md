@@ -1,46 +1,48 @@
 # Manuscript
 
-**Maneuver-Diverse Terminal Continuation Search for Fixed-Wing Local Motion Planning**
+**Learning-Guided Terminal Continuation Search for Fixed-Wing Motion Planning**
 
 - [Paper PDF](main.pdf)
 - [LaTeX entry file](main.tex)
 - [Chinese results and reproduction guide](../docs/recovery/FINAL_RESULTS.md)
+- [Network, data and experiment evidence](../docs/recovery/learning/README.md)
 
-This complete English research draft uses the IEEE two-column journal layout
-and an anonymous author line. The paper includes the problem formulation,
-algorithm, prediction model, controlled experiments, uncertainty estimates,
-failure analysis, discussion, and references. Author and affiliation details
-can be supplied when preparing a named submission.
+The English IEEE-format manuscript includes the actual trained neural network,
+its feature representation and loss, separate training/validation/test maps,
+matched-state budget comparisons, closed-loop evaluation, and input ablation.
+It uses an anonymous author line for review; author and affiliation information
+can be entered in main.tex when preparing a named submission.
 
 ## Compile
 
-The project is self-contained: all figures, tables, bibliography, and section
-sources are inside this directory. With Tectonic installed:
+The project contains every figure, table and bibliography needed to compile:
 
 ```bash
 cd paper
 tectonic --keep-logs main.tex
 ```
 
-The delivered PDF was compiled with Tectonic 0.17.0. A fresh installation may
-need network access to retrieve TeX packages and fonts. The included generated
-`main.bbl` retains the formatted bibliography. A conventional LaTeX installation
-can also compile the sources with XeLaTeX and BibTeX.
+The delivered PDF uses Tectonic 0.17.0. A fresh installation may need network
+access to obtain TeX packages. The generated main.bbl is included.
 
-## Experiment provenance
+## Evidence
 
-The complete-rollout experiment is recorded at source commit `4b3b0f6` and in
-[`docs/recovery/v3/manifest.json`](../docs/recovery/v3/manifest.json).
-The incremental-rejection results are in
-[`docs/recovery/v4/`](../docs/recovery/v4/).
+The primary learning suite contains 576 matched states (11 methods/budgets,
+two timing repeats) and 768 closed-loop method-map-condition episodes. A
+separate frozen-model geometry-input ablation adds 256 changed-method episodes
+on the same maps and replays 512 unchanged baseline episodes exactly. These
+replays do not add independent maps. The 32 test maps are separate from the
+160 training and 32 validation maps.
 
-The main task matrix contains 480 method–map–condition episodes. Repeating it
-with the incremental validator reproduces every outcome and recorded state.
-Each validator also has 6,048 matched-input observations (432 states × 7
-methods × 2 timing repeats). Timing repeats and implementation replays are
-not additional independent maps.
+The prospectively frozen geometry model completes 99/128 tasks; the subsequent
+no-geometry input ablation completes 117/128. The manuscript retains both
+results and their different experimental roles. The primary runtime timings
+were collected independently of training and compilation.
 
-The benchmark and analysis scripts regenerate the empirical figures. The
-schematic can be regenerated with `python3 create_schematic.py`. The source
-notes for the references are preserved in `literature_sources.md`; they
-separate paper content verification from bibliographic metadata checks.
+Figures are regenerated from audited experiment outputs using
+`create_schematic.py` and `create_learning_figures.py`. The latter expects the
+repository's `docs/recovery/learning` directory. Existing figure files suffice
+for compilation of the standalone source package.
+
+Historical nonlearning development experiments remain in docs/recovery/v3 and
+v4. They are not merged with the new learning test split.

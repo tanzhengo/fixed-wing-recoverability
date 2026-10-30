@@ -1,7 +1,7 @@
 \section{Problem Formulation}
 \begin{figure*}[!t]
 \centering\includegraphics[width=.94\textwidth]{figures/architecture.pdf}
-\caption{Local planning cycle. Terminal diversity schedules explicit continuation checks; a candidate-count or integration-step budget limits their work.}
+\caption{Local planning cycle. A geometry-conditioned network and maneuver coverage schedule explicit continuation checks. The same validator supplies offline training labels and online trajectory acceptance.}
 \label{fig:architecture}
 \end{figure*}
 
@@ -18,7 +18,7 @@ At a planning update, the primary library $\mathcal U_H(x_0)$ contains $N$ regul
                  \text{ for all }x\in\tau_i\}.
  \label{eq:primary}
 \end{equation}
-The principal experiments use the supplied obstacle map without a range restriction. A finite spherical $\mathcal O(x_0)$ is introduced in the range-limited diagnostic.
+The experiments use the supplied obstacle map without a range restriction.
 
 The primary task cost combines terminal distance, altitude error, terminal heading error, and command change:
 \begin{align}
@@ -45,7 +45,7 @@ The implementation checks continuation controls in a fixed order and stops check
 
 Two budgets are considered. A candidate budget $K$ limits the number of primary endpoints submitted for continuation validation. A work budget $W$ limits the total numerical integration steps spent on continuations. The latter accounts for rollouts that terminate early because of invalid dynamics. An unfinished rollout is never accepted as a complete witness. Primary propagation and schedule construction are included in elapsed planning time, but are reported separately from the continuation work budget.
 
-\section{Maneuver-Diverse Validation}
+\section{Budgeted Continuation Validation}
 \subsection{Terminal Representation and Physical Scaling}
 For a feasible primary, the scheduling representation is $z_i=(\psi_i^+,h_i^+)$. Its two coordinates capture changes in turning direction and vertical maneuver. Let $V_0=\max(V_{\min},V(x_0))$ denote the airspeed used for scaling at the current update. Define the nominal scales
 \begin{align}
@@ -82,8 +82,11 @@ Among the scheduled primaries with a verified continuation, the algorithm select
 \begin{algorithmic}[1]
 \Require State $x_0$, target $g$, primary library, budget $K$ or $W$
 \State Propagate all primaries; retain feasible set $\mathcal I$
+\If{$\mathcal I=\varnothing$ and a preceding control exists}
+ \State Test that control over $H$; add it if feasible
+\EndIf
 \If{$\mathcal I=\varnothing$}\State \Return planning failure\EndIf
-\State Compute costs and schedule $S$ using~\eqref{eq:schedule}
+\State Compute costs and a cost, diverse, learned or hybrid schedule $S$
 \State $i_{\rm best}\gets\varnothing$, $w\gets0$
 \For{each scheduled primary $i$ within the budget}
  \For{each continuation $v\in\mathcal B_B(x_i^+)$}
@@ -94,7 +97,9 @@ Among the scheduled primaries with a verified continuation, the algorithm select
   \EndIf
   \If{the work allowance is exhausted}\State \textbf{break}\EndIf
  \EndFor
- \If{$i_{\rm best}$ is the cheapest feasible primary}\State \textbf{break}\EndIf
+ \If{$i_{\rm best}\ne\varnothing$ and (cost order or cheapest primary found)}
+ \State \textbf{break}
+\EndIf
 \EndFor
 \If{$i_{\rm best}\ne\varnothing$}\State \Return primary and continuation witness
 \Else\State \Return cheapest feasible primary and search status
@@ -107,9 +112,7 @@ Maintaining the closest selected distance for each endpoint gives $O(NK)$ schedu
 \subsection{Incremental Constraint Rejection}
 A continuation is feasible only if every sampled state satisfies its constraints. Once a sample violates a constraint, further integration cannot change the rejection. The incremental validator therefore terminates at the first violating sample and allocates the remaining work to subsequent controls or primary endpoints. A work-limit truncation is treated separately from a constraint rejection.
 
-For a fixed candidate schedule without work truncation, this modification preserves the accepted continuation set and the selected primary. Both validators use the same deterministic integration prefix; a rejected prefix cannot become an accepted complete trajectory, while a feasible continuation is integrated to the same terminal sample. Under a hard work limit, the modification can change the decision by allowing the search to inspect more of the scheduled candidates. We compare complete-rollout and incremental-rejection validators on identical matched inputs.
+For a fixed candidate schedule without work truncation, this modification preserves the accepted continuation set and the selected primary. Both validators use the same deterministic integration prefix; a rejected prefix cannot become an accepted complete trajectory, while a feasible continuation is integrated to the same terminal sample. Under a hard work limit, the modification can change the decision by allowing the search to inspect more of the scheduled candidates. All learned and nonlearned schedules in the present comparison use this same incremental validator.
 
-\subsection{Search Status and Reuse Diagnostic}
+\subsection{Search Status}
 The implementation distinguishes finding a witness, exhausting a budget, exhausting the finite continuation search, and having no feasible primary. Rejected continuations are classified by invalid dynamics, inflated-obstacle intersection, flight-envelope violation, and observation-boundary violation. Complete-rollout validation assigns reasons in this priority order. Incremental rejection records the first violating sample, resolving simultaneous violations by envelope, collision, and observation boundary; model-invalid states are rejected first. Truncation by a work limit is recorded separately.
-
-An optional execution cache stores a previously verified primary--continuation pair. Elapsed execution removes time from this sequence, and reuse requires reintegration of its remaining segments from the current measured state. Revalidation produces a shrinking remaining trajectory, whereas a new primary--continuation pair restores the full planning durations. The main experiments disable this option to isolate scheduling. A separate diagnostic examines its interaction with a finite observation boundary and task progress.

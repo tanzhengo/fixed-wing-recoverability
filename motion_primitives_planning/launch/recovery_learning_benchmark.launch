@@ -1,0 +1,18 @@
+<launch>
+  <arg name="output_prefix" default="/tmp/recovery_learning"/>
+  <arg name="phase" default="dataset"/>
+  <arg name="split" default="train"/>
+  <arg name="maps_per_family" default="0"/>
+  <arg name="model_path" default=""/>
+  <arg name="state_only_model_path" default=""/>
+  <arg name="work_power" default="1.0"/>
+  <node pkg="motion_primitives_planning" type="recovery_learning_benchmark" name="recovery_learning_benchmark" output="screen">
+    <param name="output_prefix" value="$(arg output_prefix)"/>
+    <param name="phase" value="$(arg phase)"/>
+    <param name="split" value="$(arg split)"/>
+    <param name="maps_per_family" value="$(arg maps_per_family)"/>
+    <param name="model_path" value="$(arg model_path)"/>
+    <param name="state_only_model_path" value="$(arg state_only_model_path)"/>
+    <param name="work_power" value="$(arg work_power)"/>
+  </node>
+</launch>

@@ -1,0 +1,45 @@
+{
+  "design": "post-evaluation geometry-input mission ablation; no timing inference",
+  "start_utc": "2026-10-30T03:55:20.437780+00:00",
+  "command": [
+    "taskset",
+    "-c",
+    "2",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/recovery_learning_benchmark",
+    "_phase:=episodes",
+    "_split:=test",
+    "_output_prefix:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/learning/geometry_ablation/test",
+    "_model_path:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/learning/models/state_only/network.txt",
+    "_state_only_model_path:=/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/learning/models/state_only/network.txt",
+    "_work_power:=0.0"
+  ],
+  "ROS_MASTER_URI": "http://localhost:11334",
+  "cpu_affinity": [
+    2
+  ],
+  "executable": {
+    "path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/recovery_learning_benchmark",
+    "sha256": "19610661518426ac9359acdb5bb5f9ab068b38b246d14aceed13953696ba323d"
+  },
+  "freeze_sha256": "47d37fe9847b75ed825782adbb1ffe2e01c6947787fa3a3a71108853f74484f3",
+  "frozen_source_hashes": {
+    "motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+    "motion_primitives_planning/src/learned_recovery.h": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929",
+    "motion_primitives_planning/src/recovery_learning_benchmark.cpp": "a94efa428c71075d75e76cceda456456dac04cfee55730fc14a425ed5146101d",
+    "motion_primitives_planning/scripts/train_recovery_network.py": "e9dd623a098af8c4b29867ebb2188284fcc11621d65e74a832c25c5799766452",
+    "motion_primitives_planning/scripts/select_recovery_schedule.py": "99d94d58e3fb680583bd5cc1399a814834fe0cd2b1c9fd510444ced54b9b7dde"
+  },
+  "main_model": {
+    "path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/learning/models/state_only/network.txt",
+    "sha256": "f4bd84b45dc374d6bbcc8697bac64992da9799d7b215414029f20fc4340ccba5"
+  },
+  "protocol_sha256": "bd780c860d2b7200ae123fd79ca8e4671cf79d57e59110ba2452220827c8d53c",
+  "primary_run_manifest_sha256": "e191ce7800235696d8a452edc6f22b5767fb88817570b013abd7fe74f5ce054e",
+  "status": "complete",
+  "pid": 80136,
+  "exit_code": 0,
+  "end_utc": "2026-10-30T03:58:22.445027+00:00",
+  "source_unchanged": true,
+  "model_unchanged": true,
+  "executable_unchanged": true
+}

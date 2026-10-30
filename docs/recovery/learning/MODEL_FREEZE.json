@@ -1,0 +1,36 @@
+{
+  "protocol": "learned_continuation_v1",
+  "frozen_utc": "2026-10-30T03:48:00.943935+00:00",
+  "test_accessed": false,
+  "architecture": [
+    103,
+    64,
+    32,
+    2
+  ],
+  "training_seed": 20261030,
+  "epochs": 60,
+  "learning_rate": 0.001,
+  "batch_size": 2048,
+  "loss": "BCE + 0.1 SmoothL1(log1p work)",
+  "checkpoint_selection": "minimum validation loss",
+  "work_power": 0.0,
+  "work_power_selection": "Shared exponent maximizes mean validation recall across geometry learned/hybrid x K12/W3600; exact ties choose smaller exponent.",
+  "models": {
+    "geometry": "d324bf927dc89f53568cfc3980a7a6217227a89f4b28a1f90fb324b6580a36aa",
+    "state_only": "f4bd84b45dc374d6bbcc8697bac64992da9799d7b215414029f20fc4340ccba5"
+  },
+  "source": {
+    "motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+    "motion_primitives_planning/src/learned_recovery.h": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929",
+    "motion_primitives_planning/src/recovery_learning_benchmark.cpp": "a94efa428c71075d75e76cceda456456dac04cfee55730fc14a425ed5146101d",
+    "motion_primitives_planning/scripts/train_recovery_network.py": "e9dd623a098af8c4b29867ebb2188284fcc11621d65e74a832c25c5799766452",
+    "motion_primitives_planning/scripts/select_recovery_schedule.py": "99d94d58e3fb680583bd5cc1399a814834fe0cd2b1c9fd510444ced54b9b7dde"
+  },
+  "validation_schedule_sha256": "80d38f203f23fcdf013650239c3d305d2177b96d0574bda01a481130634c12f6",
+  "test_split_seed_base": 501000,
+  "test_maps": 32,
+  "test_matched_states": 576,
+  "test_episodes": 768,
+  "planned_additional_test": "Candidate oracle labels on same576 teststates for heldout classifier metrics; no tuning after freeze."
+}

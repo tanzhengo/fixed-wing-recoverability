@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "maps": 4,
+  "states": 96,
+  "candidate_rows": 7578,
+  "comparison": "Exact serialized values except global state_id across all candidate labels, costs and103features"
+}

@@ -1,0 +1,800 @@
+{
+  "version": "RECOVERY_MLP_V1",
+  "dimension": 103,
+  "features": [
+    {
+      "index": 0,
+      "name": "terminal_V/20"
+    },
+    {
+      "index": 1,
+      "name": "terminal_gamma/0.35"
+    },
+    {
+      "index": 2,
+      "name": "terminal_roll/0.61"
+    },
+    {
+      "index": 3,
+      "name": "terminal_attack/0.44"
+    },
+    {
+      "index": 4,
+      "name": "terminal_T/20"
+    },
+    {
+      "index": 5,
+      "name": "terminal_d_sigma"
+    },
+    {
+      "index": 6,
+      "name": "initial_V/20"
+    },
+    {
+      "index": 7,
+      "name": "initial_gamma/0.35"
+    },
+    {
+      "index": 8,
+      "name": "initial_roll/0.61"
+    },
+    {
+      "index": 9,
+      "name": "initial_attack/0.44"
+    },
+    {
+      "index": 10,
+      "name": "initial_T/20"
+    },
+    {
+      "index": 11,
+      "name": "initial_d_sigma"
+    },
+    {
+      "index": 12,
+      "name": "displacement_initial_forward/100"
+    },
+    {
+      "index": 13,
+      "name": "displacement_initial_lateral/100"
+    },
+    {
+      "index": 14,
+      "name": "displacement_height/30"
+    },
+    {
+      "index": 15,
+      "name": "sin_heading_delta"
+    },
+    {
+      "index": 16,
+      "name": "cos_heading_delta"
+    },
+    {
+      "index": 17,
+      "name": "goal_terminal_forward/250"
+    },
+    {
+      "index": 18,
+      "name": "goal_terminal_lateral/250"
+    },
+    {
+      "index": 19,
+      "name": "goal_height_delta/50"
+    },
+    {
+      "index": 20,
+      "name": "terminal_height_above_min/50"
+    },
+    {
+      "index": 21,
+      "name": "terminal_height_below_max/50"
+    },
+    {
+      "index": 22,
+      "name": "primary_horizon/10"
+    },
+    {
+      "index": 23,
+      "name": "backup_horizon/10"
+    },
+    {
+      "index": 24,
+      "name": "known_radius/200"
+    },
+    {
+      "index": 25,
+      "name": "terminal_displacement_norm/known_radius_or_zero"
+    },
+    {
+      "index": 26,
+      "name": "primary_cost/20"
+    },
+    {
+      "index": 27,
+      "name": "vertical_clearance/10"
+    },
+    {
+      "index": 28,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        -60,
+        -15
+      ]
+    },
+    {
+      "index": 29,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        -60,
+        0
+      ]
+    },
+    {
+      "index": 30,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        -60,
+        15
+      ]
+    },
+    {
+      "index": 31,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        -30,
+        -15
+      ]
+    },
+    {
+      "index": 32,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        -30,
+        0
+      ]
+    },
+    {
+      "index": 33,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        -30,
+        15
+      ]
+    },
+    {
+      "index": 34,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        0,
+        -15
+      ]
+    },
+    {
+      "index": 35,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index": 36,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        0,
+        15
+      ]
+    },
+    {
+      "index": 37,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        30,
+        -15
+      ]
+    },
+    {
+      "index": 38,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        30,
+        0
+      ]
+    },
+    {
+      "index": 39,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        30,
+        15
+      ]
+    },
+    {
+      "index": 40,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        60,
+        -15
+      ]
+    },
+    {
+      "index": 41,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        60,
+        0
+      ]
+    },
+    {
+      "index": 42,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        0,
+        60,
+        15
+      ]
+    },
+    {
+      "index": 43,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        -60,
+        -15
+      ]
+    },
+    {
+      "index": 44,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        -60,
+        0
+      ]
+    },
+    {
+      "index": 45,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        -60,
+        15
+      ]
+    },
+    {
+      "index": 46,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        -30,
+        -15
+      ]
+    },
+    {
+      "index": 47,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        -30,
+        0
+      ]
+    },
+    {
+      "index": 48,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        -30,
+        15
+      ]
+    },
+    {
+      "index": 49,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        0,
+        -15
+      ]
+    },
+    {
+      "index": 50,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        0,
+        0
+      ]
+    },
+    {
+      "index": 51,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        0,
+        15
+      ]
+    },
+    {
+      "index": 52,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        30,
+        -15
+      ]
+    },
+    {
+      "index": 53,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        30,
+        0
+      ]
+    },
+    {
+      "index": 54,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        30,
+        15
+      ]
+    },
+    {
+      "index": 55,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        60,
+        -15
+      ]
+    },
+    {
+      "index": 56,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        60,
+        0
+      ]
+    },
+    {
+      "index": 57,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        22.5,
+        60,
+        15
+      ]
+    },
+    {
+      "index": 58,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        -60,
+        -15
+      ]
+    },
+    {
+      "index": 59,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        -60,
+        0
+      ]
+    },
+    {
+      "index": 60,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        -60,
+        15
+      ]
+    },
+    {
+      "index": 61,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        -30,
+        -15
+      ]
+    },
+    {
+      "index": 62,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        -30,
+        0
+      ]
+    },
+    {
+      "index": 63,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        -30,
+        15
+      ]
+    },
+    {
+      "index": 64,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        0,
+        -15
+      ]
+    },
+    {
+      "index": 65,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        0,
+        0
+      ]
+    },
+    {
+      "index": 66,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        0,
+        15
+      ]
+    },
+    {
+      "index": 67,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        30,
+        -15
+      ]
+    },
+    {
+      "index": 68,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        30,
+        0
+      ]
+    },
+    {
+      "index": 69,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        30,
+        15
+      ]
+    },
+    {
+      "index": 70,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        60,
+        -15
+      ]
+    },
+    {
+      "index": 71,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        60,
+        0
+      ]
+    },
+    {
+      "index": 72,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        45,
+        60,
+        15
+      ]
+    },
+    {
+      "index": 73,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        -60,
+        -15
+      ]
+    },
+    {
+      "index": 74,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        -60,
+        0
+      ]
+    },
+    {
+      "index": 75,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        -60,
+        15
+      ]
+    },
+    {
+      "index": 76,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        -30,
+        -15
+      ]
+    },
+    {
+      "index": 77,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        -30,
+        0
+      ]
+    },
+    {
+      "index": 78,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        -30,
+        15
+      ]
+    },
+    {
+      "index": 79,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        0,
+        -15
+      ]
+    },
+    {
+      "index": 80,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        0,
+        0
+      ]
+    },
+    {
+      "index": 81,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        0,
+        15
+      ]
+    },
+    {
+      "index": 82,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        30,
+        -15
+      ]
+    },
+    {
+      "index": 83,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        30,
+        0
+      ]
+    },
+    {
+      "index": 84,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        30,
+        15
+      ]
+    },
+    {
+      "index": 85,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        60,
+        -15
+      ]
+    },
+    {
+      "index": 86,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        60,
+        0
+      ]
+    },
+    {
+      "index": 87,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        67.5,
+        60,
+        15
+      ]
+    },
+    {
+      "index": 88,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        -60,
+        -15
+      ]
+    },
+    {
+      "index": 89,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        -60,
+        0
+      ]
+    },
+    {
+      "index": 90,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        -60,
+        15
+      ]
+    },
+    {
+      "index": 91,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        -30,
+        -15
+      ]
+    },
+    {
+      "index": 92,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        -30,
+        0
+      ]
+    },
+    {
+      "index": 93,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        -30,
+        15
+      ]
+    },
+    {
+      "index": 94,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        0,
+        -15
+      ]
+    },
+    {
+      "index": 95,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        0,
+        0
+      ]
+    },
+    {
+      "index": 96,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        0,
+        15
+      ]
+    },
+    {
+      "index": 97,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        30,
+        -15
+      ]
+    },
+    {
+      "index": 98,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        30,
+        0
+      ]
+    },
+    {
+      "index": 99,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        30,
+        15
+      ]
+    },
+    {
+      "index": 100,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        60,
+        -15
+      ]
+    },
+    {
+      "index": 101,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        60,
+        0
+      ]
+    },
+    {
+      "index": 102,
+      "name": "clipped_inflated_obstacle_signed_distance/30",
+      "terminal_frame_offset_m": [
+        90,
+        60,
+        15
+      ]
+    }
+  ],
+  "probe_time": "primary_horizon",
+  "probe_distance_clip": [
+    -1,
+    1
+  ],
+  "altitude_limits": "Separate scalar features; excluded from obstacle signed distance",
+  "normalization": "Fixed physical scales; no fitted statistics"
+}

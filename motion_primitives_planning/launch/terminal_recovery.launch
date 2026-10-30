@@ -8,6 +8,8 @@
   <!-- Full primary coverage for the first prototype; 12 is the budget ablation. -->
   <arg name="max_candidates" default="203"/>
   <arg name="candidate_order" default="cost"/>
+  <arg name="model_path" default=""/>
+  <arg name="learned_work_power" default="1.0"/>
   <arg name="backup_horizon" default="3.0"/>
   <arg name="reuse_verified_plan" default="false"/>
   <arg name="require_terminal" default="true"/>
@@ -27,6 +29,8 @@
   <param name="/suav1/recovery/known_space_radius" value="$(arg known_space_radius)" type="double"/>
   <param name="/suav1/recovery/max_candidates" value="$(arg max_candidates)" type="int"/>
   <param name="/suav1/recovery/candidate_order" value="$(arg candidate_order)" type="str"/>
+  <param name="/suav1/recovery/model_path" value="$(arg model_path)" type="str"/>
+  <param name="/suav1/recovery/learned_work_power" value="$(arg learned_work_power)" type="double"/>
   <param name="/suav1/recovery/horizon_time" value="$(arg backup_horizon)" type="double"/>
   <param name="/suav1/recovery/reuse_verified_plan" value="$(arg reuse_verified_plan)" type="bool"/>
   <param name="/suav1/recovery/require_terminal" value="$(arg require_terminal)" type="bool"/>

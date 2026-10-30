@@ -1,0 +1,40 @@
+\section{Learning to Allocate Continuation Checks}
+\subsection{Geometry and Dynamic-State Encoding}
+The diversity schedule covers different terminal maneuvers but does not distinguish an open turn from a geometrically blocked one. We learn this distinction from the outcomes of the continuation validator. For each feasible primary, a shared encoder constructs a 103-dimensional feature vector $\xi_i$ from the initial state, terminal state, target, flight envelope, and obstacle geometry.
+
+Twenty-eight scalar channels describe the initial and terminal airspeed, flight-path angle, roll, angle of attack, thrust and yaw rate; terminal displacement in the initial heading frame; the sine and cosine of relative terminal heading; target displacement in the terminal heading frame; upper and lower altitude margins; the two prediction durations; observation radius and normalized terminal displacement; primary cost; and vertical clearance. Fixed physical scales normalize these quantities. Absolute world position and absolute heading are omitted, so the encoding is invariant to a common horizontal rigid transformation of the state, map and target.
+
+The remaining 75 channels sample signed obstacle clearance on a grid attached to the terminal heading. Forward offsets are $\{0,22.5,45,67.5,90\}$ m, lateral offsets are $\{-60,-30,0,30,60\}$ m, and height offsets are $\{-15,0,15\}$ m. For probe $q$, the feature is
+\begin{equation}
+ c(q)=\clip\!\left(\frac{d_{\mathcal F}(q)}{30\,{\rm m}},-1,1\right),
+\end{equation}
+where signed clearance is positive outside the inflated obstacles. This representation captures free turning space and nearby barriers without integrating a continuation. The encoder and explicit validator use the same obstacle dimensions and margins. Flight-envelope limits remain separate scalar channels.
+
+\subsection{Joint Feasibility and Work Prediction}
+A multilayer perceptron contains two ReLU hidden layers of widths 64 and 32, followed by two linear outputs. With $\rho$ denoting ReLU,
+\begin{equation}
+ (\ell_i,r_i)=W_3\rho\!\left(W_2\rho(W_1\xi_i+b_1)+b_2\right)+b_3.
+\end{equation}
+The network has 8,802 trainable parameters. The first output predicts continuation feasibility as $\hat p_i=\operatorname{sigmoid}(\ell_i)$. The second predicts log validation work, giving $\hat w_i=\exp(\clip(r_i,0,12))-1$ integration steps.
+
+Training labels come from the same finite continuation bank used online. For every primary that passes the common feasibility checks, the incremental validator tests its 15 successors in the fixed library order. The binary label $C_i$ records whether a witness is found. The work label $w_i$ records all integration steps consumed up to the first witness or exhaustion of the bank. Thus, negative queries also provide work supervision. The loss is
+\begin{equation}
+ \mathcal L=\frac{1}{n}\sum_i\left[
+ \operatorname{BCE}(\ell_i,C_i)
+ +0.1\operatorname{Huber}_1(r_i-\log(1+w_i))\right].
+ \label{eq:learning_loss}
+\end{equation}
+Candidate examples are weighted uniformly. This supervision requires obstacle geometry and model-based validation, but no expert flight trajectories.
+
+\subsection{Learned Priority and Maneuver Exploration}
+We rank continuation queries using
+\begin{equation}
+ a_i=\frac{\hat p_i}{(1+\hat w_i/1000)^\beta}, \label{eq:priority}
+\end{equation}
+where $\beta$ controls the influence of predicted work. At $\beta=0$, the schedule uses only predicted feasibility. Positive $\beta$ favors candidates expected to supply a witness with less validation effort. The denominator scales the regression output to the integration budgets used by the planner; the priority is a scheduling heuristic for correlated candidates. Validation selects $\beta=0$ for the frozen test model, so its deployed ranking uses feasibility and the work head supplies auxiliary supervision.
+
+Both learned schedules retain the cheapest feasible primary as their first query. \emph{Learned} then visits candidates in descending $a_i$, with task cost and original library index resolving ties. \emph{Hybrid} alternates a learned-priority query with a farthest-first query under~\eqref{eq:metric}. The distance to the selected set is updated after every query, including those chosen by the network. This interleaving preserves maneuver exploration when geometrically similar candidates receive similar predicted scores.
+
+The selected schedule enters the explicit continuation search in Algorithm~\ref{alg:search}. The explicit search determines acceptance, and the minimum-cost verified primary is executed. The network changes the allocation of checks while retaining the original control parameterization, primary objective and constraint evaluator. Feature extraction and inference contribute to measured planning time, whereas $W$ counts continuation integration steps. This distinction permits separate assessment of validation savings and total runtime.
+
+The deployed implementation evaluates the exported dense layers directly in C++, using the same feature encoder as the offline dataset generator. Model and source hashes identify the exact implementation used for each experiment.

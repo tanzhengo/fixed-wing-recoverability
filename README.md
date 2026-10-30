@@ -1,43 +1,54 @@
 # fixed-wing-recoverability
 
-面向固定翼局部规划的**机动多样性终端续飞搜索**。在相同候选预算下，通过覆盖不同机动方向提高后续可行控制的发现率，再用逐采样拒绝减少无效轨迹的计算。
+固定翼运动基元规划中的**学习引导终端续飞搜索**。网络预测候选终态的后续可行性及验证工作量，在有限预算内安排显式动力学与碰撞检查。
 
-**英文论文稿：** [Maneuver-Diverse Terminal Continuation Search for Fixed-Wing Local Motion Planning](paper/main.pdf) · [LaTeX 源码](paper/main.tex)
+**英文论文：** [Learning-Guided Terminal Continuation Search for Fixed-Wing Motion Planning](paper/main.pdf) · [LaTeX 源码](paper/main.tex)
 
-**方法、结果与复现：** [最终实验说明](docs/recovery/FINAL_RESULTS.md)
+**实验与复现：** [最新结果](docs/recovery/FINAL_RESULTS.md) · [训练模型和原始证据](docs/recovery/learning/README.md)
 
-## 已完成的方法与结果
+## 网络与验证
 
-规划器保留 203 个主运动基元、原控制模型和轨迹代价。新调度先保留最低代价候选，再按物理机动尺度归一化的终态航向和高度选择互补候选；每个终态最多检查 15 个后续控制。验证器在首次采样违规时结束该条后续轨迹的积分，把剩余预算用于其他候选。当前推荐配置为 3 s 主时域、6 s 后续时域、K=12，并启用逐采样拒绝。
+网络为 103–64–32–2 的 MLP，共 8,802 个参数；输入包含 28 个状态、目标和约束特征，以及 75 个障碍净空采样。另提供移除障碍净空输入的已训练消融模型。训练使用 160 张地图的 298,418 条候选标签，验证和测试各使用另外 32 张地图。监督标签由原有续飞验证器生成。
 
-| 指标 | 代价顺序 | 机动多样性顺序 |
+在线采用 C++ 推理，最终接受轨迹仍须通过显式验证。验证集选择工作量指数为 0，因此发布模型按可续接概率排序，工作量输出作为辅助学习任务。可选混合调度交替使用学习优先级与机动覆盖。
+
+## 独立测试结果
+
+在 576 个相同输入状态上，K=12 的续飞发现率为：代价顺序 77.34%、多样性 94.39%、学习模型 96.50%。在相同 3,600 积分步预算下，多样性为 78.50%，学习模型为 87.15%。学习模型的中位规划时间为 4.25 ms，多样性为 2.82 ms。
+
+| 方法 | 完成任务 /128 | 障碍裕量侵入 |
 | --- | ---: | ---: |
-| K=12 的续飞发现率 | 239/335，71.34% | 317/335，94.63% |
-| 10,800 后续积分步上限，启用逐采样拒绝 | 227/335，67.76% | 317/335，94.63% |
-| 闭环任务完成数，每方法 96 项 | 37 | 56 |
+| 仅主轨迹 | 44 | 5 |
+| 代价顺序 | 50 | 1 |
+| 多样性 | 70 | 6 |
+| 学习模型，包含几何输入 | 99 | 9 |
+| 学习与多样性混合 | 89 | 10 |
+| 完整库搜索 | 87 | 4 |
+| 去几何学习模型，补充闭环消融 | 117 | 2 |
+| 去几何混合模型，补充闭环消融 | 92 | 9 |
 
-多样性 K=12 的平均后续积分工作量比完整积分验证减少 **87.39%**，其选择和完整见证保持一致。闭环完整库对照完成 67/96 项；多样性方法另有 5 次膨胀障碍边界侵入，代价顺序为 0 次。这 5 次在首次违规检测时记录的原始障碍净空仍为正，事件定义是规划裕量侵入。完整结果包含所有失败类别及原 V3 固定工作预算下未改善的结果。
+前六行构成预先冻结的 768 项主实验。后两行为主实验之后开展的固定权重输入消融，增加 256 个方法配置，使用同一批地图。更高的候选分类准确率没有带来更高的闭环完成率，这一结果已写入论文。补充运行中的 512 项未改变基线任务、路径和决策完全复现。
 
-实验覆盖 **480 个不同的闭环配置**，以及每种验证器 **432 状态 × 7 方法 × 2 次计时重复**。逐采样验证器重放同一组 480 项任务，任务结果、记录路径与决策均与原验证器一致；重放不增加独立任务数。当前 **55 项测试通过**。
+已通过 **75 项回归检查**；两个模型均通过 PyTorch/C++ 数值一致性检查。原始数据、模型哈希、冻结记录、失败类别与分析脚本均保留。
 
-## 在 Ubuntu 上运行
-
-在包含本仓库的 catkin 工作区根目录执行：
+## Ubuntu 运行
 
 ```bash
 source /opt/ros/noetic/setup.bash
 catkin_make -j2 -DCATKIN_WHITELIST_PACKAGES="motion_primitives_planning;simple_airplane_plugins;simple_airplane_gazebo;simple_airplane_description"
 source devel/setup.bash
-roslaunch motion_primitives_planning terminal_recovery_v3.launch paused:=false
+roslaunch motion_primitives_planning terminal_recovery_learned.launch paused:=false
 ```
 
-推荐入口默认使用 `candidate_order:=diverse`、`stop_on_rejection:=true`、`max_candidates:=12`。缓存余段复用仍通过 `reuse_verified_plan:=true` 单独启用，默认关闭。基准实验与分析命令见[复现说明](docs/recovery/FINAL_RESULTS.md#复现命令)。
+运行去几何输入模型：
 
-## 来源与版本
+```bash
+roslaunch motion_primitives_planning terminal_recovery_no_geometry.launch paused:=false
+```
 
-代码基于 [HKPolyU-UAV/Two-phase-motion-planning](https://github.com/HKPolyU-UAV/Two-phase-motion-planning) 的 `ccb6005c73992214a86cc0cff4fe648f1443a119`。该版本的可执行演示采用三维运动基元滚动规划。论文实验使用同一局部实现内的同约束消融与完整基元库对照，并分别引用相关的两阶段规划论文与这份实现。
+通过 `candidate_order:=learned_diverse` 运行混合调度。上述两个入口默认 K=12、主时域 3 s、续飞时域 6 s，并启用逐采样拒绝。网络训练与基准复现命令见[学习实验说明](docs/recovery/learning/README.md)。
 
-开发过程和原始结果继续保留：[V1](docs/recovery/README.md)、[V2](docs/recovery/V2.md)、[V3 协议](docs/recovery/V3_PROTOCOL.md)、[V4 补充协议](docs/recovery/V4_PROTOCOL.md)。以下为原仓库的演示说明和署名。
+代码基于 [HKPolyU-UAV/Two-phase-motion-planning](https://github.com/HKPolyU-UAV/Two-phase-motion-planning) 的 `ccb6005c73992214a86cc0cff4fe648f1443a119`。历史非学习实验保留在[阶段结果](docs/recovery/NONLEARNING_RESULTS.md)，当前实验对照同一局部规划实现。以下保留原仓库说明和署名。
 
 ## Two-Phase Motion Planning for Fixed-Wing UAVs — upstream demo
 

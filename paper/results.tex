@@ -1,72 +1,70 @@
 \section{Results}
-\subsection{Continuation Discovery and Candidate Redundancy}
-Full-203 finds a continuation for 335 of the 432 matched inputs. Of the remaining inputs, 71 have no feasible primary and 26 have feasible primaries but no continuation in the evaluated library. These two groups are excluded from the recall denominator and retained in the computation statistics.
+\subsection{Learning Continuation Feasibility}
+Figure~\ref{fig:training} shows the training and validation curves. On the 50,141 labeled primary candidates from the held-out test states, the geometry model achieves 97.93\% classification accuracy and an AUROC of 0.9951. Removing the 75 clearance channels reduces these values to 85.52\% and 0.9458. The corresponding Brier scores are 0.0177 and 0.0997. Positive and negative class recalls for the geometry model are 97.77\% and 98.07\%, respectively. Thus, the classification gain is present on both feasible and infeasible continuation queries.
 
-With $K=12$, Cost-12 finds 239 of the 335 available witnesses, whereas Diverse-12 finds 317. Discovery recall therefore increases from 71.34\% to 94.63\%. The paired comparison contains 78 inputs found only by Diverse-12 and none found only by Cost-12. The 23.28 percentage-point difference has a 95\% map-bootstrap interval of [13.27,34.66]. Across the 24 maps, the diversity schedule improves recall on 14 and ties on ten. Figure~\ref{fig:matched} and Table~\ref{tab:matched} summarize discovery, validation work, timing, and primary-cost effects.
-
-The mean continuation work is similar for the two candidate-limited methods: 20,605 steps for Cost-12 and 21,054 for Diverse-12. Full-203 requires 81,388 mean continuation steps. Common primary propagation accounts for approximately 30,592 steps per input. Thus, endpoint coverage substantially increases discovery within the 12-candidate allowance without a comparable increase in mean continuation integration work on this suite.
-
-The diversity schedule also changes which feasible primary is selected. On the 239 inputs where both methods find a witness, its selected cost is equal or higher: the median difference is zero, the mean is 0.514, and the 95th percentile is 1.929. Whenever Cost-12 finds a witness, its selection equals the Full-203 minimum-cost choice; the coverage schedule spends some of its allowance on more distant terminal motions. This tradeoff explains why discovery and immediate task cost should be reported together.
+The geometry model's mean absolute error in log validation work is 0.481, compared with 0.581 for the geometry ablation. Nevertheless, weighting the online priority by predicted work reduces the combined validation recall objective. The frozen exponent remains zero. These results support learning continuation feasibility from local geometry, while the work-head result is reported as auxiliary prediction rather than an independently established scheduling improvement.
 
 \begin{figure*}[!t]
-\centering\includegraphics[width=\textwidth]{figures/matched.pdf}
-\caption{Matched-input comparison using complete continuation rollouts. Discovery is measured on the 335 Full-203-positive inputs. The cost difference is computed on the 239 inputs verified by both $K=12$ methods.}
-\label{fig:matched}
+\centering\includegraphics[width=.94\textwidth]{figures/training.pdf}
+\caption{Training with and without obstacle-clearance channels. Both models use the same architecture, seed, optimizer and map splits. Markers identify the checkpoints selected by joint validation loss.}
+\label{fig:training}
+\end{figure*}
+
+\subsection{Discovery Under Candidate and Work Budgets}
+Full-203 finds a continuation on 428 of the 576 matched test inputs. Of the remaining 148, 70 have no feasible primary and 78 have feasible primaries but no successor in the continuation bank. Table~\ref{tab:learning} reports discovery and computation for all methods.
+
+Under $K=12$, Cost finds 331 witnesses, Diverse finds 404, Learned finds 413 and Hybrid finds 412. Learned therefore increases recall from 94.39\% to 96.50\% relative to Diverse. The paired comparison contains nine Learned-only discoveries and no Diverse-only discovery, giving a 2.10 percentage-point difference with a 95\% map-bootstrap interval of [0.99,3.24]. Hybrid reaches 96.26\% recall. The additional exploration does not improve discovery over learned ranking on this test grid.
+
+The learned advantage is larger under the 3,600-step integration limit. Cost finds 210 witnesses, Diverse finds 336, and both Learned and Hybrid find 373. Relative to Diverse, the learned schedules increase recall from 78.50\% to 87.15\%, a difference of 8.64 percentage points [4.43,13.57]. Each adds 37 discoveries without losing a Diverse-positive input. Diverse, Learned and Hybrid consume the same mean continuation work of 2,452 steps on this grid. The gain therefore reflects a different allocation of the available validation work.
+
+\begin{figure*}[!t]
+\centering\includegraphics[width=.94\textwidth]{figures/learning_matched.pdf}
+\caption{Continuation discovery on the 428 Full-203-positive test inputs under a candidate limit and an integration-step limit. The models and ordering parameter were frozen using separate validation maps.}
+\label{fig:learningmatched}
 \end{figure*}
 
 \begin{table*}[!t]
 \centering\small
-\caption{Matched-input discovery and computation with complete continuation rollouts. Each method receives the same 432 states; two timing repeats are merged per state.}
-\label{tab:matched}
-\input{tables/matched}
+\caption{Held-out matched-state comparison. Backup steps are means over all 576 inputs; timings are percentiles of within-state medians from two repeats. All timings include primary propagation and learned feature/inference overhead where applicable.}
+\label{tab:learning}
+\input{tables/learning}
 \end{table*}
 
-\subsection{Candidate Budgets and Integration Budgets}
-Table~\ref{tab:matched} shows that candidate and integration budgets yield different comparisons. At a 3,600-step limit, both schedules discover 131 witnesses, giving 39.10\% recall. At 10,800 steps, the cost schedule finds 171 and the diversity schedule 164. The paired difference is $-2.09$ percentage points, with a 95\% map interval of [$-6.50$,3.07]. The benefit observed at $K=12$ therefore does not carry over to these smaller work limits under complete-rollout validation.
+The geometry ablation finds the same 413 witnesses as Learned under $K=12$ and 372 rather than 373 under $W=3600$. Its substantially poorer candidate classification therefore produces little loss of binary witness recall at these budgets. The choice among verified primaries is more sensitive: mean selected-cost excess above Full-203 is 2.066 for No-geometry and 1.537 for Learned under $K=12$. Hybrid reduces this excess to 1.113, while Diverse achieves 0.769. All of these means are computed over each method's verified inputs. On the 404 inputs verified by both Learned and Diverse, Learned's mean cost is 0.800 higher; the corresponding Hybrid difference is 0.364. Better discovery and lower immediate task cost are distinct outcomes of the schedule.
 
-This result follows from the nested structure of the search. Both schedules start with the cheapest feasible primary. A 3,600-step budget can be consumed before all 15 continuation controls of this first endpoint have been tested. Terminal diversity becomes relevant only when enough work remains to reach additional endpoints. Moreover, integrating a continuation after its first constraint violation consumes budget without changing its rejection. The following incremental-rejection experiment addresses this source of computation directly.
+\subsection{Computation and Runtime}
+Under $K=12$, Learned consumes 4,560 mean continuation integration steps, Hybrid 4,053, Diverse 3,424 and Cost 7,512. Full-203 consumes 16,122 steps. Thus, the learned methods reduce continuation work relative to complete candidate search, but they do not minimize work among the budgeted schedules. The shared primary propagation requires approximately 30,579 steps per input.
 
-\input{incremental_results}
+Network inference and geometric feature extraction also affect total runtime. Median/P95 planning times are 4.25/6.94 ms for Learned, 4.17/6.73 ms for Hybrid and 2.82/4.70 ms for Diverse. Full-203 has a 2.83 ms median and a 12.29 ms P95: cost ordering often terminates quickly on easy inputs, while difficult queries produce a longer tail. Under $W=3600$, Learned and Hybrid retain higher recall at median times of 4.43 and 4.45 ms, compared with 3.08 ms for Diverse. The learned ranking improves the use of an integration budget at the cost of additional scheduling time.
 
 \subsection{Closed-Loop Task Completion}
-Figure~\ref{fig:outcomes} reports all 480 episode outcomes. Aggregated over the four execution conditions, Primary-3 completes 28 of 96 tasks, Primary-6 completes 43, Cost-12 completes 37, Diverse-12 completes 56, and Full-203 completes 67. Diverse-12 gains 19 completions over Cost-12. In the paired comparison, 26 tasks succeed only with diversity and seven only with cost ordering, corresponding to a 19.79 percentage-point difference with a 95\% map-bootstrap interval of [5.21,35.42]. The longer primary-only ablation improves over Primary-3 but remains below Diverse-12 in total completion.
+Figure~\ref{fig:learningoutcomes} reports every outcome in the 768-episode primary test matrix. Primary-3 completes 44 of 128 tasks, Cost-12 completes 50, Diverse-12 completes 70, Learned-12 completes 99, Hybrid-12 completes 89 and Full-203 completes 87. The Learned--Diverse comparison contains 35 tasks completed only by Learned and six completed only by Diverse. The completion-rate difference is 22.66 percentage points [14.06,31.25]. Hybrid improves over Diverse by 14.84 percentage points [6.25,23.44], but completes ten fewer tasks than Learned.
 
-Under nominal RK4 execution, the completion counts are 11, 14, and 20 for Cost-12, Diverse-12, and Full-203. Under parameter mismatch, they are 12, 15, and 20. The crosswind condition is the most demanding: the same methods complete one, seven, and six tasks. A constant lateral wind changes the ground trajectory over the entire prediction horizon, while the planner continues to propagate the nominal air-relative model. Replanning from measured state alone does not compensate for this accumulated prediction error.
+Learned completes 24 of 32 nominal tasks, all 32 mismatch tasks, 12 crosswind tasks and 31 delay tasks. Diverse completes 18, 23, two and 27, respectively. The largest remaining loss of completion occurs under crosswind. The planner continues to integrate an air-relative nominal model, so repeated state updates do not remove the ground-track discrepancy accumulated within a prediction horizon. Command holding and parameter mismatch also change which states are visited, explaining why aggregate completion need not decrease monotonically from the nominal condition.
 
-The 100 ms delay condition yields 13, 20, and 21 completions for Cost-12, Diverse-12, and Full-203. Some counts exceed those under nominal execution; command holding changes the closed-loop path and the sequence of subsequently generated candidates. Consequently, task completion can vary nonmonotonically with delay in this deterministic suite.
-
-Obstacle-margin incursions occur in five Diverse-12 episodes and none of the Cost-12 episodes; Full-203 incurs two. All five diversity incursions occur under nominal RK4 execution, immediately after a command with a verified continuation. At margin detection, their logged minimum clearances to the uninflated obstacles range from 1.57 to 2.43 m. The planner uses Euler propagation and evaluates feasibility at discrete samples, so a positive model witness can still approach the inflated boundary too closely during execution. Continuation discovery and preservation of geometric margin are consequently distinct performance measures.
+Full-203 is the reference for finite-library discovery and immediate verified task cost, rather than an upper bound on mission completion. Its minimum-cost choice can differ from a learned schedule's cheapest verified member. These decisions lead to different subsequent states and explain how Learned can complete more tasks while finding fewer matched-input witnesses than Full-203.
 
 \begin{figure*}[!t]
-\centering\includegraphics[width=.94\textwidth]{figures/outcomes.pdf}
-\caption{Closed-loop outcomes on 24 maps per method and execution condition. Margin incursion denotes entry into inflated obstacle geometry. All methods use the same primary constraints, target tolerance, and 40 s timeout.}
-\label{fig:outcomes}
+\centering\includegraphics[width=.96\textwidth]{figures/learning_outcomes.pdf}
+\caption{All closed-loop outcomes on 32 test maps per condition. Margin incursion denotes entry into inflated obstacle geometry. Six methods share the same primary constraints, target tolerance and 40 s timeout.}
+\label{fig:learningoutcomes}
 \end{figure*}
 
-Figure~\ref{fig:paths} shows the first seeded map of each family. This fixed selection includes both favorable and unfavorable trajectories. In the cul-de-sac example, Diverse-12 and Full-203 select the early outward turn and complete the route, while the other methods lose feasible primaries near the entrance. In the staggered and spatial examples, the diversity trajectory terminates before completing the task. These examples illustrate how a schedule can improve aggregate continuation discovery while still selecting an unfavorable closed-loop maneuver in an individual map.
+Margin incursions occur in six Diverse, nine Learned, ten Hybrid and four Full-203 episodes. Every incursion in these four groups follows a command with a verified sampled continuation. For Learned, geometric clearance at the first detected margin violation ranges from 1.48 to 2.39 m relative to the uninflated obstacles. The mismatch between Euler prediction and RK4 execution is consequential near these boundaries. The completion gain therefore accompanies a reduction in loss-of-primary failures, rather than a uniform improvement across all failure categories.
+
+Figure~\ref{fig:learningpaths} shows the first seeded instance of each test family under nominal execution. This fixed selection includes both a Learned margin incursion in the staggered map and a Learned completion in the wall map where Diverse and Full encounter the inflated boundary. The cul-de-sac example shows continuation-aware schedules choosing an outward turn before approaching the closed end. The spatial panel is a horizontal projection of trajectories whose full height states enter every feasibility check. The No-geometry paths come from the subsequent frozen-model ablation.
 
 \begin{figure*}[!t]
-\centering\includegraphics[width=.9\textwidth]{figures/paths.pdf}
-\caption{Nominal trajectories for the first seed of each frozen map family. Circles mark successful endpoints and crosses mark other terminations. The spatial-obstacle panel is a horizontal projection; obstacle height and vertical clearance are represented in the simulator.}
-\label{fig:paths}
+\centering\includegraphics[width=.96\textwidth]{figures/learning_paths.pdf}
+\caption{Nominal trajectories for the first test instance in each family. Dots mark goal attainment and crosses other terminations. Obstacles are shown without inflation in horizontal projection; the spatial map also contains finite-height geometry. No-geometry trajectories are from the post-evaluation ablation.}
+\label{fig:learningpaths}
 \end{figure*}
 
-\subsection{Observation Range and Revalidated Plan Reuse}
-The 17 m/s diagnostic reaches the target at 31.0 s with final horizontal error 13.64 m. It therefore exceeds a 30 s task limit because of the longer executed route. Across 155 planning states, the cache-based planner obtains 78 fresh witnesses and revalidates a remaining plan on 63 further updates; 14 updates execute a feasible primary without a continuation witness.
-
-The matched counterfactual queries distinguish two causes of missing fresh witnesses. With the 120 m boundary, Full-203 fails to find a continuation at 39 visited states; removing the boundary reduces this count to four. Thus, 35 states lose available finite-library witnesses specifically because of the observation restriction. At the same restricted states, Diverse-12 misses 38 witnesses found by Full-203. Removing the boundary reduces this budget-miss count to 15. Figure~\ref{fig:diagnostic} shows how these effects vary along the executed route.
-
-The range effect is consistent with the geometry of a 3 s primary followed by a 6 s continuation: at 17 m/s, a straight nominal traversal covers approximately 153 m, exceeding the 120 m validation radius. Curved trajectories may remain within the sphere, but the constraint changes which terminal maneuvers can receive a witness. Reuse allows a previously verified sequence to continue through some of the resulting gaps in fresh search. It also changes the path, so its task-level effect requires separate evaluation from the scheduling rule.
-
-\begin{figure*}[!t]
-\centering\includegraphics[width=.9\textwidth]{figures/diagnostic.pdf}
-\caption{Range-limited diagnostic with same-state counterfactual queries. A cache-reuse marker denotes revalidation of the remaining previously selected sequence; a fresh witness denotes a new primary--continuation pair. All queries use complete-rollout validation.}
-\label{fig:diagnostic}
-\end{figure*}
+\input{geometry_ablation}
 
 \section{Discussion}
-The experiments identify two complementary requirements for effective terminal validation. The schedule must reach distinct maneuvers, and the validator must avoid spending its allowance on continuations already known to fail. A candidate-count budget exposes the first requirement; an integration-step budget exposes both. This distinction is relevant to planners that replace explicit candidates with learned proposals as well: a proposal's task score alone does not describe the cost or information value of validating its future motion.
+The results distinguish three effects of learning. Geometry substantially improves candidate-level continuation classification. Learned ordering obtains more witnesses within a restricted validation budget. Closed-loop behavior additionally depends on which verified primary is selected, so similar discovery recall can coexist with different task costs and mission outcomes. This separation is useful when designing learned planners whose proposals remain subject to explicit checks.
 
-The closed-loop simulations also separate finite continuation feasibility from task completion. A witness establishes a feasible sampled primary--successor pair under the prediction model. It does not impose a periodic terminal maneuver or a recursively invariant terminal set. The remaining failure cases point to two concrete extensions: model-aware clearance margins, especially for wind, and stronger terminal maneuvers that preserve useful flight space beyond one successor. A learned validation schedule could additionally exploit obstacle geometry and the full terminal dynamic state when heading--altitude coverage is insufficient.
+Maneuver diversity supplies a complementary exploration mechanism, but fixed alternation is not uniformly advantageous. On the present test split, Hybrid reduces selected-cost excess and validation work relative to Learned under $K=12$, while Learned achieves slightly higher discovery and more completed tasks. Likewise, validation favors feasibility-only ranking over the tested positive work exponents. Both findings argue for evaluating schedule composition and computational objectives directly rather than assuming that additional components improve every metric.
 
-The current evidence concerns static generated maps and a point-mass aircraft with actuator dynamics. The principal suite provides full geometry; the observation-radius test is a separate diagnostic, without camera occlusion. The 24-map bootstrap measures variability within this suite. Tests with sensed local maps, a six-degree-of-freedom aircraft model, and real flight would determine how the observed scheduling effects transfer to a deployed system.
+A continuation witness establishes feasibility of a sampled primary--successor pair under the prediction model. It does not impose a periodic terminal maneuver or a recursively invariant terminal set. The present experiments use static generated geometry and a point-mass model with actuator dynamics. Transfer to occluded sensor maps, different geometry families and six-degree-of-freedom flight dynamics remains to be evaluated. Wind-aware prediction and model-dependent clearance margins are natural extensions to address the observed execution failures.
