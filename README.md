@@ -2,6 +2,8 @@
 
 ## 论文对应的重建参考实现
 
+**切换到 Ubuntu：** [环境准备与分阶段操作](reconstruction/UBUNTU_GUIDE.md) · [直接交给 Codex 的接续任务](reconstruction/CODEX_HANDOFF.md)。先验证 Python 参考实现，再进行新的 ROS/Gazebo 适配；指南注明了尚未在 Ubuntu 执行的部分。
+
 最新代码位于 [reconstruction/](reconstruction/README.txt)，依据用户提供的 LaTeX 工程 `main11.tex` 重建：三状态观测地图、58 维输入、主轨迹与延续时域均为 3 s、K=12、最多 406 条主候选及 15 个后继控制。该 LaTeX 工程是本次重建的基线，下面历史档案中的 `paper/main.tex` 不是最新稿。
 
 这是新的 Python/NumPy 参考实现，包含规划、感知、重验证、数据标注、训练、诊断和测试工具。原始 58 维权重与实验记录尚未找回；本分支不声称复现了论文原表格，也未完成 ROS/Gazebo 或实飞验证。数值回合使用同步、零计算延迟的诊断设置。

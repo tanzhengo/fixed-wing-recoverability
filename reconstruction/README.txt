@@ -2,6 +2,9 @@ Fixed-wing terminal continuation: reconstructed reference implementation
 ======================================================================
 
 Status: new manuscript-based Python/NumPy implementation, not recovered source.
+Ubuntu setup and staged validation: UBUNTU_GUIDE.md
+Task text for continuing with Codex on Ubuntu: CODEX_HANDOFF.md
+Development context for agents: AGENTS.md
 Specification: the user-supplied LaTeX main11.tex (unknown environment,
 58 inputs, H=B=3 seconds, K=12, up to 406 primaries, 15 successors).
 The older GitHub archive is a source of inherited dynamics and library-order
