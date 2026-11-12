@@ -1,0 +1,32 @@
+{
+  "version": "0.1.0-reconstructed",
+  "baseline": "User-supplied LaTeX main11.tex; not historical GitHub paper/main.tex",
+  "implementation": "New Python/NumPy reference implementation",
+  "historical_source_recovered": false,
+  "historical_experiments_reproduced": false,
+  "historical_weights_recovered": false,
+  "ros_gazebo_executed": false,
+  "flight_hardware_executed": false,
+  "episode_runner": "Synchronous numerical diagnostics; zero computational latency",
+  "software_tests": {
+    "passed": 76,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "test_evidence": "validation/software_checks.json",
+  "included": [
+    "source",
+    "configs",
+    "scripts",
+    "tests",
+    "documentation",
+    "software test record"
+  ],
+  "not_bundled": [
+    "pretrained weights",
+    "historical flight data",
+    "large generated diagnostics",
+    "revised manuscript"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "protocol_version": "reconstructed-fixtures-1",
+  "evidence_status": "NEW NUMERICAL FIXTURES - NOT HISTORICAL FLIGHTS OR MANUSCRIPT RESULTS",
+  "purpose": "Deterministic observed-space continuation and query-order diagnostics of the reconstructed implementation",
+  "baseline": "Current LaTeX main11.tex; reconstruction choices documented separately",
+  "initial": {"x": 0.0, "y": 0.0, "h": 20.0, "V": 15.5, "psi": 0.0},
+  "goal": [250.0, 0.0, 20.0],
+  "config_overrides": {"H": 3.0, "B": 3.0, "K": 12, "headings": 29, "vertical_levels": 7, "min_altitude": 5.0, "max_altitude": 45.0, "voxel_size": 2.0},
+  "map1": {"name": "limited_observed_box", "free_bounds": [[-20.0, 70.0], [-80.0, 80.0], [0.0, 50.0]], "outside": "unknown"},
+  "map2": {"name": "extended_observed_box", "free_bounds": [[-20.0, 140.0], [-80.0, 80.0], [0.0, 50.0]], "outside": "unknown"},
+  "map_provenance": "Constructed numerical map fixtures; cells are set explicitly. Not lidar snapshots, not flight observations, and not a model of a physical obstacle wall.",
+  "candidate_selection": "Traverse feasible primaries in stable (cost,index) order and stop when the first finite-bank negative and first positive have both been explicitly established; negatives require all 15 successor failures. If either class is absent, report this and do not fabricate the figure.",
+  "same_state_map_pair": "Reuse the selected map1-negative primary and the identical full initial state, task, primary control and successor bank in map2; verify byte equality and evaluate both maps explicitly. Report the observed labels even if they do not differ.",
+  "schedules": [{"mode": "cost", "label": "Cost"}, {"mode": "diverse", "label": "Diverse"}, {"mode": "observed", "label": "Observed coverage", "coverage_weight": 0.25}],
+  "learned_schedule": "Pending separately trained and frozen reconstructed checkpoint; no random or legacy checkpoint fallback",
+  "training_smoke_frames": {
+    "claim": "Small pipeline smoke fixtures only; not the manuscript training split, model selection, performance evaluation, or generalization evidence",
+    "train": [
+      {"scene_id": "smoke_train_box064", "free_bounds": [[-24.0, 64.0], [-64.0, 64.0], [0.0, 48.0]], "h": 20.0},
+      {"scene_id": "smoke_train_box104", "free_bounds": [[-24.0, 104.0], [-68.0, 68.0], [0.0, 52.0]], "h": 22.0}
+    ],
+    "validation": [
+      {"scene_id": "smoke_validation_box084", "free_bounds": [[-24.0, 84.0], [-76.0, 76.0], [0.0, 50.0]], "h": 24.0}
+    ]
+  },
+  "culdesac": "Not run by this protocol. A finite observed-box boundary is not a physical cul-de-sac or a closed-loop flight failure.",
+  "reported_work": "Actual successor integration steps from direct explicit validation calls; primary-generation work and separate illustrative exhaustive fans are recorded separately",
+  "default_output": "work/reconstruction_validation"
+}

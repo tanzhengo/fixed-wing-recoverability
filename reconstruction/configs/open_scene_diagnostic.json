@@ -1,0 +1,27 @@
+{
+  "scene_id": "reconstruction_open_scene_diagnostic",
+  "evidence_kind": "new_synchronous_numerical_diagnostic",
+  "start": {
+    "x": 0.0,
+    "y": 0.0,
+    "h": 20.0,
+    "V": 15.5,
+    "gamma": 0.0,
+    "psi": 0.0,
+    "phi": 0.0,
+    "alpha": -0.18967489311283253,
+    "T": 0.9264214976288052,
+    "yaw_rate": 0.0
+  },
+  "goal": [
+    250,
+    0,
+    20
+  ],
+  "obstacles": [],
+  "ground_height": 0.0,
+  "simulation_config": {
+    "duration": 2.2
+  },
+  "notes": "Empty physical scene with ground; not an original manuscript map. Zero computation latency diagnostic only."
+}

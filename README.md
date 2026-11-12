@@ -1,5 +1,25 @@
 # fixed-wing-recoverability
 
+## 论文对应的重建参考实现
+
+最新代码位于 [reconstruction/](reconstruction/README.txt)，依据用户提供的 LaTeX 工程 `main11.tex` 重建：三状态观测地图、58 维输入、主轨迹与延续时域均为 3 s、K=12、最多 406 条主候选及 15 个后继控制。该 LaTeX 工程是本次重建的基线，下面历史档案中的 `paper/main.tex` 不是最新稿。
+
+这是新的 Python/NumPy 参考实现，包含规划、感知、重验证、数据标注、训练、诊断和测试工具。原始 58 维权重与实验记录尚未找回；本分支不声称复现了论文原表格，也未完成 ROS/Gazebo 或实飞验证。数值回合使用同步、零计算延迟的诊断设置。
+
+从仓库根目录运行：
+
+```bash
+cd reconstruction
+python -m pip install -r requirements.txt
+python scripts/run_checks.py --output runs/software_checks.json
+```
+
+详细边界与后续工作见 [运行说明](reconstruction/README.txt) 和 [ROS 接口约定](reconstruction/ros/INTEGRATION_CONTRACT.txt)。本次发布的实际检查记录见 [software_checks.json](reconstruction/validation/software_checks.json)。
+
+## 历史实现与实验档案
+
+以下保留原仓库的实现说明与实验记录；其中的模型选择、性能数字和 ROS 入口对应历史版本，不是本次重建的验证结果。
+
 固定翼运动基元规划中的**学习引导终端延续验证调度**。网络预测有限控制库中的延续可行性，在候选数或积分步预算内分配显式检查。
 
 **论文：** [修订版 PDF](paper/main.pdf) · [唯一主文件 main.tex](paper/main.tex)

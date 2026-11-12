@@ -1,0 +1,46 @@
+ROS/Gazebo integration boundary (not executed or claimed complete)
+===============================================================
+
+The available archive uses a custom Odometry/Twist convention, not standard
+Cartesian twist semantics. The reconstructed core uses explicit State/Control
+objects. An adapter must preserve the following mapping, verified by static
+inspection of motion_primitives.h::odom_cb and the archived
+gazebo_ros_planar_move_with_banking_and_pitching.cpp plugin:
+
+  odom.pose.pose.position.x/y/z -> State.x/y/h
+  odom.twist.twist.linear.x     -> State.V
+  odom.twist.twist.linear.y     -> State.gamma
+  odom.twist.twist.linear.z     -> State.psi
+  odom.twist.twist.angular.x    -> State.T
+  odom.twist.twist.angular.y    -> State.yaw_rate
+  quaternion-derived roll      -> State.phi = -roll
+  quaternion-derived pitch     -> State.alpha = -pitch - State.gamma
+
+Accepted control output:
+  cmd_vel.linear.x = Control.phi
+  cmd_vel.linear.y = Control.alpha
+  cmd_vel.linear.z = Control.T
+All angles are radians and T is specific thrust in m/s^2. These are NOT the
+semantics of a generic ROS velocity controller; do not route to other hardware.
+
+Required adapter sequence
+-------------------------
+1. Buffer timestamped odometry and actual issued commands in the same ROS clock.
+2. Bracket each scan timestamp and interpolate position/quaternion; never
+   silently extrapolate a scan or clear missing points as no-return beams.
+3. Convert return flags/ranges to explicit Beam records. A return-only cloud
+   supplies occupied endpoints and traversed-free rays, but contains no evidence
+   for absent/no-return rays. Invalid or unbracketed measurements do not refresh
+   the usable map timestamp.
+4. Atomically snapshot the observed map, then invoke planner.plan. Scene/building
+   geometry must not be available to the planner or its encoder.
+5. Before publication call execution.dispatch on current state/map/history.
+   Publish only an accepted sequence; use the actual issue timestamp for cache
+   bookkeeping. Record all unsuccessful dispatches and supervisor outcomes.
+6. Record generation, observation-to-command, map age, validation age, cache
+   reuse and physical-reference-point clearance using separate clocks/fields.
+
+The synchronous simulation runner is a reproducible test harness, not this
+asynchronous adapter. No real-time C++ port, ROS node, launch integration or
+hardware flight has been validated in this release. Preserve the original
+archived ROS code while implementing and testing the adapter in a new target.
