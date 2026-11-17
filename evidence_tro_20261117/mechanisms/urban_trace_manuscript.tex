@@ -1,0 +1,8 @@
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.97\textwidth]{figures/urban_query_trace.pdf}
+\caption{Candidate scheduling and incumbent-cost pruning on the first prescribed urban input whose seed candidate has no continuation witness ($t=2$ s). (a) Each number is the candidate's one-based rank in stable task-cost order. Budgeted schedules use $K=12$; hatched entries are pruned before successor integration and receive no replacement. Cost and uncapped Full stop at the witness of rank 7. (b) Cumulative successor integration steps, including the common seed query. Selected and Diverse have identical schedules on this input. Obs+Aux verifies four banks and prunes eight candidates; Selected verifies six banks and prunes six.}
+\label{fig:query_trace}
+\end{figure*}
+
+Figure~\ref{fig:query_trace} shows how scheduling and pruning allocate work on one urban input. Selected and Diverse find a witness at the sixth scheduled candidate and prune all six remaining entries, using 2,413 integration steps. Obs+Aux first finds a witness at slot three and improves it at slot five; the intervening and remaining higher-cost candidates are skipped. It verifies four banks but uses 3,080 steps because its rejected rollouts are longer. Cost and Full reach the rank-7 witness after 7,382 steps. The trace illustrates why candidate counts and measured integration work capture different aspects of the validation budget.

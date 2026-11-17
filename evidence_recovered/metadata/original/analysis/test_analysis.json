@@ -1,0 +1,947 @@
+{
+  "protocol": "32 new procedural maps x four conditions and eight new forest pairs, frozen models and policy before test",
+  "main": {
+    "Cost": {
+      "episodes": 128,
+      "completed": 50,
+      "outcomes": {
+        "initialization_failed": 65,
+        "no_feasible_primary": 4,
+        "no_verified_sequence": 9,
+        "goal": 50
+      },
+      "completion_rate": 0.390625,
+      "episode_mean_work": 3516.9531898540627,
+      "pooled_mean_work": 2152.2896371043666,
+      "episode_mean_queries": 5.569789334057968,
+      "pooled_mean_queries": 3.680865515233333,
+      "inference_fraction": 0.0,
+      "mean_pruned": 0.0,
+      "min_clearance": 3.0636834552,
+      "episode_mean_total_backup_steps": 173292.94531248126,
+      "total_backup_steps": 22181497,
+      "successful_time_mean": 16.349999999999998
+    },
+    "Diverse": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 19,
+        "no_verified_sequence": 13,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 1060.5677855028516,
+      "pooled_mean_work": 902.5338677571754,
+      "episode_mean_queries": 3.4345436347567184,
+      "pooled_mean_queries": 3.142411362780266,
+      "inference_fraction": 0.0,
+      "mean_pruned": 0.587453596599774,
+      "min_clearance": 3.10116173005,
+      "episode_mean_total_backup_steps": 131057.78906252046,
+      "total_backup_steps": 16775397,
+      "successful_time_mean": 17.506249999999998
+    },
+    "ObservedCoverage": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 20,
+        "no_verified_sequence": 12,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 1088.7112005850313,
+      "pooled_mean_work": 931.1243206164926,
+      "episode_mean_queries": 3.400132896076094,
+      "pooled_mean_queries": 3.131866392274548,
+      "inference_fraction": 0.0,
+      "mean_pruned": 0.602765025592317,
+      "min_clearance": 3.09229141918,
+      "episode_mean_total_backup_steps": 137857.32031252462,
+      "total_backup_steps": 17645737,
+      "successful_time_mean": 17.829166666666666
+    },
+    "Legacy": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 24,
+        "no_verified_sequence": 8,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 880.9003486655938,
+      "pooled_mean_work": 687.5288701624635,
+      "episode_mean_queries": 2.7222346650981253,
+      "pooled_mean_queries": 2.2966084061594954,
+      "inference_fraction": 0.20760507698709946,
+      "mean_pruned": 0.8951310861423221,
+      "min_clearance": 3.73992362398,
+      "episode_mean_total_backup_steps": 103258.24218752497,
+      "total_backup_steps": 13217055,
+      "successful_time_mean": 17.417708333333334
+    },
+    "AlignedState": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 29,
+        "no_verified_sequence": 3,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 820.8011226405234,
+      "pooled_mean_work": 670.4590317055374,
+      "episode_mean_queries": 2.76250740383125,
+      "pooled_mean_queries": 2.3769913341291775,
+      "inference_fraction": 0.2300347672668777,
+      "mean_pruned": 1.060557314098905,
+      "min_clearance": 2.64006471904,
+      "episode_mean_total_backup_steps": 100940.74999997977,
+      "total_backup_steps": 12920416,
+      "successful_time_mean": 17.371875
+    },
+    "ObsBCE": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 31,
+        "no_verified_sequence": 1,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 1377.9173257533048,
+      "pooled_mean_work": 914.2508376963046,
+      "episode_mean_queries": 2.5907109295923436,
+      "pooled_mean_queries": 2.1705235602094213,
+      "inference_fraction": 0.20958115183246073,
+      "mean_pruned": 1.0443979057591624,
+      "min_clearance": 4.28466883897,
+      "episode_mean_total_backup_steps": 136423.36718749543,
+      "total_backup_steps": 17462191,
+      "successful_time_mean": 17.233333333333334
+    },
+    "ObsAux": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 27,
+        "no_verified_sequence": 5,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 1389.835670708539,
+      "pooled_mean_work": 889.1348921798113,
+      "episode_mean_queries": 2.5010521021896093,
+      "pooled_mean_queries": 2.0434918160557567,
+      "inference_fraction": 0.21683554169914263,
+      "mean_pruned": 1.2561704338789297,
+      "min_clearance": 3.82451528087,
+      "episode_mean_total_backup_steps": 133682.82031250367,
+      "total_backup_steps": 17111401,
+      "successful_time_mean": 17.520833333333332
+    },
+    "Selected": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 28,
+        "no_verified_sequence": 4,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 1211.9305608805703,
+      "pooled_mean_work": 867.0551566081251,
+      "episode_mean_queries": 2.602837788917109,
+      "pooled_mean_queries": 2.192105933282458,
+      "inference_fraction": 0.28143621084797554,
+      "mean_pruned": 1.814769544181309,
+      "min_clearance": 3.92978745975,
+      "episode_mean_total_backup_steps": 133004.90625000416,
+      "total_backup_steps": 17024628,
+      "successful_time_mean": 17.843749999999996
+    },
+    "Full": {
+      "episodes": 128,
+      "completed": 95,
+      "outcomes": {
+        "no_feasible_primary": 23,
+        "no_verified_sequence": 10,
+        "goal": 95
+      },
+      "completion_rate": 0.7421875,
+      "episode_mean_work": 9352.814906063624,
+      "pooled_mean_work": 6102.581605728165,
+      "episode_mean_queries": 23.219349286282185,
+      "pooled_mean_queries": 14.448979591837762,
+      "inference_fraction": 0.0,
+      "mean_pruned": 0.0,
+      "min_clearance": 3.12306096344,
+      "episode_mean_total_backup_steps": 885398.7734373263,
+      "total_backup_steps": 113331043,
+      "successful_time_mean": 17.076842105263157
+    }
+  },
+  "forest": {
+    "forest_sparse": {
+      "Cost": {
+        "episodes": 8,
+        "completed": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completion_rate": 1.0,
+        "episode_mean_work": 1362.060461376125,
+        "pooled_mean_work": 1365.0185694644479,
+        "episode_mean_queries": 2.49493955125875,
+        "pooled_mean_queries": 2.656808803298893,
+        "inference_fraction": 0.0,
+        "mean_pruned": 0.0,
+        "min_clearance": 3.6272276045,
+        "episode_mean_total_backup_steps": 248092.1250001634,
+        "total_backup_steps": 1984737,
+        "successful_time_mean": 18.175
+      },
+      "Diverse": {
+        "episodes": 8,
+        "completed": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completion_rate": 1.0,
+        "episode_mean_work": 1212.599052717625,
+        "pooled_mean_work": 1216.7384240446954,
+        "episode_mean_queries": 2.9689952223724996,
+        "pooled_mean_queries": 2.978066612512161,
+        "inference_fraction": 0.0,
+        "mean_pruned": 1.0885458976441917,
+        "min_clearance": 3.79654734885,
+        "episode_mean_total_backup_steps": 187225.6249998775,
+        "total_backup_steps": 1497805,
+        "successful_time_mean": 15.387500000000001
+      },
+      "ObservedCoverage": {
+        "episodes": 8,
+        "completed": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completion_rate": 1.0,
+        "episode_mean_work": 1211.945500387875,
+        "pooled_mean_work": 1216.0852965063816,
+        "episode_mean_queries": 2.9665548522837497,
+        "pooled_mean_queries": 2.9756295694564177,
+        "inference_fraction": 0.0,
+        "mean_pruned": 1.0909829406986191,
+        "min_clearance": 3.79654734885,
+        "episode_mean_total_backup_steps": 187125.1249999195,
+        "total_backup_steps": 1497001,
+        "successful_time_mean": 15.387500000000001
+      },
+      "Legacy": {
+        "episodes": 8,
+        "completed": 7,
+        "outcomes": {
+          "goal": 7,
+          "initialization_failed": 1
+        },
+        "completion_rate": 0.875,
+        "episode_mean_work": 1595.97558834675,
+        "pooled_mean_work": 876.7983870969492,
+        "episode_mean_queries": 2.9276324300087495,
+        "pooled_mean_queries": 2.406451612903347,
+        "inference_fraction": 0.22419354838709676,
+        "mean_pruned": 0.9725806451612903,
+        "min_clearance": 4.45321611986,
+        "episode_mean_total_backup_steps": 135903.75000002712,
+        "total_backup_steps": 1087230,
+        "successful_time_mean": 17.414285714285715
+      },
+      "AlignedState": {
+        "episodes": 8,
+        "completed": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completion_rate": 1.0,
+        "episode_mean_work": 943.046518814,
+        "pooled_mean_work": 959.5216072774247,
+        "episode_mean_queries": 2.590919299915,
+        "pooled_mean_queries": 2.6231993934807356,
+        "inference_fraction": 0.27748294162244125,
+        "mean_pruned": 1.3805913570887036,
+        "min_clearance": 4.75588114338,
+        "episode_mean_total_backup_steps": 158201.12499986537,
+        "total_backup_steps": 1265609,
+        "successful_time_mean": 16.487499999999997
+      },
+      "ObsBCE": {
+        "episodes": 8,
+        "completed": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completion_rate": 1.0,
+        "episode_mean_work": 726.2155763537501,
+        "pooled_mean_work": 743.9504734160445,
+        "episode_mean_queries": 2.08813605832875,
+        "pooled_mean_queries": 2.1158048069910196,
+        "inference_fraction": 0.2520029133284778,
+        "mean_pruned": 1.607428987618354,
+        "min_clearance": 4.82189667748,
+        "episode_mean_total_backup_steps": 127680.50000002864,
+        "total_backup_steps": 1021444,
+        "successful_time_mean": 17.1625
+      },
+      "ObsAux": {
+        "episodes": 8,
+        "completed": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completion_rate": 1.0,
+        "episode_mean_work": 685.14476904875,
+        "pooled_mean_work": 694.068524096409,
+        "episode_mean_queries": 2.0680904221,
+        "pooled_mean_queries": 2.079819277109209,
+        "inference_fraction": 0.2605421686746988,
+        "mean_pruned": 1.7356927710843373,
+        "min_clearance": 4.07755041123,
+        "episode_mean_total_backup_steps": 115215.37500000387,
+        "total_backup_steps": 921723,
+        "successful_time_mean": 16.6
+      },
+      "Selected": {
+        "episodes": 8,
+        "completed": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completion_rate": 1.0,
+        "episode_mean_work": 763.162839594125,
+        "pooled_mean_work": 765.0087025308355,
+        "episode_mean_queries": 2.00529449578875,
+        "pooled_mean_queries": 2.0134493670873104,
+        "inference_fraction": 0.26424050632911394,
+        "mean_pruned": 1.8425632911392404,
+        "min_clearance": 4.20543464994,
+        "episode_mean_total_backup_steps": 120871.374999872,
+        "total_backup_steps": 966971,
+        "successful_time_mean": 15.8
+      },
+      "Full": {
+        "episodes": 8,
+        "completed": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completion_rate": 1.0,
+        "episode_mean_work": 1577.616321121125,
+        "pooled_mean_work": 1589.2568438016724,
+        "episode_mean_queries": 2.8159664284375,
+        "pooled_mean_queries": 2.8470209339775927,
+        "inference_fraction": 0.0,
+        "mean_pruned": 0.0,
+        "min_clearance": 3.80171563146,
+        "episode_mean_total_backup_steps": 246732.1250002096,
+        "total_backup_steps": 1973857,
+        "successful_time_mean": 15.525000000000002
+      }
+    },
+    "forest_dense": {
+      "Cost": {
+        "episodes": 8,
+        "completed": 7,
+        "outcomes": {
+          "goal": 7,
+          "initialization_failed": 1
+        },
+        "completion_rate": 0.875,
+        "episode_mean_work": 2389.636969574375,
+        "pooled_mean_work": 2444.9157808668397,
+        "episode_mean_queries": 3.566621882008,
+        "pooled_mean_queries": 3.7980376124253423,
+        "inference_fraction": 0.0,
+        "mean_pruned": 0.0,
+        "min_clearance": 3.82884717945,
+        "episode_mean_total_backup_steps": 373766.5000000181,
+        "total_backup_steps": 2990132,
+        "successful_time_mean": 17.17142857142857
+      },
+      "Diverse": {
+        "episodes": 8,
+        "completed": 7,
+        "outcomes": {
+          "goal": 7,
+          "initialization_failed": 1
+        },
+        "completion_rate": 0.875,
+        "episode_mean_work": 1741.8873548503752,
+        "pooled_mean_work": 1743.1972203847392,
+        "episode_mean_queries": 3.9028602537855,
+        "pooled_mean_queries": 4.199205823956813,
+        "inference_fraction": 0.0,
+        "mean_pruned": 1.1158173395102582,
+        "min_clearance": 3.90651886856,
+        "episode_mean_total_backup_steps": 329246.37500016764,
+        "total_backup_steps": 2633971,
+        "successful_time_mean": 21.28571428571429
+      },
+      "ObservedCoverage": {
+        "episodes": 8,
+        "completed": 7,
+        "outcomes": {
+          "goal": 7,
+          "initialization_failed": 1
+        },
+        "completion_rate": 0.875,
+        "episode_mean_work": 1741.993282451625,
+        "pooled_mean_work": 1743.2951687641832,
+        "episode_mean_queries": 3.9028602537855,
+        "pooled_mean_queries": 4.199205823956813,
+        "inference_fraction": 0.0,
+        "mean_pruned": 1.1158173395102582,
+        "min_clearance": 3.90651886856,
+        "episode_mean_total_backup_steps": 329264.87500033516,
+        "total_backup_steps": 2634119,
+        "successful_time_mean": 21.28571428571429
+      },
+      "Legacy": {
+        "episodes": 8,
+        "completed": 6,
+        "outcomes": {
+          "timeout": 1,
+          "goal": 6,
+          "initialization_failed": 1
+        },
+        "completion_rate": 0.75,
+        "episode_mean_work": 1131.5941463551248,
+        "pooled_mean_work": 1125.104111051922,
+        "episode_mean_queries": 2.4310424333355,
+        "pooled_mean_queries": 2.605979711692223,
+        "inference_fraction": 0.2445274959957288,
+        "mean_pruned": 0.98718633208756,
+        "min_clearance": 3.135834234,
+        "episode_mean_total_backup_steps": 263415.00000003126,
+        "total_backup_steps": 2107320,
+        "successful_time_mean": 24.200000000000003
+      },
+      "AlignedState": {
+        "episodes": 8,
+        "completed": 6,
+        "outcomes": {
+          "no_feasible_primary": 1,
+          "goal": 6,
+          "initialization_failed": 1
+        },
+        "completion_rate": 0.75,
+        "episode_mean_work": 1485.9500038913748,
+        "pooled_mean_work": 1489.3477633473126,
+        "episode_mean_queries": 3.1514413911455,
+        "pooled_mean_queries": 3.4119769119763883,
+        "inference_fraction": 0.37518037518037517,
+        "mean_pruned": 1.6002886002886003,
+        "min_clearance": 5.12949494168,
+        "episode_mean_total_backup_steps": 258029.49999992189,
+        "total_backup_steps": 2064236,
+        "successful_time_mean": 20.766666666666666
+      },
+      "ObsBCE": {
+        "episodes": 8,
+        "completed": 6,
+        "outcomes": {
+          "no_feasible_primary": 1,
+          "goal": 6,
+          "initialization_failed": 1
+        },
+        "completion_rate": 0.75,
+        "episode_mean_work": 1183.2292967006251,
+        "pooled_mean_work": 1194.1082543983807,
+        "episode_mean_queries": 2.69246505226425,
+        "pooled_mean_queries": 2.9201623815971405,
+        "inference_fraction": 0.39309878213802435,
+        "mean_pruned": 2.3159675236806496,
+        "min_clearance": 4.5441802227,
+        "episode_mean_total_backup_steps": 220611.50000010084,
+        "total_backup_steps": 1764892,
+        "successful_time_mean": 22.400000000000002
+      },
+      "ObsAux": {
+        "episodes": 8,
+        "completed": 7,
+        "outcomes": {
+          "goal": 7,
+          "initialization_failed": 1
+        },
+        "completion_rate": 0.875,
+        "episode_mean_work": 914.4955328155,
+        "pooled_mean_work": 869.2352564103327,
+        "episode_mean_queries": 2.07363327595425,
+        "pooled_mean_queries": 2.196153846154208,
+        "inference_fraction": 0.27692307692307694,
+        "mean_pruned": 1.7557692307692307,
+        "min_clearance": 3.92713856597,
+        "episode_mean_total_backup_steps": 169500.8750000149,
+        "total_backup_steps": 1356007,
+        "successful_time_mean": 21.985714285714284
+      },
+      "Selected": {
+        "episodes": 8,
+        "completed": 6,
+        "outcomes": {
+          "goal": 6,
+          "initialization_failed": 1,
+          "timeout": 1
+        },
+        "completion_rate": 0.75,
+        "episode_mean_work": 1180.808820573,
+        "pooled_mean_work": 1192.733410271063,
+        "episode_mean_queries": 2.602497467498,
+        "pooled_mean_queries": 2.866128101557267,
+        "inference_fraction": 0.4760530871321408,
+        "mean_pruned": 3.2994806693594922,
+        "min_clearance": 3.69131439451,
+        "episode_mean_total_backup_steps": 258375.874999969,
+        "total_backup_steps": 2067007,
+        "successful_time_mean": 21.866666666666664
+      },
+      "Full": {
+        "episodes": 8,
+        "completed": 6,
+        "outcomes": {
+          "goal": 6,
+          "initialization_failed": 1,
+          "timeout": 1
+        },
+        "completion_rate": 0.75,
+        "episode_mean_work": 4196.6452786925,
+        "pooled_mean_work": 4766.501937983992,
+        "episode_mean_queries": 7.98603163590675,
+        "pooled_mean_queries": 9.512919896626702,
+        "inference_fraction": 0.0,
+        "mean_pruned": 0.0,
+        "min_clearance": 3.7707447338,
+        "episode_mean_total_backup_steps": 922318.1249999024,
+        "total_backup_steps": 7378545,
+        "successful_time_mean": 18.783333333333335
+      }
+    }
+  },
+  "paired_differences": [
+    {
+      "first": "Selected",
+      "second": "Cost",
+      "difference_percentage_points": 35.9375,
+      "ci95_percentage_points": [
+        21.09375,
+        51.5625
+      ],
+      "clusters": 32,
+      "bootstrap_draws": 10000,
+      "unit": "map with all four execution conditions",
+      "seed": 20261101
+    },
+    {
+      "first": "Selected",
+      "second": "Diverse",
+      "difference_percentage_points": 0.0,
+      "ci95_percentage_points": [
+        0.0,
+        0.0
+      ],
+      "clusters": 32,
+      "bootstrap_draws": 10000,
+      "unit": "map with all four execution conditions",
+      "seed": 20261101
+    },
+    {
+      "first": "Selected",
+      "second": "ObservedCoverage",
+      "difference_percentage_points": 0.0,
+      "ci95_percentage_points": [
+        0.0,
+        0.0
+      ],
+      "clusters": 32,
+      "bootstrap_draws": 10000,
+      "unit": "map with all four execution conditions",
+      "seed": 20261101
+    },
+    {
+      "first": "Selected",
+      "second": "Legacy",
+      "difference_percentage_points": 0.0,
+      "ci95_percentage_points": [
+        0.0,
+        0.0
+      ],
+      "clusters": 32,
+      "bootstrap_draws": 10000,
+      "unit": "map with all four execution conditions",
+      "seed": 20261101
+    },
+    {
+      "first": "Selected",
+      "second": "AlignedState",
+      "difference_percentage_points": 0.0,
+      "ci95_percentage_points": [
+        0.0,
+        0.0
+      ],
+      "clusters": 32,
+      "bootstrap_draws": 10000,
+      "unit": "map with all four execution conditions",
+      "seed": 20261101
+    },
+    {
+      "first": "Selected",
+      "second": "ObsBCE",
+      "difference_percentage_points": 0.0,
+      "ci95_percentage_points": [
+        0.0,
+        0.0
+      ],
+      "clusters": 32,
+      "bootstrap_draws": 10000,
+      "unit": "map with all four execution conditions",
+      "seed": 20261101
+    },
+    {
+      "first": "Selected",
+      "second": "ObsAux",
+      "difference_percentage_points": 0.0,
+      "ci95_percentage_points": [
+        0.0,
+        0.0
+      ],
+      "clusters": 32,
+      "bootstrap_draws": 10000,
+      "unit": "map with all four execution conditions",
+      "seed": 20261101
+    },
+    {
+      "first": "Selected",
+      "second": "Full",
+      "difference_percentage_points": 0.78125,
+      "ci95_percentage_points": [
+        0.0,
+        2.34375
+      ],
+      "clusters": 32,
+      "bootstrap_draws": 10000,
+      "unit": "map with all four execution conditions",
+      "seed": 20261101
+    }
+  ],
+  "forest_paired_differences": [
+    {
+      "first": "Selected",
+      "second": "Diverse",
+      "difference_percentage_points": -6.25,
+      "ci95_percentage_points": [
+        -18.75,
+        0.0
+      ],
+      "clusters": 8,
+      "bootstrap_draws": 10000,
+      "unit": "paired forest seed",
+      "seed": 20261101
+    },
+    {
+      "first": "Selected",
+      "second": "ObservedCoverage",
+      "difference_percentage_points": -6.25,
+      "ci95_percentage_points": [
+        -18.75,
+        0.0
+      ],
+      "clusters": 8,
+      "bootstrap_draws": 10000,
+      "unit": "paired forest seed",
+      "seed": 20261101
+    },
+    {
+      "first": "Selected",
+      "second": "ObsAux",
+      "difference_percentage_points": -6.25,
+      "ci95_percentage_points": [
+        -18.75,
+        0.0
+      ],
+      "clusters": 8,
+      "bootstrap_draws": 10000,
+      "unit": "paired forest seed",
+      "seed": 20261101
+    },
+    {
+      "first": "Selected",
+      "second": "Full",
+      "difference_percentage_points": 0.0,
+      "ci95_percentage_points": [
+        -18.75,
+        18.75
+      ],
+      "clusters": 8,
+      "bootstrap_draws": 10000,
+      "unit": "paired forest seed",
+      "seed": 20261101
+    }
+  ],
+  "input_sha256": "6b559220900e0b62765b94313006525fd2ac90ffe9ef649afd59e1dd388a6d7e",
+  "efficiency_on_paired_successes": [
+    {
+      "baseline": "Diverse",
+      "common_successful_tasks": 96,
+      "population": "Only tasks completed by both methods; report alongside full completion outcomes",
+      "Selected_mean_time_s": 17.843749999999996,
+      "baseline_mean_time_s": 17.506249999999998,
+      "Selected_mean_path_length_m": 276.19878769369507,
+      "baseline_mean_path_length_m": 270.9737834712517,
+      "Selected_mean_total_backup_steps": 96281.41666667485,
+      "baseline_mean_total_backup_steps": 137890.19791668686
+    },
+    {
+      "baseline": "ObservedCoverage",
+      "common_successful_tasks": 96,
+      "population": "Only tasks completed by both methods; report alongside full completion outcomes",
+      "Selected_mean_time_s": 17.843749999999996,
+      "baseline_mean_time_s": 17.829166666666666,
+      "Selected_mean_path_length_m": 276.19878769369507,
+      "baseline_mean_path_length_m": 275.7935893520858,
+      "Selected_mean_total_backup_steps": 96281.41666667485,
+      "baseline_mean_total_backup_steps": 144480.8541666757
+    },
+    {
+      "baseline": "ObsBCE",
+      "common_successful_tasks": 96,
+      "population": "Only tasks completed by both methods; report alongside full completion outcomes",
+      "Selected_mean_time_s": 17.843749999999996,
+      "baseline_mean_time_s": 17.233333333333334,
+      "Selected_mean_path_length_m": 276.19878769369507,
+      "baseline_mean_path_length_m": 265.7602557606067,
+      "Selected_mean_total_backup_steps": 96281.41666667485,
+      "baseline_mean_total_backup_steps": 72334.39583333404
+    },
+    {
+      "baseline": "Full",
+      "common_successful_tasks": 95,
+      "population": "Only tasks completed by both methods; report alongside full completion outcomes",
+      "Selected_mean_time_s": 17.857894736842102,
+      "baseline_mean_time_s": 17.076842105263157,
+      "Selected_mean_path_length_m": 276.41946078459546,
+      "baseline_mean_path_length_m": 264.29223650129046,
+      "Selected_mean_total_backup_steps": 96282.95789474575,
+      "baseline_mean_total_backup_steps": 532124.1578947318
+    }
+  ],
+  "report_methods": [
+    "Cost",
+    "Diverse",
+    "ObservedCoverage",
+    "Legacy",
+    "AlignedState",
+    "ObsBCE",
+    "ObsAux",
+    "Selected",
+    "Full"
+  ],
+  "report_labels": {
+    "Cost": "Cost",
+    "Diverse": "Diverse",
+    "ObservedCoverage": "Observed coverage",
+    "Legacy": "Legacy State+Aux",
+    "AlignedState": "Aligned State+Aux",
+    "ObsBCE": "Obs+BCE",
+    "ObsAux": "Obs+Aux",
+    "Selected": "Selected",
+    "Full": "Full"
+  },
+  "duplicate_selected_configuration": null,
+  "duplicate_execution_parity": false,
+  "raw_method_task_runs": 1296,
+  "distinct_method_task_runs": 1296,
+  "report_main": {
+    "Cost": {
+      "episodes": 128,
+      "completed": 50,
+      "outcomes": {
+        "initialization_failed": 65,
+        "no_feasible_primary": 4,
+        "no_verified_sequence": 9,
+        "goal": 50
+      },
+      "completion_rate": 0.390625,
+      "episode_mean_work": 3516.9531898540627,
+      "pooled_mean_work": 2152.2896371043666,
+      "episode_mean_queries": 5.569789334057968,
+      "pooled_mean_queries": 3.680865515233333,
+      "inference_fraction": 0.0,
+      "mean_pruned": 0.0,
+      "min_clearance": 3.0636834552,
+      "episode_mean_total_backup_steps": 173292.94531248126,
+      "total_backup_steps": 22181497,
+      "successful_time_mean": 16.349999999999998
+    },
+    "Diverse": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 19,
+        "no_verified_sequence": 13,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 1060.5677855028516,
+      "pooled_mean_work": 902.5338677571754,
+      "episode_mean_queries": 3.4345436347567184,
+      "pooled_mean_queries": 3.142411362780266,
+      "inference_fraction": 0.0,
+      "mean_pruned": 0.587453596599774,
+      "min_clearance": 3.10116173005,
+      "episode_mean_total_backup_steps": 131057.78906252046,
+      "total_backup_steps": 16775397,
+      "successful_time_mean": 17.506249999999998
+    },
+    "ObservedCoverage": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 20,
+        "no_verified_sequence": 12,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 1088.7112005850313,
+      "pooled_mean_work": 931.1243206164926,
+      "episode_mean_queries": 3.400132896076094,
+      "pooled_mean_queries": 3.131866392274548,
+      "inference_fraction": 0.0,
+      "mean_pruned": 0.602765025592317,
+      "min_clearance": 3.09229141918,
+      "episode_mean_total_backup_steps": 137857.32031252462,
+      "total_backup_steps": 17645737,
+      "successful_time_mean": 17.829166666666666
+    },
+    "Legacy": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 24,
+        "no_verified_sequence": 8,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 880.9003486655938,
+      "pooled_mean_work": 687.5288701624635,
+      "episode_mean_queries": 2.7222346650981253,
+      "pooled_mean_queries": 2.2966084061594954,
+      "inference_fraction": 0.20760507698709946,
+      "mean_pruned": 0.8951310861423221,
+      "min_clearance": 3.73992362398,
+      "episode_mean_total_backup_steps": 103258.24218752497,
+      "total_backup_steps": 13217055,
+      "successful_time_mean": 17.417708333333334
+    },
+    "AlignedState": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 29,
+        "no_verified_sequence": 3,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 820.8011226405234,
+      "pooled_mean_work": 670.4590317055374,
+      "episode_mean_queries": 2.76250740383125,
+      "pooled_mean_queries": 2.3769913341291775,
+      "inference_fraction": 0.2300347672668777,
+      "mean_pruned": 1.060557314098905,
+      "min_clearance": 2.64006471904,
+      "episode_mean_total_backup_steps": 100940.74999997977,
+      "total_backup_steps": 12920416,
+      "successful_time_mean": 17.371875
+    },
+    "ObsBCE": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 31,
+        "no_verified_sequence": 1,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 1377.9173257533048,
+      "pooled_mean_work": 914.2508376963046,
+      "episode_mean_queries": 2.5907109295923436,
+      "pooled_mean_queries": 2.1705235602094213,
+      "inference_fraction": 0.20958115183246073,
+      "mean_pruned": 1.0443979057591624,
+      "min_clearance": 4.28466883897,
+      "episode_mean_total_backup_steps": 136423.36718749543,
+      "total_backup_steps": 17462191,
+      "successful_time_mean": 17.233333333333334
+    },
+    "ObsAux": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 27,
+        "no_verified_sequence": 5,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 1389.835670708539,
+      "pooled_mean_work": 889.1348921798113,
+      "episode_mean_queries": 2.5010521021896093,
+      "pooled_mean_queries": 2.0434918160557567,
+      "inference_fraction": 0.21683554169914263,
+      "mean_pruned": 1.2561704338789297,
+      "min_clearance": 3.82451528087,
+      "episode_mean_total_backup_steps": 133682.82031250367,
+      "total_backup_steps": 17111401,
+      "successful_time_mean": 17.520833333333332
+    },
+    "Selected": {
+      "episodes": 128,
+      "completed": 96,
+      "outcomes": {
+        "no_feasible_primary": 28,
+        "no_verified_sequence": 4,
+        "goal": 96
+      },
+      "completion_rate": 0.75,
+      "episode_mean_work": 1211.9305608805703,
+      "pooled_mean_work": 867.0551566081251,
+      "episode_mean_queries": 2.602837788917109,
+      "pooled_mean_queries": 2.192105933282458,
+      "inference_fraction": 0.28143621084797554,
+      "mean_pruned": 1.814769544181309,
+      "min_clearance": 3.92978745975,
+      "episode_mean_total_backup_steps": 133004.90625000416,
+      "total_backup_steps": 17024628,
+      "successful_time_mean": 17.843749999999996
+    },
+    "Full": {
+      "episodes": 128,
+      "completed": 95,
+      "outcomes": {
+        "no_feasible_primary": 23,
+        "no_verified_sequence": 10,
+        "goal": 95
+      },
+      "completion_rate": 0.7421875,
+      "episode_mean_work": 9352.814906063624,
+      "pooled_mean_work": 6102.581605728165,
+      "episode_mean_queries": 23.219349286282185,
+      "pooled_mean_queries": 14.448979591837762,
+      "inference_fraction": 0.0,
+      "mean_pruned": 0.0,
+      "min_clearance": 3.12306096344,
+      "episode_mean_total_backup_steps": 885398.7734373263,
+      "total_backup_steps": 113331043,
+      "successful_time_mean": 17.076842105263157
+    }
+  }
+}

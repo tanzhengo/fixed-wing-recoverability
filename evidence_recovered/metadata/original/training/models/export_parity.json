@@ -1,0 +1,98 @@
+{
+  "criterion": "All validation candidate logits vs compact portable C++ inference; downstream schedule replay uses C++ probabilities",
+  "validation_feature_sha256": "3c398263335ea16c7965faa33d74089354658accf39f1502ace6e007e3fee42d",
+  "portable_header_sha256": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+  "source_sha256": "43edfbee23f1660a9c2b1d550d2e75d9e56c736b89f9c205e025345ccabf9920",
+  "models": [
+    {
+      "cell": "state_aux",
+      "seed": 20261101,
+      "candidates": 95168,
+      "max_logit_error": 9.5367431640625e-06,
+      "max_probability_error": 1.6689300537109375e-06,
+      "mean_logit_error": 1.1029321740352316e-06,
+      "network_sha256": "389c20d51a733fe6bc8f648f18f213802deda7b964580cff2999f422afc0a353",
+      "cpp_predictions_sha256": "8e23da029ff0ae16825e65f3c0591bd1326c1701b8c366afef10b9c880f5b2d0"
+    },
+    {
+      "cell": "state_aux",
+      "seed": 20261102,
+      "candidates": 95168,
+      "max_logit_error": 6.3478946685791016e-06,
+      "max_probability_error": 1.5795230865478516e-06,
+      "mean_logit_error": 8.825010127111454e-07,
+      "network_sha256": "bf0ef8f17939f5d4c1fd469a301fa2b07e0446d085a7486bb717998f2f23831c",
+      "cpp_predictions_sha256": "632c4136ff0cf2823d4204d45b9adc92d9902af728dd75ed2fd9f1b950b1ce96"
+    },
+    {
+      "cell": "state_aux",
+      "seed": 20261103,
+      "candidates": 95168,
+      "max_logit_error": 1.1444091796875e-05,
+      "max_probability_error": 2.473592758178711e-06,
+      "mean_logit_error": 1.4069630651647458e-06,
+      "network_sha256": "3713f8579e69d0db534a635fffc65ceb0e6038809ad14ec6520367a45cb2c25e",
+      "cpp_predictions_sha256": "8180efa00780394e51ed1429ef7cc23f59710d6403cf34ebaa475e88c80cf05f"
+    },
+    {
+      "cell": "observed",
+      "seed": 20261101,
+      "candidates": 95168,
+      "max_logit_error": 1.9073486328125e-05,
+      "max_probability_error": 2.3543834686279297e-06,
+      "mean_logit_error": 1.4748203511771862e-06,
+      "network_sha256": "cace4c2fbb514062696cd26011791010af6df01721162e8d56fb4e8c8b7454f4",
+      "cpp_predictions_sha256": "501137479daa5985052542e4ed5eba7e005e07c6a5803c63a955963d0b85a721"
+    },
+    {
+      "cell": "observed",
+      "seed": 20261102,
+      "candidates": 95168,
+      "max_logit_error": 1.4781951904296875e-05,
+      "max_probability_error": 2.5033950805664062e-06,
+      "mean_logit_error": 1.6634797930237255e-06,
+      "network_sha256": "ec5fc171583193715add33bdb4bfc492cbf707030a40f131f10ef3fb9018dd7f",
+      "cpp_predictions_sha256": "2be67891ac1b0134992e4c2037f0baf282caa0bf4cb6710d18e34c773e0608f6"
+    },
+    {
+      "cell": "observed",
+      "seed": 20261103,
+      "candidates": 95168,
+      "max_logit_error": 1.1444091796875e-05,
+      "max_probability_error": 1.4901161193847656e-06,
+      "mean_logit_error": 1.2773301705237827e-06,
+      "network_sha256": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+      "cpp_predictions_sha256": "b91990eab8d5e892f6ad4c64cec6c7e0742988c891cf25f56c1710fab5429c47"
+    },
+    {
+      "cell": "observed_aux",
+      "seed": 20261101,
+      "candidates": 95168,
+      "max_logit_error": 1.52587890625e-05,
+      "max_probability_error": 1.817941665649414e-06,
+      "mean_logit_error": 1.384846655128058e-06,
+      "network_sha256": "329eb415e1069adecd9e62439b4068a42f38e9f6db74319b8aa5426cd9df2b50",
+      "cpp_predictions_sha256": "627cffcf123dfe2e005f379ad6a59431954b0775bba9c40de6730199f1f019fa"
+    },
+    {
+      "cell": "observed_aux",
+      "seed": 20261102,
+      "candidates": 95168,
+      "max_logit_error": 1.33514404296875e-05,
+      "max_probability_error": 2.682209014892578e-06,
+      "mean_logit_error": 1.7339189071208239e-06,
+      "network_sha256": "dae11f22c93692d138c45c5252d6e510cd4c1ad9d6f7085a3e053cb37bb8d11b",
+      "cpp_predictions_sha256": "ec9d6bc998644d19a608e9eb1598a7d0588ff2ca5831729f135de9752e0907b4"
+    },
+    {
+      "cell": "observed_aux",
+      "seed": 20261103,
+      "candidates": 95168,
+      "max_logit_error": 1.1444091796875e-05,
+      "max_probability_error": 2.4139881134033203e-06,
+      "mean_logit_error": 1.3054966530035017e-06,
+      "network_sha256": "0fdb3ac63e6df856dc3e7ed81c8b47d5621f38f5f0707ca7732ac672a3e319ae",
+      "cpp_predictions_sha256": "32699e648072cdc217f0e0d46d06b84eb82402673721d5b66662e3e10777715e"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "schema": "OBS58",
+  "candidate_columns": 115,
+  "metadata": [
+    "query",
+    "rank",
+    "cost",
+    "y",
+    "work_until_first_success",
+    "successors_until_first_success",
+    "rejected_collision",
+    "rejected_envelope",
+    "rejected_known_space",
+    "rejected_invalid",
+    "successor_library_size",
+    "primary_library_index"
+  ],
+  "feature_columns": [
+    12,
+    70
+  ],
+  "successor_columns": [
+    70,
+    115
+  ],
+  "successor_triples": [
+    "verified",
+    "steps",
+    "rejection"
+  ],
+  "features": {
+    "base": 28,
+    "yaw_degrees": [
+      -45,
+      -22.5,
+      0,
+      22.5,
+      45
+    ],
+    "pitch_degrees": [
+      -20,
+      0,
+      20
+    ],
+    "distance_fractions": [
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1
+    ],
+    "scale": "terminal airspeed * B",
+    "channels": [
+      "free_fraction",
+      "unknown_fraction"
+    ]
+  },
+  "training_scenes": 64,
+  "validation_scenes": 16,
+  "seeds": {
+    "train": 1101000,
+    "val": 1201000,
+    "pilot": 9901000,
+    "test_reserved": 1301000
+  },
+  "forest_pairing": "family 4 and 5 share base+40000+index",
+  "samplers": [
+    "Cost K12",
+    "Diverse K12",
+    "Full"
+  ],
+  "conditions": [
+    "nominal"
+  ],
+  "capture_seconds": "0,0.2,...,2; 4,6,...,38; final planning failure if not already captured",
+  "map": "empty initial three-state 2m voxels; nearest-hit 512x32 rays at 5Hz; 120m max; 360deg azimuth and [-40,20]deg elevation; 2m execution clearance + time-ramped 1m proposal reserve",
+  "horizon": 3,
+  "continuation_horizon": 3,
+  "primary_library_max": 406,
+  "successor_library": 15,
+  "planning_step": 0.02,
+  "execution_RK4_step": 0.005,
+  "execution_command_period": 0.1,
+  "experimental_prefix": false,
+  "strict_dispatch": true,
+  "cache": "reuse validated remaining suffix; no forced refresh",
+  "failures": "all cases and all prescribed startup snapshots retained; no-success snapshots included",
+  "oracle": "all feasible primaries, all 15 successor outcomes, query work stops at first witness",
+  "maximum_task_seconds": 40,
+  "hashes": {
+    "run_collection.py": "8b07f35938846aa10159f50d7d803b3ede81c44d9e2c4876d248aa3a1c1a04e6",
+    "collect_observed.cpp": "5039459dd0a7648131c45ed357fb360625b2486a8d8174ee2cf039b351c88b9f",
+    "observed_scene.h": "2b9766387c573197646c333d6f40dd904ab5a9a2e6e27edcdcdb486e6224bd50",
+    "runtime_motion_primitives.h": "8452a2e2b3ef52b1efbab276d177562b01300bed809c4f59e09b2259e900d839",
+    "learned_recovery.h": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929",
+    "sensor_occupancy_map.h": "14c3215e374b6351c9d7a8f8907a3f322374fa1ae3b3d5418801cec36df27508",
+    "runtime_sensor_map.h": "f3fb0541a553bb5c8a4732a5852280feca5cc8126ae04ee06eb80f782896a152",
+    "evaluation_plant.h": "1fa3cedf03dbe77b2e82438d2878ef3121a5e38c90efcbc109c34aa87da38717"
+  },
+  "encoder_sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4"
+}

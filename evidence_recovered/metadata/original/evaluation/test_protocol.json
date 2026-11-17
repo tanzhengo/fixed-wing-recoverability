@@ -1,0 +1,116 @@
+{
+  "frozen_unix": 1793513215.0796664,
+  "mode": "test",
+  "jobs": 1296,
+  "methods": {
+    "Cost": {
+      "order": "cost",
+      "model": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/training/state_joint/20261030/network_v1.txt",
+      "sha256": "88892f2dadaeaec3db70183067b1ccac3fd129886e8714a2cb3682e8d914ecb9",
+      "alpha": 0.5
+    },
+    "Diverse": {
+      "order": "diverse",
+      "model": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/training/state_joint/20261030/network_v1.txt",
+      "sha256": "88892f2dadaeaec3db70183067b1ccac3fd129886e8714a2cb3682e8d914ecb9",
+      "alpha": 0.5
+    },
+    "Legacy": {
+      "order": "learned",
+      "model": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/training/state_joint/20261030/network_v1.txt",
+      "sha256": "88892f2dadaeaec3db70183067b1ccac3fd129886e8714a2cb3682e8d914ecb9",
+      "alpha": 0.5
+    },
+    "AlignedState": {
+      "order": "learned",
+      "model": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/state_aux/20261102/network_compact.txt",
+      "sha256": "bf0ef8f17939f5d4c1fd469a301fa2b07e0446d085a7486bb717998f2f23831c",
+      "alpha": 0.5
+    },
+    "ObsBCE": {
+      "order": "learned",
+      "model": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+      "sha256": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+      "alpha": 0.5
+    },
+    "ObsAux": {
+      "order": "learned",
+      "model": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed_aux/20261101/network_compact.txt",
+      "sha256": "329eb415e1069adecd9e62439b4068a42f38e9f6db74319b8aa5426cd9df2b50",
+      "alpha": 0.5
+    },
+    "Selected": {
+      "order": "learned_coverage",
+      "model": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+      "sha256": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+      "alpha": 0.75
+    },
+    "ObservedCoverage": {
+      "order": "observed_coverage",
+      "model": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/training/state_joint/20261030/network_v1.txt",
+      "sha256": "88892f2dadaeaec3db70183067b1ccac3fd129886e8714a2cb3682e8d914ecb9",
+      "alpha": 0.25
+    },
+    "Full": {
+      "order": "full",
+      "model": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/training/state_joint/20261030/network_v1.txt",
+      "sha256": "88892f2dadaeaec3db70183067b1ccac3fd129886e8714a2cb3682e8d914ecb9",
+      "alpha": 0.5
+    }
+  },
+  "build": {
+    "command": [
+      "g++",
+      "-std=c++14",
+      "-O2",
+      "-I/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src",
+      "-I/usr/include/eigen3",
+      "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/evaluation/benchmark.cpp",
+      "-o",
+      "/tmp/codex-revision-eval",
+      "-I/opt/ros/noetic/include",
+      "-L/opt/ros/noetic/lib",
+      "-ltf",
+      "-ltf2_ros",
+      "-lactionlib",
+      "/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0",
+      "-lmessage_filters",
+      "-lroscpp",
+      "-lpthread",
+      "/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.71.0",
+      "/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0",
+      "/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0",
+      "-lxmlrpcpp",
+      "-ltf2",
+      "/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4",
+      "-lroscpp_serialization",
+      "-lrosconsole",
+      "-lrosconsole_log4cxx",
+      "-lrosconsole_backend_interface",
+      "/usr/lib/x86_64-linux-gnu/liblog4cxx.so",
+      "/usr/lib/x86_64-linux-gnu/libboost_regex.so.1.71.0",
+      "/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0",
+      "/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0",
+      "-lrostime",
+      "/usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.71.0",
+      "/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0",
+      "/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0",
+      "-lcpp_common",
+      "/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0",
+      "/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.71.0",
+      "/usr/lib/x86_64-linux-gnu/libconsole_bridge.so.0.4"
+    ],
+    "sha256": {
+      "learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+      "observed_scene.h": "2b9766387c573197646c333d6f40dd904ab5a9a2e6e27edcdcdb486e6224bd50",
+      "runtime_sensor_map.h": "f3fb0541a553bb5c8a4732a5852280feca5cc8126ae04ee06eb80f782896a152",
+      "sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+      "runtime_motion_primitives.h": "87aaf61c659fd2e05e7694ba4e3e6dc0a77cc85bb037b7fe7fca86377c297fdd",
+      "evaluation_plant.h": "1fa3cedf03dbe77b2e82438d2878ef3121a5e38c90efcbc109c34aa87da38717",
+      "observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4"
+    },
+    "benchmark_sha256": "6334acd9ca2a20570c21d14d4f2471cf649545e8c6d66fcab843efd7a74b2953",
+    "binary_sha256": "c4d1ccb81dcceee3c378c645eb1c2363714dd6bc1db8ac484d36d912967c9cf6"
+  },
+  "main_protocol_sha256": "9eaa301888db4406e5709ed2bf03a215edd0ccc02ae3175dcdb0594159505a70"
+}

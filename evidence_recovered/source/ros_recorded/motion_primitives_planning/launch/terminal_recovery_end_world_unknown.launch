@@ -1,0 +1,69 @@
+<launch>
+  <!-- The caller supplies a task snapshot containing waypoints and limits only. -->
+  <arg name="task_config"/>
+  <arg name="gui" default="true"/>
+  <arg name="rviz" default="true"/>
+  <arg name="paused" default="true"/>
+  <arg name="world_name" default="$(find simple_airplane_gazebo)/worlds/end_city_dense_lidar.world"/>
+  <arg name="candidate_order" default="learned_coverage"/>
+  <arg name="model_path" default="$(find motion_primitives_planning)/models/observed_recovery_bce_v2.txt"/>
+  <arg name="primary_horizon" default="3.0"/>
+  <arg name="backup_horizon" default="3.0"/>
+  <arg name="max_candidates" default="12"/>
+  <arg name="deferred_inference" default="true"/>
+  <arg name="prune_dominated" default="true"/>
+  <arg name="coverage_weight" default="0.75"/>
+  <arg name="sensor_map_enabled" default="true"/>
+  <arg name="map_resolution" default="2.0"/>
+  <arg name="map_clearance" default="2.0"/>
+  <arg name="planning_reserve" default="1.0"/>
+  <arg name="planning_lookahead" default="0.05"/>
+  <arg name="map_max_cells" default="8000000"/>
+  <arg name="map_max_age" default="1.0"/>
+  <arg name="map_snapshot_path" default=""/>
+  <arg name="ray_topic" default="lidar/rays"/>
+  <arg name="display_voxels" default="true"/>
+  <include file="$(find motion_primitives_planning)/launch/terminal_recovery.launch">
+    <arg name="task_config" value="$(arg task_config)"/>
+    <arg name="world_name" value="$(arg world_name)"/>
+    <arg name="description_file" value="$(find simple_airplane_description)/urdf/simple_airplane_with_3d_lidar.xacro"/>
+    <arg name="rviz_config" value="$(find motion_primitives_planning)/launch/mp_end_city_lidar.rviz"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="rviz" value="$(arg rviz)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="candidate_order" value="$(arg candidate_order)"/>
+    <arg name="model_path" value="$(arg model_path)"/>
+    <arg name="max_candidates" value="$(arg max_candidates)"/>
+    <arg name="backup_horizon" value="$(arg backup_horizon)"/>
+    <arg name="learned_work_power" value="0.0"/>
+    <arg name="stop_on_rejection" value="true"/>
+    <arg name="reuse_verified_plan" value="true"/>
+    <arg name="strict_execution" value="true"/>
+  </include>
+  <param name="/suav1/motion_primitive/horizon_time" value="$(arg primary_horizon)" type="double"/>
+  <param name="/suav1/recovery/state_only_features" value="true" type="bool"/>
+  <param name="/suav1/recovery/deferred_inference" value="$(arg deferred_inference)" type="bool"/>
+  <param name="/suav1/recovery/prune_dominated" value="$(arg prune_dominated)" type="bool"/>
+  <param name="/suav1/recovery/coverage_weight" value="$(arg coverage_weight)" type="double"/>
+  <param name="/suav1/sensor_map/enabled" value="$(arg sensor_map_enabled)" type="bool"/>
+  <param name="/suav1/sensor_map/resolution" value="$(arg map_resolution)" type="double"/>
+  <param name="/suav1/sensor_map/clearance" value="$(arg map_clearance)" type="double"/>
+  <param name="/suav1/sensor_map/planning_reserve" value="$(arg planning_reserve)" type="double"/>
+  <param name="/suav1/execution/planning_lookahead" value="$(arg planning_lookahead)" type="double"/>
+  <param name="/suav1/sensor_map/max_cells" value="$(arg map_max_cells)" type="int"/>
+  <param name="/suav1/sensor_map/max_age" value="$(arg map_max_age)" type="double"/>
+  <param name="/suav1/sensor_map/ray_topic" value="$(arg ray_topic)" type="str"/>
+  <param name="/suav1/sensor_map/frame" value="suav1/lidar" type="str"/>
+  <param name="/suav1/sensor_map/snapshot_path" value="$(arg map_snapshot_path)" type="str"/>
+  <!-- This endpoint-only display remains independent of the planning map. -->
+  <node if="$(arg display_voxels)" pkg="motion_primitives_planning" type="lidar_voxel_map.py"
+        name="lidar_voxel_map" output="screen" required="true">
+    <param name="resolution" value="2.0"/>
+    <param name="max_voxels" value="200000"/>
+    <param name="map_publish_rate" value="2.0"/>
+    <param name="min_range" value="1.0"/>
+    <param name="max_range" value="120.0"/>
+    <rosparam param="sensor_offset">[0.0, 0.0, 0.15]</rosparam>
+    <rosparam param="sensor_rpy">[0.0, 0.0, 0.0]</rosparam>
+  </node>
+</launch>

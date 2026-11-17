@@ -1,0 +1,2 @@
+case,family,seed,index,method,condition,outcome,steps,sim_seconds,goal_distance,min_chord_clearance,startup_steps,fresh,cached,planning_calls,mean_queries,mean_backup_steps,plan_ms,map_ms,wall_s,scans,free_cells,occupied_cells,inference_batches,pruned_candidates,observed_feature_candidates
+culdesac_0_mFull_c0,culdesac,1321000,0,Full,0,no_feasible_primary,86,8.6,124.417060852,5.28741439595,8,18,60,87,85.5287356322,35849.3563218,2734.424849,1570.360083,4.309708635,44,518391,31752,0,0,0

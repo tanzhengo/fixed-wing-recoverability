@@ -1,0 +1,31 @@
+{
+  "main_pdf_dimensions_inches": [
+    7.2,
+    5.25
+  ],
+  "font_family": "Times New Roman",
+  "minimum_font_size_pt": 7.2,
+  "embedded_fonts": "name                                 type              encoding         emb sub uni object ID\n------------------------------------ ----------------- ---------------- --- --- --- ---------\nTimesNewRomanPSMT                    CID TrueType      Identity-H       yes no  yes     14  0\n",
+  "embedded_raster_images": 0,
+  "rendered_pdf_visually_checked": true,
+  "no_production_code_changes": true,
+  "no_manuscript_file_changes": true,
+  "original_validation_population_unchanged": {
+    "inputs": 767,
+    "full_positive": 517
+  },
+  "raw_training_collection_sha256": "6c80b3e28c2b705308d0a6201419ff6a9359bb765bc0e3f755d4ecada628bce2",
+  "outputs": {
+    "observed_continuation_mechanism.pdf": "619eaa93b1faf4ac78ad09aed5e09578519e8e89a458aede7bbbafcb6308dbb9",
+    "observed_continuation_mechanism.png": "10b25bdf86c7aa8c9fa19a51a001e61678e50622d3f6fe1a79ed861000a323b9",
+    "observed_continuation_full_maps.pdf": "1a8bb64008969784cdb997b48c4aad49dd4ec7e3775abd22e9998c5799df3017",
+    "observed_continuation_full_maps.png": "ba322709cf83420ca4c41f84f09d313b6dd25987e29df1cb33bc04209e5cadb5",
+    "paired_map_manuscript.tex": "751640517f22d530cbbf601ba0f06d13fc7b29fa3829fc4b3f1bfe10a90ef4a3",
+    "pair_evidence.json": "55f8882d139bef350c850cedffe483eee52f30d30be597722cb15f990403a9f8",
+    "paired_summary.csv": "2356492b4abff6bcc0990bb4bb95ad41cc3f632370dc3e7010921a18b34f0ed1",
+    "frozen_pairs_final.json": "c2db6f61bc43d995e069c5204caba484af5b7425231a8ec2308d8b527dcba526",
+    "create_figure.py": "3a4653990cefd6a5364b6cf78f01e6168b7591c70ac0a90ce219844e483a473b",
+    "verify.py": "9868c6e374f932f988497ffb63a2ff060f1fd14c40e6fab6590be0007f987080",
+    "reproduce_selection.py": "9180ab08c73b209c7bc6b50b4673fef15bc6673146f2178f7485a6f3429eebd0"
+  }
+}

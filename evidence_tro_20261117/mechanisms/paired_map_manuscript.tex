@@ -1,0 +1,9 @@
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.97\textwidth]{figures/observed_continuation_mechanism.pdf}
+\caption{Observed-space dependence of terminal continuation. (a,b) Two validation maps at $t=0.8$ s after five lidar scans, with identical aircraft state, goal, primary P69 and 15-control successor bank. The background shows the two-metre voxel slice $z\in[20,22)$ m; curves are horizontal projections of three-dimensional rollouts. P69 is primary-feasible in both maps, but admits no valid successor in Map A and one in Map B. P107 is an alternative primary with two valid successors in Map A; its first valid successor is shown. Crosses mark rejected rollout endpoints. (c) Full-bank outcomes from the three-dimensional validator, including occupancy, unknown-space and flight-envelope checks. (d) Terminal free-space probe fractions for P69, grouped by azimuth with elevations $-20^{\circ},0^{\circ},20^{\circ}$.}
+\label{fig:observed_mechanism}
+\end{figure*}
+
+Figure~\ref{fig:observed_mechanism} separates primary feasibility from terminal continuation. In Map A, both P69 and P107 pass primary validation, while only P107 admits a successor in the finite bank. Applying the same P69 rollout and successor controls in Map B changes its continuation label from zero to one. The aircraft state, goal and all 28 state--task features are identical across the two inputs; 18 of the 30 observation features differ. Thus, a state-only predictor cannot distinguish these outcomes. The observation probes encode the local free-space variation that changes continuation feasibility.
+

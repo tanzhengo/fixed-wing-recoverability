@@ -1,0 +1,122 @@
+{
+  "frozen_unix": 1793512080.0337965,
+  "scores": [
+    {
+      "label": "ObsAux",
+      "order": "learned",
+      "alpha": 0.0,
+      "episodes": 16,
+      "completed": 12,
+      "mean_backup_steps": 964.4276679467499,
+      "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed_aux/20261101/network_compact.txt"
+    },
+    {
+      "label": "ObsBCE",
+      "order": "learned",
+      "alpha": 0.0,
+      "episodes": 16,
+      "completed": 13,
+      "mean_backup_steps": 1055.8314458080624,
+      "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt"
+    },
+    {
+      "label": "LC25",
+      "order": "learned_coverage",
+      "alpha": 0.25,
+      "episodes": 16,
+      "completed": 12,
+      "mean_backup_steps": 1155.1320512065001,
+      "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed_aux/20261101/network_compact.txt"
+    },
+    {
+      "label": "OC25",
+      "order": "observed_coverage",
+      "alpha": 0.25,
+      "episodes": 16,
+      "completed": 12,
+      "mean_backup_steps": 1243.7899494011874,
+      "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/training/state_joint/20261030/network_v1.txt"
+    },
+    {
+      "label": "LBC25",
+      "order": "learned_coverage",
+      "alpha": 0.25,
+      "episodes": 16,
+      "completed": 12,
+      "mean_backup_steps": 1064.390542198375,
+      "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt"
+    },
+    {
+      "label": "LC50",
+      "order": "learned_coverage",
+      "alpha": 0.5,
+      "episodes": 16,
+      "completed": 12,
+      "mean_backup_steps": 1070.2250930158125,
+      "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed_aux/20261101/network_compact.txt"
+    },
+    {
+      "label": "OC50",
+      "order": "observed_coverage",
+      "alpha": 0.5,
+      "episodes": 16,
+      "completed": 12,
+      "mean_backup_steps": 1287.25276821625,
+      "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/training/state_joint/20261030/network_v1.txt"
+    },
+    {
+      "label": "LBC50",
+      "order": "learned_coverage",
+      "alpha": 0.5,
+      "episodes": 16,
+      "completed": 12,
+      "mean_backup_steps": 1046.811033978,
+      "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt"
+    },
+    {
+      "label": "LC75",
+      "order": "learned_coverage",
+      "alpha": 0.75,
+      "episodes": 16,
+      "completed": 12,
+      "mean_backup_steps": 1014.8466188323125,
+      "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed_aux/20261101/network_compact.txt"
+    },
+    {
+      "label": "OC75",
+      "order": "observed_coverage",
+      "alpha": 0.75,
+      "episodes": 16,
+      "completed": 12,
+      "mean_backup_steps": 1291.0753919925,
+      "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/training/state_joint/20261030/network_v1.txt"
+    },
+    {
+      "label": "LBC75",
+      "order": "learned_coverage",
+      "alpha": 0.75,
+      "episodes": 16,
+      "completed": 13,
+      "mean_backup_steps": 1055.2490806058752,
+      "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt"
+    }
+  ],
+  "learned": {
+    "label": "LBC75",
+    "order": "learned_coverage",
+    "alpha": 0.75,
+    "episodes": 16,
+    "completed": 13,
+    "mean_backup_steps": 1055.2490806058752,
+    "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt"
+  },
+  "nonlearned": {
+    "label": "OC25",
+    "order": "observed_coverage",
+    "alpha": 0.25,
+    "episodes": 16,
+    "completed": 12,
+    "mean_backup_steps": 1243.7899494011874,
+    "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/training/state_joint/20261030/network_v1.txt"
+  }
+}

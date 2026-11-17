@@ -1,22 +1,23 @@
 # fixed-wing-recoverability
 
-## 论文对应的重建参考实现
+## TRO 实验代码与 Ubuntu 接续（2026-11-17）
 
-**切换到 Ubuntu：** [环境准备与分阶段操作](reconstruction/UBUNTU_GUIDE.md) · [直接交给 Codex 的接续任务](reconstruction/CODEX_HANDOFF.md)。先验证 Python 参考实现，再进行新的 ROS/Gazebo 适配；指南注明了尚未在 Ubuntu 执行的部分。
+工作分支：`codex/tro-revision-2026-11-17`；基于 `codex/manuscript-reconstruction-2026-11-12`。
 
-最新代码位于 [reconstruction/](reconstruction/README.txt)，依据用户提供的 LaTeX 工程 `main11.tex` 重建：三状态观测地图、58 维输入、主轨迹与延续时域均为 3 s、K=12、最多 406 条主候选及 15 个后继控制。该 LaTeX 工程是本次重建的基线，下面历史档案中的 `paper/main.tex` 不是最新稿。
+本分支现在区分两套实现与证据：
 
-这是新的 Python/NumPy 参考实现，包含规划、感知、重验证、数据标注、训练、诊断和测试工具。原始 58 维权重与实验记录尚未找回；本分支不声称复现了论文原表格，也未完成 ROS/Gazebo 或实飞验证。数值回合使用同步、零计算延迟的诊断设置。
+- [恢复的原始未知环境实现与证据](evidence_recovered/USAGE.txt)：原 C++/ROS 源码快照、58 维正式模型、九次训练与选模记录、程序化/森林/城市查询表，以及可移植重算与编译入口。原始大体积档案的哈希另行列出。主文结果已从原记录独立重算，与稿件数值一致。
+- [本轮 TRO 实验与绘图代码](evidence_tro_20261117/USAGE.txt)：九次城市重复飞行的运行和分析入口、延续验证机制复放，以及 Figure 1 架构图和 Figure 2 配对地图的生成代码。原始大体积传感器记录保留在外部档案中。
+- [Python/NumPy 参考实现](reconstruction/README.txt)：依据稿件重建的独立实现。Ubuntu 指南第 3–7 节已实际执行，76 项软件检查通过，标注、训练、查询重放和短数值回合完成；短回合结果为 `time_limit`，不是任务完成。记录见 [Ubuntu 检查摘要](reconstruction/validation/ubuntu_20261117_summary.json)。
 
-从仓库根目录运行：
+两套实现都保留三状态观测地图、58 维输入、主轨迹与延续时域均为 3 s、K=12、最多 406 条主候选及 15 个后继控制。新的 smoke 模型不替代正式 Selected。下方 `paper/main.tex` 仍为历史稿。
 
 ```bash
-cd reconstruction
-python -m pip install -r requirements.txt
-python scripts/run_checks.py --output runs/software_checks.json
+python3 evidence_recovered/verify.py
+python3 evidence_recovered/analyze.py --help
 ```
 
-详细边界与后续工作见 [运行说明](reconstruction/README.txt) 和 [ROS 接口约定](reconstruction/ros/INTEGRATION_CONTRACT.txt)。本次发布的实际检查记录见 [software_checks.json](reconstruction/validation/software_checks.json)。
+参考实现的环境和完整运行步骤见 [Ubuntu 指南](reconstruction/UBUNTU_GUIDE.md)；ROS 适配边界见 [接口约定](reconstruction/ros/INTEGRATION_CONTRACT.txt)。既有目录和原始检查记录均保留。新增重复飞行和机制分析使用独立目录，不覆盖历史回合。
 
 ## 历史实现与实验档案
 

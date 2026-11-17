@@ -1,0 +1,2 @@
+case,split,family,seed,index,sampler,outcome,queries,sim_seconds,wall_seconds,prefix_checks,prefix_rejects,min_clearance
+val_culdesac_0_m0,val,culdesac,1221000,0,0,initialization_failed,11,2,1.88781,0,0,47.2745

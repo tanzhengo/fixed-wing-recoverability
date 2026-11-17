@@ -1,0 +1,14 @@
+{
+  "source": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/paper/city/city_analysis.json",
+  "source_sha256": "2f3247528c4086a4d6aaf3348f38ab55a3dff5110e8058c19167ff89ce90ed3d",
+  "output": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/paper/fragments/city_table.tex",
+  "output_sha256": "ed0896e4827ae93785fc57bf1207ab6b1a78c304894dd649ba2597166b085f1d",
+  "included_methods": [
+    "Cost",
+    "Diverse",
+    "Selected"
+  ],
+  "failed_methods": [],
+  "clock": "ROS simulation time, distinct from CPU benchmark",
+  "active_definition": "Flight observer mission statuses; leading MAP_WAITING excluded from active updates; shutdown-grace telemetry excluded"
+}

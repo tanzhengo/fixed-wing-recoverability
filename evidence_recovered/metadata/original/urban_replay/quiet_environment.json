@@ -1,0 +1,53 @@
+{
+  "started_utc": "2026-11-01T06:12:24.792136Z",
+  "cpu": 10,
+  "cpu_frequency_locked": false,
+  "methods_tsv": "AlignedState\tlearned\t/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/state_aux/20261102/network_compact.txt\t0.0\nObsBCE\tlearned\t/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt\t0.0\nObsAux\tlearned\t/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed_aux/20261101/network_compact.txt\t0.0\nSelected\tlearned_coverage\t/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt\t0.75\nObservedCoverage\tobserved_coverage\t-\t0.25\n",
+  "methods_sha256": "69c726ebb50f00d0a2312b02283bf6bdb891f318a92ad70145333f00a7becd42",
+  "timing": "3 rotated-order repetitions per matched input; within-input median. Separate instrumented pass. Parent confirms training/large evaluation jobs idle before starting.",
+  "runs": [
+    {
+      "mode": "current",
+      "run": "learned3",
+      "exit": 0,
+      "elapsed_s": 47.732555627822876,
+      "binary_sha256": "29f954d8762da737f26d698b6aa5be6798d83ddb616407f3d7684e14bab3e25d"
+    },
+    {
+      "mode": "current",
+      "run": "cost1",
+      "exit": 0,
+      "elapsed_s": 47.62028908729553,
+      "binary_sha256": "29f954d8762da737f26d698b6aa5be6798d83ddb616407f3d7684e14bab3e25d"
+    },
+    {
+      "mode": "current",
+      "run": "diverse1",
+      "exit": 0,
+      "elapsed_s": 45.109721183776855,
+      "binary_sha256": "29f954d8762da737f26d698b6aa5be6798d83ddb616407f3d7684e14bab3e25d"
+    },
+    {
+      "mode": "instrumented",
+      "run": "learned3",
+      "exit": 0,
+      "elapsed_s": 28.280544757843018,
+      "binary_sha256": "3a1eeab71d1d1cf9d5e1595c39b62acab27dc5ff9b9ef661292fee3535b99516"
+    },
+    {
+      "mode": "instrumented",
+      "run": "cost1",
+      "exit": 0,
+      "elapsed_s": 28.283219575881958,
+      "binary_sha256": "3a1eeab71d1d1cf9d5e1595c39b62acab27dc5ff9b9ef661292fee3535b99516"
+    },
+    {
+      "mode": "instrumented",
+      "run": "diverse1",
+      "exit": 0,
+      "elapsed_s": 28.592568159103394,
+      "binary_sha256": "3a1eeab71d1d1cf9d5e1595c39b62acab27dc5ff9b9ef661292fee3535b99516"
+    }
+  ],
+  "finished_utc": "2026-11-01T06:16:10.759539Z"
+}

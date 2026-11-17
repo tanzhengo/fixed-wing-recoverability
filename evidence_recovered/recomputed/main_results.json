@@ -1,0 +1,1588 @@
+{
+  "integrity": {
+    "copied_original_files": 171,
+    "all_sha256_match": true
+  },
+  "validation": {
+    "factorial": {
+      "state_aux": {
+        "seeds": [
+          20261101,
+          20261102,
+          20261103
+        ],
+        "recall_pct_mean": 91.03803997421018,
+        "recall_pct_sample_sd": 0.4026433267826145,
+        "bce_mean": 0.44819055994351703,
+        "full_positive_denominator": 517,
+        "inputs": 767
+      },
+      "observed": {
+        "seeds": [
+          20261101,
+          20261102,
+          20261103
+        ],
+        "recall_pct_mean": 97.0341715022566,
+        "recall_pct_sample_sd": 0.9925728122721231,
+        "bce_mean": 0.2980108360449473,
+        "full_positive_denominator": 517,
+        "inputs": 767
+      },
+      "observed_aux": {
+        "seeds": [
+          20261101,
+          20261102,
+          20261103
+        ],
+        "recall_pct_mean": 96.64732430689878,
+        "recall_pct_sample_sd": 0.4867720461167511,
+        "bce_mean": 0.2990529040495555,
+        "full_positive_denominator": 517,
+        "inputs": 767
+      }
+    },
+    "execution_selection": {
+      "LBC25": {
+        "episodes": 16,
+        "completed": 12,
+        "mean_backup_steps": 1064.390542198375
+      },
+      "LBC50": {
+        "episodes": 16,
+        "completed": 12,
+        "mean_backup_steps": 1046.811033978
+      },
+      "LBC75": {
+        "episodes": 16,
+        "completed": 13,
+        "mean_backup_steps": 1055.249080605875
+      },
+      "LC25": {
+        "episodes": 16,
+        "completed": 12,
+        "mean_backup_steps": 1155.1320512065
+      },
+      "LC50": {
+        "episodes": 16,
+        "completed": 12,
+        "mean_backup_steps": 1070.2250930158125
+      },
+      "LC75": {
+        "episodes": 16,
+        "completed": 12,
+        "mean_backup_steps": 1014.8466188323125
+      },
+      "OC25": {
+        "episodes": 16,
+        "completed": 12,
+        "mean_backup_steps": 1243.7899494011874
+      },
+      "OC50": {
+        "episodes": 16,
+        "completed": 12,
+        "mean_backup_steps": 1287.25276821625
+      },
+      "OC75": {
+        "episodes": 16,
+        "completed": 12,
+        "mean_backup_steps": 1291.0753919925
+      },
+      "ObsAux": {
+        "episodes": 16,
+        "completed": 12,
+        "mean_backup_steps": 964.42766794675
+      },
+      "ObsBCE": {
+        "episodes": 16,
+        "completed": 13,
+        "mean_backup_steps": 1055.8314458080627
+      }
+    },
+    "final_selected": {
+      "model": "models/selected_obs_bce.txt",
+      "order": "learned_coverage",
+      "coverage_weight_lambda_c": 0.75,
+      "training_seed": 20261103,
+      "checkpoint_epoch": 23
+    }
+  },
+  "procedural": {
+    "AlignedState": {
+      "tasks": 128,
+      "outcomes": {
+        "no_feasible_primary": 29,
+        "no_verified_sequence": 3,
+        "goal": 96
+      },
+      "completed": 96,
+      "mean_cumulative_successor_steps": 100940.74999997977,
+      "mean_calls_per_task": 150.5546875,
+      "mean_episode_mean_successor_steps_per_call": 820.8011226405234,
+      "mean_sim_seconds": 15.03046875
+    },
+    "Cost": {
+      "tasks": 128,
+      "outcomes": {
+        "initialization_failed": 65,
+        "no_feasible_primary": 4,
+        "no_verified_sequence": 9,
+        "goal": 50
+      },
+      "completed": 50,
+      "mean_cumulative_successor_steps": 173292.94531248126,
+      "mean_calls_per_task": 80.515625,
+      "mean_episode_mean_successor_steps_per_call": 3516.9531898540627,
+      "mean_sim_seconds": 7.9906250000000005
+    },
+    "Diverse": {
+      "tasks": 128,
+      "outcomes": {
+        "no_feasible_primary": 19,
+        "no_verified_sequence": 13,
+        "goal": 96
+      },
+      "completed": 96,
+      "mean_cumulative_successor_steps": 131057.78906252046,
+      "mean_calls_per_task": 145.2109375,
+      "mean_episode_mean_successor_steps_per_call": 1060.5677855028516,
+      "mean_sim_seconds": 14.49609375
+    },
+    "Full": {
+      "tasks": 128,
+      "outcomes": {
+        "no_feasible_primary": 23,
+        "no_verified_sequence": 10,
+        "goal": 95
+      },
+      "completed": 95,
+      "mean_cumulative_successor_steps": 885398.7734373263,
+      "mean_calls_per_task": 145.0859375,
+      "mean_episode_mean_successor_steps_per_call": 9352.814906063624,
+      "mean_sim_seconds": 14.482812500000001
+    },
+    "Legacy": {
+      "tasks": 128,
+      "outcomes": {
+        "no_feasible_primary": 24,
+        "no_verified_sequence": 8,
+        "goal": 96
+      },
+      "completed": 96,
+      "mean_cumulative_successor_steps": 103258.24218752497,
+      "mean_calls_per_task": 150.1875,
+      "mean_episode_mean_successor_steps_per_call": 880.9003486655938,
+      "mean_sim_seconds": 14.99375
+    },
+    "ObsAux": {
+      "tasks": 128,
+      "outcomes": {
+        "no_feasible_primary": 27,
+        "no_verified_sequence": 5,
+        "goal": 96
+      },
+      "completed": 96,
+      "mean_cumulative_successor_steps": 133682.82031250367,
+      "mean_calls_per_task": 150.3515625,
+      "mean_episode_mean_successor_steps_per_call": 1389.835670708539,
+      "mean_sim_seconds": 15.01015625
+    },
+    "ObsBCE": {
+      "tasks": 128,
+      "outcomes": {
+        "no_feasible_primary": 31,
+        "no_verified_sequence": 1,
+        "goal": 96
+      },
+      "completed": 96,
+      "mean_cumulative_successor_steps": 136423.36718749543,
+      "mean_calls_per_task": 149.21875,
+      "mean_episode_mean_successor_steps_per_call": 1377.9173257533048,
+      "mean_sim_seconds": 14.896875
+    },
+    "ObservedCoverage": {
+      "tasks": 128,
+      "outcomes": {
+        "no_feasible_primary": 20,
+        "no_verified_sequence": 12,
+        "goal": 96
+      },
+      "completed": 96,
+      "mean_cumulative_successor_steps": 137857.32031252462,
+      "mean_calls_per_task": 148.0546875,
+      "mean_episode_mean_successor_steps_per_call": 1088.7112005850313,
+      "mean_sim_seconds": 14.78046875
+    },
+    "Selected": {
+      "tasks": 128,
+      "outcomes": {
+        "no_feasible_primary": 28,
+        "no_verified_sequence": 4,
+        "goal": 96
+      },
+      "completed": 96,
+      "mean_cumulative_successor_steps": 133004.90625000416,
+      "mean_calls_per_task": 153.3984375,
+      "mean_episode_mean_successor_steps_per_call": 1211.9305608805703,
+      "mean_sim_seconds": 15.314843749999998
+    }
+  },
+  "procedural_by_family": {
+    "staggered": {
+      "AlignedState": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 100175.90625002273,
+        "mean_calls_per_task": 168.65625,
+        "mean_episode_mean_successor_steps_per_call": 597.5843200916563,
+        "mean_sim_seconds": 16.865625
+      },
+      "Cost": {
+        "tasks": 32,
+        "outcomes": {
+          "initialization_failed": 9,
+          "goal": 20,
+          "no_verified_sequence": 2,
+          "no_feasible_primary": 1
+        },
+        "completed": 20,
+        "mean_cumulative_successor_steps": 266398.50000001804,
+        "mean_calls_per_task": 117.4375,
+        "mean_episode_mean_successor_steps_per_call": 3562.307936709875,
+        "mean_sim_seconds": 11.70625
+      },
+      "Diverse": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 140993.28125000384,
+        "mean_calls_per_task": 167.71875,
+        "mean_episode_mean_successor_steps_per_call": 840.8432647967812,
+        "mean_sim_seconds": 16.771875
+      },
+      "Full": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 637581.7187499832,
+        "mean_calls_per_task": 164.5625,
+        "mean_episode_mean_successor_steps_per_call": 3869.2361685710002,
+        "mean_sim_seconds": 16.45625
+      },
+      "Legacy": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 123654.4687500466,
+        "mean_calls_per_task": 171.625,
+        "mean_episode_mean_successor_steps_per_call": 722.4736346766249,
+        "mean_sim_seconds": 17.1625
+      },
+      "ObsAux": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 73912.49999998906,
+        "mean_calls_per_task": 170.53125,
+        "mean_episode_mean_successor_steps_per_call": 435.20652104515625,
+        "mean_sim_seconds": 17.053125
+      },
+      "ObsBCE": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 78342.59375000533,
+        "mean_calls_per_task": 170.21875,
+        "mean_episode_mean_successor_steps_per_call": 461.73713738696875,
+        "mean_sim_seconds": 17.021875
+      },
+      "ObservedCoverage": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 139735.8437500209,
+        "mean_calls_per_task": 167.46875,
+        "mean_episode_mean_successor_steps_per_call": 835.6144558568126,
+        "mean_sim_seconds": 16.746875000000003
+      },
+      "Selected": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 96493.2812500138,
+        "mean_calls_per_task": 168.15625,
+        "mean_episode_mean_successor_steps_per_call": 574.306555263625,
+        "mean_sim_seconds": 16.815625
+      }
+    },
+    "wall": {
+      "AlignedState": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 86636.65624999494,
+        "mean_calls_per_task": 187.75,
+        "mean_episode_mean_successor_steps_per_call": 462.81478257171875,
+        "mean_sim_seconds": 18.775
+      },
+      "Cost": {
+        "tasks": 32,
+        "outcomes": {
+          "initialization_failed": 32
+        },
+        "completed": 0,
+        "mean_cumulative_successor_steps": 53496.40625001094,
+        "mean_calls_per_task": 21.0,
+        "mean_episode_mean_successor_steps_per_call": 2547.447916667187,
+        "mean_sim_seconds": 2.0
+      },
+      "Diverse": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 124689.78125001653,
+        "mean_calls_per_task": 190.1875,
+        "mean_episode_mean_successor_steps_per_call": 655.1460321204063,
+        "mean_sim_seconds": 19.018749999999997
+      },
+      "Full": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 705352.2812500631,
+        "mean_calls_per_task": 187.78125,
+        "mean_episode_mean_successor_steps_per_call": 3753.7485063465624,
+        "mean_sim_seconds": 18.778125000000003
+      },
+      "Legacy": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 77999.12499999025,
+        "mean_calls_per_task": 182.4375,
+        "mean_episode_mean_successor_steps_per_call": 426.991964843,
+        "mean_sim_seconds": 18.24375
+      },
+      "ObsAux": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 63874.125000002095,
+        "mean_calls_per_task": 189.03125,
+        "mean_episode_mean_successor_steps_per_call": 338.3325361270313,
+        "mean_sim_seconds": 18.903125
+      },
+      "ObsBCE": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 68747.9687500011,
+        "mean_calls_per_task": 182.4375,
+        "mean_episode_mean_successor_steps_per_call": 376.85237588021874,
+        "mean_sim_seconds": 18.24375
+      },
+      "ObservedCoverage": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 133429.21874998248,
+        "mean_calls_per_task": 199.3125,
+        "mean_episode_mean_successor_steps_per_call": 666.6934514135,
+        "mean_sim_seconds": 19.93125
+      },
+      "Selected": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 93557.03124999715,
+        "mean_calls_per_task": 186.0625,
+        "mean_episode_mean_successor_steps_per_call": 499.7567146845,
+        "mean_sim_seconds": 18.606250000000003
+      }
+    },
+    "culdesac": {
+      "AlignedState": {
+        "tasks": 32,
+        "outcomes": {
+          "no_feasible_primary": 29,
+          "no_verified_sequence": 3
+        },
+        "completed": 0,
+        "mean_cumulative_successor_steps": 134991.40624990576,
+        "mean_calls_per_task": 81.0625,
+        "mean_episode_mean_successor_steps_per_call": 1725.2216082614373,
+        "mean_sim_seconds": 8.00625
+      },
+      "Cost": {
+        "tasks": 32,
+        "outcomes": {
+          "initialization_failed": 24,
+          "no_feasible_primary": 3,
+          "no_verified_sequence": 5
+        },
+        "completed": 0,
+        "mean_cumulative_successor_steps": 184159.8749999553,
+        "mean_calls_per_task": 29.78125,
+        "mean_episode_mean_successor_steps_per_call": 6664.535067095,
+        "mean_sim_seconds": 2.878125
+      },
+      "Diverse": {
+        "tasks": 32,
+        "outcomes": {
+          "no_feasible_primary": 19,
+          "no_verified_sequence": 13
+        },
+        "completed": 0,
+        "mean_cumulative_successor_steps": 110560.56250002126,
+        "mean_calls_per_task": 55.65625,
+        "mean_episode_mean_successor_steps_per_call": 1868.622206710625,
+        "mean_sim_seconds": 5.465624999999999
+      },
+      "Full": {
+        "tasks": 32,
+        "outcomes": {
+          "no_feasible_primary": 22,
+          "no_verified_sequence": 10
+        },
+        "completed": 0,
+        "mean_cumulative_successor_steps": 1958380.093749328,
+        "mean_calls_per_task": 71.40625,
+        "mean_episode_mean_successor_steps_per_call": 28253.353017440622,
+        "mean_sim_seconds": 7.0406249999999995
+      },
+      "Legacy": {
+        "tasks": 32,
+        "outcomes": {
+          "no_feasible_primary": 24,
+          "no_verified_sequence": 8
+        },
+        "completed": 0,
+        "mean_cumulative_successor_steps": 133509.62500006144,
+        "mean_calls_per_task": 78.21875,
+        "mean_episode_mean_successor_steps_per_call": 1914.5765894401252,
+        "mean_sim_seconds": 7.721875
+      },
+      "ObsAux": {
+        "tasks": 32,
+        "outcomes": {
+          "no_feasible_primary": 27,
+          "no_verified_sequence": 5
+        },
+        "completed": 0,
+        "mean_cumulative_successor_steps": 321094.96875002625,
+        "mean_calls_per_task": 75.78125,
+        "mean_episode_mean_successor_steps_per_call": 4331.079723284687,
+        "mean_sim_seconds": 7.478125
+      },
+      "ObsBCE": {
+        "tasks": 32,
+        "outcomes": {
+          "no_feasible_primary": 31,
+          "no_verified_sequence": 1
+        },
+        "completed": 0,
+        "mean_cumulative_successor_steps": 328690.28124997974,
+        "mean_calls_per_task": 79.875,
+        "mean_episode_mean_successor_steps_per_call": 4247.688256522188,
+        "mean_sim_seconds": 7.8875
+      },
+      "ObservedCoverage": {
+        "tasks": 32,
+        "outcomes": {
+          "no_feasible_primary": 20,
+          "no_verified_sequence": 12
+        },
+        "completed": 0,
+        "mean_cumulative_successor_steps": 117986.71875007125,
+        "mean_calls_per_task": 57.34375,
+        "mean_episode_mean_successor_steps_per_call": 1929.9668543565626,
+        "mean_sim_seconds": 5.634375
+      },
+      "Selected": {
+        "tasks": 32,
+        "outcomes": {
+          "no_feasible_primary": 28,
+          "no_verified_sequence": 4
+        },
+        "completed": 0,
+        "mean_cumulative_successor_steps": 243175.37499999217,
+        "mean_calls_per_task": 78.28125,
+        "mean_episode_mean_successor_steps_per_call": 3246.3719158909375,
+        "mean_sim_seconds": 7.728125
+      }
+    },
+    "spatial": {
+      "AlignedState": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 81959.03124999568,
+        "mean_calls_per_task": 164.75,
+        "mean_episode_mean_successor_steps_per_call": 497.5837796372813,
+        "mean_sim_seconds": 16.475
+      },
+      "Cost": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 30,
+          "no_verified_sequence": 2
+        },
+        "completed": 30,
+        "mean_cumulative_successor_steps": 189116.99999994074,
+        "mean_calls_per_task": 153.84375,
+        "mean_episode_mean_successor_steps_per_call": 1293.5218389441875,
+        "mean_sim_seconds": 15.378125
+      },
+      "Diverse": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 147987.53125004016,
+        "mean_calls_per_task": 167.28125,
+        "mean_episode_mean_successor_steps_per_call": 877.6596383835938,
+        "mean_sim_seconds": 16.728125
+      },
+      "Full": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 31,
+          "no_feasible_primary": 1
+        },
+        "completed": 31,
+        "mean_cumulative_successor_steps": 240280.9999999308,
+        "mean_calls_per_task": 156.59375,
+        "mean_episode_mean_successor_steps_per_call": 1534.9219318963126,
+        "mean_sim_seconds": 15.65625
+      },
+      "Legacy": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 77869.75000000163,
+        "mean_calls_per_task": 168.46875,
+        "mean_episode_mean_successor_steps_per_call": 459.55920570262504,
+        "mean_sim_seconds": 16.846875
+      },
+      "ObsAux": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 75849.68749999718,
+        "mean_calls_per_task": 166.0625,
+        "mean_episode_mean_successor_steps_per_call": 454.72390237728126,
+        "mean_sim_seconds": 16.606250000000003
+      },
+      "ObsBCE": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 69912.62499999572,
+        "mean_calls_per_task": 164.34375,
+        "mean_episode_mean_successor_steps_per_call": 425.39153322384374,
+        "mean_sim_seconds": 16.434375
+      },
+      "ObservedCoverage": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 160277.50000002375,
+        "mean_calls_per_task": 168.09375,
+        "mean_episode_mean_successor_steps_per_call": 922.57004071325,
+        "mean_sim_seconds": 16.809375
+      },
+      "Selected": {
+        "tasks": 32,
+        "outcomes": {
+          "goal": 32
+        },
+        "completed": 32,
+        "mean_cumulative_successor_steps": 98793.9375000136,
+        "mean_calls_per_task": 181.09375,
+        "mean_episode_mean_successor_steps_per_call": 527.2870576832188,
+        "mean_sim_seconds": 18.109375
+      }
+    }
+  },
+  "forest600": {
+    "100": {
+      "Cost": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 7,
+          "initialization_failed": 1
+        },
+        "completed": 7,
+        "mean_cumulative_successor_steps": 799711.4999995076,
+        "mean_calls_per_task": 344.875,
+        "mean_episode_mean_successor_steps_per_call": 2728.23663730875,
+        "mean_sim_seconds": 34.475
+      },
+      "Diverse": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completed": 8,
+        "mean_cumulative_successor_steps": 551276.2500002175,
+        "mean_calls_per_task": 389.375,
+        "mean_episode_mean_successor_steps_per_call": 1414.9218446475002,
+        "mean_sim_seconds": 38.9375
+      },
+      "Full": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completed": 8,
+        "mean_cumulative_successor_steps": 1019371.1250006951,
+        "mean_calls_per_task": 387.125,
+        "mean_episode_mean_successor_steps_per_call": 2628.68373368375,
+        "mean_sim_seconds": 38.7125
+      },
+      "ObsAux": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completed": 8,
+        "mean_cumulative_successor_steps": 351721.625000176,
+        "mean_calls_per_task": 458.5,
+        "mean_episode_mean_successor_steps_per_call": 768.130257256625,
+        "mean_sim_seconds": 45.85
+      },
+      "Selected": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completed": 8,
+        "mean_cumulative_successor_steps": 382136.49999978323,
+        "mean_calls_per_task": 432.625,
+        "mean_episode_mean_successor_steps_per_call": 878.3339708834999,
+        "mean_sim_seconds": 43.2625
+      }
+    },
+    "200": {
+      "Cost": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 6,
+          "no_feasible_primary": 1,
+          "initialization_failed": 1
+        },
+        "completed": 6,
+        "mean_cumulative_successor_steps": 975005.7499996601,
+        "mean_calls_per_task": 342.25,
+        "mean_episode_mean_successor_steps_per_call": 2779.777736205,
+        "mean_sim_seconds": 34.2
+      },
+      "Diverse": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 6,
+          "no_feasible_primary": 1,
+          "no_verified_sequence": 1
+        },
+        "completed": 6,
+        "mean_cumulative_successor_steps": 738584.250000415,
+        "mean_calls_per_task": 390.125,
+        "mean_episode_mean_successor_steps_per_call": 1978.617202185,
+        "mean_sim_seconds": 38.9875
+      },
+      "Full": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completed": 8,
+        "mean_cumulative_successor_steps": 2012116.8750004838,
+        "mean_calls_per_task": 440.875,
+        "mean_episode_mean_successor_steps_per_call": 4637.65374178375,
+        "mean_sim_seconds": 44.087500000000006
+      },
+      "ObsAux": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 8
+        },
+        "completed": 8,
+        "mean_cumulative_successor_steps": 461230.5000001644,
+        "mean_calls_per_task": 467.625,
+        "mean_episode_mean_successor_steps_per_call": 988.293087715875,
+        "mean_sim_seconds": 46.7625
+      },
+      "Selected": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 7,
+          "initialization_failed": 1
+        },
+        "completed": 7,
+        "mean_cumulative_successor_steps": 357366.2500000398,
+        "mean_calls_per_task": 419.25,
+        "mean_episode_mean_successor_steps_per_call": 1287.3380074126248,
+        "mean_sim_seconds": 41.912499999999994
+      }
+    },
+    "300": {
+      "Cost": {
+        "tasks": 8,
+        "outcomes": {
+          "no_feasible_primary": 4,
+          "initialization_failed": 3,
+          "goal": 1
+        },
+        "completed": 1,
+        "mean_cumulative_successor_steps": 515948.4999998562,
+        "mean_calls_per_task": 178.625,
+        "mean_episode_mean_successor_steps_per_call": 2416.6297718889286,
+        "mean_sim_seconds": 17.775
+      },
+      "Diverse": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 5,
+          "initialization_failed": 2,
+          "no_feasible_primary": 1
+        },
+        "completed": 5,
+        "mean_cumulative_successor_steps": 717410.750000235,
+        "mean_calls_per_task": 375.25,
+        "mean_episode_mean_successor_steps_per_call": 1932.6476473639289,
+        "mean_sim_seconds": 37.4875
+      },
+      "Full": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 4,
+          "no_feasible_primary": 3,
+          "initialization_failed": 1
+        },
+        "completed": 4,
+        "mean_cumulative_successor_steps": 1648033.9999997402,
+        "mean_calls_per_task": 301.125,
+        "mean_episode_mean_successor_steps_per_call": 5274.0248463689295,
+        "mean_sim_seconds": 30.0625
+      },
+      "ObsAux": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 5,
+          "no_verified_sequence": 1,
+          "initialization_failed": 2
+        },
+        "completed": 5,
+        "mean_cumulative_successor_steps": 327483.49999964976,
+        "mean_calls_per_task": 307.625,
+        "mean_episode_mean_successor_steps_per_call": 1538.7756063026786,
+        "mean_sim_seconds": 30.724999999999998
+      },
+      "Selected": {
+        "tasks": 8,
+        "outcomes": {
+          "goal": 5,
+          "initialization_failed": 2,
+          "no_feasible_primary": 1
+        },
+        "completed": 5,
+        "mean_cumulative_successor_steps": 320160.2499999559,
+        "mean_calls_per_task": 311.625,
+        "mean_episode_mean_successor_steps_per_call": 1304.1110352973037,
+        "mean_sim_seconds": 31.125
+      }
+    }
+  },
+  "urban_replay": {
+    "uninstrumented_within_input_medians": {
+      "AlignedState": {
+        "paper_label": "AlignedState",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 117,
+        "recall_pct": 95.1219512195122,
+        "mean_backup_steps": 859.8130081300814,
+        "mean_queries": 2.032520325203252,
+        "mean_cost_regret_on_witnesses": 0.10392004811865652,
+        "time_ms": {
+          "median": 15.252984,
+          "p95": 18.9715252,
+          "p99": 31.640626120000004,
+          "max": 37.766789
+        },
+        "inference_batches": 27,
+        "mean_pruned_candidates": 1.3821138211382114
+      },
+      "Cost": {
+        "paper_label": "Cost",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 118,
+        "recall_pct": 95.9349593495935,
+        "mean_backup_steps": 900.4878048780488,
+        "mean_queries": 1.983739837398374,
+        "mean_cost_regret_on_witnesses": 0.0,
+        "time_ms": {
+          "median": 15.33168,
+          "p95": 19.433395199999996,
+          "p99": 31.52551634,
+          "max": 38.812419
+        },
+        "inference_batches": 0,
+        "mean_pruned_candidates": 0.0
+      },
+      "Diverse": {
+        "paper_label": "Diverse",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 123,
+        "recall_pct": 100.0,
+        "mean_backup_steps": 1138.1300813008131,
+        "mean_queries": 3.4146341463414633,
+        "mean_cost_regret_on_witnesses": 0.13993478790531313,
+        "time_ms": {
+          "median": 15.354223,
+          "p95": 20.863781599999996,
+          "p99": 31.936239060000002,
+          "max": 36.756037
+        },
+        "inference_batches": 0,
+        "mean_pruned_candidates": 0.0
+      },
+      "DiversePruned": {
+        "paper_label": "Diverse",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 123,
+        "recall_pct": 100.0,
+        "mean_backup_steps": 801.3658536585366,
+        "mean_queries": 2.3902439024390243,
+        "mean_cost_regret_on_witnesses": 0.13993478790531313,
+        "time_ms": {
+          "median": 15.282919,
+          "p95": 19.378450899999994,
+          "p99": 31.88385806,
+          "max": 36.9689
+        },
+        "inference_batches": 0,
+        "mean_pruned_candidates": 1.024390243902439
+      },
+      "Full": {
+        "paper_label": "Full",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 123,
+        "recall_pct": 100.0,
+        "mean_backup_steps": 1218.4878048780488,
+        "mean_queries": 2.3902439024390243,
+        "mean_cost_regret_on_witnesses": 0.0,
+        "time_ms": {
+          "median": 15.283926,
+          "p95": 20.781444299999993,
+          "p99": 31.581843160000002,
+          "max": 38.974107
+        },
+        "inference_batches": 0,
+        "mean_pruned_candidates": 0.0
+      },
+      "ObsAux": {
+        "paper_label": "ObsAux",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 123,
+        "recall_pct": 100.0,
+        "mean_backup_steps": 454.1056910569106,
+        "mean_queries": 1.7723577235772359,
+        "mean_cost_regret_on_witnesses": 0.5749359964355221,
+        "time_ms": {
+          "median": 15.349157,
+          "p95": 19.7343329,
+          "p99": 31.57104908,
+          "max": 37.719154
+        },
+        "inference_batches": 27,
+        "mean_pruned_candidates": 1.6422764227642277
+      },
+      "ObsBCE": {
+        "paper_label": "ObsBCE",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 122,
+        "recall_pct": 99.1869918699187,
+        "mean_backup_steps": 588.8211382113822,
+        "mean_queries": 1.951219512195122,
+        "mean_cost_regret_on_witnesses": 0.3953587696200512,
+        "time_ms": {
+          "median": 15.315369,
+          "p95": 20.428969399999993,
+          "p99": 31.613690180000003,
+          "max": 37.420797
+        },
+        "inference_batches": 27,
+        "mean_pruned_candidates": 1.4634146341463414
+      },
+      "ObservedCoverage": {
+        "paper_label": "ObservedCoverage",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 123,
+        "recall_pct": 100.0,
+        "mean_backup_steps": 807.1626016260162,
+        "mean_queries": 2.3821138211382116,
+        "mean_cost_regret_on_witnesses": 0.13993478790531313,
+        "time_ms": {
+          "median": 15.287889,
+          "p95": 20.334671999999994,
+          "p99": 32.36690746,
+          "max": 38.872464
+        },
+        "inference_batches": 0,
+        "mean_pruned_candidates": 1.032520325203252
+      },
+      "Selected": {
+        "paper_label": "Selected",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 123,
+        "recall_pct": 100.0,
+        "mean_backup_steps": 801.3658536585366,
+        "mean_queries": 2.3902439024390243,
+        "mean_cost_regret_on_witnesses": 0.13993478790531313,
+        "time_ms": {
+          "median": 15.477762,
+          "p95": 20.674681999999997,
+          "p99": 32.0125097,
+          "max": 38.348273
+        },
+        "inference_batches": 27,
+        "mean_pruned_candidates": 1.024390243902439
+      },
+      "V1_Eager": {
+        "paper_label": "V1_Eager",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 118,
+        "recall_pct": 95.9349593495935,
+        "mean_backup_steps": 1507.2926829268292,
+        "mean_queries": 3.4146341463414633,
+        "mean_cost_regret_on_witnesses": 0.0,
+        "time_ms": {
+          "median": 17.24794,
+          "p95": 23.426390999999985,
+          "p99": 33.339809820000006,
+          "max": 40.660532
+        },
+        "inference_batches": 123,
+        "mean_pruned_candidates": 0.0
+      },
+      "V2_Deferred": {
+        "paper_label": "V2_Deferred",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 118,
+        "recall_pct": 95.9349593495935,
+        "mean_backup_steps": 1507.2926829268292,
+        "mean_queries": 3.4146341463414633,
+        "mean_cost_regret_on_witnesses": 0.0,
+        "time_ms": {
+          "median": 15.540026,
+          "p95": 21.857381499999992,
+          "p99": 31.770103820000003,
+          "max": 40.306387
+        },
+        "inference_batches": 27,
+        "mean_pruned_candidates": 0.0
+      },
+      "V2_DeferredPruned": {
+        "paper_label": "Legacy compact deferred + pruning",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 118,
+        "recall_pct": 95.9349593495935,
+        "mean_backup_steps": 900.4878048780488,
+        "mean_queries": 1.983739837398374,
+        "mean_cost_regret_on_witnesses": 0.0,
+        "time_ms": {
+          "median": 15.325489,
+          "p95": 20.611168199999994,
+          "p99": 31.68152982,
+          "max": 38.807259
+        },
+        "inference_batches": 27,
+        "mean_pruned_candidates": 1.4308943089430894
+      },
+      "V2_Eager": {
+        "paper_label": "V2_Eager",
+        "inputs": 123,
+        "full_positive": 123,
+        "witnesses": 118,
+        "recall_pct": 95.9349593495935,
+        "mean_backup_steps": 1507.2926829268292,
+        "mean_queries": 3.4146341463414633,
+        "mean_cost_regret_on_witnesses": 0.0,
+        "time_ms": {
+          "median": 16.571487,
+          "p95": 23.00157449999998,
+          "p99": 32.53394662,
+          "max": 39.934858
+        },
+        "inference_batches": 123,
+        "mean_pruned_candidates": 0.0
+      }
+    },
+    "instrumented_component_means_ms": {
+      "AlignedState": {
+        "ms": 15.758960837398375,
+        "primary_ms": 15.24089717886179,
+        "feature_ms": 0.0019699674796747973,
+        "inference_ms": 0.08821208943089433,
+        "schedule_other_ms": 0.015564235772357706,
+        "continuation_ms": 0.3921703658536586,
+        "residual_ms": 0.02014700000000003
+      },
+      "Cost": {
+        "ms": 15.676391357723576,
+        "primary_ms": 15.228678536585363,
+        "feature_ms": 0.0,
+        "inference_ms": 0.0,
+        "schedule_other_ms": 0.003419357723577235,
+        "continuation_ms": 0.4233280813008131,
+        "residual_ms": 0.020965382113821075
+      },
+      "Diverse": {
+        "ms": 15.895988910569107,
+        "primary_ms": 15.172607593495934,
+        "feature_ms": 0.0,
+        "inference_ms": 0.0,
+        "schedule_other_ms": 0.07178186991869918,
+        "continuation_ms": 0.6306274471544716,
+        "residual_ms": 0.020972
+      },
+      "DiversePruned": {
+        "ms": 15.705734682926828,
+        "primary_ms": 15.177089642276421,
+        "feature_ms": 0.0,
+        "inference_ms": 0.0,
+        "schedule_other_ms": 0.07079810569105692,
+        "continuation_ms": 0.43653921951219515,
+        "residual_ms": 0.021307715447154436
+      },
+      "Full": {
+        "ms": 15.77183749593496,
+        "primary_ms": 15.219017837398374,
+        "feature_ms": 0.0,
+        "inference_ms": 0.0,
+        "schedule_other_ms": 0.0034221056910569113,
+        "continuation_ms": 0.5284824959349594,
+        "residual_ms": 0.02091505691056917
+      },
+      "ObsAux": {
+        "ms": 15.932146544715447,
+        "primary_ms": 15.332847682926827,
+        "feature_ms": 0.1605709837398374,
+        "inference_ms": 0.12570572357723578,
+        "schedule_other_ms": 0.014044390243902426,
+        "continuation_ms": 0.27838072357723587,
+        "residual_ms": 0.020597040650406576
+      },
+      "ObsBCE": {
+        "ms": 15.99014168292683,
+        "primary_ms": 15.307353943089431,
+        "feature_ms": 0.1835158211382114,
+        "inference_ms": 0.12439587804878048,
+        "schedule_other_ms": 0.014923471544715431,
+        "continuation_ms": 0.3390729837398374,
+        "residual_ms": 0.020879585365853794
+      },
+      "ObservedCoverage": {
+        "ms": 15.781778455284549,
+        "primary_ms": 15.178681276422767,
+        "feature_ms": 0.1321340487804878,
+        "inference_ms": 0.0,
+        "schedule_other_ms": 0.014045495934959358,
+        "continuation_ms": 0.43622133333333335,
+        "residual_ms": 0.020696300813008054
+      },
+      "Selected": {
+        "ms": 16.002859357723576,
+        "primary_ms": 15.252830243902443,
+        "feature_ms": 0.1489231138211382,
+        "inference_ms": 0.12219804065040651,
+        "schedule_other_ms": 0.014941121951219497,
+        "continuation_ms": 0.4428859756097561,
+        "residual_ms": 0.02108086178861794
+      },
+      "V1_Eager": {
+        "ms": 17.629965081300814,
+        "primary_ms": 15.315752422764227,
+        "feature_ms": 0.01719710569105691,
+        "inference_ms": 1.4711626178861787,
+        "schedule_other_ms": 0.08602340650406504,
+        "continuation_ms": 0.7181467642276423,
+        "residual_ms": 0.021682764227642388
+      },
+      "V2_Deferred": {
+        "ms": 16.140127731707317,
+        "primary_ms": 15.229974081300814,
+        "feature_ms": 0.0019285203252032515,
+        "inference_ms": 0.17154438211382114,
+        "schedule_other_ms": 0.01457411382113821,
+        "continuation_ms": 0.7021590731707317,
+        "residual_ms": 0.019947560975609735
+      },
+      "V2_DeferredPruned": {
+        "ms": 15.905812910569106,
+        "primary_ms": 15.274276447154472,
+        "feature_ms": 0.0019187560975609753,
+        "inference_ms": 0.17126623577235778,
+        "schedule_other_ms": 0.014602951219512175,
+        "continuation_ms": 0.4239832845528456,
+        "residual_ms": 0.019765235772357545
+      },
+      "V2_Eager": {
+        "ms": 17.08228608130081,
+        "primary_ms": 15.302302032520323,
+        "feature_ms": 0.01083795934959349,
+        "inference_ms": 0.9570922195121953,
+        "schedule_other_ms": 0.08410344715447152,
+        "continuation_ms": 0.706620593495935,
+        "residual_ms": 0.02132982926829269
+      }
+    },
+    "budget_grid": [
+      {
+        "method": "Cost",
+        "K": 1,
+        "inputs": 123,
+        "witnesses": 96,
+        "mean_backup_steps": 300.520325203252,
+        "mean_cost_regret_witness": 0.0
+      },
+      {
+        "method": "Cost",
+        "K": 2,
+        "inputs": 123,
+        "witnesses": 101,
+        "mean_backup_steps": 432.6585365853659,
+        "mean_cost_regret_witness": 0.0
+      },
+      {
+        "method": "Cost",
+        "K": 4,
+        "inputs": 123,
+        "witnesses": 110,
+        "mean_backup_steps": 609.4959349593496,
+        "mean_cost_regret_witness": 0.0
+      },
+      {
+        "method": "Cost",
+        "K": 8,
+        "inputs": 123,
+        "witnesses": 118,
+        "mean_backup_steps": 786.4715447154472,
+        "mean_cost_regret_witness": 0.0
+      },
+      {
+        "method": "Cost",
+        "K": 12,
+        "inputs": 123,
+        "witnesses": 118,
+        "mean_backup_steps": 900.4878048780488,
+        "mean_cost_regret_witness": 0.0
+      },
+      {
+        "method": "Cost",
+        "K": 24,
+        "inputs": 123,
+        "witnesses": 120,
+        "mean_backup_steps": 1199.7073170731708,
+        "mean_cost_regret_witness": 0.0
+      },
+      {
+        "method": "Diverse",
+        "K": 1,
+        "inputs": 123,
+        "witnesses": 96,
+        "mean_backup_steps": 300.520325203252,
+        "mean_cost_regret_witness": 0.0
+      },
+      {
+        "method": "Diverse",
+        "K": 2,
+        "inputs": 123,
+        "witnesses": 116,
+        "mean_backup_steps": 363.4715447154472,
+        "mean_cost_regret_witness": 0.8420221743912533
+      },
+      {
+        "method": "Diverse",
+        "K": 4,
+        "inputs": 123,
+        "witnesses": 120,
+        "mean_backup_steps": 514.0487804878048,
+        "mean_cost_regret_witness": 0.5248824954032898
+      },
+      {
+        "method": "Diverse",
+        "K": 8,
+        "inputs": 123,
+        "witnesses": 123,
+        "mean_backup_steps": 669.2276422764228,
+        "mean_cost_regret_witness": 0.2378223078037665
+      },
+      {
+        "method": "Diverse",
+        "K": 12,
+        "inputs": 123,
+        "witnesses": 123,
+        "mean_backup_steps": 801.3658536585366,
+        "mean_cost_regret_witness": 0.13993478790531313
+      },
+      {
+        "method": "Diverse",
+        "K": 24,
+        "inputs": 123,
+        "witnesses": 123,
+        "mean_backup_steps": 1053.3333333333333,
+        "mean_cost_regret_witness": 0.05712889849655027
+      },
+      {
+        "method": "Selected",
+        "K": 1,
+        "inputs": 123,
+        "witnesses": 96,
+        "mean_backup_steps": 300.520325203252,
+        "mean_cost_regret_witness": 0.0
+      },
+      {
+        "method": "Selected",
+        "K": 2,
+        "inputs": 123,
+        "witnesses": 116,
+        "mean_backup_steps": 363.4715447154472,
+        "mean_cost_regret_witness": 0.8420221743912533
+      },
+      {
+        "method": "Selected",
+        "K": 4,
+        "inputs": 123,
+        "witnesses": 120,
+        "mean_backup_steps": 514.0487804878048,
+        "mean_cost_regret_witness": 0.5248824954032898
+      },
+      {
+        "method": "Selected",
+        "K": 8,
+        "inputs": 123,
+        "witnesses": 123,
+        "mean_backup_steps": 669.2276422764228,
+        "mean_cost_regret_witness": 0.2378223078037665
+      },
+      {
+        "method": "Selected",
+        "K": 12,
+        "inputs": 123,
+        "witnesses": 123,
+        "mean_backup_steps": 801.3658536585366,
+        "mean_cost_regret_witness": 0.13993478790531313
+      },
+      {
+        "method": "Selected",
+        "K": 24,
+        "inputs": 123,
+        "witnesses": 123,
+        "mean_backup_steps": 1053.3333333333333,
+        "mean_cost_regret_witness": 0.05712889849655027
+      },
+      {
+        "method": "ObservedCoverage",
+        "K": 1,
+        "inputs": 123,
+        "witnesses": 96,
+        "mean_backup_steps": 300.520325203252,
+        "mean_cost_regret_witness": 0.0
+      },
+      {
+        "method": "ObservedCoverage",
+        "K": 2,
+        "inputs": 123,
+        "witnesses": 116,
+        "mean_backup_steps": 363.4715447154472,
+        "mean_cost_regret_witness": 0.8420221743912533
+      },
+      {
+        "method": "ObservedCoverage",
+        "K": 4,
+        "inputs": 123,
+        "witnesses": 120,
+        "mean_backup_steps": 514.2113821138212,
+        "mean_cost_regret_witness": 0.5248824954032898
+      },
+      {
+        "method": "ObservedCoverage",
+        "K": 8,
+        "inputs": 123,
+        "witnesses": 123,
+        "mean_backup_steps": 674.6585365853658,
+        "mean_cost_regret_witness": 0.2378223078037665
+      },
+      {
+        "method": "ObservedCoverage",
+        "K": 12,
+        "inputs": 123,
+        "witnesses": 123,
+        "mean_backup_steps": 807.1626016260162,
+        "mean_cost_regret_witness": 0.13993478790531313
+      },
+      {
+        "method": "ObservedCoverage",
+        "K": 24,
+        "inputs": 123,
+        "witnesses": 123,
+        "mean_backup_steps": 1049.0162601626016,
+        "mean_cost_regret_witness": 0.05712889849655027
+      }
+    ],
+    "repeat_decisions_verified_identical": true,
+    "obs_aux_work_reduction_vs_diverse_pct": 43.33353623894164,
+    "obs_aux_work_reduction_vs_full_pct": 62.73202823705246
+  },
+  "city_flights": [
+    {
+      "method": "Cost",
+      "completed_waypoints": "8",
+      "mission_waypoints": "8",
+      "completed": "True",
+      "passed": "True",
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": "85.492",
+      "last_odom_sim_s": "85.568",
+      "min_chord_clearance_m": "4.322259050836073",
+      "clearance_capped_at_m": "30.0",
+      "physical_intersections": "0",
+      "margin_violations": "0",
+      "startup_wait_updates": "6",
+      "active_updates": "848",
+      "fresh": "813",
+      "cached": "35",
+      "execution_rejections": "0",
+      "map_contract_violations": "0",
+      "mean_queries": "1.9433962264150944",
+      "mean_successor_steps": "823.872641509434",
+      "mean_pruned_candidates": "0.0",
+      "inference_batches": "0",
+      "inference_candidates": "0",
+      "observed_feature_candidates": "0",
+      "first_command_sim_s": "0.7200000000000001",
+      "generation_sim_s_count": "848",
+      "generation_sim_s_mean": "0.018485849056603776",
+      "generation_sim_s_p95": "0.052000000000000005",
+      "generation_sim_s_maximum": "0.07200000000000001",
+      "map_age_sim_s_count": "848",
+      "map_age_sim_s_mean": "0.131688679245283",
+      "map_age_sim_s_p95": "0.19200000000000017",
+      "map_age_sim_s_maximum": "0.3159999999999883",
+      "observation_to_command_sim_s_count": "848",
+      "observation_to_command_sim_s_mean": "0.029226415094339844",
+      "observation_to_command_sim_s_p95": "0.07600000000000051",
+      "observation_to_command_sim_s_maximum": "0.12399999999999523",
+      "dispatch_validation_age_sim_s_count": "848",
+      "dispatch_validation_age_sim_s_mean": "6.60377358490566e-05",
+      "dispatch_validation_age_sim_s_p95": "0.0",
+      "dispatch_validation_age_sim_s_maximum": "0.004",
+      "max_abs_bank_deg": "34.99948415631654",
+      "free_voxels": "3451147",
+      "occupied_voxels": "163803",
+      "map_snapshot_sim_s": "86.804",
+      "source_unchanged": "True"
+    },
+    {
+      "method": "Diverse",
+      "completed_waypoints": "8",
+      "mission_waypoints": "8",
+      "completed": "True",
+      "passed": "True",
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": "83.964",
+      "last_odom_sim_s": "84.0",
+      "min_chord_clearance_m": "4.6096545609686155",
+      "clearance_capped_at_m": "30.0",
+      "physical_intersections": "0",
+      "margin_violations": "0",
+      "startup_wait_updates": "4",
+      "active_updates": "832",
+      "fresh": "832",
+      "cached": "0",
+      "execution_rejections": "0",
+      "map_contract_violations": "0",
+      "mean_queries": "2.058894230769231",
+      "mean_successor_steps": "632.5084134615385",
+      "mean_pruned_candidates": "0.6862980769230769",
+      "inference_batches": "0",
+      "inference_candidates": "0",
+      "observed_feature_candidates": "0",
+      "first_command_sim_s": "0.7200000000000001",
+      "generation_sim_s_count": "832",
+      "generation_sim_s_mean": "0.016557692307692308",
+      "generation_sim_s_p95": "0.048",
+      "generation_sim_s_maximum": "0.064",
+      "map_age_sim_s_count": "832",
+      "map_age_sim_s_mean": "0.1439134615384616",
+      "map_age_sim_s_p95": "0.20000000000000284",
+      "map_age_sim_s_maximum": "0.4000000000000057",
+      "observation_to_command_sim_s_count": "832",
+      "observation_to_command_sim_s_mean": "0.02352884615384615",
+      "observation_to_command_sim_s_p95": "0.0519999999999996",
+      "observation_to_command_sim_s_maximum": "0.07999999999999985",
+      "dispatch_validation_age_sim_s_count": "832",
+      "dispatch_validation_age_sim_s_mean": "5.288461538461538e-05",
+      "dispatch_validation_age_sim_s_p95": "0.0",
+      "dispatch_validation_age_sim_s_maximum": "0.004",
+      "max_abs_bank_deg": "34.999402194046496",
+      "free_voxels": "3440122",
+      "occupied_voxels": "164137",
+      "map_snapshot_sim_s": "85.208",
+      "source_unchanged": "True"
+    },
+    {
+      "method": "Selected",
+      "completed_waypoints": "8",
+      "mission_waypoints": "8",
+      "completed": "True",
+      "passed": "True",
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": "83.804",
+      "last_odom_sim_s": "83.792",
+      "min_chord_clearance_m": "4.661660560804659",
+      "clearance_capped_at_m": "30.0",
+      "physical_intersections": "0",
+      "margin_violations": "0",
+      "startup_wait_updates": "4",
+      "active_updates": "832",
+      "fresh": "832",
+      "cached": "0",
+      "execution_rejections": "0",
+      "map_contract_violations": "0",
+      "mean_queries": "2.0709134615384617",
+      "mean_successor_steps": "624.5348557692307",
+      "mean_pruned_candidates": "0.6875",
+      "inference_batches": "133",
+      "inference_candidates": "21903",
+      "observed_feature_candidates": "21903",
+      "first_command_sim_s": "0.7240000000000001",
+      "generation_sim_s_count": "832",
+      "generation_sim_s_mean": "0.017442307692307694",
+      "generation_sim_s_p95": "0.052000000000000005",
+      "generation_sim_s_maximum": "0.084",
+      "map_age_sim_s_count": "832",
+      "map_age_sim_s_mean": "0.14370192307692292",
+      "map_age_sim_s_p95": "0.19599999999999795",
+      "map_age_sim_s_maximum": "0.3919999999999959",
+      "observation_to_command_sim_s_count": "832",
+      "observation_to_command_sim_s_mean": "0.02443269230769254",
+      "observation_to_command_sim_s_p95": "0.060000000000002274",
+      "observation_to_command_sim_s_maximum": "0.09600000000000364",
+      "dispatch_validation_age_sim_s_count": "832",
+      "dispatch_validation_age_sim_s_mean": "0.00010096153846153847",
+      "dispatch_validation_age_sim_s_p95": "0.0",
+      "dispatch_validation_age_sim_s_maximum": "0.004",
+      "max_abs_bank_deg": "34.999207533655145",
+      "free_voxels": "3438904",
+      "occupied_voxels": "164615",
+      "map_snapshot_sim_s": "85.004",
+      "source_unchanged": "True"
+    }
+  ],
+  "prescribed_failure": {
+    "Selected": {
+      "outcome": "no_feasible_primary",
+      "planning_calls": 88,
+      "termination_sim_s": 8.7,
+      "active_execution_duration_s": 7.8999999999999995,
+      "last_fresh_pair_s": 2.7,
+      "terminal_primary_feasible": 0,
+      "successor_integration_steps": 299400,
+      "mean_successor_steps_per_call": 3402.2727272727275,
+      "min_chord_clearance_m": 5.33633950916,
+      "terminal_status": "EXECUTION_REJECTED"
+    },
+    "Diverse": {
+      "outcome": "no_feasible_primary",
+      "planning_calls": 87,
+      "termination_sim_s": 8.6,
+      "active_execution_duration_s": 7.8,
+      "last_fresh_pair_s": 2.6,
+      "terminal_primary_feasible": 0,
+      "successor_integration_steps": 151899,
+      "mean_successor_steps_per_call": 1745.9655172413793,
+      "min_chord_clearance_m": 5.3680502054,
+      "terminal_status": "EXECUTION_REJECTED"
+    },
+    "Full": {
+      "outcome": "no_feasible_primary",
+      "planning_calls": 87,
+      "termination_sim_s": 8.6,
+      "active_execution_duration_s": 7.8,
+      "last_fresh_pair_s": 2.6,
+      "terminal_primary_feasible": 0,
+      "successor_integration_steps": 3118894,
+      "mean_successor_steps_per_call": 35849.35632183908,
+      "min_chord_clearance_m": 5.28741439595,
+      "terminal_status": "EXECUTION_REJECTED"
+    }
+  },
+  "scope": {
+    "procedural_tasks_per_method": 128,
+    "procedural_maps": 32,
+    "legacy_40_80_tree_rows_excluded_from_final_forest_results": 144,
+    "city_acquisitions_per_method": 1,
+    "timing": "query CPU milliseconds use within-input medians; flight clocks are ROS simulation time"
+  }
+}

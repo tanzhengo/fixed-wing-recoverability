@@ -1,0 +1,15 @@
+Repeated unknown-city flight analysis
+All nine preregistered runs are included; no archived single acquisition is pooled.
+Source/config/model/binary hashes match protocol.json and remain identical across all runs.
+Completion follows the eight-waypoint cycle and independent physical collision-mesh assessment.
+The legacy rectangular planning-box observer can report intrusions in its enclosing boxes. These fields are retained in per_run_summary.csv; the original analysis uses exact physical collision-surface clearance for this mesh scene.
+Successor work is summed over active mission-observer statuses. Cache revalidation integration is a separate metric.
+Generation and latency use ROS simulation time. Dispatch-validation age is the command minus dispatch-state stamp, not CPU validation duration.
+Each dispersion is a sample SD across three flight-level observations; percentile rows summarize per-flight P95 values.
+Mean completion time contains successful missions only; failed outcomes retain null completion time and a separate termination horizon.
+
+Cost: 3/3 complete; T 85.76 $\pm$ 0.44 s; successor work/flight 944620 $\pm$ 216301; work/update 1108.8 $\pm$ 249.2; minimum clearance 4.343 $\pm$ 0.031 m; generation 16.93 $\pm$ 0.33 ms; generation P95 52.00 $\pm$ 0.00 ms; observation-command P95 60.00 $\pm$ 0.00 ms.
+Diverse: 3/3 complete; T 88.29 $\pm$ 6.80 s; successor work/flight 660554 $\pm$ 150007; work/update 748.8 $\pm$ 117.3; minimum clearance 4.748 $\pm$ 0.126 m; generation 17.10 $\pm$ 2.55 ms; generation P95 49.60 $\pm$ 7.88 ms; observation-command P95 61.33 $\pm$ 16.65 ms.
+Selected: 3/3 complete; T 92.08 $\pm$ 11.72 s; successor work/flight 789454 $\pm$ 402663; work/update 837.2 $\pm$ 314.4; minimum clearance 4.789 $\pm$ 0.185 m; generation 18.55 $\pm$ 1.86 ms; generation P95 53.33 $\pm$ 2.31 ms; observation-command P95 61.33 $\pm$ 2.31 ms.
+All-flight minimum physical clearance: 4.309740 m.
+All-flight maximum dispatch-validation age: 4.000 ms.

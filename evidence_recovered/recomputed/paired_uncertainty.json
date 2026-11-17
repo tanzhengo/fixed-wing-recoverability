@@ -1,0 +1,641 @@
+{
+  "protocol": {
+    "protocol_version": "2026-11-17-v1",
+    "purpose": "Reanalysis of recovered original records; no new policy selection or experiment",
+    "bootstrap": {
+      "seed": 20261117,
+      "replicates": 20000,
+      "interval": "two-sided percentile 95%",
+      "pairing": "same physical map/layout and condition across methods"
+    },
+    "methods": [
+      "Selected",
+      "Diverse"
+    ],
+    "procedural": {
+      "families": [
+        "staggered",
+        "wall",
+        "culdesac",
+        "spatial"
+      ],
+      "all_tasks": "32 map clusters, retain all four conditions together within each draw",
+      "common_completions": "resample map clusters of condition pairs completed by both methods; retain paired observations together within each map",
+      "metrics": [
+        "Selected minus Diverse completion proportion (percentage points)",
+        "all-task work reduction",
+        "common-completion work reduction"
+      ],
+      "work_definition": "per-episode mean_backup_steps times planning_calls; percent reduction = 100*(1-Selected arithmetic mean/Diverse arithmetic mean)"
+    },
+    "forest": {
+      "density_levels": [
+        100,
+        200,
+        300
+      ],
+      "all_tasks": "8 shared layout clusters at each density",
+      "common_completions": "resample the fixed subset of layout pairs completed by both schedules; report paired n",
+      "metrics": [
+        "paired completion difference in percentage points across all 8 layouts",
+        "common-completion work reduction"
+      ]
+    },
+    "failure_example": {
+      "selection": "first prescribed cul-de-sac test index; fixed before examining paths",
+      "family": "culdesac",
+      "seed": 1321000,
+      "index": 0,
+      "condition": 0,
+      "methods": [
+        "Selected",
+        "Diverse",
+        "Full"
+      ],
+      "source": "original controlled_evaluation.tar.gz",
+      "times": "actual path/summary simulation clock; planning_calls is not flight time"
+    }
+  },
+  "procedural": {
+    "all_tasks": {
+      "paired_tasks": 128,
+      "map_clusters": 32,
+      "conditions_per_cluster": [
+        4
+      ],
+      "Selected_mean_work": 133004.90625000416,
+      "Diverse_mean_work": 131057.78906252045,
+      "work_reduction_pct": -1.4856936023503797,
+      "work_reduction_pct_ci95": [
+        -25.19352400626721,
+        18.410854372113594
+      ],
+      "Selected_completed": 96,
+      "Diverse_completed": 96,
+      "completion_difference_pp": 0.0,
+      "completion_difference_pp_ci95": [
+        0.0,
+        0.0
+      ],
+      "map_ids": [
+        [
+          "culdesac",
+          1321000
+        ],
+        [
+          "culdesac",
+          1321001
+        ],
+        [
+          "culdesac",
+          1321002
+        ],
+        [
+          "culdesac",
+          1321003
+        ],
+        [
+          "culdesac",
+          1321004
+        ],
+        [
+          "culdesac",
+          1321005
+        ],
+        [
+          "culdesac",
+          1321006
+        ],
+        [
+          "culdesac",
+          1321007
+        ],
+        [
+          "spatial",
+          1331000
+        ],
+        [
+          "spatial",
+          1331001
+        ],
+        [
+          "spatial",
+          1331002
+        ],
+        [
+          "spatial",
+          1331003
+        ],
+        [
+          "spatial",
+          1331004
+        ],
+        [
+          "spatial",
+          1331005
+        ],
+        [
+          "spatial",
+          1331006
+        ],
+        [
+          "spatial",
+          1331007
+        ],
+        [
+          "staggered",
+          1301000
+        ],
+        [
+          "staggered",
+          1301001
+        ],
+        [
+          "staggered",
+          1301002
+        ],
+        [
+          "staggered",
+          1301003
+        ],
+        [
+          "staggered",
+          1301004
+        ],
+        [
+          "staggered",
+          1301005
+        ],
+        [
+          "staggered",
+          1301006
+        ],
+        [
+          "staggered",
+          1301007
+        ],
+        [
+          "wall",
+          1311000
+        ],
+        [
+          "wall",
+          1311001
+        ],
+        [
+          "wall",
+          1311002
+        ],
+        [
+          "wall",
+          1311003
+        ],
+        [
+          "wall",
+          1311004
+        ],
+        [
+          "wall",
+          1311005
+        ],
+        [
+          "wall",
+          1311006
+        ],
+        [
+          "wall",
+          1311007
+        ]
+      ]
+    },
+    "common_completions": {
+      "paired_tasks": 96,
+      "map_clusters": 24,
+      "conditions_per_cluster": [
+        4
+      ],
+      "Selected_mean_work": 96281.41666667485,
+      "Diverse_mean_work": 137890.19791668683,
+      "work_reduction_pct": 30.175300259668912,
+      "work_reduction_pct_ci95": [
+        22.095865222807905,
+        36.980170972208015
+      ],
+      "Selected_completed": 96,
+      "Diverse_completed": 96,
+      "completion_difference_pp": 0.0,
+      "completion_difference_pp_ci95": [
+        0.0,
+        0.0
+      ],
+      "map_ids": [
+        [
+          "spatial",
+          1331000
+        ],
+        [
+          "spatial",
+          1331001
+        ],
+        [
+          "spatial",
+          1331002
+        ],
+        [
+          "spatial",
+          1331003
+        ],
+        [
+          "spatial",
+          1331004
+        ],
+        [
+          "spatial",
+          1331005
+        ],
+        [
+          "spatial",
+          1331006
+        ],
+        [
+          "spatial",
+          1331007
+        ],
+        [
+          "staggered",
+          1301000
+        ],
+        [
+          "staggered",
+          1301001
+        ],
+        [
+          "staggered",
+          1301002
+        ],
+        [
+          "staggered",
+          1301003
+        ],
+        [
+          "staggered",
+          1301004
+        ],
+        [
+          "staggered",
+          1301005
+        ],
+        [
+          "staggered",
+          1301006
+        ],
+        [
+          "staggered",
+          1301007
+        ],
+        [
+          "wall",
+          1311000
+        ],
+        [
+          "wall",
+          1311001
+        ],
+        [
+          "wall",
+          1311002
+        ],
+        [
+          "wall",
+          1311003
+        ],
+        [
+          "wall",
+          1311004
+        ],
+        [
+          "wall",
+          1311005
+        ],
+        [
+          "wall",
+          1311006
+        ],
+        [
+          "wall",
+          1311007
+        ]
+      ]
+    }
+  },
+  "forest": {
+    "100": {
+      "all_tasks": {
+        "paired_tasks": 8,
+        "map_clusters": 8,
+        "conditions_per_cluster": [
+          1
+        ],
+        "Selected_mean_work": 382136.49999978323,
+        "Diverse_mean_work": 551276.2500002175,
+        "work_reduction_pct": 30.681486822689617,
+        "work_reduction_pct_ci95": [
+          11.94288094644359,
+          46.606942098535754
+        ],
+        "Selected_completed": 8,
+        "Diverse_completed": 8,
+        "completion_difference_pp": 0.0,
+        "completion_difference_pp_ci95": [
+          0.0,
+          0.0
+        ],
+        "map_ids": [
+          [
+            "forest_d100",
+            2402100
+          ],
+          [
+            "forest_d100",
+            2402101
+          ],
+          [
+            "forest_d100",
+            2402102
+          ],
+          [
+            "forest_d100",
+            2402103
+          ],
+          [
+            "forest_d100",
+            2402104
+          ],
+          [
+            "forest_d100",
+            2402105
+          ],
+          [
+            "forest_d100",
+            2402106
+          ],
+          [
+            "forest_d100",
+            2402107
+          ]
+        ]
+      },
+      "common_completions": {
+        "paired_tasks": 8,
+        "map_clusters": 8,
+        "conditions_per_cluster": [
+          1
+        ],
+        "Selected_mean_work": 382136.49999978323,
+        "Diverse_mean_work": 551276.2500002175,
+        "work_reduction_pct": 30.681486822689617,
+        "work_reduction_pct_ci95": [
+          11.94288094644359,
+          46.606942098535754
+        ],
+        "Selected_completed": 8,
+        "Diverse_completed": 8,
+        "completion_difference_pp": 0.0,
+        "completion_difference_pp_ci95": [
+          0.0,
+          0.0
+        ],
+        "map_ids": [
+          [
+            "forest_d100",
+            2402100
+          ],
+          [
+            "forest_d100",
+            2402101
+          ],
+          [
+            "forest_d100",
+            2402102
+          ],
+          [
+            "forest_d100",
+            2402103
+          ],
+          [
+            "forest_d100",
+            2402104
+          ],
+          [
+            "forest_d100",
+            2402105
+          ],
+          [
+            "forest_d100",
+            2402106
+          ],
+          [
+            "forest_d100",
+            2402107
+          ]
+        ]
+      }
+    },
+    "200": {
+      "all_tasks": {
+        "paired_tasks": 8,
+        "map_clusters": 8,
+        "conditions_per_cluster": [
+          1
+        ],
+        "Selected_mean_work": 357366.25000003976,
+        "Diverse_mean_work": 738584.2500004149,
+        "work_reduction_pct": 51.61469392288842,
+        "work_reduction_pct_ci95": [
+          17.2757412136514,
+          70.83941503778736
+        ],
+        "Selected_completed": 7,
+        "Diverse_completed": 6,
+        "completion_difference_pp": 12.5,
+        "completion_difference_pp_ci95": [
+          -25.0,
+          50.0
+        ],
+        "map_ids": [
+          [
+            "forest_d200",
+            2402100
+          ],
+          [
+            "forest_d200",
+            2402101
+          ],
+          [
+            "forest_d200",
+            2402102
+          ],
+          [
+            "forest_d200",
+            2402103
+          ],
+          [
+            "forest_d200",
+            2402104
+          ],
+          [
+            "forest_d200",
+            2402105
+          ],
+          [
+            "forest_d200",
+            2402106
+          ],
+          [
+            "forest_d200",
+            2402107
+          ]
+        ]
+      },
+      "common_completions": {
+        "paired_tasks": 5,
+        "map_clusters": 5,
+        "conditions_per_cluster": [
+          1
+        ],
+        "Selected_mean_work": 393072.80000008043,
+        "Diverse_mean_work": 843883.8000003159,
+        "work_reduction_pct": 53.420980471489884,
+        "work_reduction_pct_ci95": [
+          48.08588744350144,
+          59.4208833199231
+        ],
+        "Selected_completed": 5,
+        "Diverse_completed": 5,
+        "completion_difference_pp": 0.0,
+        "completion_difference_pp_ci95": [
+          0.0,
+          0.0
+        ],
+        "map_ids": [
+          [
+            "forest_d200",
+            2402100
+          ],
+          [
+            "forest_d200",
+            2402102
+          ],
+          [
+            "forest_d200",
+            2402103
+          ],
+          [
+            "forest_d200",
+            2402104
+          ],
+          [
+            "forest_d200",
+            2402107
+          ]
+        ]
+      }
+    },
+    "300": {
+      "all_tasks": {
+        "paired_tasks": 8,
+        "map_clusters": 8,
+        "conditions_per_cluster": [
+          1
+        ],
+        "Selected_mean_work": 320160.2499999559,
+        "Diverse_mean_work": 717410.7500002349,
+        "work_reduction_pct": 55.37281118245705,
+        "work_reduction_pct_ci95": [
+          34.004191203330805,
+          65.68950094267166
+        ],
+        "Selected_completed": 5,
+        "Diverse_completed": 5,
+        "completion_difference_pp": 0.0,
+        "completion_difference_pp_ci95": [
+          -37.5,
+          37.5
+        ],
+        "map_ids": [
+          [
+            "forest_d300",
+            2402100
+          ],
+          [
+            "forest_d300",
+            2402101
+          ],
+          [
+            "forest_d300",
+            2402102
+          ],
+          [
+            "forest_d300",
+            2402103
+          ],
+          [
+            "forest_d300",
+            2402104
+          ],
+          [
+            "forest_d300",
+            2402105
+          ],
+          [
+            "forest_d300",
+            2402106
+          ],
+          [
+            "forest_d300",
+            2402107
+          ]
+        ]
+      },
+      "common_completions": {
+        "paired_tasks": 4,
+        "map_clusters": 4,
+        "conditions_per_cluster": [
+          1
+        ],
+        "Selected_mean_work": 470922.74999983446,
+        "Diverse_mean_work": 1133848.7500001425,
+        "work_reduction_pct": 58.466881054481455,
+        "work_reduction_pct_ci95": [
+          36.89165001590238,
+          67.57315681498177
+        ],
+        "Selected_completed": 4,
+        "Diverse_completed": 4,
+        "completion_difference_pp": 0.0,
+        "completion_difference_pp_ci95": [
+          0.0,
+          0.0
+        ],
+        "map_ids": [
+          [
+            "forest_d300",
+            2402100
+          ],
+          [
+            "forest_d300",
+            2402101
+          ],
+          [
+            "forest_d300",
+            2402105
+          ],
+          [
+            "forest_d300",
+            2402106
+          ]
+        ]
+      }
+    }
+  }
+}

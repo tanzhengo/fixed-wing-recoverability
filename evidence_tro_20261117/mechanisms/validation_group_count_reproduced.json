@@ -1,0 +1,22 @@
+{
+  "distinct_state_task_vectors": 60863,
+  "conflicting_groups": 1186,
+  "conflicting_groups_with_matching_recorded_raw_state_and_candidate": 1186,
+  "first_pair_packed_rows": [
+    48,
+    66005
+  ],
+  "raw_fields_compared": [
+    "x",
+    "y",
+    "h",
+    "V",
+    "gamma",
+    "heading",
+    "roll",
+    "attack",
+    "thrust"
+  ],
+  "dataset_sha256": "bbf4e269e264191f0aa29689e78f7a1389adc64323354fdcc754e7c489990964",
+  "states_sha256": "9e40a3d2717fc7468d33fe50dbb168d40f04cc8d319dc5103d117701580e65fa"
+}

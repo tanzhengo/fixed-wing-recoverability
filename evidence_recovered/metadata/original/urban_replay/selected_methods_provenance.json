@@ -1,0 +1,37 @@
+{
+  "validation_selection_sha256": "8282b38d58021c1f27cc5de23da365086ae41c631b7c658b61ef2a986b854eb5",
+  "validation_selection_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/evaluation/validation_selection.json",
+  "methods": [
+    [
+      "AlignedState",
+      "learned",
+      "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/state_aux/20261102/network_compact.txt",
+      0.0
+    ],
+    [
+      "ObsBCE",
+      "learned",
+      "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+      0.0
+    ],
+    [
+      "ObsAux",
+      "learned",
+      "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed_aux/20261101/network_compact.txt",
+      0.0
+    ],
+    [
+      "Selected",
+      "learned_coverage",
+      "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+      0.75
+    ],
+    [
+      "ObservedCoverage",
+      "observed_coverage",
+      "-",
+      0.25
+    ]
+  ],
+  "no_query_based_reselection": true
+}

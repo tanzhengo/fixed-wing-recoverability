@@ -1,0 +1,80 @@
+{
+  "frozen_utc": "2026-11-01T05:38:27.254814+00:00",
+  "scope": "aligned unknown-map training, optimized runtime and concise manuscript",
+  "train_val": {
+    "scene_counts": [
+      64,
+      16
+    ],
+    "seed_bases": [
+      1101000,
+      1201000
+    ],
+    "training_variants": [
+      "State+Aux",
+      "State+Obs BCE",
+      "State+Obs+Aux"
+    ],
+    "training_seeds": [
+      20261101,
+      20261102,
+      20261103
+    ],
+    "checkpoint": "minimum validation BCE within run",
+    "deploy_seed": "maximum pure-learned validation query recall K12; tie mean successor work, BCE, smaller seed"
+  },
+  "schedule_selection": {
+    "maps": "16 validation scenes, nominal plant only",
+    "learned_model": "validation-selected State+Obs+Aux seed",
+    "choices": [
+      "learned",
+      "learned_coverage alpha .25",
+      ".5",
+      ".75"
+    ],
+    "nonlearning_choices": [
+      "observed_coverage alpha .25",
+      ".5",
+      ".75"
+    ],
+    "criterion": "maximum completed episodes, tie mean of episode mean successor integration steps per planning call, then smaller alpha (pure learned alpha=0)",
+    "no_test_selection": true
+  },
+  "test": {
+    "base": 1301000,
+    "procedural_seeds": "base+10000*family+index; families0..3, indices0..7",
+    "forest_seeds": "1341000+index, indices0..7; same seed per sparse/dense pair",
+    "methods": [
+      "Cost",
+      "Diverse",
+      "Legacy State+Aux",
+      "Aligned State+Aux",
+      "State+Obs BCE",
+      "State+Obs+Aux",
+      "Selected learned schedule",
+      "Observed coverage",
+      "Full"
+    ],
+    "procedural_conditions": [
+      "nominal",
+      "actuator x1.25/lift x.97/drag x1.1",
+      "wind_y +1m/s",
+      ".1s command delay"
+    ],
+    "forest_conditions": [
+      "nominal"
+    ],
+    "library": "H=B=3s, up to406 primaries,15 successors,K12 except Full",
+    "prefix": "formal runtime only; no experimental RK4-prefix hook",
+    "map": "empty at t0, 512x32 nearest-hit rays at5Hz, 2m voxels, unknown blocked",
+    "plant": "independent RK4 .005s;10Hz execution;40s timeout",
+    "failures": "all startup/primary/continuation/collision/margin/envelope/timeout failures retained",
+    "cache": "strict validated suffix reuse enabled",
+    "latency": "no wall-clock delay injected in controlled tests; measured real latency in Gazebo",
+    "figure_selection": "index0 nominal paths for each family; first paired forest seed1341000"
+  },
+  "statistics": "paired episode outcomes and map-block bootstrap across procedural maps; report forests as small paired sample",
+  "legacy_evidence": "previous heldout sets now regression only, urban123 matched replay reused optimization diagnostic",
+  "paper": "preserve Introduction except contributions and all Related Work; external ref.bib; no fabricated results",
+  "publication": "local only; no README or GitHub changes"
+}

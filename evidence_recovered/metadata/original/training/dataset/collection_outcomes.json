@@ -1,0 +1,54 @@
+{
+  "train": {
+    "culdesac": {
+      "initialization_failed": 12,
+      "no_feasible_primary": 24
+    },
+    "forest_dense": {
+      "initialization_failed": 10,
+      "goal": 12,
+      "no_feasible_primary": 2
+    },
+    "forest_sparse": {
+      "goal": 16,
+      "initialization_failed": 7,
+      "no_feasible_primary": 1
+    },
+    "spatial": {
+      "goal": 36
+    },
+    "staggered": {
+      "goal": 30,
+      "initialization_failed": 6
+    },
+    "wall": {
+      "initialization_failed": 12,
+      "goal": 24
+    }
+  },
+  "val": {
+    "culdesac": {
+      "initialization_failed": 2,
+      "no_feasible_primary": 4
+    },
+    "forest_dense": {
+      "no_feasible_primary": 3,
+      "initialization_failed": 4,
+      "goal": 5
+    },
+    "forest_sparse": {
+      "goal": 12
+    },
+    "spatial": {
+      "goal": 6
+    },
+    "staggered": {
+      "initialization_failed": 2,
+      "goal": 4
+    },
+    "wall": {
+      "initialization_failed": 2,
+      "goal": 4
+    }
+  }
+}

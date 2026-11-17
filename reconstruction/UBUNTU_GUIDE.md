@@ -1,6 +1,8 @@
 # Ubuntu 运行与后续开发指南
 
-对应分支：`codex/manuscript-reconstruction-2026-11-12`。首次代码发布提交：`cfda580`。本文件的命令按当前脚本接口核对，**尚未在 Ubuntu 实机执行**；仓库中的 76 项软件检查记录来自 Windows。Ubuntu 上的检查必须重新运行并另存记录。
+对应分支：`codex/tro-revision-2026-11-17`。首次代码发布提交：`cfda580`。2026-11-17 已在 Ubuntu 主机完成本指南第 3–7 节：76 项软件检查全部通过，并运行了诊断、标注、smoke 训练、单帧重放和短同步数值回合。回合结果为 `time_limit`；具体环境、指标及哈希见 [Ubuntu 验证摘要](validation/ubuntu_20261117_summary.json)。Windows 原始检查记录保持不变。
+
+同日找回并核验了原稿的 C++/ROS 源码、58 维权重、训练记录和实验档案，入口为 [恢复证据包](../evidence_recovered/USAGE.txt)。恢复的原始实验系统与本目录的新 NumPy 参考实现分别保存；档案核验与结果重算不表示全部历史闭环实验已重新运行。
 
 需要让 Ubuntu 上的 Codex 接手时，先看 [交接任务](CODEX_HANDOFF.md)。本指南也可手动逐步执行。切换前如计划继续改论文或运行城市演示，还需带上当前 LaTeX 工程、修订工作稿及原机使用的 Gazebo 城市模型；这些不是运行第一阶段 Python 检查的前提。
 
@@ -8,7 +10,8 @@
 
 | 目的 | 环境与入口 | 当前状态 |
 | --- | --- | --- |
-| 检查重建代码、生成诊断图、标注和训练 | Python 3.10+，NumPy、Matplotlib；本目录 | 已有可运行工具，需做 Ubuntu 验证；不需要 ROS、CUDA 或 PyTorch |
+| 检查重建代码、生成诊断图、标注和训练 | Python 3.10+，NumPy、Matplotlib；本目录 | 已完成 Ubuntu 软件与管线验证；不需要 ROS、CUDA 或 PyTorch |
+| 重算原稿结果、编译恢复的原始评估器 | [evidence_recovered](../evidence_recovered/USAGE.txt)；分析用 NumPy，C++ 编译用 ROS Noetic | 原始记录已恢复并核验，五个评估器编译通过；与本目录参考实现分开 |
 | 运行旧 Gazebo 演示、核验旧消息接口 | 历史工程：Ubuntu 20.04、ROS Noetic、Gazebo Classic 11 | 是旧实现；运行成功不表示新规划器已接入 |
 | 用观测地图驱动新规划器做异步闭环实验 | 新 ROS 适配器或 C++ 移植，以及新启动文件 | 尚待实现；参考 [接口约定](ros/INTEGRATION_CONTRACT.txt) |
 
@@ -27,7 +30,7 @@ sudo apt update
 sudo apt install -y git python3 python3-venv python3-pip curl
 mkdir -p "$HOME/projects"
 cd "$HOME/projects"
-git clone --branch codex/manuscript-reconstruction-2026-11-12 --single-branch \
+git clone --branch codex/tro-revision-2026-11-17 --single-branch \
   https://github.com/tanzhengo/fixed-wing-recoverability.git
 cd fixed-wing-recoverability
 git status --short --branch
@@ -102,7 +105,7 @@ python scripts/train_model.py --help
 python scripts/run_episode.py --help
 ```
 
-未修改测试的当前版本应运行 76 项检查且 failures/errors 为 0。若修复后增加了测试，记录新计数和原因。失败时先定位和修复，不跳过测试或手改结果。原有 `validation/software_checks.json` 保留为原发布记录，Ubuntu 的新结果写入本次 `runs/` 目录。
+2026-11-17 的 Ubuntu 验证运行了 76 项检查，failures/errors/skipped 均为 0，见 [验证摘要](validation/ubuntu_20261117_summary.json)。后续代码或环境变更后，按上述命令在新目录复验；新增测试时记录新计数和原因。失败时先定位和修复，不跳过测试或手改结果。原有 `validation/software_checks.json` 保留为 Windows 原发布记录。
 
 ## 5. 生成基础诊断和新训练样例
 
@@ -211,8 +214,10 @@ rostest motion_primitives_planning motion_primitives_3d.test
 
 ## 9. 下一阶段实验与论文接续
 
-优先完成 Ubuntu 软件与数值诊断、异步数据链路和时间记录，再重建正式训练/验证/测试场景。按论文协议训练 3 变体×3 种子，仅用验证集选检查点及调度；冻结配置后做留出集、工况扰动和配对比较。还需采集代表性 cul-de-sac 闭环失败案例。
+Ubuntu 软件与数值诊断已完成。接续原稿实验时，先使用 [恢复证据包](../evidence_recovered/USAGE.txt) 中的三组正式 compact 模型、九次训练记录、最终选模记录及原始结果。包内分析脚本可重算主表与按地图配对的 bootstrap；首个预定 cul-de-sac 案例的原始轨迹和逐周期日志也已恢复。进一步实验使用新输出目录并冻结协议，保留既有档案。
 
-完整当前 LaTeX 工程和原修订工作稿没有随本次代码提交上传。做论文修改前，先从用户提供的文件中找到并确认当前版本；缺失时可以继续代码验证，但不能用仓库旧 `paper/main.tex` 冒充最新稿。原论文表格数值保持为未独立复现；新结果独立报告，附源码/配置/模型/输入哈希和失败记录。
+若继续开发本目录的 NumPy 参考实现，下一步仍是第 8 节的新适配器、异步数据链路和真实时间记录。原始 C++/ROS 系统的恢复没有自动完成这项接入。新模型需要独立的训练、验证和闭环选模，不能将本次 smoke 模型视为原稿 Selected。
+
+完整当前 LaTeX 工程和原修订工作稿没有随本次代码提交上传。做论文修改前，先从用户提供的文件中找到并确认当前版本；缺失时可以继续代码验证，但不能用仓库旧 `paper/main.tex` 冒充最新稿。原稿主表的聚合结果已由恢复档案独立重算，核验记录见 [PACKAGING_CHECKS.json](../evidence_recovered/PACKAGING_CHECKS.json)；这与重新执行全部历史闭环任务是不同步骤。新运行结果独立报告，附源码/配置/模型/输入哈希和失败记录。
 
 每阶段结束，在 `FW_RUN` 中写一份简短交接记录：运行命令、版本、输入输出路径、成功/失败状态、实际指标、未完成工作及下一条操作。`runs/` 已被忽略，不会自动进入 Git。提交修复和说明时检查差异，按当前用户授权推送分支；不要把大体积原始记录、权重或机器路径混入普通代码提交。

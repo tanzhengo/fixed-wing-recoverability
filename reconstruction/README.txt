@@ -10,10 +10,21 @@ Specification: the user-supplied LaTeX main11.tex (unknown environment,
 The older GitHub archive is a source of inherited dynamics and library-order
 conventions, NOT the current manuscript's implementation or experiment data.
 
-No historical 58-input weights, raw experiment logs or deployment executable
-were recovered. None of the current manuscript's performance tables is newly
-verified by this release. Do not replace those tables with the diagnostic data.
-No flight hardware or Gazebo session has been run by this reconstruction.
+Original evidence recovered on Ubuntu, 2026-11-17
+------------------------------------------------
+The original 58-input checkpoints, C++/ROS sources, training records and raw
+experiment archives are available again. Their file hashes and the manuscript's
+main-result aggregates have been checked independently. See
+../evidence_recovered/USAGE.txt for the separate original-source snapshots,
+compact models, portable analysis/build tools and large-archive checksums.
+This recovery does not turn the new NumPy implementation into the original
+runtime; their arithmetic, software checks and experiments remain identified.
+
+Ubuntu validation of sections 3--7 in UBUNTU_GUIDE.md is complete: 76 software
+checks pass; labeling, smoke training, learned replay and the short synchronous
+numerical episode ran successfully. The episode outcome was time_limit, not
+goal attainment. See validation/ubuntu_20261117_summary.json. The original
+Windows software report remains unchanged.
 
 From the repository root, first run: cd reconstruction
 Then use Python 3.10+:
@@ -67,7 +78,7 @@ Learning and provenance
 No pretrained deployment model is bundled. Learned modes require an explicitly
 trained checkpoint. The 103-input archived models are deliberately rejected.
 If diagnostic_model is included with a validation bundle, it is a smoke-training
-artifact on constructed maps, NOT Selected, NOT the lost model, and NOT a model
+artifact on constructed maps, NOT Selected, NOT the recovered original model, and NOT a model
 validated for navigation or deployment.
 
 Dataset frames are JSONL with keys state, goal, map, config, previous (optional),
@@ -91,13 +102,13 @@ inherited construction and not an exact inverse of the prediction equations.
 The current reconstruction has no integration-work cap or CPU deadline inside
 query search. Adding either changes the pruning equivalence conditions.
 
-Remaining research work
------------------------
-Rebuild the 64/16-scene train/validation corpus from recorded rays and states;
-train the nine specified runs; select checkpoints and schedule only on validation;
-run the held-out 32-map/four-condition and eight-layout/three-density campaigns;
-repeat urban acquisition with actual asynchronous mapping and dispatch; collect
-full query traces and failure diagnostics. Regenerate performance tables from
-those new records, with paired map-level uncertainty and all failures retained.
-Sensor noise, mapping capacity, timestamp delay, numerical mismatch and physical
-airframe/tracking error remain separate evaluations. No recursive safety claim.
+Further experiments
+-------------------
+Use the recovered original records and frozen selection before repeating formal
+experiments. New runs must use fresh output directories and retain configuration,
+model and source hashes. The reference implementation is suitable for software
+checks and controlled mechanism diagnostics; it has not replaced the original
+C++/ROS timing or asynchronous deployment evaluation. Paired uncertainty and
+recorded-query diagnostics are supplied with the recovered evidence. Sensor
+noise, mapping capacity, timestamp delay and independent aircraft dynamics
+require distinct evaluations with their own declared protocols.

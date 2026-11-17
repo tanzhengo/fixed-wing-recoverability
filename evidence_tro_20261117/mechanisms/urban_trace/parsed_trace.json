@@ -1,0 +1,767 @@
+{
+  "Selected": {
+    "events": [
+      {
+        "slot": 1,
+        "cost_rank": 1,
+        "status": "rejected",
+        "steps": 1223,
+        "cumulative_steps": 1223,
+        "cost": 2.1666948795318604
+      },
+      {
+        "slot": 2,
+        "cost_rank": 80,
+        "status": "rejected",
+        "steps": 350,
+        "cumulative_steps": 1573,
+        "cost": 7.535405158996582
+      },
+      {
+        "slot": 3,
+        "cost_rank": 95,
+        "status": "rejected",
+        "steps": 629,
+        "cumulative_steps": 2202,
+        "cost": 7.856542587280273
+      },
+      {
+        "slot": 4,
+        "cost_rank": 49,
+        "status": "rejected",
+        "steps": 30,
+        "cumulative_steps": 2232,
+        "cost": 6.776394844055176
+      },
+      {
+        "slot": 5,
+        "cost_rank": 63,
+        "status": "rejected",
+        "steps": 30,
+        "cumulative_steps": 2262,
+        "cost": 7.089178085327148
+      },
+      {
+        "slot": 6,
+        "cost_rank": 10,
+        "status": "witness",
+        "steps": 151,
+        "cumulative_steps": 2413,
+        "cost": 3.999026298522949
+      },
+      {
+        "slot": 7,
+        "cost_rank": 11,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2413,
+        "cost": 4.21843957901001
+      },
+      {
+        "slot": 8,
+        "cost_rank": 14,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2413,
+        "cost": 4.546232223510742
+      },
+      {
+        "slot": 9,
+        "cost_rank": 81,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2413,
+        "cost": 7.590932846069336
+      },
+      {
+        "slot": 10,
+        "cost_rank": 65,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2413,
+        "cost": 7.2758097648620605
+      },
+      {
+        "slot": 11,
+        "cost_rank": 20,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2413,
+        "cost": 5.176578521728516
+      },
+      {
+        "slot": 12,
+        "cost_rank": 23,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2413,
+        "cost": 5.498494625091553
+      }
+    ],
+    "cumulative_steps": [
+      0,
+      1223,
+      1573,
+      2202,
+      2232,
+      2262,
+      2413,
+      2413,
+      2413,
+      2413,
+      2413,
+      2413,
+      2413
+    ],
+    "result": {
+      "query_index": "0",
+      "target_time": "2",
+      "state_stamp": "2",
+      "map_stamp": "1.8080000000000001",
+      "scan_count": "8",
+      "free_cells": "348059",
+      "occupied_cells": "10005",
+      "method": "Selected",
+      "repeat": "0",
+      "order": "0",
+      "ms": "18.438503000000001",
+      "primary_evaluated": "406",
+      "primary_feasible": "95",
+      "witness": "1",
+      "queries": "6",
+      "backup_steps": "2413",
+      "primary_steps": "58395",
+      "cost_rank": "10",
+      "cost": "3.9990262985229492",
+      "roll": "0.00090689031640067697",
+      "attack": "-0.34906584024429321",
+      "thrust": "0",
+      "status": "RECOVERY_VERIFIED",
+      "signature": "3996d6a4bc408e",
+      "inference_batches": "1",
+      "inference_candidates": "95",
+      "feature_candidates": "95",
+      "observed_feature_candidates": "95",
+      "pruned_candidates": "6",
+      "scheduled_count": "12",
+      "primary_ms": "0",
+      "feature_ms": "0",
+      "inference_ms": "0",
+      "schedule_other_ms": "0",
+      "continuation_ms": "0",
+      "residual_ms": "0"
+    }
+  },
+  "Diverse": {
+    "events": [
+      {
+        "slot": 1,
+        "cost_rank": 1,
+        "status": "rejected",
+        "steps": 1223,
+        "cumulative_steps": 1223,
+        "cost": 2.1666948795318604
+      },
+      {
+        "slot": 2,
+        "cost_rank": 80,
+        "status": "rejected",
+        "steps": 350,
+        "cumulative_steps": 1573,
+        "cost": 7.535405158996582
+      },
+      {
+        "slot": 3,
+        "cost_rank": 95,
+        "status": "rejected",
+        "steps": 629,
+        "cumulative_steps": 2202,
+        "cost": 7.856542587280273
+      },
+      {
+        "slot": 4,
+        "cost_rank": 49,
+        "status": "rejected",
+        "steps": 30,
+        "cumulative_steps": 2232,
+        "cost": 6.776394844055176
+      },
+      {
+        "slot": 5,
+        "cost_rank": 63,
+        "status": "rejected",
+        "steps": 30,
+        "cumulative_steps": 2262,
+        "cost": 7.089178085327148
+      },
+      {
+        "slot": 6,
+        "cost_rank": 10,
+        "status": "witness",
+        "steps": 151,
+        "cumulative_steps": 2413,
+        "cost": 3.999026298522949
+      },
+      {
+        "slot": 7,
+        "cost_rank": 11,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2413,
+        "cost": 4.21843957901001
+      },
+      {
+        "slot": 8,
+        "cost_rank": 14,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2413,
+        "cost": 4.546232223510742
+      },
+      {
+        "slot": 9,
+        "cost_rank": 81,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2413,
+        "cost": 7.590932846069336
+      },
+      {
+        "slot": 10,
+        "cost_rank": 65,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2413,
+        "cost": 7.2758097648620605
+      },
+      {
+        "slot": 11,
+        "cost_rank": 20,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2413,
+        "cost": 5.176578521728516
+      },
+      {
+        "slot": 12,
+        "cost_rank": 23,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2413,
+        "cost": 5.498494625091553
+      }
+    ],
+    "cumulative_steps": [
+      0,
+      1223,
+      1573,
+      2202,
+      2232,
+      2262,
+      2413,
+      2413,
+      2413,
+      2413,
+      2413,
+      2413,
+      2413
+    ],
+    "result": {
+      "query_index": "0",
+      "target_time": "2",
+      "state_stamp": "2",
+      "map_stamp": "1.8080000000000001",
+      "scan_count": "8",
+      "free_cells": "348059",
+      "occupied_cells": "10005",
+      "method": "Diverse",
+      "repeat": "0",
+      "order": "1",
+      "ms": "17.727855999999999",
+      "primary_evaluated": "406",
+      "primary_feasible": "95",
+      "witness": "1",
+      "queries": "6",
+      "backup_steps": "2413",
+      "primary_steps": "58395",
+      "cost_rank": "10",
+      "cost": "3.9990262985229492",
+      "roll": "0.00090689031640067697",
+      "attack": "-0.34906584024429321",
+      "thrust": "0",
+      "status": "RECOVERY_VERIFIED",
+      "signature": "3996d6a4bc408e",
+      "inference_batches": "0",
+      "inference_candidates": "0",
+      "feature_candidates": "0",
+      "observed_feature_candidates": "0",
+      "pruned_candidates": "6",
+      "scheduled_count": "12",
+      "primary_ms": "0",
+      "feature_ms": "0",
+      "inference_ms": "0",
+      "schedule_other_ms": "0",
+      "continuation_ms": "0",
+      "residual_ms": "0"
+    }
+  },
+  "ObsAux": {
+    "events": [
+      {
+        "slot": 1,
+        "cost_rank": 1,
+        "status": "rejected",
+        "steps": 1223,
+        "cumulative_steps": 1223,
+        "cost": 2.1666948795318604
+      },
+      {
+        "slot": 2,
+        "cost_rank": 52,
+        "status": "rejected",
+        "steps": 1439,
+        "cumulative_steps": 2662,
+        "cost": 6.990530967712402
+      },
+      {
+        "slot": 3,
+        "cost_rank": 24,
+        "status": "witness",
+        "steps": 267,
+        "cumulative_steps": 2929,
+        "cost": 5.546767234802246
+      },
+      {
+        "slot": 4,
+        "cost_rank": 33,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 2929,
+        "cost": 6.30049467086792
+      },
+      {
+        "slot": 5,
+        "cost_rank": 10,
+        "status": "witness",
+        "steps": 151,
+        "cumulative_steps": 3080,
+        "cost": 3.999026298522949
+      },
+      {
+        "slot": 6,
+        "cost_rank": 83,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 3080,
+        "cost": 7.599198818206787
+      },
+      {
+        "slot": 7,
+        "cost_rank": 13,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 3080,
+        "cost": 4.444083213806152
+      },
+      {
+        "slot": 8,
+        "cost_rank": 95,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 3080,
+        "cost": 7.856542587280273
+      },
+      {
+        "slot": 9,
+        "cost_rank": 93,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 3080,
+        "cost": 7.836970329284668
+      },
+      {
+        "slot": 10,
+        "cost_rank": 17,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 3080,
+        "cost": 4.762671947479248
+      },
+      {
+        "slot": 11,
+        "cost_rank": 94,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 3080,
+        "cost": 7.847029685974121
+      },
+      {
+        "slot": 12,
+        "cost_rank": 92,
+        "status": "pruned",
+        "steps": 0,
+        "cumulative_steps": 3080,
+        "cost": 7.826493263244629
+      }
+    ],
+    "cumulative_steps": [
+      0,
+      1223,
+      2662,
+      2929,
+      2929,
+      3080,
+      3080,
+      3080,
+      3080,
+      3080,
+      3080,
+      3080,
+      3080
+    ],
+    "result": {
+      "query_index": "0",
+      "target_time": "2",
+      "state_stamp": "2",
+      "map_stamp": "1.8080000000000001",
+      "scan_count": "8",
+      "free_cells": "348059",
+      "occupied_cells": "10005",
+      "method": "ObsAux",
+      "repeat": "0",
+      "order": "2",
+      "ms": "18.262865000000001",
+      "primary_evaluated": "406",
+      "primary_feasible": "95",
+      "witness": "1",
+      "queries": "4",
+      "backup_steps": "3080",
+      "primary_steps": "58395",
+      "cost_rank": "10",
+      "cost": "3.9990262985229492",
+      "roll": "0.00090689031640067697",
+      "attack": "-0.34906584024429321",
+      "thrust": "0",
+      "status": "RECOVERY_VERIFIED",
+      "signature": "3996d6a4bc408e",
+      "inference_batches": "1",
+      "inference_candidates": "95",
+      "feature_candidates": "95",
+      "observed_feature_candidates": "95",
+      "pruned_candidates": "8",
+      "scheduled_count": "12",
+      "primary_ms": "0",
+      "feature_ms": "0",
+      "inference_ms": "0",
+      "schedule_other_ms": "0",
+      "continuation_ms": "0",
+      "residual_ms": "0"
+    }
+  },
+  "Cost": {
+    "events": [
+      {
+        "slot": 1,
+        "cost_rank": 1,
+        "status": "rejected",
+        "steps": 1223,
+        "cumulative_steps": 1223,
+        "cost": 2.1666948795318604
+      },
+      {
+        "slot": 2,
+        "cost_rank": 2,
+        "status": "rejected",
+        "steps": 1222,
+        "cumulative_steps": 2445,
+        "cost": 2.453111171722412
+      },
+      {
+        "slot": 3,
+        "cost_rank": 3,
+        "status": "rejected",
+        "steps": 1222,
+        "cumulative_steps": 3667,
+        "cost": 2.775127410888672
+      },
+      {
+        "slot": 4,
+        "cost_rank": 4,
+        "status": "rejected",
+        "steps": 1220,
+        "cumulative_steps": 4887,
+        "cost": 3.057915449142456
+      },
+      {
+        "slot": 5,
+        "cost_rank": 5,
+        "status": "rejected",
+        "steps": 1220,
+        "cumulative_steps": 6107,
+        "cost": 3.3838138580322266
+      },
+      {
+        "slot": 6,
+        "cost_rank": 6,
+        "status": "rejected",
+        "steps": 1124,
+        "cumulative_steps": 7231,
+        "cost": 3.6497788429260254
+      },
+      {
+        "slot": 7,
+        "cost_rank": 7,
+        "status": "witness",
+        "steps": 151,
+        "cumulative_steps": 7382,
+        "cost": 3.6885013580322266
+      },
+      {
+        "slot": 8,
+        "cost_rank": 8,
+        "status": "unvisited",
+        "steps": 0,
+        "cumulative_steps": 7382,
+        "cost": null
+      },
+      {
+        "slot": 9,
+        "cost_rank": 9,
+        "status": "unvisited",
+        "steps": 0,
+        "cumulative_steps": 7382,
+        "cost": null
+      },
+      {
+        "slot": 10,
+        "cost_rank": 10,
+        "status": "unvisited",
+        "steps": 0,
+        "cumulative_steps": 7382,
+        "cost": null
+      },
+      {
+        "slot": 11,
+        "cost_rank": 11,
+        "status": "unvisited",
+        "steps": 0,
+        "cumulative_steps": 7382,
+        "cost": null
+      },
+      {
+        "slot": 12,
+        "cost_rank": 12,
+        "status": "unvisited",
+        "steps": 0,
+        "cumulative_steps": 7382,
+        "cost": null
+      }
+    ],
+    "cumulative_steps": [
+      0,
+      1223,
+      2445,
+      3667,
+      4887,
+      6107,
+      7231,
+      7382,
+      7382,
+      7382,
+      7382,
+      7382,
+      7382
+    ],
+    "result": {
+      "query_index": "0",
+      "target_time": "2",
+      "state_stamp": "2",
+      "map_stamp": "1.8080000000000001",
+      "scan_count": "8",
+      "free_cells": "348059",
+      "occupied_cells": "10005",
+      "method": "Cost",
+      "repeat": "0",
+      "order": "3",
+      "ms": "17.284497000000002",
+      "primary_evaluated": "406",
+      "primary_feasible": "95",
+      "witness": "1",
+      "queries": "7",
+      "backup_steps": "7382",
+      "primary_steps": "58395",
+      "cost_rank": "7",
+      "cost": "3.6885013580322266",
+      "roll": "0.00070334802148863673",
+      "attack": "-0.26374202966690063",
+      "thrust": "0.010712146759033203",
+      "status": "RECOVERY_VERIFIED",
+      "signature": "574827d579f444b8",
+      "inference_batches": "0",
+      "inference_candidates": "0",
+      "feature_candidates": "0",
+      "observed_feature_candidates": "0",
+      "pruned_candidates": "0",
+      "scheduled_count": "12",
+      "primary_ms": "0",
+      "feature_ms": "0",
+      "inference_ms": "0",
+      "schedule_other_ms": "0",
+      "continuation_ms": "0",
+      "residual_ms": "0"
+    }
+  },
+  "Full": {
+    "events": [
+      {
+        "slot": 1,
+        "cost_rank": 1,
+        "status": "rejected",
+        "steps": 1223,
+        "cumulative_steps": 1223,
+        "cost": 2.1666948795318604
+      },
+      {
+        "slot": 2,
+        "cost_rank": 2,
+        "status": "rejected",
+        "steps": 1222,
+        "cumulative_steps": 2445,
+        "cost": 2.453111171722412
+      },
+      {
+        "slot": 3,
+        "cost_rank": 3,
+        "status": "rejected",
+        "steps": 1222,
+        "cumulative_steps": 3667,
+        "cost": 2.775127410888672
+      },
+      {
+        "slot": 4,
+        "cost_rank": 4,
+        "status": "rejected",
+        "steps": 1220,
+        "cumulative_steps": 4887,
+        "cost": 3.057915449142456
+      },
+      {
+        "slot": 5,
+        "cost_rank": 5,
+        "status": "rejected",
+        "steps": 1220,
+        "cumulative_steps": 6107,
+        "cost": 3.3838138580322266
+      },
+      {
+        "slot": 6,
+        "cost_rank": 6,
+        "status": "rejected",
+        "steps": 1124,
+        "cumulative_steps": 7231,
+        "cost": 3.6497788429260254
+      },
+      {
+        "slot": 7,
+        "cost_rank": 7,
+        "status": "witness",
+        "steps": 151,
+        "cumulative_steps": 7382,
+        "cost": 3.6885013580322266
+      },
+      {
+        "slot": 8,
+        "cost_rank": 8,
+        "status": "unvisited",
+        "steps": 0,
+        "cumulative_steps": 7382,
+        "cost": null
+      },
+      {
+        "slot": 9,
+        "cost_rank": 9,
+        "status": "unvisited",
+        "steps": 0,
+        "cumulative_steps": 7382,
+        "cost": null
+      },
+      {
+        "slot": 10,
+        "cost_rank": 10,
+        "status": "unvisited",
+        "steps": 0,
+        "cumulative_steps": 7382,
+        "cost": null
+      },
+      {
+        "slot": 11,
+        "cost_rank": 11,
+        "status": "unvisited",
+        "steps": 0,
+        "cumulative_steps": 7382,
+        "cost": null
+      },
+      {
+        "slot": 12,
+        "cost_rank": 12,
+        "status": "unvisited",
+        "steps": 0,
+        "cumulative_steps": 7382,
+        "cost": null
+      }
+    ],
+    "cumulative_steps": [
+      0,
+      1223,
+      2445,
+      3667,
+      4887,
+      6107,
+      7231,
+      7382,
+      7382,
+      7382,
+      7382,
+      7382,
+      7382
+    ],
+    "result": {
+      "query_index": "0",
+      "target_time": "2",
+      "state_stamp": "2",
+      "map_stamp": "1.8080000000000001",
+      "scan_count": "8",
+      "free_cells": "348059",
+      "occupied_cells": "10005",
+      "method": "Full",
+      "repeat": "0",
+      "order": "4",
+      "ms": "17.645282999999999",
+      "primary_evaluated": "406",
+      "primary_feasible": "95",
+      "witness": "1",
+      "queries": "7",
+      "backup_steps": "7382",
+      "primary_steps": "58395",
+      "cost_rank": "7",
+      "cost": "3.6885013580322266",
+      "roll": "0.00070334802148863673",
+      "attack": "-0.26374202966690063",
+      "thrust": "0.010712146759033203",
+      "status": "RECOVERY_VERIFIED",
+      "signature": "574827d579f444b8",
+      "inference_batches": "0",
+      "inference_candidates": "0",
+      "feature_candidates": "0",
+      "observed_feature_candidates": "0",
+      "pruned_candidates": "0",
+      "scheduled_count": "95",
+      "primary_ms": "0",
+      "feature_ms": "0",
+      "inference_ms": "0",
+      "schedule_other_ms": "0",
+      "continuation_ms": "0",
+      "residual_ms": "0"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "source": {
+    "current/runtime_motion_primitives.h": {
+      "original_sha256": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+      "experiment_sha256": "35ba384ff14ea226e17eba173aeb01e2a2cd7cfca190fac9e37e4d2bd7689b25"
+    },
+    "current/runtime_sensor_map.h": {
+      "original_sha256": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+      "experiment_sha256": "671178050c65b13e8397d9640ce63b311558c71d3dc79337945d275b8e758ad2"
+    },
+    "current/sensor_occupancy_map.h": {
+      "original_sha256": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+      "experiment_sha256": "0cfa23f1a847a081a45d221d3cb5515d23fdb4b2440d8ab103a0ee32a75cf245"
+    },
+    "instrumented/runtime_motion_primitives.h": {
+      "original_sha256": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+      "experiment_sha256": "c5add67ad6d178b1f7ad5f0e639666751a135967e747980e8306c092d0c4ab80"
+    },
+    "instrumented/runtime_sensor_map.h": {
+      "original_sha256": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+      "experiment_sha256": "671178050c65b13e8397d9640ce63b311558c71d3dc79337945d275b8e758ad2"
+    },
+    "instrumented/sensor_occupancy_map.h": {
+      "original_sha256": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+      "experiment_sha256": "0cfa23f1a847a081a45d221d3cb5515d23fdb4b2440d8ab103a0ee32a75cf245"
+    },
+    "frozen/runtime_motion_primitives.h": {
+      "original_sha256": "13710486a1c7a309c8d680bb9476672e38d2dfe3e365732ec7e2324ec28078f3",
+      "experiment_sha256": "524a7a1ce4c7eace064cec4a6ade91a1fe2869976c96eaff0fd0a52b7c59ea59"
+    },
+    "frozen/runtime_sensor_map.h": {
+      "original_sha256": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+      "experiment_sha256": "671178050c65b13e8397d9640ce63b311558c71d3dc79337945d275b8e758ad2"
+    },
+    "frozen/sensor_occupancy_map.h": {
+      "original_sha256": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+      "experiment_sha256": "0cfa23f1a847a081a45d221d3cb5515d23fdb4b2440d8ab103a0ee32a75cf245"
+    }
+  },
+  "inputs": {
+    "learned3": {
+      "poses.csv": "15f74916c00d5dd9dd10ae0c3424a872ac3ce0b86a86bc9ac10df58888e36b66",
+      "queries.csv": "f2dca0eff178223801d203a86d4500daddd5e0a8a68c3535eb5e8e3050aa25a8",
+      "accepted_scans.csv": "4d08b3be2ded9f4a83d87b5400be2a9e27ed63bb8354b84ae8f464a71b574ed2",
+      "params.yaml": "e9b5ed86a8a570a2ee31b51384d33945912fa851af549d031420f0abe797cd6d"
+    },
+    "cost1": {
+      "poses.csv": "5fb259cc3bd1899942eb518b1e6a43cc7d7eb87cae8c99f1cfd00f42c740cd2f",
+      "queries.csv": "c468cc87c6aa65524569013fdfb28fe2a9543a6299a894e417b3b5a679eb4f8b",
+      "accepted_scans.csv": "217733dec5953d90420212643d3a2d38cfa24346798a33bdfa95e28c5f8a3095",
+      "params.yaml": "e9b5ed86a8a570a2ee31b51384d33945912fa851af549d031420f0abe797cd6d"
+    },
+    "diverse1": {
+      "poses.csv": "470233663d16a8d5eaf3b4d84109e84f01384b428188efdad18165629f256cd7",
+      "queries.csv": "508a415fcdacc297c6872bff30e327c8878ec3249a520780389cca9f35ccf99c",
+      "accepted_scans.csv": "842c380b70a296a3e8b2b239e16f3d0b2749200018a1333de3a92e3f81b1bd33",
+      "params.yaml": "e9b5ed86a8a570a2ee31b51384d33945912fa851af549d031420f0abe797cd6d"
+    }
+  },
+  "purpose": "123 unchanged archived urban matched queries; regression and deployment-domain diagnostic. Cache empty for each query; K=12, W unlimited; three rotated-order timing repeats; no CPU frequency locking.",
+  "dependency_sha256": {
+    "learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+    "observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+    "urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+    "runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d"
+  },
+  "timing_status": "Concurrent-load pilot; only logical work and parity valid for reporting. Final timing requires quiet rerun with common CPU affinity and rotated repeats.",
+  "cached_execution": "Disabled for matched queries; cache cleared each call. Dispatch execution gate is not called by this query replay."
+}

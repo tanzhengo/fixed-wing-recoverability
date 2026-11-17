@@ -1,0 +1,68 @@
+{
+  "design": "Three cyclic-order blocks, one asynchronous Gazebo flight per method per block; no parameter or model selection on these runs",
+  "sequence": [
+    {
+      "block": 1,
+      "method": "Cost"
+    },
+    {
+      "block": 1,
+      "method": "Diverse"
+    },
+    {
+      "block": 1,
+      "method": "Selected"
+    },
+    {
+      "block": 2,
+      "method": "Diverse"
+    },
+    {
+      "block": 2,
+      "method": "Selected"
+    },
+    {
+      "block": 2,
+      "method": "Cost"
+    },
+    {
+      "block": 3,
+      "method": "Selected"
+    },
+    {
+      "block": 3,
+      "method": "Cost"
+    },
+    {
+      "block": 3,
+      "method": "Diverse"
+    }
+  ],
+  "maps": "Same urban scene and prescribed eight-waypoint route; empty sensor map for every trial",
+  "candidate_budget": 12,
+  "primary_horizon_s": 3,
+  "successor_horizon_s": 3,
+  "deferred_inference": true,
+  "incumbent_pruning": true,
+  "selected_coverage_weight": 0.75,
+  "supervisor": "Original bounded map initialization and termination on unresolved execution rejection",
+  "all_outcomes_retained": true,
+  "hardware_flight": false,
+  "old_acquisitions_not_pooled": true,
+  "wall_limit_s": 900,
+  "files": {
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a"
+  },
+  "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.29",
+  "created_utc": "2026-11-17T14:10:30Z"
+}

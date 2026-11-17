@@ -1,0 +1,4 @@
+<launch>
+  <param name="use_sim_time" value="false"/>
+  <test test-name="runtime_execution_test" pkg="motion_primitives_planning" type="runtime_execution_test" time-limit="120.0"/>
+</launch>

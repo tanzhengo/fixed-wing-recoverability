@@ -1,0 +1,22 @@
+{
+  "candidate_budgets": [
+    1,
+    2,
+    4,
+    8,
+    12,
+    24
+  ],
+  "methods": [
+    "Cost",
+    "Diverse",
+    "Selected",
+    "ObservedCoverage"
+  ],
+  "reference": "Full",
+  "queries": 123,
+  "selection_is_frozen": true,
+  "model_selection_uses_city_queries": false,
+  "timing_used": false,
+  "requested_by_parent_before_grid_results": true
+}

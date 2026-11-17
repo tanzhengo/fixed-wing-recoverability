@@ -1,0 +1,20 @@
+{
+  "original_tool_sha256": "c0cb8b8d44045cad97ffab3a1f6508431e46a7d676008d9711c14954fde30a46",
+  "changes": [
+    "Frozen six-case list replaces original two-case list.",
+    "Dump selected candidate from frozen pair, preserving first positive alternative.",
+    "Expand map-slice export window to x<=145, abs(y)<=85. No validator or dynamics modifications."
+  ],
+  "files": {
+    "source/validation_pair/runtime_motion_primitives.h": "8452a2e2b3ef52b1efbab276d177562b01300bed809c4f59e09b2259e900d839",
+    "source/validation_pair/runtime_sensor_map.h": "f3fb0541a553bb5c8a4732a5852280feca5cc8126ae04ee06eb80f782896a152",
+    "source/validation_pair/sensor_occupancy_map.h": "14c3215e374b6351c9d7a8f8907a3f322374fa1ae3b3d5418801cec36df27508",
+    "source/validation_pair/learned_recovery.h": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929",
+    "source/validation_pair/observed_scene.h": "2b9766387c573197646c333d6f40dd904ab5a9a2e6e27edcdcdb486e6224bd50",
+    "source/validation_pair/evaluation_plant.h": "1fa3cedf03dbe77b2e82438d2878ef3121a5e38c90efcbc109c34aa87da38717",
+    "source/validation_pair/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+    "source/validation_pair/pair.cpp": "d5e4218d99d3b21d757b43487a8eb94a01e6b050ecde28665ce28807e670d8a5",
+    "source/validation_pair/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+    "source/validation_pair/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d"
+  }
+}

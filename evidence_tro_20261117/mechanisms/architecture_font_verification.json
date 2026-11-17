@@ -1,0 +1,683 @@
+{
+  "source": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/tro_revision_20261117/attachment/figures/architecture_revised.pdf",
+  "source_sha256": "005cbea0e0aa6a925cb0d05579cb677ef1cb3e5f9af7f738535ef6d0a502e207",
+  "output": "/media/tan/T7 Shield/fixedwing-tro-20261117/mechanisms/figures/architecture_revised.pdf",
+  "output_sha256": "a4842f841051fe8067e0e3b7585ea3df418ab0aa0e079e70667a4edebd1b0cfe",
+  "replaced_spans": 60,
+  "preserved_math_characters": 55,
+  "preserved_vector_drawings": 50,
+  "page_size": [
+    0.0,
+    0.0,
+    521.5750122070312,
+    252.2830047607422
+  ],
+  "verification": {
+    "labels_preserved": true,
+    "math_glyphs_and_positions_unchanged": true,
+    "all_vector_drawings_unchanged": true,
+    "no_sans_text_remains": true
+  },
+  "replacements": [
+    {
+      "text": "1",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        12.243177652359009,
+        15.23101806640625
+      ],
+      "size": 8.76710033416748,
+      "rotate": 0
+    },
+    {
+      "text": "Observation and learning",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        28.476334975333884,
+        15.23101806640625
+      ],
+      "size": 8.76710033416748,
+      "rotate": 0
+    },
+    {
+      "text": "2",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        151.14017987251282,
+        15.23101806640625
+      ],
+      "size": 8.76710033416748,
+      "rotate": 0
+    },
+    {
+      "text": "Budgeted continuation search",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        169.4628092267085,
+        15.23101806640625
+      ],
+      "size": 8.76710033416748,
+      "rotate": 0
+    },
+    {
+      "text": "3",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        375.0751621723175,
+        16.0830078125
+      ],
+      "size": 8.76710033416748,
+      "rotate": 0
+    },
+    {
+      "text": "Execution and simulation",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        392.0433385123033,
+        16.0830078125
+      ],
+      "size": 8.76710033416748,
+      "rotate": 0
+    },
+    {
+      "text": "Timestamped online inputs",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        22.067751981317997,
+        43.77500915527344
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Aircraft state, lidar rays",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        30.194873279891908,
+        52.941009521484375
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "and waypoint target",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        36.157895498909056,
+        62.10600280761719
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Three-state observed map",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        24.00088648404926,
+        87.71200561523438
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Free / occupied / unknown",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        25.71686752140522,
+        96.87699890136719
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Unknown space is rejected",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        25.397013776004314,
+        106.04299926757812
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Offline matched training",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        25.87583071179688,
+        141.947021484375
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Same map rules and checks",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        24.22020752169192,
+        152.81402587890625
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Same libraries and horizons",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        23.908443501219153,
+        161.97901916503906
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Finite-bank labels",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        35.541889717802405,
+        171.14501953125
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Selected: BCE (Obs+BCE)",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        22.884892084635794,
+        182.01101684570312
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Aux work loss: ablation",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        29.863691532053053,
+        191.17701721191406
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Frozen feasibility weights",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        26.787153147161007,
+        202.0430145263672
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Generate and validate primaries",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        194.86430935468525,
+        43.77500915527344
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Dynamics, flight envelope, observed space",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        182.2128935251385,
+        52.941009521484375
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": " s; form feasible pool",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        224.86763095855713,
+        62.10600280761719
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Query the cheapest primary first",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        194.13049554359168,
+        87.71200561523438
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Up to 15 successors;",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        199.8692324720323,
+        96.87699890136719
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": " s",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        297.41636753082275,
+        96.87699890136719
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "This query counts toward",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        208.08370991423726,
+        106.04299926757812
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Deferred encoding and compact MLP",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        186.24690854363143,
+        132.73501586914062
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Selected: Obs+BCE,",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        197.94373501837254,
+        151.06602478027344
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Feasibility score + maneuver coverage",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        188.78202072065324,
+        160.23202514648438
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Fixed schedule: at most",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        180.11796857230365,
+        186.26202392578125
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": " primaries",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        290.39033603668213,
+        186.26202392578125
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Explicit successor validation",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        203.93962665833533,
+        195.42800903320312
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Skip",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        177.3724693879485,
+        204.593017578125
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": " ; do not refill skipped slots",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        226.6082010269165,
+        204.593017578125
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "First complete successor ends each query",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        184.6555947791785,
+        213.75901794433594
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Retain the best verified pair",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        205.44228349160403,
+        222.92501831054688
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "no witness",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        250.7543934583664,
+        119.72702026367188
+      ],
+      "size": 6.874199867248535,
+      "rotate": 0
+    },
+    {
+      "text": "Gazebo fixed-wing plant",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        399.3070654561743,
+        43.77500915527344
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Aircraft and actuator model",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        396.879869133234,
+        52.941009521484375
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Simulated odometry and lidar",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        393.6822601109743,
+        62.10600280761719
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Proposal",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        400.8974864054471,
+        92.24301147460938
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": " (or empty)",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        439.69709873199463,
+        92.24301147460938
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Best verified",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        399.4867526460439,
+        101.40800476074219
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": " pair",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        467.22102451324463,
+        101.40800476074219
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Revalidate",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        400.45964881777763,
+        124.56201934814453
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": " if present",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        445.21870517730713,
+        124.56201934814453
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Updated state and current map",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        392.51352779287845,
+        133.72802734375
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Execution margin",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        395.15877990424633,
+        142.8930206298828
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": " m",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        479.60032749176025,
+        142.8930206298828
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "If",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        394.99877099506557,
+        165.66400146484375
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": " is absent or rejected",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        410.3578042984009,
+        165.66400146484375
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Revalidate the remaining",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        400.82346946932375,
+        174.8300018310547
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "previously verified sequence",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        395.2851881450042,
+        183.9949951171875
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Publish a passing control",
+      "source_font": "LMSans10-Bold",
+      "new_font": "Times New Roman Bold",
+      "point": [
+        398.34374507144094,
+        211.34902954101562
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "Else: execution rejection",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        401.45656891539693,
+        220.5150146484375
+      ],
+      "size": 7.671199798583984,
+      "rotate": 0
+    },
+    {
+      "text": "witness",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        346.85494470596313,
+        93.55201721191406
+      ],
+      "size": 6.874199867248535,
+      "rotate": 0
+    },
+    {
+      "text": "passes",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        509.09698486328125,
+        173.1945267713163
+      ],
+      "size": 6.874199867248535,
+      "rotate": 90
+    },
+    {
+      "text": "simulated state and lidar feedback",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        201.2747683469206,
+        29.315017700195312
+      ],
+      "size": 6.874199867248535,
+      "rotate": 0
+    },
+    {
+      "text": " bounds primary queries; successor integration steps measure work.",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        46.112350821495056,
+        243.7060089111328
+      ],
+      "size": 7.073500156402588,
+      "rotate": 0
+    },
+    {
+      "text": "A finite continuation witness does not establish recursive feasibility.",
+      "source_font": "LMSans8-Regular",
+      "new_font": "Times New Roman Regular",
+      "point": [
+        275.4123937347904,
+        243.7060089111328
+      ],
+      "size": 7.073500156402588,
+      "rotate": 0
+    }
+  ]
+}

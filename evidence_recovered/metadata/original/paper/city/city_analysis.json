@@ -1,0 +1,335 @@
+{
+  "scope": "Three new prescribed unknown-city runs; all outcomes retained",
+  "clock": "Mission time and telemetry intervals are ROS simulation time; no CPU timing inferred",
+  "count_scope": "Flight observer mission statuses; leading MAP_WAITING excluded from active updates; shutdown-grace telemetry excluded",
+  "geometry_scope": "Independent recorded-position chords to physical collision surfaces; 2m isotropic margin; clearance capped at30m",
+  "methods": [
+    {
+      "method": "Cost",
+      "completed_waypoints": 8,
+      "mission_waypoints": 8,
+      "completed": true,
+      "passed": true,
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": 85.492,
+      "last_odom_sim_s": 85.568,
+      "min_chord_clearance_m": 4.322259050836073,
+      "clearance_capped_at_m": 30.0,
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "startup_wait_updates": 6,
+      "active_updates": 848,
+      "fresh": 813,
+      "cached": 35,
+      "execution_rejections": 0,
+      "map_contract_violations": 0,
+      "mean_queries": 1.9433962264150944,
+      "mean_successor_steps": 823.872641509434,
+      "mean_pruned_candidates": 0.0,
+      "inference_batches": 0,
+      "inference_candidates": 0,
+      "observed_feature_candidates": 0,
+      "first_command_sim_s": 0.7200000000000001,
+      "generation_sim_s": {
+        "count": 848,
+        "mean": 0.018485849056603776,
+        "p95": 0.052000000000000005,
+        "maximum": 0.07200000000000001
+      },
+      "map_age_sim_s": {
+        "count": 848,
+        "mean": 0.131688679245283,
+        "p95": 0.19200000000000017,
+        "maximum": 0.3159999999999883
+      },
+      "observation_to_command_sim_s": {
+        "count": 848,
+        "mean": 0.029226415094339844,
+        "p95": 0.07600000000000051,
+        "maximum": 0.12399999999999523
+      },
+      "dispatch_validation_age_sim_s": {
+        "count": 848,
+        "mean": 6.60377358490566e-05,
+        "p95": 0.0,
+        "maximum": 0.004
+      },
+      "max_abs_bank_deg": 34.99948415631654,
+      "free_voxels": 3451147,
+      "occupied_voxels": 163803,
+      "map_snapshot_sim_s": 86.804,
+      "source_unchanged": true,
+      "source_hashes": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery.launch": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/motion_primitives_test.launch": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives (copy).h": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/review_motion_primitives.h": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/collision_mesh_truth.py": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+      },
+      "binary_hashes": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/libgazebo_ros_3d_lidar.so": "fc60428f789bcd997b326ff992b1caa0e82a63190b0754ce5475628f7bf4fc1a"
+      }
+    },
+    {
+      "method": "Diverse",
+      "completed_waypoints": 8,
+      "mission_waypoints": 8,
+      "completed": true,
+      "passed": true,
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": 83.964,
+      "last_odom_sim_s": 84.0,
+      "min_chord_clearance_m": 4.6096545609686155,
+      "clearance_capped_at_m": 30.0,
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "startup_wait_updates": 4,
+      "active_updates": 832,
+      "fresh": 832,
+      "cached": 0,
+      "execution_rejections": 0,
+      "map_contract_violations": 0,
+      "mean_queries": 2.058894230769231,
+      "mean_successor_steps": 632.5084134615385,
+      "mean_pruned_candidates": 0.6862980769230769,
+      "inference_batches": 0,
+      "inference_candidates": 0,
+      "observed_feature_candidates": 0,
+      "first_command_sim_s": 0.7200000000000001,
+      "generation_sim_s": {
+        "count": 832,
+        "mean": 0.016557692307692308,
+        "p95": 0.048,
+        "maximum": 0.064
+      },
+      "map_age_sim_s": {
+        "count": 832,
+        "mean": 0.1439134615384616,
+        "p95": 0.20000000000000284,
+        "maximum": 0.4000000000000057
+      },
+      "observation_to_command_sim_s": {
+        "count": 832,
+        "mean": 0.02352884615384615,
+        "p95": 0.0519999999999996,
+        "maximum": 0.07999999999999985
+      },
+      "dispatch_validation_age_sim_s": {
+        "count": 832,
+        "mean": 5.288461538461538e-05,
+        "p95": 0.0,
+        "maximum": 0.004
+      },
+      "max_abs_bank_deg": 34.999402194046496,
+      "free_voxels": 3440122,
+      "occupied_voxels": 164137,
+      "map_snapshot_sim_s": 85.208,
+      "source_unchanged": true,
+      "source_hashes": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery.launch": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/motion_primitives_test.launch": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives (copy).h": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/review_motion_primitives.h": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/collision_mesh_truth.py": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+      },
+      "binary_hashes": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/libgazebo_ros_3d_lidar.so": "fc60428f789bcd997b326ff992b1caa0e82a63190b0754ce5475628f7bf4fc1a"
+      }
+    },
+    {
+      "method": "Selected",
+      "completed_waypoints": 8,
+      "mission_waypoints": 8,
+      "completed": true,
+      "passed": true,
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": 83.804,
+      "last_odom_sim_s": 83.792,
+      "min_chord_clearance_m": 4.661660560804659,
+      "clearance_capped_at_m": 30.0,
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "startup_wait_updates": 4,
+      "active_updates": 832,
+      "fresh": 832,
+      "cached": 0,
+      "execution_rejections": 0,
+      "map_contract_violations": 0,
+      "mean_queries": 2.0709134615384617,
+      "mean_successor_steps": 624.5348557692307,
+      "mean_pruned_candidates": 0.6875,
+      "inference_batches": 133,
+      "inference_candidates": 21903,
+      "observed_feature_candidates": 21903,
+      "first_command_sim_s": 0.7240000000000001,
+      "generation_sim_s": {
+        "count": 832,
+        "mean": 0.017442307692307694,
+        "p95": 0.052000000000000005,
+        "maximum": 0.084
+      },
+      "map_age_sim_s": {
+        "count": 832,
+        "mean": 0.14370192307692292,
+        "p95": 0.19599999999999795,
+        "maximum": 0.3919999999999959
+      },
+      "observation_to_command_sim_s": {
+        "count": 832,
+        "mean": 0.02443269230769254,
+        "p95": 0.060000000000002274,
+        "maximum": 0.09600000000000364
+      },
+      "dispatch_validation_age_sim_s": {
+        "count": 832,
+        "mean": 0.00010096153846153847,
+        "p95": 0.0,
+        "maximum": 0.004
+      },
+      "max_abs_bank_deg": 34.999207533655145,
+      "free_voxels": 3438904,
+      "occupied_voxels": 164615,
+      "map_snapshot_sim_s": 85.004,
+      "source_unchanged": true,
+      "source_hashes": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery.launch": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/motion_primitives_test.launch": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives (copy).h": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/review_motion_primitives.h": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/collision_mesh_truth.py": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+      },
+      "binary_hashes": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/libgazebo_ros_3d_lidar.so": "fc60428f789bcd997b326ff992b1caa0e82a63190b0754ce5475628f7bf4fc1a"
+      }
+    }
+  ],
+  "identical_source_hashes": true,
+  "identical_binary_hashes": true,
+  "waypoints_xyz": [
+    [
+      -85.0,
+      -100.0,
+      40.0
+    ],
+    [
+      -30.0,
+      80.0,
+      50.0
+    ],
+    [
+      70.0,
+      200.0,
+      60.0
+    ],
+    [
+      130.0,
+      100.0,
+      60.0
+    ],
+    [
+      120.0,
+      60.0,
+      60.0
+    ],
+    [
+      20.0,
+      -230.0,
+      55.0
+    ],
+    [
+      125.0,
+      -265.0,
+      55.0
+    ],
+    [
+      -90.0,
+      -270.0,
+      40.0
+    ]
+  ],
+  "sources_sha256": {
+    "/tmp/codex-revision-city/Cost/summary.json": "080549b12f201de0e02f4191c0682cd52832f5ea5e1f8c46c553fa7aebfa4a1e",
+    "/tmp/codex-revision-city/Cost/run.json": "5538ae1cf152bfb22ba513a97a26bde3230274f3745ed79a23cd3e54a44f630e",
+    "/tmp/codex-revision-city/Cost/flight/observations.json.gz": "9da4a1d881e2b6320be4dc572db1441a8665f57541131992579b6bd3dafd56c1",
+    "/tmp/codex-revision-city/Cost/flight/result.json": "00f66f9f41011539d492a06b47a222559c37142f7aa9c9af015c975f25d806ec",
+    "/tmp/codex-revision-city/Cost/map_snapshot.json": "18ea49a7df3b92f6ec94c5c1b9f73e29aa57782b61bd68e31154c7f797590d37",
+    "/tmp/codex-revision-city/Diverse/summary.json": "aa29e4d89aa403d042c3f2c90d4ef5c4cb6726fee984c98000239a0190ecf9ff",
+    "/tmp/codex-revision-city/Diverse/run.json": "ebfb38f06d4da679e1ba5744b5cac81c43b2ac8f46d4d72fab386204ad38f5e0",
+    "/tmp/codex-revision-city/Diverse/flight/observations.json.gz": "f90fdf638974a85e5909c788846aa6056b148cc0fa926c9a47a42d07082bd178",
+    "/tmp/codex-revision-city/Diverse/flight/result.json": "810a77123fcc1514b7440ebfecf26f0be66380cc2ba18623fe764f71ba6b635f",
+    "/tmp/codex-revision-city/Diverse/map_snapshot.json": "58b06d64e359df1e4432955956c0b1285faa009ecb09d3f262607c58ee1cb6c9",
+    "/tmp/codex-revision-city/Selected/summary.json": "6dd22069b61d7e4ba13490512d2324c8b59b8586494d33603f9dc4158f918141",
+    "/tmp/codex-revision-city/Selected/run.json": "9ee8a3d231c7c4a425abd63d2c9f4035fff9dafea97a056332c828c0fd2a304c",
+    "/tmp/codex-revision-city/Selected/flight/observations.json.gz": "a9b3a4abbbf9c1dcb9d6ffb80283896f7363137ba5380e5c7f4d6383f892e341",
+    "/tmp/codex-revision-city/Selected/flight/result.json": "3da429beef9a913d046a2615e6d474c574992d6839335a64cacce358903b6aa4",
+    "/tmp/codex-revision-city/Selected/map_snapshot.json": "f836c8ed45e6fae4e0fc7823b7ab21ff296a678b8ca875015517aaf68532bdb8",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+    "work/reviewer_revision_20261101/paper/analyze_city.py": "3a0fa6d0d2d05812be958eea339b30fa3aac292b743d53a128d8cb58a67c6689"
+  }
+}

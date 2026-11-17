@@ -1,0 +1,20 @@
+{
+  "protocol_version": "2026-11-17-v1",
+  "purpose": "Reanalysis of recovered original records; no new policy selection or experiment",
+  "bootstrap": {"seed": 20261117, "replicates": 20000, "interval": "two-sided percentile 95%", "pairing": "same physical map/layout and condition across methods"},
+  "methods": ["Selected", "Diverse"],
+  "procedural": {
+    "families": ["staggered", "wall", "culdesac", "spatial"],
+    "all_tasks": "32 map clusters, retain all four conditions together within each draw",
+    "common_completions": "resample map clusters of condition pairs completed by both methods; retain paired observations together within each map",
+    "metrics": ["Selected minus Diverse completion proportion (percentage points)", "all-task work reduction", "common-completion work reduction"],
+    "work_definition": "per-episode mean_backup_steps times planning_calls; percent reduction = 100*(1-Selected arithmetic mean/Diverse arithmetic mean)"
+  },
+  "forest": {
+    "density_levels": [100, 200, 300],
+    "all_tasks": "8 shared layout clusters at each density",
+    "common_completions": "resample the fixed subset of layout pairs completed by both schedules; report paired n",
+    "metrics": ["paired completion difference in percentage points across all 8 layouts", "common-completion work reduction"]
+  },
+  "failure_example": {"selection": "first prescribed cul-de-sac test index; fixed before examining paths", "family": "culdesac", "seed": 1321000, "index": 0, "condition": 0, "methods": ["Selected", "Diverse", "Full"], "source": "original controlled_evaluation.tar.gz", "times": "actual path/summary simulation clock; planning_calls is not flight time"}
+}

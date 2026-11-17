@@ -1,0 +1,926 @@
+{
+  "files": [
+    {
+      "path": "COPIED_FILES.json",
+      "bytes": 76005,
+      "sha256": "6cae791787f6e6fccdf635db8b4204eaf735de58dafc51a7aaa69eea344e5e88"
+    },
+    {
+      "path": "EXTERNAL_ARTIFACTS.json",
+      "bytes": 10589,
+      "sha256": "216ef70ec9b1e9f42ea158a4b0e5117d8fa28b211f99008b9446acc5a127bc16"
+    },
+    {
+      "path": "PACKAGING_CHECKS.json",
+      "bytes": 1884,
+      "sha256": "69b6174c2f6fc3df493c0bd198b230457a8828950eb13fba2bc2f77aa60e1974"
+    },
+    {
+      "path": "ROS_RESTORATION_PLAN.json",
+      "bytes": 21629,
+      "sha256": "fd10e5860e5621567c97a75f91643235184d52249c6856b758f8fe5f58017638"
+    },
+    {
+      "path": "USAGE.txt",
+      "bytes": 8693,
+      "sha256": "2842aa475b74022977c2318037b037a9b3c68aa07afde2cc34a753b1afd8f568"
+    },
+    {
+      "path": "analyze.py",
+      "bytes": 14229,
+      "sha256": "6b22f975dd420b7862be44051c9096e823b880907600bce0e5472143eb50344d"
+    },
+    {
+      "path": "build.py",
+      "bytes": 1924,
+      "sha256": "1777dc57323e87e0675e6b4354b21942ef47246443b55225dcfab01f8752620e"
+    },
+    {
+      "path": "metadata/original/analysis/execution_integrity.json",
+      "bytes": 332,
+      "sha256": "8c3b5e354d1a01f3e2f8efcfd54fe27a45ee481780c0b7a63508026b1eb98fc3"
+    },
+    {
+      "path": "metadata/original/analysis/test_analysis.json",
+      "bytes": 30862,
+      "sha256": "08a5ba66a25a67148eb9c6c6288a27edf50f137b1b80b22b9ca79163ed75eee1"
+    },
+    {
+      "path": "metadata/original/evaluation/build.json",
+      "bytes": 2579,
+      "sha256": "676935d2685639b994cf2f5bec9dc5bc59eff9a74bc435c7c03c268678f24700"
+    },
+    {
+      "path": "metadata/original/evaluation/test_protocol.json",
+      "bytes": 6225,
+      "sha256": "d7ffb75d4cc874e7b730fd12dca26af58638f4962c7668d0ac2ab298dc3b9b45"
+    },
+    {
+      "path": "metadata/original/evaluation/validation_freeze_release.json",
+      "bytes": 216,
+      "sha256": "8ae36bce823d41f753402c4ab1b96e4a563dfb3883ab35c3aea2dacd09764be4"
+    },
+    {
+      "path": "metadata/original/evaluation/validation_protocol.json",
+      "bytes": 6918,
+      "sha256": "584ed642e04cb9e5e3b556bed3b66d70e47a10369fc51a45491e3a149ada25ed"
+    },
+    {
+      "path": "metadata/original/evaluation/validation_selection.json",
+      "bytes": 5178,
+      "sha256": "8282b38d58021c1f27cc5de23da365086ae41c631b7c658b61ef2a986b854eb5"
+    },
+    {
+      "path": "metadata/original/forest/build.json",
+      "bytes": 2838,
+      "sha256": "dd2455053fb7d1d88f3b733c8e04a96dca6dd14ae24e6f906fa3efc3feb6f8aa"
+    },
+    {
+      "path": "metadata/original/forest/results/test/completion.json",
+      "bytes": 281,
+      "sha256": "e12dadc2fcb937a30b1ca7f6565a0cbb9a70ec896b99e27c143f43c7544a1c26"
+    },
+    {
+      "path": "metadata/original/forest/results/test/integrity.json",
+      "bytes": 32746,
+      "sha256": "a80da8ed8461c59292714eff01e239c83230bb1fb627e2e034260d2d73d3a7bd"
+    },
+    {
+      "path": "metadata/original/forest/results/test/protocol.json",
+      "bytes": 8900,
+      "sha256": "dd4720de0d29e5d8a7ad45d8b3bdd825024dc7b44673073fe0c8834bec4fd3db"
+    },
+    {
+      "path": "metadata/original/forest/source_provenance.json",
+      "bytes": 2971,
+      "sha256": "da4b41c06e4dfbe0c8a6e926a5c87c8d6a259de58c0604ae6e776872ab16e4de"
+    },
+    {
+      "path": "metadata/original/paper/city/city_analysis.json",
+      "bytes": 31208,
+      "sha256": "2f3247528c4086a4d6aaf3348f38ab55a3dff5110e8058c19167ff89ce90ed3d"
+    },
+    {
+      "path": "metadata/original/paper/city_table_audit.json",
+      "bytes": 820,
+      "sha256": "66136c4be7652f52123874b09f794a8796a81eef28f854089f1feac8eab18d89"
+    },
+    {
+      "path": "metadata/original/raw_archives/controlled_evaluation.json",
+      "bytes": 333,
+      "sha256": "3c2b966e6556b57008fdf37c7f33e1a74979ebdd11c279f56cf516af1db50bb7"
+    },
+    {
+      "path": "metadata/original/raw_archives/urban_flights.json",
+      "bytes": 320,
+      "sha256": "937ed09c71c004c6a6b81d25dd61202c10bd8b595298ca336a709b428b4e7284"
+    },
+    {
+      "path": "metadata/original/revision_protocol.json",
+      "bytes": 3493,
+      "sha256": "9eaa301888db4406e5709ed2bf03a215edd0ccc02ae3175dcdb0594159505a70"
+    },
+    {
+      "path": "metadata/original/revision_protocol_initial.json",
+      "bytes": 2855,
+      "sha256": "45bf9f7560b4e9fbd19312457d0d2c8d66b50770356adbe7bfd9b49dd4a043f6"
+    },
+    {
+      "path": "metadata/original/training/collection_protocol.json",
+      "bytes": 2927,
+      "sha256": "e5744999ddcd2e55880914abdd025dc078e7c0b0c8f1f9aa7b203527d224d14d"
+    },
+    {
+      "path": "metadata/original/training/dataset/collection_outcomes.json",
+      "bytes": 979,
+      "sha256": "83976ec75df3c9c5679bf9cea4133aa25613b68a44869d03ede6e0e23ca69fc8"
+    },
+    {
+      "path": "metadata/original/training/dataset/data_integrity.json",
+      "bytes": 787,
+      "sha256": "a9967ee825fbf2f2ce6151074d40d93e2c5812d683916cbc17768134c70f876f"
+    },
+    {
+      "path": "metadata/original/training/dataset/manifest.json",
+      "bytes": 131750,
+      "sha256": "c493821843deb048e1507263f5558d0e4e578cbdda02c77ef5e2ade1774a833e"
+    },
+    {
+      "path": "metadata/original/training/models/export_parity.json",
+      "bytes": 4341,
+      "sha256": "7b9271694abd11fa6e601ab09795d329fb4c38c849c6cfb12e3587eb6a54f0f6"
+    },
+    {
+      "path": "metadata/original/training/models/training_protocol.json",
+      "bytes": 1589,
+      "sha256": "0c23f083c827cc7be08d9c71058bb64e9db58b29f73ea45adfde823e00355cac"
+    },
+    {
+      "path": "metadata/original/training/models/validation/selected.json",
+      "bytes": 5344,
+      "sha256": "613f82e7a695ac3413f161e46ab95325c565603c95f32325a2d49d9c47dcbad2"
+    },
+    {
+      "path": "metadata/original/training/selection_resolution.json",
+      "bytes": 5709,
+      "sha256": "cb35cce997fe0ada775a1324525f734d1fa2ebb5f8b7f8f5723148337cae2ce7"
+    },
+    {
+      "path": "metadata/original/urban_replay/budget_grid_protocol.json",
+      "bytes": 354,
+      "sha256": "5524bfd5c9f36ed0cd9b2c0f5722d7b4d41ffe29df45f6fb0d42d94337cb8297"
+    },
+    {
+      "path": "metadata/original/urban_replay/protocol.json",
+      "bytes": 4271,
+      "sha256": "30f1a6fd5574e0be1f589e83e64d140b9006d098cf0615ddf127ebb093af6692"
+    },
+    {
+      "path": "metadata/original/urban_replay/quiet_environment.json",
+      "bytes": 2589,
+      "sha256": "51ced7daef5cc9e4c65ff27a778f1ef3b8d04335a2875ef64f1f9e37359248c4"
+    },
+    {
+      "path": "metadata/original/urban_replay/selected_diverse_query_equivalence.json",
+      "bytes": 814,
+      "sha256": "bdd19f7362ab6dce6e278cf15274d646fc6f25d739269f7ef705d30142ca9ed6"
+    },
+    {
+      "path": "metadata/original/urban_replay/selected_export_parity_verified.json",
+      "bytes": 1506,
+      "sha256": "ea0d6333f52acf2a2a3b117047748a3989923b6bd07142c70759dae801d889a2"
+    },
+    {
+      "path": "metadata/original/urban_replay/selected_methods_provenance.json",
+      "bytes": 1443,
+      "sha256": "228fdbf64ef2b2020af67cd55a6015a7c0a274fdea55885df13b5f860279754c"
+    },
+    {
+      "path": "metadata/original/urban_replay/summary_final.json",
+      "bytes": 18284,
+      "sha256": "1f530a686962d080a1cbd2bbc95bfb61a680b69c3c55e3a9dd5d044878d7d801"
+    },
+    {
+      "path": "metadata/paired_analysis_protocol.json",
+      "bytes": 1681,
+      "sha256": "2b86a4ca745091a4b7c415bd05349cbc78c10c6a7ca8be6d145d26d8e5d70b9f"
+    },
+    {
+      "path": "metadata/training/observed/20261101/training.json",
+      "bytes": 34649,
+      "sha256": "a3e1f2695c449bf90babc8006bca191a6006bb7fd423f09462808a2c0482c725"
+    },
+    {
+      "path": "metadata/training/observed/20261102/training.json",
+      "bytes": 34644,
+      "sha256": "8d15314d3c38c01ac5efae980b205ae9a34ef488c2f50cc8498fbfd9913d0b06"
+    },
+    {
+      "path": "metadata/training/observed/20261103/training.json",
+      "bytes": 34663,
+      "sha256": "571a3a34171cedf5c964bc84fe173b64d1096beb7f9d3dfc26feea5817bc31ff"
+    },
+    {
+      "path": "metadata/training/observed_aux/20261101/training.json",
+      "bytes": 34849,
+      "sha256": "5818c8d77462ef88438b2670a90960981a5ea99d3e088b4ea269681c514697e7"
+    },
+    {
+      "path": "metadata/training/observed_aux/20261102/training.json",
+      "bytes": 34885,
+      "sha256": "9a94060f750314c5b37e54bcfd95e9286bb57ac02fb99100a15eeb59a4faa233"
+    },
+    {
+      "path": "metadata/training/observed_aux/20261103/training.json",
+      "bytes": 34873,
+      "sha256": "a533f0124f967fbd974325de6f388f41b5beb02595d8627324c0db2e23c67e6b"
+    },
+    {
+      "path": "metadata/training/state_aux/20261101/training.json",
+      "bytes": 34815,
+      "sha256": "0ef2b2d130b0a6e79dac43951177884da9ec4cbaddff05df73c2f7beb847cf9e"
+    },
+    {
+      "path": "metadata/training/state_aux/20261102/training.json",
+      "bytes": 34813,
+      "sha256": "1dfc14013af904e1caefda2815748db222db4317815db0346b2efae8349e86ec"
+    },
+    {
+      "path": "metadata/training/state_aux/20261103/training.json",
+      "bytes": 34822,
+      "sha256": "ee695aa1fcb5b6b4f59f112ce4904e3d6be35d7619cbfe34994a116921a2e718"
+    },
+    {
+      "path": "models/aligned_state_aux.txt",
+      "bytes": 52656,
+      "sha256": "bf0ef8f17939f5d4c1fd469a301fa2b07e0446d085a7486bb717998f2f23831c"
+    },
+    {
+      "path": "models/legacy_state_aux_compact.txt",
+      "bytes": 53172,
+      "sha256": "c806ea47d4167a55449d88e4a324cf0f9de866825c73a55877d989c0ff5e7545"
+    },
+    {
+      "path": "models/legacy_state_aux_v1.txt",
+      "bytes": 63208,
+      "sha256": "88892f2dadaeaec3db70183067b1ccac3fd129886e8714a2cb3682e8d914ecb9"
+    },
+    {
+      "path": "models/obs_aux.txt",
+      "bytes": 77733,
+      "sha256": "329eb415e1069adecd9e62439b4068a42f38e9f6db74319b8aa5426cd9df2b50"
+    },
+    {
+      "path": "models/selected_obs_bce.txt",
+      "bytes": 78105,
+      "sha256": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d"
+    },
+    {
+      "path": "recomputed/main_results.json",
+      "bytes": 49929,
+      "sha256": "d28a33b7b30e4e85c31849b9cf58a468d5a11b6deddc9b63bc9d4d3c3832b0ca"
+    },
+    {
+      "path": "recomputed/paired_uncertainty.json",
+      "bytes": 13285,
+      "sha256": "a55e7b1455c64211488ace3b76e50236aef12c3d63d4db83267d3d92e7e12046"
+    },
+    {
+      "path": "requirements-analysis.txt",
+      "bytes": 12,
+      "sha256": "c6f8bc70b65508ef9f4ba126981126fff07d5e8bc17ad8ced50591d2a3760af4"
+    },
+    {
+      "path": "run_closed_loop.py",
+      "bytes": 4927,
+      "sha256": "172a471325ca37220020fbd8e4cddd9900ffff11b73ea8dde259008fd0d78242"
+    },
+    {
+      "path": "run_urban_replay.py",
+      "bytes": 5153,
+      "sha256": "cc7d9d6cd8987cd0938890037a21dd99bce0f60c897942ddd1e6b02bf03fa26e"
+    },
+    {
+      "path": "source/forest/benchmark.cpp",
+      "bytes": 7127,
+      "sha256": "589e6cba48375a304a02b8fc87d4347a7f1038c9701fa06622270b9a3e3b1487"
+    },
+    {
+      "path": "source/forest/evaluation_plant.h",
+      "bytes": 3633,
+      "sha256": "1fa3cedf03dbe77b2e82438d2878ef3121a5e38c90efcbc109c34aa87da38717"
+    },
+    {
+      "path": "source/forest/learned_recovery.h",
+      "bytes": 3516,
+      "sha256": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448"
+    },
+    {
+      "path": "source/forest/observed_recovery_features.h",
+      "bytes": 1963,
+      "sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4"
+    },
+    {
+      "path": "source/forest/observed_scene.h",
+      "bytes": 5892,
+      "sha256": "040764842eff22859e505a833b25ea388dc8fa9a3ba60425dad9128746111bb7"
+    },
+    {
+      "path": "source/forest/runtime_motion_primitives.h",
+      "bytes": 107834,
+      "sha256": "87aaf61c659fd2e05e7694ba4e3e6dc0a77cc85bb037b7fe7fca86377c297fdd"
+    },
+    {
+      "path": "source/forest/runtime_sensor_map.h",
+      "bytes": 8978,
+      "sha256": "f3fb0541a553bb5c8a4732a5852280feca5cc8126ae04ee06eb80f782896a152"
+    },
+    {
+      "path": "source/forest/runtime_swept_geometry.h",
+      "bytes": 2660,
+      "sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d"
+    },
+    {
+      "path": "source/forest/sensor_occupancy_map.h",
+      "bytes": 16687,
+      "sha256": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18"
+    },
+    {
+      "path": "source/forest/urban_box_geometry.h",
+      "bytes": 1333,
+      "sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e"
+    },
+    {
+      "path": "source/procedural/benchmark.cpp",
+      "bytes": 6818,
+      "sha256": "6334acd9ca2a20570c21d14d4f2471cf649545e8c6d66fcab843efd7a74b2953"
+    },
+    {
+      "path": "source/procedural/evaluation_plant.h",
+      "bytes": 3633,
+      "sha256": "1fa3cedf03dbe77b2e82438d2878ef3121a5e38c90efcbc109c34aa87da38717"
+    },
+    {
+      "path": "source/procedural/learned_recovery.h",
+      "bytes": 3516,
+      "sha256": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448"
+    },
+    {
+      "path": "source/procedural/observed_recovery_features.h",
+      "bytes": 1963,
+      "sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4"
+    },
+    {
+      "path": "source/procedural/observed_scene.h",
+      "bytes": 6557,
+      "sha256": "2b9766387c573197646c333d6f40dd904ab5a9a2e6e27edcdcdb486e6224bd50"
+    },
+    {
+      "path": "source/procedural/runtime_motion_primitives.h",
+      "bytes": 107834,
+      "sha256": "87aaf61c659fd2e05e7694ba4e3e6dc0a77cc85bb037b7fe7fca86377c297fdd"
+    },
+    {
+      "path": "source/procedural/runtime_sensor_map.h",
+      "bytes": 8978,
+      "sha256": "f3fb0541a553bb5c8a4732a5852280feca5cc8126ae04ee06eb80f782896a152"
+    },
+    {
+      "path": "source/procedural/runtime_swept_geometry.h",
+      "bytes": 2660,
+      "sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d"
+    },
+    {
+      "path": "source/procedural/sensor_occupancy_map.h",
+      "bytes": 16687,
+      "sha256": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18"
+    },
+    {
+      "path": "source/procedural/urban_box_geometry.h",
+      "bytes": 1333,
+      "sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/launch/config/task_end_city_dense.yaml",
+      "bytes": 36394,
+      "sha256": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/launch/motion_primitives_test.launch",
+      "bytes": 1580,
+      "sha256": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/launch/terminal_recovery.launch",
+      "bytes": 3047,
+      "sha256": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch",
+      "bytes": 4213,
+      "sha256": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/scripts/collision_mesh_truth.py",
+      "bytes": 15514,
+      "sha256": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/scripts/run_unknown_city.py",
+      "bytes": 33323,
+      "sha256": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/evaluation_plant.h",
+      "bytes": 3590,
+      "sha256": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/learned_recovery.h",
+      "bytes": 3516,
+      "sha256": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/learned_recovery_revision.h",
+      "bytes": 3558,
+      "sha256": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/motion_primitives (copy).h",
+      "bytes": 20036,
+      "sha256": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/motion_primitives.h",
+      "bytes": 73347,
+      "sha256": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/observed_recovery_features.h",
+      "bytes": 1963,
+      "sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/review_motion_primitives.h",
+      "bytes": 77408,
+      "sha256": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/runtime_motion_primitives.h",
+      "bytes": 107835,
+      "sha256": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/runtime_sensor_map.h",
+      "bytes": 8979,
+      "sha256": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/runtime_swept_geometry.h",
+      "bytes": 2660,
+      "sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/sensor_occupancy_map.h",
+      "bytes": 16687,
+      "sha256": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/urban_box_geometry.h",
+      "bytes": 1333,
+      "sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e"
+    },
+    {
+      "path": "source/ros_recorded/motion_primitives_planning/src/urban_motion_primitives.h",
+      "bytes": 74583,
+      "sha256": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b"
+    },
+    {
+      "path": "source/ros_recorded/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro",
+      "bytes": 1771,
+      "sha256": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9"
+    },
+    {
+      "path": "source/ros_recorded/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world",
+      "bytes": 177776,
+      "sha256": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1"
+    },
+    {
+      "path": "source/ros_recorded/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp",
+      "bytes": 6715,
+      "sha256": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238"
+    },
+    {
+      "path": "source/ros_recorded/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h",
+      "bytes": 1064,
+      "sha256": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/CMakeLists.txt",
+      "bytes": 14519,
+      "sha256": "bd777bf58c37c0a643911fe853cddf344939790a0e9340a9e7b96b28c1ebde4b"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/package.xml",
+      "bytes": 3976,
+      "sha256": "99662d992eb3d1a626cb26dd7878688e0e9e489bcae5e404a80939bb238b530c"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/scripts/generate_unknown_lidar_world.py",
+      "bytes": 5827,
+      "sha256": "59fc8c8431e48ed40f40fc8fb3a2599445ce83a65dd61ecc948444b0e57d3347"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/scripts/verify_end_world.py",
+      "bytes": 15903,
+      "sha256": "bd3c0ec5887b2b55f6258490f2a7339a8e1a64a5dce328b42e44f2d7722ad654"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/src/motion_primitives_test.cpp",
+      "bytes": 246,
+      "sha256": "24b6df70b78c0f31289cba719912ebbbb84512641fe3b22ea818db5dd6e3d1fb"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/test/runtime_efficiency.test",
+      "bytes": 524,
+      "sha256": "acbb08bdaa0557bfb03d991cdd66e0812496fe7d48ce4c9830fac252bd540554"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/test/runtime_execution.test",
+      "bytes": 191,
+      "sha256": "c3bdeb1a6d88feb0ec0b679f80d47a8d1001f86bc587e0f244ee9a0b4ca1c952"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/test/runtime_sensor_map.test",
+      "bytes": 193,
+      "sha256": "ec5c9407b95965986a43675aea7db57d34bc0a14d7ea9b6de84f76eb1f3fdd28"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/test/runtime_swept.test",
+      "bytes": 183,
+      "sha256": "cd423d1bdf542624d7ea18756aa27b3b3aa92d8a3c0223da2f41470d59183109"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/test/test_collision_mesh_truth.py",
+      "bytes": 3329,
+      "sha256": "503974752c8da69eee66d03c155a041c3fffdffd95240bba79c1e13664180c15"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/test/test_runtime_efficiency.cpp",
+      "bytes": 13351,
+      "sha256": "b7c465a6b3cda1c5b235d85f4d04176bd84f730f194571259681621fe60beb07"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/test/test_runtime_execution.cpp",
+      "bytes": 9100,
+      "sha256": "b87cd2b313f8914fc1140bb6b6b6f0854d79aa2f3de1971dd73ee934ceb55f9d"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/test/test_runtime_sensor_map.cpp",
+      "bytes": 13804,
+      "sha256": "c28cd8cf227aa2da39c582f992a28eda9efd1c40f85c3a7067e30a08ab2500bc"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/test/test_runtime_swept.cpp",
+      "bytes": 8337,
+      "sha256": "6475b8e70554d4807f7ebd34c80debdfa26360defdcbeaab15d2a6ef04bed50b"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/test/test_sensor_occupancy.cpp",
+      "bytes": 9604,
+      "sha256": "c874f812efe002992d747fee32aec440f1ab7157c9230f725279c56faadc78c5"
+    },
+    {
+      "path": "source/ros_support/motion_primitives_planning/test/test_unknown_city_protocol.py",
+      "bytes": 11866,
+      "sha256": "e8577302b29dd51188925f02b16b2fcccc0f52f6360065359493ed27af4a978f"
+    },
+    {
+      "path": "source/ros_support/simple-airplane/simple_airplane_plugins/CMakeLists.txt",
+      "bytes": 1716,
+      "sha256": "9e4a3fae81285c23b5dddb0daeb72046afd591f75b12aeed6aa03b80060800e1"
+    },
+    {
+      "path": "source/ros_support/simple-airplane/simple_airplane_plugins/package.xml",
+      "bytes": 2898,
+      "sha256": "874eb879f70d5b96a96275deff6affd1a08c9443c616ce2199051f6fa83eba15"
+    },
+    {
+      "path": "source/ros_support/simple-airplane/simple_airplane_plugins/test/test_lidar_ray_encoding.cpp",
+      "bytes": 1868,
+      "sha256": "32b823a53f58bfc0c75677ba9a303b8690fd8603548d7b1792a10daae4c4eb74"
+    },
+    {
+      "path": "source/training/check_export.py",
+      "bytes": 2240,
+      "sha256": "a506c2ebd4c9bac86b2f19f5c4835f4f49900bb5ee7c6f8665534288dd69ef8d"
+    },
+    {
+      "path": "source/training/collect_observed.cpp",
+      "bytes": 8289,
+      "sha256": "5039459dd0a7648131c45ed357fb360625b2486a8d8174ee2cf039b351c88b9f"
+    },
+    {
+      "path": "source/training/pack_dataset.py",
+      "bytes": 3289,
+      "sha256": "0e98a37052cc2c78a667d77fc2d7293c42344bf26302f6df351c6544f6dd251c"
+    },
+    {
+      "path": "source/training/predict_export.cpp",
+      "bytes": 1057,
+      "sha256": "43edfbee23f1660a9c2b1d550d2e75d9e56c736b89f9c205e025345ccabf9920"
+    },
+    {
+      "path": "source/training/run_collection.py",
+      "bytes": 4417,
+      "sha256": "8b07f35938846aa10159f50d7d803b3ede81c44d9e2c4876d248aa3a1c1a04e6"
+    },
+    {
+      "path": "source/training/run_training_pipeline.py",
+      "bytes": 1664,
+      "sha256": "409044191a85bbabd6c6b44d96f445cba10ec69ae8740303837c97bbef3c3862"
+    },
+    {
+      "path": "source/training/score_validation.py",
+      "bytes": 7157,
+      "sha256": "fb41f7f7aa3439f34ca16a45122d2806019ea11770beb874de6b4cfb80090c18"
+    },
+    {
+      "path": "source/training/train_observed_recovery.py",
+      "bytes": 7077,
+      "sha256": "1c0276af7d2535c9331ae167c58338d246ced78ef7923ec89b2d41302b6551f7"
+    },
+    {
+      "path": "source/training/train_recovery_network.py",
+      "bytes": 8049,
+      "sha256": "e9dd623a098af8c4b29867ebb2188284fcc11621d65e74a832c25c5799766452"
+    },
+    {
+      "path": "source/urban_replay/current/learned_recovery.h",
+      "bytes": 3516,
+      "sha256": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448"
+    },
+    {
+      "path": "source/urban_replay/current/observed_recovery_features.h",
+      "bytes": 1963,
+      "sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4"
+    },
+    {
+      "path": "source/urban_replay/current/replay.cpp",
+      "bytes": 10179,
+      "sha256": "ebde54608c26e50ac85ddaa3c0af3ed5fa2893016f029fa2af15d3fed06ed5ec"
+    },
+    {
+      "path": "source/urban_replay/current/runtime_motion_primitives.h",
+      "bytes": 107865,
+      "sha256": "35ba384ff14ea226e17eba173aeb01e2a2cd7cfca190fac9e37e4d2bd7689b25"
+    },
+    {
+      "path": "source/urban_replay/current/runtime_sensor_map.h",
+      "bytes": 9009,
+      "sha256": "671178050c65b13e8397d9640ce63b311558c71d3dc79337945d275b8e758ad2"
+    },
+    {
+      "path": "source/urban_replay/current/runtime_swept_geometry.h",
+      "bytes": 2660,
+      "sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d"
+    },
+    {
+      "path": "source/urban_replay/current/sensor_occupancy_map.h",
+      "bytes": 16717,
+      "sha256": "0cfa23f1a847a081a45d221d3cb5515d23fdb4b2440d8ab103a0ee32a75cf245"
+    },
+    {
+      "path": "source/urban_replay/current/urban_box_geometry.h",
+      "bytes": 1333,
+      "sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e"
+    },
+    {
+      "path": "source/urban_replay/frozen/learned_recovery.h",
+      "bytes": 3516,
+      "sha256": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448"
+    },
+    {
+      "path": "source/urban_replay/frozen/observed_recovery_features.h",
+      "bytes": 1963,
+      "sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4"
+    },
+    {
+      "path": "source/urban_replay/frozen/replay.cpp",
+      "bytes": 10179,
+      "sha256": "ebde54608c26e50ac85ddaa3c0af3ed5fa2893016f029fa2af15d3fed06ed5ec"
+    },
+    {
+      "path": "source/urban_replay/frozen/runtime_motion_primitives.h",
+      "bytes": 101909,
+      "sha256": "524a7a1ce4c7eace064cec4a6ade91a1fe2869976c96eaff0fd0a52b7c59ea59"
+    },
+    {
+      "path": "source/urban_replay/frozen/runtime_sensor_map.h",
+      "bytes": 9009,
+      "sha256": "671178050c65b13e8397d9640ce63b311558c71d3dc79337945d275b8e758ad2"
+    },
+    {
+      "path": "source/urban_replay/frozen/runtime_swept_geometry.h",
+      "bytes": 2660,
+      "sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d"
+    },
+    {
+      "path": "source/urban_replay/frozen/sensor_occupancy_map.h",
+      "bytes": 16717,
+      "sha256": "0cfa23f1a847a081a45d221d3cb5515d23fdb4b2440d8ab103a0ee32a75cf245"
+    },
+    {
+      "path": "source/urban_replay/frozen/urban_box_geometry.h",
+      "bytes": 1333,
+      "sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e"
+    },
+    {
+      "path": "source/urban_replay/instrumented/learned_recovery.h",
+      "bytes": 3516,
+      "sha256": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448"
+    },
+    {
+      "path": "source/urban_replay/instrumented/observed_recovery_features.h",
+      "bytes": 1963,
+      "sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4"
+    },
+    {
+      "path": "source/urban_replay/instrumented/replay.cpp",
+      "bytes": 10179,
+      "sha256": "ebde54608c26e50ac85ddaa3c0af3ed5fa2893016f029fa2af15d3fed06ed5ec"
+    },
+    {
+      "path": "source/urban_replay/instrumented/runtime_motion_primitives.h",
+      "bytes": 109070,
+      "sha256": "c5add67ad6d178b1f7ad5f0e639666751a135967e747980e8306c092d0c4ab80"
+    },
+    {
+      "path": "source/urban_replay/instrumented/runtime_sensor_map.h",
+      "bytes": 9009,
+      "sha256": "671178050c65b13e8397d9640ce63b311558c71d3dc79337945d275b8e758ad2"
+    },
+    {
+      "path": "source/urban_replay/instrumented/runtime_swept_geometry.h",
+      "bytes": 2660,
+      "sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d"
+    },
+    {
+      "path": "source/urban_replay/instrumented/sensor_occupancy_map.h",
+      "bytes": 16717,
+      "sha256": "0cfa23f1a847a081a45d221d3cb5515d23fdb4b2440d8ab103a0ee32a75cf245"
+    },
+    {
+      "path": "source/urban_replay/instrumented/urban_box_geometry.h",
+      "bytes": 1333,
+      "sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e"
+    },
+    {
+      "path": "tables/city_flights.csv",
+      "bytes": 2396,
+      "sha256": "ddf060df3d06b1d8e6c9a6f1761aae9951fe701ae6dc1d66475a79f6d504a62a"
+    },
+    {
+      "path": "tables/failure_case/culdesac_0_mDiverse_c0_geometry.csv",
+      "bytes": 515,
+      "sha256": "dfdb4966cf04f13c2ed782f4f729fccac308e3d1b008416a78ffa8f2fb46a6fe"
+    },
+    {
+      "path": "tables/failure_case/culdesac_0_mDiverse_c0_path.csv",
+      "bytes": 11703,
+      "sha256": "1565c5f4ed2d0458139d4539afa422bf6547cb38ab99943ce54b72ab6331705c"
+    },
+    {
+      "path": "tables/failure_case/culdesac_0_mDiverse_c0_plans.csv",
+      "bytes": 18550,
+      "sha256": "6564c4597f91e93a46a85a75df6d2eb3e4e2594820b382a8c436cdaa9b1f1101"
+    },
+    {
+      "path": "tables/failure_case/culdesac_0_mDiverse_c0_summary.csv",
+      "bytes": 493,
+      "sha256": "ddfdef7e5a2d496e87d6c6c71b0b0dd4214c74a3a8b152b3c5490e93ddd0ea7d"
+    },
+    {
+      "path": "tables/failure_case/culdesac_0_mFull_c0_geometry.csv",
+      "bytes": 515,
+      "sha256": "dfdb4966cf04f13c2ed782f4f729fccac308e3d1b008416a78ffa8f2fb46a6fe"
+    },
+    {
+      "path": "tables/failure_case/culdesac_0_mFull_c0_path.csv",
+      "bytes": 11644,
+      "sha256": "0def736b73aaab27f5671782afd6652e21ea20cd91b54920c4ac167be36194c8"
+    },
+    {
+      "path": "tables/failure_case/culdesac_0_mFull_c0_plans.csv",
+      "bytes": 18713,
+      "sha256": "2d49dd04401c9704b9853b2a814150e067b50147262cd2065f88787351af5263"
+    },
+    {
+      "path": "tables/failure_case/culdesac_0_mFull_c0_summary.csv",
+      "bytes": 489,
+      "sha256": "72a3f855202e3c2f63d3b558b30b7b0b1e08ee847ba98c607902bcd45a37e87d"
+    },
+    {
+      "path": "tables/failure_case/culdesac_0_mSelected_c0_geometry.csv",
+      "bytes": 515,
+      "sha256": "dfdb4966cf04f13c2ed782f4f729fccac308e3d1b008416a78ffa8f2fb46a6fe"
+    },
+    {
+      "path": "tables/failure_case/culdesac_0_mSelected_c0_path.csv",
+      "bytes": 11680,
+      "sha256": "5a55930b6b4dbcacecacbfb2491642204a8f1a133c7a6d89a39f4ca8cfc2970a"
+    },
+    {
+      "path": "tables/failure_case/culdesac_0_mSelected_c0_plans.csv",
+      "bytes": 18412,
+      "sha256": "1e1b83c7e5bb792521ae82f62b8cd17c5b864c559124dc3f67f0791c7779ff1a"
+    },
+    {
+      "path": "tables/failure_case/culdesac_0_mSelected_c0_summary.csv",
+      "bytes": 493,
+      "sha256": "dbe97422a796d709102e3e598c904205e92e4d0cc047eb9641198d6b46129e0e"
+    },
+    {
+      "path": "tables/forest600_episodes.csv",
+      "bytes": 27916,
+      "sha256": "3a49e8b43cc4c03a8d99a60885e550d821d2da7809f4e9b293f3155331fa4f18"
+    },
+    {
+      "path": "tables/procedural_and_legacy_forest_episodes.csv",
+      "bytes": 256379,
+      "sha256": "6b559220900e0b62765b94313006525fd2ac90ffe9ef649afd59e1dd388a6d7e"
+    },
+    {
+      "path": "tables/selection_episodes.csv",
+      "bytes": 34774,
+      "sha256": "4e9e3ddbda1e90847f95cf976cbff9ac260cd50ca8a62c5d2904f11ae7b06782"
+    },
+    {
+      "path": "tables/urban_budget_grid_summary.csv",
+      "bytes": 2627,
+      "sha256": "ddfc4da11ef6de0ffc3d274b9824b4fdea675dba980ce6c9e86bbb0cddf62366"
+    },
+    {
+      "path": "tables/urban_matched_medians.csv",
+      "bytes": 365897,
+      "sha256": "5b689d8a12f3885630e2b104e665316c9efbf86c39d4587ff0cf08286afc475f"
+    },
+    {
+      "path": "tables/urban_raw/cost1/query_results_budget_grid.csv",
+      "bytes": 362620,
+      "sha256": "2b3bbd24f5320ad637ccf77e7ae600c79e9aabd35b31625d34df24daa9aa9132"
+    },
+    {
+      "path": "tables/urban_raw/cost1/query_results_quiet.csv",
+      "bytes": 378088,
+      "sha256": "bc6d3533645845d712eadb8c0d9b94ef0fd729fd3db07f0601ed8711c9f52da7"
+    },
+    {
+      "path": "tables/urban_raw/cost1/query_results_quiet_instrumented.csv",
+      "bytes": 160436,
+      "sha256": "0415d3d691784a2db53379b1632c020902d29efce243a82e08616ead7133182a"
+    },
+    {
+      "path": "tables/urban_raw/diverse1/query_results_budget_grid.csv",
+      "bytes": 360014,
+      "sha256": "121600ddb0283ad8d38cdb0e026fe5bb1de31a8343f2fe9978ccb305acf88080"
+    },
+    {
+      "path": "tables/urban_raw/diverse1/query_results_quiet.csv",
+      "bytes": 374662,
+      "sha256": "d8d133e064c84ebab1651f4229e66382653e5b1fb0fd49a749e2d2320e85c4a5"
+    },
+    {
+      "path": "tables/urban_raw/diverse1/query_results_quiet_instrumented.csv",
+      "bytes": 159182,
+      "sha256": "df19978a34676be642b6c4c2ffff12d135c2c996750e6f9bc59bcd59ed274ad0"
+    },
+    {
+      "path": "tables/urban_raw/learned3/query_results_budget_grid.csv",
+      "bytes": 360205,
+      "sha256": "ac609249d1e393fe16fd273a82cf9935baf07af270985f358d06097defc04532"
+    },
+    {
+      "path": "tables/urban_raw/learned3/query_results_quiet.csv",
+      "bytes": 375645,
+      "sha256": "393eb27fbcfd41486068471e2102e1c2431290f80d2f6808c2704b0873fd8a81"
+    },
+    {
+      "path": "tables/urban_raw/learned3/query_results_quiet_instrumented.csv",
+      "bytes": 161929,
+      "sha256": "b2b76bc0f229a81fba6aa45d13d95e1bc927e94f8f719d1394ee2c43d8500ece"
+    },
+    {
+      "path": "tables/validation_factorial.csv",
+      "bytes": 16296,
+      "sha256": "51231057ad080ff6143664651eebc740fd5274331ac5360687a1660e2050190d"
+    },
+    {
+      "path": "verify.py",
+      "bytes": 2595,
+      "sha256": "08e609210e7bdf5d0bf02eac423fa904e3de7f6cd92babc6c6b3c686b6fb2b26"
+    }
+  ],
+  "total_payload_bytes": 6277115,
+  "self_excluded": true
+}
