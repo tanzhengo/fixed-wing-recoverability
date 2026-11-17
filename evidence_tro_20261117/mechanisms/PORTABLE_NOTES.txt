@@ -1,0 +1,67 @@
+Mechanism replay and expanded Figure 2
+=====================================
+
+This bundle preserves the original C++ instrument sources and small recorded
+CSV/JSON evidence. The original two-map/urban-query examples are in mechanisms/;
+the three-pair, six-map extension is in ../figure2/. The 767-input / 517-positive
+validation population is unchanged. No Fig.8 analysis or new flight results are
+included. Source headers and original manifests are unchanged; copy_provenance.json
+records original and packaged hashes. portable_entrypoint_checks.json records
+syntax and --help checks. No ROS experiment was rerun while packaging.
+
+Dependencies
+------------
+Python analysis/plotting: NumPy and Matplotlib (requirements.txt).
+Fonts: an installed Times New Roman family, or --font-dir containing TTF files;
+font files are not redistributed. Only replace_architecture_fonts.py additionally
+requires recent PyMuPDF supporting apply_redactions(graphics=0, text=0).
+C++ replay: C++14 compiler, Eigen3, pkg-config, sourced ROS Noetic with roscpp/tf
+and standard message packages. There is no Python-to-ROS runtime integration.
+Original compact models are read from ../evidence_recovered/models at repository
+root. The later reconstruction smoke model is never used as Selected.
+
+From repository root, inspect these portable entrypoints:
+
+  python3 evidence_tro_20261117/mechanisms/build.py --help
+  python3 evidence_tro_20261117/mechanisms/run_mechanisms.py --help
+  python3 evidence_tro_20261117/mechanisms/verify.py --help
+  python3 evidence_tro_20261117/mechanisms/create_figures.py --help
+  python3 evidence_tro_20261117/figure2/build.py --help
+  python3 evidence_tro_20261117/figure2/run_replay.py --help
+  python3 evidence_tro_20261117/figure2/verify.py --help
+  python3 evidence_tro_20261117/figure2/create_figure.py --help
+
+Rendering from the included small records requires no raw scans or validation
+arrays. Supply --output-dir /your/new/figures and optionally --font-dir /your/fonts.
+--records-dir defaults to the respective packaged record directory. Figure 2
+outputs the main PDF/PNG and the full-map companion. No included record is edited.
+
+Build/replay uses --output-dir and --build-dir; choose fresh directories outside
+the evidence bundle. Run tools start and stop a dedicated ROS master at --port.
+The mechanisms runner additionally requires --artifact-root /your/archive/root.
+The figure2 runner uses included recorded states, map geometry and frozen source;
+it generates fresh *_rerun.f32 arrays rather than bundling old arrays/binaries.
+
+External data needed for full parity/selection checks
+----------------------------------------------------
+--artifact-root must contain these original relative paths:
+
+  work/reviewer_revision_20261101/training/dataset/val.npz
+  work/reviewer_revision_20261101/training/dataset/val_states.csv
+
+Original mechanisms/verify.py also reads the three selected models' recorded
+validation_deployed_predictions.npz beneath training/models/{state_aux/20261102,
+observed/20261103,observed_aux/20261101}/ and the original urban replay budget CSV
+at work/reviewer_revision_20261101/urban_replay/learned3/query_results_budget_grid.csv.
+Urban execution needs work/restore_experiment_evidence/unknown_replay/learned3/
+containing params.yaml, poses.csv, accepted_scans.csv, queries.csv and rays.bin.
+Hashes/provenance for these external records remain in the unmodified manifests
+and the repository's evidence_recovered package. Large arrays/scans, compiled
+binaries and ROS logs are intentionally not bundled.
+
+For a new replay, verify.py takes --artifact-root plus --run-dir pointing to the
+fresh run; validation results are written there. reproduce_feature_ambiguity.py
+and ../figure2/reproduce_selection.py take --artifact-root and --output-dir.
+prepare_replay.py regenerates the six-case instrument from the included original
+pair source and checks byte equality with the frozen source; normally build.py
+can compile the included frozen source directly.

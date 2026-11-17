@@ -1,0 +1,257 @@
+{
+  "path_base": "--artifact-root; alternatively --raw-root may hold files by their relative path or unique basename",
+  "files": [
+    {
+      "path": "work/reviewer_revision_20261101/training/dataset/raw_collection.tar.gz",
+      "sha256": "6c80b3e28c2b705308d0a6201419ff6a9359bb765bc0e3f755d4ecada628bce2",
+      "bytes": 50909413,
+      "role": "original candidate collection archive"
+    },
+    {
+      "path": "work/reviewer_revision_20261101/raw_archives/controlled_evaluation.tar.gz",
+      "sha256": "0b046183c42a99dc8017c4d11860db48a14321ab169440e0927201e15a17bb2a",
+      "bytes": 28567610,
+      "role": "controlled_evaluation"
+    },
+    {
+      "path": "work/reviewer_revision_20261101/raw_archives/urban_flights.tar.gz",
+      "sha256": "bfe4b654f2a5ee64eb2a47cd0059a4d83ca5ab8d92fe44263ff90dd87372406c",
+      "bytes": 279621441,
+      "role": "urban_flights"
+    },
+    {
+      "path": "work/reviewer_revision_20261101/training/dataset/train.npz",
+      "sha256": "4b11ba17c0dba41b0c1f4baf8f160d33c083d6238ed536234902d766c6e8f45f",
+      "bytes": 30839998,
+      "role": "training data; excluded from lightweight package"
+    },
+    {
+      "path": "work/reviewer_revision_20261101/training/dataset/val.npz",
+      "sha256": "bbf4e269e264191f0aa29689e78f7a1389adc64323354fdcc754e7c489990964",
+      "bytes": 7489521,
+      "role": "training data; excluded from lightweight package"
+    },
+    {
+      "path": "work/reviewer_revision_20261101/training/dataset/train_states.csv",
+      "sha256": "7de2ed4c2623dc40c39d62d237427b06eb78b4744419d7afbed255a2bcb0bd37",
+      "bytes": 851949,
+      "role": "training data; excluded from lightweight package"
+    },
+    {
+      "path": "work/reviewer_revision_20261101/training/dataset/val_states.csv",
+      "sha256": "9e40a3d2717fc7468d33fe50dbb168d40f04cc8d319dc5103d117701580e65fa",
+      "bytes": 215459,
+      "role": "training data; excluded from lightweight package"
+    },
+    {
+      "path": "work/reviewer_revision_20261101/training/models/validation/query_outcomes.csv",
+      "sha256": "9053bc2583115a4c88396934601730b7d568bcd5f15dc9436d9982f00e50847a",
+      "bytes": 5042948,
+      "role": "full validation per-query rows; summary included"
+    },
+    {
+      "path": "work/unknown_incursion_geometry/city_collision_mesh.npz",
+      "sha256": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+      "bytes": 1039052,
+      "role": "independent physical truth mesh"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/learned3/accepted_scans.csv",
+      "sha256": "4d08b3be2ded9f4a83d87b5400be2a9e27ed63bb8354b84ae8f464a71b574ed2",
+      "bytes": 22254,
+      "role": "replay input learned3"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/learned3/map_audit.csv",
+      "sha256": "b6377aa2ab5a395d9f97efccc0c40a6c25faa69b0a37d96bc9da8d2bd9bc3bbc",
+      "bytes": 27669,
+      "role": "replay input learned3"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/learned3/map_audit_instrumented.csv",
+      "sha256": "b6377aa2ab5a395d9f97efccc0c40a6c25faa69b0a37d96bc9da8d2bd9bc3bbc",
+      "bytes": 27669,
+      "role": "replay input learned3"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/learned3/params.yaml",
+      "sha256": "e9b5ed86a8a570a2ee31b51384d33945912fa851af549d031420f0abe797cd6d",
+      "bytes": 1879,
+      "role": "replay input learned3"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/learned3/poses.csv",
+      "sha256": "15f74916c00d5dd9dd10ae0c3424a872ac3ce0b86a86bc9ac10df58888e36b66",
+      "bytes": 1167926,
+      "role": "replay input learned3"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/learned3/queries.csv",
+      "sha256": "f2dca0eff178223801d203a86d4500daddd5e0a8a68c3535eb5e8e3050aa25a8",
+      "bytes": 770,
+      "role": "replay input learned3"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/learned3/query_results.csv",
+      "sha256": "1942d76e7feec3188da99bc2dd587f73f2f797ed22d288b489828e701dfb7ae7",
+      "bytes": 92905,
+      "role": "replay input learned3"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/learned3/query_results_instrumented.csv",
+      "sha256": "4808b44301eced73ea21f95aa27541992620283e3255dde09345698c6fff08bb",
+      "bytes": 44835,
+      "role": "replay input learned3"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/learned3/rays.bin",
+      "sha256": "14e3d906fffc766955e6a3dcf6588cd60b548c5f586f117799e5e6a55615808d",
+      "bytes": 113558147,
+      "role": "replay input learned3"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/learned3/replay.log",
+      "sha256": "cb8061cc34b1cf15eaf6b192594671143c494bcc4d134d3d36af1cbad029e6af",
+      "bytes": 3963,
+      "role": "replay input learned3"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/learned3/replay_instrumented.log",
+      "sha256": "cb8061cc34b1cf15eaf6b192594671143c494bcc4d134d3d36af1cbad029e6af",
+      "bytes": 3963,
+      "role": "replay input learned3"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/cost1/accepted_scans.csv",
+      "sha256": "217733dec5953d90420212643d3a2d38cfa24346798a33bdfa95e28c5f8a3095",
+      "bytes": 22303,
+      "role": "replay input cost1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/cost1/map_audit.csv",
+      "sha256": "145a97e3b661b145f2d3f690f40d48109b9e1d6a57b838a24888067d6ec7c012",
+      "bytes": 27697,
+      "role": "replay input cost1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/cost1/map_audit_instrumented.csv",
+      "sha256": "145a97e3b661b145f2d3f690f40d48109b9e1d6a57b838a24888067d6ec7c012",
+      "bytes": 27697,
+      "role": "replay input cost1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/cost1/params.yaml",
+      "sha256": "e9b5ed86a8a570a2ee31b51384d33945912fa851af549d031420f0abe797cd6d",
+      "bytes": 1879,
+      "role": "replay input cost1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/cost1/poses.csv",
+      "sha256": "5fb259cc3bd1899942eb518b1e6a43cc7d7eb87cae8c99f1cfd00f42c740cd2f",
+      "bytes": 1157207,
+      "role": "replay input cost1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/cost1/queries.csv",
+      "sha256": "c468cc87c6aa65524569013fdfb28fe2a9543a6299a894e417b3b5a679eb4f8b",
+      "bytes": 806,
+      "role": "replay input cost1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/cost1/query_results.csv",
+      "sha256": "758fd007686f41c392fd6b3d6d833f5709ff6596df488e24745115d45ff4ce2f",
+      "bytes": 93578,
+      "role": "replay input cost1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/cost1/query_results_instrumented.csv",
+      "sha256": "73bf1cda1e792e9e1bfc39e97ec82b06fe37ed215641fc8c50f2a8e8ba83afea",
+      "bytes": 45108,
+      "role": "replay input cost1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/cost1/rays.bin",
+      "sha256": "0339eb27983db0687c25fc66c8547d67398dad2f984ef71d17055dd8639cf205",
+      "bytes": 113033629,
+      "role": "replay input cost1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/cost1/replay.log",
+      "sha256": "eb369d5392a4ee695f186e5b20a6ee250d47abcebf6ecd7fd4ac2f56432cfbf9",
+      "bytes": 3852,
+      "role": "replay input cost1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/cost1/replay_instrumented.log",
+      "sha256": "eb369d5392a4ee695f186e5b20a6ee250d47abcebf6ecd7fd4ac2f56432cfbf9",
+      "bytes": 3852,
+      "role": "replay input cost1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/diverse1/accepted_scans.csv",
+      "sha256": "842c380b70a296a3e8b2b239e16f3d0b2749200018a1333de3a92e3f81b1bd33",
+      "bytes": 21809,
+      "role": "replay input diverse1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/diverse1/map_audit.csv",
+      "sha256": "657acc65eb895854b5ca6eb58ea7e93f4449558a90a3fe0c366e4c3595ce720f",
+      "bytes": 27663,
+      "role": "replay input diverse1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/diverse1/map_audit_instrumented.csv",
+      "sha256": "657acc65eb895854b5ca6eb58ea7e93f4449558a90a3fe0c366e4c3595ce720f",
+      "bytes": 27663,
+      "role": "replay input diverse1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/diverse1/params.yaml",
+      "sha256": "e9b5ed86a8a570a2ee31b51384d33945912fa851af549d031420f0abe797cd6d",
+      "bytes": 1879,
+      "role": "replay input diverse1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/diverse1/poses.csv",
+      "sha256": "470233663d16a8d5eaf3b4d84109e84f01384b428188efdad18165629f256cd7",
+      "bytes": 1134569,
+      "role": "replay input diverse1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/diverse1/queries.csv",
+      "sha256": "508a415fcdacc297c6872bff30e327c8878ec3249a520780389cca9f35ccf99c",
+      "bytes": 775,
+      "role": "replay input diverse1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/diverse1/query_results.csv",
+      "sha256": "4cb5c30ae3ceb1b6a56661fc2654f97436daa3f0fcd06a53b9a32751c8bdfbe8",
+      "bytes": 92582,
+      "role": "replay input diverse1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/diverse1/query_results_instrumented.csv",
+      "sha256": "72fc011a012beb5c8ec1a1e376e26d8116c1df54618ca57438ebc58d608e48c1",
+      "bytes": 44925,
+      "role": "replay input diverse1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/diverse1/rays.bin",
+      "sha256": "a62aba389f7d6acda4f533f380b7383bcf0cba8d4f7ba20427742bf5ef9925a4",
+      "bytes": 110935557,
+      "role": "replay input diverse1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/diverse1/replay.log",
+      "sha256": "f41c0eb5e590db7b749d3cd8a347d63371f49adedacf6ba1d5fd05a25c966b6a",
+      "bytes": 3967,
+      "role": "replay input diverse1"
+    },
+    {
+      "path": "work/restore_experiment_evidence/unknown_replay/diverse1/replay_instrumented.log",
+      "sha256": "f41c0eb5e590db7b749d3cd8a347d63371f49adedacf6ba1d5fd05a25c966b6a",
+      "bytes": 3967,
+      "role": "replay input diverse1"
+    }
+  ]
+}

@@ -1,0 +1,1168 @@
+{
+  "files": [
+    {
+      "path": "mechanisms/architecture_font_verification.json",
+      "original_collection": "mechanisms",
+      "original_relative_path": "architecture_font_verification.json",
+      "original_sha256": "866ab7991f794e9b1431802f1c6a9534aeabe130cdff48b6fefd61611bd721ba",
+      "bytes_original": 16847,
+      "role": "original small record",
+      "packaged_sha256": "866ab7991f794e9b1431802f1c6a9534aeabe130cdff48b6fefd61611bd721ba",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/build.json",
+      "original_collection": "mechanisms",
+      "original_relative_path": "build.json",
+      "original_sha256": "6d4a344ee25861bdcbe2b77877e4fce7dfaee922e48fefc39420d3b211097a17",
+      "bytes_original": 3794,
+      "role": "original small record",
+      "packaged_sha256": "6d4a344ee25861bdcbe2b77877e4fce7dfaee922e48fefc39420d3b211097a17",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/build.py",
+      "original_collection": "mechanisms",
+      "original_relative_path": "build.py",
+      "original_sha256": "2e74767da1332a590c30f22c0b3e99945b5e0c524a3510ceb7d406ef2456dab9",
+      "bytes_original": 1144,
+      "role": "portable Python entrypoint",
+      "packaged_sha256": "ef4cd198e6b63277d99235cd7dbd4d2b91febf354a1430c23bca6132d090f8db",
+      "portable_entrypoint_modified": true
+    },
+    {
+      "path": "mechanisms/create_figures.py",
+      "original_collection": "mechanisms",
+      "original_relative_path": "create_figures.py",
+      "original_sha256": "fd60f51a2d180f692f566ec9f60496e830a6a983a4df39d70450054a4fc50179",
+      "bytes_original": 10345,
+      "role": "portable Python entrypoint",
+      "packaged_sha256": "33874292569d1767d3cdff8811cdc10ff709e6ec4b751fb2db7f65140b215228",
+      "portable_entrypoint_modified": true
+    },
+    {
+      "path": "mechanisms/deliverable_manifest.json",
+      "original_collection": "mechanisms",
+      "original_relative_path": "deliverable_manifest.json",
+      "original_sha256": "116e650c88742c5e9302ffb95c9fda9e4f5fa969a411d8cbc279c742bf725131",
+      "bytes_original": 7664,
+      "role": "original small record",
+      "packaged_sha256": "116e650c88742c5e9302ffb95c9fda9e4f5fa969a411d8cbc279c742bf725131",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/execution.json",
+      "original_collection": "mechanisms",
+      "original_relative_path": "execution.json",
+      "original_sha256": "eddfef6250ece2607d8ceb6cd26ca71b0a7b9b177a0c8f9504b9c89fbb0dcbba",
+      "bytes_original": 918,
+      "role": "original small record",
+      "packaged_sha256": "eddfef6250ece2607d8ceb6cd26ca71b0a7b9b177a0c8f9504b9c89fbb0dcbba",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/manuscript_fragments.tex",
+      "original_collection": "mechanisms",
+      "original_relative_path": "manuscript_fragments.tex",
+      "original_sha256": "d07c9f5da2388dec82c1191665beb11d7138c5a09df85d0225a684d1f0fc0024",
+      "bytes_original": 3585,
+      "role": "original small record",
+      "packaged_sha256": "d07c9f5da2388dec82c1191665beb11d7138c5a09df85d0225a684d1f0fc0024",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/paired_map_manuscript.tex",
+      "original_collection": "mechanisms",
+      "original_relative_path": "paired_map_manuscript.tex",
+      "original_sha256": "6ec2531905aba15914125635bc5e19875c83e7d42f28fcad4e8be9af978c7a86",
+      "bytes_original": 1590,
+      "role": "original small record",
+      "packaged_sha256": "6ec2531905aba15914125635bc5e19875c83e7d42f28fcad4e8be9af978c7a86",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/parity.json",
+      "original_collection": "mechanisms",
+      "original_relative_path": "parity.json",
+      "original_sha256": "30d97b56157d4e433a9e8856243183ca62fa9cafcd66acc1708f36834cf5485b",
+      "bytes_original": 12770,
+      "role": "original small record",
+      "packaged_sha256": "30d97b56157d4e433a9e8856243183ca62fa9cafcd66acc1708f36834cf5485b",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/replace_architecture_fonts.py",
+      "original_collection": "mechanisms",
+      "original_relative_path": "replace_architecture_fonts.py",
+      "original_sha256": "d50428e841a652ccb978801c4ec0b4d1d427fd1b4e43ad6026da2eaa8a9a02b0",
+      "bytes_original": 5557,
+      "role": "portable Python entrypoint",
+      "packaged_sha256": "8bbad2551f5c6c431867e85c32a2c33217140049ed6b4aa6674a660bea0d0f22",
+      "portable_entrypoint_modified": true
+    },
+    {
+      "path": "mechanisms/reproduce_feature_ambiguity.py",
+      "original_collection": "mechanisms",
+      "original_relative_path": "reproduce_feature_ambiguity.py",
+      "original_sha256": "de974a20986ba9d2c648f98fc74eb27cd37225d8d89024b5dfd2bbb9721d6191",
+      "bytes_original": 1840,
+      "role": "portable Python entrypoint",
+      "packaged_sha256": "f7ec5307ecfee5942b7a7797d47603b7ad871a29630a748bd08e48f2921245a0",
+      "portable_entrypoint_modified": true
+    },
+    {
+      "path": "mechanisms/run_mechanisms.py",
+      "original_collection": "mechanisms",
+      "original_relative_path": "run_mechanisms.py",
+      "original_sha256": "fe9c974ad3d7a9b742d07fe0eaf9e63aa16f522243b3675ec277c688ebece66a",
+      "bytes_original": 2244,
+      "role": "portable Python entrypoint",
+      "packaged_sha256": "83ea4f48d56124f1533827cff84d175f4202a5d3946093d1351e31d35122f70c",
+      "portable_entrypoint_modified": true
+    },
+    {
+      "path": "mechanisms/source/pair/evaluation_plant.h",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/pair/evaluation_plant.h",
+      "original_sha256": "1fa3cedf03dbe77b2e82438d2878ef3121a5e38c90efcbc109c34aa87da38717",
+      "bytes_original": 3633,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "1fa3cedf03dbe77b2e82438d2878ef3121a5e38c90efcbc109c34aa87da38717",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/pair/learned_recovery.h",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/pair/learned_recovery.h",
+      "original_sha256": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929",
+      "bytes_original": 3130,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/pair/observed_recovery_features.h",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/pair/observed_recovery_features.h",
+      "original_sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+      "bytes_original": 1963,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/pair/observed_scene.h",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/pair/observed_scene.h",
+      "original_sha256": "2b9766387c573197646c333d6f40dd904ab5a9a2e6e27edcdcdb486e6224bd50",
+      "bytes_original": 6557,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "2b9766387c573197646c333d6f40dd904ab5a9a2e6e27edcdcdb486e6224bd50",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/pair/pair.cpp",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/pair/pair.cpp",
+      "original_sha256": "c0cb8b8d44045cad97ffab3a1f6508431e46a7d676008d9711c14954fde30a46",
+      "bytes_original": 7204,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "c0cb8b8d44045cad97ffab3a1f6508431e46a7d676008d9711c14954fde30a46",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/pair/runtime_motion_primitives.h",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/pair/runtime_motion_primitives.h",
+      "original_sha256": "8452a2e2b3ef52b1efbab276d177562b01300bed809c4f59e09b2259e900d839",
+      "bytes_original": 101878,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "8452a2e2b3ef52b1efbab276d177562b01300bed809c4f59e09b2259e900d839",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/pair/runtime_sensor_map.h",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/pair/runtime_sensor_map.h",
+      "original_sha256": "f3fb0541a553bb5c8a4732a5852280feca5cc8126ae04ee06eb80f782896a152",
+      "bytes_original": 8978,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "f3fb0541a553bb5c8a4732a5852280feca5cc8126ae04ee06eb80f782896a152",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/pair/sensor_occupancy_map.h",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/pair/sensor_occupancy_map.h",
+      "original_sha256": "14c3215e374b6351c9d7a8f8907a3f322374fa1ae3b3d5418801cec36df27508",
+      "bytes_original": 16686,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "14c3215e374b6351c9d7a8f8907a3f322374fa1ae3b3d5418801cec36df27508",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/urban/learned_recovery.h",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/urban/learned_recovery.h",
+      "original_sha256": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+      "bytes_original": 3516,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/urban/observed_recovery_features.h",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/urban/observed_recovery_features.h",
+      "original_sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+      "bytes_original": 1963,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/urban/replay.cpp",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/urban/replay.cpp",
+      "original_sha256": "6f253ebcba110d0146a339a66dcdfc3f0cb3e1521e36e76a03d5884afb5f3fc6",
+      "bytes_original": 10051,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "6f253ebcba110d0146a339a66dcdfc3f0cb3e1521e36e76a03d5884afb5f3fc6",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/urban/runtime_motion_primitives.h",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/urban/runtime_motion_primitives.h",
+      "original_sha256": "b54b0ae5e23ae9051897aba8010e1d29fb812a7668f96b73cbed99edcda3c8bb",
+      "bytes_original": 108595,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "b54b0ae5e23ae9051897aba8010e1d29fb812a7668f96b73cbed99edcda3c8bb",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/urban/runtime_sensor_map.h",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/urban/runtime_sensor_map.h",
+      "original_sha256": "671178050c65b13e8397d9640ce63b311558c71d3dc79337945d275b8e758ad2",
+      "bytes_original": 9009,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "671178050c65b13e8397d9640ce63b311558c71d3dc79337945d275b8e758ad2",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/urban/sensor_occupancy_map.h",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source/urban/sensor_occupancy_map.h",
+      "original_sha256": "0cfa23f1a847a081a45d221d3cb5515d23fdb4b2440d8ab103a0ee32a75cf245",
+      "bytes_original": 16717,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "0cfa23f1a847a081a45d221d3cb5515d23fdb4b2440d8ab103a0ee32a75cf245",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source_manifest.json",
+      "original_collection": "mechanisms",
+      "original_relative_path": "source_manifest.json",
+      "original_sha256": "8d13658dba1c0918c86506c28776130e2dc25a4fdebc57fa5b13982bf0d5c257",
+      "bytes_original": 1495,
+      "role": "original small record",
+      "packaged_sha256": "8d13658dba1c0918c86506c28776130e2dc25a4fdebc57fa5b13982bf0d5c257",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/urban_trace/map_audit_mechanism.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "urban_trace/map_audit_mechanism.csv",
+      "original_sha256": "894baf14ab7c505f6c2d64dcc9bc6670a8642bf77b54a260891b14baa533cfd2",
+      "bytes_original": 571,
+      "role": "original small record",
+      "packaged_sha256": "894baf14ab7c505f6c2d64dcc9bc6670a8642bf77b54a260891b14baa533cfd2",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/urban_trace/parsed_trace.json",
+      "original_collection": "mechanisms",
+      "original_relative_path": "urban_trace/parsed_trace.json",
+      "original_sha256": "b18328e0212d9165e067a605a2a8ee0921afc0599a083fc7e6d59d12e6db2616",
+      "bytes_original": 17362,
+      "role": "original small record",
+      "packaged_sha256": "b18328e0212d9165e067a605a2a8ee0921afc0599a083fc7e6d59d12e6db2616",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/urban_trace/query_results_mechanism.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "urban_trace/query_results_mechanism.csv",
+      "original_sha256": "a2579e79455039656cb90ec36db58c062e3e06884d8582a4ff8eed3bb0c6bae2",
+      "bytes_original": 1571,
+      "role": "original small record",
+      "packaged_sha256": "a2579e79455039656cb90ec36db58c062e3e06884d8582a4ff8eed3bb0c6bae2",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/urban_trace/trace.log",
+      "original_collection": "mechanisms",
+      "original_relative_path": "urban_trace/trace.log",
+      "original_sha256": "6c79afcccbae189ac3cc2ed2d2628e46933d7522ff5b7e76d6b40ae1f2db939b",
+      "bytes_original": 28070,
+      "role": "original small record",
+      "packaged_sha256": "6c79afcccbae189ac3cc2ed2d2628e46933d7522ff5b7e76d6b40ae1f2db939b",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/urban_trace_manuscript.tex",
+      "original_collection": "mechanisms",
+      "original_relative_path": "urban_trace_manuscript.tex",
+      "original_sha256": "f215a696ca20b9308804a639914467292f227e38c52d9f4d05324db1058cc647",
+      "bytes_original": 1419,
+      "role": "original small record",
+      "packaged_sha256": "f215a696ca20b9308804a639914467292f227e38c52d9f4d05324db1058cc647",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_feature_ambiguity.json",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_feature_ambiguity.json",
+      "original_sha256": "797b21a27fce5dd0518941096bc59ae41bd766fedf02cd7575e712218d5fe84a",
+      "bytes_original": 5263,
+      "role": "original small record",
+      "packaged_sha256": "797b21a27fce5dd0518941096bc59ae41bd766fedf02cd7575e712218d5fe84a",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_group_count_reproduced.json",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_group_count_reproduced.json",
+      "original_sha256": "502916d899024dac88921696a41c6e97d528c9cab3b653ec3f22a6e015f5ade7",
+      "bytes_original": 513,
+      "role": "original small record",
+      "packaged_sha256": "502916d899024dac88921696a41c6e97d528c9cab3b653ec3f22a6e015f5ade7",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/candidate_checks.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/candidate_checks.csv",
+      "original_sha256": "417608306d06b2d8d2376bb9cad3aae5176cc08ce6e36fac05aabf3d2888ec39",
+      "bytes_original": 272048,
+      "role": "original small record",
+      "packaged_sha256": "417608306d06b2d8d2376bb9cad3aae5176cc08ce6e36fac05aabf3d2888ec39",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/controls.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/controls.csv",
+      "original_sha256": "ac593c217bca2af954273c4284c6027c9a3a53e61e79492da4dffc947396b236",
+      "bytes_original": 3216,
+      "role": "original small record",
+      "packaged_sha256": "ac593c217bca2af954273c4284c6027c9a3a53e61e79492da4dffc947396b236",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/map_summary.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/map_summary.csv",
+      "original_sha256": "6969ee9905765cd1445e77e40cd644a66b5d73c8c0fa60c7df5e57701882ff7a",
+      "bytes_original": 165,
+      "role": "original small record",
+      "packaged_sha256": "6969ee9905765cd1445e77e40cd644a66b5d73c8c0fa60c7df5e57701882ff7a",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/paths.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/paths.csv",
+      "original_sha256": "6b6791d0d9483ad9f9df738f5623a07df7f1d0a67c2aae710ae7247104a8b950",
+      "bytes_original": 863794,
+      "role": "original small record",
+      "packaged_sha256": "6b6791d0d9483ad9f9df738f5623a07df7f1d0a67c2aae710ae7247104a8b950",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/val_culdesac_0_m0_geometry.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/val_culdesac_0_m0_geometry.csv",
+      "original_sha256": "86bdb313f7930bda52594a420cf9cc3c21095a2af6a0c0a528a7830c3968de02",
+      "bytes_original": 507,
+      "role": "original small record",
+      "packaged_sha256": "86bdb313f7930bda52594a420cf9cc3c21095a2af6a0c0a528a7830c3968de02",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/val_culdesac_0_m0_path.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/val_culdesac_0_m0_path.csv",
+      "original_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "bytes_original": 3155,
+      "role": "original small record",
+      "packaged_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/val_culdesac_0_m0_slice.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/val_culdesac_0_m0_slice.csv",
+      "original_sha256": "f65ccd3d1686e969f31af98ac1aed345b9b42d7b58d536be1968bf699d912ccb",
+      "bytes_original": 91547,
+      "role": "original small record",
+      "packaged_sha256": "f65ccd3d1686e969f31af98ac1aed345b9b42d7b58d536be1968bf699d912ccb",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/val_culdesac_0_m0_states.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/val_culdesac_0_m0_states.csv",
+      "original_sha256": "3bbffb80e2932088f34f3a36b9929d4dad349c39a3c05c43fa58f6d232cbb81f",
+      "bytes_original": 1830,
+      "role": "original small record",
+      "packaged_sha256": "3bbffb80e2932088f34f3a36b9929d4dad349c39a3c05c43fa58f6d232cbb81f",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/val_culdesac_0_m0_summary.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/val_culdesac_0_m0_summary.csv",
+      "original_sha256": "6afb494952f6ae77a61a2ebed9800b76001131f21c43690360cb075e38a56c31",
+      "bytes_original": 211,
+      "role": "original small record",
+      "packaged_sha256": "6afb494952f6ae77a61a2ebed9800b76001131f21c43690360cb075e38a56c31",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/val_staggered_0_m0_geometry.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/val_staggered_0_m0_geometry.csv",
+      "original_sha256": "c7ce437e2fcfcb6bad4ac463d332a5fca4f5f4a5cb52e9ad62b3fb06e1efa2fe",
+      "bytes_original": 286,
+      "role": "original small record",
+      "packaged_sha256": "c7ce437e2fcfcb6bad4ac463d332a5fca4f5f4a5cb52e9ad62b3fb06e1efa2fe",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/val_staggered_0_m0_path.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/val_staggered_0_m0_path.csv",
+      "original_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "bytes_original": 3155,
+      "role": "original small record",
+      "packaged_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/val_staggered_0_m0_slice.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/val_staggered_0_m0_slice.csv",
+      "original_sha256": "e0e5b3c385bd7a4d16ccbc92071d55ab32667178514fe521ff4d2ad4310539da",
+      "bytes_original": 94147,
+      "role": "original small record",
+      "packaged_sha256": "e0e5b3c385bd7a4d16ccbc92071d55ab32667178514fe521ff4d2ad4310539da",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/val_staggered_0_m0_states.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/val_staggered_0_m0_states.csv",
+      "original_sha256": "07973368bbc5a05096bf5bf0101142da4d634cbeddaa229683f602c01d259714",
+      "bytes_original": 1813,
+      "role": "original small record",
+      "packaged_sha256": "07973368bbc5a05096bf5bf0101142da4d634cbeddaa229683f602c01d259714",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/validation_pair/val_staggered_0_m0_summary.csv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "validation_pair/val_staggered_0_m0_summary.csv",
+      "original_sha256": "3342c369b4a4072a7722485047c2dcbe4360fc8d6162f6197d545806e6e34244",
+      "bytes_original": 213,
+      "role": "original small record",
+      "packaged_sha256": "3342c369b4a4072a7722485047c2dcbe4360fc8d6162f6197d545806e6e34244",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/verify.py",
+      "original_collection": "mechanisms",
+      "original_relative_path": "verify.py",
+      "original_sha256": "a9ed398f2059920745b41edcf5250dc74ed18349b027ed066033b2f972500248",
+      "bytes_original": 5906,
+      "role": "portable Python entrypoint",
+      "packaged_sha256": "7d00cf5d04270fad9e72984e81c1b1853efbfebdff06f4f3a0080b7d9fbc0dc7",
+      "portable_entrypoint_modified": true
+    },
+    {
+      "path": "figure2/build.json",
+      "original_collection": "figure2",
+      "original_relative_path": "build.json",
+      "original_sha256": "70192eb6a533181c7986d8fa1dccb2012a82fbefe27ff91b86416cc1207b542c",
+      "bytes_original": 1750,
+      "role": "original small record",
+      "packaged_sha256": "70192eb6a533181c7986d8fa1dccb2012a82fbefe27ff91b86416cc1207b542c",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/create_figure.py",
+      "original_collection": "figure2",
+      "original_relative_path": "create_figure.py",
+      "original_sha256": "3a4653990cefd6a5364b6cf78f01e6168b7591c70ac0a90ce219844e483a473b",
+      "bytes_original": 8533,
+      "role": "portable Python entrypoint",
+      "packaged_sha256": "b9b718c81c32a87e9f19292c8d873d05c310ca995ce5a7f70a339f81205760bc",
+      "portable_entrypoint_modified": true
+    },
+    {
+      "path": "figure2/execution.json",
+      "original_collection": "figure2",
+      "original_relative_path": "execution.json",
+      "original_sha256": "3ff4fb96d31a40a3dae37e6f003077d15f10a78457a978a903730231cc70037e",
+      "bytes_original": 396,
+      "role": "original small record",
+      "packaged_sha256": "3ff4fb96d31a40a3dae37e6f003077d15f10a78457a978a903730231cc70037e",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/figure_layout.json",
+      "original_collection": "figure2",
+      "original_relative_path": "figure_layout.json",
+      "original_sha256": "bcaad506136702ecb6a9322cf4ecee89a52bc5cfcc11b8a74cba747c83604c24",
+      "bytes_original": 445,
+      "role": "original small record",
+      "packaged_sha256": "bcaad506136702ecb6a9322cf4ecee89a52bc5cfcc11b8a74cba747c83604c24",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/final_verification.json",
+      "original_collection": "figure2",
+      "original_relative_path": "final_verification.json",
+      "original_sha256": "6ad12c395c942d3e2d72475fecd29456ff55ecea404750c2edc96cc59637f263",
+      "bytes_original": 1911,
+      "role": "original small record",
+      "packaged_sha256": "6ad12c395c942d3e2d72475fecd29456ff55ecea404750c2edc96cc59637f263",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/frozen_pairs.json",
+      "original_collection": "figure2",
+      "original_relative_path": "frozen_pairs.json",
+      "original_sha256": "17d71aa075226e1eedec49738144bc3f937908c1fdc258e7b3bba6b5e99e9ffd",
+      "bytes_original": 13776,
+      "role": "original small record",
+      "packaged_sha256": "17d71aa075226e1eedec49738144bc3f937908c1fdc258e7b3bba6b5e99e9ffd",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/frozen_pairs_final.json",
+      "original_collection": "figure2",
+      "original_relative_path": "frozen_pairs_final.json",
+      "original_sha256": "c2db6f61bc43d995e069c5204caba484af5b7425231a8ec2308d8b527dcba526",
+      "bytes_original": 22299,
+      "role": "original small record",
+      "packaged_sha256": "c2db6f61bc43d995e069c5204caba484af5b7425231a8ec2308d8b527dcba526",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/pair_evidence.json",
+      "original_collection": "figure2",
+      "original_relative_path": "pair_evidence.json",
+      "original_sha256": "55f8882d139bef350c850cedffe483eee52f30d30be597722cb15f990403a9f8",
+      "bytes_original": 593276,
+      "role": "original small record",
+      "packaged_sha256": "55f8882d139bef350c850cedffe483eee52f30d30be597722cb15f990403a9f8",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/paired_map_manuscript.tex",
+      "original_collection": "figure2",
+      "original_relative_path": "paired_map_manuscript.tex",
+      "original_sha256": "751640517f22d530cbbf601ba0f06d13fc7b29fa3829fc4b3f1bfe10a90ef4a3",
+      "bytes_original": 1940,
+      "role": "original small record",
+      "packaged_sha256": "751640517f22d530cbbf601ba0f06d13fc7b29fa3829fc4b3f1bfe10a90ef4a3",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/prepare_replay.py",
+      "original_collection": "figure2",
+      "original_relative_path": "prepare_replay.py",
+      "original_sha256": "f79412685076c867eb7cd628b398c3b45342a6e8666442acf753d99a6f8b34bf",
+      "bytes_original": 2286,
+      "role": "portable Python entrypoint",
+      "packaged_sha256": "6fbab7ef5a7315edc017e7b54b4efe89159bd5c3f38361fe677de69f18ab3a14",
+      "portable_entrypoint_modified": true
+    },
+    {
+      "path": "figure2/raw/candidate_checks.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/candidate_checks.csv",
+      "original_sha256": "2dba76a1ab31e77321f846796f74e99095ddb5fa4ed9518096a616e06d31a117",
+      "bytes_original": 795013,
+      "role": "original small record",
+      "packaged_sha256": "2dba76a1ab31e77321f846796f74e99095ddb5fa4ed9518096a616e06d31a117",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/controls.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/controls.csv",
+      "original_sha256": "a006d44c0371ffad7dcd48d2c6544e034f9082824a6ae57df67bc10dc960806c",
+      "bytes_original": 9448,
+      "role": "original small record",
+      "packaged_sha256": "a006d44c0371ffad7dcd48d2c6544e034f9082824a6ae57df67bc10dc960806c",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/map_summary.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/map_summary.csv",
+      "original_sha256": "f189878e214bc5323c7edbe661cca2989ace4468e6c4c687f1b9f637bb6c24e1",
+      "bytes_original": 309,
+      "role": "original small record",
+      "packaged_sha256": "f189878e214bc5323c7edbe661cca2989ace4468e6c4c687f1b9f637bb6c24e1",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/paths.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/paths.csv",
+      "original_sha256": "5a4015f76e59a38afcf4038e37a81bfc1883f21b4628e5887fe1b3f0359e6d8d",
+      "bytes_original": 2572825,
+      "role": "original small record",
+      "packaged_sha256": "5a4015f76e59a38afcf4038e37a81bfc1883f21b4628e5887fe1b3f0359e6d8d",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_culdesac_0_m0_geometry.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_culdesac_0_m0_geometry.csv",
+      "original_sha256": "86bdb313f7930bda52594a420cf9cc3c21095a2af6a0c0a528a7830c3968de02",
+      "bytes_original": 507,
+      "role": "original small record",
+      "packaged_sha256": "86bdb313f7930bda52594a420cf9cc3c21095a2af6a0c0a528a7830c3968de02",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_culdesac_0_m0_path.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_culdesac_0_m0_path.csv",
+      "original_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "bytes_original": 3155,
+      "role": "original small record",
+      "packaged_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_culdesac_0_m0_slice.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_culdesac_0_m0_slice.csv",
+      "original_sha256": "6c28f9b2aa6fd7d2c2a26a3b1cfb3c26ce1b30689b3c953563339e202eb8169f",
+      "bytes_original": 103695,
+      "role": "original small record",
+      "packaged_sha256": "6c28f9b2aa6fd7d2c2a26a3b1cfb3c26ce1b30689b3c953563339e202eb8169f",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_culdesac_0_m0_states.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_culdesac_0_m0_states.csv",
+      "original_sha256": "3bbffb80e2932088f34f3a36b9929d4dad349c39a3c05c43fa58f6d232cbb81f",
+      "bytes_original": 1830,
+      "role": "original small record",
+      "packaged_sha256": "3bbffb80e2932088f34f3a36b9929d4dad349c39a3c05c43fa58f6d232cbb81f",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_culdesac_0_m0_summary.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_culdesac_0_m0_summary.csv",
+      "original_sha256": "6afb494952f6ae77a61a2ebed9800b76001131f21c43690360cb075e38a56c31",
+      "bytes_original": 211,
+      "role": "original small record",
+      "packaged_sha256": "6afb494952f6ae77a61a2ebed9800b76001131f21c43690360cb075e38a56c31",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_culdesac_1_m0_geometry.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_culdesac_1_m0_geometry.csv",
+      "original_sha256": "4f436a1b4f2896fa495b2f5822c8702a2d026dc8190a5384531f125d260efbc2",
+      "bytes_original": 511,
+      "role": "original small record",
+      "packaged_sha256": "4f436a1b4f2896fa495b2f5822c8702a2d026dc8190a5384531f125d260efbc2",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_culdesac_1_m0_path.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_culdesac_1_m0_path.csv",
+      "original_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "bytes_original": 3155,
+      "role": "original small record",
+      "packaged_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_culdesac_1_m0_slice.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_culdesac_1_m0_slice.csv",
+      "original_sha256": "c8e8f3ed5f8c44fc95af0e4ee979e258b60bc2e81c8a493e4f4cf6aaef192301",
+      "bytes_original": 103438,
+      "role": "original small record",
+      "packaged_sha256": "c8e8f3ed5f8c44fc95af0e4ee979e258b60bc2e81c8a493e4f4cf6aaef192301",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_culdesac_1_m0_states.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_culdesac_1_m0_states.csv",
+      "original_sha256": "081e68664aa8b3b3ac54cadb899ea489348b6e3732e5f6ca93615c92e1a91462",
+      "bytes_original": 1844,
+      "role": "original small record",
+      "packaged_sha256": "081e68664aa8b3b3ac54cadb899ea489348b6e3732e5f6ca93615c92e1a91462",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_culdesac_1_m0_summary.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_culdesac_1_m0_summary.csv",
+      "original_sha256": "31457ff034f2844492c1e44beb448b4fc9aff1d7fb4714c5633e30de1e74a661",
+      "bytes_original": 211,
+      "role": "original small record",
+      "packaged_sha256": "31457ff034f2844492c1e44beb448b4fc9aff1d7fb4714c5633e30de1e74a661",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_forest_dense_1_m0_geometry.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_forest_dense_1_m0_geometry.csv",
+      "original_sha256": "fb7d2f26d148c5c3fed542355964f275b5fcdfac903dfd954544ead54d56166a",
+      "bytes_original": 15149,
+      "role": "original small record",
+      "packaged_sha256": "fb7d2f26d148c5c3fed542355964f275b5fcdfac903dfd954544ead54d56166a",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_forest_dense_1_m0_path.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_forest_dense_1_m0_path.csv",
+      "original_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "bytes_original": 3155,
+      "role": "original small record",
+      "packaged_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_forest_dense_1_m0_slice.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_forest_dense_1_m0_slice.csv",
+      "original_sha256": "d223bfeb52cb66998575d9f6035ab93cd06b42dfd0e7cfb3d70339f53d63ac55",
+      "bytes_original": 108535,
+      "role": "original small record",
+      "packaged_sha256": "d223bfeb52cb66998575d9f6035ab93cd06b42dfd0e7cfb3d70339f53d63ac55",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_forest_dense_1_m0_states.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_forest_dense_1_m0_states.csv",
+      "original_sha256": "2da0d7d86abbd72b629e32f59d189757a3a953b731f86ec0a49891eb7b92dc13",
+      "bytes_original": 1837,
+      "role": "original small record",
+      "packaged_sha256": "2da0d7d86abbd72b629e32f59d189757a3a953b731f86ec0a49891eb7b92dc13",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_forest_dense_1_m0_summary.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_forest_dense_1_m0_summary.csv",
+      "original_sha256": "e8002c24295dc1da68e1837831a6dcb5902475de94f41ef5dac91fd3909e2d1f",
+      "bytes_original": 219,
+      "role": "original small record",
+      "packaged_sha256": "e8002c24295dc1da68e1837831a6dcb5902475de94f41ef5dac91fd3909e2d1f",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_forest_sparse_0_m0_geometry.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_forest_sparse_0_m0_geometry.csv",
+      "original_sha256": "9f04db8724f5376d4f10c7b8bdf75eff2657a274e9aaceca02784ff7fb727c3e",
+      "bytes_original": 8076,
+      "role": "original small record",
+      "packaged_sha256": "9f04db8724f5376d4f10c7b8bdf75eff2657a274e9aaceca02784ff7fb727c3e",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_forest_sparse_0_m0_path.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_forest_sparse_0_m0_path.csv",
+      "original_sha256": "b648134417674e0ddb7ba2fb32ec1fc3cf75936c01d8e355d95f4e6e07448976",
+      "bytes_original": 39608,
+      "role": "original small record",
+      "packaged_sha256": "b648134417674e0ddb7ba2fb32ec1fc3cf75936c01d8e355d95f4e6e07448976",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_forest_sparse_0_m0_slice.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_forest_sparse_0_m0_slice.csv",
+      "original_sha256": "534bcdd6b5f5ec64f88f21e6fcc1c1698aa152929e13ac73a06195a310866c02",
+      "bytes_original": 114078,
+      "role": "original small record",
+      "packaged_sha256": "534bcdd6b5f5ec64f88f21e6fcc1c1698aa152929e13ac73a06195a310866c02",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_forest_sparse_0_m0_states.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_forest_sparse_0_m0_states.csv",
+      "original_sha256": "1187a29ed3859fbe54a461ec6b1bbe7c614bf9f2ecdc5f78d797432a0286166c",
+      "bytes_original": 3828,
+      "role": "original small record",
+      "packaged_sha256": "1187a29ed3859fbe54a461ec6b1bbe7c614bf9f2ecdc5f78d797432a0286166c",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_forest_sparse_0_m0_summary.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_forest_sparse_0_m0_summary.csv",
+      "original_sha256": "09927a38dd2c15f0f56f6abbd4023a7a4cf1084ad5d40aeeb41ec6ea27102a2b",
+      "bytes_original": 206,
+      "role": "original small record",
+      "packaged_sha256": "09927a38dd2c15f0f56f6abbd4023a7a4cf1084ad5d40aeeb41ec6ea27102a2b",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_staggered_0_m0_geometry.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_staggered_0_m0_geometry.csv",
+      "original_sha256": "c7ce437e2fcfcb6bad4ac463d332a5fca4f5f4a5cb52e9ad62b3fb06e1efa2fe",
+      "bytes_original": 286,
+      "role": "original small record",
+      "packaged_sha256": "c7ce437e2fcfcb6bad4ac463d332a5fca4f5f4a5cb52e9ad62b3fb06e1efa2fe",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_staggered_0_m0_path.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_staggered_0_m0_path.csv",
+      "original_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "bytes_original": 3155,
+      "role": "original small record",
+      "packaged_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_staggered_0_m0_slice.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_staggered_0_m0_slice.csv",
+      "original_sha256": "01d1819727fa0cc4b7943244188da5c438e59d71f0195f856ed921297b67c44b",
+      "bytes_original": 106295,
+      "role": "original small record",
+      "packaged_sha256": "01d1819727fa0cc4b7943244188da5c438e59d71f0195f856ed921297b67c44b",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_staggered_0_m0_states.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_staggered_0_m0_states.csv",
+      "original_sha256": "07973368bbc5a05096bf5bf0101142da4d634cbeddaa229683f602c01d259714",
+      "bytes_original": 1813,
+      "role": "original small record",
+      "packaged_sha256": "07973368bbc5a05096bf5bf0101142da4d634cbeddaa229683f602c01d259714",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_staggered_0_m0_summary.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_staggered_0_m0_summary.csv",
+      "original_sha256": "3342c369b4a4072a7722485047c2dcbe4360fc8d6162f6197d545806e6e34244",
+      "bytes_original": 213,
+      "role": "original small record",
+      "packaged_sha256": "3342c369b4a4072a7722485047c2dcbe4360fc8d6162f6197d545806e6e34244",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_wall_0_m0_geometry.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_wall_0_m0_geometry.csv",
+      "original_sha256": "3d76985361d99a7e26a732a721ef639c8b686514b6e266b40484fad567287f8a",
+      "bytes_original": 387,
+      "role": "original small record",
+      "packaged_sha256": "3d76985361d99a7e26a732a721ef639c8b686514b6e266b40484fad567287f8a",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_wall_0_m0_path.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_wall_0_m0_path.csv",
+      "original_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "bytes_original": 3155,
+      "role": "original small record",
+      "packaged_sha256": "8bda1daaf80168a6a51a187996d207609d414d58e9c56274e0935a48b316b35d",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_wall_0_m0_slice.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_wall_0_m0_slice.csv",
+      "original_sha256": "6454b3749e01702a7081d755372f04e7e3c2910612bbbbb0b859cdeebed97dff",
+      "bytes_original": 106093,
+      "role": "original small record",
+      "packaged_sha256": "6454b3749e01702a7081d755372f04e7e3c2910612bbbbb0b859cdeebed97dff",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_wall_0_m0_states.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_wall_0_m0_states.csv",
+      "original_sha256": "2615100398c3f867c7751a8c9506f126d45e8faa958ede40e727c513897afc97",
+      "bytes_original": 1833,
+      "role": "original small record",
+      "packaged_sha256": "2615100398c3f867c7751a8c9506f126d45e8faa958ede40e727c513897afc97",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/raw/val_wall_0_m0_summary.csv",
+      "original_collection": "figure2",
+      "original_relative_path": "raw/val_wall_0_m0_summary.csv",
+      "original_sha256": "6b724c01eb513cde1c810c00f590f1b4dca7a4234530e98a1026d93305ea8d41",
+      "bytes_original": 202,
+      "role": "original small record",
+      "packaged_sha256": "6b724c01eb513cde1c810c00f590f1b4dca7a4234530e98a1026d93305ea8d41",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/reproduce_selection.py",
+      "original_collection": "figure2",
+      "original_relative_path": "reproduce_selection.py",
+      "original_sha256": "9180ab08c73b209c7bc6b50b4673fef15bc6673146f2178f7485a6f3429eebd0",
+      "bytes_original": 2407,
+      "role": "portable Python entrypoint",
+      "packaged_sha256": "38efa1ab6570f0f79f72a273f9cb68e1a9297dcdc4bd20b6703d1062e7236856",
+      "portable_entrypoint_modified": true
+    },
+    {
+      "path": "figure2/run_replay.py",
+      "original_collection": "figure2",
+      "original_relative_path": "run_replay.py",
+      "original_sha256": "5899df2359ca7192477b10f29de19fb7f6dc7f1bfc337c4c51a1e72d629f4451",
+      "bytes_original": 1578,
+      "role": "portable Python entrypoint",
+      "packaged_sha256": "f10493b61af9041e07c358843ae9aafe28e3213807702f2b9ee0020414965223",
+      "portable_entrypoint_modified": true
+    },
+    {
+      "path": "figure2/selection_amendment.json",
+      "original_collection": "figure2",
+      "original_relative_path": "selection_amendment.json",
+      "original_sha256": "d8ce61dbe12035b588a5b04fe49122c0d8cb3f2e942b0ae07c3990715e37b566",
+      "bytes_original": 788,
+      "role": "original small record",
+      "packaged_sha256": "d8ce61dbe12035b588a5b04fe49122c0d8cb3f2e942b0ae07c3990715e37b566",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/selection_protocol.json",
+      "original_collection": "figure2",
+      "original_relative_path": "selection_protocol.json",
+      "original_sha256": "8f5e7f35839e56f770e1d49050a7f1e9f07cbb975a42cbed044e8645d04dbdf1",
+      "bytes_original": 1471,
+      "role": "original small record",
+      "packaged_sha256": "8f5e7f35839e56f770e1d49050a7f1e9f07cbb975a42cbed044e8645d04dbdf1",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/selection_reproduced.json",
+      "original_collection": "figure2",
+      "original_relative_path": "selection_reproduced.json",
+      "original_sha256": "bd8020f8a8b90241778f87ea45a1ef38213b1fda956f62c52419efe155eecfb8",
+      "bytes_original": 1970,
+      "role": "original small record",
+      "packaged_sha256": "bd8020f8a8b90241778f87ea45a1ef38213b1fda956f62c52419efe155eecfb8",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/source/validation_pair/evaluation_plant.h",
+      "original_collection": "figure2",
+      "original_relative_path": "source/validation_pair/evaluation_plant.h",
+      "original_sha256": "1fa3cedf03dbe77b2e82438d2878ef3121a5e38c90efcbc109c34aa87da38717",
+      "bytes_original": 3633,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "1fa3cedf03dbe77b2e82438d2878ef3121a5e38c90efcbc109c34aa87da38717",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/source/validation_pair/learned_recovery.h",
+      "original_collection": "figure2",
+      "original_relative_path": "source/validation_pair/learned_recovery.h",
+      "original_sha256": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929",
+      "bytes_original": 3130,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/source/validation_pair/observed_recovery_features.h",
+      "original_collection": "figure2",
+      "original_relative_path": "source/validation_pair/observed_recovery_features.h",
+      "original_sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+      "bytes_original": 1963,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/source/validation_pair/observed_scene.h",
+      "original_collection": "figure2",
+      "original_relative_path": "source/validation_pair/observed_scene.h",
+      "original_sha256": "2b9766387c573197646c333d6f40dd904ab5a9a2e6e27edcdcdb486e6224bd50",
+      "bytes_original": 6557,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "2b9766387c573197646c333d6f40dd904ab5a9a2e6e27edcdcdb486e6224bd50",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/source/validation_pair/pair.cpp",
+      "original_collection": "figure2",
+      "original_relative_path": "source/validation_pair/pair.cpp",
+      "original_sha256": "d5e4218d99d3b21d757b43487a8eb94a01e6b050ecde28665ce28807e670d8a5",
+      "bytes_original": 7345,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "d5e4218d99d3b21d757b43487a8eb94a01e6b050ecde28665ce28807e670d8a5",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/source/validation_pair/runtime_motion_primitives.h",
+      "original_collection": "figure2",
+      "original_relative_path": "source/validation_pair/runtime_motion_primitives.h",
+      "original_sha256": "8452a2e2b3ef52b1efbab276d177562b01300bed809c4f59e09b2259e900d839",
+      "bytes_original": 101878,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "8452a2e2b3ef52b1efbab276d177562b01300bed809c4f59e09b2259e900d839",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/source/validation_pair/runtime_sensor_map.h",
+      "original_collection": "figure2",
+      "original_relative_path": "source/validation_pair/runtime_sensor_map.h",
+      "original_sha256": "f3fb0541a553bb5c8a4732a5852280feca5cc8126ae04ee06eb80f782896a152",
+      "bytes_original": 8978,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "f3fb0541a553bb5c8a4732a5852280feca5cc8126ae04ee06eb80f782896a152",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/source/validation_pair/runtime_swept_geometry.h",
+      "original_collection": "figure2",
+      "original_relative_path": "source/validation_pair/runtime_swept_geometry.h",
+      "original_sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+      "bytes_original": 2660,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/source/validation_pair/sensor_occupancy_map.h",
+      "original_collection": "figure2",
+      "original_relative_path": "source/validation_pair/sensor_occupancy_map.h",
+      "original_sha256": "14c3215e374b6351c9d7a8f8907a3f322374fa1ae3b3d5418801cec36df27508",
+      "bytes_original": 16686,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "14c3215e374b6351c9d7a8f8907a3f322374fa1ae3b3d5418801cec36df27508",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/source/validation_pair/urban_box_geometry.h",
+      "original_collection": "figure2",
+      "original_relative_path": "source/validation_pair/urban_box_geometry.h",
+      "original_sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+      "bytes_original": 1333,
+      "role": "original C++ instrument source",
+      "packaged_sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/source_manifest.json",
+      "original_collection": "figure2",
+      "original_relative_path": "source_manifest.json",
+      "original_sha256": "7ca4b5a27cafb1ca273e4f60eb7dff6e451397aefe0de0aa7c7df0f67e17a98e",
+      "bytes_original": 1574,
+      "role": "original small record",
+      "packaged_sha256": "7ca4b5a27cafb1ca273e4f60eb7dff6e451397aefe0de0aa7c7df0f67e17a98e",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "figure2/verify.py",
+      "original_collection": "figure2",
+      "original_relative_path": "verify.py",
+      "original_sha256": "9868c6e374f932f988497ffb63a2ff060f1fd14c40e6fab6590be0007f987080",
+      "bytes_original": 6240,
+      "role": "portable Python entrypoint",
+      "packaged_sha256": "a713ec40755a21e3847878258c3d004249839a4dd920d5ce9a0c3922ed1a84a0",
+      "portable_entrypoint_modified": true
+    },
+    {
+      "path": "mechanisms/original_methods.tsv",
+      "original_collection": "mechanisms",
+      "original_relative_path": "methods.tsv",
+      "original_sha256": "09a40d9219badc2807541b4930aae355a795bfd9fc9515a9273274fa2f28f74d",
+      "bytes_original": 653,
+      "role": "unaltered historical model specification",
+      "packaged_sha256": "09a40d9219badc2807541b4930aae355a795bfd9fc9515a9273274fa2f28f74d",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/pair/urban_box_geometry.h",
+      "original_collection": "evidence_recovered",
+      "original_relative_path": "source/procedural/urban_box_geometry.h",
+      "original_sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+      "bytes_original": 1333,
+      "role": "recovered C++ include dependency",
+      "packaged_sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/pair/runtime_swept_geometry.h",
+      "original_collection": "evidence_recovered",
+      "original_relative_path": "source/procedural/runtime_swept_geometry.h",
+      "original_sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+      "bytes_original": 2660,
+      "role": "recovered C++ include dependency",
+      "packaged_sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/urban/urban_box_geometry.h",
+      "original_collection": "evidence_recovered",
+      "original_relative_path": "source/procedural/urban_box_geometry.h",
+      "original_sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+      "bytes_original": 1333,
+      "role": "recovered C++ include dependency",
+      "packaged_sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+      "portable_entrypoint_modified": false
+    },
+    {
+      "path": "mechanisms/source/urban/runtime_swept_geometry.h",
+      "original_collection": "evidence_recovered",
+      "original_relative_path": "source/procedural/runtime_swept_geometry.h",
+      "original_sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+      "bytes_original": 2660,
+      "role": "recovered C++ include dependency",
+      "packaged_sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+      "portable_entrypoint_modified": false
+    }
+  ],
+  "note": "All original C++ files, manifests and small records are byte-identical. Only Python entrypoints were adapted; both hashes are retained.",
+  "modified_python_entrypoints": [
+    "mechanisms/build.py",
+    "mechanisms/create_figures.py",
+    "mechanisms/replace_architecture_fonts.py",
+    "mechanisms/reproduce_feature_ambiguity.py",
+    "mechanisms/run_mechanisms.py",
+    "mechanisms/verify.py",
+    "figure2/create_figure.py",
+    "figure2/prepare_replay.py",
+    "figure2/reproduce_selection.py",
+    "figure2/run_replay.py",
+    "figure2/verify.py"
+  ]
+}

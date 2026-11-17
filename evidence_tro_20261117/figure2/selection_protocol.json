@@ -1,0 +1,10 @@
+{
+  "version": "2026-11-17-fig2-v1",
+  "purpose": "Additional paired observed-map mechanism examples; not model selection or changes to validation statistics",
+  "preserved_group": {"packed_rows": [48, 66005], "cases": ["val_culdesac_0_m0", "val_staggered_0_m0"], "candidate": 69},
+  "additional_family_pairs_in_order": [["wall", "spatial"], ["forest_sparse", "forest_dense"]],
+  "selection_rule": "For each fixed family pair, traverse the first family's original packed validation row order; select the first row having an opposite label in the other family with exactly equal query time, recorded raw state, primary library ID and 28 state/task features; take the earliest matching packed row in the second family. Exclude physical scenes already selected in earlier groups. Preserve the original first group. If any pair has no match, report it without changing the rule.",
+  "raw_state_fields": ["x", "y", "h", "V", "gamma", "heading", "roll", "attack", "thrust"],
+  "strict_replay_requirements": ["same goal", "same quaternion and yaw rate", "identical complete primary state sequence", "identical primary command and all 15 successor commands", "all feature/label/work/reason rows agree exactly with the original packed validation labels"],
+  "presentation": "Three rows, two distinct observed maps per row, and 15-control outcome evidence. Keep validation population 767 inputs / 517 Full-positive unchanged. No selection based on learned prediction advantage."
+}

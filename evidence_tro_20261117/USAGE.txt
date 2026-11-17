@@ -1,0 +1,73 @@
+TRO experiment and figure tooling, 2026-11-17
+============================================
+
+This package contains code and small evidence records for the nine new urban
+flights, mechanism replays, the illustrated architecture (Figure 1), and the
+three-pair observed-map comparison (Figure 2). It does not contain the complete
+manuscript or the large raw sensor archives. Figure 8 is unchanged.
+
+Original C++ evaluators, final compact models, training/selection records,
+main-result tables and paired-bootstrap analysis are in ../evidence_recovered.
+The independent NumPy reconstruction is in ../reconstruction.
+
+1. Nine new urban flights
+
+urban-repeats/protocol.json freezes the original three cyclic-order blocks.
+complete.json and analysis_summary.json retain all nine outcomes; per_run_summary.csv
+and aggregate.csv contain the flight-level and method-level statistics. These
+flights are a separate sample from the three original city acquisitions.
+Historical records retain exact hashes and original machine paths as provenance.
+
+To analyze a relocated raw campaign, install NumPy and run from the repository root:
+
+  python3 evidence_tro_20261117/urban-repeats/analyze_repeats.py \
+      --base /path/to/raw/urban-repeats --output /path/to/new/analysis
+
+The raw directory must include protocol.json, complete.json, and all nine
+block directories with observations, telemetry, summaries and mesh audits.
+Use --path-map paths.json if the files listed in protocol.json have moved.
+The JSON object maps each original absolute path to its current location;
+content hashes must still match. Analyses write to a new output directory.
+The packaged CLI was rerun against all nine acquisitions: per-run statistics,
+aggregates and notes match the archived analysis exactly.
+
+To acquire another campaign, first restore and build the original ROS system
+with its Gazebo scene and models; see ../evidence_recovered/ROS_RESTORATION_PLAN.json.
+The NumPy reconstruction and the repository's historical ROS files alone are
+not substitutes for this runtime. Source the ROS Noetic/catkin environment, then:
+
+  python3 evidence_tro_20261117/urban-repeats/run_campaign.py \
+      --runtime-repo /path/to/restored/ros/repository \
+      --catkin-workspace /path/to/catkin/workspace \
+      --truth-mesh /path/to/city_collision_mesh.npz \
+      --output /path/to/new/campaign --plan-only
+
+The plan checks all required files and prints nine commands without launching
+ROS or creating output files. Remove --plan-only to execute. --resume accepts
+only the same frozen protocol and retains all recorded outcomes. Partial or
+infrastructure-failed acquisitions require inspection before continuation.
+The default model is the packaged original selected_obs_bce.txt. The independent
+physical mesh is used for evaluation; planning receives the observed sensor map.
+
+2. Mechanism and paired-map replay
+
+mechanisms/ and figure2/ preserve the original C++ instrumentation, small CSV
+outputs and provenance. Their Python entry points accept explicit output paths
+and external archive roots. Use --help for each command and the directory's
+reproduction instructions. The large validation arrays, scan streams and
+compiled binaries are not distributed in this package.
+
+3. Figures
+
+figure1/README.md explains rendering the architecture from the two bundled
+project simulation crops. figure2/ contains the paired-map replay and plot
+scripts. Times New Roman must be installed or supplied with --font-dir;
+licensed font files are not redistributed. Generated PDFs/SVGs are written to
+an output directory and do not modify the manuscript.
+
+4. Integrity
+
+MANIFEST.json hashes the packaged files. COPY_PROVENANCE.json preserves original
+copy provenance; adapted portable entry points can differ from original scripts.
+Archived result records remain unchanged. This code branch does not replace the
+separately delivered LaTeX manuscript.

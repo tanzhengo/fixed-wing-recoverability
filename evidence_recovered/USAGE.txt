@@ -1,0 +1,152 @@
+Recovered original evidence for the unknown-environment manuscript
+================================================================
+
+This directory preserves the original experiment implementation and records
+recovered on 2026-11-17. It is separate from ../reconstruction, the later NumPy
+reference implementation. A reconstruction smoke model is never substituted
+for the original Selected model. No original records are regenerated here.
+
+1. Included evidence
+
+  source/procedural: exact frozen evaluator, its scene generator and C++ headers.
+  source/forest: exact 600 m evaluator with 100/200/300 nested-tree scenes.
+  source/urban_replay/{current,instrumented,frozen}: exact replay source variants.
+  source/ros_recorded: sources hashed by the three new-city flight manifests.
+  source/training: original trainers and dataset/export helpers.
+  models: three final compact exports and historical V1/compact comparator exports.
+  metadata/training: all nine original training manifests and epoch histories.
+  metadata/original: original protocol, selection, parity and provenance files.
+  tables: all main-result tables, query repeats, budget sweeps and fixed failure logs.
+
+COPIED_FILES.json records relative source paths, exact sizes and SHA-256 hashes.
+Original metadata are byte-exact and may contain historical absolute paths;
+portable entry points in this directory do not use those paths to locate data.
+EXTERNAL_ARTIFACTS.json identifies large archives and datasets not bundled here.
+Its paths are relative to the caller-supplied historical artifact root. A T7 copy
+can be supplied with --artifact-root or --raw-root; no fixed disk path is needed.
+
+2. Selected model and experiment lineage
+
+Selected uses models/selected_obs_bce.txt: 58-64-32-1 compact inference,
+training seed 20261103, checkpoint epoch 23, learned_coverage lambda_c=0.75.
+Obs+Aux uses models/obs_aux.txt (seed 20261101, epoch 33).
+Aligned State+Aux uses models/aligned_state_aux.txt (seed 20261102, epoch 9).
+The training networks have an auxiliary output; only the feasibility output is
+exported for runtime. The legacy 103-input model is a historical comparator.
+
+The authoritative final selection is
+metadata/original/evaluation/validation_selection.json, after the documented
+pre-test amendment in training/selection_resolution.json. Initial protocol and
+preliminary selection records are retained for provenance, not used to override
+the final selected configuration. Selection used 176 validation episodes;
+formal test cases did not select weights or lambda_c.
+
+Procedural CSV: retain all 128 map-condition tasks per method, clustering the
+four conditions by their 32 physical maps. The same original CSV also contains
+144 historical 40/80-tree rows; analyze.py excludes those from the final forest
+benchmark. Final forests are the separate 120-row forest600_episodes.csv.
+
+Urban matched replay: the paper's Diverse is the internal DiversePruned row,
+and optimized Legacy is V2_DeferredPruned. Each of 123 inputs has three quiet
+CPU timing repeats; repeated timings are collapsed within input, not counted
+as extra tasks. Instrumented component timings are a separate pass. The
+three city-flight rows are separate acquisitions with ROS simulation clocks.
+
+3. Recompute all main results and paired uncertainty (no ROS needed)
+
+From the repository root, using any Python 3 environment with NumPy:
+
+  python3 -m pip install -r evidence_recovered/requirements-analysis.txt
+  python3 evidence_recovered/verify.py
+  python3 evidence_recovered/analyze.py --out /your/output/analysis
+
+Outputs are main_results.json and paired_uncertainty.json. The latter applies
+20,000 paired percentile bootstrap draws, fixed seed 20261117, retaining all
+four execution conditions inside each sampled procedural map. Forest layouts
+are paired across density levels. Common-completion populations and their n
+are reported explicitly, alongside all-task work and completion differences.
+The common-completion work statistic is a ratio of mean cumulative successor
+steps, not a mean of per-task percentage reductions. No task is silently dropped.
+
+The fixed failure case is prescribed culdesac index 0, seed 1321000, nominal
+condition. Logs retain true simulation times, planning calls, paths, primary
+counts and successor work. Calls are not interpreted as flight duration.
+Per-candidate occupied/unknown/envelope rejection reasons are not in these logs.
+
+4. Compile the original C++ evaluators
+
+Dependencies: C++14 compiler, ROS Noetic (roscpp, tf and standard message
+packages), Eigen3, pkg-config. On Ubuntu, source the installed ROS environment:
+
+  source /opt/ros/noetic/setup.bash
+  python3 evidence_recovered/build.py --out /your/output/build \
+      --targets procedural forest urban_current urban_instrumented urban_frozen
+
+No existing ROS workspace files are replaced. Separate source directories are
+intentional: procedural freeze, replay instrumentation and city runtime have
+different hashes. Do not collapse them by filename. build.py records newly
+compiled binary hashes; compiler/platform differences can change binary hashes.
+
+5. Rerun closed-loop suites into fresh directories
+
+Start roscore in another terminal (or use an existing test master). Then:
+
+  python3 evidence_recovered/run_closed_loop.py procedural \
+      --build /your/output/build --out /your/output/procedural --workers 4
+  python3 evidence_recovered/run_closed_loop.py forest \
+      --build /your/output/build --out /your/output/forest --workers 4
+  python3 evidence_recovered/run_closed_loop.py failure_case \
+      --build /your/output/build --out /your/output/failure
+
+Use --master to specify a dedicated ROS master. Use --methods Selected Diverse
+for a subset, or --plan-only to inspect commands without starting evaluation.
+Fresh output is required, so archived data cannot be overwritten accidentally.
+The original 1296-case suite took about 297 s with six workers; the final
+120-case forest suite about 556 s with four workers on the recorded machine.
+These are historical wall times, not promises for another host.
+
+The 123-query replay additionally needs the archived observation inputs in
+EXTERNAL_ARTIFACTS.json. With ROS sourced and roscore running:
+
+  python3 evidence_recovered/run_urban_replay.py \
+      --inputs-root /your/artifact-root/work/restore_experiment_evidence/unknown_replay \
+      --build /your/output/build --out /your/output/query-replay --mode current
+
+Use --mode instrumented for the separate component timing pass; use
+--budget-grid for the original six K settings. Use --cpu N to pin the process
+to an available logical CPU for a quiet timing pass. --plan-only verifies input
+hashes and prepares commands without launching ROS evaluation. Relative model
+paths in the generated TSV also support repository paths containing spaces.
+
+All nine original training runs can be regenerated from the full training
+arrays and state tables using the parameterized original trainer:
+
+  python3 evidence_recovered/source/training/train_observed_recovery.py \
+      --data /your/artifact-root/work/reviewer_revision_20261101/training/dataset \
+      --output /your/output/retrained --epochs 60 --batch-size 2048 --threads 2
+
+Training additionally requires PyTorch; use the version recorded in
+metadata/original/training/models/training_protocol.json. The retained initial
+trainer description of downstream selection is superseded by the final
+validation_selection.json and pre-test selection_resolution.json. Rerunning
+training creates new outputs and does not replace original weights. The other
+archived collection/pipeline helpers retain their historical paths; use the
+portable entry points above for compiled evaluation and frozen table analysis.
+
+The lightweight package supports complete table reanalysis and exact frozen
+closed-loop evaluator reruns without downloading the large raw datasets.
+
+6. Verify full archives when available
+
+  python3 evidence_recovered/verify.py --artifact-root /your/historical/workspace \
+      --require-external --out /your/output/external_hash_check.json
+
+Alternatively --raw-root may contain the listed relative paths or files with
+unique basenames. Shared basenames (e.g., each run's poses.csv) must preserve
+relative paths. Large archive SHA-256 references are in EXTERNAL_ARTIFACTS.json.
+
+ROS_RESTORATION_PLAN.json maps recorded source files to their original branch
+paths, with old-branch and recorded hashes. It is a reviewable plan only: no old
+ROS file has been overwritten. Keep the existing CMake/package metadata, model
+meshes and Gazebo dependencies when integrating these sources. This package
+contains simulation evidence and does not claim hardware flight validation.

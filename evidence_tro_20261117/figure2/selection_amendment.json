@@ -1,0 +1,6 @@
+{
+  "reason": "The prespecified wall-spatial family pair contains no strict opposite-label match.",
+  "preserve": "Original group 1 and the first forest_sparse-forest_dense match from protocol v1; retain the no-match result.",
+  "fallback_rule": "For missing group 2, inspect family pairs involving wall or spatial, followed by the other pairs, using lexicographic tuple order within each category. Select the first family pair with a strict match after excluding all four physical scene IDs already reserved for groups 1 and 3; select the first packed row and earliest opposite-label match as in protocol v1. The complete family-pair eligibility counts are retained.",
+  "no_result_changes": "No validation population, labels, model selection or historical experiment results change."
+}

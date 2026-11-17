@@ -1,0 +1,42 @@
+{
+  "frozen_evaluation_root": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/evaluation",
+  "files": {
+    "runtime_motion_primitives.h": {
+      "source": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/evaluation/runtime_motion_primitives.h",
+      "sha256": "87aaf61c659fd2e05e7694ba4e3e6dc0a77cc85bb037b7fe7fca86377c297fdd"
+    },
+    "runtime_sensor_map.h": {
+      "source": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/evaluation/runtime_sensor_map.h",
+      "sha256": "f3fb0541a553bb5c8a4732a5852280feca5cc8126ae04ee06eb80f782896a152"
+    },
+    "sensor_occupancy_map.h": {
+      "source": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/evaluation/sensor_occupancy_map.h",
+      "sha256": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18"
+    },
+    "learned_recovery.h": {
+      "source": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/evaluation/learned_recovery.h",
+      "sha256": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448"
+    },
+    "observed_recovery_features.h": {
+      "source": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/evaluation/observed_recovery_features.h",
+      "sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4"
+    },
+    "evaluation_plant.h": {
+      "source": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/evaluation/evaluation_plant.h",
+      "sha256": "1fa3cedf03dbe77b2e82438d2878ef3121a5e38c90efcbc109c34aa87da38717"
+    },
+    "urban_box_geometry.h": {
+      "source": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h",
+      "sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e"
+    },
+    "runtime_swept_geometry.h": {
+      "source": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h",
+      "sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d"
+    }
+  },
+  "modified_harness": [
+    "observed_scene.h",
+    "benchmark.cpp"
+  ],
+  "changes": "Fixed 600 m forest target; 100/200/300 nested trees with 33 shared bushes and proportional timeout; additional metadata and dropped-capacity reporting; unchanged prediction, sensors, planner and execution policies."
+}

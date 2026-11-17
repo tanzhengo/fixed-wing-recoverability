@@ -1,0 +1,100 @@
+{
+  "authoritative_final_selection": "evaluation/validation_selection.json, authorized by evaluation/validation_freeze_release.json before evaluation/test_protocol.json",
+  "deployment": {
+    "score_variant": "Obs+BCE",
+    "training_seed": 20261103,
+    "scheduler": "learned_coverage",
+    "coverage_weight": 0.75,
+    "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+    "model_sha256": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+    "inference_architecture": [
+      58,
+      64,
+      32,
+      1
+    ]
+  },
+  "observed_coverage_baseline_alpha": 0.25,
+  "selection_stages": [
+    {
+      "stage": "Checkpoint selection",
+      "rule": "minimum validation BCE for each of three variants and three training seeds",
+      "record": "training/models/training_protocol.json"
+    },
+    {
+      "stage": "Per-variant seed selection",
+      "rule": "pure-learned validation query recall@K12; then mean continuation steps, BCE, numerical seed",
+      "record": "training/models/validation/selected.json",
+      "scope": "Provides three candidate score-model seeds. Its proposed_model and diagnostic_query_* aliases are preliminary, not the final deployed scheduler."
+    },
+    {
+      "stage": "Initial auxiliary-model schedule validation",
+      "episodes": 112,
+      "record": "evaluation/initial_aux_validation/validation_selection.json",
+      "status": "Retained historical stage, superseded by expanded validation."
+    },
+    {
+      "stage": "Before-test protocol amendment",
+      "record": "revision_protocol.json",
+      "section": "amendments",
+      "reason": "Include the validation-selected BCE score model alongside the auxiliary score model; select the score-loss variant empirically on validation."
+    },
+    {
+      "stage": "Final closed-loop validation",
+      "episodes": 176,
+      "record": "evaluation/validation_selection.json",
+      "rule": "max completed episodes; min mean of episode-mean backup steps per update; smaller alpha; BCE for exact model tie"
+    },
+    {
+      "stage": "Freeze release before test",
+      "record": "evaluation/validation_freeze_release.json",
+      "test_used_for_selection": false
+    }
+  ],
+  "artifact_sha256": {
+    "training/models/training_protocol.json": "0c23f083c827cc7be08d9c71058bb64e9db58b29f73ea45adfde823e00355cac",
+    "training/models/validation/selected.json": "613f82e7a695ac3413f161e46ab95325c565603c95f32325a2d49d9c47dcbad2",
+    "evaluation/initial_aux_validation/validation_selection.json": "002810025e2919b7e915351c14cfe5bdf370a68abff6ee5c9126c783436479d5",
+    "revision_protocol_initial.json": "45bf9f7560b4e9fbd19312457d0d2c8d66b50770356adbe7bfd9b49dd4a043f6",
+    "revision_protocol.json": "9eaa301888db4406e5709ed2bf03a215edd0ccc02ae3175dcdb0594159505a70",
+    "evaluation/validation_protocol.json": "584ed642e04cb9e5e3b556bed3b66d70e47a10369fc51a45491e3a149ada25ed",
+    "evaluation/validation_selection.json": "8282b38d58021c1f27cc5de23da365086ae41c631b7c658b61ef2a986b854eb5",
+    "evaluation/validation_freeze_release.json": "8ae36bce823d41f753402c4ab1b96e4a563dfb3883ab35c3aea2dacd09764be4",
+    "evaluation/test_protocol.json": "d7ffb75d4cc874e7b730fd12dca26af58638f4962c7668d0ac2ab298dc3b9b45",
+    "infrastructure_restart/restart.json": "e90d42b1f51583baf1546e1079222e071a73d565537347977413092db5d43cfb",
+    "infrastructure_restart/replay_parity.json": "806415dbc1b87cd08c80aa0c890fb3fffeee6be44ac135d3c3971133070d0a5a",
+    "analysis/execution_integrity.json": "8c3b5e354d1a01f3e2f8efcfd54fe27a45ee481780c0b7a63508026b1eb98fc3",
+    "evaluation/test_episodes.csv": "6b559220900e0b62765b94313006525fd2ac90ffe9ef649afd59e1dd388a6d7e",
+    "analysis/test_analysis.json": "08a5ba66a25a67148eb9c6c6288a27edf50f137b1b80b22b9ca79163ed75eee1"
+  },
+  "actual_training_script": {
+    "path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/source/train_observed_recovery.py",
+    "sha256": "1c0276af7d2535c9331ae167c58338d246ced78ef7923ec89b2d41302b6551f7",
+    "matches_recorded_training_script_sha256": true,
+    "dependency": {
+      "path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/source/train_recovery_network.py",
+      "sha256": "e9dd623a098af8c4b29867ebb2188284fcc11621d65e74a832c25c5799766452"
+    }
+  },
+  "future_trainer_description": {
+    "path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/train_observed_recovery.py",
+    "sha256": "03311bf6c509e07ce0855e3f305bd5c12f51e5f6485149d62bd7f5412fca45c6",
+    "change": "Selection metadata now delegates final score-loss variant and scheduler choice to external closed-loop validation. Optimizer, model, losses, and checkpoint code are unchanged."
+  },
+  "historical_reports_rewritten": false,
+  "freeze_before_test": true,
+  "prior_attempt_artifact_sha256": [
+    {
+      "artifact": "evaluation/test_protocol.json",
+      "sha256": "0baca3baf13c38bcf5918d23332f0f9a16ed2571a9a78e11eb8a049c625826ee",
+      "reason": "Protocol metadata regenerated after infrastructure-only ROS master restart"
+    }
+  ],
+  "execution_completion": {
+    "raw_method_task_runs": 1296,
+    "distinct_method_task_runs": 1296,
+    "replayed_infrastructure_cases": 14,
+    "replay_path_outcome_work_exact_parity": true,
+    "all_execution_path_and_scene_integrity_checks_passed": true
+  }
+}

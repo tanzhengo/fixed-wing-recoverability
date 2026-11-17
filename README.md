@@ -1,5 +1,28 @@
 # fixed-wing-recoverability
 
+## TRO 实验代码与 Ubuntu 接续（2026-11-17）
+
+工作分支：`codex/tro-revision-2026-11-17`；基于 `codex/manuscript-reconstruction-2026-11-12`。
+
+本分支现在区分两套实现与证据：
+
+- [恢复的原始未知环境实现与证据](evidence_recovered/USAGE.txt)：原 C++/ROS 源码快照、58 维正式模型、九次训练与选模记录、程序化/森林/城市查询表，以及可移植重算与编译入口。原始大体积档案的哈希另行列出。主文结果已从原记录独立重算，与稿件数值一致。
+- [本轮 TRO 实验与绘图代码](evidence_tro_20261117/USAGE.txt)：九次城市重复飞行的运行和分析入口、延续验证机制复放，以及 Figure 1 架构图和 Figure 2 配对地图的生成代码。原始大体积传感器记录保留在外部档案中。
+- [Python/NumPy 参考实现](reconstruction/README.txt)：依据稿件重建的独立实现。Ubuntu 指南第 3–7 节已实际执行，76 项软件检查通过，标注、训练、查询重放和短数值回合完成；短回合结果为 `time_limit`，不是任务完成。记录见 [Ubuntu 检查摘要](reconstruction/validation/ubuntu_20261117_summary.json)。
+
+两套实现都保留三状态观测地图、58 维输入、主轨迹与延续时域均为 3 s、K=12、最多 406 条主候选及 15 个后继控制。新的 smoke 模型不替代正式 Selected。下方 `paper/main.tex` 仍为历史稿。
+
+```bash
+python3 evidence_recovered/verify.py
+python3 evidence_recovered/analyze.py --help
+```
+
+参考实现的环境和完整运行步骤见 [Ubuntu 指南](reconstruction/UBUNTU_GUIDE.md)；ROS 适配边界见 [接口约定](reconstruction/ros/INTEGRATION_CONTRACT.txt)。既有目录和原始检查记录均保留。新增重复飞行和机制分析使用独立目录，不覆盖历史回合。
+
+## 历史实现与实验档案
+
+以下保留原仓库的实现说明与实验记录；其中的模型选择、性能数字和 ROS 入口对应历史版本，不是本次重建的验证结果。
+
 固定翼运动基元规划中的**学习引导终端延续验证调度**。网络预测有限控制库中的延续可行性，在候选数或积分步预算内分配显式检查。
 
 **论文：** [修订版 PDF](paper/main.pdf) · [唯一主文件 main.tex](paper/main.tex)

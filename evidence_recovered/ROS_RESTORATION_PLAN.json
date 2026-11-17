@@ -1,0 +1,358 @@
+{
+  "status": "plan_only_no_existing_ROS_files_changed",
+  "note": "These source files were hashed by the three new-city run manifests. This list is not a complete standalone ROS installation: retain existing package CMake/package metadata, model meshes, and Gazebo dependencies. evaluation_plant and runtime variants differ from the procedural freeze; never merge by filename alone.",
+  "files": [
+    {
+      "target_repo_path": "motion_primitives_planning/launch/config/task_end_city_dense.yaml",
+      "package_source": "source/ros_recorded/motion_primitives_planning/launch/config/task_end_city_dense.yaml",
+      "recorded_sha256": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+      "current_branch_sha256": "1f0e8b7da0971665be693a3a5207b3e09ab5b014291910794ee4fda6ae60e490",
+      "action": "replace_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/scripts/run_unknown_city.py",
+      "package_source": "source/ros_recorded/motion_primitives_planning/scripts/run_unknown_city.py",
+      "recorded_sha256": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+      "current_branch_sha256": null,
+      "action": "add_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch",
+      "package_source": "source/ros_recorded/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch",
+      "recorded_sha256": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+      "current_branch_sha256": null,
+      "action": "add_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/launch/terminal_recovery.launch",
+      "package_source": "source/ros_recorded/motion_primitives_planning/launch/terminal_recovery.launch",
+      "recorded_sha256": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+      "current_branch_sha256": "b928b414b2ae8d3815fe932c28948f61002b213389af52a53834b7ef8ec023b1",
+      "action": "replace_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/launch/motion_primitives_test.launch",
+      "package_source": "source/ros_recorded/motion_primitives_planning/launch/motion_primitives_test.launch",
+      "recorded_sha256": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+      "current_branch_sha256": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+      "action": "already_identical",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro",
+      "package_source": "source/ros_recorded/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro",
+      "recorded_sha256": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+      "current_branch_sha256": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+      "action": "already_identical",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world",
+      "package_source": "source/ros_recorded/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world",
+      "recorded_sha256": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+      "current_branch_sha256": "934d40f956160ac9cf0d982590ef63ca990b1f6cc928f8bb9fa336925a810987",
+      "action": "replace_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/evaluation_plant.h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/evaluation_plant.h",
+      "recorded_sha256": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+      "current_branch_sha256": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+      "action": "preserve_archive_only",
+      "integration_role": "historical source retained for provenance; not required by RuntimeMotionPrimitives include closure"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/learned_recovery.h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/learned_recovery.h",
+      "recorded_sha256": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+      "current_branch_sha256": "fb9c0cec3ed0acbf67423ecc4f5b970751f66fc7db0fd80d0fc09110140f1929",
+      "action": "replace_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/learned_recovery_revision.h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/learned_recovery_revision.h",
+      "recorded_sha256": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+      "current_branch_sha256": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+      "action": "preserve_archive_only",
+      "integration_role": "historical source retained for provenance; not required by RuntimeMotionPrimitives include closure"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/motion_primitives (copy).h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/motion_primitives (copy).h",
+      "recorded_sha256": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+      "current_branch_sha256": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+      "action": "preserve_archive_only",
+      "integration_role": "historical source retained for provenance; not required by RuntimeMotionPrimitives include closure"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/motion_primitives.h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/motion_primitives.h",
+      "recorded_sha256": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+      "current_branch_sha256": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+      "action": "preserve_archive_only",
+      "integration_role": "historical source retained for provenance; not required by RuntimeMotionPrimitives include closure"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/observed_recovery_features.h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/observed_recovery_features.h",
+      "recorded_sha256": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+      "current_branch_sha256": null,
+      "action": "add_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/review_motion_primitives.h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/review_motion_primitives.h",
+      "recorded_sha256": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+      "current_branch_sha256": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+      "action": "preserve_archive_only",
+      "integration_role": "historical source retained for provenance; not required by RuntimeMotionPrimitives include closure"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/runtime_motion_primitives.h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/runtime_motion_primitives.h",
+      "recorded_sha256": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+      "current_branch_sha256": "b68253477f351711dcb3db7f7a1ee81ab5389452aafac3ec3032546c8aaf35dc",
+      "action": "replace_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/runtime_sensor_map.h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/runtime_sensor_map.h",
+      "recorded_sha256": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+      "current_branch_sha256": null,
+      "action": "add_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/runtime_swept_geometry.h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/runtime_swept_geometry.h",
+      "recorded_sha256": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+      "current_branch_sha256": null,
+      "action": "add_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/sensor_occupancy_map.h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/sensor_occupancy_map.h",
+      "recorded_sha256": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+      "current_branch_sha256": null,
+      "action": "add_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/urban_box_geometry.h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/urban_box_geometry.h",
+      "recorded_sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+      "current_branch_sha256": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+      "action": "already_identical",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/urban_motion_primitives.h",
+      "package_source": "source/ros_recorded/motion_primitives_planning/src/urban_motion_primitives.h",
+      "recorded_sha256": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+      "current_branch_sha256": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+      "action": "preserve_archive_only",
+      "integration_role": "historical source retained for provenance; not required by RuntimeMotionPrimitives include closure"
+    },
+    {
+      "target_repo_path": "simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp",
+      "package_source": "source/ros_recorded/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp",
+      "recorded_sha256": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+      "current_branch_sha256": "489f61b4e5f921e25456d987ed4351af878f75ae0d98504b71a26b21ce7c5fb6",
+      "action": "replace_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h",
+      "package_source": "source/ros_recorded/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h",
+      "recorded_sha256": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+      "current_branch_sha256": null,
+      "action": "add_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/scripts/collision_mesh_truth.py",
+      "package_source": "source/ros_recorded/motion_primitives_planning/scripts/collision_mesh_truth.py",
+      "recorded_sha256": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd",
+      "current_branch_sha256": null,
+      "action": "add_after_review",
+      "integration_role": "recorded runtime, sensor, launch, or scene dependency"
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/src/motion_primitives_test.cpp",
+      "package_source": "source/ros_support/motion_primitives_planning/src/motion_primitives_test.cpp",
+      "recovered_sha256": "24b6df70b78c0f31289cba719912ebbbb84512641fe3b22ea818db5dd6e3d1fb",
+      "current_branch_sha256": "24b6df70b78c0f31289cba719912ebbbb84512641fe3b22ea818db5dd6e3d1fb",
+      "action": "already_identical",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/CMakeLists.txt",
+      "package_source": "source/ros_support/motion_primitives_planning/CMakeLists.txt",
+      "recovered_sha256": "bd777bf58c37c0a643911fe853cddf344939790a0e9340a9e7b96b28c1ebde4b",
+      "current_branch_sha256": "10c3858111aad74adcbf7123bb9cb18f385af122373104b4142e9bfa0bb716cc",
+      "action": "review_build_support_diff",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/package.xml",
+      "package_source": "source/ros_support/motion_primitives_planning/package.xml",
+      "recovered_sha256": "99662d992eb3d1a626cb26dd7878688e0e9e489bcae5e404a80939bb238b530c",
+      "current_branch_sha256": "fb0cfe57fedc241ecc8c62f9f56f71412892fc2c5825d32d614efba54a3b1ba0",
+      "action": "review_build_support_diff",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/scripts/generate_unknown_lidar_world.py",
+      "package_source": "source/ros_support/motion_primitives_planning/scripts/generate_unknown_lidar_world.py",
+      "recovered_sha256": "59fc8c8431e48ed40f40fc8fb3a2599445ce83a65dd61ecc948444b0e57d3347",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/scripts/verify_end_world.py",
+      "package_source": "source/ros_support/motion_primitives_planning/scripts/verify_end_world.py",
+      "recovered_sha256": "bd3c0ec5887b2b55f6258490f2a7339a8e1a64a5dce328b42e44f2d7722ad654",
+      "current_branch_sha256": "bd3c0ec5887b2b55f6258490f2a7339a8e1a64a5dce328b42e44f2d7722ad654",
+      "action": "already_identical",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "simple-airplane/simple_airplane_plugins/CMakeLists.txt",
+      "package_source": "source/ros_support/simple-airplane/simple_airplane_plugins/CMakeLists.txt",
+      "recovered_sha256": "9e4a3fae81285c23b5dddb0daeb72046afd591f75b12aeed6aa03b80060800e1",
+      "current_branch_sha256": "15a862dfa71fd84998111648019403e7a93a45ab483a1de03da646c14cad2cfd",
+      "action": "review_build_support_diff",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "simple-airplane/simple_airplane_plugins/package.xml",
+      "package_source": "source/ros_support/simple-airplane/simple_airplane_plugins/package.xml",
+      "recovered_sha256": "874eb879f70d5b96a96275deff6affd1a08c9443c616ce2199051f6fa83eba15",
+      "current_branch_sha256": "874eb879f70d5b96a96275deff6affd1a08c9443c616ce2199051f6fa83eba15",
+      "action": "already_identical",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "simple-airplane/simple_airplane_plugins/test/test_lidar_ray_encoding.cpp",
+      "package_source": "source/ros_support/simple-airplane/simple_airplane_plugins/test/test_lidar_ray_encoding.cpp",
+      "recovered_sha256": "32b823a53f58bfc0c75677ba9a303b8690fd8603548d7b1792a10daae4c4eb74",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/test/test_sensor_occupancy.cpp",
+      "package_source": "source/ros_support/motion_primitives_planning/test/test_sensor_occupancy.cpp",
+      "recovered_sha256": "c874f812efe002992d747fee32aec440f1ab7157c9230f725279c56faadc78c5",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/test/test_unknown_city_protocol.py",
+      "package_source": "source/ros_support/motion_primitives_planning/test/test_unknown_city_protocol.py",
+      "recovered_sha256": "e8577302b29dd51188925f02b16b2fcccc0f52f6360065359493ed27af4a978f",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/test/test_collision_mesh_truth.py",
+      "package_source": "source/ros_support/motion_primitives_planning/test/test_collision_mesh_truth.py",
+      "recovered_sha256": "503974752c8da69eee66d03c155a041c3fffdffd95240bba79c1e13664180c15",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/test/runtime_sensor_map.test",
+      "package_source": "source/ros_support/motion_primitives_planning/test/runtime_sensor_map.test",
+      "recovered_sha256": "ec5c9407b95965986a43675aea7db57d34bc0a14d7ea9b6de84f76eb1f3fdd28",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/test/test_runtime_sensor_map.cpp",
+      "package_source": "source/ros_support/motion_primitives_planning/test/test_runtime_sensor_map.cpp",
+      "recovered_sha256": "c28cd8cf227aa2da39c582f992a28eda9efd1c40f85c3a7067e30a08ab2500bc",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/test/runtime_swept.test",
+      "package_source": "source/ros_support/motion_primitives_planning/test/runtime_swept.test",
+      "recovered_sha256": "cd423d1bdf542624d7ea18756aa27b3b3aa92d8a3c0223da2f41470d59183109",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/test/test_runtime_swept.cpp",
+      "package_source": "source/ros_support/motion_primitives_planning/test/test_runtime_swept.cpp",
+      "recovered_sha256": "6475b8e70554d4807f7ebd34c80debdfa26360defdcbeaab15d2a6ef04bed50b",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/test/runtime_execution.test",
+      "package_source": "source/ros_support/motion_primitives_planning/test/runtime_execution.test",
+      "recovered_sha256": "c3bdeb1a6d88feb0ec0b679f80d47a8d1001f86bc587e0f244ee9a0b4ca1c952",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/test/test_runtime_execution.cpp",
+      "package_source": "source/ros_support/motion_primitives_planning/test/test_runtime_execution.cpp",
+      "recovered_sha256": "b87cd2b313f8914fc1140bb6b6b6f0854d79aa2f3de1971dd73ee934ceb55f9d",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/test/runtime_efficiency.test",
+      "package_source": "source/ros_support/motion_primitives_planning/test/runtime_efficiency.test",
+      "recovered_sha256": "acbb08bdaa0557bfb03d991cdd66e0812496fe7d48ce4c9830fac252bd540554",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/test/test_runtime_efficiency.cpp",
+      "package_source": "source/ros_support/motion_primitives_planning/test/test_runtime_efficiency.cpp",
+      "recovered_sha256": "b7c465a6b3cda1c5b235d85f4d04176bd84f730f194571259681621fe60beb07",
+      "current_branch_sha256": null,
+      "action": "add_support_after_review",
+      "recorded_in_flight_manifest": false
+    },
+    {
+      "target_repo_path": "motion_primitives_planning/models/observed_recovery_bce_v2.txt",
+      "package_source": "models/selected_obs_bce.txt",
+      "recorded_sha256": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+      "current_branch_sha256": null,
+      "action": "install_Selected_weight_after_review",
+      "integration_role": "default compact model path in the recorded unknown-city launch"
+    }
+  ],
+  "integration_notes": [
+    "The runtime executable motion_primitives_test.cpp already uses RuntimeMotionPrimitives in this branch.",
+    "Review sensor_msgs dependencies and script installation entries in motion_primitives_planning CMakeLists/package.xml.",
+    "If importing full test stanzas, import matching test sources and launch files too; do not introduce missing CMake references.",
+    "Launch/model/scene assets are supplied as separate recorded sources; verify external Gazebo model meshes remain installed.",
+    "Historical non-runtime headers are preserved only, not recommended for replacement.",
+    "All actions remain a plan; no old ROS branch paths were changed."
+  ]
+}

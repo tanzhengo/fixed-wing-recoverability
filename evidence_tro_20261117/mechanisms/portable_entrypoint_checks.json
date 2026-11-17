@@ -1,0 +1,105 @@
+{
+  "scope": "Only mechanism and Figure 2 portability checks; no new ROS or closed-loop runs",
+  "scripts": [
+    {
+      "script": "figure2/build.py",
+      "syntax": "passed",
+      "help_exit": 0,
+      "help_output": "usage: build.py [-h] --output-dir OUTPUT_DIR\n\nCompile the six-map frozen Figure 2 replay.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --output-dir OUTPUT_DIR\n",
+      "stderr": ""
+    },
+    {
+      "script": "figure2/create_figure.py",
+      "syntax": "passed",
+      "help_exit": 0,
+      "help_output": "usage: create_figure.py [-h] [--records-dir RECORDS_DIR] --output-dir\n                        OUTPUT_DIR [--font-dir FONT_DIR]\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --records-dir RECORDS_DIR\n  --output-dir OUTPUT_DIR\n  ",
+      "stderr": ""
+    },
+    {
+      "script": "figure2/prepare_replay.py",
+      "syntax": "passed",
+      "help_exit": 0,
+      "help_output": "usage: prepare_replay.py [-h] --output-dir OUTPUT_DIR\n                         [--pair-source PAIR_SOURCE]\n\nRegenerate the frozen six-case instrument from the included original pair\ntool.\n\noptional arguments:\n  -h, --help            show this help message and ",
+      "stderr": ""
+    },
+    {
+      "script": "figure2/reproduce_selection.py",
+      "syntax": "passed",
+      "help_exit": 0,
+      "help_output": "usage: reproduce_selection.py [-h] --artifact-root ARTIFACT_ROOT --output-dir\n                              OUTPUT_DIR\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --artifact-root ARTIFACT_ROOT\n  --output-dir OUTPUT_DIR\n",
+      "stderr": ""
+    },
+    {
+      "script": "figure2/run_replay.py",
+      "syntax": "passed",
+      "help_exit": 0,
+      "help_output": "usage: run_replay.py [-h] --build-dir BUILD_DIR --output-dir OUTPUT_DIR\n                     [--port PORT]\n\nReplay all six frozen validation maps without changing original records.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  ",
+      "stderr": ""
+    },
+    {
+      "script": "figure2/verify.py",
+      "syntax": "passed",
+      "help_exit": 0,
+      "help_output": "usage: verify.py [-h] --artifact-root ARTIFACT_ROOT --run-dir RUN_DIR\n\nCompare a fresh C++ replay against original validation arrays and archived\noutcomes.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --artifact-root ARTIFACT_",
+      "stderr": ""
+    },
+    {
+      "script": "mechanisms/build.py",
+      "syntax": "passed",
+      "help_exit": 0,
+      "help_output": "usage: build.py [-h] --output-dir OUTPUT_DIR\n\nCompile the recovered pair and urban instrumented tools.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --output-dir OUTPUT_DIR\n",
+      "stderr": ""
+    },
+    {
+      "script": "mechanisms/create_figures.py",
+      "syntax": "passed",
+      "help_exit": 0,
+      "help_output": "usage: create_figures.py [-h] [--records-dir RECORDS_DIR] --output-dir\n                         OUTPUT_DIR [--font-dir FONT_DIR]\n\nRender the original paired-map and urban-query mechanisms from small records.\n\noptional arguments:\n  -h, --help            show th",
+      "stderr": ""
+    },
+    {
+      "script": "mechanisms/replace_architecture_fonts.py",
+      "syntax": "passed",
+      "help_exit": 0,
+      "help_output": "usage: replace_architecture_fonts.py [-h] --input-pdf INPUT_PDF --output-pdf\n                                     OUTPUT_PDF --font-dir FONT_DIR\n\nReplace architecture labels with Times New Roman, preserving vector drawings.\n\noptional arguments:\n  -h, --help   ",
+      "stderr": ""
+    },
+    {
+      "script": "mechanisms/reproduce_feature_ambiguity.py",
+      "syntax": "passed",
+      "help_exit": 0,
+      "help_output": "usage: reproduce_feature_ambiguity.py [-h] --artifact-root ARTIFACT_ROOT\n                                      --output-dir OUTPUT_DIR\n\nReproduce state-feature ambiguity from original validation arrays.\n\noptional arguments:\n  -h, --help            show this he",
+      "stderr": ""
+    },
+    {
+      "script": "mechanisms/run_mechanisms.py",
+      "syntax": "passed",
+      "help_exit": 0,
+      "help_output": "usage: run_mechanisms.py [-h] --artifact-root ARTIFACT_ROOT --build-dir\n                         BUILD_DIR --output-dir OUTPUT_DIR [--port PORT]\n\nReplay the original paired maps and first prescribed urban query into fresh\noutputs.\n\noptional arguments:\n  -h, --",
+      "stderr": ""
+    },
+    {
+      "script": "mechanisms/verify.py",
+      "syntax": "passed",
+      "help_exit": 0,
+      "help_output": "usage: verify.py [-h] --artifact-root ARTIFACT_ROOT --run-dir RUN_DIR\n\nCompare a fresh C++ replay against original validation arrays and archived\noutcomes.\n\noptional arguments:\n  -h, --help            show this help message and exit\n  --artifact-root ARTIFACT_",
+      "stderr": ""
+    }
+  ],
+  "python_entrypoints_checked": 12,
+  "all_syntax_and_help_passed": true,
+  "original_non_python_files_unchanged": true,
+  "modified_entrypoints": [
+    "mechanisms/build.py",
+    "mechanisms/create_figures.py",
+    "mechanisms/replace_architecture_fonts.py",
+    "mechanisms/reproduce_feature_ambiguity.py",
+    "mechanisms/run_mechanisms.py",
+    "mechanisms/verify.py",
+    "figure2/create_figure.py",
+    "figure2/prepare_replay.py",
+    "figure2/reproduce_selection.py",
+    "figure2/run_replay.py",
+    "figure2/verify.py"
+  ]
+}

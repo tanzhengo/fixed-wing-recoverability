@@ -1,0 +1,38 @@
+{
+  "python_syntax": {
+    "figure1/create_architecture.py": "418063f980ba1ea07cfaae0bcc053860208888a278a48bd0588912802ead69f0",
+    "figure2/build.py": "acc9d6f7cb26ddb8c647e7daa1176ca3e9bcf62358761f184b1debe175cfe913",
+    "figure2/create_figure.py": "b9b718c81c32a87e9f19292c8d873d05c310ca995ce5a7f70a339f81205760bc",
+    "figure2/prepare_replay.py": "6fbab7ef5a7315edc017e7b54b4efe89159bd5c3f38361fe677de69f18ab3a14",
+    "figure2/reproduce_selection.py": "38efa1ab6570f0f79f72a273f9cb68e1a9297dcdc4bd20b6703d1062e7236856",
+    "figure2/run_replay.py": "f10493b61af9041e07c358843ae9aafe28e3213807702f2b9ee0020414965223",
+    "figure2/verify.py": "a713ec40755a21e3847878258c3d004249839a4dd920d5ce9a0c3922ed1a84a0",
+    "mechanisms/build.py": "ef4cd198e6b63277d99235cd7dbd4d2b91febf354a1430c23bca6132d090f8db",
+    "mechanisms/create_figures.py": "33874292569d1767d3cdff8811cdc10ff709e6ec4b751fb2db7f65140b215228",
+    "mechanisms/replace_architecture_fonts.py": "8bbad2551f5c6c431867e85c32a2c33217140049ed6b4aa6674a660bea0d0f22",
+    "mechanisms/reproduce_feature_ambiguity.py": "f7ec5307ecfee5942b7a7797d47603b7ad871a29630a748bd08e48f2921245a0",
+    "mechanisms/run_mechanisms.py": "83ea4f48d56124f1533827cff84d175f4202a5d3946093d1351e31d35122f70c",
+    "mechanisms/verify.py": "7d00cf5d04270fad9e72984e81c1b1853efbfebdff06f4f3a0080b7d9fbc0dc7",
+    "portable_support.py": "2e12fd6b7e43206ebf649e60f1c45883fef4701ebb816d252aaee2c07cdcba83",
+    "urban-repeats/analyze_repeats.py": "ea9f8b34e3d7f9fd8ca839baaebbf5497b0f0b01255d6afbc82d2cf5bc510bf0",
+    "urban-repeats/run_campaign.py": "7b03a1d195ba46eac25e65a2258329fe1ce360a2ba0b975c6e37f757a5d4c14e"
+  },
+  "urban_cli_packaging": {
+    "help_passed": [
+      "run_campaign.py",
+      "analyze_repeats.py"
+    ],
+    "campaign_plan_commands": 9,
+    "ros_launched": false,
+    "full_nine_flight_reanalysis": true,
+    "exact_matches": [
+      "per_run_summary.csv",
+      "aggregate.csv",
+      "ANALYSIS_NOTES.txt"
+    ],
+    "analysis_summary_identical_except_analysis_sha256": true,
+    "selected_model_sha256": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d"
+  },
+  "recovered_original_files_sha256_verified": 171,
+  "figure8_modified": false
+}

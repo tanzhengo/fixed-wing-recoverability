@@ -1,0 +1,25 @@
+{
+  "syntax": "passed",
+  "help": "passed without third-party imports",
+  "missing_font_directory": "exits 2 with an explicit Times New Roman directory message",
+  "successful_generation": "passed with supplied TNR fonts into a temporary output directory",
+  "all_label_text_positions_sizes_match_reference": true,
+  "label_count": 76,
+  "pdf_extracted_text_matches_reference": true,
+  "rendered_pixel_bytes_match_reference_at_216dpi": true,
+  "embedded_svg_fonts": 3,
+  "embedded_svg_images": 2,
+  "external_svg_paths": false,
+  "visible_pdf_fonts": [
+    "TimesNewRomanPS-BoldMT",
+    "TimesNewRomanPS-ItalicMT",
+    "TimesNewRomanPSMT"
+  ],
+  "python_version": "3.8.10",
+  "reportlab_version": "3.5.34",
+  "pymupdf_version": "1.26.7",
+  "source_sha256": "418063f980ba1ea07cfaae0bcc053860208888a278a48bd0588912802ead69f0",
+  "reference_pdf_sha256": "8c95673d0757a047293e5ddabadc62924b261ccc14d377156b663a59660a9732",
+  "regenerated_pdf_sha256": "d048409672392280f90ae573fb1384fc34e7ed2c770fd7248f1d4e918d799ba1",
+  "regenerated_svg_sha256": "ed7715c48eba2206e70f1a5f8c047253ac691ea90094118a6a3231ae06859623"
+}

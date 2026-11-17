@@ -1,0 +1,463 @@
+{
+  "val_culdesac_0_m0": {
+    "parity": {
+      "features": true,
+      "labels": true,
+      "work": true,
+      "candidate_order": true,
+      "successor_labels": true,
+      "successor_work": true,
+      "successor_reasons": true
+    },
+    "candidate_count": 242,
+    "raw_state": {
+      "x": 12.40000057220459,
+      "y": 0.0,
+      "h": 20.0,
+      "V": 15.5,
+      "gamma": -1.504198898771847e-08,
+      "heading": 0.0,
+      "roll": 0.0,
+      "attack": -0.18967491388320923,
+      "thrust": 0.9264215230941772
+    },
+    "goal": [
+      250,
+      0,
+      20
+    ],
+    "query_time": 0.8,
+    "candidate_id": 69,
+    "rank": 49,
+    "label": 0,
+    "work_until_first_witness": 1040,
+    "full_valid_controls_1based": [],
+    "encoded_state28": [
+      0.7877777218818665,
+      -0.27156776189804077,
+      -0.5397961735725403,
+      -0.432976096868515,
+      0.026954080909490585,
+      -0.2103537619113922,
+      0.7749999761581421,
+      -4.297711342360344e-08,
+      0.0,
+      -0.43107935786247253,
+      0.0463210754096508,
+      0.0,
+      0.44356441497802734,
+      -0.09935075044631958,
+      -0.06879539787769318,
+      -0.49174755811691284,
+      0.8707377910614014,
+      0.6535156965255737,
+      0.4147115647792816,
+      0.041277237236499786,
+      0.03872276470065117,
+      0.12127723544836044,
+      0.30000001192092896,
+      0.30000001192092896,
+      0.0,
+      0.0,
+      0.2938081622123718,
+      0.10000000149011612
+    ],
+    "observation30": [
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      0.6000000238418579,
+      0.4000000059604645,
+      0.6000000238418579,
+      0.4000000059604645,
+      0.6000000238418579,
+      0.4000000059604645,
+      0.800000011920929,
+      0.20000000298023224,
+      0.6000000238418579,
+      0.20000000298023224,
+      0.800000011920929,
+      0.20000000298023224,
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      0.800000011920929,
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "recorded_network_predictions": {
+      "state_aux/20261102": {
+        "logit": -0.8929555416107178,
+        "probability": 0.290500283241272,
+        "source_sha256": "9512f5ddb3dc5617e7578ba1748def2907c1956b017f6fed66de21e5b3008df5"
+      },
+      "observed/20261103": {
+        "logit": -0.8522712588310242,
+        "probability": 0.29895663261413574,
+        "source_sha256": "2540815e9e87c8387dcf6ba65637c51749eb519b5862595b77fb35fdf7610e4e"
+      },
+      "observed_aux/20261101": {
+        "logit": -1.9551594257354736,
+        "probability": 0.12399186193943024,
+        "source_sha256": "8bb7eae75da515e952fbcc0417f643241a37e1efc2144e0f25a5eb738d053091"
+      }
+    }
+  },
+  "val_staggered_0_m0": {
+    "parity": {
+      "features": true,
+      "labels": true,
+      "work": true,
+      "candidate_order": true,
+      "successor_labels": true,
+      "successor_work": true,
+      "successor_reasons": true
+    },
+    "candidate_count": 194,
+    "raw_state": {
+      "x": 12.40000057220459,
+      "y": 0.0,
+      "h": 20.0,
+      "V": 15.5,
+      "gamma": -1.504198898771847e-08,
+      "heading": 0.0,
+      "roll": 0.0,
+      "attack": -0.18967491388320923,
+      "thrust": 0.9264215230941772
+    },
+    "goal": [
+      250,
+      0,
+      20
+    ],
+    "query_time": 0.8,
+    "candidate_id": 69,
+    "rank": 26,
+    "label": 1,
+    "work_until_first_witness": 391,
+    "full_valid_controls_1based": [
+      4
+    ],
+    "encoded_state28": [
+      0.7877777218818665,
+      -0.27156776189804077,
+      -0.5397961735725403,
+      -0.432976096868515,
+      0.026954080909490585,
+      -0.2103537619113922,
+      0.7749999761581421,
+      -4.297711342360344e-08,
+      0.0,
+      -0.43107935786247253,
+      0.0463210754096508,
+      0.0,
+      0.44356441497802734,
+      -0.09935075044631958,
+      -0.06879539787769318,
+      -0.49174755811691284,
+      0.8707377910614014,
+      0.6535156965255737,
+      0.4147115647792816,
+      0.041277237236499786,
+      0.03872276470065117,
+      0.12127723544836044,
+      0.30000001192092896,
+      0.30000001192092896,
+      0.0,
+      0.0,
+      0.2938081622123718,
+      0.10000000149011612
+    ],
+    "observation30": [
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0,
+      0.800000011920929,
+      0.20000000298023224,
+      0.6000000238418579,
+      0.20000000298023224,
+      0.800000011920929,
+      0.20000000298023224,
+      0.800000011920929,
+      0.0,
+      1.0,
+      0.0,
+      1.0,
+      0.0
+    ],
+    "recorded_network_predictions": {
+      "state_aux/20261102": {
+        "logit": -0.8929555416107178,
+        "probability": 0.290500283241272,
+        "source_sha256": "9512f5ddb3dc5617e7578ba1748def2907c1956b017f6fed66de21e5b3008df5"
+      },
+      "observed/20261103": {
+        "logit": -0.40347620844841003,
+        "probability": 0.40047743916511536,
+        "source_sha256": "2540815e9e87c8387dcf6ba65637c51749eb519b5862595b77fb35fdf7610e4e"
+      },
+      "observed_aux/20261101": {
+        "logit": 0.24810463190078735,
+        "probability": 0.5617099404335022,
+        "source_sha256": "8bb7eae75da515e952fbcc0417f643241a37e1efc2144e0f25a5eb738d053091"
+      }
+    }
+  },
+  "pair_equalities": {
+    "raw_state_identical": true,
+    "initial_yaw_rate": [
+      0,
+      0
+    ],
+    "goal_identical": true,
+    "full_primary_state_sequence_identical": true,
+    "primary_and_all_15_successor_commands_identical": true,
+    "encoded_state28_identical": true,
+    "observation_different_components": 18,
+    "observation_l1": 5.199999809265137,
+    "observation_max_difference": 0.4000000059604645,
+    "primary_control": {
+      "candidate": "69",
+      "successor": "-1",
+      "roll": "-0.32999873161315918",
+      "attack": "-0.19055186212062836",
+      "thrust": "0.53908151388168335",
+      "duration": "3"
+    },
+    "complete_control_bank": [
+      {
+        "candidate": "69",
+        "successor": "0",
+        "roll": "0.24642598628997803",
+        "attack": "-0.09811054915189743",
+        "thrust": "0.42215752601623535",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "1",
+        "roll": "-0.3875180184841156",
+        "attack": "-0.062072306871414185",
+        "thrust": "0.42746409773826599",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "2",
+        "roll": "0.61086523532867432",
+        "attack": "0.043061289936304092",
+        "thrust": "0.44017189741134644",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "3",
+        "roll": "-0.61086523532867432",
+        "attack": "0.037479843944311142",
+        "thrust": "0.46464136242866516",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "4",
+        "roll": "0.61086523532867432",
+        "attack": "0.032879430800676346",
+        "thrust": "0.4848577082157135",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "5",
+        "roll": "0.20297196507453918",
+        "attack": "0.059013999998569489",
+        "thrust": "2.1070261001586914",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "6",
+        "roll": "-0.32442343235015869",
+        "attack": "0.081825785338878632",
+        "thrust": "2.0890030860900879",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "7",
+        "roll": "0.58899688720703125",
+        "attack": "0.20508511364459991",
+        "thrust": "2.118924617767334",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "8",
+        "roll": "-0.60718101263046265",
+        "attack": "0.19534130394458771",
+        "thrust": "2.0548877716064453",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "9",
+        "roll": "0.59419465065002441",
+        "attack": "0.16713877022266388",
+        "thrust": "1.9902051687240601",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "10",
+        "roll": "0.26458302140235901",
+        "attack": "-0.15308825671672821",
+        "thrust": "0",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "11",
+        "roll": "-0.41309481859207153",
+        "attack": "-0.11200336366891861",
+        "thrust": "0",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "12",
+        "roll": "0.61086523532867432",
+        "attack": "-0.018660955131053925",
+        "thrust": "0",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "13",
+        "roll": "-0.61086523532867432",
+        "attack": "-0.018072996288537979",
+        "thrust": "0",
+        "duration": "3"
+      },
+      {
+        "candidate": "69",
+        "successor": "14",
+        "roll": "0.61086523532867432",
+        "attack": "-0.017831601202487946",
+        "thrust": "0.013341248035430908",
+        "duration": "3"
+      }
+    ]
+  },
+  "successor_rejections": {
+    "0_P69": {
+      "unknown_and_occupied": 2,
+      "occupied_only": 6,
+      "unknown_only": 5,
+      "envelope": 2
+    },
+    "0_P107": {
+      "occupied_only": 9,
+      "valid": 2,
+      "unknown_only": 1,
+      "envelope": 3
+    },
+    "1_P69": {
+      "unknown_only": 10,
+      "valid": 1,
+      "envelope": 4
+    }
+  },
+  "urban_parity": [
+    {
+      "method": "Selected",
+      "prior_method": "Selected_K12",
+      "mismatches": {},
+      "work": 2413,
+      "queries": 6,
+      "pruned": 6,
+      "selected_cost_rank": 10,
+      "cost": 3.999026298522949,
+      "signature": "3996d6a4bc408e"
+    },
+    {
+      "method": "Diverse",
+      "prior_method": "Diverse_K12",
+      "mismatches": {},
+      "work": 2413,
+      "queries": 6,
+      "pruned": 6,
+      "selected_cost_rank": 10,
+      "cost": 3.999026298522949,
+      "signature": "3996d6a4bc408e"
+    },
+    {
+      "method": "ObsAux",
+      "prior_method": "ObsAux",
+      "mismatches": {},
+      "work": 3080,
+      "queries": 4,
+      "pruned": 8,
+      "selected_cost_rank": 10,
+      "cost": 3.999026298522949,
+      "signature": "3996d6a4bc408e"
+    },
+    {
+      "method": "Cost",
+      "prior_method": "Cost_K12",
+      "mismatches": {},
+      "work": 7382,
+      "queries": 7,
+      "pruned": 0,
+      "selected_cost_rank": 7,
+      "cost": 3.6885013580322266,
+      "signature": "574827d579f444b8"
+    },
+    {
+      "method": "Full",
+      "prior_method": "Full",
+      "mismatches": {},
+      "work": 7382,
+      "queries": 7,
+      "pruned": 0,
+      "selected_cost_rank": 7,
+      "cost": 3.6885013580322266,
+      "signature": "574827d579f444b8"
+    }
+  ],
+  "case_selection": {
+    "pair": "First conflicting 28-feature group in the original packed validation order with exactly matching recorded raw state and primary library ID; first negative and first positive members. Alternative primary: first continuation-positive candidate in stable task-cost order on Map A.",
+    "urban": "First common-seed-failing input in the original acquisition order learned3, cost1, diverse1 and increasing prescribed query time. This is learned3 query index 0 at 2 s. No selection based on model advantage."
+  },
+  "source_hashes": {
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/dataset/val.npz": "bbf4e269e264191f0aa29689e78f7a1389adc64323354fdcc754e7c489990964",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/dataset/val_states.csv": "9e40a3d2717fc7468d33fe50dbb168d40f04cc8d319dc5103d117701580e65fa",
+    "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/urban_replay/learned3/query_results_budget_grid.csv": "ac609249d1e393fe16fd273a82cf9935baf07af270985f358d06097defc04532",
+    "/media/tan/T7 Shield/fixedwing-tro-20261117/mechanisms/validation_pair/paths.csv": "6b6791d0d9483ad9f9df738f5623a07df7f1d0a67c2aae710ae7247104a8b950",
+    "/media/tan/T7 Shield/fixedwing-tro-20261117/mechanisms/validation_pair/candidate_checks.csv": "417608306d06b2d8d2376bb9cad3aae5176cc08ce6e36fac05aabf3d2888ec39",
+    "/media/tan/T7 Shield/fixedwing-tro-20261117/mechanisms/urban_trace/trace.log": "6c79afcccbae189ac3cc2ed2d2628e46933d7522ff5b7e76d6b40ae1f2db939b",
+    "/media/tan/T7 Shield/fixedwing-tro-20261117/mechanisms/urban_trace/query_results_mechanism.csv": "a2579e79455039656cb90ec36db58c062e3e06884d8582a4ff8eed3bb0c6bae2"
+  }
+}

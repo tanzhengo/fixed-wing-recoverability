@@ -5,3 +5,7 @@ docs/recovery/forest_figure/** -text
 docs/recovery/forest_figure/*.csv whitespace=cr-at-eol
 docs/recovery/urban_figure/** -text
 docs/recovery/urban_figure/*.csv whitespace=cr-at-eol
+evidence_recovered/** -text
+evidence_recovered/**/*.csv whitespace=cr-at-eol
+evidence_tro_20261117/** -text
+evidence_tro_20261117/**/*.csv whitespace=cr-at-eol

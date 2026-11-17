@@ -1,0 +1,31 @@
+{
+  "main_inches": [
+    7.2,
+    5.25
+  ],
+  "font": "Times New Roman",
+  "minimum_font_pt": 7.2,
+  "map_geometry": "equal aspect, 2m vector cells at z in [20,22)",
+  "curves": "unmodified 3D C++ rollouts projected into xy",
+  "main_crop_windows": [
+    [
+      0,
+      124,
+      -55,
+      12
+    ],
+    [
+      0,
+      124,
+      -55,
+      12
+    ],
+    [
+      0,
+      124,
+      -34,
+      33
+    ]
+  ],
+  "full_map_companion": true
+}

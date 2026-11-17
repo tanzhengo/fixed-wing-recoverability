@@ -1,0 +1,50 @@
+{
+  "1": {
+    "signature": 0,
+    "witness": 0,
+    "cost": 0,
+    "queries": 0,
+    "backup_steps": 0,
+    "pruned_candidates": 0
+  },
+  "2": {
+    "signature": 0,
+    "witness": 0,
+    "cost": 0,
+    "queries": 0,
+    "backup_steps": 0,
+    "pruned_candidates": 0
+  },
+  "4": {
+    "signature": 0,
+    "witness": 0,
+    "cost": 0,
+    "queries": 0,
+    "backup_steps": 0,
+    "pruned_candidates": 0
+  },
+  "8": {
+    "signature": 0,
+    "witness": 0,
+    "cost": 0,
+    "queries": 0,
+    "backup_steps": 0,
+    "pruned_candidates": 0
+  },
+  "12": {
+    "signature": 0,
+    "witness": 0,
+    "cost": 0,
+    "queries": 0,
+    "backup_steps": 0,
+    "pruned_candidates": 0
+  },
+  "24": {
+    "signature": 0,
+    "witness": 0,
+    "cost": 0,
+    "queries": 0,
+    "backup_steps": 0,
+    "pruned_candidates": 0
+  }
+}

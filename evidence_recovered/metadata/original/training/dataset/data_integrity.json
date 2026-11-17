@@ -1,0 +1,31 @@
+{
+  "train": {
+    "candidates": 396837,
+    "all_successor_work_labels_consistent": true,
+    "observations_in_fifths": true,
+    "horizon_H_B_s": [
+      3,
+      3
+    ],
+    "legacy_known_radius_features_zero": true,
+    "unique_physical_seed_count": 56,
+    "scene_count": 64,
+    "queries": 3030
+  },
+  "val": {
+    "candidates": 95168,
+    "all_successor_work_labels_consistent": true,
+    "observations_in_fifths": true,
+    "horizon_H_B_s": [
+      3,
+      3
+    ],
+    "legacy_known_radius_features_zero": true,
+    "unique_physical_seed_count": 12,
+    "scene_count": 16,
+    "queries": 767
+  },
+  "train_validation_seeds_disjoint": true,
+  "reserved_test_seed_space_unseen": true,
+  "raw_archive_sha256": "6c80b3e28c2b705308d0a6201419ff6a9359bb765bc0e3f755d4ecada628bce2"
+}

@@ -1,0 +1,125 @@
+{
+  "packed_rows": [
+    [
+      48,
+      66005
+    ],
+    [
+      5751,
+      77587
+    ],
+    [
+      24016,
+      14259
+    ]
+  ],
+  "all_match_frozen_pairs": true,
+  "wall_spatial_original_match_count": 0,
+  "fallback_counts": [
+    {
+      "families": [
+        "culdesac",
+        "spatial"
+      ],
+      "eligible_packed_rows": 0
+    },
+    {
+      "families": [
+        "culdesac",
+        "wall"
+      ],
+      "eligible_packed_rows": 527
+    },
+    {
+      "families": [
+        "forest_dense",
+        "spatial"
+      ],
+      "eligible_packed_rows": 321
+    },
+    {
+      "families": [
+        "forest_dense",
+        "wall"
+      ],
+      "eligible_packed_rows": 0
+    },
+    {
+      "families": [
+        "forest_sparse",
+        "spatial"
+      ],
+      "eligible_packed_rows": 234
+    },
+    {
+      "families": [
+        "forest_sparse",
+        "wall"
+      ],
+      "eligible_packed_rows": 0
+    },
+    {
+      "families": [
+        "spatial",
+        "staggered"
+      ],
+      "eligible_packed_rows": 0
+    },
+    {
+      "families": [
+        "spatial",
+        "wall"
+      ],
+      "eligible_packed_rows": 0
+    },
+    {
+      "families": [
+        "staggered",
+        "wall"
+      ],
+      "eligible_packed_rows": 94
+    },
+    {
+      "families": [
+        "culdesac",
+        "forest_dense"
+      ],
+      "eligible_packed_rows": 0
+    },
+    {
+      "families": [
+        "culdesac",
+        "forest_sparse"
+      ],
+      "eligible_packed_rows": 0
+    },
+    {
+      "families": [
+        "culdesac",
+        "staggered"
+      ],
+      "eligible_packed_rows": 329
+    },
+    {
+      "families": [
+        "forest_dense",
+        "forest_sparse"
+      ],
+      "eligible_packed_rows": 351
+    },
+    {
+      "families": [
+        "forest_dense",
+        "staggered"
+      ],
+      "eligible_packed_rows": 0
+    },
+    {
+      "families": [
+        "forest_sparse",
+        "staggered"
+      ],
+      "eligible_packed_rows": 0
+    }
+  ]
+}

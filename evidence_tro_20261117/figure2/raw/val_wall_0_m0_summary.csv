@@ -1,0 +1,2 @@
+case,split,family,seed,index,sampler,outcome,queries,sim_seconds,wall_seconds,prefix_checks,prefix_rejects,min_clearance
+val_wall_0_m0,val,wall,1211000,0,0,initialization_failed,11,2,1.49814,0,0,57.121

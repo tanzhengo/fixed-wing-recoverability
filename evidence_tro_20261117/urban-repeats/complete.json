@@ -1,0 +1,86 @@
+{
+  "runs": [
+    {
+      "returncode": 0,
+      "wall_s": 131.58899409000014,
+      "block": 1,
+      "method": "Cost",
+      "passed": true,
+      "stop": "flight_observer_complete",
+      "flight_stop": "completed_first_waypoint_cycle"
+    },
+    {
+      "returncode": 0,
+      "wall_s": 131.03872450100016,
+      "block": 1,
+      "method": "Diverse",
+      "passed": true,
+      "stop": "flight_observer_complete",
+      "flight_stop": "completed_first_waypoint_cycle"
+    },
+    {
+      "returncode": 0,
+      "wall_s": 140.43772135300014,
+      "block": 1,
+      "method": "Selected",
+      "passed": true,
+      "stop": "flight_observer_complete",
+      "flight_stop": "completed_first_waypoint_cycle"
+    },
+    {
+      "returncode": 0,
+      "wall_s": 132.89181486899997,
+      "block": 2,
+      "method": "Diverse",
+      "passed": true,
+      "stop": "flight_observer_complete",
+      "flight_stop": "completed_first_waypoint_cycle"
+    },
+    {
+      "returncode": 0,
+      "wall_s": 118.77596838799991,
+      "block": 2,
+      "method": "Selected",
+      "passed": true,
+      "stop": "flight_observer_complete",
+      "flight_stop": "completed_first_waypoint_cycle"
+    },
+    {
+      "returncode": 0,
+      "wall_s": 117.50617065400002,
+      "block": 2,
+      "method": "Cost",
+      "passed": true,
+      "stop": "flight_observer_complete",
+      "flight_stop": "completed_first_waypoint_cycle"
+    },
+    {
+      "returncode": 0,
+      "wall_s": 117.20459932700032,
+      "block": 3,
+      "method": "Selected",
+      "passed": true,
+      "stop": "flight_observer_complete",
+      "flight_stop": "completed_first_waypoint_cycle"
+    },
+    {
+      "returncode": 0,
+      "wall_s": 120.01540531100045,
+      "block": 3,
+      "method": "Cost",
+      "passed": true,
+      "stop": "flight_observer_complete",
+      "flight_stop": "completed_first_waypoint_cycle"
+    },
+    {
+      "returncode": 0,
+      "wall_s": 120.06460772900027,
+      "block": 3,
+      "method": "Diverse",
+      "passed": true,
+      "stop": "flight_observer_complete",
+      "flight_stop": "completed_first_waypoint_cycle"
+    }
+  ],
+  "all_runs_recorded": true
+}

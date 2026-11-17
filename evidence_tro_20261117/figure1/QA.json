@@ -1,0 +1,37 @@
+{
+  "visual_review": "Poppler 216 dpi render inspected after corrections; no overlapping labels or clipped content.",
+  "size_inches": [
+    7.200000339084202,
+    3.184615241156684
+  ],
+  "visible_fonts": [
+    "TimesNewRomanPS-BoldMT",
+    "TimesNewRomanPS-ItalicMT",
+    "TimesNewRomanPSMT"
+  ],
+  "all_fonts_embedded": true,
+  "min_body_font_pt": 7.144615384615385,
+  "subscript_font_pt": 5.144123076923077,
+  "svg": "Editable vector text and paths; three fonts and two original project screenshot crops embedded.",
+  "semantics_verified": [
+    "Offline training",
+    "Online planning",
+    "Gazebo",
+    "Budget K",
+    "Counts toward K",
+    "Fixed slots; no refill",
+    "Revalidate proposal P",
+    "Else check remaining sequence",
+    "Selected: BCE",
+    "Aux work loss: ablation",
+    "No witness; no slots"
+  ],
+  "photo_provenance": "Project Gazebo suav1/lidar acquisition and RViz voxel/primitive visualization. The reference real-world photograph is not used.",
+  "diagram_status": "Motion-primitive fans and network connections are schematic.",
+  "reference_output_hashes": {
+    "architecture_revised.pdf": "8c95673d0757a047293e5ddabadc62924b261ccc14d377156b663a59660a9732",
+    "architecture_revised.svg": "ed7715c48eba2206e70f1a5f8c047253ac691ea90094118a6a3231ae06859623",
+    "architecture_revised.png": "762b172394e0d638ea6a59cf49f7f9f02d9b116708d3addcca14e26d2e7e9b49"
+  },
+  "note": "These hashes describe the paper figure reviewed before source packaging. Portable regeneration preserves visual content; PDF serialization metadata may differ."
+}

@@ -1,0 +1,25 @@
+[
+  {
+    "name": "validation_pair",
+    "command": [
+      "/tmp/fw-tro-pair-20261117",
+      "/media/tan/T7 Shield/fixedwing-tro-20261117/mechanisms/validation_pair"
+    ],
+    "returncode": 0,
+    "wall_seconds": 1.3913224230000196
+  },
+  {
+    "name": "urban_trace",
+    "command": [
+      "/tmp/fw-tro-replay-20261117",
+      "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/restore_experiment_evidence/unknown_replay/learned3",
+      "/media/tan/T7 Shield/fixedwing-tro-20261117/mechanisms/urban_trace",
+      "/tro_mechanism/urban",
+      "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/docs/recovery/revision/training/state_joint/20261030/network_compact.txt",
+      "mechanism",
+      "1"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.7290735500000665
+  }
+]

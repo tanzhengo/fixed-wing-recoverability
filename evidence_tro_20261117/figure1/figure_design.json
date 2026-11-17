@@ -1,0 +1,564 @@
+{
+  "reference": "User-supplied structure1.pdf",
+  "figure_size_inches": [
+    7.199999999999999,
+    3.184615384615385
+  ],
+  "min_body_font_pt": 7.144615384615385,
+  "sources": {
+    "crop_gazebo_45.png": "70e0d27249ce10e0623ca812ea270b9a163ad5e4e2ae13358facd4f8cc1ada75",
+    "crop_rviz_45.png": "c529cf49d7f31186bfe809e88d6be109eb5d996f4cc4bd6d381dcf9280ffe7f1"
+  },
+  "gazebo_crop": [
+    330,
+    310,
+    790,
+    570
+  ],
+  "rviz_crop": [
+    180,
+    300,
+    950,
+    750
+  ],
+  "screenshots": "Original project Gazebo and RViz acquisitions; no real-world photographs",
+  "layout": "Inputs at left, offline training above online planning, execution at right",
+  "labels": [
+    {
+      "text": "Inputs",
+      "x": 92.5,
+      "y": 43,
+      "font": "TNRB",
+      "size": 29
+    },
+    {
+      "text": "Offline training",
+      "x": 210,
+      "y": 42,
+      "font": "TNRB",
+      "size": 29
+    },
+    {
+      "text": "Online planning",
+      "x": 210,
+      "y": 274,
+      "font": "TNRB",
+      "size": 29
+    },
+    {
+      "text": "Execution & simulation",
+      "x": 1389,
+      "y": 43,
+      "font": "TNRB",
+      "size": 27
+    },
+    {
+      "text": "Vehicle state",
+      "x": 92.5,
+      "y": 96,
+      "font": "TNRB",
+      "size": 24
+    },
+    {
+      "text": "Position p",
+      "x": 92.5,
+      "y": 127,
+      "font": "TNR",
+      "size": 22
+    },
+    {
+      "text": "Airspeed V",
+      "x": 92.5,
+      "y": 153,
+      "font": "TNR",
+      "size": 22
+    },
+    {
+      "text": "\u03b3, \u03c8, \u03c6, \u03b1, T",
+      "x": 92.5,
+      "y": 179,
+      "font": "TNRI",
+      "size": 22
+    },
+    {
+      "text": "Three-state",
+      "x": 92.5,
+      "y": 311,
+      "font": "TNRB",
+      "size": 24
+    },
+    {
+      "text": "voxel map",
+      "x": 92.5,
+      "y": 337,
+      "font": "TNRB",
+      "size": 24
+    },
+    {
+      "text": "Lidar-built",
+      "x": 92.5,
+      "y": 440,
+      "font": "TNRI",
+      "size": 22
+    },
+    {
+      "text": "Task",
+      "x": 92.5,
+      "y": 533,
+      "font": "TNRB",
+      "size": 24
+    },
+    {
+      "text": "Waypoint",
+      "x": 92.5,
+      "y": 565,
+      "font": "TNR",
+      "size": 22
+    },
+    {
+      "text": "Budget K",
+      "x": 92.5,
+      "y": 595,
+      "font": "TNRI",
+      "size": 23
+    },
+    {
+      "text": "Model rollouts",
+      "x": 300,
+      "y": 91,
+      "font": "TNRB",
+      "size": 24
+    },
+    {
+      "text": "H = B = 3 s",
+      "x": 300,
+      "y": 191,
+      "font": "TNRI",
+      "size": 23
+    },
+    {
+      "text": "Continuation labels",
+      "x": 520,
+      "y": 91,
+      "font": "TNRB",
+      "size": 23
+    },
+    {
+      "text": "C, log(1+w)",
+      "x": 520,
+      "y": 151,
+      "font": "TNRI",
+      "size": 22
+    },
+    {
+      "text": "15-control bank",
+      "x": 520,
+      "y": 175,
+      "font": "TNR",
+      "size": 22
+    },
+    {
+      "text": "Same map + checks",
+      "x": 520,
+      "y": 199,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "Supervised MLP",
+      "x": 790,
+      "y": 91,
+      "font": "TNRB",
+      "size": 24
+    },
+    {
+      "text": "58",
+      "x": 690.0,
+      "y": 151,
+      "font": "TNRB",
+      "size": 22
+    },
+    {
+      "text": "64",
+      "x": 755.6666666666666,
+      "y": 151,
+      "font": "TNRB",
+      "size": 22
+    },
+    {
+      "text": "32",
+      "x": 821.3333333333334,
+      "y": 151,
+      "font": "TNRB",
+      "size": 22
+    },
+    {
+      "text": "2",
+      "x": 887.0,
+      "y": 151,
+      "font": "TNRB",
+      "size": 22
+    },
+    {
+      "text": "Selected: BCE",
+      "x": 790,
+      "y": 174,
+      "font": "TNRB",
+      "size": 22
+    },
+    {
+      "text": "Aux work loss: ablation",
+      "x": 790,
+      "y": 199,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "Compact export",
+      "x": 1075,
+      "y": 91,
+      "font": "TNRB",
+      "size": 24
+    },
+    {
+      "text": "58 \u2192 64 \u2192 32 \u2192 1",
+      "x": 1075,
+      "y": 187,
+      "font": "TNRI",
+      "size": 23
+    },
+    {
+      "text": "Observed space",
+      "x": 292.5,
+      "y": 316,
+      "font": "TNRB",
+      "size": 23
+    },
+    {
+      "text": "Free",
+      "x": 232,
+      "y": 439,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "Occ.",
+      "x": 285,
+      "y": 439,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "Unk.",
+      "x": 338,
+      "y": 439,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "Primary primitives",
+      "x": 495,
+      "y": 316,
+      "font": "TNRB",
+      "size": 23
+    },
+    {
+      "text": "H = 3 s",
+      "x": 495,
+      "y": 436,
+      "font": "TNRI",
+      "size": 23
+    },
+    {
+      "text": "Cheapest-first query",
+      "x": 730,
+      "y": 322,
+      "font": "TNRB",
+      "size": 23
+    },
+    {
+      "text": "15 successors; B = 3 s",
+      "x": 730,
+      "y": 412,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "Counts toward K",
+      "x": 730,
+      "y": 438,
+      "font": "TNRI",
+      "size": 21.5
+    },
+    {
+      "text": "No witness; slots remain",
+      "x": 514,
+      "y": 463,
+      "font": "TNRI",
+      "size": 21.5
+    },
+    {
+      "text": "Terminal encoding",
+      "x": 292,
+      "y": 515,
+      "font": "TNRB",
+      "size": 21.5
+    },
+    {
+      "text": "58 = 28 + 30",
+      "x": 290,
+      "y": 609,
+      "font": "TNRI",
+      "size": 22
+    },
+    {
+      "text": "Compact MLP",
+      "x": 500,
+      "y": 515,
+      "font": "TNRB",
+      "size": 23
+    },
+    {
+      "text": "58",
+      "x": 421.0,
+      "y": 603.6,
+      "font": "TNRB",
+      "size": 22
+    },
+    {
+      "text": "64",
+      "x": 473.3333333333333,
+      "y": 603.6,
+      "font": "TNRB",
+      "size": 22
+    },
+    {
+      "text": "32",
+      "x": 525.6666666666666,
+      "y": 603.6,
+      "font": "TNRB",
+      "size": 22
+    },
+    {
+      "text": "1",
+      "x": 578.0,
+      "y": 603.6,
+      "font": "TNRB",
+      "size": 22
+    },
+    {
+      "text": "p",
+      "x": 615.2995703125,
+      "y": 545,
+      "font": "TNRI",
+      "size": 22
+    },
+    {
+      "text": "i",
+      "x": 626.2995703125,
+      "y": 550,
+      "font": "TNRI",
+      "size": 15.84
+    },
+    {
+      "text": "Frozen feasibility weights",
+      "x": 838,
+      "y": 229,
+      "font": "TNRI",
+      "size": 21.5
+    },
+    {
+      "text": "Fixed-schedule validation",
+      "x": 827.5,
+      "y": 515,
+      "font": "TNRB",
+      "size": 23
+    },
+    {
+      "text": "Learning + coverage \u00b7 Budget K",
+      "x": 827.5,
+      "y": 539,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "P exists: \u03ba",
+      "x": 726.18125,
+      "y": 567,
+      "font": "TNRI",
+      "size": 21.5
+    },
+    {
+      "text": "i",
+      "x": 815.30966796875,
+      "y": 572,
+      "font": "TNRI",
+      "size": 15.479999999999999
+    },
+    {
+      "text": " \u2265 \u03ba",
+      "x": 819.6105078125,
+      "y": 567,
+      "font": "TNRI",
+      "size": 21.5
+    },
+    {
+      "text": "P",
+      "x": 852.479892578125,
+      "y": 572,
+      "font": "TNRI",
+      "size": 15.479999999999999
+    },
+    {
+      "text": " \u2192 skip",
+      "x": 861.935693359375,
+      "y": 567,
+      "font": "TNRI",
+      "size": 21.5
+    },
+    {
+      "text": "Fixed slots; no refill",
+      "x": 827.5,
+      "y": 589,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "15 controls; stop at first witness",
+      "x": 827.5,
+      "y": 614,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "Selection",
+      "x": 1117.5,
+      "y": 322,
+      "font": "TNRB",
+      "size": 24
+    },
+    {
+      "text": "Best verified",
+      "x": 1117.5,
+      "y": 425,
+      "font": "TNR",
+      "size": 22
+    },
+    {
+      "text": "pair P",
+      "x": 1117.5,
+      "y": 451,
+      "font": "TNRI",
+      "size": 24
+    },
+    {
+      "text": "min lex \u03ba",
+      "x": 1075.198984375,
+      "y": 488,
+      "font": "TNRI",
+      "size": 22
+    },
+    {
+      "text": "i",
+      "x": 1155.40015625,
+      "y": 493,
+      "font": "TNRI",
+      "size": 15.84
+    },
+    {
+      "text": "Incumbent \u03ba",
+      "x": 1059.5522509765624,
+      "y": 532,
+      "font": "TNRI",
+      "size": 21.5
+    },
+    {
+      "text": "P",
+      "x": 1165.9919482421874,
+      "y": 537,
+      "font": "TNRI",
+      "size": 15.479999999999999
+    },
+    {
+      "text": "P or empty",
+      "x": 1117.5,
+      "y": 588,
+      "font": "TNRI",
+      "size": 22
+    },
+    {
+      "text": "Witness",
+      "x": 936,
+      "y": 366,
+      "font": "TNR",
+      "size": 22
+    },
+    {
+      "text": "No witness; no slots",
+      "x": 941,
+      "y": 420,
+      "font": "TNRI",
+      "size": 21.5
+    },
+    {
+      "text": "Gazebo: suav1 + 3-D lidar",
+      "x": 1389,
+      "y": 249,
+      "font": "TNRB",
+      "size": 22
+    },
+    {
+      "text": "RViz: online voxels + primitives",
+      "x": 1389,
+      "y": 458,
+      "font": "TNRB",
+      "size": 21.5
+    },
+    {
+      "text": "Timestamp-aware dispatch",
+      "x": 1389,
+      "y": 506,
+      "font": "TNRB",
+      "size": 22
+    },
+    {
+      "text": "Revalidate proposal P",
+      "x": 1389,
+      "y": 531,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "Else check remaining sequence",
+      "x": 1389,
+      "y": 554,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "Publish passing control / reject",
+      "x": 1389,
+      "y": 577,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "Aircraft + actuator dynamics",
+      "x": 1389,
+      "y": 613,
+      "font": "TNR",
+      "size": 21.5
+    },
+    {
+      "text": "State and lidar updates",
+      "x": 779,
+      "y": 671,
+      "font": "TNRI",
+      "size": 24
+    }
+  ],
+  "bundled_asset_sha256": {
+    "gazebo_suav1.png": "121a358d8566fddf2210311ad74c4663399590c9cac88866ebaf37a29fb4a48c",
+    "rviz_voxels.png": "84e56142a8e01d0b7017b317cb507884376e5bb299eb89b0ff66b4c670103558"
+  }
+}

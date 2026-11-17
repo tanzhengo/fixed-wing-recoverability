@@ -1,0 +1,10 @@
+{
+  "frozen_pairs_sha256": "c2db6f61bc43d995e069c5204caba484af5b7425231a8ec2308d8b527dcba526",
+  "command": [
+    "/media/tan/T7 Shield/figures_revision_20261117/fig2/pair_replay",
+    "/media/tan/T7 Shield/figures_revision_20261117/fig2/raw"
+  ],
+  "new_runtime": "sensor-map replay only; no flight nodes or production control changes",
+  "returncode": 0,
+  "wall_seconds": 3.6192691690002903
+}

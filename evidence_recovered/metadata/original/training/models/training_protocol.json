@@ -1,0 +1,43 @@
+{
+  "schema": "OBS58",
+  "seeds": [
+    20261101,
+    20261102,
+    20261103
+  ],
+  "cells": {
+    "state_aux": [
+      true,
+      0.1
+    ],
+    "observed": [
+      false,
+      0.0
+    ],
+    "observed_aux": [
+      false,
+      0.1
+    ]
+  },
+  "epochs": 60,
+  "batch_size": 2048,
+  "optimizer": "Adam, lr0.001, weight_decay0.00001",
+  "checkpoint": "minimum validation BCE; earliest exact tie",
+  "export": "compact V2 feasibility head, 28 or58 input and64-32 hidden units",
+  "validation_schedule": "K12; common cheapest-first seed, incumbent cost/rank pruning; no extra RK4 prefix; candidate set fixed before pruning; deferred inference",
+  "selection": "per variant: maximum validation positive-query witness recall, minimum mean continuation steps, minimum BCE, minimum numeric seed; alpha for selected Obs+Aux seed chosen separately on16validation nominal closed-loop tasks: maximum completions, minimum per-update work, then lower alpha",
+  "data_sha256": {
+    "train.npz": "4b11ba17c0dba41b0c1f4baf8f160d33c083d6238ed536234902d766c6e8f45f",
+    "val.npz": "bbf4e269e264191f0aa29689e78f7a1389adc64323354fdcc754e7c489990964",
+    "train_states.csv": "7de2ed4c2623dc40c39d62d237427b06eb78b4744419d7afbed255a2bcb0bd37",
+    "val_states.csv": "9e40a3d2717fc7468d33fe50dbb168d40f04cc8d319dc5103d117701580e65fa"
+  },
+  "script_sha256": "1c0276af7d2535c9331ae167c58338d246ced78ef7923ec89b2d41302b6551f7",
+  "torch_version": "2.4.1+cpu",
+  "train_scenes": 64,
+  "val_scenes": 16,
+  "train_queries": 3030,
+  "val_queries": 767,
+  "train_candidates": 396837,
+  "val_candidates": 95168
+}

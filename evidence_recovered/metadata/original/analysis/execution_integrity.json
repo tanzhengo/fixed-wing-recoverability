@@ -1,0 +1,9 @@
+{
+  "cases": 1296,
+  "all_path_counts_match_summary_steps": true,
+  "all_timestamps_match_summary": true,
+  "all_coordinates_finite": true,
+  "scene_geometry_identical_across_methods_and_conditions": true,
+  "distinct_scene_count": 48,
+  "source_summary_sha256": "6b559220900e0b62765b94313006525fd2ac90ffe9ef649afd59e1dd388a6d7e"
+}

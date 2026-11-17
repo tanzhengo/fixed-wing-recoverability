@@ -1,0 +1,2 @@
+case,split,family,seed,index,sampler,outcome,queries,sim_seconds,wall_seconds,prefix_checks,prefix_rejects,min_clearance
+val_forest_sparse_0_m0,val,forest_sparse,1241000,0,0,goal,17,15.3,11.0625,0,0,5.9392

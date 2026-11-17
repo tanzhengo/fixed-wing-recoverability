@@ -1,0 +1,151 @@
+{
+  "status": "passed",
+  "software_tests": {
+    "tests_run": 76,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "commands_completed": 17,
+  "training_examples": 490,
+  "validation_examples": 244,
+  "geometry_splits": "three explicit distinct constructed free boxes; diagnostic test maps excluded from training",
+  "smoke_model": {
+    "runs": [
+      {
+        "variant": "obs_bce",
+        "seed": 20261101,
+        "best_epoch": 60,
+        "best_validation_bce": 0.2702990221857363,
+        "dataset_description": "New constructed observed-box fixtures; pipeline smoke check only",
+        "split_check": "provided scene IDs are disjoint; geometry uniqueness not independently established",
+        "feature_schema_sha256": "7909ab21ebc34912ac08297a8b867d0b255a246d926530a82f187f137364cd0d",
+        "train_sha256": "a34974dff1079aa83323b4b6aafe30f593a9d5c3259a6509560a40e8802db676",
+        "validation_sha256": "b607ba1531e9ea8ca607421d9349aa057b0bffe8fa98b54d51f51b2ac27d2076",
+        "result_status": "NEW_RECONSTRUCTED_TRAINING; not manuscript reproduction"
+      }
+    ],
+    "deployment_selection": "not performed; requires validation witness recall/work and closed-loop validation"
+  },
+  "replays": {
+    "cost": {
+      "status": "budget_exhausted",
+      "selected_candidate_id": null,
+      "witness_successor_id": null,
+      "successor_steps": 11905,
+      "inference_calls": 0,
+      "model_sha256": null
+    },
+    "diverse": {
+      "status": "verified",
+      "selected_candidate_id": 106,
+      "witness_successor_id": 2,
+      "successor_steps": 7111,
+      "inference_calls": 0,
+      "model_sha256": null
+    },
+    "learned": {
+      "status": "verified",
+      "selected_candidate_id": 319,
+      "witness_successor_id": 0,
+      "successor_steps": 1284,
+      "inference_calls": 1,
+      "model_sha256": "62c8d2311d7c51a7abde5560951adfa810dddf7275ebb7258ed6cb00cceddfaf"
+    }
+  },
+  "episode": {
+    "outcome": "time_limit",
+    "elapsed_simulation_seconds": 2.1999999999999744,
+    "query_count": 11,
+    "scan_count": 12,
+    "primary_integration_steps": 377189,
+    "successor_integration_steps": 3888,
+    "dispatch_integration_steps": 2100,
+    "fresh_sequences": 7,
+    "cached_sequences": 0,
+    "initialization_waits": 4,
+    "physical_chord_contacts": 0,
+    "minimum_sampled_physical_clearance": 19.799657016118015,
+    "sampled_euclidean_margin_incursion": false,
+    "clock_policy": "SIMULATION_CLOCK_ZERO_COMPUTATIONAL_LATENCY",
+    "asynchronous_realtime_evidence": false
+  },
+  "episode_record_counts": {
+    "states": 441,
+    "queries": 11,
+    "controls": 440,
+    "scans": 12,
+    "frames": 11
+  },
+  "episode_sha256": {
+    "states.jsonl": "38ad70f96eea38210134bf17aa63591c928aa971f005ff759b0fb7c40b26a2ec",
+    "queries.jsonl": "a3b42b5b6e61a439f78eac6687533ba8511e4f3cc25723d3bb9d4be550e46c03",
+    "controls.jsonl": "7ed91c2d4053d42f087797d026e524dfd3c2a52e8d02b1cba5043ed5b790b30a",
+    "scans.jsonl": "add33869ebad7d9fd215bebe079b81ca83d29be7ed9b0e7ecce9a82a91c8b26d",
+    "frames.jsonl": "04b9e34d46e88dfdddf21d2a5f654608ec94e3376c2f681a6367e508c175e230"
+  },
+  "source_sha256": {
+    "__init__.py": "adbdad4766d23a79cbe89271aef0b239da8cfc9decccc6ff26699f2dd43e3421",
+    "dynamics.py": "1356b8a2efaa9f3488a039bc4c42458e2530e440b31de3b8e7f366df2b32e992",
+    "execution.py": "5b331d1bf6e0319fabcf78719c1d4f873c7aff474ca7b161dfb15aba3bad457b",
+    "features.py": "3cd3c05ec1e9a890c88695efa9074d1f5d9892d232a8e280edd0d51e1d5691dd",
+    "learning.py": "81ee6cc7fec666acaa7bc3123e81804f3990927f1c8a6708c77129bee8ac4831",
+    "observed_map.py": "b10b35498e83a077f31396e2a406bab0bbc413472add089cbf43798837c4f7e3",
+    "planner.py": "94c8d42231fde4d1b3a6331f02adbf85baded97eff1a12a3e8cc47e772d742ca",
+    "records.py": "484a885c6a24886d7665fc06e30f684d9af2031d61eea63829ef0f3f02abf0c8",
+    "sensor.py": "3c97d1da6da82da1394dacfb568e4bf32423e626222350081c08b353c8b3e868",
+    "simulation.py": "e40a81d8b196df6362f069e5df61dabedff61797d8018cc950c7fc1f7d8f8d2f",
+    "types.py": "2604ad4bb8217e3126a90f620b1cdd2749c3e296ca748f48d99229fbcbd48206"
+  },
+  "total_measured_command_wall_seconds": 68.55204963684082,
+  "scope": "Ubuntu software/pipeline verification and newly generated synchronous diagnostic only; no code changes; no ROS integration; not the manuscript Selected model.",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.31",
+    "machine": "x86_64",
+    "numpy": "2.5.5",
+    "matplotlib": "3.11.2"
+  },
+  "base_commit": "bd543e154951afa391ada73e8c6a645ca8710698",
+  "client_date": "2026-11-17",
+  "guide_sections_completed": [
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "artifact_directory_name": "ubuntu-validation",
+  "artifacts_sha256": {
+    "software_checks.json": "b39aaa2f4f67f2e671ec9f931f10d76b14d894263dd0f34557fb65df0edb780e",
+    "commands.json": "9435631a3f32c9b6224cd9439e6551b874969321839809393a353b64956787a1",
+    "requirements_resolved.txt": "90baec78f8e5382e04adc1d852dc68e6ebce0732a75a0b0f7ebf636bcf8bb4e1",
+    "train_labels.npz": "a34974dff1079aa83323b4b6aafe30f593a9d5c3259a6509560a40e8802db676",
+    "validation_labels.npz": "b607ba1531e9ea8ca607421d9349aa057b0bffe8fa98b54d51f51b2ac27d2076",
+    "smoke_training/obs_bce_20261101/compact_model.json": "62c8d2311d7c51a7abde5560951adfa810dddf7275ebb7258ed6cb00cceddfaf",
+    "open_episode/summary.json": "6e1e73a090d563314063390feebe48204940ed6afc00451b59521b6c1a770e91",
+    "diagnostics/diagnostic_manifest.json": "2efaa96a7fbc695c91036d6399efcf455c335576336a58e7d1a8f1aee224e8ec",
+    "learned_diagnostics/diagnostic_manifest.json": "461d0d53ddbd1de0b0da1ad43ea19cae88fe72388994e0a6d01af7f00d4296e2",
+    "verification_report.json": "009b55d038421e02f1adbbca2f9176dbab12e978cb7532ce3b7e0e117d4427eb",
+    "verify_outputs.py": "4bc01c7d8af962c2e5cb079f91186c96d8ee5e54de8605c64f153fe245d47990"
+  },
+  "command_wall_seconds": {
+    "pip_check": 0.18360209465026855,
+    "environment": 0.15557146072387695,
+    "software_checks": 0.37490367889404297,
+    "help_run_diagnostics": 0.8651511669158936,
+    "help_replay_query": 0.07306671142578125,
+    "help_label_dataset": 0.0717933177947998,
+    "help_train_model": 0.06154060363769531,
+    "help_run_episode": 0.07872343063354492,
+    "diagnostics": 5.300159454345703,
+    "label_train": 8.602144479751587,
+    "label_validation": 2.796694278717041,
+    "smoke_training": 0.13653182983398438,
+    "learned_diagnostics": 5.445187330245972,
+    "replay_cost": 1.8787295818328857,
+    "replay_diverse": 1.7621235847473145,
+    "replay_learned": 1.6938862800598145,
+    "open_episode": 39.072240352630615
+  }
+}

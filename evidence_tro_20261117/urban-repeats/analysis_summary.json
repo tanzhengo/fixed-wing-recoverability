@@ -1,0 +1,2268 @@
+{
+  "complete": true,
+  "pending": [],
+  "protocol_sha256": "f636bd6f18a0f7d577cbad72e904ff59c58173de261546ef998a6f69863ac444",
+  "analysis_sha256": "b8575462a91bde1c45606eb52afc46b273dc947b3bc421e91c6d73180e9e2881",
+  "metric_reference": "work/reviewer_revision_20261101/paper/analyze_city.py",
+  "population": "Nine newly acquired flights only; all outcomes retained; mission-observer cutoff excludes shutdown grace.",
+  "success_definition": "Completed eight-waypoint cycle and passed independent physical-mesh clearance/execution checks.",
+  "latency_units": "Milliseconds of ROS simulation time; not CPU wall time.",
+  "dispersion": "Sample standard deviation (ddof=1) of per-flight values; no pooled-update dispersion.",
+  "failed_completion_time": "null; observed_end_sim_s records the termination horizon.",
+  "clearance_definition": "Recorded-reference-position chord distance to independent physical collision mesh, isotropic 2 m margin, 30 m cap; legacy box-envelope diagnostics retained separately.",
+  "protocol_files_unchanged": true,
+  "all_run_sources_identical": true,
+  "rows": [
+    {
+      "block": 1,
+      "method": "Cost",
+      "run": "block1_Cost",
+      "success": true,
+      "route_completed": true,
+      "passed": true,
+      "completed_waypoints": 8,
+      "mission_waypoints": 8,
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": 86.208,
+      "route_completion_sim_s": 86.208,
+      "observed_end_sim_s": 86.224,
+      "mission_cutoff_sim_s": 86.208,
+      "min_chord_clearance_m": 4.345957396604671,
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "execution_rejections": 0,
+      "map_contract_violations": 0,
+      "current_state_not_free_count": 0,
+      "map_ready_false_count": 0,
+      "flight_observer_error": null,
+      "startup_wait_updates": 5,
+      "active_updates": 856,
+      "command_updates": 856,
+      "fresh_updates": 773,
+      "cached_updates": 83,
+      "maximum_primary_evaluated": 406,
+      "maximum_scheduled_count": 12,
+      "cumulative_successor_steps": 1102686,
+      "mean_successor_steps": 1288.1845794392523,
+      "cumulative_cache_revalidation_steps": 21882,
+      "mean_queries": 2.8294392523364484,
+      "pruned_candidates": 0,
+      "inference_batches": 0,
+      "inference_candidates": 0,
+      "generation_mean_ms": 17.30373831775701,
+      "generation_p95_ms": 52.00000000000001,
+      "observation_command_mean_ms": 24.90654205607469,
+      "observation_command_p95_ms": 60.000000000002274,
+      "dispatch_validation_age_mean_ms": 0.07943925233644861,
+      "dispatch_validation_age_p95_ms": 0.0,
+      "dispatch_validation_age_max_ms": 4.0,
+      "map_age_p95_ms": 195.99999999999795,
+      "free_voxels": 3365923,
+      "occupied_voxels": 155775,
+      "truth_obstacle_nonzero_count": 0,
+      "source_unchanged": true,
+      "legacy_box_observer_passed": false,
+      "legacy_box_physical_intrusion_samples": 4,
+      "legacy_box_inflated_intrusion_samples": 49,
+      "elapsed_wall_s": 123.27773011999989
+    },
+    {
+      "block": 1,
+      "method": "Diverse",
+      "run": "block1_Diverse",
+      "success": true,
+      "route_completed": true,
+      "passed": true,
+      "completed_waypoints": 8,
+      "mission_waypoints": 8,
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": 84.408,
+      "route_completion_sim_s": 84.408,
+      "observed_end_sim_s": 84.4,
+      "mission_cutoff_sim_s": 84.408,
+      "min_chord_clearance_m": 4.660979412315523,
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "execution_rejections": 0,
+      "map_contract_violations": 0,
+      "current_state_not_free_count": 0,
+      "map_ready_false_count": 0,
+      "flight_observer_error": null,
+      "startup_wait_updates": 6,
+      "active_updates": 838,
+      "command_updates": 838,
+      "fresh_updates": 836,
+      "cached_updates": 2,
+      "maximum_primary_evaluated": 406,
+      "maximum_scheduled_count": 12,
+      "cumulative_successor_steps": 525977,
+      "mean_successor_steps": 627.6575178997614,
+      "cumulative_cache_revalidation_steps": 592,
+      "mean_queries": 2.023866348448687,
+      "pruned_candidates": 550,
+      "inference_batches": 0,
+      "inference_candidates": 0,
+      "generation_mean_ms": 15.584725536992844,
+      "generation_p95_ms": 52.00000000000001,
+      "observation_command_mean_ms": 22.86873508353223,
+      "observation_command_p95_ms": 56.000000000000185,
+      "dispatch_validation_age_mean_ms": 0.03818615751789976,
+      "dispatch_validation_age_p95_ms": 0.0,
+      "dispatch_validation_age_max_ms": 4.0,
+      "map_age_p95_ms": 192.6000000000058,
+      "free_voxels": 3448350,
+      "occupied_voxels": 164558,
+      "truth_obstacle_nonzero_count": 0,
+      "source_unchanged": true,
+      "legacy_box_observer_passed": true,
+      "legacy_box_physical_intrusion_samples": 0,
+      "legacy_box_inflated_intrusion_samples": 0,
+      "elapsed_wall_s": 121.89817207600026
+    },
+    {
+      "block": 1,
+      "method": "Selected",
+      "run": "block1_Selected",
+      "success": true,
+      "route_completed": true,
+      "passed": true,
+      "completed_waypoints": 8,
+      "mission_waypoints": 8,
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": 105.508,
+      "route_completion_sim_s": 105.508,
+      "observed_end_sim_s": 105.536,
+      "mission_cutoff_sim_s": 105.508,
+      "min_chord_clearance_m": 4.725030398951908,
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "execution_rejections": 0,
+      "map_contract_violations": 0,
+      "current_state_not_free_count": 0,
+      "map_ready_false_count": 0,
+      "flight_observer_error": null,
+      "startup_wait_updates": 4,
+      "active_updates": 1047,
+      "command_updates": 1047,
+      "fresh_updates": 1046,
+      "cached_updates": 1,
+      "maximum_primary_evaluated": 406,
+      "maximum_scheduled_count": 12,
+      "cumulative_successor_steps": 1248361,
+      "mean_successor_steps": 1192.3218720152818,
+      "cumulative_cache_revalidation_steps": 300,
+      "mean_queries": 3.346704871060172,
+      "pruned_candidates": 1734,
+      "inference_batches": 381,
+      "inference_candidates": 79944,
+      "generation_mean_ms": 20.65329512893983,
+      "generation_p95_ms": 56.0,
+      "observation_command_mean_ms": 28.061127029608404,
+      "observation_command_p95_ms": 64.00000000000503,
+      "dispatch_validation_age_mean_ms": 0.1069723018147087,
+      "dispatch_validation_age_p95_ms": 0.0,
+      "dispatch_validation_age_max_ms": 4.0,
+      "map_age_p95_ms": 195.99999999999795,
+      "free_voxels": 3825919,
+      "occupied_voxels": 172986,
+      "truth_obstacle_nonzero_count": 0,
+      "source_unchanged": true,
+      "legacy_box_observer_passed": true,
+      "legacy_box_physical_intrusion_samples": 0,
+      "legacy_box_inflated_intrusion_samples": 0,
+      "elapsed_wall_s": 130.41354961699972
+    },
+    {
+      "block": 2,
+      "method": "Diverse",
+      "run": "block2_Diverse",
+      "success": true,
+      "route_completed": true,
+      "passed": true,
+      "completed_waypoints": 8,
+      "mission_waypoints": 8,
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": 96.14,
+      "route_completion_sim_s": 96.14,
+      "observed_end_sim_s": 96.192,
+      "mission_cutoff_sim_s": 96.14,
+      "min_chord_clearance_m": 4.892627117192043,
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "execution_rejections": 0,
+      "map_contract_violations": 0,
+      "current_state_not_free_count": 0,
+      "map_ready_false_count": 0,
+      "flight_observer_error": null,
+      "startup_wait_updates": 4,
+      "active_updates": 954,
+      "command_updates": 954,
+      "fresh_updates": 952,
+      "cached_updates": 2,
+      "maximum_primary_evaluated": 406,
+      "maximum_scheduled_count": 12,
+      "cumulative_successor_steps": 822283,
+      "mean_successor_steps": 861.9318658280922,
+      "cumulative_cache_revalidation_steps": 593,
+      "mean_queries": 2.607966457023061,
+      "pruned_candidates": 1095,
+      "inference_batches": 0,
+      "inference_candidates": 0,
+      "generation_mean_ms": 20.04192872117401,
+      "generation_p95_ms": 56.0,
+      "observation_command_mean_ms": 32.65828092243181,
+      "observation_command_p95_ms": 79.9999999999983,
+      "dispatch_validation_age_mean_ms": 0.11740041928721175,
+      "dispatch_validation_age_p95_ms": 0.0,
+      "dispatch_validation_age_max_ms": 4.0,
+      "map_age_p95_ms": 192.00000000000017,
+      "free_voxels": 3914888,
+      "occupied_voxels": 181786,
+      "truth_obstacle_nonzero_count": 0,
+      "source_unchanged": true,
+      "legacy_box_observer_passed": true,
+      "legacy_box_physical_intrusion_samples": 0,
+      "legacy_box_inflated_intrusion_samples": 0,
+      "elapsed_wall_s": 123.2079618329999
+    },
+    {
+      "block": 2,
+      "method": "Selected",
+      "run": "block2_Selected",
+      "success": true,
+      "route_completed": true,
+      "passed": true,
+      "completed_waypoints": 8,
+      "mission_waypoints": 8,
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": 86.808,
+      "route_completion_sim_s": 86.808,
+      "observed_end_sim_s": 86.8,
+      "mission_cutoff_sim_s": 86.808,
+      "min_chord_clearance_m": 4.9973258937883855,
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "execution_rejections": 0,
+      "map_contract_violations": 0,
+      "current_state_not_free_count": 0,
+      "map_ready_false_count": 0,
+      "flight_observer_error": null,
+      "startup_wait_updates": 5,
+      "active_updates": 862,
+      "command_updates": 862,
+      "fresh_updates": 861,
+      "cached_updates": 1,
+      "maximum_primary_evaluated": 406,
+      "maximum_scheduled_count": 12,
+      "cumulative_successor_steps": 624740,
+      "mean_successor_steps": 724.7563805104409,
+      "cumulative_cache_revalidation_steps": 297,
+      "mean_queries": 2.3178654292343386,
+      "pruned_candidates": 734,
+      "inference_batches": 170,
+      "inference_candidates": 31093,
+      "generation_mean_ms": 17.86542923433875,
+      "generation_p95_ms": 52.00000000000001,
+      "observation_command_mean_ms": 25.32714617169399,
+      "observation_command_p95_ms": 60.000000000002274,
+      "dispatch_validation_age_mean_ms": 0.09744779582366588,
+      "dispatch_validation_age_p95_ms": 0.0,
+      "dispatch_validation_age_max_ms": 4.0,
+      "map_age_p95_ms": 192.00000000000728,
+      "free_voxels": 3547567,
+      "occupied_voxels": 170668,
+      "truth_obstacle_nonzero_count": 0,
+      "source_unchanged": true,
+      "legacy_box_observer_passed": true,
+      "legacy_box_physical_intrusion_samples": 0,
+      "legacy_box_inflated_intrusion_samples": 0,
+      "elapsed_wall_s": 110.12096970500033
+    },
+    {
+      "block": 2,
+      "method": "Cost",
+      "run": "block2_Cost",
+      "success": true,
+      "route_completed": true,
+      "passed": true,
+      "completed_waypoints": 8,
+      "mission_waypoints": 8,
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": 85.756,
+      "route_completion_sim_s": 85.756,
+      "observed_end_sim_s": 85.792,
+      "mission_cutoff_sim_s": 85.756,
+      "min_chord_clearance_m": 4.3721807227300715,
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "execution_rejections": 0,
+      "map_contract_violations": 0,
+      "current_state_not_free_count": 0,
+      "map_ready_false_count": 0,
+      "flight_observer_error": null,
+      "startup_wait_updates": 5,
+      "active_updates": 851,
+      "command_updates": 851,
+      "fresh_updates": 788,
+      "cached_updates": 63,
+      "maximum_primary_evaluated": 406,
+      "maximum_scheduled_count": 12,
+      "cumulative_successor_steps": 1033061,
+      "mean_successor_steps": 1213.9377203290246,
+      "cumulative_cache_revalidation_steps": 16983,
+      "mean_queries": 2.466509988249119,
+      "pruned_candidates": 0,
+      "inference_batches": 0,
+      "inference_candidates": 0,
+      "generation_mean_ms": 16.803760282021155,
+      "generation_p95_ms": 52.00000000000001,
+      "observation_command_mean_ms": 24.258519388954255,
+      "observation_command_p95_ms": 59.99999999999517,
+      "dispatch_validation_age_mean_ms": 0.09870740305522913,
+      "dispatch_validation_age_p95_ms": 0.0,
+      "dispatch_validation_age_max_ms": 4.0,
+      "map_age_p95_ms": 195.99999999999795,
+      "free_voxels": 3342195,
+      "occupied_voxels": 153850,
+      "truth_obstacle_nonzero_count": 0,
+      "source_unchanged": true,
+      "legacy_box_observer_passed": false,
+      "legacy_box_physical_intrusion_samples": 0,
+      "legacy_box_inflated_intrusion_samples": 31,
+      "elapsed_wall_s": 109.11288867100029
+    },
+    {
+      "block": 3,
+      "method": "Selected",
+      "run": "block3_Selected",
+      "success": true,
+      "route_completed": true,
+      "passed": true,
+      "completed_waypoints": 8,
+      "mission_waypoints": 8,
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": 83.916,
+      "route_completion_sim_s": 83.916,
+      "observed_end_sim_s": 83.952,
+      "mission_cutoff_sim_s": 83.916,
+      "min_chord_clearance_m": 4.644900690762894,
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "execution_rejections": 0,
+      "map_contract_violations": 0,
+      "current_state_not_free_count": 0,
+      "map_ready_false_count": 0,
+      "flight_observer_error": null,
+      "startup_wait_updates": 4,
+      "active_updates": 833,
+      "command_updates": 833,
+      "fresh_updates": 823,
+      "cached_updates": 10,
+      "maximum_primary_evaluated": 406,
+      "maximum_scheduled_count": 12,
+      "cumulative_successor_steps": 495262,
+      "mean_successor_steps": 594.5522208883554,
+      "cumulative_cache_revalidation_steps": 2909,
+      "mean_queries": 1.9243697478991597,
+      "pruned_candidates": 418,
+      "inference_batches": 108,
+      "inference_candidates": 17700,
+      "generation_mean_ms": 17.118847539015608,
+      "generation_p95_ms": 52.00000000000001,
+      "observation_command_mean_ms": 24.590636254501938,
+      "observation_command_p95_ms": 60.000000000002274,
+      "dispatch_validation_age_mean_ms": 0.052821128451380546,
+      "dispatch_validation_age_p95_ms": 0.0,
+      "dispatch_validation_age_max_ms": 4.0,
+      "map_age_p95_ms": 195.99999999999795,
+      "free_voxels": 3438851,
+      "occupied_voxels": 164371,
+      "truth_obstacle_nonzero_count": 0,
+      "source_unchanged": true,
+      "legacy_box_observer_passed": true,
+      "legacy_box_physical_intrusion_samples": 0,
+      "legacy_box_inflated_intrusion_samples": 0,
+      "elapsed_wall_s": 109.0748693380001
+    },
+    {
+      "block": 3,
+      "method": "Cost",
+      "run": "block3_Cost",
+      "success": true,
+      "route_completed": true,
+      "passed": true,
+      "completed_waypoints": 8,
+      "mission_waypoints": 8,
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": 85.32,
+      "route_completion_sim_s": 85.32,
+      "observed_end_sim_s": 85.36,
+      "mission_cutoff_sim_s": 85.32,
+      "min_chord_clearance_m": 4.309739713780104,
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "execution_rejections": 0,
+      "map_contract_violations": 0,
+      "current_state_not_free_count": 0,
+      "map_ready_false_count": 0,
+      "flight_observer_error": null,
+      "startup_wait_updates": 4,
+      "active_updates": 847,
+      "command_updates": 847,
+      "fresh_updates": 814,
+      "cached_updates": 33,
+      "maximum_primary_evaluated": 406,
+      "maximum_scheduled_count": 12,
+      "cumulative_successor_steps": 698113,
+      "mean_successor_steps": 824.2184179456907,
+      "cumulative_cache_revalidation_steps": 8592,
+      "mean_queries": 1.9208972845336483,
+      "pruned_candidates": 0,
+      "inference_batches": 0,
+      "inference_candidates": 0,
+      "generation_mean_ms": 16.684769775678866,
+      "generation_p95_ms": 52.00000000000001,
+      "observation_command_mean_ms": 24.009445100354313,
+      "observation_command_p95_ms": 59.99999999999517,
+      "dispatch_validation_age_mean_ms": 0.05667060212514758,
+      "dispatch_validation_age_p95_ms": 0.0,
+      "dispatch_validation_age_max_ms": 4.0,
+      "map_age_p95_ms": 192.00000000000728,
+      "free_voxels": 3451421,
+      "occupied_voxels": 163303,
+      "truth_obstacle_nonzero_count": 0,
+      "source_unchanged": true,
+      "legacy_box_observer_passed": true,
+      "legacy_box_physical_intrusion_samples": 0,
+      "legacy_box_inflated_intrusion_samples": 0,
+      "elapsed_wall_s": 111.36645236200002
+    },
+    {
+      "block": 3,
+      "method": "Diverse",
+      "run": "block3_Diverse",
+      "success": true,
+      "route_completed": true,
+      "passed": true,
+      "completed_waypoints": 8,
+      "mission_waypoints": 8,
+      "stop_reason": "completed_first_waypoint_cycle",
+      "supervisor_stop_reason": "flight_observer_complete",
+      "completion_sim_s": 84.328,
+      "route_completion_sim_s": 84.328,
+      "observed_end_sim_s": 84.384,
+      "mission_cutoff_sim_s": 84.328,
+      "min_chord_clearance_m": 4.691690880353677,
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "execution_rejections": 0,
+      "map_contract_violations": 0,
+      "current_state_not_free_count": 0,
+      "map_ready_false_count": 0,
+      "flight_observer_error": null,
+      "startup_wait_updates": 4,
+      "active_updates": 837,
+      "command_updates": 837,
+      "fresh_updates": 837,
+      "cached_updates": 0,
+      "maximum_primary_evaluated": 406,
+      "maximum_scheduled_count": 12,
+      "cumulative_successor_steps": 633402,
+      "mean_successor_steps": 756.752688172043,
+      "cumulative_cache_revalidation_steps": 0,
+      "mean_queries": 2.2317801672640383,
+      "pruned_candidates": 608,
+      "inference_batches": 0,
+      "inference_candidates": 0,
+      "generation_mean_ms": 15.665471923536442,
+      "generation_p95_ms": 40.79999999999973,
+      "observation_command_mean_ms": 22.771804062126822,
+      "observation_command_p95_ms": 48.00000000000182,
+      "dispatch_validation_age_mean_ms": 0.05734767025089606,
+      "dispatch_validation_age_p95_ms": 0.0,
+      "dispatch_validation_age_max_ms": 4.0,
+      "map_age_p95_ms": 195.99999999999795,
+      "free_voxels": 3449536,
+      "occupied_voxels": 165459,
+      "truth_obstacle_nonzero_count": 0,
+      "source_unchanged": true,
+      "legacy_box_observer_passed": true,
+      "legacy_box_physical_intrusion_samples": 0,
+      "legacy_box_inflated_intrusion_samples": 0,
+      "elapsed_wall_s": 111.5866523199993
+    }
+  ],
+  "aggregate": {
+    "Cost": {
+      "runs": 3,
+      "successes": 3,
+      "waypoint_counts": [
+        8,
+        8,
+        8
+      ],
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "execution_rejections": 0,
+      "completion_sim_s": {
+        "n": 3,
+        "mean": 85.76133333333333,
+        "sample_sd": 0.4440240233741139,
+        "minimum": 85.32,
+        "maximum": 86.208
+      },
+      "cumulative_successor_steps": {
+        "n": 3,
+        "mean": 944620.0,
+        "sample_sd": 216301.1464209101,
+        "minimum": 698113.0,
+        "maximum": 1102686.0
+      },
+      "mean_successor_steps": {
+        "n": 3,
+        "mean": 1108.7802392379892,
+        "sample_sd": 249.21822089250622,
+        "minimum": 824.2184179456907,
+        "maximum": 1288.1845794392523
+      },
+      "min_chord_clearance_m": {
+        "n": 3,
+        "mean": 4.3426259443716155,
+        "sample_sd": 0.03135352978786173,
+        "minimum": 4.309739713780104,
+        "maximum": 4.3721807227300715
+      },
+      "generation_mean_ms": {
+        "n": 3,
+        "mean": 16.930756125152346,
+        "sample_sd": 0.3284455390929164,
+        "minimum": 16.684769775678866,
+        "maximum": 17.30373831775701
+      },
+      "generation_p95_ms": {
+        "n": 3,
+        "mean": 52.00000000000001,
+        "sample_sd": 0.0,
+        "minimum": 52.00000000000001,
+        "maximum": 52.00000000000001
+      },
+      "observation_command_mean_ms": {
+        "n": 3,
+        "mean": 24.39150218179442,
+        "sample_sd": 0.46309724074363734,
+        "minimum": 24.009445100354313,
+        "maximum": 24.90654205607469
+      },
+      "observation_command_p95_ms": {
+        "n": 3,
+        "mean": 59.999999999997534,
+        "sample_sd": 4.1023214231982405e-12,
+        "minimum": 59.99999999999517,
+        "maximum": 60.000000000002274
+      },
+      "dispatch_validation_age_mean_ms": {
+        "n": 3,
+        "mean": 0.0782724191722751,
+        "sample_sd": 0.021042677653606432,
+        "minimum": 0.05667060212514758,
+        "maximum": 0.09870740305522913
+      },
+      "dispatch_validation_age_p95_ms": {
+        "n": 3,
+        "mean": 0.0,
+        "sample_sd": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "dispatch_validation_age_max_ms": {
+        "n": 3,
+        "mean": 4.0,
+        "sample_sd": 0.0,
+        "minimum": 4.0,
+        "maximum": 4.0
+      },
+      "map_age_p95_ms": {
+        "n": 3,
+        "mean": 194.66666666666774,
+        "sample_sd": 2.309401076753121,
+        "minimum": 192.00000000000728,
+        "maximum": 195.99999999999795
+      },
+      "active_updates": {
+        "n": 3,
+        "mean": 851.3333333333334,
+        "sample_sd": 4.509249752822894,
+        "minimum": 847.0,
+        "maximum": 856.0
+      },
+      "fresh_updates": {
+        "n": 3,
+        "mean": 791.6666666666666,
+        "sample_sd": 20.744477176668816,
+        "minimum": 773.0,
+        "maximum": 814.0
+      },
+      "cached_updates": {
+        "n": 3,
+        "mean": 59.666666666666664,
+        "sample_sd": 25.16611478423583,
+        "minimum": 33.0,
+        "maximum": 83.0
+      },
+      "cumulative_cache_revalidation_steps": {
+        "n": 3,
+        "mean": 15819.0,
+        "sample_sd": 6721.026484101963,
+        "minimum": 8592.0,
+        "maximum": 21882.0
+      },
+      "elapsed_wall_s": {
+        "n": 3,
+        "mean": 114.5856903843334,
+        "sample_sd": 7.611393000111868,
+        "minimum": 109.11288867100029,
+        "maximum": 123.27773011999989
+      }
+    },
+    "Diverse": {
+      "runs": 3,
+      "successes": 3,
+      "waypoint_counts": [
+        8,
+        8,
+        8
+      ],
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "execution_rejections": 0,
+      "completion_sim_s": {
+        "n": 3,
+        "mean": 88.29199999999999,
+        "sample_sd": 6.7966850743579394,
+        "minimum": 84.328,
+        "maximum": 96.14
+      },
+      "cumulative_successor_steps": {
+        "n": 3,
+        "mean": 660554.0,
+        "sample_sd": 150007.44893837773,
+        "minimum": 525977.0,
+        "maximum": 822283.0
+      },
+      "mean_successor_steps": {
+        "n": 3,
+        "mean": 748.780690633299,
+        "sample_sd": 117.34045373561267,
+        "minimum": 627.6575178997614,
+        "maximum": 861.9318658280922
+      },
+      "min_chord_clearance_m": {
+        "n": 3,
+        "mean": 4.748432469953747,
+        "sample_sd": 0.12581681440251494,
+        "minimum": 4.660979412315523,
+        "maximum": 4.892627117192043
+      },
+      "generation_mean_ms": {
+        "n": 3,
+        "mean": 17.0973753939011,
+        "sample_sd": 2.550377563734523,
+        "minimum": 15.584725536992844,
+        "maximum": 20.04192872117401
+      },
+      "generation_p95_ms": {
+        "n": 3,
+        "mean": 49.59999999999991,
+        "sample_sd": 7.879086241437037,
+        "minimum": 40.79999999999973,
+        "maximum": 56.0
+      },
+      "observation_command_mean_ms": {
+        "n": 3,
+        "mean": 26.099606689363622,
+        "sample_sd": 5.680185267873056,
+        "minimum": 22.771804062126822,
+        "maximum": 32.65828092243181
+      },
+      "observation_command_p95_ms": {
+        "n": 3,
+        "mean": 61.33333333333343,
+        "sample_sd": 16.65332799572735,
+        "minimum": 48.00000000000182,
+        "maximum": 79.9999999999983
+      },
+      "dispatch_validation_age_mean_ms": {
+        "n": 3,
+        "mean": 0.07097808235200252,
+        "sample_sd": 0.04132875412408125,
+        "minimum": 0.03818615751789976,
+        "maximum": 0.11740041928721175
+      },
+      "dispatch_validation_age_p95_ms": {
+        "n": 3,
+        "mean": 0.0,
+        "sample_sd": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "dispatch_validation_age_max_ms": {
+        "n": 3,
+        "mean": 4.0,
+        "sample_sd": 0.0,
+        "minimum": 4.0,
+        "maximum": 4.0
+      },
+      "map_age_p95_ms": {
+        "n": 3,
+        "mean": 193.53333333333464,
+        "sample_sd": 2.1571586249793078,
+        "minimum": 192.00000000000017,
+        "maximum": 195.99999999999795
+      },
+      "active_updates": {
+        "n": 3,
+        "mean": 876.3333333333334,
+        "sample_sd": 67.26316475853135,
+        "minimum": 837.0,
+        "maximum": 954.0
+      },
+      "fresh_updates": {
+        "n": 3,
+        "mean": 875.0,
+        "sample_sd": 66.68583057891684,
+        "minimum": 836.0,
+        "maximum": 952.0
+      },
+      "cached_updates": {
+        "n": 3,
+        "mean": 1.3333333333333333,
+        "sample_sd": 1.1547005383792517,
+        "minimum": 0.0,
+        "maximum": 2.0
+      },
+      "cumulative_cache_revalidation_steps": {
+        "n": 3,
+        "mean": 395.0,
+        "sample_sd": 342.08039990622086,
+        "minimum": 0.0,
+        "maximum": 593.0
+      },
+      "elapsed_wall_s": {
+        "n": 3,
+        "mean": 118.8975954096665,
+        "sample_sd": 6.365241860852546,
+        "minimum": 111.5866523199993,
+        "maximum": 123.2079618329999
+      }
+    },
+    "Selected": {
+      "runs": 3,
+      "successes": 3,
+      "waypoint_counts": [
+        8,
+        8,
+        8
+      ],
+      "physical_intersections": 0,
+      "margin_violations": 0,
+      "execution_rejections": 0,
+      "completion_sim_s": {
+        "n": 3,
+        "mean": 92.07733333333333,
+        "sample_sd": 11.720837057707664,
+        "minimum": 83.916,
+        "maximum": 105.508
+      },
+      "cumulative_successor_steps": {
+        "n": 3,
+        "mean": 789454.3333333334,
+        "sample_sd": 402663.1776737641,
+        "minimum": 495262.0,
+        "maximum": 1248361.0
+      },
+      "mean_successor_steps": {
+        "n": 3,
+        "mean": 837.2101578046927,
+        "sample_sd": 314.35096305389413,
+        "minimum": 594.5522208883554,
+        "maximum": 1192.3218720152818
+      },
+      "min_chord_clearance_m": {
+        "n": 3,
+        "mean": 4.7890856611677295,
+        "sample_sd": 0.1847381617182626,
+        "minimum": 4.644900690762894,
+        "maximum": 4.9973258937883855
+      },
+      "generation_mean_ms": {
+        "n": 3,
+        "mean": 18.545857300764727,
+        "sample_sd": 1.8628786076031458,
+        "minimum": 17.118847539015608,
+        "maximum": 20.65329512893983
+      },
+      "generation_p95_ms": {
+        "n": 3,
+        "mean": 53.333333333333336,
+        "sample_sd": 2.309401076758499,
+        "minimum": 52.00000000000001,
+        "maximum": 56.0
+      },
+      "observation_command_mean_ms": {
+        "n": 3,
+        "mean": 25.99296981860145,
+        "sample_sd": 1.8285424254336093,
+        "minimum": 24.590636254501938,
+        "maximum": 28.061127029608404
+      },
+      "observation_command_p95_ms": {
+        "n": 3,
+        "mean": 61.333333333336526,
+        "sample_sd": 2.309401076760095,
+        "minimum": 60.000000000002274,
+        "maximum": 64.00000000000503
+      },
+      "dispatch_validation_age_mean_ms": {
+        "n": 3,
+        "mean": 0.08574707536325171,
+        "sample_sd": 0.028909644387744918,
+        "minimum": 0.052821128451380546,
+        "maximum": 0.1069723018147087
+      },
+      "dispatch_validation_age_p95_ms": {
+        "n": 3,
+        "mean": 0.0,
+        "sample_sd": 0.0,
+        "minimum": 0.0,
+        "maximum": 0.0
+      },
+      "dispatch_validation_age_max_ms": {
+        "n": 3,
+        "mean": 4.0,
+        "sample_sd": 0.0,
+        "minimum": 4.0,
+        "maximum": 4.0
+      },
+      "map_age_p95_ms": {
+        "n": 3,
+        "mean": 194.66666666666774,
+        "sample_sd": 2.309401076753121,
+        "minimum": 192.00000000000728,
+        "maximum": 195.99999999999795
+      },
+      "active_updates": {
+        "n": 3,
+        "mean": 914.0,
+        "sample_sd": 116.09048195265622,
+        "minimum": 833.0,
+        "maximum": 1047.0
+      },
+      "fresh_updates": {
+        "n": 3,
+        "mean": 910.0,
+        "sample_sd": 119.30213744941874,
+        "minimum": 823.0,
+        "maximum": 1046.0
+      },
+      "cached_updates": {
+        "n": 3,
+        "mean": 4.0,
+        "sample_sd": 5.196152422706632,
+        "minimum": 1.0,
+        "maximum": 10.0
+      },
+      "cumulative_cache_revalidation_steps": {
+        "n": 3,
+        "mean": 1168.6666666666667,
+        "sample_sd": 1507.173624149963,
+        "minimum": 297.0,
+        "maximum": 2909.0
+      },
+      "elapsed_wall_s": {
+        "n": 3,
+        "mean": 116.53646288666671,
+        "sample_sd": 12.029286495272597,
+        "minimum": 109.0748693380001,
+        "maximum": 130.41354961699972
+      }
+    }
+  },
+  "details": {
+    "block1_Cost": {
+      "source_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery.launch": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/motion_primitives_test.launch": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives (copy).h": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/review_motion_primitives.h": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/collision_mesh_truth.py": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+      },
+      "binary_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/libgazebo_ros_3d_lidar.so": "fc60428f789bcd997b326ff992b1caa0e82a63190b0754ce5475628f7bf4fc1a"
+      },
+      "waypoints": [
+        [
+          -85.0,
+          -100.0,
+          40.0
+        ],
+        [
+          -30.0,
+          80.0,
+          50.0
+        ],
+        [
+          70.0,
+          200.0,
+          60.0
+        ],
+        [
+          130.0,
+          100.0,
+          60.0
+        ],
+        [
+          120.0,
+          60.0,
+          60.0
+        ],
+        [
+          20.0,
+          -230.0,
+          55.0
+        ],
+        [
+          125.0,
+          -265.0,
+          55.0
+        ],
+        [
+          -90.0,
+          -270.0,
+          40.0
+        ]
+      ],
+      "recovery_parameters": {
+        "require_terminal": true,
+        "stop_on_rejection": true,
+        "max_backup_integration_steps": 0,
+        "enabled": true,
+        "horizon_time": 3.0,
+        "max_candidates": 12,
+        "candidate_order": "cost",
+        "reuse_verified_plan": true,
+        "min_execution_time": 0.1,
+        "known_space_radius": 0.0,
+        "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+        "learned_work_power": 0.0,
+        "strict_execution": true,
+        "state_only_features": true,
+        "deferred_inference": true,
+        "prune_dominated": true,
+        "coverage_weight": 0.5
+      },
+      "planner_parameters": {
+        "horizon_time": 3.0,
+        "V": 15.5,
+        "theata": 45.0,
+        "num": 29,
+        "vertical_num": 7,
+        "max_climb_angle": 20.0,
+        "max_descent_angle": 20.0,
+        "min_altitude": 5.0,
+        "max_altitude": 160.0,
+        "vertical_clearance": 1.0,
+        "integration_dt": 0.02,
+        "min_speed": 3.0,
+        "max_speed": 45.0,
+        "max_thrust": 20.0,
+        "altitude_weight": 0.15,
+        "distance_weight": 0.02,
+        "heading_weight": 3.0,
+        "waypoint_altitude_tolerance": 3.0,
+        "max_roll_angle": 35.0,
+        "max_attack_angle": 25.0,
+        "min_attack_angle": -20.0,
+        "compensate_tau": 0.8,
+        "K_T": 2.2
+      },
+      "generation_sim_s": {
+        "count": 856,
+        "mean": 0.01730373831775701,
+        "p95": 0.052000000000000005,
+        "maximum": 0.084
+      },
+      "observation_to_command_sim_s": {
+        "count": 856,
+        "mean": 0.02490654205607469,
+        "p95": 0.060000000000002274,
+        "maximum": 0.1280000000000001
+      },
+      "dispatch_validation_age_sim_s": {
+        "count": 856,
+        "mean": 7.943925233644861e-05,
+        "p95": 0.0,
+        "maximum": 0.004
+      },
+      "map_age_sim_s": {
+        "count": 856,
+        "mean": 0.14407943925233632,
+        "p95": 0.19599999999999795,
+        "maximum": 0.392000000000003
+      },
+      "input_hashes": {
+        "summary.json": "542c37d59b1ede1ec2588122e3ae84224ad8e2b6a73d6fe6d5a7781866b4609e",
+        "run.json": "520b831899c23743fff6343738c0d3b1ca5509beb14eff74811f9685ed827356",
+        "flight/result.json": "38cd72053bf164cbae75519e9e360aab8ca467d91b8e4f67160d76d8ef8388d5",
+        "flight/observations.json.gz": "a6b0fa886e503df797294225a339515bf3b9300bc0e3eb31ba588bad4cae1117",
+        "telemetry.json.gz": "4fe1d7691b4093ffd36861b2f67bf33308f65c40c2bcd3c6c514b14d426dd74c",
+        "mesh_audit.json": "e1a36c6f0600feb28db61da4464018b94520a88f07a4f12fd09c603a177d1d54",
+        "map_snapshot.json": "9d88e80b76c8247804a18b71d9505faa4ca7e3427cb7c5c2c6762ab422f5cb38"
+      }
+    },
+    "block1_Diverse": {
+      "source_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery.launch": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/motion_primitives_test.launch": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives (copy).h": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/review_motion_primitives.h": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/collision_mesh_truth.py": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+      },
+      "binary_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/libgazebo_ros_3d_lidar.so": "fc60428f789bcd997b326ff992b1caa0e82a63190b0754ce5475628f7bf4fc1a"
+      },
+      "waypoints": [
+        [
+          -85.0,
+          -100.0,
+          40.0
+        ],
+        [
+          -30.0,
+          80.0,
+          50.0
+        ],
+        [
+          70.0,
+          200.0,
+          60.0
+        ],
+        [
+          130.0,
+          100.0,
+          60.0
+        ],
+        [
+          120.0,
+          60.0,
+          60.0
+        ],
+        [
+          20.0,
+          -230.0,
+          55.0
+        ],
+        [
+          125.0,
+          -265.0,
+          55.0
+        ],
+        [
+          -90.0,
+          -270.0,
+          40.0
+        ]
+      ],
+      "recovery_parameters": {
+        "require_terminal": true,
+        "stop_on_rejection": true,
+        "max_backup_integration_steps": 0,
+        "enabled": true,
+        "horizon_time": 3.0,
+        "max_candidates": 12,
+        "candidate_order": "diverse",
+        "reuse_verified_plan": true,
+        "min_execution_time": 0.1,
+        "known_space_radius": 0.0,
+        "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+        "learned_work_power": 0.0,
+        "strict_execution": true,
+        "state_only_features": true,
+        "deferred_inference": true,
+        "prune_dominated": true,
+        "coverage_weight": 0.5
+      },
+      "planner_parameters": {
+        "horizon_time": 3.0,
+        "V": 15.5,
+        "theata": 45.0,
+        "num": 29,
+        "vertical_num": 7,
+        "max_climb_angle": 20.0,
+        "max_descent_angle": 20.0,
+        "min_altitude": 5.0,
+        "max_altitude": 160.0,
+        "vertical_clearance": 1.0,
+        "integration_dt": 0.02,
+        "min_speed": 3.0,
+        "max_speed": 45.0,
+        "max_thrust": 20.0,
+        "altitude_weight": 0.15,
+        "distance_weight": 0.02,
+        "heading_weight": 3.0,
+        "waypoint_altitude_tolerance": 3.0,
+        "max_roll_angle": 35.0,
+        "max_attack_angle": 25.0,
+        "min_attack_angle": -20.0,
+        "compensate_tau": 0.8,
+        "K_T": 2.2
+      },
+      "generation_sim_s": {
+        "count": 838,
+        "mean": 0.015584725536992843,
+        "p95": 0.052000000000000005,
+        "maximum": 0.084
+      },
+      "observation_to_command_sim_s": {
+        "count": 838,
+        "mean": 0.02286873508353223,
+        "p95": 0.05600000000000018,
+        "maximum": 0.08800000000000807
+      },
+      "dispatch_validation_age_sim_s": {
+        "count": 838,
+        "mean": 3.818615751789976e-05,
+        "p95": 0.0,
+        "maximum": 0.004
+      },
+      "map_age_sim_s": {
+        "count": 838,
+        "mean": 0.14364677804295925,
+        "p95": 0.1926000000000058,
+        "maximum": 0.3920000000000101
+      },
+      "input_hashes": {
+        "summary.json": "615f9ffa34d35168cdcb9a64c0ce86795c95351d9d909f76475b84debe248a0a",
+        "run.json": "75ab4198c3dcb1ab62875805e896cec09db470d6ae8cdddd805b2b87dfd7f6e2",
+        "flight/result.json": "f9228bf58fd32454d81f15524097640531376c42ef0fd964d7dbcd4603ed1f1e",
+        "flight/observations.json.gz": "b9dfc28ed6de39d3775583c7f4781975c62bd042b2d1eb4deb08c12ffc55d0f0",
+        "telemetry.json.gz": "1657336ab8b37bc216904e213cd290d0c9a80860be6c6b2ed64cd200db129d2b",
+        "mesh_audit.json": "9fa8a8cd782a7e82fb8708a3c0daf50de6d8fd4819c8c8fd53894c2b38a95a37",
+        "map_snapshot.json": "50b247f360e817b8f8661f9a45b460103f39ff71c2a319ac2164385ff9c86967"
+      }
+    },
+    "block1_Selected": {
+      "source_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery.launch": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/motion_primitives_test.launch": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives (copy).h": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/review_motion_primitives.h": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/collision_mesh_truth.py": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+      },
+      "binary_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/libgazebo_ros_3d_lidar.so": "fc60428f789bcd997b326ff992b1caa0e82a63190b0754ce5475628f7bf4fc1a"
+      },
+      "waypoints": [
+        [
+          -85.0,
+          -100.0,
+          40.0
+        ],
+        [
+          -30.0,
+          80.0,
+          50.0
+        ],
+        [
+          70.0,
+          200.0,
+          60.0
+        ],
+        [
+          130.0,
+          100.0,
+          60.0
+        ],
+        [
+          120.0,
+          60.0,
+          60.0
+        ],
+        [
+          20.0,
+          -230.0,
+          55.0
+        ],
+        [
+          125.0,
+          -265.0,
+          55.0
+        ],
+        [
+          -90.0,
+          -270.0,
+          40.0
+        ]
+      ],
+      "recovery_parameters": {
+        "require_terminal": true,
+        "stop_on_rejection": true,
+        "max_backup_integration_steps": 0,
+        "enabled": true,
+        "horizon_time": 3.0,
+        "max_candidates": 12,
+        "candidate_order": "learned_coverage",
+        "reuse_verified_plan": true,
+        "min_execution_time": 0.1,
+        "known_space_radius": 0.0,
+        "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+        "learned_work_power": 0.0,
+        "strict_execution": true,
+        "state_only_features": true,
+        "deferred_inference": true,
+        "prune_dominated": true,
+        "coverage_weight": 0.75
+      },
+      "planner_parameters": {
+        "horizon_time": 3.0,
+        "V": 15.5,
+        "theata": 45.0,
+        "num": 29,
+        "vertical_num": 7,
+        "max_climb_angle": 20.0,
+        "max_descent_angle": 20.0,
+        "min_altitude": 5.0,
+        "max_altitude": 160.0,
+        "vertical_clearance": 1.0,
+        "integration_dt": 0.02,
+        "min_speed": 3.0,
+        "max_speed": 45.0,
+        "max_thrust": 20.0,
+        "altitude_weight": 0.15,
+        "distance_weight": 0.02,
+        "heading_weight": 3.0,
+        "waypoint_altitude_tolerance": 3.0,
+        "max_roll_angle": 35.0,
+        "max_attack_angle": 25.0,
+        "min_attack_angle": -20.0,
+        "compensate_tau": 0.8,
+        "K_T": 2.2
+      },
+      "generation_sim_s": {
+        "count": 1047,
+        "mean": 0.02065329512893983,
+        "p95": 0.056,
+        "maximum": 0.076
+      },
+      "observation_to_command_sim_s": {
+        "count": 1047,
+        "mean": 0.028061127029608404,
+        "p95": 0.06400000000000503,
+        "maximum": 0.08800000000000097
+      },
+      "dispatch_validation_age_sim_s": {
+        "count": 1047,
+        "mean": 0.0001069723018147087,
+        "p95": 0.0,
+        "maximum": 0.004
+      },
+      "map_age_sim_s": {
+        "count": 1047,
+        "mean": 0.1274231136580701,
+        "p95": 0.19599999999999795,
+        "maximum": 0.3399999999999892
+      },
+      "input_hashes": {
+        "summary.json": "be7025a7b6a039580458393fde5668e5ec3edbf7f3e9fc67a2175719df5b9bc1",
+        "run.json": "476fafe7a4421b4dbe9e4549837c90b1653e3b55ceb1513386fe1f67f4752f06",
+        "flight/result.json": "64daf8df1665086a8bea25e63c0d4b240fb8b0a6d62efd318c19558a6200d152",
+        "flight/observations.json.gz": "97c09b19cdb6ed9e52cc8b47fa35cdd002e619f2350ae45d6df515d09057e092",
+        "telemetry.json.gz": "9d2a9b696a92ea66866c9a9be00c3688acc2a22043fcededc7f522ac58242bea",
+        "mesh_audit.json": "3f6ac7ef0702418ad3002596c93f6a3ace91563fa643d1b61337a09afcb2b72a",
+        "map_snapshot.json": "8004fed15b8c29105c4473c47b9959c1967c329e8a3803b339ea92428186230f"
+      }
+    },
+    "block2_Diverse": {
+      "source_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery.launch": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/motion_primitives_test.launch": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives (copy).h": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/review_motion_primitives.h": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/collision_mesh_truth.py": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+      },
+      "binary_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/libgazebo_ros_3d_lidar.so": "fc60428f789bcd997b326ff992b1caa0e82a63190b0754ce5475628f7bf4fc1a"
+      },
+      "waypoints": [
+        [
+          -85.0,
+          -100.0,
+          40.0
+        ],
+        [
+          -30.0,
+          80.0,
+          50.0
+        ],
+        [
+          70.0,
+          200.0,
+          60.0
+        ],
+        [
+          130.0,
+          100.0,
+          60.0
+        ],
+        [
+          120.0,
+          60.0,
+          60.0
+        ],
+        [
+          20.0,
+          -230.0,
+          55.0
+        ],
+        [
+          125.0,
+          -265.0,
+          55.0
+        ],
+        [
+          -90.0,
+          -270.0,
+          40.0
+        ]
+      ],
+      "recovery_parameters": {
+        "require_terminal": true,
+        "stop_on_rejection": true,
+        "max_backup_integration_steps": 0,
+        "enabled": true,
+        "horizon_time": 3.0,
+        "max_candidates": 12,
+        "candidate_order": "diverse",
+        "reuse_verified_plan": true,
+        "min_execution_time": 0.1,
+        "known_space_radius": 0.0,
+        "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+        "learned_work_power": 0.0,
+        "strict_execution": true,
+        "state_only_features": true,
+        "deferred_inference": true,
+        "prune_dominated": true,
+        "coverage_weight": 0.5
+      },
+      "planner_parameters": {
+        "horizon_time": 3.0,
+        "V": 15.5,
+        "theata": 45.0,
+        "num": 29,
+        "vertical_num": 7,
+        "max_climb_angle": 20.0,
+        "max_descent_angle": 20.0,
+        "min_altitude": 5.0,
+        "max_altitude": 160.0,
+        "vertical_clearance": 1.0,
+        "integration_dt": 0.02,
+        "min_speed": 3.0,
+        "max_speed": 45.0,
+        "max_thrust": 20.0,
+        "altitude_weight": 0.15,
+        "distance_weight": 0.02,
+        "heading_weight": 3.0,
+        "waypoint_altitude_tolerance": 3.0,
+        "max_roll_angle": 35.0,
+        "max_attack_angle": 25.0,
+        "min_attack_angle": -20.0,
+        "compensate_tau": 0.8,
+        "K_T": 2.2
+      },
+      "generation_sim_s": {
+        "count": 954,
+        "mean": 0.02004192872117401,
+        "p95": 0.056,
+        "maximum": 0.08
+      },
+      "observation_to_command_sim_s": {
+        "count": 954,
+        "mean": 0.03265828092243181,
+        "p95": 0.0799999999999983,
+        "maximum": 0.12400000000000944
+      },
+      "dispatch_validation_age_sim_s": {
+        "count": 954,
+        "mean": 0.00011740041928721174,
+        "p95": 0.0,
+        "maximum": 0.004
+      },
+      "map_age_sim_s": {
+        "count": 954,
+        "mean": 0.12946750524108994,
+        "p95": 0.19200000000000017,
+        "maximum": 0.3159999999999954
+      },
+      "input_hashes": {
+        "summary.json": "c10c7d70be3482f84307fd74a481a6cb01b3f3ddca0f7edb5a8bcd8c9e47feff",
+        "run.json": "334f5332ef1ebc23705cc6a6fcbc80f637fbd85240a7b784a186aec1cb91fb99",
+        "flight/result.json": "6b513ba74ec71a84fef4a700ebac164101b5a491abb45d412866e111cf2ddc75",
+        "flight/observations.json.gz": "c5be64f46e67792a4f34d99c84806234487bcf9356ac2d1409ae01a034cee9dd",
+        "telemetry.json.gz": "4f5816c6359bd124c65f58ab2d50d18d1353a05d28d9c365302dd5ca5451869c",
+        "mesh_audit.json": "c95a8ac352aaf5bdd73f273ee217ca43b8a5680577893e26c2373ee85c6f0585",
+        "map_snapshot.json": "e964cb122ecd63ef6eedabc0743630a0ee1eb4aaa6d12d5421a3bd876d4f8522"
+      }
+    },
+    "block2_Selected": {
+      "source_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery.launch": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/motion_primitives_test.launch": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives (copy).h": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/review_motion_primitives.h": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/collision_mesh_truth.py": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+      },
+      "binary_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/libgazebo_ros_3d_lidar.so": "fc60428f789bcd997b326ff992b1caa0e82a63190b0754ce5475628f7bf4fc1a"
+      },
+      "waypoints": [
+        [
+          -85.0,
+          -100.0,
+          40.0
+        ],
+        [
+          -30.0,
+          80.0,
+          50.0
+        ],
+        [
+          70.0,
+          200.0,
+          60.0
+        ],
+        [
+          130.0,
+          100.0,
+          60.0
+        ],
+        [
+          120.0,
+          60.0,
+          60.0
+        ],
+        [
+          20.0,
+          -230.0,
+          55.0
+        ],
+        [
+          125.0,
+          -265.0,
+          55.0
+        ],
+        [
+          -90.0,
+          -270.0,
+          40.0
+        ]
+      ],
+      "recovery_parameters": {
+        "require_terminal": true,
+        "stop_on_rejection": true,
+        "max_backup_integration_steps": 0,
+        "enabled": true,
+        "horizon_time": 3.0,
+        "max_candidates": 12,
+        "candidate_order": "learned_coverage",
+        "reuse_verified_plan": true,
+        "min_execution_time": 0.1,
+        "known_space_radius": 0.0,
+        "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+        "learned_work_power": 0.0,
+        "strict_execution": true,
+        "state_only_features": true,
+        "deferred_inference": true,
+        "prune_dominated": true,
+        "coverage_weight": 0.75
+      },
+      "planner_parameters": {
+        "horizon_time": 3.0,
+        "V": 15.5,
+        "theata": 45.0,
+        "num": 29,
+        "vertical_num": 7,
+        "max_climb_angle": 20.0,
+        "max_descent_angle": 20.0,
+        "min_altitude": 5.0,
+        "max_altitude": 160.0,
+        "vertical_clearance": 1.0,
+        "integration_dt": 0.02,
+        "min_speed": 3.0,
+        "max_speed": 45.0,
+        "max_thrust": 20.0,
+        "altitude_weight": 0.15,
+        "distance_weight": 0.02,
+        "heading_weight": 3.0,
+        "waypoint_altitude_tolerance": 3.0,
+        "max_roll_angle": 35.0,
+        "max_attack_angle": 25.0,
+        "min_attack_angle": -20.0,
+        "compensate_tau": 0.8,
+        "K_T": 2.2
+      },
+      "generation_sim_s": {
+        "count": 862,
+        "mean": 0.017865429234338752,
+        "p95": 0.052000000000000005,
+        "maximum": 0.076
+      },
+      "observation_to_command_sim_s": {
+        "count": 862,
+        "mean": 0.02532714617169399,
+        "p95": 0.060000000000002274,
+        "maximum": 0.09199999999999875
+      },
+      "dispatch_validation_age_sim_s": {
+        "count": 862,
+        "mean": 9.744779582366588e-05,
+        "p95": 0.0,
+        "maximum": 0.004
+      },
+      "map_age_sim_s": {
+        "count": 862,
+        "mean": 0.14342459396751706,
+        "p95": 0.19200000000000728,
+        "maximum": 0.3919999999999959
+      },
+      "input_hashes": {
+        "summary.json": "66a7a2a0d268c26155354bdda71f275b9246d94b5c20833dab02fa22ec63920d",
+        "run.json": "0f494bda97eee7e6ce2244e3a1915a94de5439c33e31dee41a656c0d8e1b687e",
+        "flight/result.json": "5a46405eca5a0ce45b517bf0c0b57790a9d9fa6cd4c7546048409c977e62da42",
+        "flight/observations.json.gz": "28b83e9a5dfb0909088a3770ceb7a6735c4ba4171f368cfc8b575b7cbf714a2f",
+        "telemetry.json.gz": "c6535efa3fb927447b4935ea1eabd2450dac46204ed9f437e2fe855e86bab226",
+        "mesh_audit.json": "81a94543fc07d3c19d56422f7f3c46deb7e8df15c80d423fa6675580ca9ab773",
+        "map_snapshot.json": "da613ff05413e8aec8db4b149c8c1006c30f791838f60da30d0784cb07cee825"
+      }
+    },
+    "block2_Cost": {
+      "source_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery.launch": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/motion_primitives_test.launch": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives (copy).h": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/review_motion_primitives.h": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/collision_mesh_truth.py": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+      },
+      "binary_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/libgazebo_ros_3d_lidar.so": "fc60428f789bcd997b326ff992b1caa0e82a63190b0754ce5475628f7bf4fc1a"
+      },
+      "waypoints": [
+        [
+          -85.0,
+          -100.0,
+          40.0
+        ],
+        [
+          -30.0,
+          80.0,
+          50.0
+        ],
+        [
+          70.0,
+          200.0,
+          60.0
+        ],
+        [
+          130.0,
+          100.0,
+          60.0
+        ],
+        [
+          120.0,
+          60.0,
+          60.0
+        ],
+        [
+          20.0,
+          -230.0,
+          55.0
+        ],
+        [
+          125.0,
+          -265.0,
+          55.0
+        ],
+        [
+          -90.0,
+          -270.0,
+          40.0
+        ]
+      ],
+      "recovery_parameters": {
+        "require_terminal": true,
+        "stop_on_rejection": true,
+        "max_backup_integration_steps": 0,
+        "enabled": true,
+        "horizon_time": 3.0,
+        "max_candidates": 12,
+        "candidate_order": "cost",
+        "reuse_verified_plan": true,
+        "min_execution_time": 0.1,
+        "known_space_radius": 0.0,
+        "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+        "learned_work_power": 0.0,
+        "strict_execution": true,
+        "state_only_features": true,
+        "deferred_inference": true,
+        "prune_dominated": true,
+        "coverage_weight": 0.5
+      },
+      "planner_parameters": {
+        "horizon_time": 3.0,
+        "V": 15.5,
+        "theata": 45.0,
+        "num": 29,
+        "vertical_num": 7,
+        "max_climb_angle": 20.0,
+        "max_descent_angle": 20.0,
+        "min_altitude": 5.0,
+        "max_altitude": 160.0,
+        "vertical_clearance": 1.0,
+        "integration_dt": 0.02,
+        "min_speed": 3.0,
+        "max_speed": 45.0,
+        "max_thrust": 20.0,
+        "altitude_weight": 0.15,
+        "distance_weight": 0.02,
+        "heading_weight": 3.0,
+        "waypoint_altitude_tolerance": 3.0,
+        "max_roll_angle": 35.0,
+        "max_attack_angle": 25.0,
+        "min_attack_angle": -20.0,
+        "compensate_tau": 0.8,
+        "K_T": 2.2
+      },
+      "generation_sim_s": {
+        "count": 851,
+        "mean": 0.016803760282021154,
+        "p95": 0.052000000000000005,
+        "maximum": 0.09200000000000001
+      },
+      "observation_to_command_sim_s": {
+        "count": 851,
+        "mean": 0.024258519388954257,
+        "p95": 0.05999999999999517,
+        "maximum": 0.1039999999999992
+      },
+      "dispatch_validation_age_sim_s": {
+        "count": 851,
+        "mean": 9.870740305522913e-05,
+        "p95": 0.0,
+        "maximum": 0.004
+      },
+      "map_age_sim_s": {
+        "count": 851,
+        "mean": 0.14336545240893045,
+        "p95": 0.19599999999999795,
+        "maximum": 0.3919999999999959
+      },
+      "input_hashes": {
+        "summary.json": "98515ac5062a3e6ca0811d155b9ebc9c5970d3a9913a10d4fb54ccaf3a84f044",
+        "run.json": "a1b70126598929b1be69c9117d397cd83730657e34230de49a3649db8dec74a1",
+        "flight/result.json": "579d6e4842fb4866ab6084edb2c30e945cfc447634dae515b2c68271e7701f7f",
+        "flight/observations.json.gz": "ea1730cb51cbcb0015cb70c3226468aa3b2d9c81fa53d74246ea85fd14ca294d",
+        "telemetry.json.gz": "bf64571d97435406455f170d49f28ab54307d139f4817c0bc27ad5f7b8d8150b",
+        "mesh_audit.json": "84835d69b1ca4e57c48a62223fe9efcb1755557d90658941c8a6a18491357e61",
+        "map_snapshot.json": "4bf232da173704f7311c401c74e6298f936e9042dfcaf92816024588f3219877"
+      }
+    },
+    "block3_Selected": {
+      "source_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery.launch": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/motion_primitives_test.launch": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives (copy).h": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/review_motion_primitives.h": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/collision_mesh_truth.py": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+      },
+      "binary_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/libgazebo_ros_3d_lidar.so": "fc60428f789bcd997b326ff992b1caa0e82a63190b0754ce5475628f7bf4fc1a"
+      },
+      "waypoints": [
+        [
+          -85.0,
+          -100.0,
+          40.0
+        ],
+        [
+          -30.0,
+          80.0,
+          50.0
+        ],
+        [
+          70.0,
+          200.0,
+          60.0
+        ],
+        [
+          130.0,
+          100.0,
+          60.0
+        ],
+        [
+          120.0,
+          60.0,
+          60.0
+        ],
+        [
+          20.0,
+          -230.0,
+          55.0
+        ],
+        [
+          125.0,
+          -265.0,
+          55.0
+        ],
+        [
+          -90.0,
+          -270.0,
+          40.0
+        ]
+      ],
+      "recovery_parameters": {
+        "require_terminal": true,
+        "stop_on_rejection": true,
+        "max_backup_integration_steps": 0,
+        "enabled": true,
+        "horizon_time": 3.0,
+        "max_candidates": 12,
+        "candidate_order": "learned_coverage",
+        "reuse_verified_plan": true,
+        "min_execution_time": 0.1,
+        "known_space_radius": 0.0,
+        "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+        "learned_work_power": 0.0,
+        "strict_execution": true,
+        "state_only_features": true,
+        "deferred_inference": true,
+        "prune_dominated": true,
+        "coverage_weight": 0.75
+      },
+      "planner_parameters": {
+        "horizon_time": 3.0,
+        "V": 15.5,
+        "theata": 45.0,
+        "num": 29,
+        "vertical_num": 7,
+        "max_climb_angle": 20.0,
+        "max_descent_angle": 20.0,
+        "min_altitude": 5.0,
+        "max_altitude": 160.0,
+        "vertical_clearance": 1.0,
+        "integration_dt": 0.02,
+        "min_speed": 3.0,
+        "max_speed": 45.0,
+        "max_thrust": 20.0,
+        "altitude_weight": 0.15,
+        "distance_weight": 0.02,
+        "heading_weight": 3.0,
+        "waypoint_altitude_tolerance": 3.0,
+        "max_roll_angle": 35.0,
+        "max_attack_angle": 25.0,
+        "min_attack_angle": -20.0,
+        "compensate_tau": 0.8,
+        "K_T": 2.2
+      },
+      "generation_sim_s": {
+        "count": 833,
+        "mean": 0.01711884753901561,
+        "p95": 0.052000000000000005,
+        "maximum": 0.07200000000000001
+      },
+      "observation_to_command_sim_s": {
+        "count": 833,
+        "mean": 0.02459063625450194,
+        "p95": 0.060000000000002274,
+        "maximum": 0.08399999999999963
+      },
+      "dispatch_validation_age_sim_s": {
+        "count": 833,
+        "mean": 5.282112845138055e-05,
+        "p95": 0.0,
+        "maximum": 0.004
+      },
+      "map_age_sim_s": {
+        "count": 833,
+        "mean": 0.14327490996398545,
+        "p95": 0.19599999999999795,
+        "maximum": 0.3920000000000101
+      },
+      "input_hashes": {
+        "summary.json": "1ffd921b2c73adc5d864116a1b4357ab1b94242ff5ae9c25cb93de89602d6856",
+        "run.json": "d932ec2fc43c6fedba401e10da8e77f89cdd1d021b409dd6a774266bf19f8807",
+        "flight/result.json": "f13b8b6654894c9e991cccaf745e7a197effffe0bf12032a627e9b8cc7052eb1",
+        "flight/observations.json.gz": "7a0a11485cea5855e889abd898a207376242ea8ba1658f105762f54a243066a3",
+        "telemetry.json.gz": "7e966014d7c78257dc51955b4de8854179be3896c77337262603d1389c2f19cc",
+        "mesh_audit.json": "06b8a83c1099b9ba72051a15dcbb94e4900e08369153475ca237de97e6065160",
+        "map_snapshot.json": "1992b023a03ae408ae877a1a06050fd0f251a36c2fce62de7b7d447c68d2dfa8"
+      }
+    },
+    "block3_Cost": {
+      "source_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery.launch": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/motion_primitives_test.launch": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives (copy).h": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/review_motion_primitives.h": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/collision_mesh_truth.py": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+      },
+      "binary_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/libgazebo_ros_3d_lidar.so": "fc60428f789bcd997b326ff992b1caa0e82a63190b0754ce5475628f7bf4fc1a"
+      },
+      "waypoints": [
+        [
+          -85.0,
+          -100.0,
+          40.0
+        ],
+        [
+          -30.0,
+          80.0,
+          50.0
+        ],
+        [
+          70.0,
+          200.0,
+          60.0
+        ],
+        [
+          130.0,
+          100.0,
+          60.0
+        ],
+        [
+          120.0,
+          60.0,
+          60.0
+        ],
+        [
+          20.0,
+          -230.0,
+          55.0
+        ],
+        [
+          125.0,
+          -265.0,
+          55.0
+        ],
+        [
+          -90.0,
+          -270.0,
+          40.0
+        ]
+      ],
+      "recovery_parameters": {
+        "require_terminal": true,
+        "stop_on_rejection": true,
+        "max_backup_integration_steps": 0,
+        "enabled": true,
+        "horizon_time": 3.0,
+        "max_candidates": 12,
+        "candidate_order": "cost",
+        "reuse_verified_plan": true,
+        "min_execution_time": 0.1,
+        "known_space_radius": 0.0,
+        "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+        "learned_work_power": 0.0,
+        "strict_execution": true,
+        "state_only_features": true,
+        "deferred_inference": true,
+        "prune_dominated": true,
+        "coverage_weight": 0.5
+      },
+      "planner_parameters": {
+        "horizon_time": 3.0,
+        "V": 15.5,
+        "theata": 45.0,
+        "num": 29,
+        "vertical_num": 7,
+        "max_climb_angle": 20.0,
+        "max_descent_angle": 20.0,
+        "min_altitude": 5.0,
+        "max_altitude": 160.0,
+        "vertical_clearance": 1.0,
+        "integration_dt": 0.02,
+        "min_speed": 3.0,
+        "max_speed": 45.0,
+        "max_thrust": 20.0,
+        "altitude_weight": 0.15,
+        "distance_weight": 0.02,
+        "heading_weight": 3.0,
+        "waypoint_altitude_tolerance": 3.0,
+        "max_roll_angle": 35.0,
+        "max_attack_angle": 25.0,
+        "min_attack_angle": -20.0,
+        "compensate_tau": 0.8,
+        "K_T": 2.2
+      },
+      "generation_sim_s": {
+        "count": 847,
+        "mean": 0.016684769775678867,
+        "p95": 0.052000000000000005,
+        "maximum": 0.07200000000000001
+      },
+      "observation_to_command_sim_s": {
+        "count": 847,
+        "mean": 0.024009445100354312,
+        "p95": 0.05999999999999517,
+        "maximum": 0.08400000000000318
+      },
+      "dispatch_validation_age_sim_s": {
+        "count": 847,
+        "mean": 5.667060212514758e-05,
+        "p95": 0.0,
+        "maximum": 0.004
+      },
+      "map_age_sim_s": {
+        "count": 847,
+        "mean": 0.14344746162927968,
+        "p95": 0.19200000000000728,
+        "maximum": 0.3919999999999959
+      },
+      "input_hashes": {
+        "summary.json": "badb631b1e4aeb49438e7be27ae5858566c8466596ef1f284f8c9716d0b7c896",
+        "run.json": "0589acfd2510fb2c2a4d46eceaecf1dc783542570e3ffb7ccdd8d0d67a450538",
+        "flight/result.json": "a85a6492ef85ec6e98d5e63fa95543e054a2733c720d84dd9613c1779870b0f8",
+        "flight/observations.json.gz": "86133194c1453b813dca7673adb33ef8cb0db09fd8091060559683c122e7c454",
+        "telemetry.json.gz": "881d92a7703c05e8cc9c47f69a529c6ecbaf2959ea10e423ed330ba900319894",
+        "mesh_audit.json": "1bede950c9a7405682ee01b71908fc97eb6fb12f54711c139903209f6af6fffc",
+        "map_snapshot.json": "80ed40332e11f8141daf7b64fd393d962a7e39645c6ecdaa0e7d81422209322a"
+      }
+    },
+    "block3_Diverse": {
+      "source_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/config/task_end_city_dense.yaml": "dbfe288658d26f779c0130a247d4ce044b28919fdb8ec9ff106a0b31aca1b23d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt": "183d99a44e455696f6ccd5ef443ace193c5d8c7c6cde4f0c71e29bf396b3397d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/run_unknown_city.py": "70faee95ca11dd6727fdb764bd5fd151fbd15fe2be7ae66aeb91eafb05f9a823",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery_end_world_unknown.launch": "2d42bcf8826779d1eea9ce803dfce8137e429e4dd54a6ac319a110103a83e0dd",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/terminal_recovery.launch": "f41e54c674c13802451ae194a7898b0089e2298f2ebcefd960cb62700c7d9d68",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/launch/motion_primitives_test.launch": "203435138b29a18cd38765fe7edc478863328620f66fe9aa30f62c3f5761993b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_description/urdf/simple_airplane_with_3d_lidar.xacro": "65905ece658014a9e39652bb59d0d7e0da6ca15f28fa3257c6757caa6389b0d9",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_gazebo/worlds/end_city_dense_lidar.world": "90af5c956e45c9a6d3d064dae50335b6fd5c0cc1dcab5d88336212675b25e8f1",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/evaluation_plant.h": "3e5f8fa9ddfad1fb039fe5f214d6e56d2b0cdfc120c68a908e1f730b377c5241",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery.h": "4d3c5d53c679243b98c529e86557f7614e311330b53f63de1bf1448314ea3448",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/learned_recovery_revision.h": "a3fe04924993a97f4105551e2641ac8df6e3c25a0b0dd437d6e361c39cb8b5b0",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives (copy).h": "f4d9b7a143f90ae4110ff937b3a1caca4989e24e7c58c81d6612415e66852fff",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/motion_primitives.h": "a08773a2f3c79a9f3f481590b8d197ff933f01b1670ccf0e5de31293b588fc73",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/observed_recovery_features.h": "5abdf7f53d91165106ee0dd7a711c44eccd00680e8755fddaa03de5472756bd4",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/review_motion_primitives.h": "b8fe0cf3f3677a1e38f228d2abf3c98a2dbcb40e59da47c8b046bdb5386dce40",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_motion_primitives.h": "657b1c058ad34525d34d04d55b03d663bb512334953aa4517db2390cb897c394",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_sensor_map.h": "3ef5abb498ef0bd450e6e6c242e73ab67449104c7adb2fd5b981edeb42fee638",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/runtime_swept_geometry.h": "503074e5d3d52c610af93b47ba39df0778e21ead7e4178d75bc9063479261a4d",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/sensor_occupancy_map.h": "ac1d4ff19896559de5ebec4a57ae5e1653aab3af5405e381228e09e2609c2c18",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_box_geometry.h": "6d66574b9d7689444c42f40367edbff6f29f8cf63d94eb98c0c73e0e8807f68e",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/src/urban_motion_primitives.h": "aec31f449abfbbf3464533c0b2a0d2d36ed0a7bbc22b99a8bf9163052bcb0f6b",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/gazebo_ros_3d_lidar.cpp": "a2d610786f3e2ed66d7192aaa7c40d6d055f45992b027c6cedf8b61479d85238",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/simple-airplane/simple_airplane_plugins/src/lidar_ray_encoding.h": "c63aaf91943534a1963b51965727d4208cf9cb7015563bcfac0f86e55c340847",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/unknown_incursion_geometry/city_collision_mesh.npz": "a7101a3dc8cbccfd9b4642b7c1be2ebcb0ac5427a615e529126214574dd8a4e5",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/src/Two-phase-motion-planning/motion_primitives_planning/scripts/collision_mesh_truth.py": "6942298cb5208f430ee3af5336e9e07b9eb50fa791d3941e53a11a73f96234cd"
+      },
+      "binary_sha256": {
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/motion_primitives_planning/motion_primitives_test": "e1cc9ba88636c684f7d85eade4cabd4a1eecf79fe4c48f3ec6e10a5cb91ae32a",
+        "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/outputs/two_phase_ws/devel/lib/libgazebo_ros_3d_lidar.so": "fc60428f789bcd997b326ff992b1caa0e82a63190b0754ce5475628f7bf4fc1a"
+      },
+      "waypoints": [
+        [
+          -85.0,
+          -100.0,
+          40.0
+        ],
+        [
+          -30.0,
+          80.0,
+          50.0
+        ],
+        [
+          70.0,
+          200.0,
+          60.0
+        ],
+        [
+          130.0,
+          100.0,
+          60.0
+        ],
+        [
+          120.0,
+          60.0,
+          60.0
+        ],
+        [
+          20.0,
+          -230.0,
+          55.0
+        ],
+        [
+          125.0,
+          -265.0,
+          55.0
+        ],
+        [
+          -90.0,
+          -270.0,
+          40.0
+        ]
+      ],
+      "recovery_parameters": {
+        "require_terminal": true,
+        "stop_on_rejection": true,
+        "max_backup_integration_steps": 0,
+        "enabled": true,
+        "horizon_time": 3.0,
+        "max_candidates": 12,
+        "candidate_order": "diverse",
+        "reuse_verified_plan": true,
+        "min_execution_time": 0.1,
+        "known_space_radius": 0.0,
+        "model_path": "/home/tan/Documents/Codex/2026-10-30/https-chatgpt-com-s-cx-6ae377990e348191a14aab2234ebd68d/work/reviewer_revision_20261101/training/models/observed/20261103/network_compact.txt",
+        "learned_work_power": 0.0,
+        "strict_execution": true,
+        "state_only_features": true,
+        "deferred_inference": true,
+        "prune_dominated": true,
+        "coverage_weight": 0.5
+      },
+      "planner_parameters": {
+        "horizon_time": 3.0,
+        "V": 15.5,
+        "theata": 45.0,
+        "num": 29,
+        "vertical_num": 7,
+        "max_climb_angle": 20.0,
+        "max_descent_angle": 20.0,
+        "min_altitude": 5.0,
+        "max_altitude": 160.0,
+        "vertical_clearance": 1.0,
+        "integration_dt": 0.02,
+        "min_speed": 3.0,
+        "max_speed": 45.0,
+        "max_thrust": 20.0,
+        "altitude_weight": 0.15,
+        "distance_weight": 0.02,
+        "heading_weight": 3.0,
+        "waypoint_altitude_tolerance": 3.0,
+        "max_roll_angle": 35.0,
+        "max_attack_angle": 25.0,
+        "min_attack_angle": -20.0,
+        "compensate_tau": 0.8,
+        "K_T": 2.2
+      },
+      "generation_sim_s": {
+        "count": 837,
+        "mean": 0.015665471923536442,
+        "p95": 0.040799999999999725,
+        "maximum": 0.068
+      },
+      "observation_to_command_sim_s": {
+        "count": 837,
+        "mean": 0.02277180406212682,
+        "p95": 0.04800000000000182,
+        "maximum": 0.07600000000000051
+      },
+      "dispatch_validation_age_sim_s": {
+        "count": 837,
+        "mean": 5.7347670250896056e-05,
+        "p95": 0.0,
+        "maximum": 0.004
+      },
+      "map_age_sim_s": {
+        "count": 837,
+        "mean": 0.14360812425328545,
+        "p95": 0.19599999999999795,
+        "maximum": 0.3920000000000101
+      },
+      "input_hashes": {
+        "summary.json": "4ab38fff0e7101e97d6b440eec3a09828fe83452fdda537c4eb0bc9e661397fb",
+        "run.json": "23ab568ada353fbfdaa1d7428a51e740ed4d9188e15c0316c6c9f09858b9e8ac",
+        "flight/result.json": "4df4fd715a76154dfd76d7c032ee5baba752df5fbcc1a01cd87f7a14d4931299",
+        "flight/observations.json.gz": "a437506b1fd878b919dc489ec0f21b0c8c45c38c24d631c42be57a208b7ab2e7",
+        "telemetry.json.gz": "b7c0f064209c9d06f7dd746cc24abf8e7950265e8b4c1bd1d09f31335ba686a4",
+        "mesh_audit.json": "02272ab4e35144424fc8524de3aa6e69abc6e42f89fda3594c90cbfa83fd1f89",
+        "map_snapshot.json": "f8315d65a0fcdbf42418fce21c5700d06bbbec112c83076b9832747c04b2b5e5"
+      }
+    }
+  }
+}
